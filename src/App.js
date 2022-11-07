@@ -3,7 +3,8 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h2>Ardilla</h2>
+      <h1>Ardilla</h1>
+      <h6>We are loading some Thanos level javascript.</h6>
     </div>
   );
 }
