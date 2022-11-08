@@ -1,10 +1,10 @@
-import './App.css';
+import Header from './components/navBar';
+import './css/App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Ardilla</h1>
-      <h6>We are loading some Thanos level javascript.</h6>
+      <Header/>
     </div>
   );
 }

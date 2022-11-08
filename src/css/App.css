@@ -1,0 +1,47 @@
+body {
+  background-color: #fff;
+  overflow-x: hidden!important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+  font-family: 'Ubuntu';
+}
+
+
+@media only screen and (max-width: 768px){
+  html, body {
+    overflow-x: hidden!important;
+  }
+}
+
+@media (max-width: 767.98px){
+  .desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 992px){
+  .mobile {
+    display: none;
+  }
+}
+
+.ardilla-btn-outline {
+  border-color: #520BB3!important;
+  color: #520BB3!important;
+  border-radius: 60px;
+}
+
+.ardilla-btn-outline:hover {
+  border-color: #520BB3!important;
+  color: #fff!important;
+  border-radius: 60px;
+  background-color: #520BB3!important;
+}
+
+nav.navbar {
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgb(136 7 247 / 7%);
+}
