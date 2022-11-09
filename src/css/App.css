@@ -57,5 +57,32 @@ body {
   font-size: 45px;
   line-height: 52px;
   font-weight: 700;
-  line-height: 52px;
+}
+
+.login-section h6 {
+  color: #4B5563;
+  font-size: 12px;
+  line-height: 19px;
+  font-weight: 400s;
+}
+
+.login-form {
+  background-color: transparent;
+  padding: 90px 40px;
+  box-shadow: 0px 12px 24px rgba(10, 7, 12, 0.15);
+  border-radius: 20px;
+}
+
+.login-form h3 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 34px;
+  color: #3D0072;
+}
+
+.login-form h6 {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  color: #9CA3AF;
 }
