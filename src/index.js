@@ -8,6 +8,7 @@ import {
 // import './index.css';
 import App from './App';
 import ScrollToTop from './js/scrollTop';
+import SignUp from './pages/signUp';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,6 +17,7 @@ root.render(
 <ScrollToTop/>
   <Routes>
     <Route path="/" element={<App />}></Route>
+    <Route path="/sign-up" element={<SignUp/>}></Route>
   </Routes>
 </BrowserRouter>
 );
