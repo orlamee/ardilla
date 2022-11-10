@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import login from "../img/login.svg";
 import { Link } from "react-router-dom";
@@ -25,6 +26,26 @@ function Login() {
               <div className='login-form'>
                 <h3>Welcome!</h3>
                 <h6 className='mt-4'>Here’s how to Log in to access your account</h6>
+                <form className='mt-5'>
+                  <div className="mb-3">
+                    <label className="form-label"><i className="bi bi-person-fill me-2"></i>  Email address</label>
+                    <input type="email" className="form-control custom-login"/>
+                  </div>
+                  <div className="mb-3">
+                    <label className="form-label"><i className="bi bi-shield-lock-fill me-2"></i>  Password</label>
+                    <input type="password" className="form-control custom-login"/>
+                  </div>
+                  <div className="form-group"><label className="form-check-label remember"><input type="checkbox" className="form-check-input" />  Remember me</label><a className="float-end" href="#">Forgot Password?</a></div>
+                  <div className="mt-4 mb-5">
+                    <button type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn" style={{width: "100%"}}>Log In</button>
+                  </div>
+                </form>
+                <div className="separator">
+                  <div className="line"></div>
+                  <h6>or</h6>
+                  <div className="line"></div>
+                </div>
+                <button type="button" className="mt-5 btn btn-outline-primary py-3 ardilla-btn-outline"><i className="bi bi-box-arrow-in-right me-3"></i> Sign in with SAN ID</button>
               </div>
             </div>
           </div>
