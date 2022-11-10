@@ -7,7 +7,7 @@ function Login() {
   return (
     <section className='login-section'>
       <div className='container'>
-        <div className='row'>
+        <div className='row justify-content-center'>
           <div className='col-md-6 mb-2'>
             <div className='left px-4 text-center'>
               <img src={login} alt="" className='img-fluid' />
@@ -21,7 +21,7 @@ function Login() {
               </div>
             </div>
           </div>
-          <div className='col-md-6'>
+          <div className='col-md-5'>
             <div className='right px-4'>
               <div className='login-form'>
                 <h3>Welcome!</h3>
