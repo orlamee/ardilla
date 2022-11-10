@@ -86,3 +86,13 @@ body {
   line-height: 14px;
   color: #9CA3AF;
 }
+
+.ardilla-btn {
+  background-color: #8807F7;
+  border-color: #8807F7!important;
+  border-radius: 60px;
+  color: #fff!important;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 20px;
+}

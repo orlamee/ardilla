@@ -1,5 +1,6 @@
 import React from 'react';
 import login from "../img/login.svg";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -9,11 +10,15 @@ function Login() {
           <div className='col-md-6 mb-2'>
             <div className='left px-4 text-center'>
               <img src={login} alt="" className='img-fluid' />
-              <h2 className='my-5'>The future of savings & Investment</h2>
-              <h6>Saving money typically means it is available when we need it<br/>and it has a low risk of losing value.</h6>
-              <div className='d-flex flex-row mb-3'>
-                
-              </div>
+              <h2 className='my-4'>The future of savings & Investment</h2>
+              <h6 className='mb-4'>Saving money typically means it is available when we need it<br/>and it has a low risk of losing value.</h6>
+              <div><Link className='btn btn-outline-primary px-5 py-3 ardilla-btn' to="/">Create account</Link></div>
+
+
+              {/* <div className='d-flex mb-3'>
+                <div><p className='text-center'>New user?</p></div>
+                <div><Link className='btn btn-outline-primary px-5 py-3 ardilla-btn' to="/">Create account</Link></div>
+              </div> */}
             </div>
           </div>
           <div className='col-md-6'>
