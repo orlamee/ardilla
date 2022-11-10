@@ -11,6 +11,9 @@ function Login() {
               <img src={login} alt="" className='img-fluid' />
               <h2 className='my-5'>The future of savings & Investment</h2>
               <h6>Saving money typically means it is available when we need it<br/>and it has a low risk of losing value.</h6>
+              <div className='d-flex flex-row mb-3'>
+                
+              </div>
             </div>
           </div>
           <div className='col-md-6'>
@@ -24,7 +27,7 @@ function Login() {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 export default Login;
