@@ -17,14 +17,14 @@ function Login() {
             <div className='right px-4'>
               <div className='login-form'>
                 <h3>Welcome!</h3>
-                <h6 className='mt-2'>Here’s how to Log in to access your account</h6>
+                <h6 className='mt-4'>Here’s how to Log in to access your account</h6>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 export default Login;
