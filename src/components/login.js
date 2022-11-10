@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import login from "../img/login.svg";
+import logo from "../img/logo.svg";
 import { Link } from "react-router-dom";
 
 function Login() {
@@ -9,7 +10,8 @@ function Login() {
       <div className='container'>
         <div className='row justify-content-center'>
           <div className='col-md-6 mb-2'>
-            <div className='left px-4 text-center'>
+            <img src={logo} alt="" className='img-fluid' />
+            <div className='left text-center'>
               <img src={login} alt="" className='img-fluid' />
               <h2 className='my-4'>The future of savings & Investment</h2>
               <h6 className='mb-4'>Saving money typically means it is available when we need it<br/>and it has a low risk of losing value.</h6>
