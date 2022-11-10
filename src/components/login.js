@@ -8,9 +8,13 @@ function Login() {
   return (
     <section className='login-section'>
       <div className='container'>
+        <div className="row logo">
+          <div className="col-md-6 ">
+            <Link to="/"><img src={logo} alt="" className='img-fluid mb-5' /></Link>
+          </div>
+        </div>
         <div className='row justify-content-center'>
           <div className='col-md-6 mb-2'>
-            <img src={logo} alt="" className='img-fluid' />
             <div className='left text-center'>
               <img src={login} alt="" className='img-fluid' />
               <h2 className='my-4'>The future of savings & Investment</h2>

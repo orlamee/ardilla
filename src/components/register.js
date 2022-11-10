@@ -10,7 +10,7 @@ function Register() {
   <div className='container'>
     <div className="row logo">
       <div className="col-md-6 ">
-        <img src={logo} alt="" className='img-fluid mb-5' />
+        <Link to="/"><img src={logo} alt="" className='img-fluid mb-5' /></Link>
       </div>
     </div>
     <div className='row justify-content-center'>
@@ -28,7 +28,7 @@ function Register() {
       <div className='col-md-5'>
         <div className='right px-4'>
           <div className='login-form'>
-            <form className='mt-5'>
+            <form className=''>
               <div className="">
                 <label className="form-label"><i className="bi bi-envelope-fill me-2"></i>  Email address</label>
                 <input type="email" className="form-control custom-login"/>
@@ -37,7 +37,7 @@ function Register() {
                 <button type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn" style={{width: "100%"}}>Continue</button>
               </div>
               <div>
-                <p className="users">Already have an account? <Link>Sign in</Link></p>
+                <p className="user">Already have an account? <Link>Sign in</Link></p>
               </div>
             </form>
           </div>

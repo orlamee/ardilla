@@ -208,7 +208,7 @@ input [type=email] {
 }
 
 .logo {
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
 .testimonial {
@@ -227,7 +227,7 @@ input [type=email] {
   color: #3D0072;
 }
 
-.users {
+.user {
   color: #6B7280;
   font-size: 12px;
   line-height: 13px;
