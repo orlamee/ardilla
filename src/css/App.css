@@ -6,7 +6,7 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  /* background-image: url('../img/bg-login.png'); */
+  background-image: url('../img/bg-login.png');
   height: 100%;
   margin: 0;
   font-family: 'Ubuntu';
@@ -32,12 +32,8 @@ body {
 }
 
 .App {
-  background-color: #fff;
-  /* overflow-x: hidden!important;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; */
-  background-image: url('../img/bg-login.png');
+  /* background-color: #fff; */
+  /* background-image: url('../img/bg-login.png'); */
   height: 100%;
   margin: 0;
   bottom: 0;
@@ -219,7 +215,7 @@ input [type=email] {
 }
 
 .logo {
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 
 .fg {
