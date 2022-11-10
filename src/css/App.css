@@ -96,3 +96,13 @@ body {
   font-weight: 500;
   line-height: 20px;
 }
+
+.ardilla-btn:hover {
+  background-color: #5f0aaa;
+  border-color: #5f0aaa!important;
+  border-radius: 60px;
+  color: #fff!important;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 20px;
+}
