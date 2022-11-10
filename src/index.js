@@ -8,6 +8,7 @@ import {
 // import './index.css';
 import App from './App';
 import ScrollToTop from './js/scrollTop';
+import Otp from './pages/otp';
 import SignUp from './pages/signUp';
 import reportWebVitals from './reportWebVitals';
 
@@ -18,6 +19,7 @@ root.render(
   <Routes>
     <Route path="/" element={<App />}></Route>
     <Route path="/sign-up" element={<SignUp/>}></Route>
+    <Route path="/otp" element={<Otp/>}></Route>
   </Routes>
 </BrowserRouter>
 );

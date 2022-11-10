@@ -1,10 +1,8 @@
 import React from "react";
 import logo from "../img/logo.svg";
-import testimonial from "../img/testimonial.svg";
-import dot from "../img/dot.svg";
 import { Link } from "react-router-dom";
 
-function Register() {
+function OtpPage() {
   return (
 <section className='login-section'>
   <div className='container'>
@@ -16,13 +14,9 @@ function Register() {
     <div className='row justify-content-center'>
       <div className='col-md-6 mb-2'>
         <div className='left text-left'>
-          <h2 className='my-4'>Its never to late to<br/>start saving</h2>
-          <p className='testimonial'>The whole process was seamless and<br/>very easy. Thats why i choosed ardilla</p>
-          <div className="d-flex flex-row mb-3 mt-3">
-            <img src={testimonial} alt="" className="img-fluid" />
-            <p className="author ms-3 mt-2">-Olamilekan Akindele</p>
-          </div>
-          <img src={dot} alt="" className="img-fluid" />
+          <h2 className='my-4'>Enter Code sent  to<br/>your email</h2>
+          <p className='code mb-5'>Fullname@mail.com</p>
+          <h6><Link>Wrong Email?</Link></h6>
         </div>
       </div>
       <div className='col-md-5'>
@@ -30,14 +24,14 @@ function Register() {
           <div className='login-form'>
             <form className=''>
               <div className="">
-                <label className="form-label"><i className="bi bi-envelope-fill me-2"></i>  Email address</label>
-                <input type="email" className="form-control custom-login"/>
+                <label className="form-label"><i className="bi bi-key-fill me-2"></i>  Code</label>
+                <input type="number" className="form-control custom-login"/>
               </div>
               <div className="my-5">
                 <Link type="button" to="/otp" className="btn btn-outline-primary px-5 py-3 ardilla-btn" style={{width: "100%"}}>Continue</Link>
               </div>
               <div className="bottom">
-                <p className="user">Already have an account? <Link>Sign in</Link></p>
+                <p className="user">Didn't get OTP? <Link>Resend</Link></p>
               </div>
             </form>
           </div>
@@ -49,4 +43,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default OtpPage;

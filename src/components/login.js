@@ -43,9 +43,9 @@ function Login() {
                   </div>
                   <div className='mobile'>
                     <div className='mb-2'><label className="form-check-label remember"><input type="checkbox" className="form-check-input" />  Remember me</label></div>
-                    <div><a className="" href="#">Forgot Password?</a></div>
+                    <div><a className="fg" href="#">Forgot Password?</a></div>
                   </div>
-                  <div className="form-group desktop"><label className="form-check-label remember"><input type="checkbox" className="form-check-input" />  Remember me</label><a className="float-end" href="#">Forgot Password?</a></div>
+                  <div className="form-group desktop"><label className="form-check-label remember"><input type="checkbox" className="form-check-input" />  Remember me</label><a className="float-end fg" href="#">Forgot Password?</a></div>
                   <div className="mt-4 mb-5">
                     <button type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn" style={{width: "100%"}}>Log In</button>
                   </div>
