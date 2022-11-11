@@ -59,7 +59,6 @@ function Register() {
                   <div className="my-5">
                     <button
                       type="button"
-                      to="/otp"
                       className="btn btn-outline-primary px-5 py-3 ardilla-btn"
                       style={{ width: "100%" }}
                     >
