@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../img/logo.svg";
 import testimonial from "../img/testimonial.svg";
-import register from "../img/home-login.svg";
+import register from "../img/login.svg";
 import dot from "../img/dot.svg";
 import { Link } from "react-router-dom";
 

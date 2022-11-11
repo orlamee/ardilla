@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import home from "../img/login.svg";
+import home from "../img/home-login.svg";
 import logo from "../img/logo.svg";
 import { Link } from "react-router-dom";
 
