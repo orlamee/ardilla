@@ -9,6 +9,7 @@ import {
 import App from './App';
 import ScrollToTop from './js/scrollTop';
 import CompleteProfileDetails from './pages/completeProfile';
+import LoginPage from './pages/login';
 import Otp from './pages/otp';
 import SignUp from './pages/signUp';
 import reportWebVitals from './reportWebVitals';
@@ -20,6 +21,7 @@ root.render(
   <Routes>
     <Route path="/" element={<App />}></Route>
     <Route path="/sign-up" element={<SignUp/>}></Route>
+    <Route path="/login" element={<LoginPage/>}></Route>
     <Route path="/otp" element={<Otp/>}></Route>
     <Route path="/complete-profile" element={<CompleteProfileDetails/>}></Route>
   </Routes>
