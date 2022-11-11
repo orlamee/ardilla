@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../img/logo.svg";
 import testimonial from "../img/testimonial.svg";
 import register from "../img/code.svg";
@@ -7,9 +7,18 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Register() {
-  const handleSubmit = (e) => {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("MORE love LESS eGO");
+    try {
+      const { data } = await axios.post(
+        "https://ardilla-app.herokuapp.com/Ardilla/api/register",
+        { email }
+      );
+
+      console.log(data);
+    } catch (error) {}
   };
 
   return (
@@ -55,6 +64,8 @@ function Register() {
                       type="email"
                       className="form-control custom-login"
                       required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className="my-5">
