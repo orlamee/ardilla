@@ -13,7 +13,7 @@ function Register() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://ardilla-app.herokuapp.com/Ardilla/api/register",
+        "https://ardilla-app.herokuapp.com/ardilla/api/register",
         { email }
       );
 
