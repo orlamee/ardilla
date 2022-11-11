@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../img/logo.svg";
 import { Link } from "react-router-dom";
-import code from "../img/code.svg";
+import girlie from "../img/girlie.svg";
 function OtpPage() {
   return (
 <section className='login-section'>
@@ -14,7 +14,7 @@ function OtpPage() {
     <div className='row justify-content-center'>
       <div className='col-md-6 mb-3'>
         <div className='left text-left'>
-          <img src={code} alt="" className="img-fluid" />
+          <img src={girlie} alt="" className="img-fluid" />
           <h2 className='my-4'>Enter Code sent  to<br/>your email</h2>
           <p className='code mb-5'>Fullname@mail.com</p>
           <h6><Link>Wrong Email?</Link></h6>

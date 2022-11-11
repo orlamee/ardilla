@@ -235,7 +235,7 @@ input [type=email] {
 }
 
 .code {
-  font-family: 'Clash Display', sans-serif;
+  font-family: 'Poppins';
   font-size: 25px;
   line-height: 20px;
   font-weight: 400;
@@ -263,7 +263,7 @@ h6 a {
   font-size: 15px;
   line-height: 19px;
   font-weight: 600;
-  font-family: 'Clash Display', sans-serif;
+  font-family: "Poppins";
 }
 
 .qoute {
