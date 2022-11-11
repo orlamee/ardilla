@@ -18,7 +18,7 @@ function Login() {
             <div className='left text-center'>
               <img src={login} alt="" className='img-fluid' />
               <h2 className='my-4'>The future of savings & Investment</h2>
-              <h6 className='mb-4'>Saving money typically means it is available when we need it<br/>and it has a low risk of losing value.</h6>
+              <h6 className='mb-4'><span className="qoute">"</span>Saving money typically means it is available when we need it<br/>and it has a low risk of losing value.<span className='qoute'>"</span></h6>
 
 
               <div className='d-flex justify-content-center mb-3'>

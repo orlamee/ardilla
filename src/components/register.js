@@ -17,7 +17,7 @@ function Register() {
       <div className='col-md-6 mb-3'>
         <div className='left text-left'>
           <h2 className='my-4'>Its never to late to<br/>start saving</h2>
-          <p className='testimonial'>The whole process was seamless and<br/>very easy. Thats why i choosed ardilla</p>
+          <p className='testimonial'><span className="qoute">"</span>The whole process was seamless and<br/>very easy. Thats why i choosed ardilla<span className="qoute">"</span></p>
           <div className="d-flex flex-row mb-3 mt-3">
             <img src={testimonial} alt="" className="img-fluid" />
             <p className="author ms-3 mt-3">- Olamilekan Akindele</p>
