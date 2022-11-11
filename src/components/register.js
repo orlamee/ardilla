@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Register() {
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log("MORE love LESS eGO");
   };
 
