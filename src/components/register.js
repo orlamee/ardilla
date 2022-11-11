@@ -18,7 +18,9 @@ function Register() {
       );
 
       console.log(data);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
