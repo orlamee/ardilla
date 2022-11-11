@@ -4,9 +4,13 @@ import testimonial from "../img/testimonial.svg";
 import register from "../img/code.svg";
 import dot from "../img/dot.svg";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Register() {
-  console.log("alpha p");
+  const handleSubmit = () => {
+    console.log("MORE love LESS eGO");
+  };
+
   return (
     <section className="login-section">
       <div className="container">
@@ -41,7 +45,7 @@ function Register() {
           <div className="col-md-5 aggregate">
             <div className="right">
               <div className="login-form">
-                <form className="">
+                <form className="" onSubmit={handleSubmit}>
                   <div className="">
                     <label className="form-label">
                       <i className="bi bi-envelope-fill me-2"></i> Email address
