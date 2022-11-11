@@ -33,7 +33,7 @@ function Register() {
             <form className=''>
               <div className="">
                 <label className="form-label"><i className="bi bi-envelope-fill me-2"></i>  Email address</label>
-                <input type="email" className="form-control custom-login"/>
+                <input type="email" className="form-control custom-login" required/>
               </div>
               <div className="my-5">
                 <Link type="button" to="/otp" className="btn btn-outline-primary px-5 py-3 ardilla-btn" style={{width: "100%"}}>Continue</Link>

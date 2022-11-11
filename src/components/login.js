@@ -35,11 +35,11 @@ function Login() {
                 <form className='mt-5'>
                   <div className="mb-3">
                     <label className="form-label"><i className="bi bi-envelope-fill me-2"></i>  Email address</label>
-                    <input type="email" className="form-control custom-login"/>
+                    <input type="email" className="form-control custom-login" required/>
                   </div>
                   <div className="mb-3">
                     <label className="form-label"><i className="bi bi-shield-lock-fill me-2"></i>  Password</label>
-                    <input type="password" className="form-control custom-login"/>
+                    <input type="password" className="form-control custom-login" required/>
                   </div>
                   <div className='mobile'>
                     <div className='mb-2'><label className="form-check-label remember"><input type="checkbox" className="form-check-input" />  Remember me</label></div>

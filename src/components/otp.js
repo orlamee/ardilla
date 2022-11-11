@@ -29,7 +29,7 @@ function OtpPage() {
                 <input type="number" className="form-control custom-login"/>
               </div>
               <div className="my-5">
-                <Link type="button" to="/otp" className="btn btn-outline-primary px-5 py-3 ardilla-btn" style={{width: "100%"}}>Continue</Link>
+                <Link type="button" to="/complete-profile" className="btn btn-outline-primary px-5 py-3 ardilla-btn" style={{width: "100%"}}>Continue</Link>
               </div>
               <div className="bottom">
                 <p className="user">Didn't get OTP? <Link>Resend</Link></p>
