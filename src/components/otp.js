@@ -7,12 +7,12 @@ function OtpPage() {
 <section className='login-section'>
   <div className='container'>
     <div className="row logo">
-      <div className="col-md-6 ">
+      <div className="col-md-6">
         <Link to="/"><img src={logo} alt="" className='img-fluid mb-5' /></Link>
       </div>
     </div>
     <div className='row justify-content-center'>
-      <div className='col-md-6 mb-2'>
+      <div className='col-md-6 mb-3'>
         <div className='left text-left'>
           <h2 className='my-4'>Enter Code sent  to<br/>your email</h2>
           <p className='code mb-5'>Fullname@mail.com</p>
@@ -20,7 +20,7 @@ function OtpPage() {
         </div>
       </div>
       <div className='col-md-5'>
-        <div className='right px-4'>
+        <div className='right'>
           <div className='login-form'>
             <form className=''>
               <div className="">

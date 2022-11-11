@@ -14,19 +14,19 @@ function Register() {
       </div>
     </div>
     <div className='row justify-content-center'>
-      <div className='col-md-6 mb-2'>
+      <div className='col-md-6 mb-3'>
         <div className='left text-left'>
           <h2 className='my-4'>Its never to late to<br/>start saving</h2>
           <p className='testimonial'>The whole process was seamless and<br/>very easy. Thats why i choosed ardilla</p>
           <div className="d-flex flex-row mb-3 mt-3">
             <img src={testimonial} alt="" className="img-fluid" />
-            <p className="author ms-3 mt-2">-Olamilekan Akindele</p>
+            <p className="author ms-3 mt-3">- Olamilekan Akindele</p>
           </div>
           <img src={dot} alt="" className="img-fluid" />
         </div>
       </div>
       <div className='col-md-5'>
-        <div className='right px-4'>
+        <div className='right'>
           <div className='login-form'>
             <form className=''>
               <div className="">

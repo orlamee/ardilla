@@ -14,7 +14,7 @@ function Login() {
           </div>
         </div>
         <div className='row justify-content-center'>
-          <div className='col-md-6 mb-2'>
+          <div className='col-md-6 mb-3'>
             <div className='left text-center'>
               <img src={login} alt="" className='img-fluid' />
               <h2 className='my-4'>The future of savings & Investment</h2>
@@ -28,7 +28,7 @@ function Login() {
             </div>
           </div>
           <div className='col-md-5'>
-            <div className='right px-4'>
+            <div className='right'>
               <div className='login-form'>
                 <h3>Welcome!</h3>
                 <h6 className='mt-4'>Here’s how to Log in to access your account</h6>
