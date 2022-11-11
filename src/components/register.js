@@ -37,7 +37,7 @@ function Register() {
                 <Link type="button" to="/otp" className="btn btn-outline-primary px-5 py-3 ardilla-btn" style={{width: "100%"}}>Continue</Link>
               </div>
               <div className="bottom">
-                <p className="user">Already have an account? <Link>Sign in</Link></p>
+                <p className="user">Already have an account? <Link to="/">Sign in</Link></p>
               </div>
             </form>
           </div>
