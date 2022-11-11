@@ -57,14 +57,14 @@ function Register() {
                     />
                   </div>
                   <div className="my-5">
-                    <Link
+                    <button
                       type="button"
                       to="/otp"
                       className="btn btn-outline-primary px-5 py-3 ardilla-btn"
                       style={{ width: "100%" }}
                     >
                       Continue
-                    </Link>
+                    </button>
                   </div>
                   <div className="bottom">
                     <p className="user">
