@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../img/logo.svg";
 import testimonial from "../img/testimonial.svg";
+import register from "../img/home-login.svg";
 import dot from "../img/dot.svg";
 import { Link } from "react-router-dom";
 
@@ -16,6 +17,7 @@ function Register() {
     <div className='row justify-content-center'>
       <div className='col-md-6 mb-3'>
         <div className='left text-left'>
+          <img src={register} alt="" className="img-fluid" />
           <h2 className='my-4'>Its never to late to<br/>start saving</h2>
           <p className='testimonial'>The whole process was seamless and<br/>very easy. Thats why i choosed ardilla</p>
           <div className="d-flex flex-row mb-3 mt-3">
@@ -25,7 +27,7 @@ function Register() {
           <img src={dot} alt="" className="img-fluid" />
         </div>
       </div>
-      <div className='col-md-5'>
+      <div className='col-md-5 aggregate'>
         <div className='right'>
           <div className='login-form'>
             <form className=''>
