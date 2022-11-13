@@ -4,20 +4,18 @@ import { Link, useParams } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
 function OtpPage() {
-  useEffect(() => {
-    const { id } = useParams();
+  const { id } = useParams();
 
-    const getUser = async () => {
-      const { data } = await axios.get(
-        `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${id}`
-      );
+  const getUser = async () => {
+    const { data } = await axios.get(
+      `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${id}`
+    );
 
-      console.log(data);
-      console.log("test");
-    };
+    console.log(data);
+    console.log("test");
+  };
 
-    getUser();
-  }, []);
+  getUser();
 
   return (
     <section className="login-section">
