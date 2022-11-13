@@ -11,18 +11,26 @@ function OtpPage() {
 
   const [emailToken, setEmailToken] = useState("");
   const [data, setData] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getUser = async () => {
       try {
+        setIsLoading(true);
         const { data } = await axios.get(
           `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${id}`
         );
 
         setEmailToken(data.data.emailToken);
         setData(data.data);
+
+        setIsLoading(false);
       } catch (error) {
-        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: `Try again`,
+          text: `oops something went wrong`,
+        });
       }
     };
 
@@ -32,7 +40,6 @@ function OtpPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (emailToken === data.emailToken) {
-      console.log("rex is good");
       Swal.fire({
         icon: "success",
         title: `email verification successful`,
@@ -90,15 +97,28 @@ function OtpPage() {
                       onChange={(e) => setEmailToken(e.target.value)}
                     />
                   </div>
-                  <div className="my-5">
-                    <button
-                      type="submit"
-                      className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                      style={{ width: "100%" }}
-                    >
-                      Continue
-                    </button>
-                  </div>
+                  {isLoading ? (
+                    <div className="my-5">
+                      <button
+                        type="button"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                        style={{ width: "100%" }}
+                      >
+                        Loading
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="my-5">
+                      <button
+                        type="submit"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                        style={{ width: "100%" }}
+                      >
+                        Continue
+                      </button>
+                    </div>
+                  )}
+
                   <div className="bottom">
                     <p className="user">
                       Didn't get OTP? <Link>Resend</Link>
