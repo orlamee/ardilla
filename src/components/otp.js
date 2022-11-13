@@ -29,7 +29,7 @@ function OtpPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (emailToken === data) {
+    if (emailToken === data.emailToken) {
       console.log("rex is good");
     } else {
       console.log("wrong crediential");
