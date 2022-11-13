@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import logo from "../img/logo.svg";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
 
 function OtpPage() {
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const [emailToken, setEmailToken] = useState("");
   const [data, setData] = useState("");
@@ -31,8 +33,19 @@ function OtpPage() {
     e.preventDefault();
     if (emailToken === data.emailToken) {
       console.log("rex is good");
+      Swal.fire({
+        icon: "success",
+        title: `email verification successful`,
+        text: `Goodluck on your next phase`,
+      });
+
+      navigate("/complete-profile");
     } else {
-      console.log("wrong crediential");
+      Swal.fire({
+        icon: "error",
+        title: `Invalid pin`,
+        text: `check your pin and try again`,
+      });
     }
   };
 
