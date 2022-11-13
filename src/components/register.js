@@ -13,6 +13,7 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("new");
     setIsLoading(true);
     try {
       const { data } = await axios.post(
