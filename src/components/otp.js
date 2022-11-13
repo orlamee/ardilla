@@ -8,7 +8,7 @@ function OtpPage() {
   const { id } = useParams();
 
   const [emailToken, setEmailToken] = useState("");
-  const [code, setCode] = useState("");
+  const [data, setData] = useState("");
 
   useEffect(() => {
     const getUser = async () => {
@@ -18,7 +18,7 @@ function OtpPage() {
         );
 
         setEmailToken(data.data.emailToken);
-        console.log("test");
+        setData(data.data);
       } catch (error) {
         console.log(error);
       }
@@ -27,8 +27,9 @@ function OtpPage() {
     getUser();
   }, [id]);
 
-  const handleSubmit = () => {
-    if (emailToken === code) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (emailToken === data) {
       console.log("rex is good");
     } else {
       console.log("wrong crediential");
@@ -72,8 +73,8 @@ function OtpPage() {
                       type="number"
                       className="form-control custom-login"
                       required
-                      value={emailToken ? emailToken : code}
-                      onChange={(e) => setCode(e.target.value)}
+                      value={emailToken && emailToken}
+                      onChange={(e) => setEmailToken(e.target.value)}
                     />
                   </div>
                   <div className="my-5">
