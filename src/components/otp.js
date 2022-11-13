@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import logo from "../img/logo.svg";
 import { Link, useParams } from "react-router-dom";
 import girlie from "../img/girlie.svg";
@@ -7,7 +7,8 @@ import axios from "axios";
 function OtpPage() {
   const { id } = useParams();
 
-  console.log("id:", id);
+  const [emailToken, setEmailToken] = useState("");
+  const [code, setCode] = useState("");
 
   const getUser = async () => {
     try {
@@ -15,13 +16,21 @@ function OtpPage() {
         `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${id}`
       );
 
-      console.log(data.data);
+      setEmailToken(data.data.emailToken);
     } catch (error) {
       console.log(error);
     }
   };
 
   getUser();
+
+  const handleSubmit = () => {
+    if (emailToken === code) {
+      console.log("rex is good");
+    } else {
+      console.log("wrong crediential");
+    }
+  };
 
   return (
     <section className="login-section">
@@ -51,7 +60,7 @@ function OtpPage() {
           <div className="col-md-5 aggregate">
             <div className="right">
               <div className="login-form">
-                <form className="">
+                <form className="" onSubmit={handleSubmit}>
                   <div className="">
                     <label className="form-label">
                       <i className="bi bi-key-fill me-2"></i> Code
@@ -59,17 +68,19 @@ function OtpPage() {
                     <input
                       type="number"
                       className="form-control custom-login"
+                      required
+                      value={emailToken ? emailToken : code}
+                      onChange={(e) => setCode(e.target.value)}
                     />
                   </div>
                   <div className="my-5">
-                    <Link
+                    <button
                       type="button"
-                      to="/complete-profile"
                       className="btn btn-outline-primary px-5 py-3 ardilla-btn"
                       style={{ width: "100%" }}
                     >
                       Continue
-                    </Link>
+                    </button>
                   </div>
                   <div className="bottom">
                     <p className="user">
