@@ -18,19 +18,19 @@ function Register() {
         { email }
       );
 
-      if (data.success) {
-        Swal.fire({
-          icon: "Success",
-          title: `hey`,
-          text: `${data.msg}`,
-        });
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Something went wrong!",
-        });
-      }
+      // if (data.success) {
+      Swal.fire({
+        icon: "Success",
+        title: `hey`,
+        text: `${data.msg}`,
+      });
+      // } else {
+      //   Swal.fire({
+      //     icon: "error",
+      //     title: "Oops...",
+      //     text: "Something went wrong!",
+      //   });
+      // }
     } catch (error) {
       console.log(error);
     }
