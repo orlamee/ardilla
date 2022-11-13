@@ -9,11 +9,15 @@ function OtpPage() {
   console.log("id:", id);
 
   const getUser = async () => {
-    const { data } = await axios.get(
-      `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${id}`
-    );
+    try {
+      const { data } = await axios.get(
+        `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${id}`
+      );
 
-    console.log(data);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   getUser();
