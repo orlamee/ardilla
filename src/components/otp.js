@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../img/logo.svg";
 import { Link, useParams } from "react-router-dom";
 import girlie from "../img/girlie.svg";
@@ -10,19 +10,21 @@ function OtpPage() {
   const [emailToken, setEmailToken] = useState("");
   const [code, setCode] = useState("");
 
-  const getUser = async () => {
-    try {
-      const { data } = await axios.get(
-        `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${id}`
-      );
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${id}`
+        );
 
-      setEmailToken(data.data.emailToken);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+        setEmailToken(data.data.emailToken);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-  getUser();
+    getUser();
+  }, [id]);
 
   const handleSubmit = () => {
     if (emailToken === code) {
