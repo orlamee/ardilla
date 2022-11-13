@@ -15,7 +15,7 @@ function OtpPage() {
         `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${id}`
       );
 
-      console.log(data);
+      console.log(data.data);
     } catch (error) {
       console.log(error);
     }
