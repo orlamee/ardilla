@@ -5,6 +5,7 @@ import register from "../img/code.svg";
 import dot from "../img/dot.svg";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -17,7 +18,19 @@ function Register() {
         { email }
       );
 
-      console.log(data);
+      if (data.success) {
+        Swal.fire({
+          icon: "Success",
+          title: `hey`,
+          text: `${data.msg}`,
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+        });
+      }
     } catch (error) {
       console.log(error);
     }
