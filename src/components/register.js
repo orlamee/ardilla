@@ -23,10 +23,12 @@ function Register() {
         title: `email verification successful`,
         text: `${data.msg}`,
       });
-
-      console.log("test");
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: `Oops, something went wrong`,
+        text: `please try again`,
+      });
     }
   };
 
