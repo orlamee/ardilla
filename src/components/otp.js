@@ -17,7 +17,7 @@ function OtpPage() {
     };
 
     getUser();
-  });
+  }, []);
 
   return (
     <section className="login-section">
