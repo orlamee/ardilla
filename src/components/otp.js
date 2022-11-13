@@ -78,7 +78,7 @@ function OtpPage() {
                   </div>
                   <div className="my-5">
                     <button
-                      type="button"
+                      type="submit"
                       className="btn btn-outline-primary px-5 py-3 ardilla-btn"
                       style={{ width: "100%" }}
                     >
