@@ -6,13 +6,14 @@ import axios from "axios";
 function OtpPage() {
   const { id } = useParams();
 
+  console.log("id:", id);
+
   const getUser = async () => {
     const { data } = await axios.get(
       `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${id}`
     );
 
     console.log(data);
-    console.log("test");
   };
 
   getUser();
