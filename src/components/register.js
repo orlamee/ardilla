@@ -18,19 +18,11 @@ function Register() {
         { email }
       );
 
-      // if (data.success) {
       Swal.fire({
         icon: "Success",
-        title: `hey`,
+        title: `email verification successful`,
         text: `${data.msg}`,
       });
-      // } else {
-      //   Swal.fire({
-      //     icon: "error",
-      //     title: "Oops...",
-      //     text: "Something went wrong!",
-      //   });
-      // }
     } catch (error) {
       console.log(error);
     }
