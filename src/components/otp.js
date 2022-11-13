@@ -13,6 +13,7 @@ function OtpPage() {
       );
 
       console.log(data);
+      console.log("test");
     };
 
     getUser();
