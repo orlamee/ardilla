@@ -10,13 +10,10 @@ function CompleteProfile() {
   const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      console.log({ firstname, lastname, email, password, contact });
-    } catch (error) {
-      console.log(error);
-    }
+
+    console.log({ firstname, lastname, email, password, contact });
   };
 
   return (
