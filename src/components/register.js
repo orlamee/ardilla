@@ -9,9 +9,11 @@ import Swal from "sweetalert2";
 
 function Register() {
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const { data } = await axios.post(
         "https://ardilla-app.herokuapp.com/ardilla/api/auth/register",
@@ -23,7 +25,10 @@ function Register() {
         title: `email verification successful`,
         text: `${data.msg}`,
       });
+
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       Swal.fire({
         icon: "error",
         title: `Oops, something went wrong`,
@@ -79,15 +84,28 @@ function Register() {
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
-                  <div className="my-5">
-                    <button
-                      type="submit"
-                      className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                      style={{ width: "100%" }}
-                    >
-                      Continue
-                    </button>
-                  </div>
+                  {isLoading ? (
+                    <div className="my-5">
+                      <button
+                        type="button"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                        style={{ width: "100%" }}
+                      >
+                        Loading
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="my-5">
+                      <button
+                        type="submit"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                        style={{ width: "100%" }}
+                      >
+                        Continue
+                      </button>
+                    </div>
+                  )}
+
                   <div className="bottom">
                     <p className="user">
                       Already have an account? <Link to="/">Sign in</Link>
