@@ -19,7 +19,7 @@ function Register() {
       );
 
       Swal.fire({
-        icon: "Success",
+        icon: "success",
         title: `email verification successful`,
         text: `${data.msg}`,
       });
