@@ -3,6 +3,7 @@ import logo from "../img/logo.svg";
 import { Link, useParams } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
+
 function OtpPage() {
   const { id } = useParams();
 
