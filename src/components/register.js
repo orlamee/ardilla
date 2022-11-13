@@ -23,6 +23,8 @@ function Register() {
         title: `email verification successful`,
         text: `${data.msg}`,
       });
+
+      console.log("test");
     } catch (error) {
       console.log(error);
     }
