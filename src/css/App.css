@@ -310,3 +310,22 @@ h6 a {
   padding: 14px 10px;
   background-color: transparent;
 }
+
+.svgLoader {
+  animation: spin 1.9s linear infinite;
+  margin: auto;
+}
+
+.divLoader {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+@keyframes spin {
+  10% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
