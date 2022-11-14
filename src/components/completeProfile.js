@@ -28,7 +28,7 @@ function CompleteProfile() {
 
       Swal.fire({
         icon: "success",
-        title: `Hey ${data?.firstname} `,
+        title: `Hey <${data?.firstname}/> `,
         text: `Your account has been created `,
       });
 
