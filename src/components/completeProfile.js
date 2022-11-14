@@ -31,7 +31,10 @@ function CompleteProfile() {
         title: `Hey ${data?.firstname} `,
         text: `Your account has been created `,
       });
+
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       Swal.fire({
         icon: "error",
         title: `Oops, something went wrong`,
