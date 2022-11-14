@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import logo from "../img/logo-new.svg";
+import logo from "../img/nav-logo.svg";
 
 function Header() {
   return(
     <nav className="navbar navbar-expand-lg navbar-light py-4 px-2">
       <div className='container'>
         <Link className='navbar-brand' to="/">
-          {/* <img src={logo} alt="" className='img-fluid' /> */}
+          <img src={logo} alt="" className='img-fluid' />
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
           <span className="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@ function Header() {
           <div className='ms-auto'>
             <ul className="navbar-nav">
               <li className='nav-item'>
-                <Link className='nav-link me-3' to="/login">Sign in.</Link>
+                <Link className='nav-link me-3' to="/login">Sign in</Link>
               </li>
               <li className='nav-item'>
                 <Link className='btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="/sign-up">Create Account</Link>
