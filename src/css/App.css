@@ -254,7 +254,7 @@ input [type=email] {
 .code {
   font-family: 'Poppins';
   font-size: 25px;
-  line-height: 20px;
+  line-height: 28px;
   font-weight: 400;
   color: #4B5563;
 }
@@ -293,4 +293,20 @@ h6 a {
   .aggregate {
     margin-top: 100px;
   }
+}
+
+.error h1 {
+  font-size: 180px;
+  line-height: 207px;
+  font-weight: 700;
+  color: #3D0072;
+}
+
+.error {
+  padding: 60px 20px;
+}
+
+.custom-form {
+  padding: 14px 10px;
+  background-color: transparent;
 }
