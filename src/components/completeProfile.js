@@ -9,7 +9,7 @@ function CompleteProfile() {
   const [lastname, setLastname] = useState("");
   const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   // const [agree, setAgree] = useState("");
 
