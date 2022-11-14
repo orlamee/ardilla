@@ -10,6 +10,8 @@ function OtpPage() {
 
   const user = JSON.parse(localStorage.getItem("user"));
 
+  const { _id } = user;
+
   const [emailToken, setEmailToken] = useState("");
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -17,9 +19,8 @@ function OtpPage() {
   useEffect(() => {
     const getUser = async () => {
       try {
-        console.log(user);
         const { data } = await axios.get(
-          `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user._id}`
+          `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${_id}`
         );
 
         setEmailToken(data.data.emailToken);
@@ -34,7 +35,7 @@ function OtpPage() {
     };
 
     getUser();
-  }, [user]);
+  }, [_id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
