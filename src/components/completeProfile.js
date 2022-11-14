@@ -26,7 +26,11 @@ function CompleteProfile() {
         { email, firstname, lastname, contact, password }
       );
 
-      console.log(data);
+      Swal.fire({
+        icon: "success",
+        title: `Hey ${data?.firstname} `,
+        text: `Your account has been created `,
+      });
     } catch (error) {
       Swal.fire({
         icon: "error",
