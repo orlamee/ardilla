@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 // import './index.css';
 import App from "./App";
 import ScrollToTop from "./js/scrollTop";
 import CompleteProfileDetails from "./pages/completeProfile";
+import ErrorPage from "./pages/error404";
 import LoginPage from "./pages/login";
 import Otp from "./pages/otp";
 import SignUp from "./pages/signUp";
@@ -23,6 +24,8 @@ root.render(
         path="/complete-profile"
         element={<CompleteProfileDetails />}
       ></Route>
+      <Route path="/404" element={<ErrorPage/>}></Route>
+      <Route path="*" element={<Navigate to="/404" replace />}></Route>
     </Routes>
   </BrowserRouter>
 );

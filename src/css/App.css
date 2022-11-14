@@ -294,3 +294,14 @@ h6 a {
     margin-top: 100px;
   }
 }
+
+.error h1 {
+  font-size: 180px;
+  line-height: 207px;
+  font-weight: 700;
+  color: #3D0072;
+}
+
+.error {
+  padding: 60px 20px;
+}
