@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 // import './index.css';
 import App from "./App";
 import ScrollToTop from "./js/scrollTop";
@@ -12,6 +12,8 @@ import SecurityQuestion from "./pages/securityQuestion";
 import SignUp from "./pages/signUp";
 import reportWebVitals from "./reportWebVitals";
 
+import ProtectRoute from "./components/protectRoute";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
@@ -20,13 +22,31 @@ root.render(
       <Route path="/" element={<App />}></Route>
       <Route path="/sign-up" element={<SignUp />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
-      <Route path="/otp" element={<Otp />}></Route>
-      <Route path="/security-question" element={<SecurityQuestion/>}></Route>
+      <Route
+        path="/otp"
+        element={
+          <ProtectRoute>
+            <Otp />
+          </ProtectRoute>
+        }
+      ></Route>
+      <Route
+        path="/security-question"
+        element={
+          <ProtectRoute>
+            <SecurityQuestion />
+          </ProtectRoute>
+        }
+      ></Route>
       <Route
         path="/complete-profile"
-        element={<CompleteProfileDetails />}
+        element={
+          <ProtectRoute>
+            <CompleteProfileDetails />
+          </ProtectRoute>
+        }
       ></Route>
-      <Route path="/404" element={<ErrorPage/>}></Route>
+      <Route path="/404" element={<ErrorPage />}></Route>
       <Route path="*" element={<Navigate to="/404" replace />}></Route>
     </Routes>
   </BrowserRouter>
