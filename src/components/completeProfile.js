@@ -10,14 +10,13 @@ function CompleteProfile() {
   const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-  // const [agree, setAgree] = useState("");
+  const [agree, setAgree] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    console.log({ firstname, lastname, email, password, contact });
+    console.log({ firstname, lastname, email, password, contact, agree });
   };
 
   return (
@@ -107,8 +106,14 @@ function CompleteProfile() {
                   </div>
                   <div>
                     <label className="form-check-label remember">
-                      <input type="checkbox" className="form-check-input" /> I
-                      agree to our Terms and Conditions and Privacy Policy.
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        required
+                        value={agree}
+                        onChange={() => setAgree(!agree)}
+                      />{" "}
+                      I agree to our Terms and Conditions and Privacy Policy.
                     </label>
                   </div>
                   {isLoading ? (
