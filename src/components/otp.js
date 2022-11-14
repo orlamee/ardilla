@@ -8,19 +8,16 @@ import Swal from "sweetalert2";
 function OtpPage() {
   const navigate = useNavigate();
 
-  const user = JSON.parse(localStorage.getItem("user"));
-
-  const { _id } = user;
-
   const [emailToken, setEmailToken] = useState("");
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getUser = async () => {
+      const user = JSON.parse(localStorage.getItem("user"));
       try {
         const { data } = await axios.get(
-          `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${_id}`
+          `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user._id}`
         );
 
         setEmailToken(data.data.emailToken);
@@ -35,7 +32,7 @@ function OtpPage() {
     };
 
     getUser();
-  }, [_id]);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
