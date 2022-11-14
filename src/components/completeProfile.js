@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import logo from "../img/logo.svg";
 import { Link } from "react-router-dom";
 import complete from "../img/profilecomplete.svg";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function CompleteProfile() {
   const [email, setEmail] = useState("");
@@ -12,11 +14,26 @@ function CompleteProfile() {
   const [isLoading, setIsLoading] = useState(false);
   const [agree, setAgree] = useState(false);
 
-  const handleSubmit = (e) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    console.log({ firstname, lastname, email, password, contact, agree });
+    try {
+      const { data } = await axios.post(
+        `https://ardilla-app.herokuapp.com/ardilla/api/auth/complete-profile/${user._id}`,
+        { email, firstname, lastname, contact, password }
+      );
+
+      console.log(data);
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: `Oops, something went wrong`,
+        text: `please try again`,
+      });
+    }
   };
 
   return (
