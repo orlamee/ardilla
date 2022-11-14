@@ -38,7 +38,7 @@ function CompleteProfile() {
       Swal.fire({
         icon: "error",
         title: `Oops, something went wrong`,
-        text: `please try again`,
+        text: `please try again.`,
       });
     }
   };
