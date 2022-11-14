@@ -8,6 +8,7 @@ import CompleteProfileDetails from "./pages/completeProfile";
 import ErrorPage from "./pages/error404";
 import LoginPage from "./pages/login";
 import Otp from "./pages/otp";
+import SecurityQuestion from "./pages/securityQuestion";
 import SignUp from "./pages/signUp";
 import reportWebVitals from "./reportWebVitals";
 
@@ -20,6 +21,7 @@ root.render(
       <Route path="/sign-up" element={<SignUp />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/otp" element={<Otp />}></Route>
+      <Route path="/security-question" element={<SecurityQuestion/>}></Route>
       <Route
         path="/complete-profile"
         element={<CompleteProfileDetails />}
