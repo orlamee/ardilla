@@ -30,7 +30,8 @@ function Register() {
       });
 
       setIsLoading(false);
-      navigate("/otp");
+      console.log(data);
+      // navigate(`/otp/${}`,);
     } catch (error) {
       setIsLoading(false);
       Swal.fire({
