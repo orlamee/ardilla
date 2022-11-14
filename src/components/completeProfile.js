@@ -15,6 +15,7 @@ function CompleteProfile() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     console.log({ firstname, lastname, email, password, contact });
   };
