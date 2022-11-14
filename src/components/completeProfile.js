@@ -116,20 +116,32 @@ function CompleteProfile() {
                       I agree to our Terms and Conditions and Privacy Policy.
                     </label>
                   </div>
-                  {isLoading ? (
-                    <div className="my-5">
-                      <button
-                        type="button"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                        style={{ width: "100%" }}
-                      >
-                        Loading
-                      </button>
-                    </div>
+                  {agree ? (
+                    isLoading ? (
+                      <div className="my-5">
+                        <button
+                          type="button"
+                          className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                          style={{ width: "100%" }}
+                        >
+                          Loading
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="my-5">
+                        <button
+                          type="submit"
+                          className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                          style={{ width: "100%" }}
+                        >
+                          Continue
+                        </button>
+                      </div>
+                    )
                   ) : (
                     <div className="my-5">
                       <button
-                        type="submit"
+                        type="button"
                         className="btn btn-outline-primary px-5 py-3 ardilla-btn"
                         style={{ width: "100%" }}
                       >
