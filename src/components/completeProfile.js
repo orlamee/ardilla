@@ -70,6 +70,16 @@ function CompleteProfile() {
                 <form className="" onSubmit={handleSubmit}>
                   <div className="mb-3">
                     <label className="form-label">
+                      <i className="bi bi-code-slash me-2"></i> Kode Hex
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control custom-login"
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="form-label">
                       <i className="bi bi-person-fill me-2"></i> First Name
                     </label>
                     <input
@@ -163,7 +173,7 @@ function CompleteProfile() {
                       </div>
                     )
                   ) : (
-                    <div className="my-5">
+                    <div className="my-3">
                       <button
                         type="button"
                         className="btn btn-outline-primary px-5 py-3 ardilla-btn"
