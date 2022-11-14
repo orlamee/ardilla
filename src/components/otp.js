@@ -34,7 +34,7 @@ function OtpPage() {
     };
 
     getUser();
-  }, []);
+  }, [user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
