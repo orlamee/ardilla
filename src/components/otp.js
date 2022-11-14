@@ -20,7 +20,6 @@ function OtpPage() {
           `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user._id}`
         );
 
-        setEmailToken(data.data.emailToken);
         setData(data.data);
       } catch (error) {
         Swal.fire({
