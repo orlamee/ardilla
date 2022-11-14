@@ -3,6 +3,7 @@ import logo from "../img/logo.svg";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function OtpPage() {
   const { id } = useParams();
