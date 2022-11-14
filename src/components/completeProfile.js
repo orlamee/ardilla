@@ -9,6 +9,9 @@ function CompleteProfile() {
   const [lastname, setLastname] = useState("");
   const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  // const [agree, setAgree] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -107,15 +110,27 @@ function CompleteProfile() {
                       agree to our Terms and Conditions and Privacy Policy.
                     </label>
                   </div>
-                  <div className="my-5">
-                    <button
-                      type="submit"
-                      className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                      style={{ width: "100%" }}
-                    >
-                      Continue
-                    </button>
-                  </div>
+                  {isLoading ? (
+                    <div className="my-5">
+                      <button
+                        type="button"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                        style={{ width: "100%" }}
+                      >
+                        Loading
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="my-5">
+                      <button
+                        type="submit"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                        style={{ width: "100%" }}
+                      >
+                        Continue
+                      </button>
+                    </div>
+                  )}
                 </form>
               </div>
             </div>
