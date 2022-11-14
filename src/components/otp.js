@@ -17,7 +17,6 @@ function OtpPage() {
   useEffect(() => {
     const getUser = async () => {
       try {
-        setIsLoading(true);
         console.log(user);
         const { data } = await axios.get(
           `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user._id}`
@@ -25,8 +24,6 @@ function OtpPage() {
 
         setEmailToken(data.data.emailToken);
         setData(data.data);
-
-        setIsLoading(false);
       } catch (error) {
         Swal.fire({
           icon: "error",
@@ -37,10 +34,11 @@ function OtpPage() {
     };
 
     getUser();
-  }, [user]);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     if (emailToken === data.emailToken) {
       Swal.fire({
         icon: "success",
@@ -48,8 +46,11 @@ function OtpPage() {
         text: `Goodluck on your next phase`,
       });
 
+      setIsLoading(false);
+
       navigate("/complete-profile");
     } else {
+      setIsLoading(false);
       Swal.fire({
         icon: "error",
         title: `Invalid pin`,
