@@ -75,7 +75,7 @@ function OtpPage() {
                 <br />
                 your email
               </h2>
-              <p className="code mb-5">Fullname@mail.com</p>
+              <p className="code mb-5">{data.email}</p>
               <h6>
                 <Link>Wrong Email?</Link>
               </h6>
