@@ -3,7 +3,7 @@ import logo from "../img/logo.svg";
 import testimonial from "../img/testimonial.svg";
 import register from "../img/code.svg";
 import dot from "../img/dot.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -11,7 +11,8 @@ function Register() {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  //  useNavigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
