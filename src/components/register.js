@@ -105,7 +105,7 @@ function Register() {
                         className="btn btn-outline-primary px-5 py-3 ardilla-btn"
                         style={{ width: "100%" }}
                       >
-                        Continue
+                        Conti
                       </button>
                     </div>
                   )}
