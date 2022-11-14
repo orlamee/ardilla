@@ -314,7 +314,7 @@ h6 a {
 /* Loader Styles start here */
 .loader-wrapper {
   --line-width: 5px;
-  --curtain-color: #000;
+  --curtain-color: #fff;
   --outer-line-color: #3D0072;
   --middle-line-color: #fef4fa;
   --inner-line-color: #000;
