@@ -18,7 +18,7 @@ root.render(
       <Route path="/" element={<App />}></Route>
       <Route path="/sign-up" element={<SignUp />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
-      <Route path="/otp/:id" element={<Otp />}></Route>
+      <Route path="/otp" element={<Otp />}></Route>
       <Route
         path="/complete-profile"
         element={<CompleteProfileDetails />}

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import logo from "../img/logo.svg";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 function OtpPage() {
-  const { id } = useParams();
-
   const navigate = useNavigate();
+
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const [emailToken, setEmailToken] = useState("");
   const [data, setData] = useState("");
@@ -18,8 +18,9 @@ function OtpPage() {
     const getUser = async () => {
       try {
         setIsLoading(true);
+        console.log(user);
         const { data } = await axios.get(
-          `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${id}`
+          `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user._id}`
         );
 
         setEmailToken(data.data.emailToken);
@@ -36,7 +37,7 @@ function OtpPage() {
     };
 
     getUser();
-  }, [id]);
+  }, [user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
