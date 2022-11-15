@@ -1,40 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import logo from "../img/logo.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 function OtpPage() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  // , useNavigate
 
   const [code, setCode] = useState("");
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const user = sessionStorage.getItem("user");
+  const user = JSON.parse(sessionStorage.getItem("user"));
 
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const { data } = await axios.get(
-          `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user}`
-        );
+  const getUser = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user}`
+      );
 
-        setData(data.data);
+      setData(data.data);
 
-        console.log(data);
-      } catch (error) {
-        Swal.fire({
-          icon: "error",
-          title: `Try again`,
-          text: `oops something went wrong`,
-        });
-      }
-    };
+      console.log(data);
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: `Try again`,
+        text: `oops something went wrong`,
+      });
+    }
+  };
 
-    getUser();
-  }, [user]);
+  getUser();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

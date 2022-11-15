@@ -25,7 +25,7 @@ function Register() {
 
       setIsLoading(false);
 
-      sessionStorage.setItem("user", data.data._id);
+      sessionStorage.setItem("user", JSON.stringify(data.data_id));
 
       navigate("/otp");
     } catch (error) {
