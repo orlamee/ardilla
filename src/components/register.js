@@ -25,9 +25,9 @@ function Register() {
 
       setIsLoading(false);
 
-      const { _id, email } = data.data;
+      const { _id } = data.data;
 
-      navigate("/otp", { state: { id: _id, email: email } });
+      navigate("/otp", { state: { id: _id } });
     } catch (error) {
       setIsLoading(false);
       Swal.fire({
