@@ -25,7 +25,7 @@ function Register() {
 
       setIsLoading(false);
 
-      console.log(data.data);
+      localStorage.setItem("user", JSON.stringify(data.data.id));
 
       // navigate("/otp", { id: data.data.id });
     } catch (error) {
