@@ -13,6 +13,8 @@ import SignUp from "./pages/signUp";
 import reportWebVitals from "./reportWebVitals";
 
 import ProtectRoute from "./components/protectRoute";
+import ForgotPassword from "./pages/forgotPassword";
+import SetPassword from "./pages/setPassword";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,6 +24,8 @@ root.render(
       <Route path="/" element={<App />}></Route>
       <Route path="/sign-up" element={<SignUp />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
+      <Route path="/recover-password" element={<ForgotPassword/>}></Route>
+      <Route path="/set-password" element={<SetPassword/>}></Route>
       <Route
         path="/otp"
         element={

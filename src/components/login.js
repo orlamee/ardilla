@@ -37,15 +37,16 @@ function Login() {
                     <label className="form-label"><i className="bi bi-envelope-fill me-2"></i>  Email address</label>
                     <input type="email" className="form-control custom-login" required/>
                   </div>
-                  <div className="mb-3">
+                  <div className="">
                     <label className="form-label"><i className="bi bi-shield-lock-fill me-2"></i>  Password</label>
-                    <input type="password" className="form-control custom-login" required/>
+                    <input type="password" name="pass" className="form-control custom-login" id="pass" required/>
+                    <span toggle="#password-field" className="fa fa-fw fa-eye field_icon toggle-pass"></span>
                   </div>
                   <div className='mobile'>
                     <div className='mb-2'><label className="form-check-label remember"><input type="checkbox" className="form-check-input" />  Remember me</label></div>
-                    <div><a className="fg" href="#">Forgot Password?</a></div>
+                    <div><Link className="fg" to="/recover-password">Forgot Password?</Link></div>
                   </div>
-                  <div className="form-group desktop"><label className="form-check-label remember"><input type="checkbox" className="form-check-input" />  Remember me</label><a className="float-end fg" href="#">Forgot Password?</a></div>
+                  <div className="form-group desktop"><label className="form-check-label remember"><input type="checkbox" className="form-check-input" />  Remember me</label><Link className="float-end fg" to="/recover-password">Forgot Password?</Link></div>
                   <div className="mt-4 mb-5">
                     <button type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn" style={{width: "100%"}}>Log In</button>
                   </div>
