@@ -23,7 +23,7 @@ root.render(
       <Route path="/sign-up" element={<SignUp />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
       <Route
-        path="/otp/:id"
+        path="/otp"
         element={
           <ProtectRoute>
             <Otp />
