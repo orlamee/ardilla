@@ -27,13 +27,9 @@ function Register() {
       setIsLoading(false);
 
       console.log(data);
+      console.log(data.data);
 
-      const token = data.data.token;
-      const id = data.data._id;
-
-      console.log(id, token);
-
-      // sessionStorage.setItem("user", JSON.stringify({ id, token }));
+      sessionStorage.setItem("user", JSON.stringify());
 
       // navigate("/otp");
     } catch (error) {
