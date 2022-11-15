@@ -29,7 +29,7 @@ function Register() {
       console.log(data);
       console.log(data.data);
 
-      sessionStorage.setItem("user", JSON.stringify());
+      sessionStorage.setItem("user", JSON.stringify(data));
 
       // navigate("/otp");
     } catch (error) {
