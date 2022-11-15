@@ -23,10 +23,6 @@ function OtpPage() {
         );
 
         setUserInfo(data.data);
-
-        console.log(data.data);
-
-        console.log(data);
       } catch (error) {
         Swal.fire({
           icon: "error",
@@ -49,6 +45,7 @@ function OtpPage() {
       );
 
       console.log(data);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
