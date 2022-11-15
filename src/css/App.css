@@ -433,7 +433,7 @@ h6 a {
 .loaded .loader-wrapper {
   visibility: hidden;
   transform:translateY(-100%);
-  transition: all .3s 1s ease-out;
+  /* transition: all .3s 1s ease-out; */
 }
 
 .fa-eye {
