@@ -40,18 +40,33 @@ function OtpPage() {
     setIsLoading(true);
     try {
       const { data } = await axios.post(
-        `https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp`,
-        { code },
-        { withCredentials: true }
+        "https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp/",
+        { code }
       );
 
       console.log(data);
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
-      console.log(error);
     }
   };
+
+  // const handleSubmit = async (e) => {
+  // e.preventDefault();
+  // setIsLoading(true);
+  //   try {
+  //     const { data } = await axios.post(
+  //       `https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp`,
+  //       { code }
+  //     );
+
+  //     console.log(data);
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     setIsLoading(false);
+  //     console.log(error);
+  //   }
+  // };
 
   // if (emailToken === data.emailToken) {
   //   Swal.fire({
