@@ -15,7 +15,7 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("new");
+
     setIsLoading(true);
     try {
       const { data } = await axios.post(
@@ -27,7 +27,7 @@ function Register() {
 
       setIsLoading(false);
 
-      navigate("/otp");
+      navigate(`/otp/${data.data._id}`);
     } catch (error) {
       setIsLoading(false);
       Swal.fire({
