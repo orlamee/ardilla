@@ -35,7 +35,7 @@ function OtpPage() {
     }
   };
 
-  if (user) return getUser();
+  getUser();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
