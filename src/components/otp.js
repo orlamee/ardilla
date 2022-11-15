@@ -15,8 +15,6 @@ function OtpPage() {
 
   const user = JSON.parse(sessionStorage.getItem("user"));
 
-  console.log(user);
-
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -24,9 +22,11 @@ function OtpPage() {
           `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user}`
         );
 
-        setUserInfo(data);
+        setUserInfo(data.data);
 
-        console.log(data);
+        console.log(data.data);
+
+        console.log("1233");
       } catch (error) {
         Swal.fire({
           icon: "error",
