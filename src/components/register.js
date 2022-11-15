@@ -23,8 +23,6 @@ function Register() {
         { email }
       );
 
-      localStorage.setItem("user", JSON.stringify(data.data));
-
       setIsLoading(false);
 
       navigate(`/otp/${data.data._id}`);
