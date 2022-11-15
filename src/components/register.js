@@ -28,10 +28,12 @@ function Register() {
 
       console.log(data);
 
-      // sessionStorage.setItem(
-      //   "user",
-      //   JSON.stringify({ id: data.data._id, Bearer: data.token })
-      // );
+      const token = data.token;
+      const id = data.data_id;
+
+      console.log(id, token);
+
+      sessionStorage.setItem("user", JSON.stringify({ id, token }));
 
       // navigate("/otp");
     } catch (error) {
