@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 function OtpPage() {
   const navigate = useNavigate();
 
-  const [emailToken, setEmailToken] = useState("");
+  const [code, setCode] = useState("");
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -36,24 +36,25 @@ function OtpPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    if (emailToken === data.emailToken) {
-      Swal.fire({
-        icon: "success",
-        title: `email verification successful`,
-        text: `Goodluck on your next phase`,
-      });
 
-      setIsLoading(false);
+    // if (emailToken === data.emailToken) {
+    //   Swal.fire({
+    //     icon: "success",
+    //     title: `email verification successful`,
+    //     text: `Goodluck on your next phase`,
+    //   });
 
-      navigate("/complete-profile");
-    } else {
-      setIsLoading(false);
-      Swal.fire({
-        icon: "error",
-        title: `Invalid pin`,
-        text: `check your pin and try again`,
-      });
-    }
+    //   setIsLoading(false);
+
+    //   navigate("/complete-profile");
+    // } else {
+    //   setIsLoading(false);
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: `Invalid pin`,
+    //     text: `check your pin and try again`,
+    //   });
+    // }
   };
 
   return (
@@ -93,8 +94,8 @@ function OtpPage() {
                       type="number"
                       className="form-control custom-login"
                       required
-                      value={emailToken && emailToken}
-                      onChange={(e) => setEmailToken(e.target.value)}
+                      value={code}
+                      onChange={(e) => setCode(e.target.value)}
                     />
                   </div>
                   {isLoading ? (
