@@ -30,7 +30,7 @@ function Register() {
         JSON.stringify({ id: data.data._id, Bearer: data.token })
       );
 
-      navigate("/otp");
+      // navigate("/otp");
     } catch (error) {
       setIsLoading(false);
       Swal.fire({
