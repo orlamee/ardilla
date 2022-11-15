@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import logo from "../img/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 function OtpPage() {
-  // const navigate = useNavigate();
-  // , useNavigate
-
-  // const access_token =
-  //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNzM4ZGZjODcyNTY3NTBhNzZlZTg4YSIsImVtYWlsIjoid2VhdHV6aWVAbGVhcHNhaWwuY29tLm5nIiwidG9rZW4iOiIxNzE4NjY4IiwiaWF0IjoxNjY4NTE3MzcyLCJleHAiOjE2Njg1MjAwNzJ9.nbyXCDjTovdWFGBbpqVZzF5GxQDv5K2dMbNck9f2jKo";
+  const navigate = useNavigate();
 
   const user = JSON.parse(sessionStorage.getItem("user"));
 
@@ -53,9 +49,21 @@ function OtpPage() {
         { code }
       );
 
-      console.log(data);
-      console.log("click");
+      if (data.success) {
+        Swal.fire({
+          icon: "success",
+          title: `email verification successful`,
+          text: `Goodluck on your next phase`,
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: `${data.msg}`,
+          text: `Please try again`,
+        });
+      }
       setIsLoading(false);
+      navigate("/complete-profile");
     } catch (error) {
       setIsLoading(false);
     }
@@ -79,11 +87,11 @@ function OtpPage() {
   // };
 
   // if (emailToken === data.emailToken) {
-  //   Swal.fire({
-  //     icon: "success",
-  //     title: `email verification successful`,
-  //     text: `Goodluck on your next phase`,
-  //   });
+  // Swal.fire({
+  //   icon: "success",
+  //   title: `email verification successful`,
+  //   text: `Goodluck on your next phase`,
+  // });
 
   //   setIsLoading(false);
 
