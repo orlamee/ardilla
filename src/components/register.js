@@ -25,9 +25,9 @@ function Register() {
 
       setIsLoading(false);
 
-      const { _id } = data.data;
+      sessionStorage.setItem("user", data.data._id);
 
-      navigate("/otp", { state: { id: _id } });
+      navigate("/otp");
     } catch (error) {
       setIsLoading(false);
       Swal.fire({
