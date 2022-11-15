@@ -33,29 +33,39 @@ function OtpPage() {
     getUser();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    try {
+      const { data } = await axios.post(
+        "https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp",
+        { code }
+      );
 
-    // if (emailToken === data.emailToken) {
-    //   Swal.fire({
-    //     icon: "success",
-    //     title: `email verification successful`,
-    //     text: `Goodluck on your next phase`,
-    //   });
-
-    //   setIsLoading(false);
-
-    //   navigate("/complete-profile");
-    // } else {
-    //   setIsLoading(false);
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: `Invalid pin`,
-    //     text: `check your pin and try again`,
-    //   });
-    // }
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  // if (emailToken === data.emailToken) {
+  //   Swal.fire({
+  //     icon: "success",
+  //     title: `email verification successful`,
+  //     text: `Goodluck on your next phase`,
+  //   });
+
+  //   setIsLoading(false);
+
+  //   navigate("/complete-profile");
+  // } else {
+  //   setIsLoading(false);
+  //   Swal.fire({
+  //     icon: "error",
+  //     title: `Invalid pin`,
+  //     text: `check your pin and try again`,
+  //   });
+  // }
 
   return (
     <section className="login-section">
