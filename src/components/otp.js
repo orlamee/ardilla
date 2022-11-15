@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import logo from "../img/logo.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 function OtpPage() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  // , useNavigate
 
   const [code, setCode] = useState("");
   const [data, setData] = useState("");
