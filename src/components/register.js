@@ -25,7 +25,7 @@ function Register() {
 
       setIsLoading(false);
 
-      navigate("otp", { id: data.data.id });
+      navigate("/otp", { id: data.data.id });
     } catch (error) {
       setIsLoading(false);
       Swal.fire({
