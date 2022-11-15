@@ -23,12 +23,6 @@ function Register() {
         { email }
       );
 
-      // Swal.fire({
-      //   icon: "success",
-      //   title: `email verification successful`,
-      //   text: `${data.msg}`,
-      // });
-
       localStorage.setItem("user", JSON.stringify(data.data));
 
       setIsLoading(false);
