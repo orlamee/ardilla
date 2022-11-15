@@ -9,12 +9,12 @@ function OtpPage() {
   // const navigate = useNavigate();
   // , useNavigate
 
-  const access_token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNzM4ZGZjODcyNTY3NTBhNzZlZTg4YSIsImVtYWlsIjoid2VhdHV6aWVAbGVhcHNhaWwuY29tLm5nIiwidG9rZW4iOiIxNzE4NjY4IiwiaWF0IjoxNjY4NTE3MzcyLCJleHAiOjE2Njg1MjAwNzJ9.nbyXCDjTovdWFGBbpqVZzF5GxQDv5K2dMbNck9f2jKo";
+  // const access_token =
+  //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNzM4ZGZjODcyNTY3NTBhNzZlZTg4YSIsImVtYWlsIjoid2VhdHV6aWVAbGVhcHNhaWwuY29tLm5nIiwidG9rZW4iOiIxNzE4NjY4IiwiaWF0IjoxNjY4NTE3MzcyLCJleHAiOjE2Njg1MjAwNzJ9.nbyXCDjTovdWFGBbpqVZzF5GxQDv5K2dMbNck9f2jKo";
 
-  const verifyReq = axios.create({
-    headers: { token: `Bearer ${access_token}` },
-  });
+  // const verifyReq = axios.create({
+  //   header: { token: `Bearer ${access_token}` },
+  // });
 
   const [code, setCode] = useState("");
   const [userInfo, setUserInfo] = useState();
@@ -46,17 +46,18 @@ function OtpPage() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const { data } = await verifyReq.post(
-        "https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp/",
-        { code },
-        {
-          headers: {
-            Authorization: "access_token",
-          },
-        }
-      );
+      // const { data } = await verifyReq.post(
+      //   "https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp/",
+      //   { code },
+      //   {
+      //     headers: {
+      //       Authorization: "access_token",
+      //     },
+      //   }
+      // );
 
-      console.log(data);
+      // console.log(data);
+      console.log("click");
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
