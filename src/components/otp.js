@@ -47,7 +47,7 @@ function OtpPage() {
         { code }
       );
 
-      if (data.success) {
+      if (data.success === true) {
         Swal.fire({
           icon: "success",
           title: `email verification successful`,
