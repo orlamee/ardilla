@@ -11,32 +11,32 @@ function OtpPage() {
 
   const location = useLocation();
 
-  console.log(location);
+  const id = location.state.id;
 
   const [code, setCode] = useState("");
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // const getUser = async () => {
-  //   try {
-  //     const user = JSON.parse(localStorage.getItem("user"));
-  //     const { data } = await axios.get(
-  //       `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user._id}`
-  //     );
+  const getUser = async () => {
+    try {
+      const user = JSON.parse(localStorage.getItem("user"));
+      const { data } = await axios.get(
+        `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${id}`
+      );
 
-  //     setData(data.data);
+      setData(data.data);
 
-  //     console.log(data);
-  //   } catch (error) {
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: `Try again`,
-  //       text: `oops something went wrong`,
-  //     });
-  //   }
-  // };
+      console.log(data);
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: `Try again`,
+        text: `oops something went wrong`,
+      });
+    }
+  };
 
-  // getUser();
+  getUser();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
