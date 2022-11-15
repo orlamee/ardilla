@@ -15,25 +15,27 @@ function OtpPage() {
 
   const user = sessionStorage.getItem("user");
 
-  const getUser = async () => {
-    try {
-      const { data } = await axios.get(
-        `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user}`
-      );
+  console.log(user);
 
-      setData(data.data);
+  // const getUser = async () => {
+  //   try {
+  //     const { data } = await axios.get(
+  //       `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user}`
+  //     );
 
-      console.log(data);
-    } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: `Try again`,
-        text: `oops something went wrong`,
-      });
-    }
-  };
+  //     setData(data.data);
 
-  if (user) return getUser();
+  //     console.log(data);
+  //   } catch (error) {
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: `Try again`,
+  //       text: `oops something went wrong`,
+  //     });
+  //   }
+  // };
+
+  // if (user) return getUser();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
