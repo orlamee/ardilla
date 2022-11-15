@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../img/logo.svg";
 import { Link } from "react-router-dom";
 import girlie from "../img/girlie.svg";
@@ -17,25 +17,27 @@ function OtpPage() {
 
   console.log(user);
 
-  const getUser = async () => {
-    try {
-      const { data } = await axios.get(
-        `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user}`
-      );
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user}`
+        );
 
-      setData(data.data);
+        setData(data.data);
 
-      console.log(data);
-    } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: `Try again`,
-        text: `oops something went wrong`,
-      });
-    }
-  };
+        console.log(data);
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: `Try again`,
+          text: `oops something went wrong`,
+        });
+      }
+    };
 
-  getUser();
+    getUser();
+  }, [user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
