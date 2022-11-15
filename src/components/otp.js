@@ -14,11 +14,11 @@ function OtpPage() {
 
   const user = JSON.parse(sessionStorage.getItem("user"));
 
-  const verifyReq = axios.create({
-    header: { token: `Bearer ${user?.token}` },
-  });
-
   console.log(user.token);
+
+  const verifyReq = axios.create({
+    headers: { token: `Bearer ${user?.token}` },
+  });
 
   const [code, setCode] = useState("");
   const [userInfo, setUserInfo] = useState();
@@ -42,7 +42,7 @@ function OtpPage() {
     };
 
     getUser();
-  }, [user]);
+  }, [user.id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
