@@ -26,7 +26,7 @@ function OtpPage() {
 
         console.log(data.data);
 
-        console.log("1233");
+        console.log(data);
       } catch (error) {
         Swal.fire({
           icon: "error",
