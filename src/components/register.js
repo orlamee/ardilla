@@ -28,7 +28,7 @@ function Register() {
 
       console.log(data);
 
-      const token = data.token;
+      const token = data.data.token;
       const id = data.data._id;
 
       console.log(id, token);
