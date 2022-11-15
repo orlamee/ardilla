@@ -25,6 +25,8 @@ function Register() {
 
       setIsLoading(false);
 
+      console.log(data);
+
       sessionStorage.setItem(
         "user",
         JSON.stringify({ id: data.data._id, Bearer: data.token })
