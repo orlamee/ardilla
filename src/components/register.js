@@ -29,11 +29,11 @@ function Register() {
       console.log(data);
 
       const token = data.token;
-      const id = data.data_id;
+      const id = data.data._id;
 
       console.log(id, token);
 
-      sessionStorage.setItem("user", JSON.stringify({ id, token }));
+      // sessionStorage.setItem("user", JSON.stringify({ id, token }));
 
       // navigate("/otp");
     } catch (error) {
