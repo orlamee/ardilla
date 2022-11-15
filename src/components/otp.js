@@ -10,7 +10,7 @@ function OtpPage() {
   // , useNavigate
 
   const [code, setCode] = useState("");
-  const [data, setData] = useState("");
+  const [userInfo, setUserInfo] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   const user = JSON.parse(sessionStorage.getItem("user"));
@@ -24,7 +24,7 @@ function OtpPage() {
           `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user}`
         );
 
-        setData(data);
+        setUserInfo(data);
 
         console.log(data);
       } catch (error) {
@@ -92,7 +92,7 @@ function OtpPage() {
                 <br />
                 your email
               </h2>
-              <p className="code mb-5">{data.email}</p>
+              <p className="code mb-5">{userInfo?.email}</p>
               <h6>
                 <Link>Wrong Email?</Link>
               </h6>
