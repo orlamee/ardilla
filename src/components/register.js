@@ -27,7 +27,7 @@ function Register() {
 
       localStorage.setItem("user", JSON.stringify(data.data));
 
-      // navigate("/otp", { id: data.data.id });
+      navigate("/otp", { id: data.data._id });
     } catch (error) {
       setIsLoading(false);
       Swal.fire({
