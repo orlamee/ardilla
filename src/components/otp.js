@@ -40,13 +40,14 @@ function OtpPage() {
     setIsLoading(true);
     try {
       const { data } = await axios.post(
-        "https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp",
+        `https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp/${user}`,
         { code }
       );
 
       console.log(data);
       setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
   };
