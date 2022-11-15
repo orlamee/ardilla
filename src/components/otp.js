@@ -41,7 +41,12 @@ function OtpPage() {
     try {
       const { data } = await axios.post(
         "https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp/",
-        { code }
+        { code },
+        {
+          headers: {
+            Authorization: "access_token",
+          },
+        }
       );
 
       console.log(data);
