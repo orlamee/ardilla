@@ -12,21 +12,23 @@ function OtpPage() {
   // const access_token =
   //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNzM4ZGZjODcyNTY3NTBhNzZlZTg4YSIsImVtYWlsIjoid2VhdHV6aWVAbGVhcHNhaWwuY29tLm5nIiwidG9rZW4iOiIxNzE4NjY4IiwiaWF0IjoxNjY4NTE3MzcyLCJleHAiOjE2Njg1MjAwNzJ9.nbyXCDjTovdWFGBbpqVZzF5GxQDv5K2dMbNck9f2jKo";
 
-  // const verifyReq = axios.create({
-  //   header: { token: `Bearer ${access_token}` },
-  // });
+  const user = JSON.parse(sessionStorage.getItem("user"));
+
+  const verifyReq = axios.create({
+    header: { token: `Bearer ${user?.token}` },
+  });
+
+  console.log(user.token);
 
   const [code, setCode] = useState("");
   const [userInfo, setUserInfo] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
-  const user = JSON.parse(sessionStorage.getItem("user"));
-
   useEffect(() => {
     const getUser = async () => {
       try {
         const { data } = await axios.get(
-          `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user}`
+          `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user.id}`
         );
 
         setUserInfo(data.data);
@@ -46,17 +48,12 @@ function OtpPage() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      // const { data } = await verifyReq.post(
-      //   "https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp/",
-      //   { code },
-      //   {
-      //     headers: {
-      //       Authorization: "access_token",
-      //     },
-      //   }
-      // );
+      const { data } = await verifyReq.post(
+        "https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp/",
+        { code }
+      );
 
-      // console.log(data);
+      console.log(data);
       console.log("click");
       setIsLoading(false);
     } catch (error) {
