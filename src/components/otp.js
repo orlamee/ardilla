@@ -53,6 +53,8 @@ function OtpPage() {
           title: `email verification successful`,
           text: `Goodluck on your next phase`,
         });
+
+        navigate("/complete-profile");
       } else {
         Swal.fire({
           icon: "error",
@@ -61,9 +63,13 @@ function OtpPage() {
         });
       }
       setIsLoading(false);
-      navigate("/complete-profile");
     } catch (error) {
       setIsLoading(false);
+      Swal.fire({
+        icon: "error",
+        title: `${error.message}`,
+        text: `Please try again`,
+      });
     }
   };
 
