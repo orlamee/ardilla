@@ -10,8 +10,6 @@ function OtpPage() {
 
   const user = JSON.parse(sessionStorage.getItem("user"));
 
-  console.log(user.token);
-
   const verifyReq = axios.create({
     headers: { token: `Bearer ${user?.token}` },
   });
