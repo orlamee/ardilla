@@ -8,14 +8,13 @@ import Swal from "sweetalert2";
 function OtpPage() {
   const navigate = useNavigate();
 
-  const user = JSON.parse(localStorage.getItem("user"));
-
   const [code, setCode] = useState("");
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const getUser = async () => {
     try {
+      const user = JSON.parse(localStorage.getItem("user"));
       const { data } = await axios.get(
         `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user._id}`
       );
