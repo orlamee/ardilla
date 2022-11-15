@@ -25,7 +25,10 @@ function Register() {
 
       setIsLoading(false);
 
-      sessionStorage.setItem("user", JSON.stringify(data.data._id));
+      sessionStorage.setItem(
+        "user",
+        JSON.stringify({ id: data.data._id, Bearer: data.token })
+      );
 
       navigate("/otp");
     } catch (error) {
