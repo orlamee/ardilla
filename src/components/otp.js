@@ -39,7 +39,7 @@ function OtpPage() {
       } else {
         Swal.fire({
           icon: "error",
-          title: `${data.msg}`,
+          title: `invalid pin`,
           text: `Please try again`,
         });
       }
