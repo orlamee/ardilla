@@ -1,5 +1,5 @@
 .banner {
-  margin: 100px 0px;
+  margin: 100px 10px;
 }
 
 .banner h2 {
@@ -10,7 +10,7 @@
 }
 
 .banner h3 {
-  font-size: 55px;
+  font-size: 50px;
   line-height: 70px;
   font-weight: 700;
   color: #3D0072;
