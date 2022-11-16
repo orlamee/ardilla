@@ -1,5 +1,4 @@
 import React from "react";
-import "../../css/home.css";
 import { Link } from "react-router-dom";
 import demo from "../../img/demo.svg";
 import left from "../../img/left.svg";
