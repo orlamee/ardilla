@@ -28,13 +28,14 @@ function OtpPage() {
       );
 
       if (data.success === true) {
-        Swal.fire({
-          icon: "success",
-          title: `email verification successful`,
-          text: `Goodluck on your next phase`,
-        });
+        console.log(data);
+        // Swal.fire({
+        //   icon: "success",
+        //   title: `email verification successful`,
+        //   text: `Goodluck on your next phase`,
+        // });
 
-        navigate("/complete-profile");
+        // navigate("/complete-profile");
       } else {
         Swal.fire({
           icon: "error",
