@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../img/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import complete from "../img/profilecomplete.svg";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -17,6 +17,8 @@ function CompleteProfile() {
   const [isLoading, setIsLoading] = useState(false);
 
   const [agree, setAgree] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,6 +37,7 @@ function CompleteProfile() {
       });
 
       setIsLoading(false);
+      navigate("/security-question");
     } catch (error) {
       setIsLoading(false);
       Swal.fire({
