@@ -25,7 +25,7 @@ function Hero() {
           </div>
           <div className="col-md-6 alignment">
             <div className="d-inline-flex badge">Up to 30% returns</div>
-            <h3 className="my-4">Get Access to Investment<br/>Oppurtuinities </h3>
+            <h3 className="my-4">Get Access to Investment<br/>Opportunities </h3>
             <h6 className="desktop">Plan towards your future by investing with ardilla,  Grow your<br/> money confidently and securely with the available investment<br/> opportunities </h6>
             <h6 className="mobile">Plan towards your future by investing with ardilla,  Grow your money confidently and securely with the available investment opportunities</h6>
             <h5 className="mt-4"><Link>Learn More about investments <i class="bi bi-chevron-right"></i></Link></h5>
