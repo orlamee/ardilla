@@ -161,7 +161,7 @@ function CompleteProfile() {
                   </div>
                   {agree ? (
                     isLoading ? (
-                      <div className="my-5">
+                      <div className="my-3">
                         <button
                           type="button"
                           className="btn btn-outline-primary px-5 py-3 ardilla-btn"
@@ -185,7 +185,7 @@ function CompleteProfile() {
                     <div className="my-3">
                       <button
                         type="button"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn disabled"
                         style={{ width: "100%" }}
                       >
                         Continue
