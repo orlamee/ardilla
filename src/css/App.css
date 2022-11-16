@@ -9,9 +9,19 @@ body {
   background-image: url('../img/bg-login.png');
   height: 100%;
   margin: 0;
-  font-family: 'Ubuntu';
+  font-family: Ubuntu-Regular;
 }
 
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url("../Ubuntu-Regular.ttf");
+}
+
+
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url("../Ubuntu-Bold.ttf");
+}
 
 @media only screen and (max-width: 768px){
   html, body {

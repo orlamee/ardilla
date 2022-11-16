@@ -16,7 +16,7 @@ function Header() {
           <div className="me-auto">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link active">Personal</Link>
+                <Link className="nav-link active">Products</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link">Business <span className="nav-badge ms-2">Beta</span></Link>
