@@ -33,7 +33,7 @@ function OtpPage() {
       } else {
         Swal.fire({
           icon: "error",
-          title: `This token may no longer be valid`,
+          title: `This token is valid`,
           text: `Please try again`,
         });
       }
@@ -58,10 +58,11 @@ function OtpPage() {
         { email }
       );
 
+      sessionStorage.setItem("user", JSON.stringify(data));
+
       if (data) {
         Swal.fire({
           icon: "success",
-
           text: `verification token has been resent`,
         });
       }
