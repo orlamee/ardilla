@@ -171,7 +171,7 @@ function CompleteProfile() {
                         </button>
                       </div>
                     ) : (
-                      <div className="my-5">
+                      <div className="my-3">
                         <button
                           type="submit"
                           className="btn btn-outline-primary px-5 py-3 ardilla-btn"
