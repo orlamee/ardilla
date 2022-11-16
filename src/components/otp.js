@@ -34,7 +34,7 @@ function OtpPage() {
         setIsLoading(false);
         Swal.fire({
           icon: "error",
-          title: `This token is valid`,
+          title: `This token is not valid`,
           text: `Please try again`,
         });
       }
