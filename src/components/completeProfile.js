@@ -55,7 +55,7 @@ function CompleteProfile() {
       <div className="container">
         <div className="row logo">
           <div className="col-md-6">
-            <Link to="/">
+            <Link to="/" onClick={() => sessionStorage.clear()}>
               <img src={logo} alt="" className="img-fluid mb-5" />
             </Link>
           </div>
