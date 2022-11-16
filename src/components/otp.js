@@ -11,19 +11,20 @@ function OtpPage() {
 
   const user = JSON.parse(sessionStorage.getItem("user"));
 
-  const verifyReq = axios.create({
-    headers: { token: `Bearer ${user?.token}` },
-  });
-
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const { data } = await verifyReq.post(
+      const { data } = await axios.post(
         "https://ard-illa.herokuapp.com/ardilla/api/auth/verify-otp",
-        { code }
+        { code },
+        {
+          headers: {
+            Authorization: `Bearer ${user?.token}`,
+          },
+        }
       );
 
       if (data.success === true) {
