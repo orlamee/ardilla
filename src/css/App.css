@@ -448,3 +448,9 @@ h6 a {
   margin-top: -30px;
   margin-right: 10px
 }
+
+.resend {
+  background-color: #fbf3fa;
+  border: none;
+  color: #8807f7;
+}

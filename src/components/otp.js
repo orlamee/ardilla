@@ -142,8 +142,7 @@ function OtpPage() {
 
                   <div className="bottom">
                     <p className="user">
-                      Didn't get OTP?{" "}
-                      <button onClick={handleResend}>Resend</button>
+                      Didn't get OTP?{" "}<button className="resend" onClick={handleResend}>Resend</button>
                     </p>
                   </div>
                 </form>
