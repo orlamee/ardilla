@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import logo from "../img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import girlie from "../img/girlie.svg";
@@ -6,7 +6,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 function OtpPage() {
-  const navigate = useNavigate();
+  const [code, setCode] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const user = JSON.parse(sessionStorage.getItem("user"));
 
@@ -14,29 +15,7 @@ function OtpPage() {
     headers: { token: `Bearer ${user?.token}` },
   });
 
-  const [code, setCode] = useState("");
-  const [userInfo, setUserInfo] = useState();
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const { data } = await axios.get(
-          `https://ardilla-app.herokuapp.com/ardilla/api/auth/user/${user.id}`
-        );
-
-        setUserInfo(data.data);
-      } catch (error) {
-        Swal.fire({
-          icon: "error",
-          title: `Try again`,
-          text: `oops something went wrong`,
-        });
-      }
-    };
-
-    getUser();
-  }, [user.id]);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -73,42 +52,6 @@ function OtpPage() {
     }
   };
 
-  // const handleSubmit = async (e) => {
-  // e.preventDefault();
-  // setIsLoading(true);
-  //   try {
-  //     const { data } = await axios.post(
-  //       `https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp`,
-  //       { code }
-  //     );
-
-  //     console.log(data);
-  //     setIsLoading(false);
-  //   } catch (error) {
-  //     setIsLoading(false);
-  //     console.log(error);
-  //   }
-  // };
-
-  // if (emailToken === data.emailToken) {
-  // Swal.fire({
-  //   icon: "success",
-  //   title: `email verification successful`,
-  //   text: `Goodluck on your next phase`,
-  // });
-
-  //   setIsLoading(false);
-
-  //   navigate("/complete-profile");
-  // } else {
-  //   setIsLoading(false);
-  //   Swal.fire({
-  //     icon: "error",
-  //     title: `Invalid pin`,
-  //     text: `check your pin and try again`,
-  //   });
-  // }
-
   return (
     <section className="login-section">
       <div className="container">
@@ -128,7 +71,7 @@ function OtpPage() {
                 <br />
                 your email
               </h2>
-              <p className="code mb-5">{userInfo?.email}</p>
+              <p className="code mb-5">{user?.email}</p>
               <h6>
                 <Link>Wrong Email?</Link>
               </h6>
