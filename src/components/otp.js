@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../img/logo.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -11,20 +11,21 @@ function OtpPage() {
 
   const user = JSON.parse(sessionStorage.getItem("user"));
 
-  const verifyReq = axios.create({
-    headers: {
-      Authorization: `Bearer ${user?.token}`,
-    },
-  });
+  // const verifyReq = axios.create({
+  //   headers: {
+  //     Authorization: `Bearer ${user?.token}`,
+  //   },
+  // });
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  // , useNavigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const { data } = await verifyReq.post(
-        "https://ard-illa.herokuapp.com/ardilla/api/auth/verify-otp",
+      const { data } = await axios.post(
+        `https://ard-illa.herokuapp.com/ardilla/api/auth/verify-otp/${user?.token}`,
         { code }
       );
 
