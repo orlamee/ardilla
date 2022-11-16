@@ -1,0 +1,51 @@
+.banner {
+  margin: 100px 0px;
+}
+
+.banner h2 {
+  font-size: 70px;
+  line-height: 80px;
+  font-weight: 700;
+  color: #3D0072;
+}
+
+.banner h3 {
+  font-size: 55px;
+  line-height: 70px;
+  font-weight: 700;
+  color: #3D0072;
+}
+
+.banner h6 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #3D0072;
+}
+
+.second-layer {
+  padding: 90px 0px;
+}
+
+.badge {
+  background-color: #E8CEFF;
+  color: #3D0072;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 40px;
+  padding: 16px 90px!important;
+}
+
+@media (min-width: 992px){
+  .alignment {
+    margin-top: 100px;
+  }
+}
+
+h5 a {
+  color: #2335DA;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 16px;
+}
