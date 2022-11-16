@@ -1,3 +1,4 @@
+import Build from './components/landingpage/buildSaving';
 import Hero from './components/landingpage/hero';
 import Products from './components/landingpage/product';
 import Header from './components/navBar';
@@ -11,6 +12,7 @@ function App() {
       <Header/>
       <Hero/>
       <Products/>
+      <Build/>
     </div>
   );
 }
