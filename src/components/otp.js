@@ -31,6 +31,7 @@ function OtpPage() {
 
         navigate("/complete-profile");
       } else {
+        setIsLoading(false);
         Swal.fire({
           icon: "error",
           title: `This token is valid`,
@@ -142,7 +143,10 @@ function OtpPage() {
 
                   <div className="bottom">
                     <p className="user">
-                      Didn't get OTP?{" "}<button className="resend" onClick={handleResend}>Resend</button>
+                      Didn't get OTP?{" "}
+                      <button className="resend" onClick={handleResend}>
+                        Resend
+                      </button>
                     </p>
                   </div>
                 </form>
