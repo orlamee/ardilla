@@ -22,7 +22,7 @@ function CompleteProfile() {
 
     try {
       const { data } = await axios.post(
-        `https://ardilla-app.herokuapp.com/ardilla/api/auth/complete-profile/${user?.id}`,
+        `https://ard-illa.herokuapp.com/ardilla/api/auth/complete-profile/complete-profile/${user?.id}`,
         { email, firstname, lastname, contact, password }
       );
 
