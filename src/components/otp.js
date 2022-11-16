@@ -11,38 +11,39 @@ function OtpPage() {
 
   const user = JSON.parse(sessionStorage.getItem("user"));
 
+  const verifyReq = axios.create({
+    headers: {
+      Authorization: `Bearer ${user?.token}`,
+    },
+  });
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const { data } = await axios.post(
+      const { data } = await verifyReq.post(
         "https://ard-illa.herokuapp.com/ardilla/api/auth/verify-otp",
-        { code },
-        {
-          headers: {
-            Authorization: `Bearer ${user?.token}`,
-          },
-        }
+        { code }
       );
 
-      if (data.success === true) {
-        console.log(data);
-        // Swal.fire({
-        //   icon: "success",
-        //   title: `email verification successful`,
-        //   text: `Goodluck on your next phase`,
-        // });
+      console.log(data);
+      // if (data.success === true) {
+      //   Swal.fire({
+      //     icon: "success",
+      //     title: `email verification successful`,
+      //     text: `Goodluck on your next phase`,
+      //   });
 
-        // navigate("/complete-profile");
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: `invalid pin`,
-          text: `Please try again`,
-        });
-      }
+      //   navigate("/complete-profile");
+      // } else {
+      //   Swal.fire({
+      //     icon: "error",
+      //     title: `${d`,
+      //     text: `Please try again`,
+      //   });
+      // }
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
