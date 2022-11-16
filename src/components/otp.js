@@ -60,6 +60,8 @@ function OtpPage() {
 
       sessionStorage.setItem("user", JSON.stringify(data));
 
+      console.log(data);
+
       if (data) {
         Swal.fire({
           icon: "success",
