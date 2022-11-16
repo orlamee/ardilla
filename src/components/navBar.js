@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../img/nav-logo.svg";
+import logo from "../img/ardilla.svg";
 
 function Header() {
   return(

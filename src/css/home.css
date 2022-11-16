@@ -50,6 +50,10 @@ h5 a {
   line-height: 16px;
 }
 
+.features-product {
+  padding-bottom: 100px;
+}
+
 .features-product h2 {
   color: #3D0072;
   font-size: 55px;
@@ -68,5 +72,77 @@ h5 a {
   color: #3D0072;
   font-size: 13px;
   line-height: 17px;
+  font-weight: 500;
+}
+
+.features-product p {
+  color: #3D0072;
+  font-size: 15px;
+  line-height: 17px;
+  font-weight: 500;
+}
+
+.check {
+  color: #E6366E;
+}
+
+.build-saving h2 {
+  color: #3D0072;
+  font-size: 55px;
+  line-height: 64px;
+  font-weight: 700;
+}
+
+.build-saving h6 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #3D0072;
+}
+
+.card-frame {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card-frame:hover {
+  background-color: #e6346d;
+  padding: 40px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card-frame:hover p {
+  color: #fff;
+}
+.card-frame:hover small {
+  color: #fff;
+}
+
+.card-frame:hover h3 {
+  color: #fff;
+}
+
+.card-frame h3 {
+  color: #3D0072;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 22px;
+}
+
+.card-frame p {
+  color: #3D0072;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.card-frame small {
+  color: #E7356C;
+  font-size: 10px;
+  line-height: 12px;
   font-weight: 500;
 }
