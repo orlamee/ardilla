@@ -4,7 +4,7 @@ import logo from "../img/nav-logo.svg";
 
 function Header() {
   return(
-    <nav className="navbar navbar-expand-lg navbar-light py-4 px-1">
+    <nav className="navbar fixed-top navbar-expand-lg navbar-light py-4 px-1">
       <div className='container'>
         <Link className='navbar-brand' to="/">
           <img src={logo} alt="" className='img-fluid' />
