@@ -14,7 +14,7 @@ function CompleteProfile() {
   const [isLoading, setIsLoading] = useState(false);
   const [agree, setAgree] = useState(false);
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(sessionStorage.getItem("user"));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,9 +22,11 @@ function CompleteProfile() {
 
     try {
       const { data } = await axios.post(
-        `https://ardilla-app.herokuapp.com/ardilla/api/auth/complete-profile/${user._id}`,
+        `https://ardilla-app.herokuapp.com/ardilla/api/auth/complete-profile/${user?.id}`,
         { email, firstname, lastname, contact, password }
       );
+
+      console.log(data);
 
       Swal.fire({
         icon: "success",
