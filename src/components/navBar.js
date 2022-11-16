@@ -7,7 +7,7 @@ function Header() {
     <nav className="navbar fixed-top navbar-expand-lg navbar-light py-4 px-1">
       <div className='container'>
         <Link className='navbar-brand' to="/">
-          <img src={logo} alt="" className='img-fluid' />
+          <img src={logo} alt="" className='img-fluid' style={{marginTop: "-10px"}} />
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
           <span className="navbar-toggler-icon"></span>
