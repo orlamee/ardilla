@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../img/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -11,14 +11,7 @@ function OtpPage() {
 
   const user = JSON.parse(sessionStorage.getItem("user"));
 
-  // const verifyReq = axios.create({
-  //   headers: {
-  //     Authorization: `Bearer ${user?.token}`,
-  //   },
-  // });
-
-  // const navigate = useNavigate();
-  // , useNavigate
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,27 +23,27 @@ function OtpPage() {
       );
 
       console.log(data);
-      // if (data.success === true) {
-      //   Swal.fire({
-      //     icon: "success",
-      //     title: `email verification successful`,
-      //     text: `Goodluck on your next phase`,
-      //   });
+      if (data.success === true) {
+        Swal.fire({
+          icon: "success",
+          title: `Token validated`,
+          text: `Goodluck on your next phase`,
+        });
 
-      //   navigate("/complete-profile");
-      // } else {
-      //   Swal.fire({
-      //     icon: "error",
-      //     title: `${d`,
-      //     text: `Please try again`,
-      //   });
-      // }
+        navigate("/complete-profile");
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: `This token may no longer be valid`,
+          text: `Please try again`,
+        });
+      }
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
       Swal.fire({
         icon: "error",
-        title: `${error.message}`,
+        title: `Something wrong`,
         text: `Please try again`,
       });
     }
