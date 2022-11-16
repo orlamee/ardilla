@@ -19,10 +19,13 @@ function Header() {
                 <Link className="nav-link active">Personal</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link">Features</Link>
+                <Link className="nav-link">Business <span className="nav-badge ms-2">Beta</span></Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link">Business</Link>
+                <Link className="nav-link">Company</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link">Learn</Link>
               </li>
             </ul>
           </div>

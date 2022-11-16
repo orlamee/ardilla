@@ -146,3 +146,13 @@ h5 a {
   line-height: 12px;
   font-weight: 500;
 }
+
+
+.nav-badge {
+  border: 1px solid #3D0072;
+  padding: 1px 10px;
+  font-size: 10px;
+  line-height: 11px;
+  font-weight: 400;
+  border-radius: 4px;
+}

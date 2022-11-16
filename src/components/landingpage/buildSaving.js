@@ -4,7 +4,7 @@ import transactions from "../../img/transactions.svg";
 import forme from "../../img/for-me.svg";
 import join from "../../img/join.svg";
 import target from "../../img/target.svg";
-// import flex from "../../img/flex.svg";
+import flex from "../../img/flex.svg";
 
 
 function Build() {
@@ -30,7 +30,7 @@ function Build() {
               </div>
               <div className="col-md-6">
                 <div className="card-frame">
-                  <img src={join} alt="" className="img-fluid mb-1" style={{marginLeft: "-9px"}}/>
+                  <img src={flex} alt="" className="img-fluid mb-1" style={{marginLeft: "-9px"}}/>
                   <h3>Flex Savings plan</h3>
                   <p className="my-3">Get closer to your goal by turning on autosave. Set daily weekly or monthly automatic deposits.</p>
                   <small>Learn More <i className="bi bi-chevron-right"></i></small>
