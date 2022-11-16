@@ -9,7 +9,7 @@ function SecurityPage() {
       <div className="container">
         <div className="row logo">
           <div className="col-md-6">
-            <Link to="/">
+            <Link to="/" onClick={() => sessionStorage.clear()}>
               <img src={logo} alt="" className="img-fluid mb-5" />
             </Link>
           </div>
@@ -23,25 +23,45 @@ function SecurityPage() {
                 <br />
                 Question
               </h2>
-              <p className="code mb-5">Choose a security question &<br/> fill in your answer</p>
+              <p className="code mb-5">
+                Choose a security question &<br /> fill in your answer
+              </p>
             </div>
           </div>
           <div className="col-md-5 aggregate">
             <div className="right">
               <div className="login-form">
                 <form className="">
-                  <select className="form-select mb-3 custom-form" aria-label="Default select example">
+                  <select
+                    className="form-select mb-3 custom-form"
+                    aria-label="Default select example"
+                  >
                     {/* <option defaultValue>Open this select menu</option> */}
-                    <option value="1">What is the name of your favorite pet?</option>
-                    <option value="2">What is your mother's maiden name?</option>
+                    <option value="1">
+                      What is the name of your favorite pet?
+                    </option>
+                    <option value="2">
+                      What is your mother's maiden name?
+                    </option>
                     <option value="3">Where did you meet your spouse?</option>
                     <option value="4">What is your first crush name?</option>
                   </select>
                   <div className="mb-3">
-                    <input type="text" className="form-control custom-form" placeholder="Your Answer" required/>
+                    <input
+                      type="text"
+                      className="form-control custom-form"
+                      placeholder="Your Answer"
+                      required
+                    />
                   </div>
                   <div className="">
-                    <button type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn" style={{width: "100%"}}>Continue</button>
+                    <button
+                      type="button"
+                      className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                      style={{ width: "100%" }}
+                    >
+                      Continue
+                    </button>
                   </div>
                 </form>
               </div>
@@ -49,9 +69,8 @@ function SecurityPage() {
           </div>
         </div>
       </div>
-
     </section>
-  )
+  );
 }
 
 export default SecurityPage;
