@@ -22,7 +22,7 @@ function OtpPage() {
     setIsLoading(true);
     try {
       const { data } = await verifyReq.post(
-        "https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp/",
+        "https://ard-illa.herokuapp.com/ardilla/api/auth/verify-otp",
         { code }
       );
 
