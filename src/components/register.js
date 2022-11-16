@@ -19,15 +19,17 @@ function Register() {
     setIsLoading(true);
     try {
       const { data } = await axios.post(
-        "https://ardilla-app.herokuapp.com/ardilla/api/auth/register",
+        "https://ard-illa.herokuapp.com/ardilla/api/auth/send-otp",
         { email }
       );
 
       setIsLoading(false);
 
-      sessionStorage.setItem("user", JSON.stringify(data.data));
+      console.log(data);
 
-      navigate("/otp");
+      // sessionStorage.setItem("user", JSON.stringify(data));
+
+      // navigate("/otp");
     } catch (error) {
       setIsLoading(false);
       Swal.fire({
