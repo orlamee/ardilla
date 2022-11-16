@@ -32,9 +32,11 @@ function CompleteProfile() {
 
       Swal.fire({
         icon: "success",
-        title: `Hey <${data?.kodeHex}/> `,
+        title: `Hey <${kodeHex}/> `,
         text: `Your account has been created `,
       });
+
+      console.log(data);
 
       setIsLoading(false);
       navigate("/security-question");
