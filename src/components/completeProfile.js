@@ -22,17 +22,17 @@ function CompleteProfile() {
 
     try {
       const { data } = await axios.post(
-        `https://ard-illa.herokuapp.com/ardilla/api/auth/complete-profile/complete-profile/${user?.id}`,
+        `https://ard-illa.herokuapp.com/ardilla/api/auth/complete-profile/${user?.id}`,
         { email, firstname, lastname, contact, password }
       );
 
       console.log(data);
 
-      Swal.fire({
-        icon: "success",
-        title: `Hey <${data?.firstname}/> `,
-        text: `Your account has been created `,
-      });
+      // Swal.fire({
+      //   icon: "success",
+      //   title: `Hey <${data?.firstname}/> `,
+      //   text: `Your account has been created `,
+      // });
 
       setIsLoading(false);
     } catch (error) {
