@@ -22,7 +22,6 @@ function OtpPage() {
         { code }
       );
 
-      console.log(data);
       if (data.success === true) {
         Swal.fire({
           icon: "success",

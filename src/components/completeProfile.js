@@ -6,15 +6,17 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 function CompleteProfile() {
-  const [email, setEmail] = useState("");
+  const user = JSON.parse(sessionStorage.getItem("user"));
+
+  const [email, setEmail] = useState(user.email);
+  const [kodeHex, setKodeHex] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [agree, setAgree] = useState(false);
 
-  const user = JSON.parse(sessionStorage.getItem("user"));
+  const [agree, setAgree] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,16 +25,14 @@ function CompleteProfile() {
     try {
       const { data } = await axios.post(
         `https://ard-illa.herokuapp.com/ardilla/api/auth/complete-profile/${user?.id}`,
-        { email, firstname, lastname, contact, password }
+        { email, firstname, lastname, contact, password, kodeHex }
       );
 
-      console.log(data);
-
-      // Swal.fire({
-      //   icon: "success",
-      //   title: `Hey <${data?.firstname}/> `,
-      //   text: `Your account has been created `,
-      // });
+      Swal.fire({
+        icon: "success",
+        title: `Hey <${data?.kodeHex}/> `,
+        text: `Your account has been created `,
+      });
 
       setIsLoading(false);
     } catch (error) {
@@ -78,6 +78,8 @@ function CompleteProfile() {
                       type="text"
                       className="form-control custom-login"
                       required
+                      value={kodeHex}
+                      onChange={(e) => setKodeHex(e.target.value)}
                     />
                   </div>
                   <div className="mb-3">
