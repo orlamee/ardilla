@@ -78,6 +78,26 @@ function OtpPage() {
     }
   };
 
+  const handleWrongEmail = async () => {
+    try {
+      const { data } = await axios.delete(
+        `https://ard-illa.herokuapp.com/ardilla/api/auth/wrong-email/${user?.id}`
+      );
+
+      sessionStorage.clear();
+
+      if (data.success === true) {
+        navigate("/sign-up");
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: `Something went wrong`,
+        text: `Please try again`,
+      });
+    }
+  };
+
   return (
     <section className="login-section">
       <div className="container">
@@ -99,7 +119,9 @@ function OtpPage() {
               </h2>
               <p className="code mb-5">{user?.email}</p>
               <h6>
-                <Link>Wrong Email?</Link>
+                <button className="resend" onClick={handleWrongEmail}>
+                  Wrong Email?
+                </button>
               </h6>
             </div>
           </div>
