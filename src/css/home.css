@@ -1,5 +1,5 @@
 .banner {
-  margin: 240px 10px 80px 10px;
+  margin: 240px 10px 70px 10px;
 }
 
 .banner h2 {
@@ -55,4 +55,18 @@ h5 a {
   font-size: 55px;
   line-height: 64px;
   font-weight: 700;
+}
+
+.features-product h3 {
+  color: #3D0072;
+  font-size: 32px;
+  line-height: 37px;
+  font-weight: 700;
+}
+
+.features-product h6 {
+  color: #3D0072;
+  font-size: 13px;
+  line-height: 17px;
+  font-weight: 500;
 }
