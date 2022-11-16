@@ -42,7 +42,33 @@ function OtpPage() {
       setIsLoading(false);
       Swal.fire({
         icon: "error",
-        title: `Something wrong`,
+        title: `Something went wrong`,
+        text: `Please try again`,
+      });
+      console.log(error);
+    }
+  };
+
+  const handleResend = async (e) => {
+    e.preventDefault();
+    const { email } = user;
+    try {
+      const { data } = await axios.post(
+        "https://ard-illa.herokuapp.com/ardilla/api/auth/send-otp",
+        { email }
+      );
+
+      if (data) {
+        Swal.fire({
+          icon: "success",
+
+          text: `verification token has been resent`,
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: `Something went wrong`,
         text: `Please try again`,
       });
     }
@@ -113,7 +139,8 @@ function OtpPage() {
 
                   <div className="bottom">
                     <p className="user">
-                      Didn't get OTP? <Link>Resend</Link>
+                      Didn't get OTP?{" "}
+                      <button onClick={handleResend}>Resend</button>
                     </p>
                   </div>
                 </form>
