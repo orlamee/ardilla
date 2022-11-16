@@ -27,9 +27,9 @@ function Register() {
 
       console.log(data);
 
-      // sessionStorage.setItem("user", JSON.stringify(data));
+      sessionStorage.setItem("user", JSON.stringify(data));
 
-      // navigate("/otp");
+      navigate("/otp");
     } catch (error) {
       setIsLoading(false);
       Swal.fire({
