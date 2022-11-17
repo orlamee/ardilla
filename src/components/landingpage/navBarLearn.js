@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../img/ardilla.svg";
-import globe from "../img/globe.svg";
+import logo from "../../img/ardilla.svg";
+import globe from "../../img/globe.svg";
 
-function Header() {
+function LearnHeader() {
   return(
     <nav className="navbar fixed-top navbar-expand-lg navbar-light py-4 px-1">
       <div className='container'>
@@ -17,26 +17,23 @@ function Header() {
           <div className="me-auto">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link active">Products</Link>
+                <Link className="nav-link active">Guide</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link">Business <span className="nav-badge ms-2">Beta</span></Link>
+                <Link className="nav-link">Testomonies</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link">Company</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/learn">Learn</Link>
+                <Link className="nav-link">Updates</Link>
               </li>
             </ul>
           </div>
           <div className='ms-auto' style={{marginTop: "18px"}}>
             <ul className="navbar-nav">
-              <li className='nav-item'>
-                <Link className='nav-link me-3' to="/login">Sign in</Link>
+              <li className='nav-item mt-2 desktop'>
+                <i className="bi bi-search"></i>
               </li>
               <li className='nav-item'>
-                <Link className='btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="/sign-up">Create Account</Link>
+                <Link className='btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="/sign-up">Sign Up For Free</Link>
               </li>
               <li className='nav-item'>
                 <img src={globe} alt="" className="img-fluid globe" />
@@ -49,4 +46,4 @@ function Header() {
   )
 }
 
-export default Header;
+export default LearnHeader;

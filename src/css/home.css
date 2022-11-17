@@ -157,3 +157,28 @@ h5 a {
   font-weight: 400;
   border-radius: 4px;
 }
+
+@media (min-width: 992px){
+  .globe {
+    margin-top: -7px;
+  }
+}
+
+
+.videos {
+  padding-top: 100px;
+}
+
+.videos h2 {
+  color: #3D0072;
+  font-size: 55px;
+  line-height: 64px;
+  font-weight: 700;
+}
+
+.videos h6 {
+  color: #3D0072;
+  font-size: 13px;
+  line-height: 17px;
+  font-weight: 500;
+}
