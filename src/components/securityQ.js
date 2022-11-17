@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../img/logo.svg";
 import home from "../img/home-login.svg";
 
 function SecurityPage() {
+  let securityQusetion;
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
+
+  const handleSubmit = () => {
+    securityQusetion = {
+      question,
+      answer,
+    };
+
+    console.log(securityQusetion);
+  };
+
   return (
     <section className="login-section">
       <div className="container">
@@ -31,20 +44,25 @@ function SecurityPage() {
           <div className="col-md-5 aggregate">
             <div className="right">
               <div className="login-form">
-                <form className="">
+                <form className="" onSubmit={handleSubmit}>
                   <select
                     className="form-select mb-3 custom-form"
                     aria-label="Default select example"
+                    onChange={(e) => setQuestion(e.target.value)}
                   >
                     {/* <option defaultValue>Open this select menu</option> */}
-                    <option value="1">
+                    <option value="What is the name of your favorite pet?">
                       What is the name of your favorite pet?
                     </option>
-                    <option value="2">
+                    <option value=" What is your mother's maiden name?">
                       What is your mother's maiden name?
                     </option>
-                    <option value="3">Where did you meet your spouse?</option>
-                    <option value="4">What is your first crush name?</option>
+                    <option value="Where did you meet your spouse?">
+                      Where did you meet your spouse?
+                    </option>
+                    <option value="What is your first crush name?">
+                      What is your first crush name?
+                    </option>
                   </select>
                   <div className="mb-3">
                     <input
@@ -52,11 +70,13 @@ function SecurityPage() {
                       className="form-control custom-form"
                       placeholder="Your Answer"
                       required
+                      value={answer}
+                      onChange={(e) => setAnswer(e.target.value)}
                     />
                   </div>
                   <div className="">
                     <button
-                      type="button"
+                      type="submit"
                       className="btn btn-outline-primary px-5 py-3 ardilla-btn"
                       style={{ width: "100%" }}
                     >
