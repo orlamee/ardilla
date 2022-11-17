@@ -22,9 +22,9 @@ function Testimonial() {
           </div>
           <div className="col-md-5" style={{paddingLeft: "90px"}}>
             <div className="d-flex flex-row">
-              <img src={stack} alt="" className="imf-fluid me-3" />
-              <img src={stack} alt="" className="imf-fluid me-3" />
-              <img src={stack} alt="" className="imf-fluid  me-3" />
+              <img src={stack} alt="" className="imf-fluid me-4" />
+              <img src={stack} alt="" className="imf-fluid me-4" />
+              <img src={stack} alt="" className="imf-fluid  me-4" />
             </div>
           </div>
         </div>
