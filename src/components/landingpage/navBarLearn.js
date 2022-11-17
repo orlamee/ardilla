@@ -8,7 +8,7 @@ function LearnHeader() {
     <nav className="navbar fixed-top navbar-expand-lg navbar-light py-2 px-1">
       <div className='container'>
         <Link className='navbar-brand' to="/learn">
-          <img src={logo} alt="" className='img-fluid' style={{marginTop: "-10px"}} />
+          <img src={logo} alt="" className='img-fluid' style={{marginTop: "-8px"}} />
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
           <span className="navbar-toggler-icon"></span>
