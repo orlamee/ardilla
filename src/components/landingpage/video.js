@@ -29,7 +29,7 @@ function Videos() {
           </div>
         </div>
         <div className="row justify-content-center text-center web">
-          <div className="col-md-11">
+          <div className="col-md-10">
             <div className="webapp">
               <h4>Also Available on Web</h4>
               <p className="my-3">Ardilla helps you grow your finances anywhere and anytime you need to. The<br/>services on the App are also accessible on the Web.</p>
