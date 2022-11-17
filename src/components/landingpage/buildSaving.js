@@ -9,11 +9,11 @@ import flex from "../../img/flex.svg";
 
 function Build() {
   return(
-    <section className="build-saving">
+    <section className="build-saving" data-aos="slide-down" data-aos-duration="1000">
       <div className="container">
         <div className="row">
           <div className="col-md-6">
-            <h2 className="mb-3">Build your savings<br/>the right way</h2>
+            <h2 className="mb-3" >Build your savings<br/>the right way</h2>
             <h6>Plan towards your future by saving with ardilla,<br/>Grow your money with pro-vetted savings plans<br/> just for you.</h6>
             <h5 className="my-3"><Link>Learn More about Savings <i className="bi bi-chevron-right"></i></Link></h5>
             <img src={transactions} alt="" className="img-fluid" />
