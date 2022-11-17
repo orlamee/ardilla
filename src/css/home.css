@@ -101,19 +101,39 @@ h5 a {
   color: #3D0072;
 }
 
-.card-frame {
-  background-color: #fff;
-  padding: 40px 30px;
-  border-radius: 10px;
-  cursor: pointer;
+@media (max-width: 767.98px){
+  .card-frame {
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0px 25px;
+  }
+  .card-frame:hover {
+    background-color: #e6346d;
+    padding: 40px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0px 25px;
+    transition: 0.3s;
+  }
 }
 
-.card-frame:hover {
-  background-color: #e6346d;
-  padding: 40px 30px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
+@media (min-width: 992px){
+  .card-frame:hover {
+    background-color: #e6346d;
+    padding: 40px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .card-frame {
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
 }
 
 .card-frame:hover p {
@@ -181,4 +201,18 @@ h5 a {
   font-size: 13px;
   line-height: 17px;
   font-weight: 500;
+}
+
+.video-item {
+  height: 524px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.logo-house {
+  padding: 60px 0px;
+}
+
+.press {
+  margin-top: 25px;
 }

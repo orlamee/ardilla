@@ -7,7 +7,7 @@ function LearnHeader() {
   return(
     <nav className="navbar fixed-top navbar-expand-lg navbar-light py-4 px-1">
       <div className='container'>
-        <Link className='navbar-brand' to="/">
+        <Link className='navbar-brand' to="/learn">
           <img src={logo} alt="" className='img-fluid' style={{marginTop: "-10px"}} />
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
@@ -20,7 +20,7 @@ function LearnHeader() {
                 <Link className="nav-link active">Guide</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link">Testomonies</Link>
+                <Link className="nav-link">Testimonies</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link">Updates</Link>
@@ -33,7 +33,7 @@ function LearnHeader() {
                 <i className="bi bi-search"></i>
               </li>
               <li className='nav-item'>
-                <Link className='btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="/sign-up">Sign Up For Free</Link>
+                <Link className='btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="/sign-up">Create Account</Link>
               </li>
               <li className='nav-item'>
                 <img src={globe} alt="" className="img-fluid globe" />
