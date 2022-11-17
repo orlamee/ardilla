@@ -32,7 +32,7 @@ function CompleteProfile() {
 
       Swal.fire({
         icon: "success",
-        title: `Hey <${kodeHex}/> `,
+        title: `Hey <${data.kodeHex}/> `,
         text: `Your account has been created `,
       });
 
