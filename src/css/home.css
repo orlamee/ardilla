@@ -279,3 +279,49 @@ h5 a {
     padding-right: 111px;
   }
 }
+
+.footer-top {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 50px 0px 50px;
+  background-image: url("../img/bg-footer.svg");
+  border-radius: 30px;
+  margin: 0px;
+}
+
+.footer-top h2 {
+  color: #fff;
+  font-size: 37px;
+  line-height: 42px;
+  font-weight: 700;
+}
+
+.download {
+  background: #5B00AB!important;
+  border-color: #5B00AB!important;
+}
+
+.download-btn {
+  background: #fff!important;
+  color: #3C0071!important;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 14px 20px;
+  border-color: #fff!important;
+}
+
+.download-btn:hover {
+  background: #000!important;
+  color: #fff!important;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 14px 20px;
+  border-color: #000!important;
+}
+
+.footer-bottom {
+  background: rgba(136, 7, 247, 0.05);
+  padding: 220px 20px;
+  margin-top: -240px;
+}

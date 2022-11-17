@@ -1,3 +1,4 @@
+import Footer from './components/footer';
 import Build from './components/landingpage/buildSaving';
 import Hero from './components/landingpage/hero';
 import Products from './components/landingpage/product';
@@ -17,6 +18,7 @@ function App() {
       <Build/>
       <Videos/>
       <Testimonial/>
+      <Footer/>
     </div>
   );
 }

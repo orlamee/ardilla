@@ -9,13 +9,13 @@ function Hero() {
     <section className="banner">
       <div className="container">
         <div className="row">
-          <div className="col-md-6 mb-3" data-aos="slide-down" data-aos-duration="1000">
+          <div className="col-md-6 mb-3" >
             <h2 className="desktop">The Smartest<br/>way to grow<br/>your wealth</h2>
             <h2 className="mobile">The Smartest way to grow your wealth</h2>
             <h6 className="my-5">Ardilla helps you save and invest in achieving your<br/>financial goals, we have the most flexible and seamless<br/>way to grow your funds.</h6>
             <Link className='btn btn-outline-primary px-5 py-3 ardilla-btn fs-6' to="/">Get Started</Link>
           </div>
-          <div className="col-md-6 text-end" data-aos="slide-left" data-aos-duration="1000">
+          <div className="col-md-6 text-end">
             <img src={demo} alt="" className="img-fluid" />
           </div>
         </div>
