@@ -36,8 +36,6 @@ function CompleteProfile() {
         text: `Your account has been created `,
       });
 
-      console.log(data);
-
       setIsLoading(false);
       navigate("/security-question");
     } catch (error) {

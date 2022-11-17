@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../img/logo.svg";
 import home from "../img/home-login.svg";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function SecurityPage() {
   const user = JSON.parse(sessionStorage.getItem("user"));
   let securityQusetion;
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,9 +27,20 @@ function SecurityPage() {
         { securityQusetion }
       );
 
-      console.log(data);
+      if (data.success === true) {
+        Swal.fire({
+          icon: "success",
+          text: `Your secret is safe with me`,
+        });
+
+        navigate("/login");
+      }
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: `Server error`,
+        text: `please try again.`,
+      });
     }
   };
 
