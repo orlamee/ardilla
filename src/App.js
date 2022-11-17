@@ -1,6 +1,8 @@
 import Build from './components/landingpage/buildSaving';
 import Hero from './components/landingpage/hero';
 import Products from './components/landingpage/product';
+import Testimonial from './components/landingpage/testimonial';
+import Videos from './components/landingpage/video';
 import Header from './components/navBar';
 import './css/App.css';
 import "./css/home.css";
@@ -13,6 +15,8 @@ function App() {
       <Hero/>
       <Products/>
       <Build/>
+      <Videos/>
+      <Testimonial/>
     </div>
   );
 }
