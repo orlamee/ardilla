@@ -5,6 +5,7 @@ import home from "../img/home-login.svg";
 import axios from "axios";
 
 function SecurityPage() {
+  const user = JSON.parse(sessionStorage.getItem("user"));
   let securityQusetion;
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
@@ -16,7 +17,10 @@ function SecurityPage() {
     };
 
     try {
-      const { data } = await axios.put("", { securityQusetion });
+      const { data } = await axios.put(
+        `https://ard-illa.herokuapp.com/ardilla/api/auth/security-question/${user.id}`,
+        { securityQusetion }
+      );
 
       console.log(data);
     } catch (error) {
