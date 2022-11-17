@@ -2,19 +2,26 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../img/logo.svg";
 import home from "../img/home-login.svg";
+import axios from "axios";
 
 function SecurityPage() {
   let securityQusetion;
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
     securityQusetion = {
       question,
       answer,
     };
 
-    console.log(securityQusetion);
+    try {
+      const { data } = await axios.put("", { securityQusetion });
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
