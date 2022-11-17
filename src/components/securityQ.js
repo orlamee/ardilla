@@ -11,6 +11,8 @@ function SecurityPage() {
   const [answer, setAnswer] = useState("");
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+
     securityQusetion = {
       question,
       answer,
