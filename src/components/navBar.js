@@ -16,8 +16,13 @@ function Header() {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <div className="me-auto">
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link active">Products</Link>
+              <li className="nav-item dropdown">
+                <Link className="nav-link active dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" to="/">Products</Link>
+                <div className="dropdown-menu dropdown-large">
+                  <div className='row'>
+                      
+                  </div>
+                </div>
               </li>
               <li className="nav-item">
                 <Link className="nav-link">Business <span className="nav-badge ms-2">Beta</span></Link>

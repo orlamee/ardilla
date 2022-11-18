@@ -377,3 +377,23 @@ h5 a {
   opacity: 1; /* Firefox */
 }
 
+@media only screen and (min-width: 768px){
+  .dropdown-large {
+    min-width: 488px!important;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    background-image: url('../img/drop-bg.svg');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 30px;
+    padding: 90px 20px;
+  }
+}
+
+@media (max-width: 767.98px){
+  .dropdown-large {
+    min-width: 309px!important;
+    margin-left: -33px;
+  }
+}
