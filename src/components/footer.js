@@ -93,9 +93,9 @@ function Footer() {
             </div>
             <div className="col-md-2">
               <div className="d-flex flex-row">
-                <img src={facebook} alt="" className="img-fluid me-3" />
-                <img src={linkedin} alt="" className="img-fluid me-3" />
-                <img src={twitter} alt="" className="img-fluid" />
+                <Link to="/"><img src={facebook} alt="" className="img-fluid me-3" /></Link>
+                <Link to="/"><img src={linkedin} alt="" className="img-fluid me-3" /></Link>
+                <Link to="/"><img src={twitter} alt="" className="img-fluid me-3" /></Link>
               </div>
             </div>
           </div>
