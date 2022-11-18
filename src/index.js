@@ -24,10 +24,10 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}></Route>
       <Route path="/sign-up" element={<SignUp />}></Route>
-      <Route path="/learn" element={<Learn/>}></Route>
+      <Route path="/learn" element={<Learn />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
-      <Route path="/recover-password" element={<ForgotPassword/>}></Route>
-      <Route path="/set-password" element={<SetPassword/>}></Route>
+      <Route path="/recover-password" element={<ForgotPassword />}></Route>
+      <Route path="/set-password/:id" element={<SetPassword />}></Route>
       <Route
         path="/otp"
         element={
