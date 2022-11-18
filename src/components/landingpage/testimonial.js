@@ -1,6 +1,6 @@
 import React from "react";
 import testimonies from "../../img/testimonies.svg";
-import stack from "../../img/stackivy.png";
+import dhata from "../../img/dhata.svg";
 
 
 function Testimonial() {
@@ -22,9 +22,9 @@ function Testimonial() {
           </div>
           <div className="col-md-5" style={{paddingLeft: "90px"}}>
             <div className="d-flex flex-row">
-              <img src={stack} alt="" className="imf-fluid me-4" />
-              <img src={stack} alt="" className="imf-fluid me-4" />
-              <img src={stack} alt="" className="imf-fluid  me-4" />
+              <img src={dhata} alt="" className="imf-fluid me-4" />
+              <img src={dhata} alt="" className="imf-fluid me-4" />
+              <img src={dhata} alt="" className="imf-fluid  me-4" />
             </div>
           </div>
         </div>
