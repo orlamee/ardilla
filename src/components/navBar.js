@@ -71,9 +71,25 @@ function Header() {
                           </div>
                         </div>
                       </Link>
-                      
                     </div>                      
-                    <div className="col-md-6"></div>                      
+                    <div className="col-md-6 px-5 pt-3">
+                      <div className="d-flex flex-row mb-3">
+                        <i className="bi bi-check2 me-3"></i>
+                        <h4 className="mt-1">Flex Savings Plan</h4>
+                      </div>
+                      <div className="d-flex flex-row mb-3">
+                        <i className="bi bi-check2 me-3"></i>
+                        <h4 className="mt-1">Target Savings Plan</h4>
+                      </div>
+                      <div className="d-flex flex-row mb-3">
+                        <i className="bi bi-check2 me-3"></i>
+                        <h4 className="mt-1">For me Plan</h4>
+                      </div>
+                      <div className="d-flex flex-row mb-3">
+                        <i className="bi bi-check2 me-3"></i>
+                        <h4 className="mt-1">Savings Challenge</h4>
+                      </div>
+                    </div>                      
                   </div>
                 </div>
               </li>

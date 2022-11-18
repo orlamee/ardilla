@@ -419,3 +419,14 @@ h5 a {
 .header h2:hover {
   color: #e6346d;
 }
+
+.header h2:active {
+  color: #e6346d;
+}
+
+.header h4 {
+  color: #6B7280;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 14px;
+}
