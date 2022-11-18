@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../img/ardilla.svg";
 import globe from "../img/globe.svg";
+import save from "../img/save.svg";
 
 function Header() {
   return(
     <nav className="navbar fixed-top navbar-expand-lg navbar-light py-2 px-1">
-      <div className='container'>
+      <div className='container header'>
         <Link className='navbar-brand' to="/">
           <img src={logo} alt="" className='img-fluid' style={{marginTop: "-8px"}} />
         </Link>
@@ -20,7 +21,44 @@ function Header() {
                 <Link className="nav-link active dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" to="/">Products</Link>
                 <div className="dropdown-menu dropdown-large">
                   <div className='row'>
-                      
+                    <div className="col-md-6 border-end">
+                      <div className="d-flex flex-row">
+                        <img src={save} alt="" className="img-fluid" />
+                        <div className="mt-3">
+                          <h2>Save</h2>
+                          <h6>Save at your pace</h6>
+                        </div>
+                      </div>
+                      <div className="d-flex flex-row">
+                        <img src={save} alt="" className="img-fluid" />
+                        <div className="mt-3">
+                          <h2>Save</h2>
+                          <h6>Save at your pace</h6>
+                        </div>
+                      </div>
+                      <div className="d-flex flex-row">
+                        <img src={save} alt="" className="img-fluid" />
+                        <div className="mt-3">
+                          <h2>Save</h2>
+                          <h6>Save at your pace</h6>
+                        </div>
+                      </div>
+                      <div className="d-flex flex-row">
+                        <img src={save} alt="" className="img-fluid" />
+                        <div className="mt-3">
+                          <h2>Save</h2>
+                          <h6>Save at your pace</h6>
+                        </div>
+                      </div>
+                      <div className="d-flex flex-row">
+                        <img src={save} alt="" className="img-fluid" />
+                        <div className="mt-3">
+                          <h2>Save</h2>
+                          <h6>Save at your pace</h6>
+                        </div>
+                      </div>
+                    </div>                      
+                    <div className="col-md-6"></div>                      
                   </div>
                 </div>
               </li>
