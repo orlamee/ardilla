@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import logo from "../img/ardilla.svg";
 import globe from "../img/globe.svg";
 import save from "../img/save.svg";
+import wallet from "../img/wallet.svg";
+import learn from "../img/learn.svg";
+import claim from "../img/claim.svg";
+import invest from "../img/invest.svg";
 
 function Header() {
   return(
@@ -22,41 +26,52 @@ function Header() {
                 <div className="dropdown-menu dropdown-large">
                   <div className='row'>
                     <div className="col-md-6 border-end">
-                      <div className="d-flex flex-row">
-                        <img src={save} alt="" className="img-fluid" />
-                        <div className="mt-3">
-                          <h2>Save</h2>
-                          <h6>Save at your pace</h6>
+                      <Link>
+                        <div className="d-flex flex-row">
+                          <img src={save} alt="" className="img-fluid" />
+                          <div className="mt-3">
+                            <h2 className="active">Save</h2>
+                            <h6>Save at your pace</h6>
+                          </div>
                         </div>
-                      </div>
-                      <div className="d-flex flex-row">
-                        <img src={save} alt="" className="img-fluid" />
-                        <div className="mt-3">
-                          <h2>Save</h2>
-                          <h6>Save at your pace</h6>
+                      </Link>
+                      <Link>
+                        <div className="d-flex flex-row">
+                          <img src={invest} alt="" className="img-fluid" />
+                          <div className="mt-3">
+                            <h2>Invest</h2>
+                            <h6>Unlimited Returns opportunities</h6>
+                          </div>
                         </div>
-                      </div>
-                      <div className="d-flex flex-row">
-                        <img src={save} alt="" className="img-fluid" />
-                        <div className="mt-3">
-                          <h2>Save</h2>
-                          <h6>Save at your pace</h6>
+                      </Link>
+                      <Link>
+                        <div className="d-flex flex-row">
+                          <img src={claim} alt="" className="img-fluid" />
+                          <div className="mt-3">
+                            <h2>Make a claim</h2>
+                            <h6>Create a claim at any time</h6>
+                          </div>
                         </div>
-                      </div>
-                      <div className="d-flex flex-row">
-                        <img src={save} alt="" className="img-fluid" />
-                        <div className="mt-3">
-                          <h2>Save</h2>
-                          <h6>Save at your pace</h6>
+                      </Link>
+                      <Link>
+                        <div className="d-flex flex-row">
+                          <img src={wallet} alt="" className="img-fluid" />
+                          <div className="mt-3">
+                            <h2>Wallet</h2>
+                            <h6>Unlimited transactions</h6>
+                          </div>
                         </div>
-                      </div>
-                      <div className="d-flex flex-row">
-                        <img src={save} alt="" className="img-fluid" />
-                        <div className="mt-3">
-                          <h2>Save</h2>
-                          <h6>Save at your pace</h6>
+                      </Link>
+                      <Link>
+                        <div className="d-flex flex-row">
+                          <img src={learn} alt="" className="img-fluid" />
+                          <div className="mt-3">
+                            <h2>Learn</h2>
+                            <h6>Learn and get paid</h6>
+                          </div>
                         </div>
-                      </div>
+                      </Link>
+                      
                     </div>                      
                     <div className="col-md-6"></div>                      
                   </div>

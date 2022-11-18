@@ -379,7 +379,7 @@ h5 a {
 
 @media only screen and (min-width: 768px){
   .dropdown-large {
-    min-width: 488px!important;
+    min-width: 537px!important;
     border: 1px solid #fff;
     border-radius: 20px;
     background-image: url('../img/drop-bg.svg');
@@ -406,8 +406,16 @@ h5 a {
 }
 
 .header h2 {
-  color: #E5336D;
+  color: #3D0072;
   font-size: 14px;
   line-height: 17px;
   font-weight: 700;
+}
+
+.header a {
+  text-decoration: none;
+}
+
+.header h2:hover {
+  color: #e6346d;
 }
