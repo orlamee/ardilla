@@ -11,7 +11,7 @@ function Testimonial() {
           <div className="col-md-6 mb-3">
             <img src={testimonies} alt="" className="img-fluid" />
           </div>
-          <div className="col-md-5 right-contact">
+          <div className="col-md-5 right-contact mb-3">
             <h3>5 Million +<br/>customers</h3>
             <p>With over 5 million + Customers our Support team is ready and always available to your requests and complaints, you can also chat with us on the app, slide into our Dms , tweet, instagram comment, send an email to support@ardilla.africa or call our Customer Support on +01234</p>
           </div>
