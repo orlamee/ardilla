@@ -1,5 +1,5 @@
 .banner {
-  margin: 240px 10px 70px 10px;
+  margin: 200px 10px 70px 10px;
 }
 
 .banner h2 {
@@ -322,6 +322,34 @@ h5 a {
 
 .footer-bottom {
   background: rgba(136, 7, 247, 0.05);
-  padding: 220px 20px;
+  padding: 270px 20px;
   margin-top: -240px;
+}
+
+.footer-bottom p {
+  color: #666;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.footer-bottom h4 {
+  font-size: 13px;
+  color: #0E390E;
+  line-height: 32px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.list-unstyled {
+  padding-left: 0;
+}
+
+.footer-bottom .links li {
+  display: block;
+  color: #666666;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 32px;
+  text-decoration: none;
 }
