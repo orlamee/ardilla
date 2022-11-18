@@ -180,7 +180,7 @@ h5 a {
 
 @media (min-width: 992px){
   .globe {
-    margin-top: -7px;
+    margin-top: -2px;
   }
 }
 
@@ -388,6 +388,38 @@ h5 a {
     background-size: cover;
     margin-left: 30px;
     padding: 20px 20px;
+    margin-top: 15px!important;
+  }
+}
+
+@media only screen and (min-width: 768px){
+  .dropdown-single {
+    min-width: 300px!important;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    background-image: url('../img/drop-bg.svg');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 30px;
+    padding: 20px 20px;
+    margin-top: 15px!important;
+
+  }
+}
+
+@media only screen and (min-width: 768px){
+  .dropdown-globe {
+    min-width: 320px!important;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    background-image: url('../img/drop-bg.svg');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: -100px;
+    padding: 20px 20px;
+    margin-top: -7px!important;
   }
 }
 
@@ -430,3 +462,5 @@ h5 a {
   font-size: 11px;
   line-height: 14px;
 }
+
+
