@@ -26,18 +26,20 @@ function CompleteProfile() {
 
     try {
       const { data } = await axios.post(
-        `https://ard-illa.herokuapp.com/ardilla/api/auth/complete-profile/${user?.id}`,
+        `https://ardilla-be-app.herokuapp.com/api/auth/complete-profile/${user?.id}`,
         { email, firstname, lastname, contact, password, kodeHex }
       );
 
-      Swal.fire({
-        icon: "success",
-        title: `Hey <${data.kodeHex}/> `,
-        text: `Your account has been created `,
-      });
-
       setIsLoading(false);
-      navigate("/security-question");
+      if (data.success === true) {
+        Swal.fire({
+          icon: "success",
+          text: `${data.msg}`,
+        });
+
+        setIsLoading(false);
+        navigate("/security-question");
+      }
     } catch (error) {
       setIsLoading(false);
       Swal.fire({

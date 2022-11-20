@@ -4,21 +4,36 @@ import home from "../img/home-login.svg";
 import logo from "../img/logo.svg";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const sendRequest = async () => {
     try {
+      setLoading(true);
+
       const { data } = await axios.post(
-        "https://ard-illa.herokuapp.com/ardilla/api/auth/login",
+        "https://ardilla-be-app.herokuapp.com/ardilla/api/auth/login",
         { email, password }
       );
 
-      console.log(data);
+      if (data.success === true) {
+        Swal.fire({
+          icon: "error",
+
+          text: `${data.msg}.`,
+        });
+      }
     } catch (error) {
-      console.log(error);
+      setLoading(false);
+      Swal.fire({
+        icon: "error",
+        title: `Server Error`,
+        text: `please try again.`,
+      });
     }
   };
 
@@ -126,15 +141,27 @@ function Login() {
                       Forgot Password?
                     </Link>
                   </div>
-                  <div className="mt-4 mb-5">
-                    <button
-                      type="submit"
-                      className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                      style={{ width: "100%" }}
-                    >
-                      Log In
-                    </button>
-                  </div>
+                  {loading ? (
+                    <div className="mt-4 mb-5">
+                      <button
+                        type="button"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                        style={{ width: "100%" }}
+                      >
+                        Loading
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="mt-4 mb-5">
+                      <button
+                        type="submit"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                        style={{ width: "100%" }}
+                      >
+                        Log In
+                      </button>
+                    </div>
+                  )}
                 </form>
                 <div className="separator">
                   <div className="line"></div>

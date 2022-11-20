@@ -10,11 +10,13 @@ function SecurityPage() {
   let securityQusetion;
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     securityQusetion = {
       question,
@@ -23,19 +25,22 @@ function SecurityPage() {
 
     try {
       const { data } = await axios.put(
-        `https://ard-illa.herokuapp.com/ardilla/api/auth/security-question/${user.id}`,
+        `https://ardilla-be-app.herokuapp.com/api/auth/security-question/${user.id}`,
         { securityQusetion }
       );
 
       if (data.success === true) {
         Swal.fire({
           icon: "success",
-          text: `Your secret is safe with me`,
+          text: `${data.msg}`,
         });
 
         navigate("/login");
       }
+
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       Swal.fire({
         icon: "error",
         title: `Server error`,
@@ -101,15 +106,27 @@ function SecurityPage() {
                       onChange={(e) => setAnswer(e.target.value)}
                     />
                   </div>
-                  <div className="">
-                    <button
-                      type="submit"
-                      className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                      style={{ width: "100%" }}
-                    >
-                      Continue
-                    </button>
-                  </div>
+                  {loading ? (
+                    <div className="">
+                      <button
+                        type="button"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                        style={{ width: "100%" }}
+                      >
+                        Loading
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="">
+                      <button
+                        type="submit"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                        style={{ width: "100%" }}
+                      >
+                        Continue
+                      </button>
+                    </div>
+                  )}
                 </form>
               </div>
             </div>
