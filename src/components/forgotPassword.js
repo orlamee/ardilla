@@ -27,7 +27,11 @@ function Forgot() {
         });
       }
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: `Oops, something went wrong`,
+        text: `please try again.`,
+      });
     }
   };
   return (
