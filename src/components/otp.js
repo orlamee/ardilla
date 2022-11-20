@@ -18,7 +18,7 @@ function OtpPage() {
     setIsLoading(true);
     try {
       const { data } = await axios.post(
-        `https://ard-illa.herokuapp.com/ardilla/api/auth/verify-otp/${user?.token}`,
+        `https://ardilla-be-app.herokuapp.com/api/auth/verify-otp/${user?.token}`,
         { code }
       );
 
@@ -55,7 +55,7 @@ function OtpPage() {
     const { email } = user;
     try {
       const { data } = await axios.post(
-        "https://ard-illa.herokuapp.com/ardilla/api/auth/send-otp",
+        "https://ardilla-be-app.herokuapp.com/ardilla/api/auth/send-otp",
         { email }
       );
 
@@ -81,7 +81,7 @@ function OtpPage() {
   const handleWrongEmail = async () => {
     try {
       const { data } = await axios.delete(
-        `https://ard-illa.herokuapp.com/ardilla/api/auth/wrong-email/${user?.id}`
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/wrong-email/${user?.id}`
       );
 
       sessionStorage.clear();
