@@ -21,11 +21,14 @@ function Login() {
       );
 
       if (data.success === true) {
+        setLoading(false);
+
         Swal.fire({
           icon: "success",
           text: `${data.msg}.`,
         });
       } else {
+        setLoading(false);
         Swal.fire({
           icon: "error",
           title: `Error`,
