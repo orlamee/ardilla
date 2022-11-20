@@ -22,8 +22,13 @@ function Login() {
 
       if (data.success === true) {
         Swal.fire({
+          icon: "success",
+          text: `${data.msg}.`,
+        });
+      } else {
+        Swal.fire({
           icon: "error",
-
+          title: `Error`,
           text: `${data.msg}.`,
         });
       }
