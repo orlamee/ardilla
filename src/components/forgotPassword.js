@@ -9,6 +9,7 @@ function Forgot() {
   const [email, setEmail] = useState("");
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       const { data } = await axios.post(
         "https://ardilla-be-app.herokuapp.com/ardilla/api/auth/forgot-password",
