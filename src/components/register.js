@@ -6,6 +6,7 @@ import dot from "../img/dot.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Cookies from "js-cookie";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -25,9 +26,9 @@ function Register() {
 
       setIsLoading(false);
 
-      sessionStorage.setItem("user", JSON.stringify(data));
+      Cookies.set("token", data.token);
 
-      navigate("/otp");
+      navigate("/otp", { state: { data } });
     } catch (error) {
       setIsLoading(false);
       Swal.fire({
