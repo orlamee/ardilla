@@ -5,7 +5,6 @@ import complete from "../img/profilecomplete.svg";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-
 function CompleteProfile() {
   const location = useLocation();
 
@@ -27,36 +26,32 @@ function CompleteProfile() {
 
     const { id } = location.state;
 
-    if (location.state.email !== email) {
-      try {
-        const { data } = await axios.post(
-          `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/complete-profile/${location.state.id}`,
-          { email, firstname, lastname, contact, password, kodeHex }
-        );
+    try {
+      const { data } = await axios.post(
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/complete-profile/${location.state.id}`,
+        { email, firstname, lastname, contact, password, kodeHex }
+      );
+
+      setIsLoading(false);
+      if (data.success === true) {
+        Swal.fire({
+          icon: "success",
+          text: `${data.msg}`,
+        });
 
         setIsLoading(false);
-        if (data.success === true) {
-          Swal.fire({
-            icon: "success",
-            text: `${data.msg}`,
-          });
-
-          setIsLoading(false);
-          navigate("/security-question", { state: { id } });
-        }
-      } catch (error) {
-        setIsLoading(false);
+        navigate("/security-question", { state: { id } });
+      } else {
         Swal.fire({
           icon: "error",
-          title: `Oops, something went wrong`,
-          text: `please try again.`,
+          text: `${data.msg}`,
         });
       }
-    } else {
+    } catch (error) {
       setIsLoading(false);
       Swal.fire({
         icon: "error",
-        title: `Email don't match`,
+        title: `Oops, something went wrong`,
         text: `please try again.`,
       });
     }
