@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../img/logo.svg";
 import home from "../img/home-login.svg";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 function SecurityPage() {
-  const user = JSON.parse(sessionStorage.getItem("user"));
+  const location = useLocation();
+
   let securityQusetion;
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
@@ -25,7 +26,7 @@ function SecurityPage() {
 
     try {
       const { data } = await axios.put(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/security-question/${user.id}`,
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/security-question/${location.state.id}`,
         { securityQusetion }
       );
 
@@ -54,7 +55,7 @@ function SecurityPage() {
       <div className="container">
         <div className="row logo">
           <div className="col-md-6">
-            <Link to="/" onClick={() => sessionStorage.clear()}>
+            <Link to="/complete-profile">
               <img src={logo} alt="" className="img-fluid mb-5" />
             </Link>
           </div>
@@ -80,8 +81,10 @@ function SecurityPage() {
                   <select
                     className="form-select mb-3 custom-form"
                     aria-label="Default select example"
+                    required
                     onChange={(e) => setQuestion(e.target.value)}
                   >
+                    <option value="">Select security question</option>
                     {/* <option defaultValue>Open this select menu</option> */}
                     <option value="What is the name of your favorite pet?">
                       What is the name of your favorite pet?

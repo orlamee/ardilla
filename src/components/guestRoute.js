@@ -1,14 +1,9 @@
 import { Navigate } from "react-router-dom";
-import Cookies from "js-cookie";
 
 const ProtectedRoute = ({ children }) => {
   const user = Cookies.get("token");
 
-  if (!user) {
-    return <Navigate to={"/sign-up"} />;
-  }
-
-  return children;
+  return user ? children : <Navigate to={"/login"} replace={true} />;
 };
 
 export default ProtectedRoute;

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import logo from "../img/logo.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import complete from "../img/profilecomplete.svg";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 function CompleteProfile() {
-  const user = JSON.parse(sessionStorage.getItem("user"));
+  const location = useLocation();
 
-  const [email, setEmail] = useState(user.email);
+  const [email, setEmail] = useState(location.state.email);
   const [kodeHex, setKodeHex] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -24,27 +24,38 @@ function CompleteProfile() {
     e.preventDefault();
     setIsLoading(true);
 
-    try {
-      const { data } = await axios.post(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/complete-profile/${user?.id}`,
-        { email, firstname, lastname, contact, password, kodeHex }
-      );
+    const { id } = location.state;
 
-      setIsLoading(false);
-      if (data.success === true) {
-        Swal.fire({
-          icon: "success",
-          text: `${data.msg}`,
-        });
+    if (location.state.email !== email) {
+      try {
+        const { data } = await axios.post(
+          `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/complete-profile/${location.state.id}`,
+          { email, firstname, lastname, contact, password, kodeHex }
+        );
 
         setIsLoading(false);
-        navigate("/security-question");
+        if (data.success === true) {
+          Swal.fire({
+            icon: "success",
+            text: `${data.msg}`,
+          });
+
+          setIsLoading(false);
+          navigate("/security-question", { state: { id } });
+        }
+      } catch (error) {
+        setIsLoading(false);
+        Swal.fire({
+          icon: "error",
+          title: `Oops, something went wrong`,
+          text: `please try again.`,
+        });
       }
-    } catch (error) {
+    } else {
       setIsLoading(false);
       Swal.fire({
         icon: "error",
-        title: `Oops, something went wrong`,
+        title: `Email don't match`,
         text: `please try again.`,
       });
     }
@@ -55,7 +66,7 @@ function CompleteProfile() {
       <div className="container">
         <div className="row logo">
           <div className="col-md-6">
-            <Link to="/otp" onClick={() => sessionStorage.clear()}>
+            <Link to="/otp">
               <img src={logo} alt="" className="img-fluid mb-5" />
             </Link>
           </div>
