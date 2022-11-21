@@ -7,9 +7,11 @@ import Swal from "sweetalert2";
 
 function Forgot() {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const { data } = await axios.post(
         "https://ardilla-be-app.herokuapp.com/ardilla/api/auth/forgot-password",
@@ -17,17 +19,20 @@ function Forgot() {
       );
 
       if (data.success === true) {
+        setLoading(false);
         Swal.fire({
           icon: "success",
           text: `${data.msg}.`,
         });
       } else {
+        setLoading(false);
         Swal.fire({
           icon: "error",
           text: `${data.msg}`,
         });
       }
     } catch (error) {
+      setLoading(false);
       Swal.fire({
         icon: "error",
         title: `Oops, something went wrong`,
@@ -74,15 +79,27 @@ function Forgot() {
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
-                  <div className="">
-                    <button
-                      type="submit"
-                      className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                      style={{ width: "100%" }}
-                    >
-                      Reset Password
-                    </button>
-                  </div>
+                  {loading ? (
+                    <div className="">
+                      <button
+                        type="button"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                        style={{ width: "100%" }}
+                      >
+                        Loading
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="">
+                      <button
+                        type="submit"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                        style={{ width: "100%" }}
+                      >
+                        Reset Password
+                      </button>
+                    </div>
+                  )}
                 </form>
               </div>
             </div>
