@@ -17,22 +17,41 @@ import uk from "../img/uk.svg";
 import us from "../img/us.svg";
 
 function Header() {
-  return(
+  return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-light py-2 px-1">
-      <div className='container header'>
-        <Link className='navbar-brand' to="/">
-          <img src={logo} alt="" className='img-fluid' style={{marginTop: "-8px"}} />
+      <div className="container header">
+        <Link className="navbar-brand" to="/">
+          <img
+            src={logo}
+            alt=""
+            className="img-fluid"
+            style={{ marginTop: "-8px" }}
+          />
         </Link>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+        >
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <div className="me-auto">
             <ul className="navbar-nav">
               <li className="nav-item dropdown">
-                <Link className="nav-link active dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" to="/">Products</Link>
+                <Link
+                  className="nav-link active dropdown-toggle"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  aria-current="page"
+                  to="/"
+                >
+                  Products
+                </Link>
                 <div className="dropdown-menu dropdown-large">
-                  <div className='row'>
+                  <div className="row">
                     <div className="col-md-6 border-end">
                       <Link>
                         <div className="d-flex flex-row">
@@ -79,7 +98,7 @@ function Header() {
                           </div>
                         </div>
                       </Link>
-                    </div>                      
+                    </div>
                     <div className="col-md-6 px-5 pt-3">
                       <div className="d-flex flex-row mb-3">
                         <i className="bi bi-check2 me-3"></i>
@@ -97,15 +116,26 @@ function Header() {
                         <i className="bi bi-check2 me-3"></i>
                         <h4 className="mt-1">Savings Challenge</h4>
                       </div>
-                    </div>                      
+                    </div>
                   </div>
                 </div>
               </li>
               <li className="nav-item">
-                <Link className="nav-link">Business <span className="nav-badge ms-2">Beta</span></Link>
+                <Link className="nav-link">
+                  Business <span className="nav-badge ms-2">Beta</span>
+                </Link>
               </li>
               <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" to="/">Company</Link>
+                <Link
+                  className="nav-link dropdown-toggle"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  aria-current="page"
+                  to="/"
+                >
+                  Company
+                </Link>
                 <div className="dropdown-menu dropdown-single">
                   <div className="row">
                     <div className="col-md-12">
@@ -145,32 +175,50 @@ function Header() {
                           </div>
                         </div>
                       </Link>
-                    </div>      
+                    </div>
                   </div>
                 </div>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/learn" target="_blank">Learn</Link>
+                <Link className="nav-link" to="/learn" target="_blank">
+                  Learn
+                </Link>
               </li>
             </ul>
           </div>
-          <div className='ms-auto' style={{marginTop: "18px"}}>
+          <div className="ms-auto" style={{ marginTop: "18px" }}>
             <ul className="navbar-nav">
-              <li className='nav-item'>
-                <Link className='nav-link me-3' to="/login">Sign in</Link>
+              <li className="nav-item">
+                <Link className="nav-link me-3" to="/login">
+                  Sign in
+                </Link>
               </li>
-              <li className='nav-item'>
-                <Link className='btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="/sign-up">Create Account</Link>
+              <li className="nav-item">
+                <Link
+                  className="btn btn-outline-primary px-4 py-2 ardilla-btn fs-6"
+                  to="/sign-up"
+                >
+                  Create Account
+                </Link>
               </li>
-              <li className='nav-item dropdown' style={{marginTop: "-7px"}}>
-                <Link className="nav-link dropdown-toggle globe" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" to="/"><img src={globe} alt="" className="img-fluid globe" /></Link>
+              <li className="nav-item dropdown" style={{ marginTop: "-7px" }}>
+                <Link
+                  className="nav-link dropdown-toggle globe"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  aria-current="page"
+                  to="/"
+                >
+                  <img src={globe} alt="" className="img-fluid globe" />
+                </Link>
                 <div className="dropdown-menu dropdown-globe">
                   <div className="row">
                     <div className="col-md-12">
                       <Link>
                         <div className="d-flex flex-row">
                           <img src={earth} alt="" className="img-fluid" />
-                          <h2 className="mt-3 active">Global</h2> 
+                          <h2 className="mt-3 active">Global</h2>
                         </div>
                       </Link>
                       <Link>
@@ -191,8 +239,7 @@ function Header() {
                           <h2 className="mt-3 active">United Kingdom</h2>
                         </div>
                       </Link>
-                      
-                    </div>      
+                    </div>
                   </div>
                 </div>
               </li>
@@ -201,7 +248,7 @@ function Header() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
 export default Header;

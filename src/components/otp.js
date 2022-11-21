@@ -1,24 +1,29 @@
 import React, { useState } from "react";
 import logo from "../img/logo.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Cookies from "js-cookie";
 
 function OtpPage() {
+  const location = useLocation();
+
   const [code, setCode] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const user = JSON.parse(sessionStorage.getItem("user"));
+  const token = Cookies.get("token");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    const { id, email } = location.state.data;
+
     e.preventDefault();
     setIsLoading(true);
     try {
       const { data } = await axios.post(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/verify-otp/${user?.token}`,
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/verify-otp/${token}`,
         { code }
       );
 
@@ -29,7 +34,7 @@ function OtpPage() {
           text: `Goodluck on your next phase`,
         });
 
-        navigate("/complete-profile");
+        navigate("/complete-profile", { state: { id, email } });
       } else {
         setIsLoading(false);
         Swal.fire({
@@ -46,22 +51,22 @@ function OtpPage() {
         title: `Something went wrong`,
         text: `Please try again`,
       });
-      console.log(error);
     }
   };
 
   const handleResend = async (e) => {
     e.preventDefault();
-    const { email } = user;
+    const email = location.state.data.email;
+
     try {
       const { data } = await axios.post(
         "https://ardilla-be-app.herokuapp.com/ardilla/api/auth/send-otp",
         { email }
       );
 
-      sessionStorage.setItem("user", JSON.stringify(data));
+      Cookies.remove("token");
 
-      console.log(data);
+      Cookies.set("token", data.token);
 
       if (data) {
         Swal.fire({
@@ -80,11 +85,12 @@ function OtpPage() {
 
   const handleWrongEmail = async () => {
     try {
+      const id = location.state.data.id;
       const { data } = await axios.delete(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/wrong-email/${user?.id}`
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/wrong-email/${id}`
       );
 
-      sessionStorage.clear();
+      Cookies.remove();
 
       if (data.success === true) {
         navigate("/sign-up");
@@ -103,7 +109,7 @@ function OtpPage() {
       <div className="container">
         <div className="row logo">
           <div className="col-md-6">
-            <Link to="/sign-up" onClick={() => sessionStorage.clear()}>
+            <Link to="/sign-up">
               <img src={logo} alt="" className="img-fluid mb-5" />
             </Link>
           </div>
@@ -117,7 +123,7 @@ function OtpPage() {
                 <br />
                 your email
               </h2>
-              <p className="code mb-5">{user?.email}</p>
+              <p className="code mb-5">{location.state.data.email}</p>
               <h6>
                 <button className="resend" onClick={handleWrongEmail}>
                   Wrong Email?
