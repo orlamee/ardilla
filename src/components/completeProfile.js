@@ -5,6 +5,7 @@ import complete from "../img/profilecomplete.svg";
 import axios from "axios";
 import Swal from "sweetalert2";
 
+
 function CompleteProfile() {
   const location = useLocation();
 
