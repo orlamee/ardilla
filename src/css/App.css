@@ -78,6 +78,12 @@ background-color: #fdf4fa;
   box-shadow: 0px 4px 10px rgba(136, 7, 247, 0.07);
 }
 
+.soon {
+  color: #9CA3AF;
+  font-size: 7px;
+  border-radius: 4px;
+}
+
 
 .login-section {
   margin: 60px 0px;
