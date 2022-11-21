@@ -16,6 +16,7 @@ import ProtectRoute from "./components/protectRoute";
 import ForgotPassword from "./pages/forgotPassword";
 import SetPassword from "./pages/setPassword";
 import Learn from "./pages/learn";
+import Alerts from "./components/alerts/alerts";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -23,6 +24,7 @@ root.render(
     <ScrollToTop />
     <Routes>
       <Route path="/" element={<App />}></Route>
+      <Route path="/alerts" element={<Alerts/>}></Route>
       <Route path="/sign-up" element={<SignUp />}></Route>
       <Route path="/learn" element={<Learn />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
