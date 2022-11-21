@@ -133,6 +133,7 @@ function CompleteProfile() {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                      disabled
                     />
                   </div>
                   <div className="mb-3">
