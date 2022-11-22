@@ -72,12 +72,12 @@ function Sidebar() {
                   <span className="amount">USD 10,000.00</span>
                   <i className="bi bi-eye-fill float-end"></i>
                 </div>
-                <div className="mt-2 p-2">
-                  <div className="details">
-                    <span>2003827822</span><br/>
-                    <span>John Doe</span>
-                  </div>
-                  <Link className='add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="">Add Money</Link>
+                <div className="mt-4 p-2">
+                  <label className="switch">
+                    <input type="checkbox" placeholder="USD"/>
+                    <span className="slider round"></span>
+                  </label>
+                  {/* <Link className='add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="">Add Money</Link> */}
                 </div>
               </div>
             </div>
@@ -91,11 +91,11 @@ function Sidebar() {
                   <span className="amount">NGN 400,000.00</span>
                   <i className="bi bi-eye-fill float-end"></i>
                 </div>
-                <div className="mt-2 p-2">
-                  <div className="details">
-                    <span>2003827822</span><br/>
-                    <span>John Doe</span>
-                  </div>
+                <div className="mt-4 p-2">
+                  <label className="switch">
+                    <input type="checkbox" placeholder="USD"/>
+                    <span className="slider round"></span>
+                  </label>
                   {/* <Link className='add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="">Add Money</Link> */}
                 </div>
               </div>
