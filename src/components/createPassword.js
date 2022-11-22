@@ -19,6 +19,7 @@ function CreatePassword() {
 
     if (password === confirmPassword) {
       console.log("pass");
+      console.log(id);
     } else {
       console.log("wrng");
     }
