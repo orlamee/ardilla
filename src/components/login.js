@@ -2,8 +2,9 @@
 import React, { useState } from "react";
 import home from "../img/home-login.svg";
 import logo from "../img/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -12,6 +13,8 @@ function Login() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
+
+  const navigate = useNavigate();
 
   const sendRequest = async () => {
     try {
@@ -22,12 +25,16 @@ function Login() {
         { email, password }
       );
 
+      Cookies.remove("token");
+      Cookies.set("user", data.token);
+
       if (data.success === true) {
         setMsg(data.msg);
         setOnSuccess(true);
         setLoading(false);
 
         //Navigate to  answer question page
+        navigate("/dashboard");
       }
     } catch (error) {
       setMsg(`${error.response.data.msg || "Network error"} `);
