@@ -44,7 +44,7 @@ function Sidebar() {
           </div>
           <div className="row mt-4">
             <div className="col-md-4 mb-3">
-              <div className="card p-3 bg-white border border-0 inner-card">
+              <div className="card p-4 bg-white border border-0 inner-card">
                 <div className="d-flex flex-row p-2">
                   <span className="me-4 san">SAN</span>
                   <span className="roi">+10%</span>
@@ -59,6 +59,44 @@ function Sidebar() {
                     <span>John Doe</span>
                   </div>
                   <Link className='add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="">Add Money</Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4 mb-3">
+              <div className="card p-4 bg-white border border-0 inner-card">
+                <div className="d-flex flex-row p-2">
+                  <span className="me-4 san">Dilla Wallet</span>
+                  {/* <span className="roi">+10%</span> */}
+                </div>
+                <div className="p-2 mt-3">
+                  <span className="amount">USD 10,000.00</span>
+                  <i className="bi bi-eye-fill float-end"></i>
+                </div>
+                <div className="mt-2 p-2">
+                  <div className="details">
+                    <span>2003827822</span><br/>
+                    <span>John Doe</span>
+                  </div>
+                  <Link className='add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="">Add Money</Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4 mb-3">
+              <div className="card p-4 bg-white border border-0 inner-card">
+                <div className="d-flex flex-row p-2">
+                  <span className="me-4 san">Total Funds</span>
+                  {/* <span className="roi">+10%</span> */}
+                </div>
+                <div className="p-2 mt-3">
+                  <span className="amount">NGN 400,000.00</span>
+                  <i className="bi bi-eye-fill float-end"></i>
+                </div>
+                <div className="mt-2 p-2">
+                  <div className="details">
+                    <span>2003827822</span><br/>
+                    <span>John Doe</span>
+                  </div>
+                  {/* <Link className='add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="">Add Money</Link> */}
                 </div>
               </div>
             </div>
