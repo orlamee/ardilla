@@ -8,13 +8,9 @@ import Header from "./components/navBar";
 import "./css/App.css";
 import "./css/home.css";
 
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 function App() {
   return (
     <div className="App">
-      <ToastContainer />
       <Header />
       <Hero />
       <Products />

@@ -3,17 +3,16 @@ import logo from "../img/logo.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
-import Swal from "sweetalert2";
 import Cookies from "js-cookie";
-
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 function OtpPage() {
   const location = useLocation();
 
   const [code, setCode] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
 
   const token = Cookies.get("token");
 
@@ -32,14 +31,21 @@ function OtpPage() {
       );
 
       if (data.success === true) {
-        toast(`Token validated`);
-        navigate("/complete-profile", { state: { id, email } });
+        setMsg(data.msg);
+        setOnSuccess(true);
+        setIsLoading(false);
+
+        console.log("okini");
       }
 
       setIsLoading(false);
+      navigate("/complete-profile", { state: { id, email } });
     } catch (error) {
+      setErr(true);
+      setMsg(`${error.response.data.msg || "Network error"} `);
       setIsLoading(false);
-      toast(`${error.response.data.msg || error.message}`);
+
+      console.log(err);
     }
   };
 
@@ -58,17 +64,14 @@ function OtpPage() {
       Cookies.set("token", data.token);
 
       if (data) {
-        Swal.fire({
-          icon: "success",
-          text: `verification token has been resent`,
-        });
+        setMsg(data.msg);
+        setOnSuccess(true);
+        setIsLoading(false);
       }
     } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: `Something went wrong`,
-        text: `Please try again`,
-      });
+      setMsg(`${error.response.data.msg || "Network error"} `);
+      setErr(true);
+      setIsLoading(false);
     }
   };
 
@@ -85,17 +88,54 @@ function OtpPage() {
         navigate("/sign-up");
       }
     } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: `Something went wrong`,
-        text: `Please try again`,
-      });
+      setMsg(`${error.response.data.msg || "Network error"} `);
+      setErr(true);
+      setIsLoading(false);
     }
   };
 
   return (
     <section className="login-section">
-      <ToastContainer />
+      {err && (
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                aria-label="Close"
+                onClick={() => setErr(false)}
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setOnSuccess(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="container">
         <div className="row logo">
           <div className="col-md-6">

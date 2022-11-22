@@ -3,9 +3,6 @@ import logo from "../img/logo.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import complete from "../img/profilecomplete.svg";
 import axios from "axios";
-// import Swal from "sweetalert2";
-
-import { toast } from "react-toastify";
 
 function CompleteProfile() {
   const location = useLocation();
@@ -16,9 +13,11 @@ function CompleteProfile() {
   const [lastname, setLastname] = useState("");
   const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
   const [agree, setAgree] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
 
   const navigate = useNavigate();
 
@@ -30,29 +29,69 @@ function CompleteProfile() {
 
     try {
       const { data } = await axios.post(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/complete-profile/${location.state.id}`,
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/complete-profile/${id}`,
         { email, firstname, lastname, contact, password, kodeHex }
       );
 
-      setIsLoading(false);
       if (data.success === true) {
+        setMsg(data.msg);
+        setOnSuccess(true);
         setIsLoading(false);
-        toast(`${data.msg}`);
+
         navigate("/security-question", { state: { id } });
       }
-    } catch (error) {
+
       setIsLoading(false);
-      toast(`${error.response.data.msg || error.message}`);
+    } catch (error) {
       console.log(error);
-      // Swal.fire({
-      //   icon: "error",
-      //   title: `${error.response.data.msg || error.message}`,
-      // });
+      setMsg(`${error.response.data.msg || "Network error"} `);
+      setErr(true);
+      setIsLoading(false);
     }
   };
 
   return (
     <section className="login-section">
+      {err && (
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setOnSuccess(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="container">
         <div className="row logo">
           <div className="col-md-6">

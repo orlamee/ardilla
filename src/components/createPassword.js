@@ -1,13 +1,15 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import Swal from "sweetalert2";
 import logo from "../img/logo.svg";
 
 function CreatePassword() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
 
   const navigate = useNavigate();
 
@@ -26,32 +28,69 @@ function CreatePassword() {
           }
         );
 
-        setLoading(false);
-
         if (data.success === true) {
-          Swal.fire({
-            icon: "success",
-            text: `${data.msg}`,
-          });
+          setMsg(data.msg);
+          setOnSuccess(true);
+          setLoading(false);
 
           navigate("/login");
         }
-      } catch (error) {
+
         setLoading(false);
-        Swal.fire({
-          icon: "error",
-          title: "Server error.",
-          text: "Oops, something went wrong",
-        });
+      } catch (error) {
+        setMsg(`${error.response.data.msg || "Network error"} `);
+        setErr(true);
+        setLoading(false);
       }
     } else {
+      setMsg(`Passwords don't match`);
+      setErr(true);
       setLoading(false);
-      Swal.fire("Password don't match");
     }
   };
 
   return (
     <section className="login-section">
+      {err && (
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setOnSuccess(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="container">
         <div className="row logo">
           <div className="col-md-6">

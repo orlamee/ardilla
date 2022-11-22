@@ -3,7 +3,6 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../img/logo.svg";
 import home from "../img/home-login.svg";
 import axios from "axios";
-import Swal from "sweetalert2";
 
 function SecurityPage() {
   const location = useLocation();
@@ -12,6 +11,9 @@ function SecurityPage() {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
 
   const navigate = useNavigate();
 
@@ -31,10 +33,9 @@ function SecurityPage() {
       );
 
       if (data.success === true) {
-        Swal.fire({
-          icon: "success",
-          text: `${data.msg}`,
-        });
+        setMsg(data.msg);
+        setOnSuccess(true);
+        setLoading(false);
 
         navigate("/login");
       }
@@ -42,15 +43,54 @@ function SecurityPage() {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      Swal.fire({
-        icon: "error",
-        title: `${error.response.data.msg || error.message}`,
-      });
+
+      setErr(true);
+      setMsg(`${error.response.data.msg || "Network error"} `);
     }
   };
 
   return (
     <section className="login-section">
+      {err && (
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setOnSuccess(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="container">
         <div className="row logo">
           <div className="col-md-6">

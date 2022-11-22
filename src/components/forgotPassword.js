@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import logo from "../img/logo.svg";
 import fp from "../img/fp.svg";
 import axios from "axios";
-import Swal from "sweetalert2";
 
 function Forgot() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,29 +21,58 @@ function Forgot() {
       );
 
       if (data.success === true) {
+        setMsg(data.msg);
+        setOnSuccess(true);
         setLoading(false);
-        Swal.fire({
-          icon: "success",
-          text: `${data.msg}.`,
-        });
-      } else {
-        setLoading(false);
-        Swal.fire({
-          icon: "error",
-          text: `${data.msg}`,
-        });
       }
     } catch (error) {
+      setMsg(`${error.response.data.msg || "Network error"} `);
+      setErr(true);
       setLoading(false);
-      Swal.fire({
-        icon: "error",
-        title: `Oops, something went wrong`,
-        text: `please try again.`,
-      });
     }
   };
   return (
     <section className="login-section">
+      {err && (
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setOnSuccess(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="container">
         <div className="row logo">
           <div className="col-md-6">

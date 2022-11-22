@@ -5,17 +5,13 @@ import register from "../img/code.svg";
 import dot from "../img/dot.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-// import Swal from "sweetalert2";
 import Cookies from "js-cookie";
-
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 function Register() {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  // const [errorMsg, setErrorMsg] = useState(false);
-  // const [err, setErr] = useState(true);
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
 
   const navigate = useNavigate();
 
@@ -35,13 +31,34 @@ function Register() {
 
       navigate("/otp", { state: { data } });
     } catch (error) {
+      setMsg(`${error.response.data.msg || "Network error"} `);
+      setErr(true);
       setIsLoading(false);
-      toast(`${error.response.data.msg || error.message}`);
     }
   };
 
   return (
     <section className="login-section">
+      {err && (
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="container">
         <div className="row logo">
           <div className="col-md-6 ">
