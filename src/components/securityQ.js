@@ -44,8 +44,7 @@ function SecurityPage() {
       setLoading(false);
       Swal.fire({
         icon: "error",
-        title: `Server error`,
-        text: `please try again.`,
+        title: `${error.response.data.msg || error.message}`,
       });
     }
   };
