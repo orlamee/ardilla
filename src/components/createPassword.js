@@ -18,43 +18,36 @@ function CreatePassword() {
     setLoading(true);
 
     if (password === confirmPassword) {
-      console.log("pass");
-      console.log(id);
+      try {
+        const { data } = await axios.put(
+          `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/reset-password/${id}`,
+          {
+            password,
+          }
+        );
+
+        setLoading(false);
+
+        if (data.success === true) {
+          Swal.fire({
+            icon: "success",
+            text: `${data.msg}`,
+          });
+
+          navigate("/login");
+        }
+      } catch (error) {
+        setLoading(false);
+        Swal.fire({
+          icon: "error",
+          title: "Server error.",
+          text: "Oops, something went wrong",
+        });
+      }
     } else {
-      console.log("wrng");
+      setLoading(false);
+      Swal.fire("Password don't match");
     }
-
-    // if (password === confirmPassword) {
-    //   try {
-    //     const { data } = await axios.put(
-    //       `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/reset-password/${id}`,
-    //       {
-    //         password,
-    //       }
-    //     );
-
-    //     setLoading(false);
-
-    //     if (data.success === true) {
-    //       Swal.fire({
-    //         icon: "success",
-    //         text: `${data.msg}`,
-    //       });
-
-    //       navigate("/login");
-    //     }
-    //   } catch (error) {
-    //     setLoading(false);
-    //     Swal.fire({
-    //       icon: "error",
-    //       title: "Server error.",
-    //       text: "Oops, something went wrong",
-    //     });
-    //   }
-    // } else {
-    //   setLoading(false);
-    //   Swal.fire("Password don't match");
-    // }
   };
 
   return (
@@ -74,7 +67,7 @@ function CreatePassword() {
                 <div className="text-center mb-5">
                   <h2 className="fs-1">Create New Password</h2>
                 </div>
-                <form className="" onChange={handleSubmit}>
+                <form className="" onSubmit={handleSubmit}>
                   <div className="mb-3">
                     <label className="form-label">
                       <i className="bi bi-shield-lock-fill me-2"></i> New
