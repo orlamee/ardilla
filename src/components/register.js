@@ -5,12 +5,17 @@ import register from "../img/code.svg";
 import dot from "../img/dot.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import Cookies from "js-cookie";
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Register() {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  // const [errorMsg, setErrorMsg] = useState(false);
+  // const [err, setErr] = useState(true);
 
   const navigate = useNavigate();
 
@@ -31,11 +36,7 @@ function Register() {
       navigate("/otp", { state: { data } });
     } catch (error) {
       setIsLoading(false);
-      Swal.fire({
-        icon: "error",
-        title: `Oops, something went wrong`,
-        text: `please try again`,
-      });
+      toast(`${error.response.data.msg || error.message}`);
     }
   };
 

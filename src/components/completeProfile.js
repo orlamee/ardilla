@@ -3,7 +3,9 @@ import logo from "../img/logo.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import complete from "../img/profilecomplete.svg";
 import axios from "axios";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
+
+import { toast } from "react-toastify";
 
 function CompleteProfile() {
   const location = useLocation();
@@ -34,26 +36,18 @@ function CompleteProfile() {
 
       setIsLoading(false);
       if (data.success === true) {
-        Swal.fire({
-          icon: "success",
-          text: `${data.msg}`,
-        });
-
         setIsLoading(false);
+        toast(`${data.msg}`);
         navigate("/security-question", { state: { id } });
-      } else {
-        Swal.fire({
-          icon: "error",
-          text: `${data.msg}`,
-        });
       }
     } catch (error) {
       setIsLoading(false);
-      Swal.fire({
-        icon: "error",
-        title: `Oops, something went wrong`,
-        text: `please try again.`,
-      });
+      toast(`${error.response.data.msg || error.message}`);
+      console.log(error);
+      // Swal.fire({
+      //   icon: "error",
+      //   title: `${error.response.data.msg || error.message}`,
+      // });
     }
   };
 

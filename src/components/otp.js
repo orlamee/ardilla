@@ -6,6 +6,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function OtpPage() {
   const location = useLocation();
 
@@ -21,6 +24,7 @@ function OtpPage() {
 
     e.preventDefault();
     setIsLoading(true);
+
     try {
       const { data } = await axios.post(
         `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/verify-otp/${token}`,
@@ -28,29 +32,14 @@ function OtpPage() {
       );
 
       if (data.success === true) {
-        Swal.fire({
-          icon: "success",
-          title: `Token validated`,
-          text: `Goodluck on your next phase`,
-        });
-
+        toast(`Token validated`);
         navigate("/complete-profile", { state: { id, email } });
-      } else {
-        setIsLoading(false);
-        Swal.fire({
-          icon: "error",
-          title: `This token is not valid`,
-          text: `Please try again`,
-        });
       }
+
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
-      Swal.fire({
-        icon: "error",
-        title: `Something went wrong`,
-        text: `Please try again`,
-      });
+      toast(`${error.response.data.msg || error.message}`);
     }
   };
 
@@ -106,6 +95,7 @@ function OtpPage() {
 
   return (
     <section className="login-section">
+      <ToastContainer />
       <div className="container">
         <div className="row logo">
           <div className="col-md-6">
