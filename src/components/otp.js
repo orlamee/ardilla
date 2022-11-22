@@ -31,10 +31,10 @@ function OtpPage() {
         { code }
       );
 
-      if (data.success === true) {
-        toast(`Token validated`);
-        navigate("/complete-profile", { state: { id, email } });
-      }
+      console.log(data);
+      toast(`Token validated`);
+      navigate("/complete-profile", { state: { id, email } });
+
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
