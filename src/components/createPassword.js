@@ -67,7 +67,7 @@ function CreatePassword() {
                 <div className="text-center mb-5">
                   <h2 className="fs-1">Create New Password</h2>
                 </div>
-                <form className="" onChange={handleSubmit}>
+                <form className="" onSubmit={handleSubmit}>
                   <div className="mb-3">
                     <label className="form-label">
                       <i className="bi bi-shield-lock-fill me-2"></i> New
