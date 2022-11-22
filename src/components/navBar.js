@@ -48,7 +48,7 @@ function Header() {
                   aria-current="page"
                   to="/"
                 >
-                  Products
+                  Products 
                 </Link>
                 <div className="dropdown-menu dropdown-large">
                   <div className="row">
@@ -134,7 +134,7 @@ function Header() {
                   aria-current="page"
                   to="/"
                 >
-                  Company
+                  Company 
                 </Link>
                 <div className="dropdown-menu dropdown-single">
                   <div className="row">

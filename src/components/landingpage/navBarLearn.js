@@ -85,7 +85,7 @@ function LearnHeader() {
               <li className='nav-item'>
                 <Link className='btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="/sign-up">Create Account</Link>
               </li>
-              <li className='nav-item dropdown' style={{marginTop: "-7px"}}>
+              {/* <li className='nav-item dropdown' style={{marginTop: "-7px"}}>
                 <Link className="nav-link dropdown-toggle globe" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" to="/"><img src={globe} alt="" className="img-fluid globe" /></Link>
                 <div className="dropdown-menu dropdown-globe">
                   <div className="row">
@@ -116,6 +116,57 @@ function LearnHeader() {
                       </Link>
                       
                     </div>      
+                  </div>
+                </div>
+              </li> */}
+              <li className="nav-item dropdown" style={{ marginTop: "-7px" }}>
+                <Link
+                  className="nav-link dropdown-toggle globe"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  aria-current="page"
+                  to="/"
+                >
+                  <img src={globe} alt="" className="img-fluid globe" />
+                </Link>
+                <div className="dropdown-menu dropdown-globe">
+                  <div className="row">
+                    <div className="col-md-12">
+                      <Link>
+                        <div className="d-flex flex-row">
+                          <img src={earth} alt="" className="img-fluid" />
+                          <h2 className="mt-3">Global</h2>
+                          <div className="mt-2 ms-5">
+                            <p className="d-inline-flex p-1 border text-muted soon">Coming Soon</p>
+                          </div>
+                        </div>
+                      </Link>
+                      <Link>
+                        <div className="d-flex flex-row">
+                          <img src={naija} alt="" className="img-fluid" />
+                          <h2 className="mt-3">Nigeria</h2>
+                        </div>
+                      </Link>
+                      <Link>
+                        <div className="d-flex flex-row">
+                          <img src={us} alt="" className="img-fluid" />
+                          <h2 className="mt-3 ">United States</h2>
+                          <div className="mt-2 ms-5">
+                            <p className="d-inline-flex p-1 border text-muted soon">Coming Soon</p>
+                          </div>
+                        </div>
+                      </Link>
+                      <Link>
+                        <div className="d-flex flex-row">
+                          <img src={uk} alt="" className="img-fluid" />
+                          <h2 className="mt-3">United Kingdom</h2>
+                          <div className="mt-2 ms-5">
+                            <p className="d-inline-flex p-1 border text-muted soon">Coming Soon</p>
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </li>
