@@ -1,5 +1,6 @@
 .dashboard-header {
   padding: 30px;
+  background-color: #fdf3fa;
 }
 
 .sidebar {
@@ -117,4 +118,8 @@ i.bi.bi-eye-fill {
 
 .add-money {
   margin-top: -40px;
+}
+
+.main-dash {
+  margin-top: 120px;
 }

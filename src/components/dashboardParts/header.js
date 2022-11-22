@@ -3,7 +3,7 @@ import icon from "../../img/dashboard/logo.svg";
 
 function Header() {
   return (
-    <section className="dashboard-header">
+    <section className="dashboard-header fixed-top">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-12 text-center">

@@ -24,7 +24,7 @@ function Sidebar() {
   }, [token]);
 
   return (
-    <section className="">
+    <section className="main-dash">
       <div className="sidebar">
         <Link>
           <div className="d-flex flex-row">
