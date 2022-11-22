@@ -7,7 +7,7 @@ import saving from "../../img/dashboard/investment.svg";
 
 function Sidebar() {
   return (
-    <section className="">
+    <section className="main-dash">
       <div className="sidebar">
         <Link>
           <div className="d-flex flex-row">
