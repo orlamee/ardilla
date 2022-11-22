@@ -24,6 +24,7 @@ function OtpPage() {
 
     e.preventDefault();
     setIsLoading(true);
+
     try {
       const { data } = await axios.post(
         `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/verify-otp/${token}`,
@@ -32,7 +33,6 @@ function OtpPage() {
 
       if (data.success === true) {
         toast(`Token validated`);
-
         navigate("/complete-profile", { state: { id, email } });
       }
       setIsLoading(false);
