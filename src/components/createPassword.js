@@ -18,36 +18,42 @@ function CreatePassword() {
     setLoading(true);
 
     if (password === confirmPassword) {
-      try {
-        const { data } = await axios.put(
-          `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/reset-password/${id}`,
-          {
-            password,
-          }
-        );
-
-        setLoading(false);
-
-        if (data.success === true) {
-          Swal.fire({
-            icon: "success",
-            text: `${data.msg}`,
-          });
-
-          navigate("/login");
-        }
-      } catch (error) {
-        setLoading(false);
-        Swal.fire({
-          icon: "error",
-          title: "Server error.",
-          text: "Oops, something went wrong",
-        });
-      }
+      console.log("pass");
     } else {
-      setLoading(false);
-      Swal.fire("Password don't match");
+      console.log("wrng");
     }
+
+    // if (password === confirmPassword) {
+    //   try {
+    //     const { data } = await axios.put(
+    //       `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/reset-password/${id}`,
+    //       {
+    //         password,
+    //       }
+    //     );
+
+    //     setLoading(false);
+
+    //     if (data.success === true) {
+    //       Swal.fire({
+    //         icon: "success",
+    //         text: `${data.msg}`,
+    //       });
+
+    //       navigate("/login");
+    //     }
+    //   } catch (error) {
+    //     setLoading(false);
+    //     Swal.fire({
+    //       icon: "error",
+    //       title: "Server error.",
+    //       text: "Oops, something went wrong",
+    //     });
+    //   }
+    // } else {
+    //   setLoading(false);
+    //   Swal.fire("Password don't match");
+    // }
   };
 
   return (
