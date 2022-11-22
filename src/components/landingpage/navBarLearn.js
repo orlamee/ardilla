@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/ardilla.svg";
-import globe from "../../img/globe.svg";
+// import globe from "../../img/globe.svg";
 import save from "../../img/save.svg";
 import invest from "../../img/invest.svg";
 import bonus from "../../img/bonus.svg";
@@ -13,7 +13,7 @@ import us from "../../img/us.svg";
 
 function LearnHeader() {
   return(
-    <nav className="navbar fixed-top navbar-expand-lg navbar-light py-2 px-1">
+    <nav className="navbar fixed-top navbar-expand-lg navbar-light py-4 px-1">
       <div className='container header'>
         <a className='navbar-brand' href="/learn">
           <img src={logo} alt="" className='img-fluid' style={{marginTop: "-8px"}} />
@@ -77,7 +77,7 @@ function LearnHeader() {
               </li>
             </ul>
           </div>
-          <div className='ms-auto' style={{marginTop: "18px"}}>
+          <div className='ms-auto'>
             <ul className="navbar-nav">
               <li className='nav-item mt-2 desktop'>
                 <i className="bi bi-search"></i>
@@ -85,41 +85,8 @@ function LearnHeader() {
               <li className='nav-item'>
                 <Link className='btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="/sign-up">Create Account</Link>
               </li>
-              {/* <li className='nav-item dropdown' style={{marginTop: "-7px"}}>
-                <Link className="nav-link dropdown-toggle globe" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" to="/"><img src={globe} alt="" className="img-fluid globe" /></Link>
-                <div className="dropdown-menu dropdown-globe">
-                  <div className="row">
-                    <div className="col-md-12">
-                      <Link>
-                        <div className="d-flex flex-row">
-                          <img src={earth} alt="" className="img-fluid" />
-                          <h2 className="mt-3 active">Global</h2> 
-                        </div>
-                      </Link>
-                      <Link>
-                        <div className="d-flex flex-row">
-                          <img src={naija} alt="" className="img-fluid" />
-                          <h2 className="mt-3">Nigeria</h2>
-                        </div>
-                      </Link>
-                      <Link>
-                        <div className="d-flex flex-row">
-                          <img src={us} alt="" className="img-fluid" />
-                          <h2 className="mt-3 active">United States</h2>
-                        </div>
-                      </Link>
-                      <Link>
-                        <div className="d-flex flex-row">
-                          <img src={uk} alt="" className="img-fluid" />
-                          <h2 className="mt-3 active">United Kingdom</h2>
-                        </div>
-                      </Link>
-                      
-                    </div>      
-                  </div>
-                </div>
-              </li> */}
-              <li className="nav-item dropdown" style={{ marginTop: "-7px" }}>
+            
+              <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle globe"
                   role="button"
@@ -128,7 +95,7 @@ function LearnHeader() {
                   aria-current="page"
                   to="/"
                 >
-                  <img src={globe} alt="" className="img-fluid globe" />
+                  <i className="bi bi-globe fs-5"></i>
                 </Link>
                 <div className="dropdown-menu dropdown-globe">
                   <div className="row">

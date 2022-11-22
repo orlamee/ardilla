@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../img/ardilla.svg";
-import globe from "../img/globe.svg";
+// import globe from "../img/globe.svg";
 import save from "../img/save.svg";
 import wallet from "../img/wallet.svg";
 import learn from "../img/learn.svg";
@@ -18,7 +18,7 @@ import us from "../img/us.svg";
 
 function Header() {
   return (
-    <nav className="navbar fixed-top navbar-expand-lg navbar-light py-2 px-1">
+    <nav className="navbar fixed-top navbar-expand-lg py-4 navbar-light px-1">
       <div className="container header">
         <Link className="navbar-brand" to="/">
           <img
@@ -186,7 +186,7 @@ function Header() {
               </li>
             </ul>
           </div>
-          <div className="ms-auto" style={{ marginTop: "18px" }}>
+          <div className="ms-auto">
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link className="nav-link me-3" to="/login">
@@ -201,16 +201,16 @@ function Header() {
                   Create Account
                 </Link>
               </li>
-              <li className="nav-item dropdown" style={{ marginTop: "-7px" }}>
+              <li className="nav-item dropdown">
                 <Link
-                  className="nav-link dropdown-toggle globe"
+                  className="nav-link dropdown-toggle"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                   aria-current="page"
                   to="/"
                 >
-                  <img src={globe} alt="" className="img-fluid globe" />
+                  <i className="bi bi-globe fs-5"></i>
                 </Link>
                 <div className="dropdown-menu dropdown-globe">
                   <div className="row">
