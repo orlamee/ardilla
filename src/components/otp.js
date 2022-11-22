@@ -32,7 +32,6 @@ function OtpPage() {
       );
 
       if (data.success === true) {
-        console.log(data);
         toast(`Token validated`);
         navigate("/complete-profile", { state: { id, email } });
       }
