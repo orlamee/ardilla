@@ -5,7 +5,7 @@
 
 .sidebar {
   margin: 0;
-  padding: 30px;
+  padding: 45px 60px 60px 60px;
   width: 250px;
   position: fixed;
   height: 100%;
@@ -15,7 +15,7 @@
 .sidebar a {
   display: block;
   color: black;
-  padding: 16px;
+  padding: 19px;
   font-size: 19px;
   text-decoration: none;
   color: #3D0072;
@@ -182,4 +182,18 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.generate {
+  color: #8807F7!important;
+  font-weight: 500!important;
+  font-size: 10px!important;
+}
+
+.one {
+  padding-bottom: 17px!important;
+}
+
+.three {
+  padding-bottom: 21px!important;
 }
