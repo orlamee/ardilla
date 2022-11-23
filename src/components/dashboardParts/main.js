@@ -7,9 +7,23 @@ import saving from "../../img/dashboard/investment.svg";
 import Cookies from "js-cookie";
 import axios from "axios";
 
+import dayjs from "dayjs";
+import greetPlugin from "dayjs-greet";
+dayjs.extend(greetPlugin);
+
 function Sidebar() {
   const token = Cookies.get("user");
   const [userDetail, setUserDetail] = useState("");
+
+  const today = new Date();
+
+  const date =
+    today.getMonth() + "," + today.getDate() + " " + today.getFullYear();
+
+  const time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  console.log(dayjs(`${date} ${time}`).greet());
 
   useEffect(() => {
     const getUser = async () => {
@@ -60,7 +74,8 @@ function Sidebar() {
               {"/>"}
             </h2>
             <h6 className="mt-4">
-              Good Morning. <i className="bi bi-sun-fill"></i>
+              {dayjs(`${date} ${time}`).greet()}.{" "}
+              <i className="bi bi-sun-fill"></i>
             </h6>
           </div>
         </div>

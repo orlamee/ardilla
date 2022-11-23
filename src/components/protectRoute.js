@@ -2,10 +2,17 @@ import { Navigate } from "react-router-dom";
 // import Cookies from "js-cookie";
 
 const ProtectedRoute = ({ children }) => {
-  const user = true;
+  const data = {
+    user: true,
+    guest: false,
+  };
 
-  if (!user) {
+  if (!data.user && data.guest) {
     return <Navigate to={"/sign-up"} />;
+  }
+
+  if (data.guest) {
+    return <Navigate to={"/404"} />;
   }
 
   return children;

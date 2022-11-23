@@ -32,8 +32,6 @@ function CreatePassword() {
           setMsg(data.msg);
           setOnSuccess(true);
           setLoading(false);
-
-          navigate("/login");
         }
 
         setLoading(false);
@@ -48,6 +46,11 @@ function CreatePassword() {
       setErr(true);
       setLoading(false);
     }
+  };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+    navigate("/login");
   };
 
   return (
@@ -85,7 +88,7 @@ function CreatePassword() {
                 type="button"
                 className="btn-close"
                 // data-bs-dismiss="alert"
-                onClick={() => setOnSuccess(false)}
+                onClick={handleClickSuccess}
                 aria-label="Close"
               ></button>
             </div>

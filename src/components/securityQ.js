@@ -8,6 +8,7 @@ function SecurityPage() {
   const location = useLocation();
 
   let securityQusetion;
+
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
@@ -36,8 +37,6 @@ function SecurityPage() {
         setMsg(data.msg);
         setOnSuccess(true);
         setLoading(false);
-
-        navigate("/login");
       }
 
       setLoading(false);
@@ -47,6 +46,11 @@ function SecurityPage() {
       setErr(true);
       setMsg(`${error.response.data.msg || "Network error"} `);
     }
+  };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+    navigate("/login");
   };
 
   return (
@@ -84,7 +88,7 @@ function SecurityPage() {
                 type="button"
                 className="btn-close"
                 // data-bs-dismiss="alert"
-                onClick={() => setOnSuccess(false)}
+                onClick={handleClickSuccess}
                 aria-label="Close"
               ></button>
             </div>

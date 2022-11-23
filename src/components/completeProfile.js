@@ -3,9 +3,12 @@ import logo from "../img/logo.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import complete from "../img/profilecomplete.svg";
 import axios from "axios";
+// import platform from "platform";
 
 function CompleteProfile() {
   const location = useLocation();
+
+  // let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
 
   const [email, setEmail] = useState(location.state.email);
   const [kodeHex, setKodeHex] = useState("");
@@ -19,13 +22,23 @@ function CompleteProfile() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
 
+  const { id } = location.state;
+
+  // const [ip, setIp] = useState("");
+
+  // function json(url) {
+  //   return fetch(url).then((res) => res.json());
+  // }
+
+  // json(`https://api.ipdata.co?api-key=${apiKey}`).then((data) => {
+  //   setIp(data.ip);
+  // });
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-
-    const { id } = location.state;
 
     try {
       const { data } = await axios.post(
@@ -37,8 +50,6 @@ function CompleteProfile() {
         setMsg(data.msg);
         setOnSuccess(true);
         setIsLoading(false);
-
-        navigate("/security-question", { state: { id } });
       }
 
       setIsLoading(false);
@@ -48,6 +59,11 @@ function CompleteProfile() {
       setErr(true);
       setIsLoading(false);
     }
+  };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+    navigate("/security-question", { state: { id } });
   };
 
   return (
@@ -85,7 +101,7 @@ function CompleteProfile() {
                 type="button"
                 className="btn-close"
                 // data-bs-dismiss="alert"
-                onClick={() => setOnSuccess(false)}
+                onClick={handleClickSuccess}
                 aria-label="Close"
               ></button>
             </div>

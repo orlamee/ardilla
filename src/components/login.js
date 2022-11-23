@@ -32,15 +32,17 @@ function Login() {
         setMsg(data.msg);
         setOnSuccess(true);
         setLoading(false);
-
-        //Navigate to  answer question page
-        navigate("/dashboard");
       }
     } catch (error) {
       setMsg(`${error.response.data.msg || "Network error"} `);
       setLoading(false);
       setErr(true);
     }
+  };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+    navigate("/security");
   };
 
   const handleSubmit = (e) => {
@@ -84,7 +86,7 @@ function Login() {
                 type="button"
                 className="btn-close"
                 // data-bs-dismiss="alert"
-                onClick={() => setOnSuccess(false)}
+                onClick={handleClickSuccess}
                 aria-label="Close"
               ></button>
             </div>

@@ -13,14 +13,14 @@ function OtpPage() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
+  const [resend, setResend] = useState(false);
 
   const token = Cookies.get("token");
+  const { id, email } = location.state.data;
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    const { id, email } = location.state.data;
-
     e.preventDefault();
     setIsLoading(true);
 
@@ -34,12 +34,9 @@ function OtpPage() {
         setMsg(data.msg);
         setOnSuccess(true);
         setIsLoading(false);
-
-        console.log("okini");
       }
 
       setIsLoading(false);
-      navigate("/complete-profile", { state: { id, email } });
     } catch (error) {
       setErr(true);
       setMsg(`${error.response.data.msg || "Network error"} `);
@@ -49,9 +46,14 @@ function OtpPage() {
     }
   };
 
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+    navigate("/complete-profile", { state: { id, email } });
+  };
+
   const handleResend = async (e) => {
     e.preventDefault();
-    const email = location.state.data.email;
+    // const email = location.state.data.email;
 
     try {
       const { data } = await axios.post(
@@ -65,7 +67,7 @@ function OtpPage() {
 
       if (data) {
         setMsg(data.msg);
-        setOnSuccess(true);
+        setResend(true);
         setIsLoading(false);
       }
     } catch (error) {
@@ -128,8 +130,26 @@ function OtpPage() {
               <button
                 type="button"
                 className="btn-close"
-                // data-bs-dismiss="alert"
-                onClick={() => setOnSuccess(false)}
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {resend && (
+        <div className="row justify-content-center mt-5">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                onClick={() => setResend(false)}
                 aria-label="Close"
               ></button>
             </div>
