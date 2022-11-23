@@ -20,6 +20,7 @@ dayjs.extend(greetPlugin);
 
 function Sidebar() {
   const token = Cookies.get("user");
+
   const [userDetail, setUserDetail] = useState("");
 
   const today = new Date();
@@ -147,7 +148,8 @@ function Sidebar() {
                   <br />
                   <span className="generate">
                     {/* {userDetail?.firstname} {userDetail?.lastname} */}
-                    Generate Account Number <i className="bi bi-arrow-right-circle-fill"></i>
+                    Generate Account Number{" "}
+                    <i className="bi bi-arrow-right-circle-fill"></i>
                   </span>
                 </div>
                 <Link
@@ -205,7 +207,7 @@ function Sidebar() {
             <h3>Complete KYC</h3>
           </div>
         </div>
-        
+
         {/* </div> */}
       </div>
     </section>
