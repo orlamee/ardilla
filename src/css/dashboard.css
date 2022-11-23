@@ -16,13 +16,12 @@
   display: block;
   color: black;
   padding: 19px;
-  font-size: 19px;
   text-decoration: none;
   color: #3D0072;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 10px;
   font-weight: 400;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 div.content {
@@ -113,7 +112,7 @@ div.content {
 }
 
 i.bi.bi-eye-fill {
-  color: #3D0072;
+  color: #3D007280;
 }
 
 .add-money {
@@ -196,4 +195,15 @@ input:checked + .slider:before {
 
 .three {
   padding-bottom: 21px!important;
+}
+
+.kyc {
+  margin-top: 100px;
+}
+
+.kyc h3 {
+  font-size: 16px;
+  line-height: 14px;
+  font-weight: 700;
+  color: #3D0072;
 }

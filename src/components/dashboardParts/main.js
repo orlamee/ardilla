@@ -97,7 +97,7 @@ function Sidebar() {
             <div className="card p-3 bg-white border border-0 inner-card one">
               <div className="d-flex flex-row p-2">
                 <span className="me-4 san">SAN</span>
-                <span className="roi">+10%</span>
+                <span className="roi">+10.00%</span>
               </div>
               <div className="p-2 mt-3">
                 <span className="amount">NGN 100,000.00</span>
@@ -160,6 +160,11 @@ function Sidebar() {
                 </label>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="row kyc">
+          <div className="col-md-6">
+            <h3>Complete KYC</h3>
           </div>
         </div>
         {/* </div> */}
