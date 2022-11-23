@@ -478,3 +478,10 @@ h6 a {
   border: none;
   color: #8807f7;
 }
+
+.q {
+  color: #3D0072;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+}

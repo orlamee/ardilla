@@ -4,6 +4,13 @@ import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
 import saving from "../../img/dashboard/investment.svg";
+import dilla from "../../img/dashboard/dilla.svg";
+import explore from "../../img/dashboard/explore.svg";
+import learn from "../../img/dashboard/learn.svg";
+import insurance from "../../img/dashboard/insurance.svg";
+import logout from "../../img/dashboard/logout.svg";
+import contact from "../../img/dashboard/contact.svg";
+import chat from "../../img/dashboard/chat.svg";
 import Cookies from "js-cookie";
 import axios from "axios";
 
@@ -63,6 +70,50 @@ function Sidebar() {
             Investments
           </div>
         </Link>
+        <Link>
+          <div className="d-flex flex-row">
+            <img src={insurance} alt="" className="img-fluid me-2 icons" />
+            Insurance
+          </div>
+        </Link>
+        <Link>
+          <div className="d-flex flex-row">
+            <img src={dilla} alt="" className="img-fluid me-2 icons" />
+            Dilla
+          </div>
+        </Link>
+        <Link>
+          <div className="d-flex flex-row">
+            <img src={explore} alt="" className="img-fluid me-2 icons" />
+            Explore
+          </div>
+        </Link>
+        <Link>
+          <div className="d-flex flex-row">
+            <img src={learn} alt="" className="img-fluid me-2 icons" />
+            Learn
+          </div>
+        </Link>
+        <div className="second-nav">
+          <Link>
+            <div className="d-flex flex-row">
+              <img src={contact} alt="" className="img-fluid me-2 icons" />
+              Contact Dilla Coach
+            </div>
+          </Link>
+          <Link>
+            <div className="d-flex flex-row">
+              <img src={chat} alt="" className="img-fluid me-2 icons" />
+              Chat Support
+            </div>
+          </Link>
+          <Link>
+            <div className="d-flex flex-row">
+              <img src={logout} alt="" className="img-fluid me-2 icons" />
+              Log Out
+            </div>
+          </Link>
+        </div>
       </div>
       <div className="content py-5 px-5">
         {/* <div className="container-fluid"> */}
@@ -81,10 +132,10 @@ function Sidebar() {
         </div>
         <div className="row mt-4">
           <div className="col-md-4 mb-3">
-            <div className="card p-3 bg-white border border-0 inner-card">
+            <div className="card p-3 bg-white border border-0 inner-card one">
               <div className="d-flex flex-row p-2">
                 <span className="me-4 san">SAN</span>
-                <span className="roi">+10%</span>
+                <span className="roi">+10.00%</span>
               </div>
               <div className="p-2 mt-3">
                 <span className="amount">NGN 100,000.00</span>
@@ -92,10 +143,11 @@ function Sidebar() {
               </div>
               <div className="mt-2 p-2">
                 <div className="details">
-                  <span>2003827822</span>
+                  <span>**********</span>
                   <br />
-                  <span>
-                    {userDetail?.firstname} {userDetail?.lastname}
+                  <span className="generate">
+                    {/* {userDetail?.firstname} {userDetail?.lastname} */}
+                    Generate Account Number <i className="bi bi-arrow-right-circle-fill"></i>
                   </span>
                 </div>
                 <Link
@@ -108,7 +160,7 @@ function Sidebar() {
             </div>
           </div>
           <div className="col-md-4 mb-3">
-            <div className="card p-3 bg-white border border-0 inner-card">
+            <div className="card p-3 bg-white border border-0 inner-card two">
               <div className="d-flex flex-row p-2">
                 <span className="me-4 san">Dilla Wallet</span>
               </div>
@@ -131,7 +183,7 @@ function Sidebar() {
             </div>
           </div>
           <div className="col-md-4 mb-3">
-            <div className="card p-3 bg-white border border-0 inner-card">
+            <div className="card p-3 bg-white border border-0 inner-card three">
               <div className="d-flex flex-row p-2">
                 <span className="me-4 san">Total Funds</span>
               </div>
@@ -148,6 +200,12 @@ function Sidebar() {
             </div>
           </div>
         </div>
+        <div className="row kyc">
+          <div className="col-md-6">
+            <h3>Complete KYC</h3>
+          </div>
+        </div>
+        
         {/* </div> */}
       </div>
     </section>
