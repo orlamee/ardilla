@@ -6,7 +6,7 @@
 .sidebar {
   margin: 0;
   padding: 45px 60px 60px 60px;
-  width: 306px;
+  width: 315px;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -206,4 +206,8 @@ input:checked + .slider:before {
   line-height: 14px;
   font-weight: 700;
   color: #3D0072;
+}
+
+.second-nav {
+  margin-top: 60px;
 }

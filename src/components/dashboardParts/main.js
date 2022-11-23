@@ -8,6 +8,9 @@ import dilla from "../../img/dashboard/dilla.svg";
 import explore from "../../img/dashboard/explore.svg";
 import learn from "../../img/dashboard/learn.svg";
 import insurance from "../../img/dashboard/insurance.svg";
+import logout from "../../img/dashboard/logout.svg";
+import contact from "../../img/dashboard/contact.svg";
+import chat from "../../img/dashboard/chat.svg";
 import Cookies from "js-cookie";
 import axios from "axios";
 
@@ -77,6 +80,26 @@ function Sidebar() {
             Learn
           </div>
         </Link>
+        <div className="second-nav">
+          <Link>
+            <div className="d-flex flex-row">
+              <img src={contact} alt="" className="img-fluid me-2 icons" />
+              Contact Dilla Coach
+            </div>
+          </Link>
+          <Link>
+            <div className="d-flex flex-row">
+              <img src={chat} alt="" className="img-fluid me-2 icons" />
+              Chat Support
+            </div>
+          </Link>
+          <Link>
+            <div className="d-flex flex-row">
+              <img src={logout} alt="" className="img-fluid me-2 icons" />
+              Log Out
+            </div>
+          </Link>
+        </div>
       </div>
       <div className="content py-5 px-5">
         {/* <div className="container-fluid"> */}
@@ -167,6 +190,7 @@ function Sidebar() {
             <h3>Complete KYC</h3>
           </div>
         </div>
+        
         {/* </div> */}
       </div>
     </section>
