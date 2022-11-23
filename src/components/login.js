@@ -32,6 +32,8 @@ function Login() {
         setMsg(data.msg);
         setOnSuccess(true);
         setLoading(false);
+
+        navigate("/security");
       }
     } catch (error) {
       setMsg(`${error.response.data.msg || "Network error"} `);
@@ -42,7 +44,6 @@ function Login() {
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
-    navigate("/security");
   };
 
   const handleSubmit = (e) => {
