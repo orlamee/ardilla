@@ -29,7 +29,8 @@ function AQ() {
     getUser();
   }, [token]);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (userDetail?.securityQusetion?.answer === ans) {
       setMsg(`Hey ,${userDetail?.kodeHex} welcome `);
       setOnSuccess(true);
