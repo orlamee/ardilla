@@ -11,6 +11,7 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
+import pie from "../../img/pie.svg";
 import Cookies from "js-cookie";
 import axios from "axios";
 
@@ -150,7 +151,7 @@ function Sidebar() {
               </div>
               <div className="mt-2 p-2">
                 <div className="details">
-                  <span>**********</span>
+                  <span className="hash">**********</span>
                   <br />
                   <span className="generate">
                     {/* {userDetail?.firstname} {userDetail?.lastname} */}
@@ -212,6 +213,45 @@ function Sidebar() {
           <div className="col-md-6">
             <h3>Complete KYC</h3>
           </div>
+        </div>
+        <div className="row mt-4">
+          <div className="col-md-5 mb-3">
+            <div className="card py-5 px-3 bg-white border border-0 inner-card one">
+              <div className="row">
+                <div className="col-md-6 text-center">
+                  <img src={pie} alt="" className="img-fluid" />
+                </div>
+                <div className="col-md-6 mt-3">
+                  <div className="form-check">
+                    <input className="form-check-input" type="checkbox"/>
+                    <label className="form-check-label custom-check " >
+                      Add Your BVN
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input className="form-check-input" type="checkbox"/>
+                    <label className="form-check-label custom-check" >
+                      Bank Statement
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input className="form-check-input" type="checkbox"/>
+                    <label className="form-check-label custom-check" >
+                      Upload Your Valid ID
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input className="form-check-input" type="checkbox"/>
+                    <label className="form-check-label custom-check">
+                      Download Ardilla App
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
         </div>
 
         {/* </div> */}
