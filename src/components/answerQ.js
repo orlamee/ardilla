@@ -35,6 +35,7 @@ function AQ() {
       setMsg(`Hey ,${userDetail?.kodeHex} welcome `);
       setOnSuccess(true);
       setLoading(false);
+      navigate("/dashboard");
     } else {
       setLoading(false);
       setErr(true);
@@ -44,7 +45,6 @@ function AQ() {
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
-    navigate("/dashboard");
   };
 
   return (

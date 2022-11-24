@@ -19,6 +19,30 @@ import greetPlugin from "dayjs-greet";
 dayjs.extend(greetPlugin);
 
 function Sidebar() {
+  // var inactivityTime = function () {
+  //   var time;
+  //   window.onload = resetTimer;
+  //   // DOM Events
+  //   document.onmousemove = resetTimer;
+  //   document.onkeydown = resetTimer;
+
+  //   function logout() {
+  //     alert("You are now logged out.");
+  //     Cookies.remove("user");
+  //     navigate("/login");
+  //   }
+
+  //   function resetTimer() {
+  //     clearTimeout(time);
+  //     time = setTimeout(logout, 10000);
+  //     // 1000 milliseconds = 1 second
+  //   }
+  // };
+
+  // window.onload = function () {
+  //   inactivityTime();
+  // };
+
   const navigate = useNavigate();
   const token = Cookies.get("user");
 
@@ -47,9 +71,10 @@ function Sidebar() {
   }, [token]);
 
   const handleLogOut = () => {
-    navigate("/login");
     Cookies.remove("user");
+    window.location.reload();
   };
+
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -114,8 +139,8 @@ function Sidebar() {
               Chat Support
             </div>
           </Link>
-          <Link>
-            <div className="d-flex flex-row" onClick={handleLogOut}>
+          <Link onClick={handleLogOut}>
+            <div className="d-flex flex-row">
               <img src={logout} alt="" className="img-fluid me-2 icons" />
               Log Out
             </div>

@@ -27,9 +27,11 @@ function Register() {
 
       setIsLoading(false);
 
+      const { user } = data;
+
       Cookies.set("token", data.token);
 
-      navigate("/otp", { state: { data } });
+      navigate("/otp", { state: { user } });
     } catch (error) {
       setMsg(`${error.response.data.msg || "Network error"} `);
       setErr(true);

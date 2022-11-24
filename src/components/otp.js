@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../img/logo.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import girlie from "../img/girlie.svg";
@@ -16,9 +16,18 @@ function OtpPage() {
   const [resend, setResend] = useState(false);
 
   const token = Cookies.get("token");
-  const { id, email } = location.state.data;
+
+  const { _id, email, verified } = location.state.user;
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (verified === "activated") {
+      return;
+    } else {
+      return navigate("/sign-up");
+    }
+  }, [verified, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,11 +35,12 @@ function OtpPage() {
 
     try {
       const { data } = await axios.post(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/verify-otp/${token}`,
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/verify-otp/${token}/${_id}`,
         { code }
       );
 
       if (data.success === true) {
+        setErr(false);
         setMsg(data.msg);
         setOnSuccess(true);
         setIsLoading(false);
@@ -41,19 +51,26 @@ function OtpPage() {
       setErr(true);
       setMsg(`${error.response.data.msg || "Network error"} `);
       setIsLoading(false);
-
-      console.log(err);
     }
   };
 
   const handleClickSuccess = () => {
-    setOnSuccess(false);
-    navigate("/complete-profile", { state: { id, email } });
+    const getUserById = async () => {
+      const { data } = await axios.get(
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/user/find/${_id}`
+      );
+
+      setOnSuccess(false);
+
+      const { user } = data;
+      navigate("/complete-profile", { state: { user } });
+    };
+
+    getUserById();
   };
 
   const handleResend = async (e) => {
     e.preventDefault();
-    // const email = location.state.data.email;
 
     try {
       const { data } = await axios.post(
@@ -66,6 +83,7 @@ function OtpPage() {
       Cookies.set("token", data.token);
 
       if (data) {
+        setErr(false);
         setMsg(data.msg);
         setResend(true);
         setIsLoading(false);
@@ -130,8 +148,8 @@ function OtpPage() {
               <button
                 type="button"
                 className="btn-close"
-                onClick={handleClickSuccess}
                 aria-label="Close"
+                onClick={handleClickSuccess}
               ></button>
             </div>
           </div>
@@ -173,7 +191,7 @@ function OtpPage() {
                 <br />
                 your email
               </h2>
-              <p className="code mb-5">{location.state.data.email}</p>
+              <p className="code mb-5">{email}</p>
               <h6>
                 <button className="resend" onClick={handleWrongEmail}>
                   Wrong Email?

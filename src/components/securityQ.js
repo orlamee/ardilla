@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../img/logo.svg";
 import home from "../img/home-login.svg";
@@ -18,6 +18,16 @@ function SecurityPage() {
 
   const navigate = useNavigate();
 
+  const { _id, verified } = location.state.user;
+
+  useEffect(() => {
+    if (verified === "cp") {
+      return;
+    } else {
+      return navigate("/404");
+    }
+  }, [verified, navigate]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -29,11 +39,12 @@ function SecurityPage() {
 
     try {
       const { data } = await axios.put(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/security-question/${location.state.id}`,
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/security-question/${_id}`,
         { securityQusetion }
       );
 
       if (data.success === true) {
+        setErr(false);
         setMsg(data.msg);
         setOnSuccess(true);
         setLoading(false);

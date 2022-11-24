@@ -5,6 +5,7 @@ import logo from "../img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
+import platform from "platform";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -13,6 +14,13 @@ function Login() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
+  const [ip, setIp] = useState("");
+
+  let platName = platform.name;
+
+  let userOs = platform.os.family;
+
+  let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
 
   const navigate = useNavigate();
 
@@ -22,11 +30,13 @@ function Login() {
 
       const { data } = await axios.post(
         "https://ardilla-be-app.herokuapp.com/ardilla/api/auth/login",
-        { email, password }
+        { email, password, ip, platName, userOs }
       );
 
       Cookies.remove("token");
       Cookies.set("user", data.token);
+
+      console.log(data);
 
       if (data.success === true) {
         setMsg(data.msg);
@@ -41,6 +51,14 @@ function Login() {
       setErr(true);
     }
   };
+
+  function getIP(url) {
+    return fetch(url).then((res) => res.json());
+  }
+
+  getIP(`https://api.ipdata.co?api-key=${apiKey}`).then((data) => {
+    setIp(data.ip);
+  });
 
   const handleClickSuccess = () => {
     setOnSuccess(false);

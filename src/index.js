@@ -13,6 +13,7 @@ import SignUp from "./pages/signUp";
 import reportWebVitals from "./reportWebVitals";
 
 import ProtectRoute from "./components/protectRoute";
+import GuestRoute from "./components/guestRoute";
 import ForgotPassword from "./pages/forgotPassword";
 import SetPassword from "./pages/setPassword";
 import Learn from "./pages/learn";
@@ -26,36 +27,43 @@ root.render(
     <ScrollToTop />
     <Routes>
       <Route path="/" element={<App />}></Route>
-      <Route path="/alerts" element={<Alerts/>}></Route>
+      <Route path="/alerts" element={<Alerts />}></Route>
       <Route path="/sign-up" element={<SignUp />}></Route>
       <Route path="/learn" element={<Learn />}></Route>
-      <Route path="/security" element={<AnswerQuestion/>}></Route>
+      <Route path="/security" element={<AnswerQuestion />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
-      <Route path="/dashboard" element={<DashboardMain/>}></Route>
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectRoute>
+            <DashboardMain />
+          </ProtectRoute>
+        }
+      ></Route>
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
       <Route
         path="/otp"
         element={
-          <ProtectRoute>
+          <GuestRoute>
             <Otp />
-          </ProtectRoute>
+          </GuestRoute>
         }
       ></Route>
       <Route
         path="/security-question"
         element={
-          <ProtectRoute>
+          <GuestRoute>
             <SecurityQuestion />
-          </ProtectRoute>
+          </GuestRoute>
         }
       ></Route>
       <Route
         path="/complete-profile"
         element={
-          <ProtectRoute>
+          <GuestRoute>
             <CompleteProfileDetails />
-          </ProtectRoute>
+          </GuestRoute>
         }
       ></Route>
       <Route path="/404" element={<ErrorPage />}></Route>
