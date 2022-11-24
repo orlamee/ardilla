@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -19,6 +19,7 @@ import greetPlugin from "dayjs-greet";
 dayjs.extend(greetPlugin);
 
 function Sidebar() {
+  const navigate = useNavigate();
   const token = Cookies.get("user");
 
   const [userDetail, setUserDetail] = useState("");
@@ -44,6 +45,11 @@ function Sidebar() {
 
     getUser();
   }, [token]);
+
+  const handleLogOut = () => {
+    navigate("/login");
+    Cookies.remove("user");
+  };
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -109,7 +115,7 @@ function Sidebar() {
             </div>
           </Link>
           <Link>
-            <div className="d-flex flex-row">
+            <div className="d-flex flex-row" onClick={handleLogOut}>
               <img src={logout} alt="" className="img-fluid me-2 icons" />
               Log Out
             </div>
