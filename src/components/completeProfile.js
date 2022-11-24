@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../img/logo.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import complete from "../img/profilecomplete.svg";
 import axios from "axios";
-// import platform from "platform";
 
 function CompleteProfile() {
   const location = useLocation();
 
-  // let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
+  const navigate = useNavigate();
 
-  const [email, setEmail] = useState(location.state.email);
+  let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
+
+  const [email, setEmail] = useState(location.state.user.email);
   const [kodeHex, setKodeHex] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -21,20 +22,25 @@ function CompleteProfile() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
+  const [ip, setIp] = useState("");
 
-  const { id } = location.state;
+  const { _id, verified } = location.state.user;
 
-  // const [ip, setIp] = useState("");
+  useEffect(() => {
+    if (verified === "otp") {
+      return;
+    } else {
+      return navigate("/404");
+    }
+  }, [verified, navigate]);
 
-  // function json(url) {
-  //   return fetch(url).then((res) => res.json());
-  // }
+  function getIP(url) {
+    return fetch(url).then((res) => res.json());
+  }
 
-  // json(`https://api.ipdata.co?api-key=${apiKey}`).then((data) => {
-  //   setIp(data.ip);
-  // });
-
-  const navigate = useNavigate();
+  getIP(`https://api.ipdata.co?api-key=${apiKey}`).then((data) => {
+    setIp(data.ip);
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,11 +48,12 @@ function CompleteProfile() {
 
     try {
       const { data } = await axios.post(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/complete-profile/${id}`,
-        { email, firstname, lastname, contact, password, kodeHex }
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/complete-profile/${_id}`,
+        { email, firstname, lastname, contact, password, kodeHex, ip }
       );
 
       if (data.success === true) {
+        setErr(false);
         setMsg(data.msg);
         setOnSuccess(true);
         setIsLoading(false);
@@ -62,8 +69,18 @@ function CompleteProfile() {
   };
 
   const handleClickSuccess = () => {
-    setOnSuccess(false);
-    navigate("/security-question", { state: { id } });
+    const getUserById = async () => {
+      const { data } = await axios.get(
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/user/find/${_id}`
+      );
+
+      setOnSuccess(false);
+
+      const { user } = data;
+      navigate("/security-question", { state: { user } });
+    };
+
+    getUserById();
   };
 
   return (
