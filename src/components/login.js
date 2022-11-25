@@ -15,42 +15,16 @@ function Login() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
   const [ip, setIp] = useState("");
+  const [city, setCity] = useState("");
+  const [countryCode, setCountryCode] = useState("");
 
   let platName = platform.name;
-
   let userOs = platform.os.family;
+  let userOsVersion = platform.os.version;
+
+  let logDetails;
 
   let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
-
-  const navigate = useNavigate();
-
-  const sendRequest = async () => {
-    try {
-      setLoading(true);
-
-      const { data } = await axios.post(
-        "https://ardilla-be-app.herokuapp.com/ardilla/api/auth/login",
-        { email, password, ip, platName, userOs }
-      );
-
-      Cookies.remove("token");
-      Cookies.set("user", data.token);
-
-      console.log(data);
-
-      if (data.success === true) {
-        setMsg(data.msg);
-        setOnSuccess(true);
-        setLoading(false);
-
-        navigate("/security");
-      }
-    } catch (error) {
-      setMsg(`${error.response.data.msg || "Network error"} `);
-      setLoading(false);
-      setErr(true);
-    }
-  };
 
   function getIP(url) {
     return fetch(url).then((res) => res.json());
@@ -58,7 +32,50 @@ function Login() {
 
   getIP(`https://api.ipdata.co?api-key=${apiKey}`).then((data) => {
     setIp(data.ip);
+    setCity(data.city);
+    setCountryCode(data.country_code);
   });
+
+  const navigate = useNavigate();
+
+  const sendRequest = async () => {
+    try {
+      logDetails = {
+        ip,
+        city,
+        countryCode,
+        platName,
+        userOs,
+        userOsVersion,
+      };
+      setLoading(true);
+
+      console.log(logDetails);
+
+      const { data } = await axios.post(
+        "https://ardilla-be-app.herokuapp.com/ardilla/api/auth/login",
+        { email, password, ip, platName, userOs, logDetails }
+      );
+
+      Cookies.remove("token");
+
+      Cookies.set("user", data.token);
+
+      if (data.success === true) {
+        setMsg(data.msg);
+        setErr(false);
+        setOnSuccess(true);
+        setLoading(false);
+
+        navigate("/security");
+      }
+    } catch (error) {
+      setOnSuccess(false);
+      setMsg(`${error.response.data.msg || "Network error"} `);
+      setLoading(false);
+      setErr(true);
+    }
+  };
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
