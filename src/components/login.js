@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import home from "../img/home-login.svg";
 import logo from "../img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
@@ -26,20 +26,24 @@ function Login() {
 
   let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
 
-  function getIP(url) {
-    return fetch(url).then((res) => res.json());
-  }
+  async function getIP(url) {
+    const { data } = await axios.get(url);
 
-  getIP(`https://api.ipdata.co?api-key=${apiKey}`).then((data) => {
     setIp(data.ip);
     setCity(data.city);
-    setCountryCode(data.country_code);
-  });
+    setCountryCode(data.country_name);
+  }
+
+  useEffect(() => {
+    getIP(`https://api.ipdata.co?api-key=${apiKey}`);
+  }, [apiKey]);
 
   const navigate = useNavigate();
 
   const sendRequest = async () => {
     try {
+      setLoading(true);
+
       logDetails = {
         ip,
         city,
@@ -48,9 +52,6 @@ function Login() {
         userOs,
         userOsVersion,
       };
-      setLoading(true);
-
-      console.log(logDetails);
 
       const { data } = await axios.post(
         "https://ardilla-be-app.herokuapp.com/ardilla/api/auth/login",
