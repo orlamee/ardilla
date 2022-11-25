@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 const GuestRoute = ({ children }) => {
   const activated = Cookies.get("token");
 
-  if (activated) {
+  if (!activated) {
     return <Navigate to={"/sign-up"} />;
   }
 
