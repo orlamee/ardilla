@@ -44,9 +44,9 @@ function Sidebar() {
   };
 
   const handleOnIdle = () => {
-    logOut();
     Cookies.remove("user");
     console.log("last active", getLastActiveTime());
+    logOut();
   };
 
   const { getLastActiveTime } = useIdleTimer({
@@ -79,8 +79,8 @@ function Sidebar() {
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
   const handleLogOut = () => {
-    logOut();
     Cookies.remove("user");
+    logOut();
   };
 
   return (
