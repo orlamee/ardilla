@@ -41,6 +41,8 @@ function Sidebar() {
     );
 
     console.log(data);
+
+    await window.location.reload();
   };
 
   const handleOnIdle = () => {
@@ -78,9 +80,12 @@ function Sidebar() {
   const time =
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
-  const handleLogOut = () => {
+  const handleLogOut = async () => {
     Cookies.remove("user");
+
     logOut();
+
+    console.log("re render");
   };
 
   return (
