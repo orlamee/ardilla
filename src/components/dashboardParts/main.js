@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -14,50 +14,14 @@ import chat from "../../img/dashboard/chat.svg";
 import pie from "../../img/pie.svg";
 import Cookies from "js-cookie";
 import axios from "axios";
+import { useIdleTimer } from "react-idle-timer";
 
 import dayjs from "dayjs";
 import greetPlugin from "dayjs-greet";
 dayjs.extend(greetPlugin);
 
 function Sidebar() {
-  // var inactivityTime = function () {
-  //   var time;
-  //   window.onload = resetTimer;
-  //   // DOM Events
-  //   document.onmousemove = resetTimer;
-  //   document.onkeydown = resetTimer;
-
-  //   function logout() {
-  //     alert("You are now logged out.");
-  //     Cookies.remove("user");
-  //     navigate("/login");
-  //   }
-
-  //   function resetTimer() {
-  //     clearTimeout(time);
-  //     time = setTimeout(logout, 10000);
-  //     // 1000 milliseconds = 1 second
-  //   }
-  // };
-
-  // window.onload = function () {
-  //   inactivityTime();
-  // };
-
-  const navigate = useNavigate();
   const token = Cookies.get("user");
-
-  const [userDetail, setUserDetail] = useState("");
-
-  const today = new Date();
-
-  const date =
-    today.getMonth() + "," + today.getDate() + " " + today.getFullYear();
-
-  const time =
-    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-
-  console.log(dayjs(`${date} ${time}`).greet());
 
   useEffect(() => {
     const getUser = async () => {
@@ -71,9 +35,52 @@ function Sidebar() {
     getUser();
   }, [token]);
 
-  const handleLogOut = () => {
+  const logOut = async () => {
+    const { data } = await axios.put(
+      `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/logout/${token}`
+    );
+
+    console.log(data);
+  };
+
+  const handleOnIdle = () => {
+    logOut();
     Cookies.remove("user");
-    window.location.reload();
+    console.log("last active", getLastActiveTime());
+  };
+
+  const { getLastActiveTime } = useIdleTimer({
+    timeout: 1000 * 60,
+    onIdle: handleOnIdle,
+    events: [
+      "mousemove",
+      "keydown",
+      "wheel",
+      "DOMMouseScroll",
+      "mousewheel",
+      "mousedown",
+      "touchstart",
+      "touchmove",
+      "MSPointerDown",
+      "MSPointerMove",
+      "visibilitychange",
+    ],
+    debounce: 500,
+  });
+
+  const [userDetail, setUserDetail] = useState("");
+
+  const today = new Date();
+
+  const date =
+    today.getMonth() + "," + today.getDate() + " " + today.getFullYear();
+
+  const time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  const handleLogOut = () => {
+    logOut();
+    Cookies.remove("user");
   };
 
   return (
@@ -248,25 +255,25 @@ function Sidebar() {
                 </div>
                 <div className="col-md-6 mt-3">
                   <div className="form-check">
-                    <input className="form-check-input" type="checkbox"/>
-                    <label className="form-check-label custom-check " >
+                    <input className="form-check-input" type="checkbox" />
+                    <label className="form-check-label custom-check ">
                       Add Your BVN
                     </label>
                   </div>
                   <div className="form-check">
-                    <input className="form-check-input" type="checkbox"/>
-                    <label className="form-check-label custom-check" >
+                    <input className="form-check-input" type="checkbox" />
+                    <label className="form-check-label custom-check">
                       Bank Statement
                     </label>
                   </div>
                   <div className="form-check">
-                    <input className="form-check-input" type="checkbox"/>
-                    <label className="form-check-label custom-check" >
+                    <input className="form-check-input" type="checkbox" />
+                    <label className="form-check-label custom-check">
                       Upload Your Valid ID
                     </label>
                   </div>
                   <div className="form-check">
-                    <input className="form-check-input" type="checkbox"/>
+                    <input className="form-check-input" type="checkbox" />
                     <label className="form-check-label custom-check">
                       Download Ardilla App
                     </label>
@@ -275,8 +282,6 @@ function Sidebar() {
               </div>
             </div>
           </div>
-          
-          
         </div>
 
         {/* </div> */}
