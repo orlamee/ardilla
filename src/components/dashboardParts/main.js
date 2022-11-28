@@ -18,6 +18,7 @@ import axios from "axios";
 import { useIdleTimer } from "react-idle-timer";
 import chart from "../../img/dashboard/chartjs.png";
 import coins from "../../img/dashboard/coinsss.svg";
+import video from "../../img/dashboard/video.png";
 
 import dayjs from "dayjs";
 import greetPlugin from "dayjs-greet";
@@ -211,10 +212,10 @@ function Sidebar() {
                     <i className="bi bi-arrow-right-circle-fill"></i>
                   </span>
                 </div>
-                <Link
-                  className="add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn fs-6"
-                  to=""
-                >
+                <Link className="add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn fs-6 desktop" to="">
+                  Add Money
+                </Link>
+                <Link className="btn btn-outline-primary px-4 py-2 ardilla-btn fs-6 mobile mt-2" to="">
                   Add Money
                 </Link>
               </div>
@@ -352,20 +353,48 @@ function Sidebar() {
         </div>
         <div className="row goals">
           <div className="col-md-4 mb-3">
-            <h2 className="mb-4">Badge</h2>
+            <h2 className="mb-5">Badge</h2>
             <figure className="figure">
               <img src={badge} alt="" className="img-fluid" />
               <figcaption className="text-center figure-caption">Beginner</figcaption>
             </figure>
           </div>
           <div className="col-md-4 mb-3">
-            <h2 className="mb-4">Goals</h2>
-            
+            <h2 className="mb-5">Goals</h2>
+            <div className="goal-card px-5">
+              <h1>Financial Success & You</h1>
+              <small>Create a goal</small>
+              <h6 className="mt-5">Start Investing <i className="bi bi-arrow-right"></i></h6>
+            </div>
           </div>
           <div className="col-md-4 mb-3">
-            <h2 className="mb-4">Referrals</h2>
-            
+            <h2 className="mb-5">Referrals</h2>
+            <div className="refer-card px-5">
+              <h1>Refer & Earn</h1>
+              <small>Invite using your Kode Hex.</small>
+              <h6 className="mt-5">Click here <i className="bi bi-arrow-right"></i></h6>
+            </div>
           </div>
+        </div>
+        <div className="row goals">
+          <div className="col-md-4 mb-3">
+            <h2 className="mb-5">Money Wise</h2>
+            <div className="refer-card wise px-5">
+              <h1>Financial nuggets</h1>
+              <small>Take a step towards financial literacy<br/>with financial advice from the best<br/>minds in the game.</small>
+              <h6 className="mt-5">Click here <i className="bi bi-arrow-right"></i></h6>
+            </div>
+          </div>
+          <div className="col-md-6 text-center">
+            <img src={video} alt="" className="img-fluid" />
+          </div>
+        </div>
+        <div className="row support-card p-5">
+          <div className="col-md-6">
+            <h4>Get Introduced to your personal dilla coach</h4>
+            <h6 className="mt-2">Start a money relationship today  <i className="bi bi-arrow-right"></i></h6>
+          </div>
+          <div className="col-md-6"></div>
         </div>
         {/* </div> */}
       </div>

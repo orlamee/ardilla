@@ -244,6 +244,7 @@ input:checked + .slider:before {
   padding-top: 50px;
   padding-bottom: 10px;
   cursor: pointer;
+  box-shadow: 0px 6px 12px rgba(134, 133, 133, 0.06);
 }
 
 .cards-roi span {
@@ -292,4 +293,102 @@ input:checked + .slider:before {
   line-height: 15px;
   font-weight: 600;
 
+}
+
+.goal-card {
+  background-color: #FEF5FC;
+  border-radius: 7px;
+  background-image: url('../img/dashboard/goal.svg');
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-position-y: bottom ;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  /* background-size: cover;   */
+  box-shadow: 0px 6px 12px rgba(134, 133, 133, 0.06);
+
+}
+
+.goal-card h1 {
+  color: #3D0072;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.goal-card small {
+  color: #3D0072;
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 400;
+}
+
+.goal-card h6 {
+  color: #8807F7;
+  font-size: 13px;
+  line-height: 15px;
+  font-weight: 600;
+}
+
+.refer-card {
+  background-color: #E7E6FF;
+  border-radius: 7px;
+  background-image: url('../img/dashboard/earn.svg');
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-position-y: bottom ;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  /* background-size: cover;   */
+  box-shadow: 0px 6px 12px rgba(134, 133, 133, 0.06);
+
+}
+
+.refer-card h1 {
+  color: #3D0072;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.refer-card small {
+  color: #3D0072;
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 400;
+}
+
+.refer-card h6 {
+  color: #8807F7;
+  font-size: 13px;
+  line-height: 15px;
+  font-weight: 600;
+}
+
+.wise {
+  background-image: url('../img/dashboard/money-wise.svg')!important;
+  background-position: 99%!important;
+  background-repeat: no-repeat!important;
+  background-position-y: bottom!important;
+}
+
+.support-card {
+  margin-top: 100px;
+  background-color: #FEF5FC;
+  box-shadow: 0px 6px 12px rgba(134, 133, 133, 0.06);
+  border-radius: 20px;
+}
+
+.support-card h6 {
+  color: #8807F7;
+  font-size: 13px;
+  line-height: 15px;
+  font-weight: 600;
+}
+
+.support-card h4 {
+  color: #3D0072;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
 }
