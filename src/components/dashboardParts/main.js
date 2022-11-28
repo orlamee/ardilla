@@ -90,15 +90,15 @@ function Sidebar() {
     console.log("re render");
   };
 
-  document.addEventListener("visibilitychange", function (event) {
-    if (document.hidden) {
-      console.log("not visible");
-      Cookies.remove("user");
-      logOut();
-    } else {
-      console.log("is visible");
-    }
-  });
+  // document.addEventListener("visibilitychange", function (event) {
+  //   if (document.hidden) {
+  //     console.log("not visible");
+  //     Cookies.remove("user");
+  //     logOut();
+  //   } else {
+  //     console.log("is visible");
+  //   }
+  // });
 
   return (
     <section className="main-dash">
