@@ -274,3 +274,22 @@ input:checked + .slider:before {
 .insured {
   background-color: #FEF5FC!important;
 }
+
+.goals {
+  margin-top: 100px;
+}
+
+.goals h2 {
+  color: #3D0072;
+  font-size: 16px;
+  line-height: 15px;
+  font-weight: 600;
+}
+
+.figure-caption {
+  color: #3D0072;
+  font-size: 14px;
+  line-height: 15px;
+  font-weight: 600;
+
+}

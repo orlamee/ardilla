@@ -10,6 +10,7 @@ import learn from "../../img/dashboard/learn.svg";
 import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
+import badge from "../../img/dashboard/badge.svg";
 import chat from "../../img/dashboard/chat.svg";
 import pie from "../../img/pie.svg";
 import Cookies from "js-cookie";
@@ -347,6 +348,23 @@ function Sidebar() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="row goals">
+          <div className="col-md-4 mb-3">
+            <h2 className="mb-4">Badge</h2>
+            <figure className="figure">
+              <img src={badge} alt="" className="img-fluid" />
+              <figcaption className="text-center figure-caption">Beginner</figcaption>
+            </figure>
+          </div>
+          <div className="col-md-4 mb-3">
+            <h2 className="mb-4">Goals</h2>
+            
+          </div>
+          <div className="col-md-4 mb-3">
+            <h2 className="mb-4">Referrals</h2>
+            
           </div>
         </div>
         {/* </div> */}
