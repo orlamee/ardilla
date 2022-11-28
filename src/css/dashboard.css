@@ -27,7 +27,7 @@
 div.content {
   margin-left: 314px;
   padding: 27px 28px;
-  height: 1000px;
+  /* height: 1000px; */
   background-image: url('../img/dashboard/bg.svg');
   background-position: 50%;
   background-repeat: no-repeat;
@@ -190,7 +190,7 @@ input:checked + .slider:before {
 }
 
 .one {
-  padding-bottom: 17px!important;
+  padding-bottom: 21px!important;
 }
 
 .three {
@@ -223,4 +223,54 @@ input:checked + .slider:before {
   font-size: 18px!important;
   line-height: 20px!important;
   font-weight: 500!important;
+}
+
+@media (min-width: 992px){
+  .chartjs {
+    margin-top: -90px;
+    margin-left: 145px;
+
+  }
+
+}
+
+.roi-cards {
+  padding-top: 100px;
+}
+
+.cards-roi {
+  background-color: #E7E7FF;
+  border-radius: 7px;
+  padding-top: 50px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.cards-roi span {
+  color: #3D0072;
+  font-size: 24px;
+  line-height: 27px;
+  font-weight: 600;
+}
+
+.cards-roi h6 {
+  color: #8807F7;
+  font-size: 13px;
+  line-height: 15px;
+  font-weight: 600;
+}
+
+.cards-roi h5 {
+  color: #3D0072;
+  font-size: 14px;
+  line-height: 15px;
+  font-weight: 600;
+}
+
+.percentile {
+  margin-top: 36px;
+}
+
+.insured {
+  background-color: #FEF5FC!important;
 }

@@ -15,6 +15,8 @@ import pie from "../../img/pie.svg";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { useIdleTimer } from "react-idle-timer";
+import chart from "../../img/dashboard/chartjs.png";
+import coins from "../../img/dashboard/coinsss.svg";
 
 import dayjs from "dayjs";
 import greetPlugin from "dayjs-greet";
@@ -265,26 +267,26 @@ function Sidebar() {
         </div>
         <div className="row mt-4">
           <div className="col-md-4 mb-3">
-            <div className="card py-5 px-3 bg-white border border-0 inner-card one">
+            <div className="card py-5 px-3 bg-white border border-0 inner-card">
               <div className="row">
                 <div className="col-md-6 text-center">
                   <img src={pie} alt="" className="img-fluid" />
                 </div>
                 <div className="col-md-6 mt-3">
                   <div className="form-check">
-                    <input className="form-check-input" type="checkbox" checked/>
+                    <input className="form-check-input" type="checkbox" defaultChecked/>
                     <label className="form-check-label custom-check ">
                       Add Your BVN
                     </label>
                   </div>
                   <div className="form-check">
-                    <input className="form-check-input" type="checkbox" checked />
+                    <input className="form-check-input" type="checkbox" defaultChecked />
                     <label className="form-check-label custom-check">
                       Bank Statement
                     </label>
                   </div>
                   <div className="form-check">
-                    <input className="form-check-input" type="checkbox" checked/>
+                    <input className="form-check-input" type="checkbox" defaultChecked/>
                     <label className="form-check-label custom-check">
                       Upload Your Valid ID
                     </label>
@@ -299,11 +301,54 @@ function Sidebar() {
               </div>
             </div>
           </div>
-          <div className="col-md-6">
-            <img src="" alt="" />
+          <div className="col-md-6 px-5">
+            <img src={chart} alt="" className="img-fluid chartjs" />
           </div>
         </div>
-
+        <div className="row roi-cards">
+          <div className="col-md-4 mb-3">
+            <div className="cards-roi px-5">
+              <span>Get access to<br/>Investment Opportunities</span>
+              <h6 className="my-3">Start Investing <i className="bi bi-arrow-right"></i></h6>
+              <div className="row">
+                <div className="col-md-6 percentile">
+                  <h5>20% Monthly ROI</h5>
+                </div>
+                <div className="col-md-6 text-end">
+                  <img src={coins} alt="" className="img-fluid" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4 mb-3">
+            <div className="cards-roi px-5">
+              <span>Build your savings<br/>the right way</span>
+              <h6 className="my-3">Save Now <i className="bi bi-arrow-right"></i></h6>
+              <div className="row">
+                <div className="col-md-6 percentile">
+                  <h5>12% Annual ROI</h5>
+                </div>
+                <div className="col-md-6 text-end">
+                  <img src={coins} alt="" className="img-fluid" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4 mb-3">
+            <div className="cards-roi px-5 insured">
+              <span>Get<br/>Insured</span>
+              <h6 className="my-3">Make your first claim <i className="bi bi-arrow-right"></i></h6>
+              <div className="row">
+                <div className="col-md-6 percentile">
+                  <h5>12% Annual ROI</h5>
+                </div>
+                <div className="col-md-6 text-end">
+                  <img src={coins} alt="" className="img-fluid" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         {/* </div> */}
       </div>
     </section>
