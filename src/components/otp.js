@@ -97,9 +97,8 @@ function OtpPage() {
 
   const handleWrongEmail = async () => {
     try {
-      const id = location.state.data.id;
       const { data } = await axios.delete(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/wrong-email/${id}`
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/wrong-email/${_id}`
       );
 
       Cookies.remove();
