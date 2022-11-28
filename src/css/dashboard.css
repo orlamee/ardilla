@@ -392,3 +392,15 @@ input:checked + .slider:before {
   line-height: 30px;
   font-weight: 600;
 }
+
+.support-img p {
+  color: #3D0072;
+  font-size: 14px;
+  line-height: 30px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.support-img-left {
+  margin-left: 100px;
+}

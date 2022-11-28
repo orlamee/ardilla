@@ -19,6 +19,9 @@ import { useIdleTimer } from "react-idle-timer";
 import chart from "../../img/dashboard/chartjs.png";
 import coins from "../../img/dashboard/coinsss.svg";
 import video from "../../img/dashboard/video.png";
+import call from "../../img/dashboard/call.svg";
+import mp from "../../img/dashboard/mp4.svg";
+import chats from "../../img/dashboard/chat-support.svg";
 
 import dayjs from "dayjs";
 import greetPlugin from "dayjs-greet";
@@ -385,7 +388,7 @@ function Sidebar() {
               <h6 className="mt-5">Click here <i className="bi bi-arrow-right"></i></h6>
             </div>
           </div>
-          <div className="col-md-6 text-center">
+          <div className="col-md-5 text-end">
             <img src={video} alt="" className="img-fluid" />
           </div>
         </div>
@@ -394,7 +397,27 @@ function Sidebar() {
             <h4>Get Introduced to your personal dilla coach</h4>
             <h6 className="mt-2">Start a money relationship today  <i className="bi bi-arrow-right"></i></h6>
           </div>
-          <div className="col-md-6"></div>
+          <div className="col-md-6">
+            <div className="d-flex flex-row">
+              <div className="support-img">
+                <img src={call} alt="" className="img-fluid" />
+                <p>Call</p>
+              </div>
+              <div className="support-img support-img-left">
+                <img src={chats} alt="" className="img-fluid" />
+                <p>Chat</p>
+              </div>
+              <div className="support-img support-img-left">
+                <img src={mp} alt="" className="img-fluid" />
+                <p>Video</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row goals">
+          <div className="col-md-6">
+            <h2 className="mb-5">Explore</h2>
+          </div>
         </div>
         {/* </div> */}
       </div>
