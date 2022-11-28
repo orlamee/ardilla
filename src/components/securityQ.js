@@ -160,7 +160,9 @@ function SecurityPage() {
                       placeholder="Your Answer"
                       required
                       value={answer}
-                      onChange={(e) => setAnswer(e.target.value.trim())}
+                      onChange={(e) =>
+                        setAnswer(e.target.value.trim().toLowerCase())
+                      }
                     />
                   </div>
                   {loading ? (

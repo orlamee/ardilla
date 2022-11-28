@@ -126,7 +126,9 @@ function AQ() {
                       class="form-control custom-form"
                       required
                       value={ans}
-                      onChange={(e) => setAns(e.target.value)}
+                      onChange={(e) =>
+                        setAns(e.target.value.trim().toLowerCase())
+                      }
                     />
                   </div>
                   {loading ? (
