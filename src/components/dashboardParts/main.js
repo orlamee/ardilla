@@ -264,7 +264,7 @@ function Sidebar() {
           </div>
         </div>
         <div className="row mt-4">
-          <div className="col-md-5 mb-3">
+          <div className="col-md-4 mb-3">
             <div className="card py-5 px-3 bg-white border border-0 inner-card one">
               <div className="row">
                 <div className="col-md-6 text-center">
@@ -272,19 +272,19 @@ function Sidebar() {
                 </div>
                 <div className="col-md-6 mt-3">
                   <div className="form-check">
-                    <input className="form-check-input" type="checkbox" />
+                    <input className="form-check-input" type="checkbox" checked/>
                     <label className="form-check-label custom-check ">
                       Add Your BVN
                     </label>
                   </div>
                   <div className="form-check">
-                    <input className="form-check-input" type="checkbox" />
+                    <input className="form-check-input" type="checkbox" checked />
                     <label className="form-check-label custom-check">
                       Bank Statement
                     </label>
                   </div>
                   <div className="form-check">
-                    <input className="form-check-input" type="checkbox" />
+                    <input className="form-check-input" type="checkbox" checked/>
                     <label className="form-check-label custom-check">
                       Upload Your Valid ID
                     </label>
