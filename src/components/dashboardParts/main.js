@@ -21,6 +21,8 @@ import greetPlugin from "dayjs-greet";
 dayjs.extend(greetPlugin);
 
 function Sidebar() {
+  const [userDetail, setUserDetail] = useState("");
+
   const token = Cookies.get("user");
 
   useEffect(() => {
@@ -35,6 +37,7 @@ function Sidebar() {
     getUser();
   }, [token]);
 
+  //user
   const logOut = async () => {
     const { data } = await axios.put(
       `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/logout/${token}`
@@ -70,8 +73,6 @@ function Sidebar() {
     debounce: 500,
   });
 
-  const [userDetail, setUserDetail] = useState("");
-
   const today = new Date();
 
   const date =
@@ -80,6 +81,7 @@ function Sidebar() {
   const time =
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
+  //form log out btn
   const handleLogOut = async () => {
     Cookies.remove("user");
 
@@ -87,6 +89,16 @@ function Sidebar() {
 
     console.log("re render");
   };
+
+  document.addEventListener("visibilitychange", function (event) {
+    if (document.hidden) {
+      console.log("not visible");
+      Cookies.remove("user");
+      logOut();
+    } else {
+      console.log("is visible");
+    }
+  });
 
   return (
     <section className="main-dash">

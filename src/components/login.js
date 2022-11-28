@@ -183,7 +183,7 @@ function Login() {
                       className="form-control custom-login"
                       required
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => setEmail(e.target.value.toLowerCase())}
                     />
                   </div>
                   <div className="">
