@@ -73,8 +73,6 @@ function Sidebar() {
     debounce: 500,
   });
 
-  console.log("push works");
-
   const today = new Date();
 
   const date =

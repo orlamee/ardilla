@@ -142,7 +142,7 @@ function Login() {
           <div className="col-md-6 mb-3">
             <div className="left text-center">
               <img src={home} alt="" className="img-fluid" />
-              <h2 className="my-4">The future of savings & Investment.....</h2>
+              <h2 className="my-4">The future of savings & Investment</h2>
               <h6 className="mb-4">
                 <span className="qoute">"</span>Saving money typically means it
                 is available when we need it
