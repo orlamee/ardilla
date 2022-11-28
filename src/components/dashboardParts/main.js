@@ -299,6 +299,9 @@ function Sidebar() {
               </div>
             </div>
           </div>
+          <div className="col-md-6">
+            <img src="" alt="" />
+          </div>
         </div>
 
         {/* </div> */}
