@@ -100,12 +100,6 @@ function Sidebar() {
     }
   });
 
-  window.addEventListener("blur", function (event) {
-    console.log("lost focus");
-    Cookies.remove("user");
-    logOut();
-  });
-
   return (
     <section className="main-dash">
       <div className="sidebar">
