@@ -157,7 +157,7 @@ function CompleteProfile() {
                       className="form-control custom-login"
                       required
                       value={kodeHex}
-                      onChange={(e) => setKodeHex(e.target.value)}
+                      onChange={(e) => setKodeHex(e.target.value.toLowerCase())}
                     />
                   </div>
                   <div className="mb-3">
