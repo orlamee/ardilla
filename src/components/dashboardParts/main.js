@@ -55,7 +55,7 @@ function Sidebar() {
   };
 
   const { getLastActiveTime } = useIdleTimer({
-    timeout: 1000 * 60,
+    timeout: 1000 * 60 * 7,
     onIdle: handleOnIdle,
     events: [
       "mousemove",
