@@ -468,7 +468,7 @@ function Sidebar() {
               <i className="bi bi-arrow-right"></i>
             </h6>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 desktop">
             <div className="d-flex flex-row">
               <div className="support-img">
                 <img src={call} alt="" className="img-fluid" />
@@ -491,22 +491,22 @@ function Sidebar() {
           </div>
         </div>
         <div className="row footer-dashboard">
-          <div className="col-md-3 text-center border-end">
+          <div className="col-md-3 text-center border-end mb-3">
             <h2>My Family and I</h2>
             <p className="mt-2">A Family that stay together stays forever</p>
             <button type="button" className="btn btn-outline-light footer-btn">Coming Soon</button>
           </div>
-          <div className="col-md-3 text-center border-end">
+          <div className="col-md-3 text-center border-end mb-3">
             <h2>Invest With Hargon</h2>
             <p className="mt-2">Loan as an investment</p>
             <button type="button" className="btn btn-outline-light footer-btn">Coming Soon</button>
           </div>
-          <div className="col-md-3 text-center border-end">
+          <div className="col-md-3 text-center border-end mb-3">
             <h2>Business with Ardilla</h2>
             <p className="mt-2">A Partnership where you Earn!</p>
             <button type="button" className="btn btn-outline-light footer-btn">Coming Soon</button>
           </div>
-          <div className="col-md-3 text-center">
+          <div className="col-md-3 text-center mb-3">
             <h2>Tax Save</h2>
             <p className="mt-2">Where you save while spending</p>
             <button type="button" className="btn btn-outline-light footer-btn">Coming Soon</button>

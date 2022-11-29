@@ -41,6 +41,7 @@ div.content {
   .sidebar {
     /* width: 100%; */
     height: auto;
+    padding: 45px 80px 40px 75px;
     position: relative;
   }
   .sidebar a {float: left;}
