@@ -8,6 +8,7 @@ import axios from "axios";
 
 function AQ() {
   const token = Cookies.get("user");
+
   const [userDetail, setUserDetail] = useState({});
   const [loading, setLoading] = useState(false);
   const [ans, setAns] = useState("");
@@ -29,8 +30,13 @@ function AQ() {
     getUser();
   }, [token]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    await axios.get(
+      `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/answer-security-question/${token}`
+    );
+
     if (userDetail?.securityQusetion?.answer === ans) {
       setMsg(`Hey ,${userDetail?.kodeHex} welcome `);
       setOnSuccess(true);

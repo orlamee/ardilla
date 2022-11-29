@@ -54,6 +54,22 @@ function Sidebar() {
     logOut();
   };
 
+  // useEffect(() => {
+
+  // const handleTabClose = (event) => {
+  //   event.preventDefault();
+
+  //   console.log("beforeunload event triggered");
+
+  //   return (event.returnValue = "Are you sure you want to exit?");
+  // };
+
+  // window.addEventListener("beforeunload", handleTabClose);
+
+  // return () => {
+  //   window.removeEventListener("beforeunload", handleTabClose);
+  // };
+
   const { getLastActiveTime } = useIdleTimer({
     timeout: 1000 * 60 * 7,
     onIdle: handleOnIdle,
@@ -272,19 +288,31 @@ function Sidebar() {
                 </div>
                 <div className="col-md-6 mt-3">
                   <div className="form-check">
-                    <input className="form-check-input" type="checkbox" checked/>
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      checked
+                    />
                     <label className="form-check-label custom-check ">
                       Add Your BVN
                     </label>
                   </div>
                   <div className="form-check">
-                    <input className="form-check-input" type="checkbox" checked />
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      checked
+                    />
                     <label className="form-check-label custom-check">
                       Bank Statement
                     </label>
                   </div>
                   <div className="form-check">
-                    <input className="form-check-input" type="checkbox" checked/>
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      checked
+                    />
                     <label className="form-check-label custom-check">
                       Upload Your Valid ID
                     </label>
