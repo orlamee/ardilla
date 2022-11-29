@@ -456,7 +456,7 @@ function Sidebar() {
               </h6>
             </div>
           </div>
-          <div className="col-md-5 text-end">
+          <div className="col-md-5 text-end" style={{marginLeft: "212px"}}>
             <img src={video} alt="" className="img-fluid" />
           </div>
         </div>
