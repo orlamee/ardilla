@@ -10,11 +10,18 @@ import learn from "../../img/dashboard/learn.svg";
 import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
+import badge from "../../img/dashboard/badge.svg";
 import chat from "../../img/dashboard/chat.svg";
 import pie from "../../img/pie.svg";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { useIdleTimer } from "react-idle-timer";
+import chart from "../../img/dashboard/chartjs.png";
+import coins from "../../img/dashboard/coinsss.svg";
+import video from "../../img/dashboard/video.png";
+import call from "../../img/dashboard/call.svg";
+import mp from "../../img/dashboard/mp4.svg";
+import chats from "../../img/dashboard/chat-support.svg";
 
 import dayjs from "dayjs";
 import greetPlugin from "dayjs-greet";
@@ -225,7 +232,13 @@ function Sidebar() {
                   </span>
                 </div>
                 <Link
-                  className="add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn fs-6"
+                  className="add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn fs-6 desktop"
+                  to=""
+                >
+                  Add Money
+                </Link>
+                <Link
+                  className="btn btn-outline-primary px-4 py-2 ardilla-btn fs-6 mobile mt-2"
                   to=""
                 >
                   Add Money
@@ -281,7 +294,7 @@ function Sidebar() {
         </div>
         <div className="row mt-4">
           <div className="col-md-4 mb-3">
-            <div className="card py-5 px-3 bg-white border border-0 inner-card one">
+            <div className="card py-5 px-3 bg-white border border-0 inner-card">
               <div className="row">
                 <div className="col-md-6 text-center">
                   <img src={pie} alt="" className="img-fluid" />
@@ -327,8 +340,154 @@ function Sidebar() {
               </div>
             </div>
           </div>
+          <div className="col-md-6 px-5">
+            <img src={chart} alt="" className="img-fluid chartjs" />
+          </div>
         </div>
-
+        <div className="row roi-cards">
+          <div className="col-md-4 mb-3">
+            <div className="cards-roi px-5">
+              <span>
+                Get access to
+                <br />
+                Investment Opportunities
+              </span>
+              <h6 className="my-3">
+                Start Investing <i className="bi bi-arrow-right"></i>
+              </h6>
+              <div className="row">
+                <div className="col-md-6 percentile">
+                  <h5>20% Monthly ROI</h5>
+                </div>
+                <div className="col-md-6 text-end">
+                  <img src={coins} alt="" className="img-fluid" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4 mb-3">
+            <div className="cards-roi px-5">
+              <span>
+                Build your savings
+                <br />
+                the right way
+              </span>
+              <h6 className="my-3">
+                Save Now <i className="bi bi-arrow-right"></i>
+              </h6>
+              <div className="row">
+                <div className="col-md-6 percentile">
+                  <h5>12% Annual ROI</h5>
+                </div>
+                <div className="col-md-6 text-end">
+                  <img src={coins} alt="" className="img-fluid" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4 mb-3">
+            <div className="cards-roi px-5 insured">
+              <span>
+                Get
+                <br />
+                Insured
+              </span>
+              <h6 className="my-3">
+                Make your first claim <i className="bi bi-arrow-right"></i>
+              </h6>
+              <div className="row">
+                <div className="col-md-6 percentile">
+                  <h5>12% Annual ROI</h5>
+                </div>
+                <div className="col-md-6 text-end">
+                  <img src={coins} alt="" className="img-fluid" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row goals">
+          <div className="col-md-4 mb-3">
+            <h2 className="mb-5">Badge</h2>
+            <figure className="figure">
+              <img src={badge} alt="" className="img-fluid" />
+              <figcaption className="text-center figure-caption">
+                Beginner
+              </figcaption>
+            </figure>
+          </div>
+          <div className="col-md-4 mb-3">
+            <h2 className="mb-5">Goals</h2>
+            <div className="goal-card px-5">
+              <h1>Financial Success & You</h1>
+              <small>Create a goal</small>
+              <h6 className="mt-5">
+                Start Investing <i className="bi bi-arrow-right"></i>
+              </h6>
+            </div>
+          </div>
+          <div className="col-md-4 mb-3">
+            <h2 className="mb-5">Referrals</h2>
+            <div className="refer-card px-5">
+              <h1>Refer & Earn</h1>
+              <small>Invite using your Kode Hex.</small>
+              <h6 className="mt-5">
+                Click here <i className="bi bi-arrow-right"></i>
+              </h6>
+            </div>
+          </div>
+        </div>
+        <div className="row goals">
+          <div className="col-md-4 mb-3">
+            <h2 className="mb-5">Money Wise</h2>
+            <div className="refer-card wise px-5">
+              <h1>Financial nuggets</h1>
+              <small>
+                Take a step towards financial literacy
+                <br />
+                with financial advice from the best
+                <br />
+                minds in the game.
+              </small>
+              <h6 className="mt-5">
+                Click here <i className="bi bi-arrow-right"></i>
+              </h6>
+            </div>
+          </div>
+          <div className="col-md-5 text-end">
+            <img src={video} alt="" className="img-fluid" />
+          </div>
+        </div>
+        <div className="row support-card p-5">
+          <div className="col-md-6">
+            <h4>Get Introduced to your personal dilla coach</h4>
+            <h6 className="mt-2">
+              Start a money relationship today{" "}
+              <i className="bi bi-arrow-right"></i>
+            </h6>
+          </div>
+          <div className="col-md-6">
+            <div className="d-flex flex-row">
+              <div className="support-img">
+                <img src={call} alt="" className="img-fluid" />
+                <p>Call</p>
+              </div>
+              <div className="support-img support-img-left">
+                <img src={chats} alt="" className="img-fluid" />
+                <p>Chat</p>
+              </div>
+              <div className="support-img support-img-left">
+                <img src={mp} alt="" className="img-fluid" />
+                <p>Video</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row goals">
+          <div className="col-md-6">
+            <h2 className="mb-5">Explore</h2>
+          </div>
+        </div>
         {/* </div> */}
       </div>
     </section>
