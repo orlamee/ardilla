@@ -5,8 +5,8 @@
 
 .sidebar {
   margin: 0;
-  padding: 45px 60px 60px 60px;
-  width: 315px;
+  padding: 45px 40px 40px 60px;
+  width: 348px;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -25,7 +25,7 @@
 }
 
 div.content {
-  margin-left: 314px;
+  margin-left: 380px;
   padding: 27px 28px;
   /* height: 1000px; */
   background-image: url('../img/dashboard/bg.svg');
@@ -379,7 +379,8 @@ input:checked + .slider:before {
   background-color: #FEF5FC;
   box-shadow: 0px 6px 12px rgba(134, 133, 133, 0.06);
   border-radius: 20px;
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .support-card h6 {
@@ -436,4 +437,13 @@ input:checked + .slider:before {
 .footer-btn {
   border-radius: 30px;
   font-size: 10px
+}
+
+.badg {
+  border: 1px solid #E6356D;
+  padding: 3px 7px;
+  border-radius: 30px;
+  margin-top: -4px;
+  font-size: 9px;
+  color: #E6356D!important;
 }

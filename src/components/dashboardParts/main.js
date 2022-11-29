@@ -149,13 +149,13 @@ function Sidebar() {
         <Link>
           <div className="d-flex flex-row">
             <img src={investment} alt="" className="img-fluid me-2 icons" />
-            Investments
+            Investments <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
-        <Link>
+        <Link >
           <div className="d-flex flex-row">
             <img src={insurance} alt="" className="img-fluid me-2 icons" />
-            Insurance
+            Insurance <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <Link>
@@ -461,10 +461,10 @@ function Sidebar() {
           </div>
         </div>
         <div className="row support-card p-5">
-          <div className="col-md-6">
+          <div className="col-md-6 mt-3">
             <h4>Get Introduced to your personal dilla coach</h4>
-            <h6 className="mt-2">
-              Start a money relationship today{" "}
+            <h6 className="mt-4">
+              Start a money relationship today
               <i className="bi bi-arrow-right"></i>
             </h6>
           </div>
