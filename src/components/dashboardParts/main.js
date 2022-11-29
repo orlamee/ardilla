@@ -22,6 +22,8 @@ import video from "../../img/dashboard/video.png";
 import call from "../../img/dashboard/call.svg";
 import mp from "../../img/dashboard/mp4.svg";
 import chats from "../../img/dashboard/chat-support.svg";
+import jar from "../../img/dashboard/jar.svg";
+import shield from "../../img/dashboard/shields.svg";
 
 import dayjs from "dayjs";
 import greetPlugin from "dayjs-greet";
@@ -304,7 +306,7 @@ function Sidebar() {
                     <input
                       className="form-check-input"
                       type="checkbox"
-                      checked
+                      defaultChecked
                     />
                     <label className="form-check-label custom-check ">
                       Add Your BVN
@@ -314,7 +316,7 @@ function Sidebar() {
                     <input
                       className="form-check-input"
                       type="checkbox"
-                      checked
+                      defaultChecked
                     />
                     <label className="form-check-label custom-check">
                       Bank Statement
@@ -324,7 +326,7 @@ function Sidebar() {
                     <input
                       className="form-check-input"
                       type="checkbox"
-                      checked
+                      defaultChecked
                     />
                     <label className="form-check-label custom-check">
                       Upload Your Valid ID
@@ -360,7 +362,7 @@ function Sidebar() {
                   <h5>20% Monthly ROI</h5>
                 </div>
                 <div className="col-md-6 text-end">
-                  <img src={coins} alt="" className="img-fluid" />
+                  <img src={coins} alt="" className="img-fluid" width={175}/>
                 </div>
               </div>
             </div>
@@ -380,7 +382,7 @@ function Sidebar() {
                   <h5>12% Annual ROI</h5>
                 </div>
                 <div className="col-md-6 text-end">
-                  <img src={coins} alt="" className="img-fluid" />
+                  <img src={jar} alt="" className="img-fluid" />
                 </div>
               </div>
             </div>
@@ -388,9 +390,9 @@ function Sidebar() {
           <div className="col-md-4 mb-3">
             <div className="cards-roi px-5 insured">
               <span>
-                Get
+                Insurance policies
                 <br />
-                Insured
+                you can trust
               </span>
               <h6 className="my-3">
                 Make your first claim <i className="bi bi-arrow-right"></i>
@@ -400,7 +402,7 @@ function Sidebar() {
                   <h5>12% Annual ROI</h5>
                 </div>
                 <div className="col-md-6 text-end">
-                  <img src={coins} alt="" className="img-fluid" />
+                  <img src={shield} alt="" className="img-fluid" />
                 </div>
               </div>
             </div>
@@ -486,6 +488,28 @@ function Sidebar() {
         <div className="row goals">
           <div className="col-md-6">
             <h2 className="mb-5">Explore</h2>
+          </div>
+        </div>
+        <div className="row footer-dashboard">
+          <div className="col-md-3 text-center border-end">
+            <h2>My Family and I</h2>
+            <p className="mt-2">A Family that stay together stays forever</p>
+            <button type="button" className="btn btn-outline-light footer-btn">Coming Soon</button>
+          </div>
+          <div className="col-md-3 text-center border-end">
+            <h2>Invest With Hargon</h2>
+            <p className="mt-2">Loan as an investment</p>
+            <button type="button" className="btn btn-outline-light footer-btn">Coming Soon</button>
+          </div>
+          <div className="col-md-3 text-center border-end">
+            <h2>Business with Ardilla</h2>
+            <p className="mt-2">A Partnership where you Earn!</p>
+            <button type="button" className="btn btn-outline-light footer-btn">Coming Soon</button>
+          </div>
+          <div className="col-md-3 text-center">
+            <h2>Tax Save</h2>
+            <p className="mt-2">Where you save while spending</p>
+            <button type="button" className="btn btn-outline-light footer-btn">Coming Soon</button>
           </div>
         </div>
         {/* </div> */}
