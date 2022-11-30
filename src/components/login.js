@@ -24,8 +24,6 @@ function Login() {
 
   let currentTimestamp = new Date().getTime();
 
-  console.log(currentTimestamp);
-
   let logDetails;
 
   let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
