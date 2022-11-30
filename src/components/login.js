@@ -35,8 +35,6 @@ function Login() {
       setIp(data.ip);
       setCity(data.city);
       setCountryCode(data.country_name);
-
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
