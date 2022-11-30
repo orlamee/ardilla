@@ -29,8 +29,21 @@ dayjs.extend(greetPlugin);
 
 function Sidebar() {
   const [userDetail, setUserDetail] = useState("");
+  // const [firstCommit, setFirstCommit] = useState(true);
 
   const token = Cookies.get("user");
+
+  const refreshToken = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/refresh-token/${token}`
+      );
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     const getUser = async () => {
@@ -40,42 +53,34 @@ function Sidebar() {
 
       setUserDetail(data.user);
     };
-
     getUser();
+
+    let interval = setInterval(refreshToken, [6000]);
+
+    return () => clearInterval(interval);
   }, [token]);
 
   //user
   const logOut = async () => {
-    const { data } = await axios.put(
-      `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/logout/${token}`
-    );
+    try {
+      const { data } = await axios.put(
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/logout/${token}`
+      );
 
-    console.log(data);
+      console.log(data);
+      console.log("log out data");
 
-    await window.location.reload();
+      await window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleOnIdle = () => {
+    logOut();
     Cookies.remove("user");
     console.log("last active", getLastActiveTime());
-    logOut();
   };
-
-  // useEffect(() => {
-
-  // const handleTabClose = (event) => {
-  //   event.preventDefault();
-
-  //   console.log("beforeunload event triggered");
-
-  //   return (event.returnValue = "Are you sure you want to exit?");
-  // };
-
-  // window.addEventListener("beforeunload", handleTabClose);
-
-  // return () => {
-  //   window.removeEventListener("beforeunload", handleTabClose);
-  // };
 
   const { getLastActiveTime } = useIdleTimer({
     timeout: 1000 * 60 * 3,
@@ -112,16 +117,6 @@ function Sidebar() {
 
     console.log("re render");
   };
-
-  // document.addEventListener("visibilitychange", function (event) {
-  //   if (document.hidden) {
-  //     console.log("not visible");
-  //     Cookies.remove("user");
-  //     logOut();
-  //   } else {
-  //     console.log("is visible");
-  //   }
-  // });
 
   return (
     <section className="main-dash">

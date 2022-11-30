@@ -42,14 +42,7 @@ root.render(
       ></Route>
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
-      <Route
-        path="/otp"
-        element={
-          <GuestRoute>
-            <Otp />
-          </GuestRoute>
-        }
-      ></Route>
+      <Route path="/otp" element={<Otp />}></Route>
       <Route
         path="/security-question"
         element={

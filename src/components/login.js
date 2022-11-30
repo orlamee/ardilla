@@ -22,16 +22,26 @@ function Login() {
   let userOs = platform.os.family;
   let userOsVersion = platform.os.version;
 
+  let currentTimestamp = new Date().getTime();
+
+  console.log(currentTimestamp);
+
   let logDetails;
 
   let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
 
   async function getIP(url) {
-    const { data } = await axios.get(url);
+    try {
+      const { data } = await axios.get(url);
 
-    setIp(data.ip);
-    setCity(data.city);
-    setCountryCode(data.country_name);
+      setIp(data.ip);
+      setCity(data.city);
+      setCountryCode(data.country_name);
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   useEffect(() => {
@@ -55,7 +65,7 @@ function Login() {
 
       const { data } = await axios.post(
         "https://ardilla-be-app.herokuapp.com/ardilla/api/auth/login",
-        { email, password, ip, platName, userOs, logDetails }
+        { email, password, ip, platName, userOs, logDetails, currentTimestamp }
       );
 
       Cookies.remove("token");

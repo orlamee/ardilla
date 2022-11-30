@@ -31,21 +31,25 @@ function AQ() {
   }, [token]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    await axios.get(
-      `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/answer-security-question/${token}`
-    );
+      await axios.get(
+        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/answer-security-question/${token}`
+      );
 
-    if (userDetail?.securityQusetion?.answer === ans) {
-      setMsg(`Hey ,${userDetail?.kodeHex} welcome `);
-      setOnSuccess(true);
-      setLoading(false);
-      navigate("/dashboard");
-    } else {
-      setLoading(false);
-      setErr(true);
-      setMsg("Wrong answer");
+      if (userDetail?.securityQusetion?.answer === ans) {
+        setMsg(`Hey ,${userDetail?.kodeHex} welcome `);
+        setOnSuccess(true);
+        setLoading(false);
+        navigate("/dashboard");
+      } else {
+        setLoading(false);
+        setErr(true);
+        setMsg("Wrong answer");
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
