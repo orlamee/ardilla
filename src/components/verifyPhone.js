@@ -8,7 +8,7 @@ function VerifyPhone() {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-7 text-center">
-            <img src={icon} alt="" />
+            <img src={icon} alt="" className="img-fluid" />
             <h3 className="my-2">Verify Phone Number</h3>
             <h6>Enter the OTP Verification code sent to +234 807 828 6530 <br/><Link style={{color: "#E6356D"}}>Wrong Number?</Link></h6>
             <form className="my-5">

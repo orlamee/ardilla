@@ -532,3 +532,7 @@ h6 a {
   width: 80%;
   border-color: #3D007280;
 }
+
+.kyc-height {
+  padding: 100px 10px!important;
+}
