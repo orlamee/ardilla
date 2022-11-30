@@ -588,3 +588,9 @@ input:checked + .slider:before {
   line-height: 21px;
   font-size: 12px;
 }
+
+.cogs {
+  margin-top: -27px;
+  z-index: 0;
+  position: relative;
+}
