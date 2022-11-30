@@ -21,7 +21,7 @@ function AQ() {
   useEffect(() => {
     const getUser = async () => {
       const { data } = await axios.get(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/user/getUser/${token}`
+        ` https://ardilla-app.herokuapp.com/ardilla/api/user/getUser/${token}`
       );
 
       setUserDetail(data.user);
@@ -35,7 +35,7 @@ function AQ() {
       e.preventDefault();
 
       await axios.get(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/answer-security-question/${token}`
+        ` https://ardilla-app.herokuapp.com/ardilla/api/auth/answer-security-question/${token}`
       );
 
       if (userDetail?.securityQusetion?.answer === ans) {
