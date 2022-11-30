@@ -171,6 +171,7 @@ function CompleteProfile() {
                       value={firstname}
                       onChange={(e) => setFirstname(e.target.value)}
                     />
+                    <div id="" class="form-text">Kindly use valid information</div>
                   </div>
                   <div className="mb-3">
                     <label className="form-label">
@@ -183,6 +184,7 @@ function CompleteProfile() {
                       value={lastname}
                       onChange={(e) => setLastname(e.target.value)}
                     />
+                    <div id="" class="form-text">Kindly use valid information</div>
                   </div>
                   <div className="mb-3">
                     <label className="form-label">
@@ -195,6 +197,7 @@ function CompleteProfile() {
                       value={contact}
                       onChange={(e) => setContact(e.target.value)}
                     />
+                    <div id="" class="form-text">Kindly use valid information</div>
                   </div>
                   <div className="mb-3">
                     <label className="form-label">

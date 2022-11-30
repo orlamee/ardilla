@@ -17,9 +17,12 @@ import GuestRoute from "./components/guestRoute";
 import ForgotPassword from "./pages/forgotPassword";
 import SetPassword from "./pages/setPassword";
 import Learn from "./pages/learn";
-import Alerts from "./components/alerts/alerts";
+// import Alerts from "./components/alerts/alerts";
 import DashboardMain from "./dashboard/dashboard";
 import AnswerQuestion from "./pages/answerSecurity";
+import VerifyMobile from "./pages/phoneVerify";
+import KycVerify from "./pages/kycVerify";
+import Pin from "./pages/createPin";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -27,11 +30,14 @@ root.render(
     <ScrollToTop />
     <Routes>
       <Route path="/" element={<App />}></Route>
-      <Route path="/alerts" element={<Alerts />}></Route>
+      {/* <Route path="/alerts" element={<Alerts />}></Route> */}
       <Route path="/sign-up" element={<SignUp />}></Route>
       <Route path="/learn" element={<Learn />}></Route>
       <Route path="/security" element={<AnswerQuestion />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
+      <Route path="/verify-mobile" element={<VerifyMobile/>}></Route>
+      <Route path="/kyc" element={<KycVerify/>}></Route>
+      <Route path="/create-pin" element={<Pin/>}></Route>
       <Route
         path="/dashboard"
         element={

@@ -42,8 +42,8 @@ function Register() {
   return (
     <section className="login-section">
       {err && (
-        <div className="row justify-content-center">
-          <div className="col-md-6">
+        <div className="row justify-content-center ardilla-alert">
+          <div className="col-md-12">
             <div
               className="alert alert-danger alert-dismissible fade show text-center text-danger"
               role="alert"

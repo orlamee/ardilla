@@ -485,3 +485,58 @@ h6 a {
   line-height: 18px;
   font-weight: 600;
 }
+
+.ardilla-alert {
+  position: absolute;
+  right: 40px;
+  width: 700px;
+}
+
+.verify-body {
+  background-image: url("../img/verifybg.svg")!important;
+  background-position: 50%!important;
+  background-repeat: no-repeat!important;
+  background-size: cover!important; 
+  height: 100%!important;;
+  margin: 0!important;;
+}
+
+.verify-section {
+  padding: 160px 20px;
+}
+
+.verify-section h3 {
+  color: #3D0072;
+  font-size: 32px;
+  line-height: 59px;
+  font-weight: 500;
+  font-family: Ubuntu-Bold;
+}
+
+.verify-section h6 {
+  color: #3D007280;
+  font-size: 17px;
+  line-height: 30px;
+  font-weight: 400;
+}
+
+.verify-section p {
+  color: #3D0072B2;
+  font-size: 17px;
+  line-height: 30px;
+  font-weight: 500;
+}
+
+.verify-otp {
+  padding: 20px;
+  width: 80%;
+  border-color: #3D007280;
+}
+
+.kyc-height {
+  padding: 50px 10px!important;
+}
+
+.pin-height {
+  padding: 20px 10px!important;
+}
