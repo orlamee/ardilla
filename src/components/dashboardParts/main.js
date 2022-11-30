@@ -35,17 +35,17 @@ function Sidebar() {
 
   const token = Cookies.get("user");
 
-  const refreshToken = async () => {
-    try {
-      const { data } = await axios.get(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/refresh-token/${token}`
-      );
+  // const refreshToken = async () => {
+  //   try {
+  //     const { data } = await axios.get(
+  //       `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/refresh-token/${token}`
+  //     );
 
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   useEffect(() => {
     const getUser = async () => {
@@ -57,9 +57,9 @@ function Sidebar() {
     };
     getUser();
 
-    let interval = setInterval(refreshToken, [6000]);
+    // let interval = setInterval(refreshToken, [6000]);
 
-    return () => clearInterval(interval);
+    // return () => clearInterval(interval);
   }, [token]);
 
   //user
@@ -147,7 +147,7 @@ function Sidebar() {
             Investments <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
-        <Link >
+        <Link>
           <div className="d-flex flex-row">
             <img src={insurance} alt="" className="img-fluid me-2 icons" />
             Insurance <span className="badg ms-3">Coming Soon</span>
@@ -357,7 +357,7 @@ function Sidebar() {
                   <h5>20% Monthly ROI</h5>
                 </div>
                 <div className="col-md-6 text-end">
-                  <img src={coins} alt="" className="img-fluid" width={175}/>
+                  <img src={coins} alt="" className="img-fluid" width={175} />
                 </div>
               </div>
             </div>
@@ -451,7 +451,7 @@ function Sidebar() {
               </h6>
             </div>
           </div>
-          <div className="col-md-5 text-end" style={{marginLeft: "212px"}}>
+          <div className="col-md-5 text-end" style={{ marginLeft: "212px" }}>
             <img src={video} alt="" className="img-fluid" />
           </div>
         </div>
@@ -489,22 +489,30 @@ function Sidebar() {
           <div className="col-md-3 text-center border-end mb-3">
             <h2>My Family and I</h2>
             <p className="mt-2">A Family that stay together stays forever</p>
-            <button type="button" className="btn btn-outline-light footer-btn">Coming Soon</button>
+            <button type="button" className="btn btn-outline-light footer-btn">
+              Coming Soon
+            </button>
           </div>
           <div className="col-md-3 text-center border-end mb-3">
             <h2>Invest With Hargon</h2>
             <p className="mt-2">Loan as an investment</p>
-            <button type="button" className="btn btn-outline-light footer-btn">Coming Soon</button>
+            <button type="button" className="btn btn-outline-light footer-btn">
+              Coming Soon
+            </button>
           </div>
           <div className="col-md-3 text-center border-end mb-3">
             <h2>Business with Ardilla</h2>
             <p className="mt-2">A Partnership where you Earn!</p>
-            <button type="button" className="btn btn-outline-light footer-btn">Coming Soon</button>
+            <button type="button" className="btn btn-outline-light footer-btn">
+              Coming Soon
+            </button>
           </div>
           <div className="col-md-3 text-center mb-3">
             <h2>Tax Save</h2>
             <p className="mt-2">Where you save while spending</p>
-            <button type="button" className="btn btn-outline-light footer-btn">Coming Soon</button>
+            <button type="button" className="btn btn-outline-light footer-btn">
+              Coming Soon
+            </button>
           </div>
         </div>
         {/* </div> */}
