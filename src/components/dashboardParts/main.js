@@ -69,8 +69,8 @@ function Sidebar() {
         `https://ardilla-app.herokuapp.com/ardilla/api/auth/logout/${token}`
       );
 
-      console.log(data);
       console.log("log out data");
+      console.log(data);
 
       await window.location.reload();
     } catch (error) {
