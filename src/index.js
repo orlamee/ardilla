@@ -21,6 +21,9 @@ import Alerts from "./components/alerts/alerts";
 import DashboardMain from "./dashboard/dashboard";
 import AnswerQuestion from "./pages/answerSecurity";
 import Portfolio from "./dashboard/portfolio";
+import VerifyMobile from "./pages/phoneVerify";
+import Pin from "./pages/createPin";
+import KycVerify from "./pages/kycVerify";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -33,9 +36,14 @@ root.render(
       <Route path="/learn" element={<Learn />}></Route>
       <Route path="/security" element={<AnswerQuestion />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
+      <Route path="/verify-mobile" element={<VerifyMobile/>}></Route>
+      <Route path="/set-pin" element={<Pin/>}></Route>
+      <Route path="/bvn-verify" element={<KycVerify/>}></Route>
       <Route path="/dashboard" element={<DashboardMain />}></Route>
+      <Route path="/portfolio" element={<Portfolio/>}></Route>
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
+
 
       <Route
         path="/otp"
