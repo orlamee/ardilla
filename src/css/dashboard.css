@@ -34,7 +34,7 @@ div.content {
   background-size: cover;  
   border-radius: 30px;
   margin-bottom: 90px;
-  padding-bottom: 140px!important;
+  padding-bottom: 80px!important;
 }
 
 @media screen and (max-width: 700px) {
@@ -449,4 +449,142 @@ input:checked + .slider:before {
   margin-top: -4px;
   font-size: 9px;
   color: #E6356D!important;
+}
+
+.value h6 {
+  font-size: 16px;
+  color: #000;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.value p {
+  font-size: 12px;
+  color: #9CA3AF;
+  line-height: 11px;
+  font-weight: 400;
+}
+
+.value h2 {
+  font-size: 24px;
+  color: #000;
+  line-height: 27px;
+  font-weight: 600;
+}
+
+.right-portfolio {
+  margin-left: 90px;
+}
+
+.card-p {
+  background: #FBF3FA;
+  box-shadow: 0px 4.54635px 9.0927px rgba(134, 133, 133, 0.06);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.card-p h5 {
+  font-size: 15px;
+  color: #3D0072;
+  line-height: 12px;
+  font-weight: 600;
+}
+
+.card-p h6 {
+  font-size: 13px;
+  color: #3D0072CC;
+  line-height: 12px;
+  font-weight: 400;
+}
+
+.bg-invest {
+  background: #8807F712!important;
+}
+
+.dillawallet {
+  background-color: #FBF3FA;
+  box-shadow: 0px 6px 12px rgba(134, 133, 133, 0.06);
+  border-radius: 20px;
+}
+
+.dilla-section {
+  padding: 0px 80px;
+}
+
+.dillawallet h2 {
+  font-size: 15px;
+  color: #3D0072CC;
+  line-height: 12px;
+  font-weight: 600;
+}
+
+.dillawallet p {
+  font-size: 23px;
+  color: #3D0072CC;
+  line-height: 31px;
+  font-weight: 700;
+}
+
+.dillawallet h6 {
+  color: #3D007280;
+  line-height: 12px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.dilla-eye {
+  color: #3D0072!important;
+  margin-top: -43px;
+}
+
+.stats {
+  background: #FFFFFF;
+  box-shadow: 0px 8.67834px 17.3567px rgba(102, 29, 165, 0.12);
+  border-radius: 17.3567px;
+}
+
+.stats h2 {
+  color: #9291A5;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.stats h6 {
+  color: #000;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 19px;
+}
+
+.mapping {
+  padding: 0px 20px;
+}
+
+.mapping h3 {
+  color: #9291A5;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 12px;
+  margin-top: -26px;
+}
+
+.mapping p {
+  color: #615E83;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+.chartie {
+  height: 510px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.desc {
+  color: #3D0072;
+  font-weight: 600;
+  line-height: 21px;
+  font-size: 12px;
 }

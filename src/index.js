@@ -20,6 +20,7 @@ import Learn from "./pages/learn";
 import Alerts from "./components/alerts/alerts";
 import DashboardMain from "./dashboard/dashboard";
 import AnswerQuestion from "./pages/answerSecurity";
+import Portfolio from "./dashboard/portfolio";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -33,8 +34,10 @@ root.render(
       <Route path="/security" element={<AnswerQuestion />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/dashboard" element={<DashboardMain />}></Route>
+      <Route path="/portfolio" element={<Portfolio/>}></Route>
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
+      
       <Route
         path="/otp"
         element={
