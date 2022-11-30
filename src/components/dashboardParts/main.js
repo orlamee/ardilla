@@ -123,13 +123,13 @@ function Sidebar() {
   return (
     <section className="main-dash">
       <div className="sidebar">
-        <Link>
+        <Link to="/dashboard" className="active">
           <div className="d-flex flex-row">
             <img src={home} alt="" className="img-fluid me-2 icons" />
             Home
           </div>
         </Link>
-        <Link>
+        <Link to="/portfolio">
           <div className="d-flex flex-row">
             <img src={portfolio} alt="" className="img-fluid me-2 icons" />
             Portfolio
