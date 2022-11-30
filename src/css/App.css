@@ -534,5 +534,9 @@ h6 a {
 }
 
 .kyc-height {
-  padding: 100px 10px!important;
+  padding: 50px 10px!important;
+}
+
+.pin-height {
+  padding: 20px 10px!important;
 }
