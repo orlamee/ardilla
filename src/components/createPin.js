@@ -21,7 +21,7 @@ function CreatePin() {
                   <input type="number" class="form-control custom-form" placeholder="Confirm Pin"/>
                 </div>
                 <div className="mt-5 mb-3">
-                  <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" style={{width: "100%"}}>Confirm</button>
+                  <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" style={{width: "100%"}}>Ok</button>
                 </div>
               </form>
             </div>
