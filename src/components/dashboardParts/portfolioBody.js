@@ -37,7 +37,7 @@ function PortfolioBody() {
             Home
           </div>
         </Link>
-        <Link to="/portofolio" className="active">
+        <Link to="/portfolio" className="active">
           <div className="d-flex flex-row">
             <img src={portfolio} alt="" className="img-fluid me-2 icons" />
             Portfolio

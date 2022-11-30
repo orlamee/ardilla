@@ -58,12 +58,15 @@ div.content {
   background-color: #FFA7C2;
   color: #E7356C;
   border-radius: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .sidebar a:hover:not(.active) {
   background-color: #FFA7C2;
   color: #E7356C;
   border-radius: 10px;
+  /* margin-bottom: 5px; */
 }
 
 .kodename h2 {
