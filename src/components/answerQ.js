@@ -39,7 +39,7 @@ function AQ() {
       e.preventDefault();
 
       await axios.get(
-        ` https://ardilla-app.herokuapp.com/ardilla/api/auth/answer-security-question/${token}`
+        `https://ardilla-app.herokuapp.com/ardilla/api/auth/answer-security-question/${token}`
       );
 
       if (userDetail?.securityQusetion?.answer === ans) {

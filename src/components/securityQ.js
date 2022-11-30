@@ -39,7 +39,7 @@ function SecurityPage() {
 
     try {
       const { data } = await axios.put(
-        ` https://ardilla-app.herokuapp.com/ardilla/api/auth/security-question/${_id}`,
+        `https://ardilla-app.herokuapp.com/ardilla/api/auth/security-question/${_id}`,
         { securityQusetion }
       );
 

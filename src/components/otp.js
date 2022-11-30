@@ -35,7 +35,7 @@ function OtpPage() {
 
     try {
       const { data } = await axios.post(
-        ` https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp/${token}/${_id}`,
+        `https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp/${token}/${_id}`,
         { code }
       );
 

@@ -21,7 +21,7 @@ function Register() {
     setIsLoading(true);
     try {
       const { data } = await axios.post(
-        " https://ardilla-app.herokuapp.com/ardilla/api/auth/send-otp",
+        "https://ardilla-app.herokuapp.com/ardilla/api/auth/send-otp",
         { email }
       );
 
