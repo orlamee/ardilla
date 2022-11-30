@@ -50,7 +50,7 @@ function Sidebar() {
   useEffect(() => {
     const getUser = async () => {
       const { data } = await axios.get(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/user/getUser/${token}`
+        `https://ardilla-app.herokuapp.com/ardilla/api/user/getUser/${token}`
       );
 
       setUserDetail(data.user);
@@ -66,7 +66,7 @@ function Sidebar() {
   const logOut = async () => {
     try {
       const { data } = await axios.put(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/logout/${token}`
+        `https://ardilla-app.herokuapp.com/ardilla/api/auth/logout/${token}`
       );
 
       console.log(data);

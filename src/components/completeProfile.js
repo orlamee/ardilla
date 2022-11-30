@@ -48,7 +48,7 @@ function CompleteProfile() {
 
     try {
       const { data } = await axios.post(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/complete-profile/${_id}`,
+        `https://ardilla-app.herokuapp.com/ardilla/api/auth/complete-profile/${_id}`,
         { email, firstname, lastname, contact, password, kodeHex, ip }
       );
 
@@ -71,7 +71,7 @@ function CompleteProfile() {
   const handleClickSuccess = () => {
     const getUserById = async () => {
       const { data } = await axios.get(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/user/find/${_id}`
+        ` https://ardilla-app.herokuapp.com/ardilla/api/user/find/${_id}`
       );
 
       setOnSuccess(false);
@@ -171,7 +171,9 @@ function CompleteProfile() {
                       value={firstname}
                       onChange={(e) => setFirstname(e.target.value)}
                     />
-                    <div id="" class="form-text">Kindly use valid information</div>
+                    <div id="" class="form-text">
+                      Kindly use valid information
+                    </div>
                   </div>
                   <div className="mb-3">
                     <label className="form-label">
@@ -184,7 +186,9 @@ function CompleteProfile() {
                       value={lastname}
                       onChange={(e) => setLastname(e.target.value)}
                     />
-                    <div id="" class="form-text">Kindly use valid information</div>
+                    <div id="" class="form-text">
+                      Kindly use valid information
+                    </div>
                   </div>
                   <div className="mb-3">
                     <label className="form-label">
@@ -197,7 +201,9 @@ function CompleteProfile() {
                       value={contact}
                       onChange={(e) => setContact(e.target.value)}
                     />
-                    <div id="" class="form-text">Kindly use valid information</div>
+                    <div id="" class="form-text">
+                      Kindly use valid information
+                    </div>
                   </div>
                   <div className="mb-3">
                     <label className="form-label">

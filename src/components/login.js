@@ -62,7 +62,7 @@ function Login() {
       };
 
       const { data } = await axios.post(
-        "https://ardilla-be-app.herokuapp.com/ardilla/api/auth/login",
+        "https://ardilla-app.herokuapp.com/ardilla/api/auth/login",
         { email, password, ip, platName, userOs, logDetails, currentTimestamp }
       );
 

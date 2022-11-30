@@ -35,7 +35,7 @@ function OtpPage() {
 
     try {
       const { data } = await axios.post(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/verify-otp/${token}/${_id}`,
+        `https://ardilla-app.herokuapp.com/ardilla/api/auth/verify-otp/${token}/${_id}`,
         { code }
       );
 
@@ -57,7 +57,7 @@ function OtpPage() {
   const handleClickSuccess = () => {
     const getUserById = async () => {
       const { data } = await axios.get(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/user/find/${_id}`
+        ` https://ardilla-app.herokuapp.com/ardilla/api/user/find/${_id}`
       );
 
       setOnSuccess(false);
@@ -74,7 +74,7 @@ function OtpPage() {
 
     try {
       const { data } = await axios.post(
-        "https://ardilla-be-app.herokuapp.com/ardilla/api/auth/send-otp",
+        " https://ardilla-app.herokuapp.com/ardilla/api/auth/send-otp",
         { email }
       );
 
@@ -98,7 +98,7 @@ function OtpPage() {
   const handleWrongEmail = async () => {
     try {
       const { data } = await axios.delete(
-        `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/wrong-email/${_id}`
+        ` https://ardilla-app.herokuapp.com/ardilla/api/auth/wrong-email/${_id}`
       );
 
       Cookies.remove();
