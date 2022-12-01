@@ -24,6 +24,7 @@ import Portfolio from "./dashboard/portfolio";
 import VerifyMobile from "./pages/phoneVerify";
 import Pin from "./pages/createPin";
 import KycVerify from "./pages/kycVerify";
+import Savings from "./dashboard/savings";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -48,6 +49,7 @@ root.render(
         }
       ></Route>
       <Route path="/portfolio" element={<Portfolio />}></Route>
+      <Route path="/savings" element={<Savings/>}></Route>
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
 
