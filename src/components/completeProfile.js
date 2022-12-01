@@ -48,7 +48,7 @@ function CompleteProfile() {
 
     try {
       const { data } = await axios.post(
-        `https://ardilla-app.herokuapp.com/ardilla/api/auth/complete-profile/${_id}`,
+        `https://ardilla.herokuapp.com/ardilla/api/auth/complete-profile/${_id}`,
         { email, firstname, lastname, contact, password, kodeHex, ip }
       );
 
@@ -71,7 +71,7 @@ function CompleteProfile() {
   const handleClickSuccess = () => {
     const getUserById = async () => {
       const { data } = await axios.get(
-        ` https://ardilla-app.herokuapp.com/ardilla/api/user/find/${_id}`
+        `https://ardilla.herokuapp.com/ardilla/api/user/find/${_id}`
       );
 
       setOnSuccess(false);

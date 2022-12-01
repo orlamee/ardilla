@@ -31,42 +31,37 @@ dayjs.extend(greetPlugin);
 
 function Sidebar() {
   const [userDetail, setUserDetail] = useState("");
-  // const [firstCommit, setFirstCommit] = useState(true);
+  const [idle, setIdle] = useState(false);
 
-  const token = Cookies.get("user");
+  let token = Cookies.get("user");
 
-  // const refreshToken = async () => {
-  //   try {
-  //     const { data } = await axios.get(
-  //       `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/refresh-token/${token}`
-  //     );
+  let user = JSON.parse(sessionStorage.getItem("user"));
 
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const refreshToken = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/auth/refresh-token/${token}`
+      );
+
+      Cookies.set("user", data.token);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    const getUser = async () => {
-      try {
-        const { data } = await axios.get(
-          `https://ardilla-app.herokuapp.com/ardilla/api/user/getUser/${token}`
-        );
+    let interval = setInterval(() => {
+      refreshToken();
+    }, 1500);
 
-        setUserDetail(data.user);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getUser();
-  }, [token]);
+    return () => clearInterval(interval);
+  }, []);
 
   //user
   const logOut = async () => {
     try {
       const { data } = await axios.put(
-        `https://ardilla-app.herokuapp.com/ardilla/api/auth/logout/${token}`
+        `https://ardilla.herokuapp.com/ardilla/api/auth/logout/${token}`
       );
 
       console.log("log out data");
@@ -80,6 +75,7 @@ function Sidebar() {
 
   const handleOnIdle = () => {
     logOut();
+
     Cookies.remove("user");
     console.log("last active", getLastActiveTime());
   };
@@ -198,7 +194,7 @@ function Sidebar() {
           <div className="col-md-6">
             <h2>
               Welcome {"<"}
-              {userDetail?.kodeHex}
+              {user.kodeHex}
               {"/>"}
             </h2>
             <h6 className="mt-4">

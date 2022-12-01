@@ -2,18 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "../img/verify-icon.svg";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
-import Cookies from "js-cookie";
-import axios from "axios";
+// import Cookies from "js-cookie";
+// import axios from "axios";
 
 import { auth } from "../firbase-config";
 
 function VerifyPhone() {
-  const token = Cookies.get("user");
+  // const token = Cookies.get("user");
+
+  let user = JSON.parse(sessionStorage.getItem("user"));
 
   const navigate = useNavigate();
 
-  const [userDetail, setUserDetail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  // const [userDetail, setUserDetail] = useState("");
+  const [phoneNumber] = useState(`+234${user.contact}`);
   const [otp1, setOtp1] = useState("");
   const [otp2, setOtp2] = useState("");
   const [otp3, setOtp3] = useState("");
@@ -21,25 +23,29 @@ function VerifyPhone() {
   const [otp5, setOtp5] = useState("");
   const [otp6, setOtp6] = useState("");
   const [loading, setLoading] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
 
   useEffect(() => {
-    const getUser = async () => {
-      try {
-        const { data } = await axios.get(
-          `https://ardilla-app.herokuapp.com/ardilla/api/user/getUser/${token}`
-        );
-
-        setUserDetail(data.user);
-
-        setPhoneNumber(`+234${data.user.contact}`);
-      } catch (error) {
-        console.log();
-      }
-    };
-    getUser();
-  }, [token, phoneNumber]);
+    mobileAuth();
+  }, []);
 
   const fullOTP = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
+
+  const generateRecaptcha = () => {
+    window.recaptchaVerifier = new RecaptchaVerifier(
+      "recaptcha-container",
+      {
+        size: "invisible",
+        callback: (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+          // onSignInSubmit();
+        },
+      },
+      auth
+    );
+  };
 
   const mobileAuth = () => {
     // setLoading(true);
@@ -60,28 +66,15 @@ function VerifyPhone() {
         // ...
         console.log(error);
         setLoading(false);
+        setMsg("SMS not send");
+        setErr(true);
       });
   };
 
-  if (phoneNumber) {
-    mobileAuth();
-  }
-
-  const generateRecaptcha = () => {
-    window.recaptchaVerifier = new RecaptchaVerifier(
-      "recaptcha-container",
-      {
-        size: "invisible",
-        callback: (response) => {
-          // reCAPTCHA solved, allow signInWithPhoneNumber.
-          // onSignInSubmit();
-        },
-      },
-      auth
-    );
-  };
+  // mobileAuth();
 
   const verifyMobileCode = (e) => {
+    setLoading(true);
     e.preventDefault();
     if (fullOTP.length === 6) {
       let confirmationResult = window.confirmationResult;
@@ -90,25 +83,72 @@ function VerifyPhone() {
         .then((result) => {
           // User signed in successfully.
           const user = result.user;
+          console.log(user);
+          setMsg("verifcation successful");
+          setErr(false);
+          setOnSuccess(true);
+          setLoading(false);
           navigate("/dashboard");
           // ...
         })
         .catch((error) => {
           // User couldn't sign in (bad verification code?)
           // ...
+          setLoading(false);
+          setMsg("Wrong code");
+          setErr(true);
         });
     }
   };
   return (
     <section className="verify-section">
+      {err && (
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                // onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-7 text-center">
             <img src={icon} alt="" className="img-fluid" />
             <h3 className="my-2">Verify Phone Number</h3>
             <h6>
-              Enter the OTP Verification code sent to +234{userDetail.contact}{" "}
-              <br />
+              Enter the OTP Verification code sent to +234{user.contact} <br />
               <Link style={{ color: "#E6356D" }}>Wrong Number?</Link>
             </h6>
             <form className="my-5" onSubmit={verifyMobileCode}>

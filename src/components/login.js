@@ -60,13 +60,15 @@ function Login() {
       };
 
       const { data } = await axios.post(
-        "https://ardilla-app.herokuapp.com/ardilla/api/auth/login",
+        "https://ardilla.herokuapp.com/ardilla/api/auth/login",
         { email, password, ip, platName, userOs, logDetails, currentTimestamp }
       );
 
       Cookies.remove("token");
 
       Cookies.set("user", data.token);
+
+      sessionStorage.setItem("user", JSON.stringify(data.user));
 
       if (data.success === true) {
         setMsg(data.msg);

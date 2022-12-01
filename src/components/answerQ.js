@@ -22,7 +22,7 @@ function AQ() {
     const getUser = async () => {
       try {
         const { data } = await axios.get(
-          ` https://ardilla-app.herokuapp.com/ardilla/api/user/getUser/${token}`
+          `https://ardilla.herokuapp.com/ardilla/api/user/getUser/${token}`
         );
 
         setUserDetail(data.user);
@@ -39,7 +39,7 @@ function AQ() {
       e.preventDefault();
 
       await axios.get(
-        `https://ardilla-app.herokuapp.com/ardilla/api/auth/answer-security-question/${token}`
+        `https://ardilla.herokuapp.com/ardilla/api/auth/answer-security-question/${token}`
       );
 
       if (userDetail?.securityQusetion?.answer === ans) {
