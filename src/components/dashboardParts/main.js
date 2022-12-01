@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -30,20 +30,20 @@ import greetPlugin from "dayjs-greet";
 dayjs.extend(greetPlugin);
 
 function Sidebar() {
-  const [userDetail, setUserDetail] = useState("");
-  const [idle, setIdle] = useState(false);
-
-  let token = Cookies.get("user");
+  // const [userDetail, setUserDetail] = useState("");
+  // const [idle, setIdle] = useState(false);
+  const navigate = useNavigate();
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
   const refreshToken = async () => {
     try {
       const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/refresh-token/${token}`
+        `https://ardilla.herokuapp.com/ardilla/api/auth/refresh-token/${Cookies.get(
+          "user"
+        )}`
       );
-
-      Cookies.set("user", data.token);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -52,32 +52,15 @@ function Sidebar() {
   useEffect(() => {
     let interval = setInterval(() => {
       refreshToken();
-    }, 1500);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, []);
 
-  //user
-  const logOut = async () => {
-    try {
-      const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/logout/${token}`
-      );
-      sessionStorage.clear();
-
-      console.log("log out data");
-      console.log(data);
-
-      await window.location.reload();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const handleOnIdle = () => {
-    logOut();
-
+    sessionStorage.clear();
     Cookies.remove("user");
+    navigate("/login");
     console.log("last active", getLastActiveTime());
   };
 
@@ -111,9 +94,8 @@ function Sidebar() {
   //form log out btn
   const handleLogOut = async () => {
     Cookies.remove("user");
-
-    logOut();
-
+    sessionStorage.clear();
+    navigate("/login");
     console.log("re render");
   };
 
