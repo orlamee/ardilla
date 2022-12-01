@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import icon from "../img/verify-icon.svg";
 import logo from "../img/logo.svg";
 
@@ -26,249 +26,233 @@ function VerifyPhone() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
 
-  useEffect(() => {
-    mobileAuth();
-  }, []);
+  // useEffect(() => {
+  //   mobileAuth();
+  // }, []);
 
-  const fullOTP = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
+  // const fullOTP = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
 
-  const generateRecaptcha = () => {
-    window.recaptchaVerifier = new RecaptchaVerifier(
-      "recaptcha-container",
-      {
-        size: "invisible",
-        callback: (response) => {
-          // reCAPTCHA solved, allow signInWithPhoneNumber.
-          // onSignInSubmit();
-        },
-      },
-      auth
-    );
-  };
+  // const generateRecaptcha = () => {
+  //   window.recaptchaVerifier = new RecaptchaVerifier(
+  //     "recaptcha-container",
+  //     {
+  //       size: "invisible",
+  //       callback: (response) => {
+  //         // reCAPTCHA solved, allow signInWithPhoneNumber.
+  //         // onSignInSubmit();
+  //       },
+  //     },
+  //     auth
+  //   );
+  // };
 
-  const mobileAuth = () => {
-    // setLoading(true);
-    // e.preventDefault();
-    generateRecaptcha();
+  // const mobileAuth = () => {
+  //   // setLoading(true);
+  //   // e.preventDefault();
+  //   generateRecaptcha();
 
-    let appVerifier = window.recaptchaVerifier;
+  //   let appVerifier = window.recaptchaVerifier;
 
-    signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-      .then((confirmationResult) => {
-        // SMS sent. Prompt user to type the code from the message, then sign the
-        // user in with confirmationResult.confirm(code).
-        window.confirmationResult = confirmationResult;
-        // ...
-      })
-      .catch((error) => {
-        // Error; SMS not sent
-        // ...
-        console.log(error);
-        setLoading(false);
-        setMsg("SMS not send");
-        setErr(true);
-      });
-  };
+  //   signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+  //     .then((confirmationResult) => {
+  //       // SMS sent. Prompt user to type the code from the message, then sign the
+  //       // user in with confirmationResult.confirm(code).
+  //       window.confirmationResult = confirmationResult;
+  //       // ...
+  //     })
+  //     .catch((error) => {
+  //       // Error; SMS not sent
+  //       // ...
+  //       console.log(error);
+  //       setLoading(false);
+  //       setMsg("SMS not send");
+  //       setErr(true);
+  //     });
+  // };
 
-  // mobileAuth();
+  // // mobileAuth();
 
-  const verifyMobileCode = (e) => {
-    setLoading(true);
-    e.preventDefault();
-    if (fullOTP.length === 6) {
-      let confirmationResult = window.confirmationResult;
-      confirmationResult
-        .confirm(fullOTP)
-        .then((result) => {
-          // User signed in successfully.
-          const user = result.user;
-          console.log(user);
-          setMsg("verifcation successful");
-          setErr(false);
-          setOnSuccess(true);
-          setLoading(false);
-          navigate("/dashboard");
-          // ...
-        })
-        .catch((error) => {
-          // User couldn't sign in (bad verification code?)
-          // ...
-          setLoading(false);
-          setMsg("Wrong code");
-          setErr(true);
-        });
-    }
-  };
+  // const verifyMobileCode = (e) => {
+  //   setLoading(true);
+  //   e.preventDefault();
+  //   if (fullOTP.length === 6) {
+  //     let confirmationResult = window.confirmationResult;
+  //     confirmationResult
+  //       .confirm(fullOTP)
+  //       .then((result) => {
+  //         // User signed in successfully.
+  //         const user = result.user;
+  //         console.log(user);
+  //         setMsg("verifcation successful");
+  //         setErr(false);
+  //         setOnSuccess(true);
+  //         setLoading(false);
+  //         navigate("/dashboard");
+  //         // ...
+  //       })
+  //       .catch((error) => {
+  //         // User couldn't sign in (bad verification code?)
+  //         // ...
+  //         setLoading(false);
+  //         setMsg("Wrong code");
+  //         setErr(true);
+  //       });
+  //   }
+  // };
   return (
     <section className="verify-section">
-      {err && (
-        <div className="row justify-content-center">
-          <div className="col-md-6">
-            <div
-              className="alert alert-danger alert-dismissible fade show text-center text-danger"
-              role="alert"
+      <div className="row justify-content-center">
+        <div className="col-md-7 text-center">
+          <img src={icon} alt="" className="img-fluid" />
+          <h3 className="my-2">Verify Phone Number</h3>
+          <h6>
+            Enter the OTP Verification code sent to +234 <br />
+            <Link
+              style={{ color: "#E6356D" }}
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+              type="button"
             >
-              <i className="bi bi-exclamation-circle me-3"></i>
-              {msg}
-              <button
-                type="button"
-                className="btn-close"
-                // data-bs-dismiss="alert"
-                onClick={() => setErr(false)}
-                aria-label="Close"
-              ></button>
-            </div>
-          </div>
-        </div>
-      )}
-      {onSuccess && (
-        <div className="row justify-content-center mt-5">
-          <div className="col-md-6">
-            <div
-              className="alert alert-success alert-dismissible fade show text-center text-success"
-              role="alert"
-            >
-              <i className="bi bi-patch-check-fill me-3"></i>
-              {msg}
-              <button
-                type="button"
-                className="btn-close"
-                // data-bs-dismiss="alert"
-                // onClick={handleClickSuccess}
-                aria-label="Close"
-              ></button>
-            </div>
-          </div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-md-7 text-center">
-            <img src={icon} alt="" className="img-fluid" />
-            <h3 className="my-2">Verify Phone Number</h3>
-            <h6>
-              Enter the OTP Verification code sent to +234 <br />
-              <Link style={{ color: "#E6356D" }} data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button">Wrong Number?</Link>
-            </h6>
-            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    {/* <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1> */}
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div className="modal-body">
-                    <div className="container">
-                      <div className="row justify-content-center">
-                        <div className="col-md-7 text-center">
-                          <img src={icon} alt="" className="img-fluid" />
-                          <h3 className="my-2">Enter Phone Number</h3>
-                          <h6>Enter a valid telephone number</h6>
-                        </div>
+              Wrong Number?
+            </Link>
+          </h6>
+          <div
+            className="modal fade"
+            id="staticBackdrop"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabIndex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content">
+                <div className="modal-header">
+                  {/* <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1> */}
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <div className="container">
+                    <div className="row justify-content-center">
+                      <div className="col-md-7 text-center">
+                        <img src={icon} alt="" className="img-fluid" />
+                        <h3 className="my-2">Enter Phone Number</h3>
+                        <h6>Enter a valid telephone number</h6>
                       </div>
-                      <div className="row justify-content-center">
-                        <div className="col-md-4">
-                          <form className="my-4">
-                            <div className="mb-3">
-                              <input type="tel" className="form-control custom-form" placeholder="Enter Phone Number"/>
-                            </div>
-                            <div className="mt-5 mb-3">
-                              <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" style={{width: "100%"}}>Continue</button>
-                            </div>
-                          </form>
-                        </div>
+                    </div>
+                    <div className="row justify-content-center">
+                      <div className="col-md-4">
+                        <form className="my-4">
+                          <div className="mb-3">
+                            <input
+                              type="tel"
+                              className="form-control custom-form"
+                              placeholder="Enter Phone Number"
+                            />
+                          </div>
+                          <div className="mt-5 mb-3">
+                            <button
+                              className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
+                              style={{ width: "100%" }}
+                            >
+                              Continue
+                            </button>
+                          </div>
+                        </form>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <form className="my-5" id="otp">
-              <div className="d-flex flex-row">
-                <div className="me-2">
-                  <input
-                    type="text"
-                    className="form-control rounded verify-otp"
-                    maxLength="1"
-                    name="digit-1"
-                    id="digit-1"
-                    
-                  />
-                </div>
-                <div className="me-2">
-                  <input
-                    type="text"
-                    className="form-control rounded verify-otp"
-                    maxLength="1"
-                    name="digit-2"
-                    id="digit-2"
-                    
-                  />
-                </div>
-                <div className="me-2">
-                  <input
-                    type="text"
-                    className="form-control rounded verify-otp"
-                    maxLength="1"
-                    name="digit-3"
-                    id="digit-3"
-                    
-                  />
-                </div>
-                <div className="me-2">
-                  <input
-                    type="text"
-                    className="form-control rounded verify-otp"
-                    maxLength="1"
-                    name="digit-4"
-                    id="digit-4"
-                    
-                  />
-                </div>
-                <div className="me-2">
-                  <input
-                    type="text"
-                    className="form-control rounded verify-otp"
-                    maxLength="1"
-                    name="digit-5"
-                    id="digit-5"
-                  
-                  />
-                </div>
-                <div className="me-2">
-                  <input
-                    type="text"
-                    className="form-control rounded verify-otp"
-                    maxLength="1"
-                    name="digit-6"
-                    id="digit-6"
-                  />
-                </div>
-              </div>
-              <div className="row justify-content-center">
-                <div className="col-md-6">
-                  
-                  <div className="mt-5 mb-3">
-                    <button
-                      className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
-                      style={{ width: "100%" }}
-                      type="submit"
-                    >
-                      Continue
-                    </button>
-                  </div>
-                  
-
-                  <p>
-                    Didn’t get code?{" "}
-                    <span style={{ color: "#E6356D" }}>Resend</span>
-                  </p>
-                  <div className="logout">
-                    <Link className="log-out"><i className="bi bi-power me-2"></i> Log Out</Link>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <div id="recaptcha-container"></div>
           </div>
+          <form className="my-5" id="otp">
+            <div className="d-flex flex-row">
+              <div className="me-2">
+                <input
+                  type="text"
+                  className="form-control rounded verify-otp"
+                  maxLength="1"
+                  name="digit-1"
+                  id="digit-1"
+                />
+              </div>
+              <div className="me-2">
+                <input
+                  type="text"
+                  className="form-control rounded verify-otp"
+                  maxLength="1"
+                  name="digit-2"
+                  id="digit-2"
+                />
+              </div>
+              <div className="me-2">
+                <input
+                  type="text"
+                  className="form-control rounded verify-otp"
+                  maxLength="1"
+                  name="digit-3"
+                  id="digit-3"
+                />
+              </div>
+              <div className="me-2">
+                <input
+                  type="text"
+                  className="form-control rounded verify-otp"
+                  maxLength="1"
+                  name="digit-4"
+                  id="digit-4"
+                />
+              </div>
+              <div className="me-2">
+                <input
+                  type="text"
+                  className="form-control rounded verify-otp"
+                  maxLength="1"
+                  name="digit-5"
+                  id="digit-5"
+                />
+              </div>
+              <div className="me-2">
+                <input
+                  type="text"
+                  className="form-control rounded verify-otp"
+                  maxLength="1"
+                  name="digit-6"
+                  id="digit-6"
+                />
+              </div>
+            </div>
+            <div className="row justify-content-center">
+              <div className="col-md-6">
+                <div className="mt-5 mb-3">
+                  <button
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
+                    style={{ width: "100%" }}
+                    type="submit"
+                  >
+                    Continue
+                  </button>
+                </div>
+
+                <p>
+                  Didn’t get code?{" "}
+                  <span style={{ color: "#E6356D" }}>Resend</span>
+                </p>
+                <div className="logout">
+                  <Link className="log-out">
+                    <i className="bi bi-power me-2"></i> Log Out
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div id="recaptcha-container"></div>
         </div>
       </div>
     </section>
