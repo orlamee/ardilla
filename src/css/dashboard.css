@@ -661,3 +661,21 @@ input:checked + .slider:before {
 .save-eyes {
   color: #3D0072!important;
 }
+
+.learn {
+  margin-top: -30px;
+  color: #4B5563;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.create-plan {
+  margin-top: 90px;
+}
+
+.create-plan h4 {
+  color: #3D0072;
+  font-weight: 600;
+  line-height: 16px;
+  font-size: 18px;
+}

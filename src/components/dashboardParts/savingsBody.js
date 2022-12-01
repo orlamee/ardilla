@@ -90,29 +90,42 @@ function SavingsBody() {
         </div>
       </div>
       <div className="content py-5 px-5">
-       <div className="row">
-        <div className="col-md-12">
-          <div className="total-savings">
-            <h3>Total Savings</h3>
-            <div className="d-flex flex-row">
-              <p>NGN 50,000.00</p>
-              <i className="bi bi-eye-fill ms-5 save-eyes"></i>
+        <div className="row">
+          <div className="col-md-12">
+            <div className="total-savings">
+              <h3>Total Savings</h3>
+              <div className="d-flex flex-row my-3">
+                <p>NGN 50,000.00</p>
+                <i className="bi bi-eye-fill ms-5 save-eyes"></i>
+              </div>
+              <div className="d-flex flex-row">
+                <label className="switch">
+                  <input type="checkbox" placeholder="USD" />
+                  <span className="slider round"></span>
+                </label>
+                <span className="dollar mt-2 ms-2">₦740 /$1</span>
+              </div>
             </div>
-            <div className="d-flex flex-row">
-              <label className="switch">
-                <input type="checkbox" placeholder="USD" />
-                <span className="slider round"></span>
-              </label>
-              <span className="dollar mt-2 ms-2">₦740 /$1</span>
-            </div>
-            
+            <span className="float-end learn">Learn More <i className="bi bi-chevron-right"></i></span>
           </div>
         </div>
-       </div>
-        
+        <div className="row create-plan">
+          <div className="col">
+            <h4>Create a new savings plan</h4>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-6">
+            <div className="card-s">
+              
+            </div>
+          </div>
+          <div className="col-md-6"></div>
+        </div>
       </div>
     </section>
   );
 }
 
 export default SavingsBody;
+ 

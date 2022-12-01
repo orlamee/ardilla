@@ -139,6 +139,13 @@ function VerifyPhone() {
       )}
 
       <div className="container">
+        <div className="row logo">
+          <div className="col-md-6 ">
+            <Link to="/">
+              <img src={logo} alt="" className="img-fluid mb-5" />
+            </Link>
+          </div>
+        </div>
         <div className="row justify-content-center">
           <div className="col-md-7 text-center">
             <img src={icon} alt="" className="img-fluid" />
