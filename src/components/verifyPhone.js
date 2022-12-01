@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "../img/verify-icon.svg";
 import logo from "../img/logo.svg";
+import { auth } from "../firbase-config";
 
 // import Cookies from "js-cookie";
 // import axios from "axios";
@@ -27,80 +28,123 @@ function VerifyPhone() {
   const [onSuccess, setOnSuccess] = useState(false);
 
   // useEffect(() => {
-  //   mobileAuth();
-  // }, []);
-
-  // const fullOTP = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
-
-  // const generateRecaptcha = () => {
-  //   window.recaptchaVerifier = new RecaptchaVerifier(
-  //     "recaptcha-container",
-  //     {
-  //       size: "invisible",
-  //       callback: (response) => {
-  //         // reCAPTCHA solved, allow signInWithPhoneNumber.
-  //         // onSignInSubmit();
+  //   const generateRecaptcha = () => {
+  //     window.recaptchaVerifier = new RecaptchaVerifier(
+  //       "recaptcha-container",
+  //       {
+  //         size: "invisible",
+  //         callback: (response) => {
+  //           // reCAPTCHA solved, allow signInWithPhoneNumber.
+  //           // onSignInSubmit();
+  //         },
   //       },
-  //     },
-  //     auth
-  //   );
-  // };
+  //       auth
+  //     );
+  //   };
 
-  // const mobileAuth = () => {
-  //   // setLoading(true);
-  //   // e.preventDefault();
-  //   generateRecaptcha();
+  //   const mobileAuth = () => {
+  //     // setLoading(true);
+  //     // e.preventDefault();
+  //     generateRecaptcha();
 
-  //   let appVerifier = window.recaptchaVerifier;
+  //     let appVerifier = window.recaptchaVerifier;
 
-  //   signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-  //     .then((confirmationResult) => {
-  //       // SMS sent. Prompt user to type the code from the message, then sign the
-  //       // user in with confirmationResult.confirm(code).
-  //       window.confirmationResult = confirmationResult;
-  //       // ...
-  //     })
-  //     .catch((error) => {
-  //       // Error; SMS not sent
-  //       // ...
-  //       console.log(error);
-  //       setLoading(false);
-  //       setMsg("SMS not send");
-  //       setErr(true);
-  //     });
-  // };
-
-  // // mobileAuth();
-
-  // const verifyMobileCode = (e) => {
-  //   setLoading(true);
-  //   e.preventDefault();
-  //   if (fullOTP.length === 6) {
-  //     let confirmationResult = window.confirmationResult;
-  //     confirmationResult
-  //       .confirm(fullOTP)
-  //       .then((result) => {
-  //         // User signed in successfully.
-  //         const user = result.user;
-  //         console.log(user);
-  //         setMsg("verifcation successful");
-  //         setErr(false);
-  //         setOnSuccess(true);
-  //         setLoading(false);
-  //         navigate("/dashboard");
+  //     signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+  //       .then((confirmationResult) => {
+  //         // SMS sent. Prompt user to type the code from the message, then sign the
+  //         // user in with confirmationResult.confirm(code).
+  //         window.confirmationResult = confirmationResult;
   //         // ...
   //       })
   //       .catch((error) => {
-  //         // User couldn't sign in (bad verification code?)
+  //         // Error; SMS not sent
   //         // ...
+  //         console.log(error);
   //         setLoading(false);
-  //         setMsg("Wrong code");
+  //         setMsg("SMS not send");
   //         setErr(true);
   //       });
-  //   }
-  // };
+  //   };
+  //   mobileAuth();
+  // }, []);
+
+  const fullOTP = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
+
+  // // mobileAuth();
+
+  const verifyMobileCode = (e) => {
+    setLoading(true);
+    e.preventDefault();
+    if (fullOTP.length === 6) {
+      let confirmationResult = window.confirmationResult;
+      confirmationResult
+        .confirm(fullOTP)
+        .then((result) => {
+          // User signed in successfully.
+          const user = result.user;
+          console.log(user);
+          setMsg("verifcation successful");
+          setErr(false);
+          setOnSuccess(true);
+          setLoading(false);
+          navigate("/dashboard");
+          // ...
+        })
+        .catch((error) => {
+          // User couldn't sign in (bad verification code?)
+          // ...
+          setLoading(false);
+          setMsg("Wrong code");
+          setErr(true);
+        });
+    }
+  };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+  };
   return (
     <section className="verify-section">
+      {err && (
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="row justify-content-center">
         <div className="col-md-7 text-center">
           <img src={icon} alt="" className="img-fluid" />
@@ -171,7 +215,7 @@ function VerifyPhone() {
               </div>
             </div>
           </div>
-          <form className="my-5" id="otp">
+          <form className="my-5" id="otp" onSubmit={verifyMobileCode}>
             <div className="d-flex flex-row">
               <div className="me-2">
                 <input
@@ -180,6 +224,8 @@ function VerifyPhone() {
                   maxLength="1"
                   name="digit-1"
                   id="digit-1"
+                  value={otp1}
+                  onChange={(e) => setOtp1(e.target.value)}
                 />
               </div>
               <div className="me-2">
@@ -189,6 +235,8 @@ function VerifyPhone() {
                   maxLength="1"
                   name="digit-2"
                   id="digit-2"
+                  value={otp2}
+                  onChange={(e) => setOtp2(e.target.value)}
                 />
               </div>
               <div className="me-2">
@@ -198,6 +246,8 @@ function VerifyPhone() {
                   maxLength="1"
                   name="digit-3"
                   id="digit-3"
+                  value={otp3}
+                  onChange={(e) => setOtp3(e.target.value)}
                 />
               </div>
               <div className="me-2">
@@ -207,6 +257,8 @@ function VerifyPhone() {
                   maxLength="1"
                   name="digit-4"
                   id="digit-4"
+                  value={otp4}
+                  onChange={(e) => setOtp4(e.target.value)}
                 />
               </div>
               <div className="me-2">
@@ -216,6 +268,8 @@ function VerifyPhone() {
                   maxLength="1"
                   name="digit-5"
                   id="digit-5"
+                  value={otp5}
+                  onChange={(e) => setOtp5(e.target.value)}
                 />
               </div>
               <div className="me-2">
@@ -225,20 +279,34 @@ function VerifyPhone() {
                   maxLength="1"
                   name="digit-6"
                   id="digit-6"
+                  value={otp6}
+                  onChange={(e) => setOtp6(e.target.value)}
                 />
               </div>
             </div>
             <div className="row justify-content-center">
               <div className="col-md-6">
-                <div className="mt-5 mb-3">
-                  <button
-                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
-                    style={{ width: "100%" }}
-                    type="submit"
-                  >
-                    Continue
-                  </button>
-                </div>
+                {loading ? (
+                  <div className="mt-5 mb-3">
+                    <button
+                      className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
+                      style={{ width: "100%" }}
+                      type="button"
+                    >
+                      Loading
+                    </button>
+                  </div>
+                ) : (
+                  <div className="mt-5 mb-3">
+                    <button
+                      className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
+                      style={{ width: "100%" }}
+                      type="submit"
+                    >
+                      Continue
+                    </button>
+                  </div>
+                )}
 
                 <p>
                   Didn’t get code?{" "}
