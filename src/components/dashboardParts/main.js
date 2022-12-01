@@ -132,7 +132,7 @@ function Sidebar() {
             Portfolio
           </div>
         </Link>
-        <Link>
+        <Link to="/savings">
           <div className="d-flex flex-row">
             <img src={saving} alt="" className="img-fluid me-2 icons" />
             Savings
@@ -220,7 +220,7 @@ function Sidebar() {
                   <span className="hash">**********</span>
                   <br />
                   <span className="generate">
-                    {/* {userDetail?.firstname} {userDetail?.lastname} */}
+                    {/* {userDetail?.firstname} {userDetail?.lastname} */} 
                     Generate Account Number{" "}
                     <i className="bi bi-arrow-right-circle-fill"></i>
                   </span>

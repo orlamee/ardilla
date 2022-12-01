@@ -637,3 +637,27 @@ input:checked + .slider:before {
   background-repeat: no-repeat!important;
   background-size: cover!important; 
 }
+
+.total-savings h3 {
+  color: #3D0072;
+  font-weight: 600;
+  line-height: 18px;
+  font-size: 16px;
+}
+
+.total-savings p {
+  color: #3D0072;
+  font-weight: 700;
+  line-height: 24px;
+  font-size: 20px;
+}
+
+.dollar {
+  color: #B69FC9;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.save-eyes {
+  color: #3D0072!important;
+}
