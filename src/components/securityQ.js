@@ -44,6 +44,7 @@ function SecurityPage() {
       );
 
       if (data.success === true) {
+        sessionStorage.setItem("user", JSON.stringify(data.data));
         setErr(false);
         setMsg(data.msg);
         setOnSuccess(true);

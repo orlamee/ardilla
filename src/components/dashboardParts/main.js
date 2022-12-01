@@ -49,13 +49,13 @@ function Sidebar() {
     }
   };
 
-  useEffect(() => {
-    let interval = setInterval(() => {
-      refreshToken();
-    }, 6000);
+  // useEffect(() => {
+  //   let interval = setInterval(() => {
+  //     refreshToken();
+  //   }, 6000);
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const handleOnIdle = () => {
     sessionStorage.clear();
@@ -202,7 +202,7 @@ function Sidebar() {
                   <span className="hash">**********</span>
                   <br />
                   <span className="generate">
-                    {/* {userDetail?.firstname} {userDetail?.lastname} */} 
+                    {/* {userDetail?.firstname} {userDetail?.lastname} */}
                     Generate Account Number{" "}
                     <i className="bi bi-arrow-right-circle-fill"></i>
                   </span>

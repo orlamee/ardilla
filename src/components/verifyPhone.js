@@ -8,9 +8,11 @@ import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 function VerifyPhone() {
   let user = JSON.parse(sessionStorage.getItem("user"));
 
+  console.log(user);
+
   const navigate = useNavigate();
 
-  const [phoneNumber] = useState(`+234${user.contact}`);
+  const [phoneNumber, setPhoneNumber] = useState(`+234${user.contact}`);
   const [otp1, setOtp1] = useState("");
   const [otp2, setOtp2] = useState("");
   const [otp3, setOtp3] = useState("");
@@ -21,6 +23,8 @@ function VerifyPhone() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
+
+  console.log(phoneNumber);
 
   useEffect(() => {
     const generateRecaptcha = () => {
@@ -151,7 +155,7 @@ function VerifyPhone() {
             <img src={icon} alt="" className="img-fluid" />
             <h3 className="my-2">Verify Phone Number</h3>
             <h6>
-              Enter the OTP Verification code sent to +234 <br />
+              Enter the OTP Verification code sent to {user.contact} <br />
               <Link
                 style={{ color: "#E6356D" }}
                 data-bs-toggle="modal"
