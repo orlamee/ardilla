@@ -63,6 +63,7 @@ function Sidebar() {
       const { data } = await axios.put(
         `https://ardilla.herokuapp.com/ardilla/api/auth/logout/${token}`
       );
+      sessionStorage.clear();
 
       console.log("log out data");
       console.log(data);
