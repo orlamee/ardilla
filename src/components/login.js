@@ -78,7 +78,7 @@ function Login() {
       }
     } catch (error) {
       setOnSuccess(false);
-      setMsg(`${error.response.data.msg || "Network error"} `);
+      setMsg(`${error.response.data.msg} `);
       setLoading(false);
       setErr(true);
     }

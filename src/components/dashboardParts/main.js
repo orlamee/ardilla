@@ -49,17 +49,17 @@ function Sidebar() {
 
   useEffect(() => {
     const getUser = async () => {
-      const { data } = await axios.get(
-        `https://ardilla-app.herokuapp.com/ardilla/api/user/getUser/${token}`
-      );
+      try {
+        const { data } = await axios.get(
+          `https://ardilla-app.herokuapp.com/ardilla/api/user/getUser/${token}`
+        );
 
-      setUserDetail(data.user);
+        setUserDetail(data.user);
+      } catch (error) {
+        console.log(error);
+      }
     };
     getUser();
-
-    // let interval = setInterval(refreshToken, [6000]);
-
-    // return () => clearInterval(interval);
   }, [token]);
 
   //user

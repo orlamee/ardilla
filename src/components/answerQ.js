@@ -46,7 +46,7 @@ function AQ() {
         setMsg(`Hey ,${userDetail?.kodeHex} welcome `);
         setOnSuccess(true);
         setLoading(false);
-        navigate("/dashboard");
+        navigate("/verify-mobile");
       } else {
         setLoading(false);
         setErr(true);
