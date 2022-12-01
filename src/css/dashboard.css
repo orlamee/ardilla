@@ -27,7 +27,8 @@
 div.content {
   margin-left: 380px;
   padding: 27px 28px;
-  /* height: 1000px; */
+  background-color: #fff;
+  height: auto;
   background-image: url('../img/dashboard/bg.svg');
   background-position: 50%;
   background-repeat: no-repeat;
