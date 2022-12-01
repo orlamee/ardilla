@@ -14,11 +14,12 @@ import chat from "../../img/dashboard/chat.svg";
 import flex from "../../img/dashboard/flex.svg";
 import percent from "../../img/dashboard/per.svg";
 import hone from "../../img/dashboard/deposit-icon.svg";
-
-
-
-
-
+import withdrawal from "../../img/dashboard/withdraw.svg";
+import chart from "../../img/dashboard/stats-chart.svg";
+import red from "../../img/dashboard/red.svg";
+import yellow from "../../img/dashboard/yellow.svg";
+import purple from "../../img/dashboard/purple.svg";
+import blue from "../../img/dashboard/blue.svg";
 
 
 function SavingsBody() {
@@ -131,7 +132,7 @@ function SavingsBody() {
                     <div className="d-flex flex-row">
                       <img src={flex} alt="" className="img-fluid"/>
                       <div className="mt-2 ms-3">
-                        <h5>Flex Plan</h5>
+                        <h5>Flex</h5>
                         <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
                       </div>
                     </div>
@@ -144,13 +145,13 @@ function SavingsBody() {
             </div>
             <div className="flex-section">
               <img src={percent} alt="" className="img-fluid float-end pc" />
-              <div className="card-s px-4">
+              <div className="card-s px-4 bg-target">
                 <div className="row">
                   <div className="col-md-8">
                     <div className="d-flex flex-row">
                       <img src={flex} alt="" className="img-fluid"/>
                       <div className="mt-2 ms-3">
-                        <h5>Flex Plan</h5>
+                        <h5>Target</h5>
                         <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
                       </div>
                     </div>
@@ -238,21 +239,58 @@ function SavingsBody() {
               <hr/>
               <div className="mt-4">
                 <div className="d-flex flex-row">
-                  <img src={hone} alt="" className="img-fluid me-3" />
+                  <img src={withdrawal} alt="" className="img-fluid me-3" />
                   <div className="mt-2">
                     <h6>Savings withdrawal</h6>
                     <p>12th Dec 2022</p>
                   </div>
                 </div>
-                <span className="float-end left-number debit">+20,000</span>
+                <span className="float-end left-number debit">-20,000</span>
               </div>
-              
             </div>
             <div className="history-card nth-history">
               <h3>Get access to<br/>
               Investment Opportunites</h3>
               <p className="mt-3">Start Investing <i className="bi bi-arrow-right"></i></p>
               <span className="mt-5">20% Monthly ROI</span>
+            </div>
+            <div className="history-card bg-stat">
+              <div className="text-center">
+                <h4>Saving Statistics</h4>
+                <img src={chart} alt="" className="img-fluid mt-4"/>
+                <div className="text-center mapping mapping-save">
+                  <div className="d-flex flex-row">
+                    <img src={red} alt="" className="img-fluid me-3"/>
+                    <p className="mt-3">Savings</p>
+                  </div>
+                  <h3 className="float-end">420</h3>
+                </div>
+                <div className="text-center mapping mapping-save">
+                  <div className="d-flex flex-row">
+                    <img src={yellow} alt="" className="img-fluid me-3"/>
+                    <p className="mt-3">Investment</p>
+                  </div>
+                  <h3 className="float-end">142</h3>
+                </div>
+                <div className="text-center mapping mapping-save">
+                  <div className="d-flex flex-row">
+                    <img src={purple} alt="" className="img-fluid me-3"/>
+                    <p className="mt-3">Insurance</p>
+                  </div>
+                  <h3 className="float-end">340</h3>
+                </div>
+                <div className="text-center mapping mapping-save">
+                  <div className="d-flex flex-row">
+                    <img src={blue} alt="" className="img-fluid me-3"/>
+                    <p className="mt-3">SAN</p>
+                  </div>
+                  <h3 className="float-end">590</h3>
+                </div>
+                <div className="mt-5 mapping-save text-start footer-card">
+                  5% Money flow increase<br/>
+                  Well done Boss
+                </div>
+              </div>
             </div>
           </div>
         </div>
