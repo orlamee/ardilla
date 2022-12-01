@@ -24,8 +24,6 @@ function VerifyPhone() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
 
-  console.log(phoneNumber);
-
   useEffect(() => {
     const generateRecaptcha = () => {
       window.recaptchaVerifier = new RecaptchaVerifier(
