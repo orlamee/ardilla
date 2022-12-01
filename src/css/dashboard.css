@@ -598,3 +598,19 @@ input:checked + .slider:before {
   z-index: 0;
   position: relative;
 }
+
+.log-out {
+  color: #3D0072;
+  font-weight: 700;
+  line-height: 21px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.log-out:hover {
+  color:#E6356D ;
+}
+
+.logout {
+  margin-top: 90px;
+}
