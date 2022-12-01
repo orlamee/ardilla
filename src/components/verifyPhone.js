@@ -12,7 +12,7 @@ function VerifyPhone() {
 
   const navigate = useNavigate();
 
-  const [phoneNumber, setPhoneNumber] = useState(`+234${user.contact}`);
+  const [phoneNumber] = useState(`+234${user.contact}`);
   const [otp1, setOtp1] = useState("");
   const [otp2, setOtp2] = useState("");
   const [otp3, setOtp3] = useState("");
