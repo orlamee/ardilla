@@ -11,6 +11,11 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
+import flex from "../../img/dashboard/flex.svg";
+import percent from "../../img/dashboard/per.svg";
+import hone from "../../img/dashboard/deposit-icon.svg";
+
+
 
 
 
@@ -91,7 +96,7 @@ function SavingsBody() {
       </div>
       <div className="content py-5 px-5">
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-7">
             <div className="total-savings">
               <h3>Total Savings</h3>
               <div className="d-flex flex-row my-3">
@@ -106,7 +111,9 @@ function SavingsBody() {
                 <span className="dollar mt-2 ms-2">₦740 /$1</span>
               </div>
             </div>
-            <span className="float-end learn">Learn More <i className="bi bi-chevron-right"></i></span>
+          </div>
+          <div className="col-md-5 dilla-section text-end mt-5">
+            <span className="learn">Learn More <i className="bi bi-chevron-right"></i></span>
           </div>
         </div>
         <div className="row create-plan">
@@ -114,13 +121,140 @@ function SavingsBody() {
             <h4>Create a new savings plan</h4>
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-6">
-            <div className="card-s">
-              
+        <div className="row mt-4">
+          <div className="col-md-7">
+            <div className="flex-section">
+              <img src={percent} alt="" className="img-fluid float-end pc" />
+              <div className="card-s px-4">
+                <div className="row">
+                  <div className="col-md-8">
+                    <div className="d-flex flex-row">
+                      <img src={flex} alt="" className="img-fluid"/>
+                      <div className="mt-2 ms-3">
+                        <h5>Flex Plan</h5>
+                        <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-4 mt-3">
+                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/sign-up" >Create a Flex Plan</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex-section">
+              <img src={percent} alt="" className="img-fluid float-end pc" />
+              <div className="card-s px-4">
+                <div className="row">
+                  <div className="col-md-8">
+                    <div className="d-flex flex-row">
+                      <img src={flex} alt="" className="img-fluid"/>
+                      <div className="mt-2 ms-3">
+                        <h5>Flex Plan</h5>
+                        <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-4 mt-3">
+                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/sign-up" >Create a Flex Plan</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex-section">
+              <img src={percent} alt="" className="img-fluid float-end pc" />
+              <div className="card-s px-4">
+                <div className="row">
+                  <div className="col-md-8">
+                    <div className="d-flex flex-row">
+                      <img src={flex} alt="" className="img-fluid"/>
+                      <div className="mt-2 ms-3">
+                        <h5>Flex Plan</h5>
+                        <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-4 mt-3">
+                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/sign-up" >Create a Flex Plan</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex-section">
+              <img src={percent} alt="" className="img-fluid float-end pc" />
+              <div className="card-s px-4">
+                <div className="row">
+                  <div className="col-md-8">
+                    <div className="d-flex flex-row">
+                      <img src={flex} alt="" className="img-fluid"/>
+                      <div className="mt-2 ms-3">
+                        <h5>Flex Plan</h5>
+                        <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-4 mt-3">
+                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/sign-up" >Create a Flex Plan</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex-section">
+              <img src={percent} alt="" className="img-fluid float-end pc" />
+              <div className="card-s px-4">
+                <div className="row">
+                  <div className="col-md-8">
+                    <div className="d-flex flex-row">
+                      <img src={flex} alt="" className="img-fluid"/>
+                      <div className="mt-2 ms-3">
+                        <h5>Flex Plan</h5>
+                        <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-4 mt-3">
+                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/sign-up" >Create a Flex Plan</Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="col-md-6"></div>
+          <div className="col-md-5 dilla-section">
+            <div className="history-card">
+              <div>
+                <h3>History</h3>
+                <p className="float-end view">View all</p>
+              </div>
+              <div className="mt-4">
+                <div className="d-flex flex-row">
+                  <img src={hone} alt="" className="img-fluid me-3" />
+                  <div className="mt-2">
+                    <h6>Savings deposit</h6>
+                    <p>18th Dec 2022</p>
+                  </div>
+                </div>
+                <span className="float-end left-number">+20,000</span>
+              </div>
+              <hr/>
+              <div className="mt-4">
+                <div className="d-flex flex-row">
+                  <img src={hone} alt="" className="img-fluid me-3" />
+                  <div className="mt-2">
+                    <h6>Savings withdrawal</h6>
+                    <p>12th Dec 2022</p>
+                  </div>
+                </div>
+                <span className="float-end left-number debit">+20,000</span>
+              </div>
+              
+            </div>
+            <div className="history-card nth-history">
+              <h3>Get access to<br/>
+              Investment Opportunites</h3>
+              <p className="mt-3">Start Investing <i className="bi bi-arrow-right"></i></p>
+              <span className="mt-5">20% Monthly ROI</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

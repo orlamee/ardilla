@@ -621,7 +621,7 @@ input:checked + .slider:before {
 
 .modal {
   --bs-modal-zindex: 1055;
-  --bs-modal-width: 1100px!important;
+  --bs-modal-width: 1000px!important;
   --bs-modal-border-radius: 0rem;
     
 }
@@ -663,7 +663,7 @@ input:checked + .slider:before {
 }
 
 .learn {
-  margin-top: -30px;
+  /* margin-top: -40px; */
   color: #4B5563;
   font-size: 12px;
   font-weight: 600;
@@ -678,4 +678,119 @@ input:checked + .slider:before {
   font-weight: 600;
   line-height: 16px;
   font-size: 18px;
+}
+
+.card-s {
+  background-color: #FBF3FA;
+  box-shadow: 0px 10px 20px rgba(102, 29, 165, 0.12);
+  border-radius: 10px;
+  background-image: url('../img/dashboard/bg-flex.svg');
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-position-y: bottom ;
+  padding: 31px;
+  padding-bottom: 31px;
+}
+
+.card-s h5 {
+  color: #3D0072;
+  font-weight: 700;
+  line-height: 16px;
+  font-size: 18px;
+}
+
+.card-s h6 {
+  color: #3D0072;
+  font-weight: 400;
+  line-height: 13px;
+  font-size: 12px;
+}
+
+.savings-btn {
+  background-color: #E8356DCC!important;
+  border-color: #E8356DCC!important;
+  border-radius: 60px;
+  color: #fff!important;
+  font-size: 13px!important;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.savings-btn:hover {
+  background-color: #5f0aaa!important;
+  border-color: #5f0aaa!important;
+  border-radius: 60px;
+  color: #fff!important;
+  font-size: 13px!important;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.pc {
+  margin-top: -41px;
+  margin-right: -25px!important;
+}
+
+.flex-section {
+  margin-bottom: 40px;
+}
+
+.history-card h3 {
+  color: #3D0072;
+  font-weight: 600;
+  line-height: 24px;
+  font-size: 22px;
+}
+
+.history-card p {
+  color: #4B5563;
+  font-weight: 400;
+  line-height: 10px;
+  font-size: 10px;
+}
+
+.history-card h6 {
+  color: #3D0072;
+  font-weight: 600;
+  line-height: 17px;
+  font-size: 14px;
+}
+
+.history-card {
+  background: #FBF3FA;
+  padding: 40px 50px;
+  border-radius: 10px;
+  margin-bottom: 35px;
+}
+
+.nth-history {
+  background-color: #F7EEFE!important;
+}
+
+.nth-history p {
+  color: #E8356D;
+  font-weight: 600;
+}
+
+.nth-history span {
+  color: #3D0072;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.view {
+  margin-top: -23px;
+  color: #4B5563!important;
+}
+
+.left-number {
+  margin-top: -40px;
+  color: #70D441;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.debit {
+  color: #DC263B!important;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import icon from "../../img/dashboard/portfolio-icon.svg";
+import icon from "../../img/dashboard/page-icon.svg";
 import nots from "../../img/dashboard/nots.svg";
 import settings from "../../img/dashboard/settings.svg";
 import { Link } from "react-router-dom";
