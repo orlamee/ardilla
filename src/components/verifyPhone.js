@@ -16,6 +16,7 @@ function VerifyPhone() {
 
   // const [userDetail, setUserDetail] = useState("");
   const [phoneNumber] = useState(`+234${user.contact}`);
+
   const [otp1, setOtp1] = useState("");
   const [otp2, setOtp2] = useState("");
   const [otp3, setOtp3] = useState("");
@@ -28,50 +29,48 @@ function VerifyPhone() {
   const [onSuccess, setOnSuccess] = useState(false);
 
   useEffect(() => {
+    const generateRecaptcha = () => {
+      window.recaptchaVerifier = new RecaptchaVerifier(
+        "recaptcha-container",
+        {
+          size: "invisible",
+          callback: (response) => {
+            // reCAPTCHA solved, allow signInWithPhoneNumber.
+            // onSignInSubmit();
+          },
+        },
+        auth
+      );
+    };
+
+    const mobileAuth = () => {
+      // setLoading(true);
+      // e.preventDefault();
+      generateRecaptcha();
+
+      let appVerifier = window.recaptchaVerifier;
+
+      signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+        .then((confirmationResult) => {
+          // SMS sent. Prompt user to type the code from the message, then sign the
+          // user in with confirmationResult.confirm(code).
+          window.confirmationResult = confirmationResult;
+          // ...
+        })
+        .catch((error) => {
+          // Error; SMS not sent
+          // ...
+          console.log(error);
+          setLoading(false);
+          setMsg("SMS not send");
+          setErr(true);
+        });
+    };
+
     mobileAuth();
-  }, []);
+  }, [phoneNumber]);
 
   const fullOTP = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
-
-  const generateRecaptcha = () => {
-    window.recaptchaVerifier = new RecaptchaVerifier(
-      "recaptcha-container",
-      {
-        size: "invisible",
-        callback: (response) => {
-          // reCAPTCHA solved, allow signInWithPhoneNumber.
-          // onSignInSubmit();
-        },
-      },
-      auth
-    );
-  };
-
-  const mobileAuth = () => {
-    // setLoading(true);
-    // e.preventDefault();
-    generateRecaptcha();
-
-    let appVerifier = window.recaptchaVerifier;
-
-    signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-      .then((confirmationResult) => {
-        // SMS sent. Prompt user to type the code from the message, then sign the
-        // user in with confirmationResult.confirm(code).
-        window.confirmationResult = confirmationResult;
-        // ...
-      })
-      .catch((error) => {
-        // Error; SMS not sent
-        // ...
-        console.log(error);
-        setLoading(false);
-        setMsg("SMS not send");
-        setErr(true);
-      });
-  };
-
-  // mobileAuth();
 
   const verifyMobileCode = (e) => {
     setLoading(true);
@@ -82,13 +81,16 @@ function VerifyPhone() {
         .confirm(fullOTP)
         .then((result) => {
           // User signed in successfully.
+          setErr(false);
+          setMsg(`Correct pin`);
+          setOnSuccess(true);
+          setLoading(false);
           const user = result.user;
           console.log(user);
           setMsg("verifcation successful");
           setErr(false);
           setOnSuccess(true);
           setLoading(false);
-          navigate("/dashboard");
           // ...
         })
         .catch((error) => {
@@ -100,6 +102,12 @@ function VerifyPhone() {
         });
     }
   };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+    navigate("/login");
+  };
+
   return (
     <section className="verify-section">
       {err && (
@@ -135,7 +143,7 @@ function VerifyPhone() {
                 type="button"
                 className="btn-close"
                 // data-bs-dismiss="alert"
-                // onClick={handleClickSuccess}
+                onClick={handleClickSuccess}
                 aria-label="Close"
               ></button>
             </div>
