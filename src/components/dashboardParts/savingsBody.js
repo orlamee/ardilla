@@ -142,7 +142,7 @@ function SavingsBody() {
                     </div>
                   </div>
                   <div className="col-md-4 mt-3">
-                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/sign-up" >Create a Flex Plan</Link>
+                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/flex-plan" >Create a Flex Plan</Link>
                   </div>
                 </div>
               </div>
@@ -161,7 +161,7 @@ function SavingsBody() {
                     </div>
                   </div>
                   <div className="col-md-4 mt-3">
-                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/sign-up" >Create a Fixed Plan</Link>
+                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="" >Create a Fixed Plan</Link>
                   </div>
                 </div>
               </div>
@@ -180,7 +180,7 @@ function SavingsBody() {
                     </div>
                   </div>
                   <div className="col-md-4 mt-3">
-                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/sign-up" >Create a Flex Plan</Link>
+                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="" disabled>Coming Soon</Link>
                   </div>
                 </div>
               </div>
@@ -199,7 +199,7 @@ function SavingsBody() {
                     </div>
                   </div>
                   <div className="col-md-4 mt-3">
-                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/sign-up" >Create a Flex Plan</Link>
+                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="" >Create a Locked Plan</Link>
                   </div>
                 </div>
               </div>
@@ -218,7 +218,7 @@ function SavingsBody() {
                     </div>
                   </div>
                   <div className="col-md-4 mt-3">
-                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/sign-up" >Create a Flex Plan</Link>
+                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/" >Create a VIP Plan</Link>
                   </div>
                 </div>
               </div>

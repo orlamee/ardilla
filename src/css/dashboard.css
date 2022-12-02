@@ -621,21 +621,30 @@ input:checked + .slider:before {
 
 .modal {
   --bs-modal-zindex: 1055;
-  --bs-modal-width: 1000px!important;
+  --bs-modal-width: 1000px;
   --bs-modal-border-radius: 0rem;
     
 }
 
+.flex-modal {
+  --bs-modal-zindex: 1055;
+  --bs-modal-width: 500px!important;
+  --bs-modal-border-radius: 16px!important;
+}
+
 .modal-body {
   padding: 90px 0px;
+}
 
+.flex-modal-body {
+  padding: 10px 0px 90px 0px!important;
 }
 
 .modal-content {
-  background-image: url("../img/verifybg.svg")!important;
-  background-position: 50%!important;
-  background-repeat: no-repeat!important;
-  background-size: cover!important; 
+  background-image: url("../img/verifybg.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover; 
 }
 
 .total-savings h3 {
@@ -846,4 +855,43 @@ input:checked + .slider:before {
   font-size: 14px;
   line-height: 15px;
   font-weight: 500;
+}
+
+.flex-plan {
+  padding-top: 90px!important;
+  padding-bottom: 90px!important;
+}
+
+.flex-plan h2 {
+  color: #3D0072;
+  font-size: 50px;
+  line-height: 57px;
+  font-weight: 700;
+}
+
+.flex-plan h6 {
+  color: #3D0072;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+.ques {
+  margin-top: -58px;
+  margin-left: -20px;
+  width: 50px;
+}
+
+.flex-modal-body h6 {
+  color: #3D0072;
+  font-size: 30px;
+  line-height: 34px;
+  font-weight: 700;
+}
+
+.flex-modal-body p {
+  color: #3D0072;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
 }
