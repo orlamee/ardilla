@@ -692,6 +692,10 @@ input:checked + .slider:before {
   padding-bottom: 31px;
 }
 
+.family-bg {
+  background-image: url('../img/dashboard/family-bg.svg');
+}
+
 .bg-target {
   background-color: #F7EEFE!important;
   background-image: url('../img/dashboard/tar.svg');
@@ -700,6 +704,20 @@ input:checked + .slider:before {
   background-position-y: bottom ;
   padding: 31px;
   padding-bottom: 31px;
+}
+
+.lock-bg {
+  background-color: #F7EEFE!important;
+  background-image: url('../img/dashboard/safelock-bg.svg');
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-position-y: bottom ;
+  padding: 31px;
+  padding-bottom: 31px;
+}
+
+.vip-bg {
+  background-image: url('../img/dashboard/vip-bg.svg');
 }
 
 .card-s h5 {

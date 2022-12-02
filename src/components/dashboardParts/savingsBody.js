@@ -20,6 +20,10 @@ import red from "../../img/dashboard/red.svg";
 import yellow from "../../img/dashboard/yellow.svg";
 import purple from "../../img/dashboard/purple.svg";
 import blue from "../../img/dashboard/blue.svg";
+import get from "../../img/dashboard/target-icon.svg";
+import lock from "../../img/dashboard/lock.svg";
+import family from "../../img/dashboard/family.svg";
+import vip from "../../img/dashboard/vip.svg";
 
 
 function SavingsBody() {
@@ -149,7 +153,7 @@ function SavingsBody() {
                 <div className="row">
                   <div className="col-md-8">
                     <div className="d-flex flex-row">
-                      <img src={flex} alt="" className="img-fluid"/>
+                      <img src={get} alt="" className="img-fluid"/>
                       <div className="mt-2 ms-3">
                         <h5>Target</h5>
                         <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
@@ -157,20 +161,20 @@ function SavingsBody() {
                     </div>
                   </div>
                   <div className="col-md-4 mt-3">
-                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/sign-up" >Create a Flex Plan</Link>
+                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/sign-up" >Create a Fixed Plan</Link>
                   </div>
                 </div>
               </div>
             </div>
             <div className="flex-section">
               <img src={percent} alt="" className="img-fluid float-end pc" />
-              <div className="card-s px-4">
+              <div className="card-s px-4 family-bg">
                 <div className="row">
                   <div className="col-md-8">
                     <div className="d-flex flex-row">
-                      <img src={flex} alt="" className="img-fluid"/>
+                      <img src={family} alt="" className="img-fluid"/>
                       <div className="mt-2 ms-3">
-                        <h5>Flex Plan</h5>
+                        <h5>Family & I</h5>
                         <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
                       </div>
                     </div>
@@ -183,13 +187,13 @@ function SavingsBody() {
             </div>
             <div className="flex-section">
               <img src={percent} alt="" className="img-fluid float-end pc" />
-              <div className="card-s px-4">
+              <div className="card-s px-4 lock-bg">
                 <div className="row">
                   <div className="col-md-8">
                     <div className="d-flex flex-row">
-                      <img src={flex} alt="" className="img-fluid"/>
+                      <img src={lock} alt="" className="img-fluid"/>
                       <div className="mt-2 ms-3">
-                        <h5>Flex Plan</h5>
+                        <h5>Safe Lock</h5>
                         <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
                       </div>
                     </div>
@@ -202,13 +206,13 @@ function SavingsBody() {
             </div>
             <div className="flex-section">
               <img src={percent} alt="" className="img-fluid float-end pc" />
-              <div className="card-s px-4">
+              <div className="card-s px-4 vip-bg">
                 <div className="row">
                   <div className="col-md-8">
                     <div className="d-flex flex-row">
-                      <img src={flex} alt="" className="img-fluid"/>
+                      <img src={vip} alt="" className="img-fluid"/>
                       <div className="mt-2 ms-3">
-                        <h5>Flex Plan</h5>
+                        <h5>VIP</h5>
                         <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
                       </div>
                     </div>
