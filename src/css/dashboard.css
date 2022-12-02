@@ -695,7 +695,7 @@ input:checked + .slider:before {
 .bg-target {
   background-color: #F7EEFE!important;
   background-image: url('../img/dashboard/tar.svg');
-  background-position: 100%;
+  background-position: 103%;
   background-repeat: no-repeat;
   background-position-y: bottom ;
   padding: 31px;
