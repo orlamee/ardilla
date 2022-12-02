@@ -22,7 +22,7 @@ function CreatePassword() {
     if (password === confirmPassword) {
       try {
         const { data } = await axios.put(
-          `https://ardilla-be-app.herokuapp.com/ardilla/api/auth/user/reset-password/${id}`,
+          `https://ardilla.herokuapp.com/ardilla/api/auth/user/reset-password/${id}`,
           {
             password,
           }

@@ -16,7 +16,7 @@ function Forgot() {
     setLoading(true);
     try {
       const { data } = await axios.post(
-        "https://ardilla-be-app.herokuapp.com/ardilla/api/auth/forgot-password",
+        "https://ardilla.herokuapp.com/ardilla/api/auth/forgot-password",
         { email }
       );
 
