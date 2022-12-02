@@ -96,7 +96,7 @@ function CreateFlex() {
           <img src={flex} alt="" className="img-fluid"/>
           <h2 className="my-5">Create your <span style={{color: "#E8356D"}}>flex <Link data-bs-toggle="modal" data-bs-target="#flex" type="button"><img src={question} alt="" className="img-fluid ques" /></Link></span>that<br/> fits your lifestyle.</h2>
           <h6>Lorem ipsum dolor sit amet consectetur. Faucibus sit odio feugiat suspendisse felis<br/> morbi interdum. Eget sit ultricies facilisi elementum. </h6>
-          <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/flex-plan" >Create a Flex Plan</Link>
+          <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/create-flex" >Create a Flex Plan</Link>
           <div
             className="modal flex-modal fade"
             id="flex"
@@ -118,47 +118,47 @@ function CreateFlex() {
                 </div>
                 <div className="modal-body flex-modal-body">
                   <div className="container">
-                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
+                    <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+                      <div className="carousel-inner">
+                        <div className="carousel-item active">
                           <div className="row justify-content-center">
                             <div className="col-md-7 text-center">
                               <img src={flex} alt="" className="img-fluid" />
                               <h6 className="my-3">What is a <span style={{color: "#E8356D"}}>Flex</span><br/>plan?</h6>
                               <p>An emergency stash for rainy days; Only for rainy days</p>
-                              <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" to="/flex-plan" >Create a Flex Plan</Link>
+                              <a className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" href="/create-flex" >Create a Flex Plan</a>
                             </div>
                           </div>
                         </div>
-                        <div class="carousel-item">
+                        <div className="carousel-item">
                           <div className="row justify-content-center">
                             <div className="col-md-7 text-center">
                               <img src={artisan} alt="" className="img-fluid" />
                               <h6 className="my-3">Why do you need a <span style={{color: "#E8356D"}}>Flex</span> plan?</h6>
                               <p>Auto Repair, Medical Emergency, Layoff, Home Repair</p>
-                              <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" to="/flex-plan" >Create a Flex Plan</Link>
+                              <a className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" href="/create-flex" >Create a Flex Plan</a>
                             </div>
                           </div>
                         </div>
-                        <div class="carousel-item">
+                        <div className="carousel-item">
                           <div className="row justify-content-center">
                             <div className="col-md-7 text-center">
                               <img src={play} alt="" className="img-fluid" />
                               <h6 className="my-3">Learn more about <span style={{color: "#E8356D"}}>Flex</span> plan?</h6>
                               <p>Auto Repair, Medical Emergency, Layoff, Home Repair</p>
-                              <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" to="/flex-plan" >Create a Flex Plan</Link>
+                              <a className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" href="/create-flex" >Create a Flex Plan</a>
                             </div>
                           </div>
                         </div>
                         
                       </div>
-                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                        <span class="bi bi-chevron-left fs-5 text-dark" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                      <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span className="bi bi-chevron-left fs-5 text-dark" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
                       </button>
-                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                        <span class="bi bi-chevron-right fs-5 text-dark" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                      <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span className="bi bi-chevron-right fs-5 text-dark" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
                       </button>
                     </div>
                     

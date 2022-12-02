@@ -895,3 +895,55 @@ input:checked + .slider:before {
   line-height: 24px;
   font-weight: 400;
 }
+
+.earning h2 {
+  color: #3C0071;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 600;
+}
+
+.earns h3 {
+  color: #3C0071;
+  font-size: 50px;
+  line-height: 57px;
+  font-weight: 800;
+}
+
+.earns p {
+  color: #9CA3AF;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.earns {
+  margin-top: 90px;
+}
+
+.btn-flex {
+  background: #F9FAFB;
+  border-radius: 50px;
+  padding: 15px 62px;
+  color: #3C0071;
+}
+
+.earning-section {
+  padding-top: 60px!important;
+  padding-left: 80px!important;
+  padding-right: 80px!important;
+}
+
+.step-one::before {
+  /* bottom: 0px; */
+  content: url("../img/dashboard/step-one.svg");
+  position: absolute;
+  left: 411px;
+}
+
+.step-two::before {
+  /* bottom: 0px; */
+  content: url("../img/dashboard/step-two.svg");
+  position: absolute;
+  left: 411px;
+}

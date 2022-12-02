@@ -26,6 +26,8 @@ import Pin from "./pages/createPin";
 import KycVerify from "./pages/kycVerify";
 import Savings from "./dashboard/savings";
 import FlexPlan from "./dashboard/flexPlan";
+import CreateFlexPlan from "./dashboard/createFlexPlan";
+import FlexSpend from "./dashboard/flexSpend";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -51,6 +53,8 @@ root.render(
       ></Route>
       <Route path="/portfolio" element={<Portfolio />}></Route>
       <Route path="/savings" element={<Savings/>}></Route>
+      <Route path="/create-flex" element={<CreateFlexPlan/>}></Route>
+      <Route path="/flex-spend" element={<FlexSpend/>}></Route>
       <Route path="/flex-plan" element={<FlexPlan/>}></Route>
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
