@@ -66,7 +66,7 @@ function Login() {
 
       Cookies.remove("token");
 
-      // Cookies.set("user", data.token);
+      Cookies.set("user", data.token);
       console.log(data);
 
       sessionStorage.setItem("user", JSON.stringify(data.user));

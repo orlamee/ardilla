@@ -32,9 +32,8 @@ dayjs.extend(greetPlugin);
 function Sidebar() {
   // const [userDetail, setUserDetail] = useState("");
   // const [idle, setIdle] = useState(false);
-  const navigate = useNavigate();
-
   let user = JSON.parse(sessionStorage.getItem("user"));
+  const navigate = useNavigate();
 
   const refreshToken = async () => {
     try {
@@ -92,11 +91,11 @@ function Sidebar() {
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
   //form log out btn
-  const handleLogOut = async () => {
+  const handleLogOut = () => {
     Cookies.remove("user");
     sessionStorage.clear();
     navigate("/login");
-    console.log("re render");
+    window.location.reload();
   };
 
   return (
@@ -177,7 +176,7 @@ function Sidebar() {
           <div className="col-md-6">
             <h2>
               Welcome {"<"}
-              {user.kodeHex}
+              {user?.kodeHex}
               {"/>"}
             </h2>
             <h6 className="mt-4">

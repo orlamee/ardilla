@@ -62,7 +62,7 @@ function SecurityPage() {
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
-    navigate("/set-pin");
+    navigate("/verify-mobile");
   };
 
   return (
