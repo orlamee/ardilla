@@ -63,11 +63,16 @@ function VerifyPhone() {
     //   generateRecaptcha();
     let appVerifier = window.recaptchaVerifier;
 
+    console.log(typeof appVerifier);
+
     signInWithPhoneNumber(auth, phoneNumber, appVerifier)
       .then((confirmationResult) => {
         // SMS sent. Prompt user to type the code from the message, then sign the
         // user in with confirmationResult.confirm(code).
         window.confirmationResult = confirmationResult;
+
+        window.recaptchaVerifier.recaptcha.reset();
+        window.recaptchaVerifier.clear();
         // ...
       })
       .catch((error) => {
@@ -149,11 +154,41 @@ function VerifyPhone() {
   };
 
   const resendOTP = () => {
-    // if (window.recaptchaVerifier) {
-    //   window.recaptchaVerifier.render().then(function (widgetId) {
-    //     window.grecaptcha.reset(widgetId);
-    //   });
-    // }
+    if (window.recaptchaVerifier) {
+      window.recaptchaVerifier.recaptcha.reset();
+      window.recaptchaVerifier.clear();
+
+      window.recaptchaVerifier = new RecaptchaVerifier(
+        "recaptcha-container",
+        {
+          size: "invisible",
+          callback: (response) => {
+            // reCAPTCHA solved, allow signInWithPhoneNumber.
+            // onSignInSubmit();
+            // console.log(response);
+          },
+        },
+        auth
+      );
+
+      let newVerifier = window.recaptchaVerifier;
+
+      signInWithPhoneNumber(auth, phoneNumber, newVerifier)
+        .then((confirmationResult) => {
+          // SMS sent. Prompt user to type the code from the message, then sign the
+          // user in with confirmationResult.confirm(code).
+          window.confirmationResult = confirmationResult;
+          // ...
+        })
+        .catch((error) => {
+          // Error; SMS not sent
+          // ...
+          console.log(error);
+          setLoading(false);
+          setMsg("SMS not send");
+          setErr(true);
+        });
+    }
 
     // if (!window.recaptchaVerifier) {
     //   window.recaptchaVerifier = new RecaptchaVerifier(
@@ -189,7 +224,7 @@ function VerifyPhone() {
     //     setErr(true);
     //   });
 
-    window.location.reload();
+    // window.location.reload();
   };
 
   const wrongEmail = async () => {
