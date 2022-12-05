@@ -13,7 +13,7 @@ import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
 
 
-function FlexPlanSpend() {
+function TypeFlex() {
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -86,53 +86,80 @@ function FlexPlanSpend() {
           </Link>
         </div>
       </div>
-      <div className="content py-5 px-5 earning-section step-two">
-        <div className="row earning">
-          <div className="col-md-6">
-            <h2>Cadet {"<"}Starboy{"/>"},</h2>
+      <div className="content py-5 px-5 earning-section">
+        <div className="row justify-content-center flex-type">
+          <div className="col-md-7 text-center">
+            <h2>Lorem Ipsum</h2>
+            <p className="mt-2">Lorem ipsum antares fan tine sin</p>
           </div>
         </div>
-        <div className="row justify-content-center earns">
-          <div className="col-md-8 text-center">
-            <h3>How much do you<br/><span style={{color: "#E8356D"}}>spend</span> monthly</h3>
-            <p className="my-5">Enter a name you want to give your target plan</p>
-
-            <div className="mb-3">
-              <div className="btn-group me-3" role="group" aria-label="First group">
-                <button type="button" className="btn btn-flex">{"<"}100k</button>
-                
-              </div>
-              <div className="btn-group me-3" role="group" aria-label="Second group">
-                <button type="button" className="btn btn-flex">101k - 250k</button>
-                
-              </div>
-              <div className="btn-group" role="group" aria-label="Third group">
-                <button type="button" className="btn btn-flex">251k - 500k</button>
-              </div>
-            </div>
-            <div className="mb-3">
-              <div className="btn-group me-3" role="group" aria-label="First group">
-                <button type="button" className="btn btn-flex">501k - 1M</button>
-              </div>
-              <div className="btn-group me-3" role="group" aria-label="Second group">
-                <button type="button" className="btn btn-flex">1M - 5M</button>
-              </div>
-              <div className="btn-group" role="group" aria-label="Third group">
-                <button type="button" className="btn btn-flex">5M {">"}</button>
-              </div>
-            </div>
-            <div className="mb-3">
-              <div className="btn-group me-3" role="group" aria-label="First group">
-                <button type="button" className="btn btn-flex">Enter Amount</button>
-              </div>
-            </div>
-            <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/flex-type" style={{width: "50%"}}>Continue</Link></div>
+        <div className="row cadet mt-4">
+          <div className="col-md-6 ms-5">
+            <h3>Cadet {"<"}Starboy{"/>"},</h3>
           </div>
+        </div>
+        <div className="row justify-content-center mt-5">
+          <div className="col-md-4 mx-3">
+            <div className="automated p-5">
+              <h4>Go Automated </h4>
+              <div className="text-center my-5 border-bottom">
+                <span>Recommended Amount</span>
+                <h6>NGN 180,000</h6>
+                <p>Every month for 13months</p>
+              </div>
+              <div className="row values">
+                <div className="col-md-6">
+                  <h5>Emergency</h5>
+                  <h5>Interest Rate:</h5>
+                  <h5>Badge:</h5>
+                </div>
+                <div className="col-md-6 text-end">
+                  <h5>2,160,000</h5>
+                  <h5>11%</h5>
+                  <h5>Cadet</h5>
+                </div>
+              </div>
+              <div className="text-center"><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn mt-5" to="/" style={{width: "70%"}}>Go Automated</Link></div>
+            </div>
+          </div>
+          <div className="col-md-4 mx-3">
+            <div className="automated p-5 customed">
+              <h4>Go Custom </h4>
+              <div className="text-center my-5 border-bottom">
+                <span>Recommended Amount</span>
+                <h6>NGN 0</h6>
+                <p>Every month for 13months</p>
+              </div>
+              <div className="row values">
+                <div className="col-md-6">
+                  <h5>Emergency</h5>
+                  <h5>Interest Rate:</h5>
+                  <h5>Badge:</h5>
+                </div>
+                <div className="col-md-6 text-end">
+                  <h5>2,160,000</h5>
+                  <h5>11%</h5>
+                  <h5>-</h5>
+                </div>
+              </div>
+              <div className="text-center"><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5" to="/" style={{width: "70%"}}>Go Custom</Link></div>
+            </div>
+          </div>
+          {/* <div className="col-md-4">
+            <div className="automated p-4">
+              <h4>Go Automated </h4>
+              <div className="text-center my-5 ">
+                <span>Recommended Amount</span>
+                <h6>NGN 180,000</h6>
+                <p>Every month for 13months</p>
+              </div>
+            </div>
+          </div> */}
         </div>
       </div>
     </section>
   );
 }
 
-export default FlexPlanSpend;
+export default TypeFlex;
  

@@ -11,9 +11,10 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
+import verticaltwo from "../../img/dashboard/vertical-two.svg";
 
 
-function FlexPlanSpend() {
+function TargetPlanEarn() {
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -86,24 +87,28 @@ function FlexPlanSpend() {
           </Link>
         </div>
       </div>
-      <div className="content py-5 px-5 earning-section step-two">
+      <div className="content py-5 px-5 earning-section">
+        <div className="row backto">
+          <Link to="/create-target"><span><i className="bi bi-chevron-left me-3"></i>Back</span></Link>
+        </div>
         <div className="row earning">
-          <div className="col-md-6">
-            <h2>Cadet {"<"}Starboy{"/>"},</h2>
+          <div className="col-md-12 text-center">
+            <img src={verticaltwo} alt="" className="img-fluid"/>
+            {/* <h2>Cadet {"<"}Starboy{"/>"},</h2> */}
           </div>
         </div>
         <div className="row justify-content-center earns">
           <div className="col-md-8 text-center">
-            <h3>How much do you<br/><span style={{color: "#E8356D"}}>spend</span> monthly</h3>
+            <h3>How much do you<br/><span style={{color: "#E8356D"}}>earn</span> monthly</h3>
             <p className="my-5">Enter a name you want to give your target plan</p>
 
             <div className="mb-3">
               <div className="btn-group me-3" role="group" aria-label="First group">
-                <button type="button" className="btn btn-flex">{"<"}100k</button>
+                <button type="button" className="btn btn-flex">{"<"}50k</button>
                 
               </div>
               <div className="btn-group me-3" role="group" aria-label="Second group">
-                <button type="button" className="btn btn-flex">101k - 250k</button>
+                <button type="button" className="btn btn-flex">50k - 250k</button>
                 
               </div>
               <div className="btn-group" role="group" aria-label="Third group">
@@ -113,12 +118,14 @@ function FlexPlanSpend() {
             <div className="mb-3">
               <div className="btn-group me-3" role="group" aria-label="First group">
                 <button type="button" className="btn btn-flex">501k - 1M</button>
+                
               </div>
               <div className="btn-group me-3" role="group" aria-label="Second group">
-                <button type="button" className="btn btn-flex">1M - 5M</button>
+                <button type="button" className="btn btn-flex">1M - 5M </button>
+                
               </div>
               <div className="btn-group" role="group" aria-label="Third group">
-                <button type="button" className="btn btn-flex">5M {">"}</button>
+                <button type="button" className="btn btn-flex">5M+ </button>
               </div>
             </div>
             <div className="mb-3">
@@ -126,7 +133,7 @@ function FlexPlanSpend() {
                 <button type="button" className="btn btn-flex">Enter Amount</button>
               </div>
             </div>
-            <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/flex-type" style={{width: "50%"}}>Continue</Link></div>
+            <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/target-spend" style={{width: "50%"}}>Continue</Link></div>
           </div>
         </div>
       </div>
@@ -134,5 +141,5 @@ function FlexPlanSpend() {
   );
 }
 
-export default FlexPlanSpend;
+export default TargetPlanEarn;
  

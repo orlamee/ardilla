@@ -947,3 +947,102 @@ input:checked + .slider:before {
   position: absolute;
   left: 411px;
 }
+
+.flex-type h2 {
+  color: #3C0071;
+  font-size: 50px;
+  line-height: 57px;
+  font-weight: 800;
+}
+
+.flex-type p {
+  color: #9CA3AF;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.cadet h3 {
+  color: #3C0071;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 600;
+}
+
+.automated {
+  background: #F6EBFE;
+  border-radius: 15px;
+}
+
+.automated h4 {
+  color: #8807F7;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+.automated span {
+  color: #8807F7;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+}
+
+.automated h6 {
+  color: #3C0071;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.automated p {
+  color: #3C0071;
+  font-size: 10px;
+  line-height: 11px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.automated-btn {
+  font-size: 13px!important;
+}
+
+.customed h4 {
+  color: #E8356D!important;
+}
+
+.custom-btn {
+  font-size: 13px!important;
+  background-color: #E8356D!important;
+  border-color: #E8356D!important;
+}
+
+.values h5 {
+  color: #3C0071;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.customed {
+  background-color: #FDEDF2!important;
+}
+
+.target-form {
+  background: #F9FAFB;
+  border: 0;
+  padding: 15px;
+}
+
+.target-m {
+  margin-bottom: 200px;
+}
+
+.backto a {
+  text-decoration: none;
+  color: #9CA3AF;
+  font-size: 16px;
+  font-weight: 500;
+}

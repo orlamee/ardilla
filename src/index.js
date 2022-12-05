@@ -28,6 +28,12 @@ import Savings from "./dashboard/savings";
 import FlexPlan from "./dashboard/flexPlan";
 import CreateFlexPlan from "./dashboard/createFlexPlan";
 import FlexSpend from "./dashboard/flexSpend";
+import FlexType from "./dashboard/flexType";
+import TargetPlan from "./dashboard/targetPlan";
+import CreateTargetPlan from "./dashboard/createTargetPlan";
+import TargetEarn from "./dashboard/targetEarn";
+import TargetSpend from "./dashboard/targetSpend";
+import TargetType from "./dashboard/targetType";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -55,7 +61,13 @@ root.render(
       <Route path="/savings" element={<Savings/>}></Route>
       <Route path="/create-flex" element={<CreateFlexPlan/>}></Route>
       <Route path="/flex-spend" element={<FlexSpend/>}></Route>
+      <Route path="/flex-type" element={<FlexType/>}></Route>
+      <Route path="/target-type" element={<TargetType/>}></Route>
       <Route path="/flex-plan" element={<FlexPlan/>}></Route>
+      <Route path="/target-plan" element={<TargetPlan/>}></Route>
+      <Route path="/create-target" element={<CreateTargetPlan/>}></Route>
+      <Route path="/target-earn" element={<TargetEarn/>}></Route>
+      <Route path="/target-spend" element={<TargetSpend/>}></Route>
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
 
