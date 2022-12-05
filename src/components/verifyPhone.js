@@ -8,6 +8,8 @@ import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 function VerifyPhone() {
   let user = JSON.parse(sessionStorage.getItem("user"));
 
+  console.log("sleeping");
+
   console.log(user);
 
   const navigate = useNavigate();
