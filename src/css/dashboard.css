@@ -972,6 +972,11 @@ input:checked + .slider:before {
 .automated {
   background: #F6EBFE;
   border-radius: 15px;
+  /* background-image: url("../img/dashboard/stripe.svg"); */
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  /* padding-bottom: 130px!important; */
 }
 
 .automated h4 {

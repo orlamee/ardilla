@@ -108,7 +108,7 @@ function TypeTarget() {
                 <p>Every month for 13months</p>
               </div>
               <div className="row values">
-                <div className="col-md-6">
+                <div className="col-md-6 border-end">
                   <h5>Emergency</h5>
                   <h5>Interest Rate:</h5>
                   <h5>Badge:</h5>
@@ -131,7 +131,7 @@ function TypeTarget() {
                 <p>Every month for 13months</p>
               </div>
               <div className="row values">
-                <div className="col-md-6">
+                <div className="col-md-6 border-end">
                   <h5>Emergency</h5>
                   <h5>Interest Rate:</h5>
                   <h5>Badge:</h5>
