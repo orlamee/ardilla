@@ -161,7 +161,7 @@ function SavingsBody() {
                     </div>
                   </div>
                   <div className="col-md-4 mt-3">
-                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="" >Create a Fixed Plan</Link>
+                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/target-plan" >Create a Fixed Plan</Link>
                   </div>
                 </div>
               </div>
