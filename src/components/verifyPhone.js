@@ -4,11 +4,13 @@ import icon from "../img/verify-icon.svg";
 import logo from "../img/logo.svg";
 import { auth } from "../firbase-config";
 import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
+import axios from "axios";
 
 function VerifyPhone() {
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  console.log("sleeping");
+  // window.recaptchaVerifier.recaptcha.reset();
+  // window.recaptchaVerifier.clear();
 
   console.log(user);
 
@@ -25,9 +27,24 @@ function VerifyPhone() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
+  const [newPhoneNumber, setNewPhoneNumber] = useState("");
 
   useEffect(() => {
-    const generateRecaptcha = () => {
+    // const generateRecaptcha = () => {
+    // window.recaptchaVerifier = new RecaptchaVerifier(
+    //   "recaptcha-container",
+    //   {
+    //     size: "invisible",
+    //     callback: (response) => {
+    //       // reCAPTCHA solved, allow signInWithPhoneNumber.
+    //       // onSignInSubmit();
+    //     },
+    //   },
+    //   auth
+    // );
+    // };
+
+    if (!window.recaptchaVerifier) {
       window.recaptchaVerifier = new RecaptchaVerifier(
         "recaptcha-container",
         {
@@ -35,34 +52,65 @@ function VerifyPhone() {
           callback: (response) => {
             // reCAPTCHA solved, allow signInWithPhoneNumber.
             // onSignInSubmit();
+            // console.log(response);
           },
         },
         auth
       );
-    };
+    }
 
-    const mobileAuth = () => {
-      generateRecaptcha();
+    // const mobileAuth = () => {
+    //   generateRecaptcha();
+    let appVerifier = window.recaptchaVerifier;
 
-      let appVerifier = window.recaptchaVerifier;
+    signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+      .then((confirmationResult) => {
+        // SMS sent. Prompt user to type the code from the message, then sign the
+        // user in with confirmationResult.confirm(code).
+        window.confirmationResult = confirmationResult;
+        // ...
+      })
+      .catch((error) => {
+        // Error; SMS not sent
+        // ...
+        console.log(error);
+        setLoading(false);
+        setMsg("SMS not send");
+        setErr(true);
+      });
+    // };
 
-      signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-        .then((confirmationResult) => {
-          // SMS sent. Prompt user to type the code from the message, then sign the
-          // user in with confirmationResult.confirm(code).
-          window.confirmationResult = confirmationResult;
-          // ...
-        })
-        .catch((error) => {
-          // Error; SMS not sent
-          // ...
-          console.log(error);
-          setLoading(false);
-          setMsg("SMS not send");
-          setErr(true);
-        });
-    };
-    mobileAuth();
+    // mobileAuth();
+    // if (!window.recaptchaVerifier) {
+    //   window.recaptchaVerifier = new RecaptchaVerifier(
+    //     "recaptcha-container",
+    //     {
+    //       size: "invisible",
+    //     },
+    //     auth
+    //   );
+    // }
+    // window.recaptchaVerifier.render();
+
+    // var recaptchaVerifier = new RecaptchaVerifier(
+    //   "recaptcha-container",
+    //   {
+    //     size: "invisible",
+    //   },
+    //   auth
+    // );
+
+    // recaptchaVerifier.render();
+
+    // signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier)
+    //   .then((confirmationResult) => {
+    //     window.confirmationResult = confirmationResult;
+    //     // setFirebaseOtpResult(confirmationResult);
+    //     // setShowModal(true);
+    //   })
+    //   .catch((error) => {
+    //     console.log("error", error);
+    //   });
   }, [phoneNumber]);
 
   const fullOTP = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
@@ -98,6 +146,65 @@ function VerifyPhone() {
   const handleClickSuccess = () => {
     setOnSuccess(false);
     navigate("/set-pin");
+  };
+
+  const resendOTP = () => {
+    // if (window.recaptchaVerifier) {
+    //   window.recaptchaVerifier.render().then(function (widgetId) {
+    //     window.grecaptcha.reset(widgetId);
+    //   });
+    // }
+
+    // if (!window.recaptchaVerifier) {
+    //   window.recaptchaVerifier = new RecaptchaVerifier(
+    //     "recaptcha-container",
+    //     {
+    //       size: "invisible",
+    //       callback: (response) => {
+    //         // reCAPTCHA solved, allow signInWithPhoneNumber.
+    //         // onSignInSubmit();
+    //         // console.log(response);
+    //       },
+    //     },
+    //     auth
+    //   );
+
+    // }
+
+    // let appVerifier = window.recaptchaVerifier;
+
+    // signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+    //   .then((confirmationResult) => {
+    //     // SMS sent. Prompt user to type the code from the message, then sign the
+    //     // user in with confirmationResult.confirm(code).
+    //     window.confirmationResult = confirmationResult;
+    //     // ...
+    //   })
+    //   .catch((error) => {
+    //     // Error; SMS not sent
+    //     // ...
+    //     console.log(error);
+    //     setLoading(false);
+    //     setMsg("SMS not send");
+    //     setErr(true);
+    //   });
+
+    window.location.reload();
+  };
+
+  const wrongEmail = async () => {
+    try {
+      const { data } = axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/auth/wrong-contact/${user._id}`,
+        { newPhoneNumber }
+      );
+
+      console.log(data);
+    } catch (error) {
+      setMsg(`${error.response.data.msg || "Network error"} `);
+      setErr(true);
+      setLoading(false);
+    }
   };
   return (
     <section className="verify-section">
@@ -202,12 +309,18 @@ function VerifyPhone() {
                                 type="tel"
                                 className="form-control custom-form"
                                 placeholder="Enter Phone Number"
+                                required
+                                value={newPhoneNumber}
+                                onChange={(e) =>
+                                  setNewPhoneNumber(e.target.value)
+                                }
                               />
                             </div>
                             <div className="mt-5 mb-3">
                               <button
                                 className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
                                 style={{ width: "100%" }}
+                                onClick={wrongEmail}
                               >
                                 Continue
                               </button>
@@ -315,7 +428,9 @@ function VerifyPhone() {
 
                   <p>
                     Didn’t get code?{" "}
-                    <span style={{ color: "#E6356D" }}>Resend</span>
+                    <span style={{ color: "#E6356D" }} onClick={resendOTP}>
+                      Resend
+                    </span>
                   </p>
                   <div className="logout">
                     <Link className="log-out">
