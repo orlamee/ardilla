@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -30,7 +30,7 @@ import greetPlugin from "dayjs-greet";
 dayjs.extend(greetPlugin);
 
 function Sidebar() {
-  // const [userDetail, setUserDetail] = useState("");
+  const [acctDetail, setAcctDetail] = useState("");
   // const [idle, setIdle] = useState(false);
   let user = JSON.parse(sessionStorage.getItem("user"));
   const navigate = useNavigate();
@@ -47,6 +47,28 @@ function Sidebar() {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    const getAcctStatement = async () => {
+      if (user) {
+        try {
+          const { data } = await axios.get(
+            `https://ardilla.herokuapp.com/ardilla/api/account/get-account/${user._id}`
+          );
+          // setAcctDetail(data.acct);
+
+          console.log(data);
+          console.log(data.success);
+          console.log(data.acct);
+          setAcctDetail(data.acct);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    };
+
+    getAcctStatement();
+  }, [user]);
 
   useEffect(() => {
     let interval = setInterval(() => {
@@ -97,6 +119,8 @@ function Sidebar() {
     navigate("/login");
     window.location.reload();
   };
+
+  console.log(acctDetail);
 
   return (
     <section className="main-dash">
@@ -193,7 +217,7 @@ function Sidebar() {
                 <span className="roi">+10.00%</span>
               </div>
               <div className="p-2 mt-3">
-                <span className="amount">NGN 100,000.00</span>
+                <span className="amount">NGN {acctDetail?.sanBalance}</span>
                 <i className="bi bi-eye-fill float-end"></i>
               </div>
               <div className="mt-2 p-2">
@@ -227,7 +251,7 @@ function Sidebar() {
                 <span className="me-4 san">Dilla Wallet</span>
               </div>
               <div className="p-2 mt-3">
-                <span className="amount">USD 10,000.00</span>
+                <span className="amount">USD {acctDetail?.dillaWallet}</span>
                 <i className="bi bi-eye-fill float-end"></i>
               </div>
               <div className="mt-4 p-2">
@@ -250,7 +274,7 @@ function Sidebar() {
                 <span className="me-4 san">Total Funds</span>
               </div>
               <div className="p-2 mt-3">
-                <span className="amount">NGN 400,000.00</span>
+                <span className="amount">NGN {acctDetail?.totalFunds}</span>
                 <i className="bi bi-eye-fill float-end"></i>
               </div>
               <div className="mt-4 p-2">

@@ -26,6 +26,8 @@ function CompleteProfile() {
 
   const { _id, verified } = location.state.user;
 
+  const userID = _id;
+
   useEffect(() => {
     if (verified === "otp") {
       return;
@@ -45,11 +47,17 @@ function CompleteProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setErr(false);
 
     try {
       const { data } = await axios.post(
         `https://ardilla.herokuapp.com/ardilla/api/auth/complete-profile/${_id}`,
         { email, firstname, lastname, contact, password, kodeHex, ip }
+      );
+
+      await axios.post(
+        `https://ardilla.herokuapp.com/ardilla/api/account/create-account`,
+        { userID }
       );
 
       if (data.success === true) {
