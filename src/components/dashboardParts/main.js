@@ -55,11 +55,7 @@ function Sidebar() {
           const { data } = await axios.get(
             `https://ardilla.herokuapp.com/ardilla/api/account/get-account/${user._id}`
           );
-          // setAcctDetail(data.acct);
 
-          console.log(data);
-          console.log(data.success);
-          console.log(data.acct);
           setAcctDetail(data.acct);
         } catch (error) {
           console.log(error);
@@ -296,6 +292,7 @@ function Sidebar() {
             <div className="card py-5 px-3 bg-white border border-0 inner-card">
               <div className="row">
                 <div className="col-md-6 text-center">
+                  {/* Add pie chart. */}
                   <img src={pie} alt="" className="img-fluid" />
                 </div>
                 <div className="col-md-6 mt-3">
@@ -303,7 +300,7 @@ function Sidebar() {
                     <input
                       className="form-check-input"
                       type="checkbox"
-                      defaultChecked
+                      // defaultChecked
                     />
                     <label className="form-check-label custom-check ">
                       Add Your BVN
@@ -313,7 +310,7 @@ function Sidebar() {
                     <input
                       className="form-check-input"
                       type="checkbox"
-                      defaultChecked
+                      // defaultChecked
                     />
                     <label className="form-check-label custom-check">
                       Bank Statement
@@ -323,7 +320,7 @@ function Sidebar() {
                     <input
                       className="form-check-input"
                       type="checkbox"
-                      defaultChecked
+                      // defaultChecked
                     />
                     <label className="form-check-label custom-check">
                       Upload Your Valid ID

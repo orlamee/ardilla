@@ -164,7 +164,7 @@ function SavingsBody() {
             <div className="total-savings">
               <h3>Total Savings</h3>
               <div className="d-flex flex-row my-3">
-                <p>NGN 50,000.00</p>
+                <p>NGN 0.00</p>
                 <i className="bi bi-eye-fill ms-5 save-eyes"></i>
               </div>
               <div className="d-flex flex-row">
@@ -384,28 +384,28 @@ function SavingsBody() {
                     <img src={red} alt="" className="img-fluid me-3" />
                     <p className="mt-3">Savings</p>
                   </div>
-                  <h3 className="float-end">420</h3>
+                  <h3 className="float-end">0.00</h3>
                 </div>
                 <div className="text-center mapping mapping-save">
                   <div className="d-flex flex-row">
                     <img src={yellow} alt="" className="img-fluid me-3" />
                     <p className="mt-3">Investment</p>
                   </div>
-                  <h3 className="float-end">142</h3>
+                  <h3 className="float-end">0.00</h3>
                 </div>
                 <div className="text-center mapping mapping-save">
                   <div className="d-flex flex-row">
                     <img src={purple} alt="" className="img-fluid me-3" />
                     <p className="mt-3">Insurance</p>
                   </div>
-                  <h3 className="float-end">340</h3>
+                  <h3 className="float-end">0.00</h3>
                 </div>
                 <div className="text-center mapping mapping-save">
                   <div className="d-flex flex-row">
                     <img src={blue} alt="" className="img-fluid me-3" />
                     <p className="mt-3">SAN</p>
                   </div>
-                  <h3 className="float-end">590</h3>
+                  <h3 className="float-end">0.00</h3>
                 </div>
                 <div className="mt-5 mapping-save text-start footer-card">
                   5% Money flow increase

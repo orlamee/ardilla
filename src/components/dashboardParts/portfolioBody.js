@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -27,8 +27,9 @@ import axios from "axios";
 
 function PortfolioBody() {
   const navigate = useNavigate();
+  const [acctDetail, setAcctDetail] = useState("");
 
-  // let user = JSON.parse(sessionStorage.getItem("user"));
+  let user = JSON.parse(sessionStorage.getItem("user"));
 
   const refreshToken = async () => {
     try {
@@ -42,6 +43,25 @@ function PortfolioBody() {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    const getAcctStatement = async () => {
+      if (user) {
+        try {
+          const { data } = await axios.get(
+            `https://ardilla.herokuapp.com/ardilla/api/account/get-account/${user._id}`
+          );
+          // setAcctDetail(data.acct);
+
+          setAcctDetail(data.acct);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    };
+
+    getAcctStatement();
+  }, [user]);
 
   useEffect(() => {
     let interval = setInterval(() => {
@@ -249,7 +269,7 @@ function PortfolioBody() {
               </div>
               <h6>Current Balance</h6>
               <div>
-                <p>NGN 500,000.00</p>
+                <p>NGN {acctDetail?.dillaWallet}</p>
                 <i className="bi bi-eye-fill float-end dilla-eye"></i>
               </div>
             </div>
@@ -265,28 +285,28 @@ function PortfolioBody() {
                   <img src={red} alt="" className="img-fluid me-3" />
                   <p className="mt-3">Savings</p>
                 </div>
-                <h3 className="float-end">420</h3>
+                <h3 className="float-end">0.00</h3>
               </div>
               <div className="text-center mapping">
                 <div className="d-flex flex-row">
                   <img src={yellow} alt="" className="img-fluid me-3" />
                   <p className="mt-3">Investment</p>
                 </div>
-                <h3 className="float-end">142</h3>
+                <h3 className="float-end">0.00</h3>
               </div>
               <div className="text-center mapping">
                 <div className="d-flex flex-row">
                   <img src={purple} alt="" className="img-fluid me-3" />
                   <p className="mt-3">Insurance</p>
                 </div>
-                <h3 className="float-end">340</h3>
+                <h3 className="float-end">0.00</h3>
               </div>
               <div className="text-center mapping">
                 <div className="d-flex flex-row">
                   <img src={blue} alt="" className="img-fluid me-3" />
                   <p className="mt-3">SAN</p>
                 </div>
-                <h3 className="float-end">590</h3>
+                <h3 className="float-end">0.00</h3>
               </div>
             </div>
           </div>
