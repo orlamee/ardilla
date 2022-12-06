@@ -13,7 +13,7 @@ import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
 
 
-function TypeFlex() {
+function FlexPlanSetSave() {
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -86,80 +86,34 @@ function TypeFlex() {
           </Link>
         </div>
       </div>
-      <div className="content py-5 px-5 earning-section">
-        <div className="row justify-content-center flex-type">
-          <div className="col-md-7 text-center">
-            <h2>Lorem Ipsum</h2>
-            <p className="mt-2">Lorem ipsum antares fan tine sin</p>
+      <div className="content py-5 px-5 earning-section step-five">
+        <div className="row earning">
+          <div className="col-md-6">
+            <h2>Cadet {"<"}Starboy{"/>"},</h2>
           </div>
         </div>
-        <div className="row cadet mt-4">
-          <div className="col-md-6 ms-5">
-            <h3>Cadet {"<"}Starboy{"/>"},</h3>
-          </div>
-        </div>
-        <div className="row justify-content-center mt-5">
-          <div className="col-md-4 mx-3">
-            <div className="automated p-5">
-              <h4>Go Automated </h4>
-              <div className="text-center my-5 border-bottom">
-                <span>Recommended Amount</span>
-                <h6>NGN 180,000</h6>
-                <p>Every month for 13months</p>
-              </div>
-              <div className="row values">
-                <div className="col-md-6">
-                  <h5>Emergency</h5>
-                  <h5>Interest Rate:</h5>
-                  <h5>Badge:</h5>
-                </div>
-                <div className="col-md-6 text-end">
-                  <h5>2,160,000</h5>
-                  <h5>11%</h5>
-                  <h5>Cadet</h5>
-                </div>
-              </div>
-              <div className="text-center"><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn mt-5" to="/flex-dashboard" style={{width: "70%"}}>Go Automated</Link></div>
-            </div>
-          </div>
-          <div className="col-md-4 mx-3">
-            <div className="automated p-5 customed">
-              <h4>Go Custom </h4>
-              <div className="text-center my-5 border-bottom">
-                <span>Recommended Amount</span>
-                <h6>NGN 0</h6>
-                <p>Every month for 13months</p>
-              </div>
-              <div className="row values">
-                <div className="col-md-6">
-                  <h5>Emergency</h5>
-                  <h5>Interest Rate:</h5>
-                  <h5>Badge:</h5>
-                </div>
-                <div className="col-md-6 text-end">
-                  <h5>2,160,000</h5>
-                  <h5>11%</h5>
-                  <h5>-</h5>
-                </div>
-              </div>
-              <div className="text-center"><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5" to="/flex-set-amount" style={{width: "70%"}}>Go Custom</Link></div>
-            </div>
-          </div>
-          {/* <div className="col-md-4">
-            <div className="automated p-4">
-              <h4>Go Automated </h4>
-              <div className="text-center my-5 ">
-                <span>Recommended Amount</span>
-                <h6>NGN 180,000</h6>
-                <p>Every month for 13months</p>
+        <div className="row justify-content-center earns saving-top">
+          <div className="col-md-8 text-center">
+            <h3>How much will you<br/><span style={{color: "#E8356D"}}>like to save </span>monthly</h3>
+            <p className="my-5">Choose how often you want to save</p>
+            <div className="row justify-content-center">
+              <div className="col-md-5">
+                <form>
+                  <div className="mb-3">
+                    <input type="number" className="form-control target-form" placeholder="Enter Amount" required/>
+                  </div>
+                  <div className="mb-5">
+                    <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" to="/flex-set-duration" style={{width: "100%"}}>Next</Link>
+                  </div>
+                </form>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-export default TypeFlex;
+export default FlexPlanSetSave;
  

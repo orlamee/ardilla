@@ -121,9 +121,11 @@ function FlexPlanSpend() {
                 <button type="button" className="btn btn-flex">5M {">"}</button>
               </div>
             </div>
-            <div className="mb-3">
-              <div className="btn-group me-3" role="group" aria-label="First group">
-                <button type="button" className="btn btn-flex">Enter Amount</button>
+            <div className="row justify-content-center">
+              <div className="col-md-3 text-center">
+                <div className="mb-3">
+                  <input type="number" className="form-control target-form enter-amount" placeholder="Enter Amount" required/>
+                </div>
               </div>
             </div>
             <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/flex-type" style={{width: "50%"}}>Continue</Link></div>
