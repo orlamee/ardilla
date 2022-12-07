@@ -42,6 +42,7 @@ import FlexSetAmount from "./dashboard/flexSetAmount";
 import FlexSetSave from "./dashboard/flexSave";
 import FlexSetDuration from "./dashboard/flexSetDuration";
 import FlexSuccess from "./dashboard/flexSetSave";
+import FlexOverview from "./dashboard/flexOverview";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
