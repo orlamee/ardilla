@@ -66,23 +66,23 @@ root.render(
         }
       ></Route>
       <Route path="/portfolio" element={<Portfolio />}></Route>
-      <Route path="/savings" element={<Savings/>}></Route>
-      <Route path="/create-flex" element={<CreateFlexPlan/>}></Route>
-      <Route path="/flex-spend" element={<FlexSpend/>}></Route>
-      <Route path="/flex-type" element={<FlexType/>}></Route>
-      <Route path="/target-type" element={<TargetType/>}></Route>
-      <Route path="/target-dashboard" element={<TargetDashboard/>}></Route>
-      <Route path="/flex-dashboard" element={<FlexDashboard/>}></Route>
-      <Route path="/flex-success" element={<FlexSuccess/>}></Route>
-      <Route path="/flex-set-amount" element={<FlexSetAmount/>}></Route>
-      <Route path="/flex-set-duration" element={<FlexSetDuration/>}></Route>
-      <Route path="/flex-savings" element={<FlexSetSave/>}></Route>
-      <Route path="/target-save" element={<TargetSave/>}></Route>
-      <Route path="/flex-plan" element={<FlexPlan/>}></Route>
-      <Route path="/target-plan" element={<TargetPlan/>}></Route>
-      <Route path="/create-target" element={<CreateTargetPlan/>}></Route>
-      <Route path="/target-earn" element={<TargetEarn/>}></Route>
-      <Route path="/target-spend" element={<TargetSpend/>}></Route>
+      <Route path="/savings" element={<Savings />}></Route>
+      <Route path="/create-flex" element={<CreateFlexPlan />}></Route>
+      <Route path="/flex-spend" element={<FlexSpend />}></Route>
+      <Route path="/flex-type" element={<FlexType />}></Route>
+      <Route path="/target-type" element={<TargetType />}></Route>
+      <Route path="/target-dashboard" element={<TargetDashboard />}></Route>
+      <Route path="/flex-dashboard" element={<FlexDashboard />}></Route>
+      <Route path="/flex-success" element={<FlexSuccess />}></Route>
+      <Route path="/flex-set-amount" element={<FlexSetAmount />}></Route>
+      <Route path="/flex-set-duration" element={<FlexSetDuration />}></Route>
+      <Route path="/flex-savings" element={<FlexSetSave />}></Route>
+      <Route path="/target-save" element={<TargetSave />}></Route>
+      <Route path="/flex-plan" element={<FlexPlan />}></Route>
+      <Route path="/target-plan" element={<TargetPlan />}></Route>
+      <Route path="/create-target" element={<CreateTargetPlan />}></Route>
+      <Route path="/target-earn" element={<TargetEarn />}></Route>
+      <Route path="/target-spend" element={<TargetSpend />}></Route>
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
 
