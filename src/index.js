@@ -77,7 +77,7 @@ root.render(
       <Route path="/flex-success" element={<FlexSuccess />}></Route>
       <Route path="/flex-set-amount" element={<FlexSetAmount />}></Route>
       <Route path="/flex-set-duration" element={<FlexSetDuration />}></Route>
-      <Route path="/flex-overview" element={<FlexOverview/>}></Route>
+      <Route path="/flex-overview" element={<FlexOverview />}></Route>
       <Route path="/flex-savings" element={<FlexSetSave />}></Route>
       <Route path="/target-save" element={<TargetSave />}></Route>
       <Route path="/flex-plan" element={<FlexPlan />}></Route>
