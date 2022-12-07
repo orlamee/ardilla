@@ -12,6 +12,7 @@ import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
 import final from "../../img/dashboard/prefer.svg";
+import hex from "../../img/dashboard/kodehex.svg";
 
 
 function TargetShareLink() {
@@ -98,14 +99,16 @@ function TargetShareLink() {
           </div>
         </div>
         <div className="row justify-content-center earns">
-          <div className="col-md-6 text-center">
-            <div class="search-box">
+          <div className="col-md-6 text-center target-link">
+            <div className="search-box">
               <input type="text" class="search-input" placeholder="Search KodeHex"/>
-
-              <button class="search-button">
-                <i class="fas fa-search"></i>
+              <button className="search-button">
+                <i className="fas fa-search"></i>
               </button>
             </div>
+            <img src={hex} alt="" className="img-fluid my-5"/>
+            <h3><i className="bi bi-check-square me-3"></i>Send invite to dilla user</h3>
+            <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" to="" style={{width: "100%"}}>Create</Link></div>
           </div>
         </div>
       </div>
