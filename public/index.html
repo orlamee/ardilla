@@ -48,11 +48,39 @@
       AOS.init();
     </script> -->
     <script>
-      document.addEventListener("DOMContentLoaded", function(event) {
+      $(document).ready(function(){
+      var quantitiy=0;
+        $('.quantity-right-plus').click(function(e){
+        
+              // Stop acting like a button
+              e.preventDefault();
+              // Get the field name
+              var quantity = parseInt($('#quantity').val());
+        
+              // If is not undefined
+            
+                  $('#quantity').val(quantity + 1);
 
-function OTPInpt() {
-const inputs = document.querySelectorAll('#otp > *[id]');
-for (let i = 0; i < inputs.length; i++) { inputs[i].addEventListener('keydown', function(event) { if (event.key==="Backspace" ) { inputs[i].value='' ; if (i !==0) inputs[i - 1].focus(); } else { if (i===inputs.length - 1 && inputs[i].value !=='' ) { return true; } else if (event.keyCode> 47 && event.keyCode < 58) { inputs[i].value=event.key; if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } else if (event.keyCode> 64 && event.keyCode < 91) { inputs[i].value=String.fromCharCode(event.keyCode); if (i !==inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } } }); } } OTPInpt(); });
+          
+                  // Increment
+        
+          });
+
+          $('.quantity-left-minus').click(function(e){
+              // Stop acting like a button
+              e.preventDefault();
+              // Get the field name
+              var quantity = parseInt($('#quantity').val());
+        
+              // If is not undefined
+
+                  // Increment
+                  if(quantity>0){
+                  $('#quantity').val(quantity - 1);
+                  }
+          });
+
+      });
     </script>
   </body>
 </html>

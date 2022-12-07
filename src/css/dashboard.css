@@ -1265,3 +1265,63 @@ input:checked + .slider:before {
 .saving-top {
   margin-bottom: 150px;
 }
+
+.overview h2 { 
+  color: #3C0071;
+  font-size: 52px;
+  line-height: 70px;
+  font-weight: 700;
+}
+
+.overview h4 { 
+  color: #3D007280;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 500;
+}
+
+.overview-left h3 {
+  color: #9E7FB7;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-bottom: 0;
+}
+
+.overview-left p {
+  color: #3C0071;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  margin-bottom: 0;
+}
+
+.overview-left a {
+  text-decoration: none;
+}
+
+.overview-perc {
+  color: #0D9488!important;
+}
+
+.t-card {
+  box-shadow: 0px 12px 24px rgba(115, 107, 122, 0.15);
+  border-radius: 10px;
+}
+
+.t-card h4 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 27px;
+  color: #3D0072;
+}
+
+.minus-bg {
+  background-color: #F7F7F7;
+  /* margin-right: 10px; */
+}
+
+.input-number {
+  background: #F9F9F9;
+  border: 0;
+}
