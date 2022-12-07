@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -12,8 +12,10 @@ import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
 
-
 function TypeFlex() {
+  const location = useLocation();
+  console.log(location);
+
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -30,7 +32,7 @@ function TypeFlex() {
           </div>
         </Link>
         <Link to="/savings" className="active">
-          <div className="d-flex flex-row" >
+          <div className="d-flex flex-row">
             <img src={saving} alt="" className="img-fluid me-2 icons" />
             Savings
           </div>
@@ -95,7 +97,9 @@ function TypeFlex() {
         </div>
         <div className="row cadet mt-4">
           <div className="col-md-6 ms-5">
-            <h3>Cadet {"<"}Starboy{"/>"},</h3>
+            <h3>
+              Cadet {"<"}Starboy{"/>"},
+            </h3>
           </div>
         </div>
         <div className="row justify-content-center mt-5">
@@ -104,7 +108,9 @@ function TypeFlex() {
               <h4>Go Automated </h4>
               <div className="text-center my-5 border-bottom">
                 <span>Recommended Amount</span>
-                <h6>NGN 180,000</h6>
+                <h6>
+                  NGN {Intl.NumberFormat("en-US").format(location.state.psv)}
+                </h6>
                 <p>Every month for 13months</p>
               </div>
               <div className="row values">
@@ -119,7 +125,15 @@ function TypeFlex() {
                   <h5>Cadet</h5>
                 </div>
               </div>
-              <div className="text-center"><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn mt-5" to="/" style={{width: "70%"}}>Go Automated</Link></div>
+              <div className="text-center">
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn mt-5"
+                  to="/"
+                  style={{ width: "70%" }}
+                >
+                  Go Automated
+                </Link>
+              </div>
             </div>
           </div>
           <div className="col-md-4 mx-3">
@@ -142,7 +156,15 @@ function TypeFlex() {
                   <h5>-</h5>
                 </div>
               </div>
-              <div className="text-center"><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5" to="/" style={{width: "70%"}}>Go Custom</Link></div>
+              <div className="text-center">
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5"
+                  to="/"
+                  style={{ width: "70%" }}
+                >
+                  Go Custom
+                </Link>
+              </div>
             </div>
           </div>
           {/* <div className="col-md-4">
@@ -162,4 +184,3 @@ function TypeFlex() {
 }
 
 export default TypeFlex;
- 

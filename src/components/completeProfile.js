@@ -44,6 +44,26 @@ function CompleteProfile() {
     setIp(data.ip);
   });
 
+  const createAcct = async () => {
+    try {
+      const { data } = await axios.post(
+        `https://ardilla.herokuapp.com/ardilla/api/account/create-account`,
+        { userID }
+      );
+
+      sessionStorage.setItem("acct", JSON.stringify(data.test));
+
+      setErr(false);
+      setOnSuccess(true);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+      setMsg(`${error.response.data.msg || "Network error"} `);
+      setErr(true);
+      setIsLoading(false);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -55,16 +75,12 @@ function CompleteProfile() {
         { email, firstname, lastname, contact, password, kodeHex, ip }
       );
 
-      await axios.post(
-        `https://ardilla.herokuapp.com/ardilla/api/account/create-account`,
-        { userID }
-      );
-
       if (data.success === true) {
         setErr(false);
         setMsg(data.msg);
         setOnSuccess(true);
         setIsLoading(false);
+        createAcct();
       }
 
       setIsLoading(false);
