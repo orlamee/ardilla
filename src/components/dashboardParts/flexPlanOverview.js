@@ -12,6 +12,7 @@ import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
 import dillalogo from "../../img/dashboard/tt-icon.svg";
+import success from "../../img/dashboard/payment-success.svg";
 
 
 function FlexPlanOverview() {
@@ -163,12 +164,12 @@ function FlexPlanOverview() {
                           <h3> Top up your SAN USING;</h3>
                           <div className="mt-4">
                             <button type="button" className="btn btn-secondary bg-ussd" style={{width: "100%"}}>USSD</button>
-                            <button type="button" className="btn btn-secondary mt-3 bg-ussd" style={{width: "100%"}}>Bank Transfer</button>
+                            <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#banktransfer" className="btn btn-secondary mt-3 bg-ussd" style={{width: "100%"}}>Bank Transfer</Link>
                           </div>
                         </div>
                       </div>
                       <div className="row mx-3">
-                        <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/flex-overview" style={{width: "100%"}}>Continue</Link>
+                        <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
                       </div>
                     </div>
                   </div>
@@ -176,6 +177,82 @@ function FlexPlanOverview() {
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" className="btn btn-primary">Save changes</button>
                   </div> */}
+                </div>
+              </div>
+            </div>
+            <div className="modal flex-modal fade" id="banktransfer" data-backdrop="static">
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div className="modal-body flex-modal-body">
+                    <div className="container">
+                      <div className="row mx-3">
+                        <div className="col">
+                          <div className="row t-card p-4 bg-white">
+                            <div className="col-md-6">
+                              <img src={dillalogo} alt="" className="img-fluid" />
+                            </div>
+                            <div className="col-md-6 text-end">
+                              <h4>₦30,000.00</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row mx-3 mt-5 title-card">
+                        <div className="col text-center">
+                          <span className="transfer-amt">Pay Now</span>
+                        </div>
+                      </div>
+                      <div className="row mx-3 detail-transfer">
+                        <div className="col-md-6">
+                          <p className="mt-4">Amount</p>
+                          <p className="mt-4">Account Number</p>
+                          <p className="mt-4">Bank</p>
+                          <p className="mt-4">Name</p>
+                          <p className="mt-4">Narration</p>
+                        </div>
+                        <div className="col-md-6 text-end">
+                          <h5 className="mt-4">NGN 20,250</h5>
+                          <h5 className="mt-4">2004434887 <i className="ms-2 bi bi-files"></i></h5>
+                          <h5 className="mt-4">Wema Bank</h5>
+                          <h5 className="mt-4">Oshodi Mathew</h5>
+                          <h5 className="mt-4">Falcon</h5>
+                        </div>
+                      </div>
+                      <div className="row mx-3">
+                        <div className="d-flex flex-row">
+                          <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#success" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5 me-3" style={{width: "100%"}}>I’ve Paid</Link>
+                          <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn-outline fs-6 mt-5" style={{width: "100%"}}>USSD</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="modal flex-modal fade" id="success" data-backdrop="static">
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div className="modal-body flex-modal-body">
+                    <div className="container">
+                      <div className="row mx-3 justify-content-center">
+                        <div className="col-md-8 text-center payment-success">
+                          <img src={success} alt="" className="img-fluid" />
+                          <h2 className="my-5">Payment Received</h2>
+                          <p>Lorem ipsum dolor sit amet consectetur. Sapien vel netus eget orci semper parturient. Ut nec pellentesque consequat vitae massa nisi.</p>
+                        </div>
+                      </div>
+                      
+                      
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
