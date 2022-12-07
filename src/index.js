@@ -42,6 +42,7 @@ import FlexSetAmount from "./dashboard/flexSetAmount";
 import FlexSetSave from "./dashboard/flexSave";
 import FlexSetDuration from "./dashboard/flexSetDuration";
 import FlexSuccess from "./dashboard/flexSetSave";
+import FlexOverview from "./dashboard/flexOverview";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -74,6 +75,7 @@ root.render(
       <Route path="/target-dashboard" element={<TargetDashboard/>}></Route>
       <Route path="/flex-dashboard" element={<FlexDashboard/>}></Route>
       <Route path="/flex-success" element={<FlexSuccess/>}></Route>
+      <Route path="/flex-overview" element={<FlexOverview/>}></Route>
       <Route path="/flex-set-amount" element={<FlexSetAmount/>}></Route>
       <Route path="/flex-set-duration" element={<FlexSetDuration/>}></Route>
       <Route path="/flex-savings" element={<FlexSetSave/>}></Route>

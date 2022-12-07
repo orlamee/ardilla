@@ -13,7 +13,7 @@ import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
 
 
-function FlexPlanSuccess() {
+function FlexPlanOverview() {
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -86,39 +86,18 @@ function FlexPlanSuccess() {
           </Link>
         </div>
       </div>
-      <div className="content py-5 px-5 earning-section step-final">
+      <div className="content py-5 px-5 earning-section">
         <div className="row earning">
           <div className="col-md-6">
-            <h2>Cadet {"<"}Starboy{"/>"},</h2>
+            <h2>Overview</h2>
+            <h4>Lorem ipsum dolor sit amet consectetur. Ipsum dolor consequat nulla proin sapien proin. </h4>
           </div>
         </div>
-        <div className="row justify-content-center earns saving-top">
-          <div className="col-md-8 text-center">
-            <h3>How often do you want to <br/><span style={{color: "#E8356D"}}>save?</span></h3>
-            <p className="my-5">Choose how often you want to save</p>
-            <div className="mb-3">
-              <div className="btn-group me-3" role="group" aria-label="First group">
-                <button type="button" className="btn btn-flex">Daily</button>
-                
-              </div>
-              <div className="btn-group me-3" role="group" aria-label="Second group">
-                <button type="button" className="btn btn-flex">Weekly</button>
-                
-              </div>
-              <div className="btn-group" role="group" aria-label="Third group">
-                <button type="button" className="btn btn-flex">Monthly</button>
-              </div>
-              
-            </div>
-            
-            <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/flex-overview" style={{width: "50%"}}>Continue</Link></div>
-            
-          </div>
-        </div>
+        
       </div>
     </section>
   );
 }
 
-export default FlexPlanSuccess;
+export default FlexPlanOverview;
  
