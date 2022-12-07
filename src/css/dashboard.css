@@ -1396,3 +1396,36 @@ input:checked + .slider:before {
   margin-bottom: 0;
   font-weight: 500;
 }
+
+.search-box{
+  width: 100%;
+  position: relative;
+  display: flex;
+
+}
+.search-input{
+  width: 100%;
+  padding: 20px;
+  border: 0;
+  border-radius: 10px 0 0 10px ;
+  border-right: none;
+  outline: none;
+  font-size: 20px;
+  color: #3C0071;
+  background: #F9FAFB;
+}
+.search-button{
+ text-align: center;
+height: 65px;
+width: 90px;
+outline: none;
+cursor: pointer;
+border: 0;
+border-radius: 0 10px 10px 0 ;
+border-left: none;
+background: #F9FAFB;
+font-size: 20px;
+border-left: 1px solid #F9FAFB;
+
+
+}

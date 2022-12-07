@@ -43,6 +43,10 @@ import FlexSetSave from "./dashboard/flexSave";
 import FlexSetDuration from "./dashboard/flexSetDuration";
 import FlexSuccess from "./dashboard/flexSetSave";
 import FlexOverview from "./dashboard/flexOverview";
+import TargetPrefer from "./dashboard/targetPrefer";
+import TargetPublicSelection from "./dashboard/targetPublicSelection";
+import TargetDesc from "./dashboard/targetDesc";
+import TargetPlanShare from "./dashboard/targetPlanShare";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -87,6 +91,12 @@ root.render(
       <Route path="/target-spend" element={<TargetSpend />}></Route>
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
+
+      <Route path="/target-prefer" element={<TargetPrefer/>}></Route>
+      <Route path="/target-public-selection" element={<TargetPublicSelection/>}></Route>
+      <Route path="/target-public-desc" element={<TargetDesc/>}></Route>
+      <Route path="/target-share-link" element={<TargetPlanShare/>}></Route>
+
 
       <Route
         path="/otp"

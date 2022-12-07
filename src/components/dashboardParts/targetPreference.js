@@ -11,10 +11,10 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
-import verticalfour from "../../img/dashboard/vertical-four.svg";
+import final from "../../img/dashboard/prefer.svg";
 
 
-function TargetPlanSave() {
+function TargetPreference() {
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -89,37 +89,27 @@ function TargetPlanSave() {
       </div>
       <div className="content py-5 px-5 earning-section">
         <div className="row backto">
-          <Link to="/target-earn"><span><i className="bi bi-chevron-left me-3"></i>Back</span></Link>
+          <Link to="/target-prefer"><span><i className="bi bi-chevron-left me-3"></i>Back</span></Link>
         </div>
         <div className="row earning">
           <div className="col-md-12 text-center">
-            <img src={verticalfour} alt="" className="img-fluid"/>
+            <img src={final} alt="" className="img-fluid"/>
             {/* <h2>Cadet {"<"}Starboy{"/>"},</h2> */}
           </div>
         </div>
-        <div className="row justify-content-center earns saving-top">
+        <div className="row justify-content-center earns">
           <div className="col-md-8 text-center">
-            <h3>How often do you want to <br/><span style={{color: "#E8356D"}}>save?</span></h3>
-            <p className="my-5">Choose how often you want to save</p>
-
+            <h3>Make <span style={{color: "#E8356D"}}>Target</span> public or<br/>private</h3>
+            <p className="my-5">Lorem ipsum antare soon aire uionbu</p>
             <div className="mb-3">
               <div className="btn-group me-3" role="group" aria-label="First group">
-                <button type="button" className="btn btn-flex">Daily</button>
-                
+                <button type="button" className="btn btn-flex">Public</button>
               </div>
               <div className="btn-group me-3" role="group" aria-label="Second group">
-                <button type="button" className="btn btn-flex">Weekly</button>
-                
-              </div>
-              <div className="btn-group" role="group" aria-label="Third group">
-                <button type="button" className="btn btn-flex">Monthly</button>
-              </div>
-              <div className="btn-group" role="group" aria-label="Third group">
-                <button type="button" className="btn btn-flex">Anytime/Manual</button>
+                <button type="button" className="btn btn-flex">Private</button>
               </div>
             </div>
-            
-            <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/target-prefer" style={{width: "50%"}}>Continue</Link></div>
+            <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/target-spend" style={{width: "50%"}}>Continue</Link></div>
           </div>
         </div>
       </div>
@@ -127,5 +117,5 @@ function TargetPlanSave() {
   );
 }
 
-export default TargetPlanSave;
+export default TargetPreference;
  
