@@ -47,6 +47,8 @@ import TargetPrefer from "./dashboard/targetPrefer";
 import TargetPublicSelection from "./dashboard/targetPublicSelection";
 import TargetDesc from "./dashboard/targetDesc";
 import TargetPlanShare from "./dashboard/targetPlanShare";
+import TargetSetAmount from "./dashboard/targetSetAMount";
+import TargetSetSave from "./dashboard/targetSetSave";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -96,6 +98,8 @@ root.render(
       <Route path="/target-public-selection" element={<TargetPublicSelection/>}></Route>
       <Route path="/target-public-desc" element={<TargetDesc/>}></Route>
       <Route path="/target-share-link" element={<TargetPlanShare/>}></Route>
+      <Route path="/target-set-amount" element={<TargetSetAmount/>}></Route>
+      <Route path="/target-set-save" element={<TargetSetSave/>}></Route>
 
 
       <Route

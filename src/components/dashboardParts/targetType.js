@@ -142,7 +142,7 @@ function TypeTarget() {
                   <h5>-</h5>
                 </div>
               </div>
-              <div className="text-center"><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5" to="" style={{width: "70%"}}>Go Custom</Link></div>
+              <div className="text-center"><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5" to="/target-set-amount" style={{width: "70%"}}>Go Custom</Link></div>
             </div>
           </div>
           {/* <div className="col-md-4">

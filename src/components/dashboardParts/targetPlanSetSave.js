@@ -11,11 +11,10 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
-import final from "../../img/dashboard/prefer.svg";
-import hex from "../../img/dashboard/kodehex.svg";
+import verticalone from "../../img/dashboard/setsave.svg";
 
 
-function TargetShareLink() {
+function TargetPlanSetSave() {
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -90,37 +89,30 @@ function TargetShareLink() {
       </div>
       <div className="content py-5 px-5 earning-section">
         <div className="row backto">
-          <Link to="/target-prefer"><span><i className="bi bi-chevron-left me-3"></i>Back</span></Link>
+          <Link to="/target-set-amount"><span><i className="bi bi-chevron-left me-3"></i>Back</span></Link>
         </div>
         <div className="row earning">
           <div className="col-md-12 text-center">
-            <img src={final} alt="" className="img-fluid"/>
+            <img src={verticalone} alt="" className="img-fluid"/>
             {/* <h2>Cadet {"<"}Starboy{"/>"},</h2> */}
           </div>
         </div>
         <div className="row justify-content-center earns">
-          <div className="col-md-6 text-center target-link">
-            <div className="search-box">
-              <input type="text" class="search-input" placeholder="Search KodeHex"/>
-              <button className="search-button">
-                <i className="fas fa-search"></i>
-              </button>
+          <div className="col-md-8 text-center">
+            <h3>How much will you <span style={{color: "#E8356D"}}>like<br/>to save</span> monthly?</h3>
+            <p className="my-5">Choose how much you will like to save</p>
+            <div className="row justify-content-center">
+              <div className="col-md-5">
+                <form>
+                  <div className="mb-3">
+                    <input type="number" className="form-control target-form" placeholder="Enter Amount" required/>
+                  </div>
+                  <div className="mb-3">
+                    <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" to="/" style={{width: "100%"}}>Next</Link>
+                  </div>
+                </form>
+              </div>
             </div>
-            <img src={hex} alt="" className="img-fluid my-5"/>
-            <h3><i className="bi bi-check-square me-3"></i>Send invite to dilla user</h3>
-            <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" to="" style={{width: "100%"}}>Create</Link></div>
-          </div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-md-5 text-center">
-            <div className="copylink p-4">
-              <span>https://ardilla.africa/invite/g3b7wq</span>
-            </div>
-          </div>
-        </div>
-        <div className="row justify-content-center mt-3">
-          <div className="col-md-4 text-center">
-            <p>Copy Link <i className="bi bi-files me-3"></i></p>
           </div>
         </div>
       </div>
@@ -128,4 +120,5 @@ function TargetShareLink() {
   );
 }
 
-export default TargetShareLink;
+export default TargetPlanSetSave;
+ 
