@@ -1325,3 +1325,35 @@ input:checked + .slider:before {
   background: #F9F9F9;
   border: 0;
 }
+
+.charges {
+  color: #6B7280;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.title-card h3 {
+  color: #3C0071;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.bg-ussd {
+  background-color: #F7F7F7!important;
+  border: 0px;
+  color: #3D0072;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 20px;
+}
+
+.bg-ussd:hover {
+  background-color: #F7F7F7!important;
+  border: 0px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 20px;
+}

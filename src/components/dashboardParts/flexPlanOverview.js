@@ -114,7 +114,7 @@ function FlexPlanOverview() {
                 <p className="mt-5"><span style={{color: "#E8356D"}}><i className="bi bi-exclamation-circle me-2"></i> Insufficient funds</span> - <Link data-bs-toggle="modal" data-bs-target="#topup" type="button" style={{color: "#8807F7"}}>Top Up</Link></p>
               </div>
             </div>
-            <div className="modal flex-modal fade" id="topup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal flex-modal fade" id="topup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                   <div className="modal-header">
@@ -135,7 +135,7 @@ function FlexPlanOverview() {
                           </div>
                         </div>
                       </div>
-                      <div className="row mx-3 mt-4">
+                      <div className="row mx-3 mt-4 title-card">
                         <div className="col">
                           <h3>Amount</h3>
                         </div>
@@ -155,8 +155,20 @@ function FlexPlanOverview() {
                               </button>
                             </span>
                           </div>
-                          ₦250.00 (1.5% fee caped at ₦250) 
+                          <span className="charges">₦250.00 (1.5% fee caped at ₦250) </span>
                         </div>
+                      </div>
+                      <div className="row mx-3 mt-4 title-card justify-content-center">
+                        <div className="col-md-10">
+                          <h3> Top up your SAN USING;</h3>
+                          <div className="mt-4">
+                            <button type="button" className="btn btn-secondary bg-ussd" style={{width: "100%"}}>USSD</button>
+                            <button type="button" className="btn btn-secondary mt-3 bg-ussd" style={{width: "100%"}}>Bank Transfer</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row mx-3">
+                        <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/flex-overview" style={{width: "100%"}}>Continue</Link>
                       </div>
                     </div>
                   </div>
@@ -169,7 +181,7 @@ function FlexPlanOverview() {
             </div>
             <div className="form-check mt-5 ">
               <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked"/>
-              <label className="form-check-label" for="flexCheckChecked">
+              <label className="form-check-label" htmlFor="flexCheckChecked">
                 Four withdrawal limit only lorem ipsum monteren renemdem
               </label>
             </div>
