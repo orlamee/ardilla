@@ -24,7 +24,8 @@ function FlexPlanSpend() {
 
   const location = useLocation();
 
-  console.log(location);
+  const p = location.state.flexPlan.psr;
+  console.log(p);
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
@@ -192,46 +193,58 @@ function FlexPlanSpend() {
             </p>
 
             <div className="mb-3">
-              <div
-                className="btn-group me-3"
-                role="group"
-                aria-label="First group"
-              >
-                <button
-                  type="button"
-                  className="btn btn-flex"
-                  value={50000}
-                  onClick={(e) => setExp(e.target.value)}
-                >
-                  {"<"}100k
-                </button>
-              </div>
-              <div
-                className="btn-group me-3"
-                role="group"
-                aria-label="Second group"
-              >
-                <button
-                  type="button"
-                  className="btn btn-flex"
-                  value={100000}
-                  onClick={(e) => setExp(parseInt(e.target.value))}
-                >
-                  101k - 250k
-                </button>
-              </div>
-              <div className="btn-group" role="group" aria-label="Third group">
-                <button
-                  type="button"
-                  className="btn btn-flex"
-                  value={250000}
-                  onClick={(e) => setExp(parseInt(e.target.value))}
-                >
-                  251k - 500k
-                </button>
-              </div>
+              {p.map((vl) => {
+                return (
+                  <div
+                    className="btn-group me-3"
+                    role="group"
+                    aria-label="First group"
+                  >
+                    <button
+                      type="button"
+                      className="btn btn-flex"
+                      value={50000}
+                      onClick={(e) => setExp(e.target.value)}
+                    >
+                      {"<"}
+                      {""}
+                      {Intl.NumberFormat("en-US").format(vl)}
+                    </button>
+                  </div>
+                );
+              })}
             </div>
-            <div className="mb-3">
+
+            {/* <div
+                    className="btn-group me-3"
+                    role="group"
+                    aria-label="Second group"
+                  >
+                    <button
+                      type="button"
+                      className="btn btn-flex"
+                      value={100000}
+                      onClick={(e) => setExp(parseInt(e.target.value))}
+                    >
+                      101k - 250k
+                    </button>
+                  </div>
+                  <div
+                    className="btn-group"
+                    role="group"
+                    aria-label="Third group"
+                  >
+                    <button
+                      type="button"
+                      className="btn btn-flex"
+                      value={250000}
+                      onClick={(e) => setExp(parseInt(e.target.value))}
+                    >
+                      251k - 500k
+                    </button>
+                  </div> */}
+
+            {/* <div className="mb-3">
               <div
                 className="btn-group me-3"
                 role="group"
@@ -270,7 +283,7 @@ function FlexPlanSpend() {
                   5M {">"}
                 </button>
               </div>
-            </div>
+            </div> */}
             <div className="mb-3">
               <div
                 className="btn-group me-3"
