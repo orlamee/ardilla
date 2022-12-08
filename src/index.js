@@ -51,6 +51,12 @@ import TargetSetAmount from "./dashboard/targetSetAMount";
 import TargetSetSave from "./dashboard/targetSetSave";
 import TargetSetDuration from "./dashboard/TargetSetDuration";
 import TargetCustomSave from "./dashboard/targetCustomSave";
+import FlexOverviewTopped from "./dashboard/flexOverviewTopped";
+import FlexOverviewSan from "./dashboard/flexOverviewSan";
+import FlexOverviewCard from "./dashboard/flexOverviewCard";
+import TargetOverview from "./dashboard/targetOverview";
+import TargetOverviewSan from "./dashboard/targetOverviewSan";
+import TargetOverviewCard from "./dashboard/targetOverviewCard";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -104,6 +110,12 @@ root.render(
       <Route path="/target-set-save" element={<TargetSetSave/>}></Route>
       <Route path="/target-set-duration" element={<TargetSetDuration/>}></Route>
       <Route path="/target-custom-save" element={<TargetCustomSave/>}></Route>
+      <Route path="/flex/top-up" element={<FlexOverviewTopped/>}></Route>
+      <Route path="/flex-overview/san" element={<FlexOverviewSan/>}></Route>
+      <Route path="/flex-overview/card" element={<FlexOverviewCard/>}></Route>
+      <Route path="/target-overview" element={<TargetOverview/>}></Route>
+      <Route path="/target-overview/san" element={<TargetOverviewSan/>}></Route>
+      <Route path="/target-overview/card" element={<TargetOverviewCard/>}></Route>
 
 
       <Route

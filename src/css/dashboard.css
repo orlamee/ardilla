@@ -1341,7 +1341,7 @@ input:checked + .slider:before {
   color: #3C0071;
   font-size: 14px;
   line-height: 16px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .bg-ussd {
@@ -1446,4 +1446,8 @@ input:checked + .slider:before {
   margin-top: 60px;
   color: #9B7DB6;
   border-radius: 10px;
+}
+
+.create-p {
+  color: #8807F7!important;
 }

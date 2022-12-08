@@ -12,14 +12,14 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
-import dillalogo from "../../img/dashboard/tt-icon.svg";
+import dillalogo from "../../img/dashboard/san-flex.svg";
 import success from "../../img/dashboard/payment-success.svg";
 import d from "../../img/dashboard/d.svg";
 import c from "../../img/dashboard/c.svg";
 import s from "../../img/dashboard/s.svg";
 
 
-function FlexPlanOverview() {
+function FlexPlanOverviewSan() {
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -115,7 +115,7 @@ function FlexPlanOverview() {
                 <p className="mt-5">29-11-2022</p>
                 <p className="mt-5">29-11-2022</p>
                 <p className="mt-5 overview-perc">11%</p>
-                <p className="mt-5">Dilla - <span style={{color: "#E8356D"}}>₦30,000.00</span><span className="dropdown"><Link className="ms-2 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color: "#8807F7"}}>Switch <i className="bi bi-chevron-right"></i></Link>
+                <p className="mt-5">SAN - <span style={{color: "#E8356D"}}>₦30,000.00</span><span className="dropdown"><Link className="ms-2 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color: "#8807F7"}}>Switch <i className="bi bi-chevron-right"></i></Link>
                   <ul className="dropdown-menu">
                     <div className="row m-3">
                       <div className="col">
@@ -270,7 +270,7 @@ function FlexPlanOverview() {
                           <img src={success} alt="" className="img-fluid" />
                           <h2 className="my-5">Payment Received</h2>
                           <p className="mb-5">Lorem ipsum dolor sit amet consectetur. Sapien vel netus eget orci semper parturient. Ut nec pellentesque consequat vitae massa nisi.</p>
-                          <a href="/flex/top-up" >Back to Overview</a>
+                          <a href="" >Back to Overview</a>
                         </div>
                       </div>
                     </div>
@@ -345,5 +345,5 @@ function FlexPlanOverview() {
   );
 }
 
-export default FlexPlanOverview;
+export default FlexPlanOverviewSan;
  

@@ -19,7 +19,7 @@ import c from "../../img/dashboard/c.svg";
 import s from "../../img/dashboard/s.svg";
 
 
-function FlexPlanOverview() {
+function TargetPlanOverview() {
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -110,7 +110,7 @@ function FlexPlanOverview() {
                 
               </div>
               <div className="col-md-6 text-end">
-                <p className="mt-5">Emergency</p>
+                <p className="mt-5">Target</p>
                 <p className="mt-5">₦50,000.00</p>
                 <p className="mt-5">29-11-2022</p>
                 <p className="mt-5">29-11-2022</p>
@@ -119,15 +119,15 @@ function FlexPlanOverview() {
                   <ul className="dropdown-menu">
                     <div className="row m-3">
                       <div className="col">
-                        <Link to="/flex-overview" className="d-flex flex-row">
+                        <Link to="/target-overview" className="d-flex flex-row">
                           <img src={d} alt="" className="img-fluid me-2"/>
                           <p className="mt-3">Dilla</p>
                         </Link>
-                        <Link to="/flex-overview/san" className="d-flex flex-row my-3">
+                        <Link to="/target-overview/san" className="d-flex flex-row my-3">
                           <img src={s} alt="" className="img-fluid me-2"/>
                           <p className="mt-3">SAN</p>
                         </Link>
-                        <Link to="/flex-overview/card" className="d-flex flex-row">
+                        <Link to="/target-overview/card" className="d-flex flex-row">
                           <img src={c} alt="" className="img-fluid me-2"/>
                           <p className="mt-3">Card</p>
                         </Link>
@@ -270,7 +270,7 @@ function FlexPlanOverview() {
                           <img src={success} alt="" className="img-fluid" />
                           <h2 className="my-5">Payment Received</h2>
                           <p className="mb-5">Lorem ipsum dolor sit amet consectetur. Sapien vel netus eget orci semper parturient. Ut nec pellentesque consequat vitae massa nisi.</p>
-                          <a href="/flex/top-up" >Back to Overview</a>
+                          <a href="" >Back to Overview</a>
                         </div>
                       </div>
                     </div>
@@ -345,5 +345,5 @@ function FlexPlanOverview() {
   );
 }
 
-export default FlexPlanOverview;
+export default TargetPlanOverview;
  

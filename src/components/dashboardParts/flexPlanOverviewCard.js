@@ -12,14 +12,15 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
-import dillalogo from "../../img/dashboard/tt-icon.svg";
+import dillalogo from "../../img/dashboard/card-flex.svg";
 import success from "../../img/dashboard/payment-success.svg";
 import d from "../../img/dashboard/d.svg";
 import c from "../../img/dashboard/c.svg";
 import s from "../../img/dashboard/s.svg";
+import blur from "../../img/dashboard/exterek.svg";
 
 
-function FlexPlanOverview() {
+function FlexPlanOverviewCard() {
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -115,7 +116,7 @@ function FlexPlanOverview() {
                 <p className="mt-5">29-11-2022</p>
                 <p className="mt-5">29-11-2022</p>
                 <p className="mt-5 overview-perc">11%</p>
-                <p className="mt-5">Dilla - <span style={{color: "#E8356D"}}>₦30,000.00</span><span className="dropdown"><Link className="ms-2 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color: "#8807F7"}}>Switch <i className="bi bi-chevron-right"></i></Link>
+                <p className="mt-5">Card - <span style={{color: "#E8356D"}}>₦30,000.00</span><span className="dropdown"><Link className="ms-2 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color: "#8807F7"}}>Switch <i className="bi bi-chevron-right"></i></Link>
                   <ul className="dropdown-menu">
                     <div className="row m-3">
                       <div className="col">
@@ -135,7 +136,7 @@ function FlexPlanOverview() {
                     </div>
                   </ul></span>
                 </p>
-                <p className="mt-5"><span style={{color: "#E8356D"}}><i className="bi bi-exclamation-circle me-2"></i> Insufficient funds</span> - <Link data-bs-toggle="modal" data-bs-target="#topup" type="button" style={{color: "#8807F7"}}>Top Up</Link></p>
+                <p className="mt-5"><Link data-bs-toggle="modal" data-bs-target="#topup" type="button" style={{color: "#8807F7"}}>Pay with Card</Link></p>
               </div>
             </div>
             <div className="modal flex-modal fade" id="topup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -154,7 +155,7 @@ function FlexPlanOverview() {
                               <img src={dillalogo} alt="" className="img-fluid" />
                             </div>
                             <div className="col-md-6 text-end">
-                              <h4>₦30,000.00</h4>
+                              <img src={blur} alt="" className="img-fluid" />
                             </div>
                           </div>
                         </div>
@@ -182,7 +183,7 @@ function FlexPlanOverview() {
                           <span className="charges">₦250.00 (1.5% fee caped at ₦250) </span>
                         </div>
                       </div>
-                      <div className="row mx-3 mt-4 title-card justify-content-center">
+                      {/* <div className="row mx-3 mt-4 title-card justify-content-center">
                         <div className="col-md-10">
                           <h3> Top up your SAN USING;</h3>
                           <div className="mt-4">
@@ -190,7 +191,7 @@ function FlexPlanOverview() {
                             <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#banktransfer" className="btn btn-secondary mt-3 bg-ussd" style={{width: "100%"}}>Bank Transfer</Link>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="row mx-3">
                         <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
                       </div>
@@ -270,7 +271,7 @@ function FlexPlanOverview() {
                           <img src={success} alt="" className="img-fluid" />
                           <h2 className="my-5">Payment Received</h2>
                           <p className="mb-5">Lorem ipsum dolor sit amet consectetur. Sapien vel netus eget orci semper parturient. Ut nec pellentesque consequat vitae massa nisi.</p>
-                          <a href="/flex/top-up" >Back to Overview</a>
+                          <a href="" >Back to Overview</a>
                         </div>
                       </div>
                     </div>
@@ -345,5 +346,5 @@ function FlexPlanOverview() {
   );
 }
 
-export default FlexPlanOverview;
+export default FlexPlanOverviewCard;
  
