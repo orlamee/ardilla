@@ -77,7 +77,7 @@ function Login() {
         setOnSuccess(true);
         setLoading(false);
 
-        // navigate("/security");
+        navigate("/security");
       }
     } catch (error) {
       setOnSuccess(false);

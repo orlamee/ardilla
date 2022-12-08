@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -24,9 +24,68 @@ import get from "../../img/dashboard/target-icon.svg";
 import lock from "../../img/dashboard/lock.svg";
 import family from "../../img/dashboard/family.svg";
 import vip from "../../img/dashboard/vip.svg";
-
+import { useIdleTimer } from "react-idle-timer";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 function SavingsBody() {
+  const navigate = useNavigate();
+
+  // let user = JSON.parse(sessionStorage.getItem("user"));
+
+  const refreshToken = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/auth/refresh-token/${Cookies.get(
+          "user"
+        )}`
+      );
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    let interval = setInterval(() => {
+      refreshToken();
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleOnIdle = () => {
+    sessionStorage.clear();
+    Cookies.remove("user");
+    navigate("/login");
+    console.log("last active", getLastActiveTime());
+  };
+
+  const { getLastActiveTime } = useIdleTimer({
+    timeout: 1000 * 60 * 2,
+    onIdle: handleOnIdle,
+    events: [
+      "mousemove",
+      "keydown",
+      "wheel",
+      "DOMMouseScroll",
+      "mousewheel",
+      "mousedown",
+      "touchstart",
+      "touchmove",
+      "MSPointerDown",
+      "MSPointerMove",
+      "visibilitychange",
+    ],
+    debounce: 500,
+  });
+
+  const handleLogOut = () => {
+    Cookies.remove("user");
+    sessionStorage.clear();
+    navigate("/login");
+    window.location.reload();
+  };
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -43,7 +102,7 @@ function SavingsBody() {
           </div>
         </Link>
         <Link to="/savings" className="active">
-          <div className="d-flex flex-row" >
+          <div className="d-flex flex-row">
             <img src={saving} alt="" className="img-fluid me-2 icons" />
             Savings
           </div>
@@ -91,7 +150,7 @@ function SavingsBody() {
               Chat Support
             </div>
           </Link>
-          <Link>
+          <Link onClick={handleLogOut}>
             <div className="d-flex flex-row">
               <img src={logout} alt="" className="img-fluid me-2 icons" />
               Log Out
@@ -105,7 +164,7 @@ function SavingsBody() {
             <div className="total-savings">
               <h3>Total Savings</h3>
               <div className="d-flex flex-row my-3">
-                <p>NGN 50,000.00</p>
+                <p>NGN 0.00</p>
                 <i className="bi bi-eye-fill ms-5 save-eyes"></i>
               </div>
               <div className="d-flex flex-row">
@@ -118,7 +177,9 @@ function SavingsBody() {
             </div>
           </div>
           <div className="col-md-5 dilla-section text-end mt-5">
-            <span className="learn">Learn More <i className="bi bi-chevron-right"></i></span>
+            <span className="learn">
+              Learn More <i className="bi bi-chevron-right"></i>
+            </span>
           </div>
         </div>
         <div className="row create-plan">
@@ -134,15 +195,25 @@ function SavingsBody() {
                 <div className="row">
                   <div className="col-md-8">
                     <div className="d-flex flex-row">
-                      <img src={flex} alt="" className="img-fluid"/>
+                      <img src={flex} alt="" className="img-fluid" />
                       <div className="mt-2 ms-3">
                         <h5>Flex</h5>
-                        <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
+                        <h6>
+                          Get closer to your goal with autosave. Set
+                          <br /> daily, weekly, or monthly automatic
+                          <br />
+                          deposits. You don’t have to lift a finger.
+                        </h6>
                       </div>
                     </div>
                   </div>
                   <div className="col-md-4 mt-3">
-                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/flex-plan" >Create a Flex Plan</Link>
+                    <Link
+                      className="btn btn-outline-primary px-5 py-3 savings-btn fs-6"
+                      to="/flex-plan"
+                    >
+                      Create a Flex Plan
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -153,15 +224,25 @@ function SavingsBody() {
                 <div className="row">
                   <div className="col-md-8">
                     <div className="d-flex flex-row">
-                      <img src={get} alt="" className="img-fluid"/>
+                      <img src={get} alt="" className="img-fluid" />
                       <div className="mt-2 ms-3">
                         <h5>Target</h5>
-                        <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
+                        <h6>
+                          Get closer to your goal with autosave. Set
+                          <br /> daily, weekly, or monthly automatic
+                          <br />
+                          deposits. You don’t have to lift a finger.
+                        </h6>
                       </div>
                     </div>
                   </div>
                   <div className="col-md-4 mt-3">
-                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="" >Create a Fixed Plan</Link>
+                    <Link
+                      className="btn btn-outline-primary px-5 py-3 savings-btn fs-6"
+                      to="/target-plan"
+                    >
+                      Create a Fixed Plan
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -172,15 +253,26 @@ function SavingsBody() {
                 <div className="row">
                   <div className="col-md-8">
                     <div className="d-flex flex-row">
-                      <img src={family} alt="" className="img-fluid"/>
+                      <img src={family} alt="" className="img-fluid" />
                       <div className="mt-2 ms-3">
                         <h5>Family & I</h5>
-                        <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
+                        <h6>
+                          Get closer to your goal with autosave. Set
+                          <br /> daily, weekly, or monthly automatic
+                          <br />
+                          deposits. You don’t have to lift a finger.
+                        </h6>
                       </div>
                     </div>
                   </div>
                   <div className="col-md-4 mt-3">
-                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="" disabled>Coming Soon</Link>
+                    <Link
+                      className="btn btn-outline-primary px-5 py-3 savings-btn fs-6"
+                      to=""
+                      disabled
+                    >
+                      Coming Soon
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -191,15 +283,25 @@ function SavingsBody() {
                 <div className="row">
                   <div className="col-md-8">
                     <div className="d-flex flex-row">
-                      <img src={lock} alt="" className="img-fluid"/>
+                      <img src={lock} alt="" className="img-fluid" />
                       <div className="mt-2 ms-3">
                         <h5>Safe Lock</h5>
-                        <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
+                        <h6>
+                          Get closer to your goal with autosave. Set
+                          <br /> daily, weekly, or monthly automatic
+                          <br />
+                          deposits. You don’t have to lift a finger.
+                        </h6>
                       </div>
                     </div>
                   </div>
                   <div className="col-md-4 mt-3">
-                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="" >Create a Locked Plan</Link>
+                    <Link
+                      className="btn btn-outline-primary px-5 py-3 savings-btn fs-6"
+                      to=""
+                    >
+                      Create a Locked Plan
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -210,15 +312,25 @@ function SavingsBody() {
                 <div className="row">
                   <div className="col-md-8">
                     <div className="d-flex flex-row">
-                      <img src={vip} alt="" className="img-fluid"/>
+                      <img src={vip} alt="" className="img-fluid" />
                       <div className="mt-2 ms-3">
                         <h5>VIP</h5>
-                        <h6>Get closer to your goal with autosave. Set<br/> daily, weekly, or monthly automatic<br/>deposits. You don’t have to lift a finger.</h6>
+                        <h6>
+                          Get closer to your goal with autosave. Set
+                          <br /> daily, weekly, or monthly automatic
+                          <br />
+                          deposits. You don’t have to lift a finger.
+                        </h6>
                       </div>
                     </div>
                   </div>
                   <div className="col-md-4 mt-3">
-                  <Link className="btn btn-outline-primary px-5 py-3 savings-btn fs-6" to="/" >Create a VIP Plan</Link>
+                    <Link
+                      className="btn btn-outline-primary px-5 py-3 savings-btn fs-6"
+                      to="/"
+                    >
+                      Create a VIP Plan
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -240,7 +352,7 @@ function SavingsBody() {
                 </div>
                 <span className="float-end left-number">+20,000</span>
               </div>
-              <hr/>
+              <hr />
               <div className="mt-4">
                 <div className="d-flex flex-row">
                   <img src={withdrawal} alt="" className="img-fluid me-3" />
@@ -253,45 +365,51 @@ function SavingsBody() {
               </div>
             </div>
             <div className="history-card nth-history">
-              <h3>Get access to<br/>
-              Investment Opportunites</h3>
-              <p className="mt-3">Start Investing <i className="bi bi-arrow-right"></i></p>
+              <h3>
+                Get access to
+                <br />
+                Investment Opportunites
+              </h3>
+              <p className="mt-3">
+                Start Investing <i className="bi bi-arrow-right"></i>
+              </p>
               <span className="mt-5">20% Monthly ROI</span>
             </div>
             <div className="history-card bg-stat">
               <div className="text-center">
                 <h4>Saving Statistics</h4>
-                <img src={chart} alt="" className="img-fluid mt-4"/>
+                <img src={chart} alt="" className="img-fluid mt-4" />
                 <div className="text-center mapping mapping-save">
                   <div className="d-flex flex-row">
-                    <img src={red} alt="" className="img-fluid me-3"/>
+                    <img src={red} alt="" className="img-fluid me-3" />
                     <p className="mt-3">Savings</p>
                   </div>
-                  <h3 className="float-end">420</h3>
+                  <h3 className="float-end">0.00</h3>
                 </div>
                 <div className="text-center mapping mapping-save">
                   <div className="d-flex flex-row">
-                    <img src={yellow} alt="" className="img-fluid me-3"/>
+                    <img src={yellow} alt="" className="img-fluid me-3" />
                     <p className="mt-3">Investment</p>
                   </div>
-                  <h3 className="float-end">142</h3>
+                  <h3 className="float-end">0.00</h3>
                 </div>
                 <div className="text-center mapping mapping-save">
                   <div className="d-flex flex-row">
-                    <img src={purple} alt="" className="img-fluid me-3"/>
+                    <img src={purple} alt="" className="img-fluid me-3" />
                     <p className="mt-3">Insurance</p>
                   </div>
-                  <h3 className="float-end">340</h3>
+                  <h3 className="float-end">0.00</h3>
                 </div>
                 <div className="text-center mapping mapping-save">
                   <div className="d-flex flex-row">
-                    <img src={blue} alt="" className="img-fluid me-3"/>
+                    <img src={blue} alt="" className="img-fluid me-3" />
                     <p className="mt-3">SAN</p>
                   </div>
-                  <h3 className="float-end">590</h3>
+                  <h3 className="float-end">0.00</h3>
                 </div>
                 <div className="mt-5 mapping-save text-start footer-card">
-                  5% Money flow increase<br/>
+                  5% Money flow increase
+                  <br />
                   Well done Boss
                 </div>
               </div>
@@ -304,4 +422,3 @@ function SavingsBody() {
 }
 
 export default SavingsBody;
- 

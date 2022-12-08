@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -30,11 +30,10 @@ import greetPlugin from "dayjs-greet";
 dayjs.extend(greetPlugin);
 
 function Sidebar() {
-  // const [userDetail, setUserDetail] = useState("");
+  const [acctDetail, setAcctDetail] = useState("");
   // const [idle, setIdle] = useState(false);
-  const navigate = useNavigate();
-
   let user = JSON.parse(sessionStorage.getItem("user"));
+  const navigate = useNavigate();
 
   const refreshToken = async () => {
     try {
@@ -48,6 +47,24 @@ function Sidebar() {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    const getAcctStatement = async () => {
+      if (user) {
+        try {
+          const { data } = await axios.get(
+            `https://ardilla.herokuapp.com/ardilla/api/account/get-account/${user._id}`
+          );
+
+          setAcctDetail(data.acct);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    };
+
+    getAcctStatement();
+  }, [user]);
 
   useEffect(() => {
     let interval = setInterval(() => {
@@ -92,12 +109,14 @@ function Sidebar() {
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
   //form log out btn
-  const handleLogOut = async () => {
+  const handleLogOut = () => {
     Cookies.remove("user");
     sessionStorage.clear();
     navigate("/login");
-    console.log("re render");
+    window.location.reload();
   };
+
+  console.log(acctDetail);
 
   return (
     <section className="main-dash">
@@ -177,7 +196,7 @@ function Sidebar() {
           <div className="col-md-6">
             <h2>
               Welcome {"<"}
-              {user.kodeHex}
+              {user?.kodeHex}
               {"/>"}
             </h2>
             <h6 className="mt-4">
@@ -194,7 +213,7 @@ function Sidebar() {
                 <span className="roi">+10.00%</span>
               </div>
               <div className="p-2 mt-3">
-                <span className="amount">NGN 100,000.00</span>
+                <span className="amount">NGN {acctDetail?.sanBalance}</span>
                 <i className="bi bi-eye-fill float-end"></i>
               </div>
               <div className="mt-2 p-2">
@@ -228,7 +247,7 @@ function Sidebar() {
                 <span className="me-4 san">Dilla Wallet</span>
               </div>
               <div className="p-2 mt-3">
-                <span className="amount">USD 10,000.00</span>
+                <span className="amount">USD {acctDetail?.dillaWallet}</span>
                 <i className="bi bi-eye-fill float-end"></i>
               </div>
               <div className="mt-4 p-2">
@@ -251,7 +270,7 @@ function Sidebar() {
                 <span className="me-4 san">Total Funds</span>
               </div>
               <div className="p-2 mt-3">
-                <span className="amount">NGN 400,000.00</span>
+                <span className="amount">NGN {acctDetail?.totalFunds}</span>
                 <i className="bi bi-eye-fill float-end"></i>
               </div>
               <div className="mt-4 p-2">
@@ -273,6 +292,7 @@ function Sidebar() {
             <div className="card py-5 px-3 bg-white border border-0 inner-card">
               <div className="row">
                 <div className="col-md-6 text-center">
+                  {/* Add pie chart. */}
                   <img src={pie} alt="" className="img-fluid" />
                 </div>
                 <div className="col-md-6 mt-3">
@@ -280,7 +300,7 @@ function Sidebar() {
                     <input
                       className="form-check-input"
                       type="checkbox"
-                      defaultChecked
+                      // defaultChecked
                     />
                     <label className="form-check-label custom-check ">
                       Add Your BVN
@@ -290,7 +310,7 @@ function Sidebar() {
                     <input
                       className="form-check-input"
                       type="checkbox"
-                      defaultChecked
+                      // defaultChecked
                     />
                     <label className="form-check-label custom-check">
                       Bank Statement
@@ -300,7 +320,7 @@ function Sidebar() {
                     <input
                       className="form-check-input"
                       type="checkbox"
-                      defaultChecked
+                      // defaultChecked
                     />
                     <label className="form-check-label custom-check">
                       Upload Your Valid ID

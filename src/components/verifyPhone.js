@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "../img/verify-icon.svg";
 import logo from "../img/logo.svg";
-import { auth } from "../firbase-config";
-import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
+// import { auth } from "../firbase-config";
+// import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
+import axios from "axios";
 
 function VerifyPhone() {
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  console.log(user);
+  // console.log(user);
 
   const navigate = useNavigate();
 
-  const [phoneNumber] = useState(`+234${user.contact}`);
+  // const [phoneNumber] = useState(`+234${user.contact}`);
   const [otp1, setOtp1] = useState("");
   const [otp2, setOtp2] = useState("");
   const [otp3, setOtp3] = useState("");
@@ -23,79 +24,32 @@ function VerifyPhone() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
-
-  useEffect(() => {
-    const generateRecaptcha = () => {
-      window.recaptchaVerifier = new RecaptchaVerifier(
-        "recaptcha-container",
-        {
-          size: "invisible",
-          callback: (response) => {
-            // reCAPTCHA solved, allow signInWithPhoneNumber.
-            // onSignInSubmit();
-          },
-        },
-        auth
-      );
-    };
-
-    const mobileAuth = () => {
-      generateRecaptcha();
-
-      let appVerifier = window.recaptchaVerifier;
-
-      signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-        .then((confirmationResult) => {
-          // SMS sent. Prompt user to type the code from the message, then sign the
-          // user in with confirmationResult.confirm(code).
-          window.confirmationResult = confirmationResult;
-          // ...
-        })
-        .catch((error) => {
-          // Error; SMS not sent
-          // ...
-          console.log(error);
-          setLoading(false);
-          setMsg("SMS not send");
-          setErr(true);
-        });
-    };
-    mobileAuth();
-  }, [phoneNumber]);
-
-  const fullOTP = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
-
-  const verifyMobileCode = (e) => {
-    setLoading(true);
-    e.preventDefault();
-    if (fullOTP.length === 6) {
-      let confirmationResult = window.confirmationResult;
-      confirmationResult
-        .confirm(fullOTP)
-        .then((result) => {
-          // User signed in successfully.
-          const user = result.user;
-          console.log(user);
-          setMsg("verifcation successful");
-          setErr(false);
-          setOnSuccess(true);
-          setLoading(false);
-
-          // ...
-        })
-        .catch((error) => {
-          // User couldn't sign in (bad verification code?)
-          // ...
-          setLoading(false);
-          setMsg("Wrong code");
-          setErr(true);
-        });
-    }
-  };
+  const [newPhoneNumber, setNewPhoneNumber] = useState("");
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
     navigate("/set-pin");
+  };
+
+  const wrongContact = async (e) => {
+    try {
+      e.preventDefault();
+      setLoading(true);
+
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/auth/wrong-contact/${user._id}`,
+        { newPhoneNumber }
+      );
+
+      sessionStorage.setItem("user", JSON.stringify(data.user));
+      setLoading(false);
+      navigate("/verify-mobile");
+    } catch (error) {
+      setLoading(false);
+      setMsg(`${error.response.data.msg || "Network error"} `);
+      setErr(true);
+      setLoading(false);
+    }
   };
   return (
     <section className="verify-section">
@@ -200,16 +154,33 @@ function VerifyPhone() {
                                 type="tel"
                                 className="form-control custom-form"
                                 placeholder="Enter Phone Number"
+                                required
+                                value={newPhoneNumber}
+                                onChange={(e) =>
+                                  setNewPhoneNumber(e.target.value)
+                                }
                               />
                             </div>
-                            <div className="mt-5 mb-3">
-                              <button
-                                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
-                                style={{ width: "100%" }}
-                              >
-                                Continue
-                              </button>
-                            </div>
+                            {loading ? (
+                              <div className="mt-5 mb-3">
+                                <button
+                                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
+                                  style={{ width: "100%" }}
+                                >
+                                  Loading
+                                </button>
+                              </div>
+                            ) : (
+                              <div className="mt-5 mb-3">
+                                <button
+                                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
+                                  style={{ width: "100%" }}
+                                  onClick={wrongContact}
+                                >
+                                  Continue
+                                </button>
+                              </div>
+                            )}
                           </form>
                         </div>
                       </div>
@@ -218,7 +189,7 @@ function VerifyPhone() {
                 </div>
               </div>
             </div>
-            <form className="my-5" id="otp" onSubmit={verifyMobileCode}>
+            <form className="my-5" id="otp">
               <div className="d-flex flex-row">
                 <div className="me-2">
                   <input
@@ -305,6 +276,7 @@ function VerifyPhone() {
                         className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
                         style={{ width: "100%" }}
                         type="submit"
+                        onClick={() => navigate("/set-pin")}
                       >
                         Continue
                       </button>

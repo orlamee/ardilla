@@ -26,6 +26,31 @@ import Pin from "./pages/createPin";
 import KycVerify from "./pages/kycVerify";
 import Savings from "./dashboard/savings";
 import FlexPlan from "./dashboard/flexPlan";
+import CreateFlexPlan from "./dashboard/createFlexPlan";
+import FlexSpend from "./dashboard/flexSpend";
+import FlexType from "./dashboard/flexType";
+import TargetPlan from "./dashboard/targetPlan";
+import CreateTargetPlan from "./dashboard/createTargetPlan";
+import TargetEarn from "./dashboard/targetEarn";
+import TargetSpend from "./dashboard/targetSpend";
+import TargetType from "./dashboard/targetType";
+import TargetDashboard from "./dashboard/targetDashboard";
+import FlexDashboard from "./dashboard/flexDashboard";
+// import FlexSave from "./dashboard/flexSave";
+import TargetSave from "./dashboard/targetSave";
+import FlexSetAmount from "./dashboard/flexSetAmount";
+import FlexSetSave from "./dashboard/flexSave";
+import FlexSetDuration from "./dashboard/flexSetDuration";
+import FlexSuccess from "./dashboard/flexSetSave";
+import FlexOverview from "./dashboard/flexOverview";
+import TargetPrefer from "./dashboard/targetPrefer";
+import TargetPublicSelection from "./dashboard/targetPublicSelection";
+import TargetDesc from "./dashboard/targetDesc";
+import TargetPlanShare from "./dashboard/targetPlanShare";
+import TargetSetAmount from "./dashboard/targetSetAMount";
+import TargetSetSave from "./dashboard/targetSetSave";
+import TargetSetDuration from "./dashboard/TargetSetDuration";
+import TargetCustomSave from "./dashboard/targetCustomSave";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -50,10 +75,36 @@ root.render(
         }
       ></Route>
       <Route path="/portfolio" element={<Portfolio />}></Route>
-      <Route path="/savings" element={<Savings/>}></Route>
-      <Route path="/flex-plan" element={<FlexPlan/>}></Route>
+      <Route path="/savings" element={<Savings />}></Route>
+      <Route path="/create-flex" element={<CreateFlexPlan />}></Route>
+      <Route path="/flex-spend" element={<FlexSpend />}></Route>
+      <Route path="/flex-type" element={<FlexType />}></Route>
+      <Route path="/target-type" element={<TargetType />}></Route>
+      <Route path="/target-dashboard" element={<TargetDashboard />}></Route>
+      <Route path="/flex-dashboard" element={<FlexDashboard />}></Route>
+      <Route path="/flex-success" element={<FlexSuccess />}></Route>
+      <Route path="/flex-set-amount" element={<FlexSetAmount />}></Route>
+      <Route path="/flex-set-duration" element={<FlexSetDuration />}></Route>
+      <Route path="/flex-overview" element={<FlexOverview />}></Route>
+      <Route path="/flex-savings" element={<FlexSetSave />}></Route>
+      <Route path="/target-save" element={<TargetSave />}></Route>
+      <Route path="/flex-plan" element={<FlexPlan />}></Route>
+      <Route path="/target-plan" element={<TargetPlan />}></Route>
+      <Route path="/create-target" element={<CreateTargetPlan />}></Route>
+      <Route path="/target-earn" element={<TargetEarn />}></Route>
+      <Route path="/target-spend" element={<TargetSpend />}></Route>
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
+
+      <Route path="/target-prefer" element={<TargetPrefer/>}></Route>
+      <Route path="/target-public-selection" element={<TargetPublicSelection/>}></Route>
+      <Route path="/target-public-desc" element={<TargetDesc/>}></Route>
+      <Route path="/target-share-link" element={<TargetPlanShare/>}></Route>
+      <Route path="/target-set-amount" element={<TargetSetAmount/>}></Route>
+      <Route path="/target-set-save" element={<TargetSetSave/>}></Route>
+      <Route path="/target-set-duration" element={<TargetSetDuration/>}></Route>
+      <Route path="/target-custom-save" element={<TargetCustomSave/>}></Route>
+
 
       <Route
         path="/otp"

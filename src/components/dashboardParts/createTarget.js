@@ -11,13 +11,11 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
-import flex from "../../img/dashboard/flex-icon.svg";
-import play from "../../img/dashboard/play.svg";
+import target from "../../img/dashboard/targetplan.svg";
 import question from "../../img/dashboard/question.svg";
-import artisan from "../../img/dashboard/artisan.svg";
 
 
-function CreateFlex() {
+function CreateTarget() {
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -93,10 +91,10 @@ function CreateFlex() {
       <div className="content py-5 px-5">
        <div className="row justify-content-center flex-plan">
         <div className="col-md-9 text-center">
-          <img src={flex} alt="" className="img-fluid"/>
-          <h2 className="my-5">Create your <span style={{color: "#E8356D"}}>flex <Link data-bs-toggle="modal" data-bs-target="#flex" type="button"><img src={question} alt="" className="img-fluid ques" /></Link></span>that<br/> fits your lifestyle.</h2>
+          <img src={target} alt="" className="img-fluid"/>
+          <h2 className="my-5">Create your <br/><span style={{color: "#E8356D"}}>Target <Link data-bs-toggle="modal" data-bs-target="#flex" type="button"><img src={question} alt="" className="img-fluid ques" /></Link></span></h2>
           <h6>Lorem ipsum dolor sit amet consectetur. Faucibus sit odio feugiat suspendisse felis<br/> morbi interdum. Eget sit ultricies facilisi elementum. </h6>
-          <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/create-flex" >Create a Flex Plan</Link>
+          <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/create-target" >Create a Target</Link>
           <div
             className="modal flex-modal fade"
             id="flex"
@@ -123,30 +121,30 @@ function CreateFlex() {
                         <div className="carousel-item active">
                           <div className="row justify-content-center">
                             <div className="col-md-7 text-center">
-                              <img src={flex} alt="" className="img-fluid" />
-                              <h6 className="my-3">What is a <span style={{color: "#E8356D"}}>Flex</span><br/>plan?</h6>
-                              <p>An emergency stash for rainy days; Only for rainy days</p>
-                              <a className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" href="/create-flex" >Create a Flex Plan</a>
+                              <img src={target} alt="" className="img-fluid" />
+                              <h6 className="my-3">Create your <span style={{color: "#E8356D"}}>Target</span> plan?</h6>
+                              <p>Save with discipline towards a specific goal or target. Earn interests every day into your Flex wallet.</p>
+                              <a className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" href="/create-target" >Create a Target</a>
                             </div>
                           </div>
                         </div>
                         <div className="carousel-item">
                           <div className="row justify-content-center">
                             <div className="col-md-7 text-center">
-                              <img src={artisan} alt="" className="img-fluid" />
-                              <h6 className="my-3">Why do you need a <span style={{color: "#E8356D"}}>Flex</span> plan?</h6>
-                              <p>Auto Repair, Medical Emergency, Layoff, Home Repair</p>
-                              <a className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" href="/create-flex" >Create a Flex Plan</a>
+                              <img src={target} alt="" className="img-fluid" />
+                              <h6 className="my-3">Create your <span style={{color: "#E8356D"}}>Target</span> plan?</h6>
+                              <p>Save with discipline towards a specific goal or target. Earn interests every day into your Flex wallet.</p>
+                              <a className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" href="/create-target" >Create a Target</a>
                             </div>
                           </div>
                         </div>
                         <div className="carousel-item">
                           <div className="row justify-content-center">
                             <div className="col-md-7 text-center">
-                              <img src={play} alt="" className="img-fluid" />
-                              <h6 className="my-3">Learn more about <span style={{color: "#E8356D"}}>Flex</span> plan?</h6>
-                              <p>Auto Repair, Medical Emergency, Layoff, Home Repair</p>
-                              <a className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" href="/create-flex" >Create a Flex Plan</a>
+                              <img src={target} alt="" className="img-fluid" />
+                              <h6 className="my-3">Create your <span style={{color: "#E8356D"}}>Target</span> plan?</h6>
+                              <p>Save with discipline towards a specific goal or target. Earn interests every day into your Flex wallet.</p>
+                              <a className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" href="/create-target" >Create a Target</a>
                             </div>
                           </div>
                         </div>
@@ -174,5 +172,5 @@ function CreateFlex() {
   );
 }
 
-export default CreateFlex;
+export default CreateTarget;
  

@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -21,13 +21,88 @@ import yellow from "../../img/dashboard/yellow.svg";
 import purple from "../../img/dashboard/purple.svg";
 import blue from "../../img/dashboard/blue.svg";
 import port from "../../img/dashboard/portie.svg";
-
-
-
+import { useIdleTimer } from "react-idle-timer";
+import Cookies from "js-cookie";
+import axios from "axios";
 
 function PortfolioBody() {
-  
+  const navigate = useNavigate();
+  const [acctDetail, setAcctDetail] = useState("");
 
+  let user = JSON.parse(sessionStorage.getItem("user"));
+
+  const refreshToken = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/auth/refresh-token/${Cookies.get(
+          "user"
+        )}`
+      );
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    const getAcctStatement = async () => {
+      if (user) {
+        try {
+          const { data } = await axios.get(
+            `https://ardilla.herokuapp.com/ardilla/api/account/get-account/${user._id}`
+          );
+          // setAcctDetail(data.acct);
+
+          setAcctDetail(data.acct);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    };
+
+    getAcctStatement();
+  }, [user]);
+
+  useEffect(() => {
+    let interval = setInterval(() => {
+      refreshToken();
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleOnIdle = () => {
+    sessionStorage.clear();
+    Cookies.remove("user");
+    navigate("/login");
+    console.log("last active", getLastActiveTime());
+  };
+
+  const { getLastActiveTime } = useIdleTimer({
+    timeout: 1000 * 60 * 2,
+    onIdle: handleOnIdle,
+    events: [
+      "mousemove",
+      "keydown",
+      "wheel",
+      "DOMMouseScroll",
+      "mousewheel",
+      "mousedown",
+      "touchstart",
+      "touchmove",
+      "MSPointerDown",
+      "MSPointerMove",
+      "visibilitychange",
+    ],
+    debounce: 500,
+  });
+
+  const handleLogOut = () => {
+    Cookies.remove("user");
+    sessionStorage.clear();
+    navigate("/login");
+    window.location.reload();
+  };
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -92,7 +167,7 @@ function PortfolioBody() {
               Chat Support
             </div>
           </Link>
-          <Link>
+          <Link onClick={handleLogOut}>
             <div className="d-flex flex-row">
               <img src={logout} alt="" className="img-fluid me-2 icons" />
               Log Out
@@ -107,7 +182,10 @@ function PortfolioBody() {
               <div>
                 <h6 className="mb-2">Market value</h6>
                 <h2 className="mb-2">-NGN 2000 (5%)</h2>
-                <p>Updated September 16, 2022  <i className="bi bi-clock-history"></i></p>
+                <p>
+                  Updated September 16, 2022{" "}
+                  <i className="bi bi-clock-history"></i>
+                </p>
               </div>
               <div className="right-portfolio">
                 <h6 className="mb-2">Today’s change</h6>
@@ -116,53 +194,63 @@ function PortfolioBody() {
             </div>
             <div className="text-center mt-4 mb-5">
               <img src={port} alt="" className="img-fluid chartie mb-5" />
-              <span className="desc">Your portfolio performance between 1/10/2022 & 2/11/2022</span>
+              <span className="desc">
+                Your portfolio performance between 1/10/2022 & 2/11/2022
+              </span>
             </div>
             <div className="card-p p-4 mb-5">
               <div className="d-flex flex-row">
-                <img src={save} alt="" className="img-fluid"/>
+                <img src={save} alt="" className="img-fluid" />
                 <div className="mt-2 ms-3">
-                  <h5>Savings   <span className="roi ms-2">+10.00%</span></h5>
+                  <h5>
+                    Savings <span className="roi ms-2">+10.00%</span>
+                  </h5>
                   <h6>View your savings portfolio</h6>
                 </div>
               </div>
-              <div className="float-end desktop" style={{marginTop: "-50px"}}>
+              <div className="float-end desktop" style={{ marginTop: "-50px" }}>
                 <img src={arrow} alt="" className="img-fluid" />
               </div>
             </div>
             <div className="card-p p-4 mb-5 bg-invest">
               <div className="d-flex flex-row">
-                <img src={invest} alt="" className="img-fluid"/>
+                <img src={invest} alt="" className="img-fluid" />
                 <div className="mt-2 ms-3">
-                  <h5>Investment   <span className="roi ms-2">+10.00%</span></h5>
+                  <h5>
+                    Investment <span className="roi ms-2">+10.00%</span>
+                  </h5>
                   <h6>View your savings portfolio</h6>
                 </div>
               </div>
-              <div className="float-end desktop" style={{marginTop: "-50px"}}>
+              <div className="float-end desktop" style={{ marginTop: "-50px" }}>
                 <img src={arrow} alt="" className="img-fluid" />
               </div>
             </div>
             <div className="card-p p-4 mb-5">
               <div className="d-flex flex-row">
-                <img src={san} alt="" className="img-fluid"/>
+                <img src={san} alt="" className="img-fluid" />
                 <div className="mt-2 ms-3">
-                  <h5>Insurance   <span className="roi ms-2">+10.00%</span></h5>
+                  <h5>
+                    Insurance <span className="roi ms-2">+10.00%</span>
+                  </h5>
                   <h6>View your savings portfolio</h6>
                 </div>
               </div>
-              <div className="float-end desktop" style={{marginTop: "-50px"}}>
+              <div className="float-end desktop" style={{ marginTop: "-50px" }}>
                 <img src={arrow} alt="" className="img-fluid" />
               </div>
             </div>
             <div className="card-p p-4 mb-5 bg-invest">
               <div className="d-flex flex-row">
-                <img src={san} alt="" className="img-fluid"/>
+                <img src={san} alt="" className="img-fluid" />
                 <div className="mt-2 ms-3">
-                  <h5>SAN   <span className="roi ms-2">+10.00%</span></h5>
+                  <h5>
+                    SAN <span className="roi ms-2">+10.00%</span>
+                  </h5>
                   <h6>View your savings portfolio</h6>
                 </div>
               </div>
-              <div className="float-end desktop" style={{marginTop: "-50px"}}>
+              <div className="float-end desktop" style={{ marginTop: "-50px" }}>
                 <img src={arrow} alt="" className="img-fluid" />
               </div>
             </div>
@@ -171,14 +259,17 @@ function PortfolioBody() {
             <div className="dillawallet p-5 mb-5">
               <div className="mb-5">
                 <h2>Dilla Wallet</h2>
-                <label className="switch float-end" style={{marginTop:"-27px"}}>
+                <label
+                  className="switch float-end"
+                  style={{ marginTop: "-27px" }}
+                >
                   <input type="checkbox" placeholder="USD" />
                   <span className="slider round"></span>
                 </label>
               </div>
               <h6>Current Balance</h6>
               <div>
-                <p>NGN 500,000.00</p>
+                <p>NGN {acctDetail?.dillaWallet}</p>
                 <i className="bi bi-eye-fill float-end dilla-eye"></i>
               </div>
             </div>
@@ -191,36 +282,35 @@ function PortfolioBody() {
               </div>
               <div className="text-center mapping">
                 <div className="d-flex flex-row">
-                  <img src={red} alt="" className="img-fluid me-3"/>
+                  <img src={red} alt="" className="img-fluid me-3" />
                   <p className="mt-3">Savings</p>
                 </div>
-                <h3 className="float-end">420</h3>
+                <h3 className="float-end">0.00</h3>
               </div>
               <div className="text-center mapping">
                 <div className="d-flex flex-row">
-                  <img src={yellow} alt="" className="img-fluid me-3"/>
+                  <img src={yellow} alt="" className="img-fluid me-3" />
                   <p className="mt-3">Investment</p>
                 </div>
-                <h3 className="float-end">142</h3>
+                <h3 className="float-end">0.00</h3>
               </div>
               <div className="text-center mapping">
                 <div className="d-flex flex-row">
-                  <img src={purple} alt="" className="img-fluid me-3"/>
+                  <img src={purple} alt="" className="img-fluid me-3" />
                   <p className="mt-3">Insurance</p>
                 </div>
-                <h3 className="float-end">340</h3>
+                <h3 className="float-end">0.00</h3>
               </div>
               <div className="text-center mapping">
                 <div className="d-flex flex-row">
-                  <img src={blue} alt="" className="img-fluid me-3"/>
+                  <img src={blue} alt="" className="img-fluid me-3" />
                   <p className="mt-3">SAN</p>
                 </div>
-                <h3 className="float-end">590</h3>
+                <h3 className="float-end">0.00</h3>
               </div>
             </div>
           </div>
         </div>
-        
       </div>
     </section>
   );
