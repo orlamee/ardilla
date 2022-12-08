@@ -28,20 +28,18 @@ function FlexPlanCreate() {
     setLoading(true);
 
     if (ern) {
-      let flexPlanObj = {
-        ern,
-      };
-
       try {
         const { data } = await axios.put(
           `https://ardilla.herokuapp.com/ardilla/api/account/auto-flex-plan/${user._id}`,
-          { flexPlanObj }
+          { ern }
         );
 
-        const ernInfo = data.data.flexPlan.ern;
+        console.log(data);
 
-        setLoading(false);
-        navigate("/flex-spend", { state: ernInfo });
+        // const ernInfo = data.data.flexPlan.ern;
+
+        // setLoading(false);
+        // navigate("/flex-spend", { state: ernInfo });
       } catch (error) {
         setLoading(false);
         setErr(true);
@@ -199,8 +197,7 @@ function FlexPlanCreate() {
                 <button
                   type="button"
                   className="btn btn-flex"
-                  value={50000}
-                  onClick={(e) => setErn(e.target.value)}
+                  onClick={(e) => setErn(parseInt(e.target.value))}
                 >
                   {"<"}50k
                 </button>
@@ -212,7 +209,6 @@ function FlexPlanCreate() {
               >
                 <button
                   type="button"
-                  value={250000}
                   onClick={(e) => setErn(e.target.value)}
                   className="btn btn-flex"
                 >
@@ -222,7 +218,6 @@ function FlexPlanCreate() {
               <div className="btn-group" role="group" aria-label="Third group">
                 <button
                   type="button"
-                  value={500000}
                   onClick={(e) => setErn(e.target.value)}
                   className="btn btn-flex"
                 >
@@ -238,7 +233,6 @@ function FlexPlanCreate() {
               >
                 <button
                   type="button"
-                  value={1000000}
                   onClick={(e) => setErn(e.target.value)}
                   className="btn btn-flex"
                 >
@@ -253,7 +247,6 @@ function FlexPlanCreate() {
                 <button
                   type="button"
                   className="btn btn-flex"
-                  value={5000000}
                   onClick={(e) => setErn(e.target.value)}
                 >
                   1M - 5M{" "}
@@ -263,7 +256,6 @@ function FlexPlanCreate() {
                 <button
                   type="button"
                   className="btn btn-flex"
-                  value={6000000}
                   onClick={(e) => setErn(e.target.value)}
                 >
                   5M+{" "}
