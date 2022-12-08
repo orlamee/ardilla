@@ -11,7 +11,6 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
-import axios from "axios";
 
 function FlexPlanSpend() {
   const [exp, setExp] = useState();
@@ -25,38 +24,39 @@ function FlexPlanSpend() {
   const location = useLocation();
 
   const p = location.state.flexPlan.psr;
-  console.log(p);
+  // console.log(p);
+
+  const psr1 = p[0];
+  const psr2 = parseInt(p[1].split("-")[1]);
+  const psr3 = parseInt(p[2].split("-")[1]);
+
+  const psrArray = [psr1, psr2, psr3];
+
+  let fp;
+
+  // console.log(psrArray);
+
+  const handleSpend = (index) => {
+    fp = Intl.NumberFormat("en-US").format(psrArray[index] * 6);
+
+    setExp(fp);
+  };
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  // const handleExp = async () => {
-  //   setLoading(true);
+  const handleExp = async () => {
+    setLoading(true);
 
-  //   if (exp) {
-  //     let flexPlanObj = {
+    if (exp) {
+      setLoading(false);
 
-  //     };
-
-  //     try {
-  //       const { data } = await axios.put(
-  //         `https://ardilla.herokuapp.com/ardilla/api/account/auto-flex-plan/${user._id}`,
-  //         { flexPlanObj }
-  //       );
-
-  //       setLoading(false);
-  //       const fp = data.data.flexPlan;
-  //       navigate("/flex-type", { state: fp });
-  //     } catch (error) {
-  //       setLoading(false);
-  //       setErr(true);
-  //       setMsg(`${error.response.data.msg || "Network error"} `);
-  //     }
-  //   } else {
-  //     setLoading(false);
-  //     setErr(true);
-  //     setMsg("choose a plan first");
-  //   }
-  // };
+      navigate("/flex-type", { state: fp });
+    } else {
+      setLoading(false);
+      setErr(true);
+      setMsg("choose a plan first");
+    }
+  };
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
@@ -177,7 +177,9 @@ function FlexPlanSpend() {
         <div className="row earning">
           <div className="col-md-6">
             <h2>
-              Cadet {"<"}Starboy{"/>"},
+              Cadet {"<"}
+              {user.kodeHex}
+              {"/>"},
             </h2>
           </div>
         </div>
@@ -193,98 +195,26 @@ function FlexPlanSpend() {
             </p>
 
             <div className="mb-3">
-              {p.map((vl) => {
+              {p.map((vl, index) => {
                 return (
                   <div
                     className="btn-group me-3"
                     role="group"
                     aria-label="First group"
+                    key={index}
                   >
                     <button
                       type="button"
                       className="btn btn-flex"
-                      value={50000}
-                      onClick={(e) => setExp(e.target.value)}
+                      onClick={() => handleSpend(index)}
                     >
-                      {"<"}
-                      {""}
                       {vl}
-                      {/* {Intl.NumberFormat("en-US").format(vl)} */}
                     </button>
                   </div>
                 );
               })}
             </div>
 
-            {/* <div
-                    className="btn-group me-3"
-                    role="group"
-                    aria-label="Second group"
-                  >
-                    <button
-                      type="button"
-                      className="btn btn-flex"
-                      value={100000}
-                      onClick={(e) => setExp(parseInt(e.target.value))}
-                    >
-                      101k - 250k
-                    </button>
-                  </div>
-                  <div
-                    className="btn-group"
-                    role="group"
-                    aria-label="Third group"
-                  >
-                    <button
-                      type="button"
-                      className="btn btn-flex"
-                      value={250000}
-                      onClick={(e) => setExp(parseInt(e.target.value))}
-                    >
-                      251k - 500k
-                    </button>
-                  </div> */}
-
-            {/* <div className="mb-3">
-              <div
-                className="btn-group me-3"
-                role="group"
-                aria-label="First group"
-              >
-                <button
-                  type="button"
-                  className="btn btn-flex"
-                  value={500000}
-                  onClick={(e) => setExp(parseInt(e.target.value))}
-                >
-                  501k - 1M
-                </button>
-              </div>
-              <div
-                className="btn-group me-3"
-                role="group"
-                aria-label="Second group"
-              >
-                <button
-                  type="button"
-                  className="btn btn-flex"
-                  value={1000000}
-                  onClick={(e) => setExp(parseInt(e.target.value))}
-                >
-                  1M - 5M
-                </button>
-              </div>
-              <div className="btn-group" role="group" aria-label="Third group">
-                <button
-                  type="button"
-                  className="btn btn-flex"
-                  value={5000000}
-                  onClick={(e) => setExp(parseInt(e.target.value))}
-                >
-                  5M {">"}
-                </button>
-              </div>
-            </div> */}
             <div className="mb-3">
               <div
                 className="btn-group me-3"
@@ -308,7 +238,7 @@ function FlexPlanSpend() {
                 <button
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
                   style={{ width: "50%" }}
-                  // onClick={handleExp}
+                  onClick={handleExp}
                 >
                   Continue
                 </button>
