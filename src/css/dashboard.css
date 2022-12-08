@@ -1266,6 +1266,10 @@ input:checked + .slider:before {
   margin-bottom: 150px;
 }
 
+.overview {
+  margin-top: 150px;
+}
+
 .overview h2 { 
   color: #3C0071;
   font-size: 52px;
