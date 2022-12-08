@@ -109,7 +109,7 @@ function TypeFlex() {
               <div className="text-center my-5 border-bottom">
                 <span>Recommended Amount</span>
                 <h6>
-                  NGN {Intl.NumberFormat("en-US").format(location.state.psv)}
+                  NGN {Intl.NumberFormat("en-US").format(location.state.rate)}
                 </h6>
                 <p>Every month for 13months</p>
               </div>
@@ -120,7 +120,9 @@ function TypeFlex() {
                   <h5>Badge:</h5>
                 </div>
                 <div className="col-md-6 text-end">
-                  <h5>2,160,000</h5>
+                  <h5>
+                    {Intl.NumberFormat("en-US").format(location.state.fp)}
+                  </h5>
                   <h5>11%</h5>
                   <h5>Cadet</h5>
                 </div>

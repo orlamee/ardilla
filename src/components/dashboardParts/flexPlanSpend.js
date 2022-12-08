@@ -24,22 +24,47 @@ function FlexPlanSpend() {
   const location = useLocation();
 
   const p = location.state.flexPlan.psr;
-  // console.log(p);
+  const pDigit = location.state.flexPlan.cPsr;
+  const ern = location.state.flexPlan.ern;
 
-  const psr1 = p[0];
-  const psr2 = parseInt(p[1].split("-")[1]);
-  const psr3 = parseInt(p[2].split("-")[1]);
+  console.log(pDigit);
 
-  const psrArray = [psr1, psr2, psr3];
+  console.log(p);
 
-  let fp;
+  // const psr1 = p[0];
+  // const psr2 = p[1].split("-")[1];
+  // const psr3 = p[2].split("-")[1];
+
+  // console.log(parseFloat(psr1));
+
+  // const psrArray = [psr1, psr2, psr3];
 
   // console.log(psrArray);
 
   const handleSpend = (index) => {
-    fp = Intl.NumberFormat("en-US").format(psrArray[index] * 6);
+    // let perc = [0.4, 0.6, 0.8];
 
-    setExp(fp);
+    // rate
+
+    // console.log(index);
+
+    const diff = ern - pDigit[index];
+
+    const rate = diff * 0.4;
+
+    console.log("diff", diff, rate, index);
+
+    // console.log("rate", rate, perc[index]);
+
+    let fp = pDigit[index] * 6;
+
+    // console.log("fp");
+
+    // // console.log(psrArray[index]);
+
+    // console.log(fp);
+
+    setExp({ rate, fp });
   };
 
   let user = JSON.parse(sessionStorage.getItem("user"));
@@ -50,7 +75,7 @@ function FlexPlanSpend() {
     if (exp) {
       setLoading(false);
 
-      navigate("/flex-type", { state: fp });
+      navigate("/flex-type", { state: exp });
     } else {
       setLoading(false);
       setErr(true);

@@ -14,7 +14,7 @@ import chat from "../../img/dashboard/chat.svg";
 import axios from "axios";
 
 function FlexPlanCreate() {
-  const [ern] = useState(180000);
+  const [ern] = useState(600000);
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
