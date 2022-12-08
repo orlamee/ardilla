@@ -11,10 +11,10 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
-import verticalone from "../../img/dashboard/setsave.svg";
+import verticalone from "../../img/dashboard/setduration.svg";
 
 
-function TargetPlanSetSave() {
+function TargetPlanSetDuration() {
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -89,7 +89,7 @@ function TargetPlanSetSave() {
       </div>
       <div className="content py-5 px-5 earning-section">
         <div className="row backto">
-          <Link to="/target-set-amount"><span><i className="bi bi-chevron-left me-3"></i>Back</span></Link>
+          <Link to="/target-set-save"><span><i className="bi bi-chevron-left me-3"></i>Back</span></Link>
         </div>
         <div className="row earning">
           <div className="col-md-12 text-center">
@@ -99,16 +99,23 @@ function TargetPlanSetSave() {
         </div>
         <div className="row justify-content-center earns">
           <div className="col-md-8 text-center">
-            <h3>How much will you <span style={{color: "#E8356D"}}>like<br/>to save</span> monthly?</h3>
+            <h3>Set <span style={{color: "#E8356D"}}>Target</span><br/>duration</h3>
             <p className="my-5">Choose how much you will like to save</p>
             <div className="row justify-content-center">
               <div className="col-md-5">
                 <form>
                   <div className="mb-3">
-                    <input type="number" className="form-control target-form" placeholder="Enter Amount" required/>
+                    <select className="form-select target-form">
+                      <option selected>Select Duration</option>
+                      <option value="1">3 Months</option>
+                      <option value="2">6 Months</option>
+                      <option value="3">9 Months</option>
+                      <option value="4">12 Months</option>
+                    </select>
+                    {/* <input type="number" className="form-control target-form" placeholder="Enter Amount" required/> */}
                   </div>
                   <div className="mb-3">
-                    <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" to="/target-set-duration" style={{width: "100%"}}>Next</Link>
+                    <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" to="/target-dashboard" style={{width: "100%"}}>Next</Link>
                   </div>
                 </form>
               </div>
@@ -120,5 +127,5 @@ function TargetPlanSetSave() {
   );
 }
 
-export default TargetPlanSetSave;
+export default TargetPlanSetDuration;
  

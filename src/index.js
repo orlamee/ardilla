@@ -49,6 +49,8 @@ import TargetDesc from "./dashboard/targetDesc";
 import TargetPlanShare from "./dashboard/targetPlanShare";
 import TargetSetAmount from "./dashboard/targetSetAMount";
 import TargetSetSave from "./dashboard/targetSetSave";
+import TargetSetDuration from "./dashboard/TargetSetDuration";
+import TargetCustomSave from "./dashboard/targetCustomSave";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -100,6 +102,8 @@ root.render(
       <Route path="/target-share-link" element={<TargetPlanShare/>}></Route>
       <Route path="/target-set-amount" element={<TargetSetAmount/>}></Route>
       <Route path="/target-set-save" element={<TargetSetSave/>}></Route>
+      <Route path="/target-set-duration" element={<TargetSetDuration/>}></Route>
+      <Route path="/target-custom-save" element={<TargetCustomSave/>}></Route>
 
 
       <Route
