@@ -14,7 +14,7 @@ import chat from "../../img/dashboard/chat.svg";
 import axios from "axios";
 
 function FlexPlanCreate() {
-  const [ern, setErn] = useState(180000);
+  const [ern] = useState(180000);
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
@@ -186,7 +186,7 @@ function FlexPlanCreate() {
               Enter a name you want to give your target plan
             </p>
 
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <div
                 className="btn-group me-3"
                 role="group"
@@ -259,7 +259,7 @@ function FlexPlanCreate() {
                   5M+{" "}
                 </button>
               </div>
-            </div>
+            </div> */}
             <div className="mb-3">
               <div
                 className="btn-group me-3"
