@@ -208,7 +208,8 @@ function FlexPlanSpend() {
                     >
                       {"<"}
                       {""}
-                      {Intl.NumberFormat("en-US").format(vl)}
+                      {vl}
+                      {/* {Intl.NumberFormat("en-US").format(vl)} */}
                     </button>
                   </div>
                 );
