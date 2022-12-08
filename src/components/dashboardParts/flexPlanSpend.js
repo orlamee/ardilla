@@ -24,39 +24,38 @@ function FlexPlanSpend() {
 
   const location = useLocation();
 
-  const ern = parseInt(location.state);
+  console.log(location);
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  const handleExp = async () => {
-    setLoading(true);
+  // const handleExp = async () => {
+  //   setLoading(true);
 
-    if (exp) {
-      let flexPlanObj = {
-        ern,
-        exp,
-      };
+  //   if (exp) {
+  //     let flexPlanObj = {
 
-      try {
-        const { data } = await axios.put(
-          `https://ardilla.herokuapp.com/ardilla/api/account/auto-flex-plan/${user._id}`,
-          { flexPlanObj }
-        );
+  //     };
 
-        setLoading(false);
-        const fp = data.data.flexPlan;
-        navigate("/flex-type", { state: fp });
-      } catch (error) {
-        setLoading(false);
-        setErr(true);
-        setMsg(`${error.response.data.msg || "Network error"} `);
-      }
-    } else {
-      setLoading(false);
-      setErr(true);
-      setMsg("choose a plan first");
-    }
-  };
+  //     try {
+  //       const { data } = await axios.put(
+  //         `https://ardilla.herokuapp.com/ardilla/api/account/auto-flex-plan/${user._id}`,
+  //         { flexPlanObj }
+  //       );
+
+  //       setLoading(false);
+  //       const fp = data.data.flexPlan;
+  //       navigate("/flex-type", { state: fp });
+  //     } catch (error) {
+  //       setLoading(false);
+  //       setErr(true);
+  //       setMsg(`${error.response.data.msg || "Network error"} `);
+  //     }
+  //   } else {
+  //     setLoading(false);
+  //     setErr(true);
+  //     setMsg("choose a plan first");
+  //   }
+  // };
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
@@ -295,7 +294,7 @@ function FlexPlanSpend() {
                 <button
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
                   style={{ width: "50%" }}
-                  onClick={handleExp}
+                  // onClick={handleExp}
                 >
                   Continue
                 </button>

@@ -34,12 +34,10 @@ function FlexPlanCreate() {
           { ern }
         );
 
-        console.log(data);
+        const ernInfo = data.plan;
 
-        // const ernInfo = data.data.flexPlan.ern;
-
-        // setLoading(false);
-        // navigate("/flex-spend", { state: ernInfo });
+        setLoading(false);
+        navigate("/flex-spend", { state: ernInfo });
       } catch (error) {
         setLoading(false);
         setErr(true);
