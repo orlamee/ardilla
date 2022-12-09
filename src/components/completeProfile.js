@@ -28,7 +28,7 @@ function CompleteProfile() {
 
   const userID = _id;
 
-  const accountName = `${firstname}  ${lastname}`;
+  const accountName = `${firstname} ${lastname}`;
 
   useEffect(() => {
     if (verified === "otp") {

@@ -24,26 +24,22 @@ function FlexPlanSpend() {
 
   const location = useLocation();
 
-  const p = location.state.flexPlan.psr;
+  console.log(location);
+
+  const p = location.state.flexPlan.psrange;
   const pDigit = location.state.flexPlan.cPsr;
   const ern = location.state.flexPlan.ern;
 
   const handleSpend = (index) => {
     const diff = ern - pDigit[index];
 
-    const rate = diff * 0.4;
+    const recommendedSavingRate = diff * 0.4;
 
-    console.log("diff", diff, rate, index);
+    let savingTarget = pDigit[index] * 6;
 
-    let fp = pDigit[index] * 6;
+    const durationInMonths = savingTarget / recommendedSavingRate;
 
-    const flexPlanObj = {
-      recSavingRate: rate,
-      savingTarget: fp,
-      months: fp / rate,
-    };
-
-    setExp(flexPlanObj);
+    setExp({ recommendedSavingRate, savingTarget, durationInMonths });
   };
 
   let user = JSON.parse(sessionStorage.getItem("user"));
@@ -54,7 +50,7 @@ function FlexPlanSpend() {
     try {
       if (exp) {
         const { data } = await axios.put(
-          `https://ardilla.herokuapp.com/ardilla/api/account/auto-flex-plan/${user._id}`,
+          `https://ardilla.herokuapp.com/ardilla/api/account//calc-target-saving-rate/${user._id}`,
           { exp }
         );
 
@@ -63,7 +59,7 @@ function FlexPlanSpend() {
 
         console.log(data);
 
-        // navigate("/flex-type", { state: exp });
+        navigate("/flex-type", { state: exp });
       } else {
         setLoading(false);
         setErr(true);
