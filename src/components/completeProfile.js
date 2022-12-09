@@ -28,6 +28,8 @@ function CompleteProfile() {
 
   const userID = _id;
 
+  const accountName = `${firstname}  ${lastname}`;
+
   useEffect(() => {
     if (verified === "otp") {
       return;
@@ -48,7 +50,7 @@ function CompleteProfile() {
     try {
       const { data } = await axios.post(
         `https://ardilla.herokuapp.com/ardilla/api/account/create-account`,
-        { userID }
+        { userID, accountName }
       );
 
       sessionStorage.setItem("acct", JSON.stringify(data.test));
