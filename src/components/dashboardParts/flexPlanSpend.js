@@ -11,6 +11,7 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
+import axios from "axios";
 
 function FlexPlanSpend() {
   const [exp, setExp] = useState();
@@ -27,60 +28,71 @@ function FlexPlanSpend() {
   const pDigit = location.state.flexPlan.cPsr;
   const ern = location.state.flexPlan.ern;
 
-  console.log(pDigit);
-
-  console.log(p);
-
-  // const psr1 = p[0];
-  // const psr2 = p[1].split("-")[1];
-  // const psr3 = p[2].split("-")[1];
-
-  // console.log(parseFloat(psr1));
-
-  // const psrArray = [psr1, psr2, psr3];
-
-  // console.log(psrArray);
-
   const handleSpend = (index) => {
-    // let perc = [0.4, 0.6, 0.8];
-
-    // rate
-
-    // console.log(index);
-
     const diff = ern - pDigit[index];
 
     const rate = diff * 0.4;
 
     console.log("diff", diff, rate, index);
 
-    // console.log("rate", rate, perc[index]);
-
     let fp = pDigit[index] * 6;
 
-    // console.log("fp");
+    const flexPlanObj = {
+      recSavingRate: rate,
+      savingTarget: fp,
+      months: fp / rate,
+    };
 
-    // // console.log(psrArray[index]);
-
-    // console.log(fp);
-
-    setExp({ rate, fp });
+    setExp(flexPlanObj);
   };
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
   const handleExp = async () => {
+    setErr(false);
     setLoading(true);
+    try {
+      if (exp) {
+        const { data } = await axios.put(
+          `https://ardilla.herokuapp.com/ardilla/api/account/auto-flex-plan/${user._id}`,
+          { exp }
+        );
 
-    if (exp) {
-      setLoading(false);
+        setErr(false);
+        setLoading(false);
 
-      navigate("/flex-type", { state: exp });
-    } else {
+        console.log(data);
+
+        // navigate("/flex-type", { state: exp });
+      } else {
+        setLoading(false);
+        setErr(true);
+        setOnSuccess(false);
+        setMsg("choose a plan first");
+      }
+    } catch (error) {
       setLoading(false);
       setErr(true);
-      setMsg("choose a plan first");
+      setMsg(`${error.response.data.msg} ` || "Network error");
     }
+
+    // if (exp) {
+    //   try {
+    //     const { data } = await axios.put(
+    //       `https://ardilla.herokuapp.com/ardilla/api/account/auto-flex-plan/${user._id}`,
+    //       { ern }
+    //     );
+
+    //     const ernInfo = data.plan;
+
+    //     setLoading(false);
+    //   setLoading(false);
+
+    // } else {
+    //   setLoading(false);
+    //   setErr(true);
+    //   setMsg("choose a plan first");
+    // }
   };
 
   const handleClickSuccess = () => {
