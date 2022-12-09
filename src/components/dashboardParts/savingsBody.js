@@ -119,12 +119,12 @@ function SavingsBody() {
             Insurance <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
-        <Link>
+        <a href="/dilla">
           <div className="d-flex flex-row">
             <img src={dilla} alt="" className="img-fluid me-2 icons" />
             Dilla
           </div>
-        </Link>
+        </a>
         <Link>
           <div className="d-flex flex-row">
             <img src={explore} alt="" className="img-fluid me-2 icons" />
