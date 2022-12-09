@@ -100,7 +100,7 @@ function Login() {
   return (
     <section className="login-section">
       {err && (
-        <div className="row justify-content-center">
+        <div className="row justify-content-center  ardilla-alert">
           <div className="col-md-6">
             <div
               className="alert alert-danger alert-dismissible fade show text-center text-danger"
@@ -120,7 +120,7 @@ function Login() {
         </div>
       )}
       {onSuccess && (
-        <div className="row justify-content-center mt-5">
+        <div className="row justify-content-center mt-5  ardilla-alert">
           <div className="col-md-6">
             <div
               className="alert alert-success alert-dismissible fade show text-center text-success"
