@@ -14,6 +14,7 @@ function Forgot() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setErr(false);
     try {
       const { data } = await axios.post(
         "https://ardilla.herokuapp.com/ardilla/api/auth/forgot-password",
@@ -28,6 +29,7 @@ function Forgot() {
     } catch (error) {
       setMsg(`${error.response.data.msg || "Network error"} `);
       setErr(true);
+      setOnSuccess(false);
       setLoading(false);
     }
   };

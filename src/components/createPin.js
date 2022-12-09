@@ -30,10 +30,9 @@ function CreatePin() {
   const sendRequest = async () => {
     try {
       setLoading(true);
+      setErr(false);
 
       if (code.length < 4 || confirmCode.length < 4) {
-        console.log(code);
-        console.log(confirmCode);
         setOnSuccess(false);
         setMsg(`incomplete pin`);
         setLoading(false);

@@ -35,6 +35,7 @@ function VerifyPhone() {
     try {
       e.preventDefault();
       setLoading(true);
+      setErr(false);
 
       const { data } = await axios.put(
         `https://ardilla.herokuapp.com/ardilla/api/auth/wrong-contact/${user._id}`,
@@ -46,6 +47,7 @@ function VerifyPhone() {
       navigate("/verify-mobile");
     } catch (error) {
       setLoading(false);
+      setOnSuccess(false);
       setMsg(`${error.response.data.msg || "Network error"} `);
       setErr(true);
       setLoading(false);

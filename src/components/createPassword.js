@@ -18,6 +18,7 @@ function CreatePassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setErr(false);
 
     if (password === confirmPassword) {
       try {
@@ -36,8 +37,8 @@ function CreatePassword() {
 
         setLoading(false);
       } catch (error) {
-        console.log(error);
-        setMsg(`${error.response.data.msg || "Network error"} `);
+        setOnSuccess(false);
+        setMsg(`${error.response.data.msg}` || "Network error");
         setErr(true);
         setLoading(false);
       }

@@ -32,6 +32,8 @@ function OtpPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setErr(false);
+    setOnSuccess(false);
 
     try {
       const { data } = await axios.post(
@@ -49,6 +51,7 @@ function OtpPage() {
       setIsLoading(false);
     } catch (error) {
       setErr(true);
+      setOnSuccess(false);
       setMsg(`${error.response.data.msg || "Network error"} `);
       setIsLoading(false);
     }
@@ -71,6 +74,8 @@ function OtpPage() {
 
   const handleResend = async (e) => {
     e.preventDefault();
+    setOnSuccess(false);
+    setErr(false);
 
     try {
       const { data } = await axios.post(
@@ -91,6 +96,7 @@ function OtpPage() {
     } catch (error) {
       setMsg(`${error.response.data.msg || "Network error"} `);
       setErr(true);
+      setOnSuccess(false);
       setIsLoading(false);
     }
   };
@@ -107,6 +113,7 @@ function OtpPage() {
         navigate("/sign-up");
       }
     } catch (error) {
+      setOnSuccess(false);
       setMsg(`${error.response.data.msg || "Network error"} `);
       setErr(true);
       setIsLoading(false);

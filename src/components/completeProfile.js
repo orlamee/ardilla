@@ -48,6 +48,7 @@ function CompleteProfile() {
 
   const createAcct = async () => {
     try {
+      setErr(false);
       const { data } = await axios.post(
         `https://ardilla.herokuapp.com/ardilla/api/account/create-account`,
         { userID, accountName }
@@ -55,11 +56,10 @@ function CompleteProfile() {
 
       sessionStorage.setItem("acct", JSON.stringify(data.test));
 
-      setErr(false);
       setOnSuccess(true);
       setIsLoading(false);
     } catch (error) {
-      console.log(error);
+      setOnSuccess(false);
       setMsg(`${error.response.data.msg || "Network error"} `);
       setErr(true);
       setIsLoading(false);
@@ -69,6 +69,7 @@ function CompleteProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setOnSuccess(false);
     setErr(false);
 
     try {
