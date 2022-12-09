@@ -111,7 +111,10 @@ function TypeFlex() {
                 <h6>
                   NGN {Intl.NumberFormat("en-US").format(location.state.rate)}
                 </h6>
-                <p>Every month for 13months</p>
+                <p>
+                  Every month for {location.state.fp / location.state.rate}{" "}
+                  months
+                </p>
               </div>
               <div className="row values">
                 <div className="col-md-6">
