@@ -41,7 +41,7 @@ function FlexPlanCreate() {
       } catch (error) {
         setLoading(false);
         setErr(true);
-        setMsg(`${error.response.data.msg || "Network error"} `);
+        setMsg(`${error.response.data.msg} ` || "Network error");
       }
     } else {
       setLoading(false);
