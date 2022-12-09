@@ -21,6 +21,8 @@ import nike from "../../img/dashboard/nike.svg";
 import starboy from "../../img/dashboard/starboy.svg";
 import levi from "../../img/dashboard/levi.svg";
 import withdraw from "../../img/dashboard/w-icon.svg";
+import rec from "../../img/dashboard/rec.svg";
+import use from "../../img/dashboard/userr.svg";
 
 
 
@@ -164,7 +166,7 @@ function DillaBody() {
               </div>
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 px-5">
             <div className="dilla-transaction p-5">
               <div className="history-title">
                 <h3>Transaction history</h3>
@@ -172,13 +174,13 @@ function DillaBody() {
               </div>
               <div className="row justify-content-center mt-5">
                 <div className="col-md-5">
-                  <h5>Description</h5>
+                  <h5>Date </h5>
                 </div>
                 <div className="col-md-3">
                   <h5>Description</h5>
                 </div>
                 <div className="col-md-3">
-                  <h5>Description</h5>
+                  <h5>Amount</h5>
                 </div>
               </div>
               <div className="row justify-content-center mt-2 border-bottom py-3">
@@ -210,6 +212,182 @@ function DillaBody() {
                 </div>
               </div>
             </div>
+            <div className="row">
+              <div className="col p-5">
+                <div className="requests">
+                  <h3>All Requests</h3>
+                  <div className="row mt-4">
+                    <div className="col">
+                      <div id="exTab1" className="row">	
+                        <ul  className="nav nav-pills dilla-link">
+                          <li className="active ms-3 me-5">
+                            <a  href="#1a" data-toggle="tab">Pending</a>
+                          </li>
+                          <li className="me-5">
+                            <a href="#2a" data-toggle="tab">Received</a>
+                          </li>
+                          <li className="me-5">
+                            <a href="#3a" data-toggle="tab">Complete</a>
+                          </li>
+                          <li className="me-5">
+                            <a href="#4a" data-toggle="tab">Rejected</a>
+                          </li>
+                        </ul>
+                        <div className="tab-content clearfix">
+                          <div className="tab-pane active" id="1a">
+                            <div className="row mt-3 pending">
+                              <div className="col-md-3">
+                                <div className="d-flex flex-row">
+                                  <img src={rec} alt="" className="img-fluid" />
+                                  <div className="ms-2 pending mt-2">
+                                    <p>Money Request </p>
+                                    <h5>{"<"}Ola{"/>"}</h5>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="col-md-2">
+                                <h5 className="mt-3">4 hrs ago</h5>
+                              </div>
+                              <div className="col-md-2">
+                                <h5 className="mt-3">₦4,000.00 </h5>
+                              </div>
+                              <div className="col-md-2">
+                                <button type="button" class="btn btn-primary dilla-btn btn-sm mt-2 px-3">Initiate</button>
+                              </div>
+                              <div className="col-md-2">
+                                <button type="button" class="btn btn-primary dilla-btn btn-sm mt-2 px-3">Decline</button>
+                              </div>
+                            </div>
+                            <div className="row mt-3 pending">
+                              <div className="col-md-3">
+                                <div className="d-flex flex-row">
+                                  <img src={rec} alt="" className="img-fluid" />
+                                  <div className="ms-2 pending mt-2">
+                                    <p>Money Request </p>
+                                    <h5>{"<"}Ola{"/>"}</h5>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="col-md-2">
+                                <h5 className="mt-3">4 hrs ago</h5>
+                              </div>
+                              <div className="col-md-2">
+                                <h5 className="mt-3">₦4,000.00 </h5>
+                              </div>
+                              <div className="col-md-2">
+                                <button type="button" class="btn btn-primary dilla-btn btn-sm mt-2 px-3">Initiate</button>
+                              </div>
+                              <div className="col-md-2">
+                                <button type="button" class="btn btn-primary dilla-btn btn-sm mt-2 px-3">Decline</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="tab-pane" id="2a">
+                            <div className="row mt-3 pending">
+                              <div className="col-md-3">
+                                <div className="d-flex flex-row">
+                                  <img src={use} alt="" className="img-fluid" />
+                                  <div className="ms-2 pending mt-2">
+                                    <p>Money Request </p>
+                                    <h5>{"<"}Nike{"/>"}</h5>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="col-md-2">
+                                <h5 className="mt-3">4 hrs ago</h5>
+                              </div>
+                              <div className="col-md-2">
+                                <h5 className="mt-3">₦4,000.00 </h5>
+                              </div>
+                              <div className="col-md-2">
+                                <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Initiate</button>
+                              </div>
+                              <div className="col-md-2">
+                                <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Decline</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="tab-pane" id="3a">
+                            <div className="row mt-3 pending">
+                              <div className="col-md-3">
+                                <div className="d-flex flex-row">
+                                  <img src={use} alt="" className="img-fluid" />
+                                  <div className="ms-2 pending mt-2">
+                                    <p>Money Request </p>
+                                    <h5>{"<"}Nike{"/>"}</h5>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="col-md-2">
+                                <h5 className="mt-3">4 hrs ago</h5>
+                              </div>
+                              <div className="col-md-2">
+                                <h5 className="mt-3">₦4,000.00 </h5>
+                              </div>
+                              <div className="col-md-2">
+                                <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Initiate</button>
+                              </div>
+                              <div className="col-md-2">
+                                <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Decline</button>
+                              </div>
+                            </div>
+                          </div>
+                            <div className="tab-pane" id="4a">
+                              <div className="row mt-3 pending">
+                                <div className="col-md-3">
+                                  <div className="d-flex flex-row">
+                                    <img src={use} alt="" className="img-fluid" />
+                                    <div className="ms-2 pending mt-2">
+                                      <p>Money Request </p>
+                                      <h5>{"<"}Nike{"/>"}</h5>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="col-md-2">
+                                  <h5 className="mt-3">4 hrs ago</h5>
+                                </div>
+                                <div className="col-md-2">
+                                  <h5 className="mt-3">₦4,000.00 </h5>
+                                </div>
+                                <div className="col-md-2">
+                                  <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Initiate</button>
+                                </div>
+                                <div className="col-md-2">
+                                  <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Decline</button>
+                                </div>
+                              </div>
+                              <div className="row mt-3 pending">
+                                <div className="col-md-3">
+                                  <div className="d-flex flex-row">
+                                    <img src={use} alt="" className="img-fluid" />
+                                    <div className="ms-2 pending mt-2">
+                                      <p>Money Request </p>
+                                      <h5>{"<"}Nike{"/>"}</h5>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="col-md-2">
+                                  <h5 className="mt-3">4 hrs ago</h5>
+                                </div>
+                                <div className="col-md-2">
+                                  <h5 className="mt-3">₦4,000.00 </h5>
+                                </div>
+                                <div className="col-md-2">
+                                  <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Initiate</button>
+                                </div>
+                                <div className="col-md-2">
+                                  <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Decline</button>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
