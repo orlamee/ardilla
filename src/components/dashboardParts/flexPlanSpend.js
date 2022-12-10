@@ -39,7 +39,14 @@ function FlexPlanSpend() {
 
     const durationInMonths = savingTarget / recommendedSavingRate;
 
-    setExp({ recommendedSavingRate, savingTarget, durationInMonths });
+    const type = "auto";
+
+    setExp({
+      type,
+      recommendedSavingRate,
+      savingTarget,
+      durationInMonths,
+    });
   };
 
   let user = JSON.parse(sessionStorage.getItem("user"));
