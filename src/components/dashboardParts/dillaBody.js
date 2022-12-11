@@ -127,7 +127,7 @@ function DillaBody() {
             </div>
             <div className="row mt-5 friends">
               <div className="col-md-2 text-center">
-                <img src={search} alt="" className="img-fluid" width={150} />
+                <link><img src={search} alt="" className="img-fluid" width={150} /></link>
                 <p className="text-center">Search</p>
               </div>
               <div className="col-md-10">
@@ -167,7 +167,7 @@ function DillaBody() {
                 </div>
               </div>
             </div>
-            <div className="row mt-4">
+            <div className="row mt-4" id="hidediv">
               <div className="search-box">
                 <input type="text" class="search-input" placeholder="Search"/>
                 <button className="search-button">
