@@ -23,6 +23,8 @@ import levi from "../../img/dashboard/levi.svg";
 import withdraw from "../../img/dashboard/w-icon.svg";
 import rec from "../../img/dashboard/rec.svg";
 import use from "../../img/dashboard/userr.svg";
+import cadet from "../../img/dashboard/caddet.svg";
+import dep from "../../img/dashboard/dep.svg";
 
 
 
@@ -165,6 +167,14 @@ function DillaBody() {
                 </div>
               </div>
             </div>
+            <div className="row mt-4">
+              <div className="search-box">
+                <input type="text" class="search-input" placeholder="Search"/>
+                <button className="search-button">
+                  <i className="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
           </div>
           <div className="col-md-6 px-5">
             <div className="dilla-transaction p-5">
@@ -262,14 +272,195 @@ function DillaBody() {
                                       <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div className="modal-body flex-modal-body">
-                                      <div className="container"></div>
+                                      <div className="container initiate-modal p-5">
+                                        <div className="row justify-content-center">
+                                          <div className="col-md-6 text-center ">
+                                            <img src={cadet} alt="" className="img-fluid" />
+                                            <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                                            <p className="mb-5">0708 7788 7890</p>
+                                          </div>
+                                          <hr/>
+                                        </div>
+                                        <div className="row my-3">
+                                          <div className="col">
+                                            <h3>Request history</h3>
+                                          </div>
+                                        </div>
+                                        <div className="row border-bottom pb-4">
+                                          <div className="d-flex flex-row">
+                                            <img src={withdraw} alt="" className="img-fluid me-3" />
+                                            <div className="hist">
+                                              <h2>You sent NGN 2000 to  {"<"}StarBoy{"/>"} </h2>
+                                              <h5>20th of November, 2022</h5>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="row border-bottom py-4">
+                                          <div className="d-flex flex-row">
+                                            <img src={dep} alt="" className="img-fluid me-3" />
+                                            <div className="hist">
+                                              <h2>You sent NGN 2000 to  {"<"}StarBoy{"/>"} </h2>
+                                              <h5>20th of November, 2022</h5>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="row">
+                                          <div className="mt-5">
+                                            <Link className="btn btn-outline-primary px-5 py-3 d-btn fs-6" to="" style={{width: "100%"}}>{"<"}StarBoy{"/>"} sent you a request </Link>
+                                          </div>
+                                        </div>
+                                        <div className="row text-center">
+                                          <div className="btn-down">
+                                            <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#initiate-continue" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" style={{width: "60%"}}>Initiate</Link>
+                                          </div>
+                                        </div>
+                                      </div>
                                     </div>
-                                    
+                                  </div>
+                                </div>
+                              </div>
+                              {/* intiate 2 */}
+                              <div className="modal flex-modal fade" id="initiate-continue" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog right-dialog">
+                                  <div className="modal-content right-content">
+                                    <div className="modal-header">
+                                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body flex-modal-body">
+                                      <div className="container initiate-modal p-5">
+                                        <div className="row justify-content-center">
+                                          <div className="col-md-6 text-center ">
+                                            <img src={cadet} alt="" className="img-fluid" />
+                                            <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                                            <p className="mb-5">0708 7788 7890</p>
+                                          </div>
+                                          <hr/>
+                                        </div>
+                                        <div className="row my-3">
+                                          <div className="col">
+                                            <h3>Request history</h3>
+                                          </div>
+                                        </div>
+                                        <div className="row border-bottom pb-4">
+                                          <div className="d-flex flex-row">
+                                            <img src={withdraw} alt="" className="img-fluid me-3" />
+                                            <div className="hist">
+                                              <h2>You sent NGN 2000 to  {"<"}StarBoy{"/>"} </h2>
+                                              <h5>20th of November, 2022</h5>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="row border-bottom py-4">
+                                          <div className="d-flex flex-row">
+                                            <img src={dep} alt="" className="img-fluid me-3" />
+                                            <div className="hist">
+                                              <h2>You sent NGN 2000 to  {"<"}StarBoy{"/>"} </h2>
+                                              <h5>20th of November, 2022</h5>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="row">
+                                          <div className="mt-5">
+                                            <h3>Request Amount</h3>
+                                            <form>
+                                              <div className="mb-3 mt-1">
+                                                <input type="number" className="form-control target-form" defaultValue={4000} required/>
+                                              </div>
+                                            </form>
+                                          </div>
+                                        </div>
+                                        <div className="row text-center">
+                                          <div className="btn-down">
+                                            <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#send-money" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" style={{width: "60%"}}>Continue</Link>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              {/* initiate 3 */}
+                              <div className="modal flex-modal fade" id="send-money" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog right-dialog">
+                                  <div className="modal-content right-content">
+                                    <div className="modal-header">
+                                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body flex-modal-body">
+                                      <div className="container initiate-modal p-5">
+                                        <div className="row justify-content-center">
+                                          <div className="col-md-6 text-center ">
+                                            <img src={cadet} alt="" className="img-fluid" />
+                                            <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                                            <p className="mb-5">0708 7788 7890</p>
+                                          </div>
+                                          <hr/>
+                                        </div>
+                                        <div className="row my-3">
+                                          <div className="col">
+                                            <h3>Request history</h3>
+                                          </div>
+                                        </div>
+                                        <div className="row border-bottom pb-4">
+                                          <div className="d-flex flex-row">
+                                            <img src={withdraw} alt="" className="img-fluid me-3" />
+                                            <div className="hist">
+                                              <h2>You sent NGN 2000 to  {"<"}StarBoy{"/>"} </h2>
+                                              <h5>20th of November, 2022</h5>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="row border-bottom py-4">
+                                          <div className="d-flex flex-row">
+                                            <img src={dep} alt="" className="img-fluid me-3" />
+                                            <div className="hist">
+                                              <h2>You sent NGN 2000 to  {"<"}StarBoy{"/>"} </h2>
+                                              <h5>20th of November, 2022</h5>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="row">
+                                          <div className="mt-3">
+                                            <h3>Set OTS Question</h3>
+                                            <form>
+                                              <div className="mb-3 mt-1">
+                                                <input type="text" className="form-control target-form" placeholder="E.g What is your name " required/>
+                                              </div>
+                                            </form>
+                                          </div>
+                                        </div>
+                                        <div className="row">
+                                          <div className="mt-2">
+                                            <h3>Set OTS Answer</h3>
+                                            <form>
+                                              <div className="mb-3 mt-1">
+                                                <input type="text" className="form-control target-form" placeholder="Chukwukwa Adekunle" required/>
+                                              </div>
+                                            </form>
+                                          </div>
+                                        </div>
+                                        <div className="row">
+                                          <div className="mt-2">
+                                            <h3>Pin</h3>
+                                            <form>
+                                              <div className="mb-3 mt-1">
+                                                <input type="number" className="form-control target-form" placeholder="Enter Pin" required/>
+                                              </div>
+                                            </form>
+                                          </div>
+                                        </div>
+                                        <div className="row text-center">
+                                          <div className="">
+                                            <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" to="" style={{width: "60%"}}>Continue</Link>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                               <div className="col-md-2">
-                                <button type="button" class="btn btn-primary dilla-btn btn-sm mt-2 px-3">Decline</button>
+                                <button type="button" class="btn btn-primary dilla-btn-outline btn-sm mt-2 px-3">Decline</button>
                               </div>
                             </div>
                             <div className="row mt-3 pending">
@@ -293,7 +484,7 @@ function DillaBody() {
                               </div>
                               
                               <div className="col-md-2">
-                                <button type="button" class="btn btn-primary dilla-btn btn-sm mt-2 px-3">Decline</button>
+                                <button type="button" class="btn btn-primary dilla-btn-outline btn-sm mt-2 px-3">Decline</button>
                               </div>
                             </div>
                           </div>
@@ -318,7 +509,7 @@ function DillaBody() {
                                 <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Initiate</button>
                               </div>
                               <div className="col-md-2">
-                                <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Decline</button>
+                                <button type="button" class="btn btn-primary dilla-btn-outline btn-sm px-3 mt-2">Decline</button>
                               </div>
                             </div>
                           </div>
@@ -343,7 +534,7 @@ function DillaBody() {
                                 <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Initiate</button>
                               </div>
                               <div className="col-md-2">
-                                <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Decline</button>
+                                <button type="button" class="btn btn-primary dilla-btn-outline btn-sm px-3 mt-2">Decline</button>
                               </div>
                             </div>
                           </div>
@@ -368,7 +559,7 @@ function DillaBody() {
                                   <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Initiate</button>
                                 </div>
                                 <div className="col-md-2">
-                                  <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Decline</button>
+                                  <button type="button" class="btn btn-primary dilla-btn-outline btn-sm px-3 mt-2">Decline</button>
                                 </div>
                               </div>
                               <div className="row mt-3 pending">
@@ -391,7 +582,7 @@ function DillaBody() {
                                   <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Initiate</button>
                                 </div>
                                 <div className="col-md-2">
-                                  <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Decline</button>
+                                  <button type="button" class="btn btn-primary dilla-btn-outline btn-sm px-3 mt-2">Decline</button>
                                 </div>
                               </div>
                           </div>
