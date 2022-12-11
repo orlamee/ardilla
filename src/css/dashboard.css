@@ -1619,3 +1619,16 @@ button.owl-prev, .owl-carousel button.owl-dot {
   background-color: #8807f7;
   border: 1px solid #8807f7;
 }
+
+.right-dialog {
+  position: fixed;
+  margin: auto;
+  width: 450px;
+  height: 100%;
+  right: 0px;
+  /* top: 50px; */
+}
+
+.right-content {
+  height: 100%!important;
+}

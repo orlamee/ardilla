@@ -252,7 +252,21 @@ function DillaBody() {
                                 <h5 className="mt-3">₦4,000.00 </h5>
                               </div>
                               <div className="col-md-2">
-                                <button type="button" class="btn btn-primary dilla-btn btn-sm mt-2 px-3">Initiate</button>
+                                <button data-bs-toggle="modal" data-bs-target="#intiate" type="button" class="btn btn-primary dilla-btn btn-sm mt-2 px-3">Initiate</button>
+                              </div>
+                              {/* intiate Modal */}
+                              <div className="modal flex-modal fade" id="intiate" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog right-dialog">
+                                  <div className="modal-content right-content">
+                                    <div className="modal-header">
+                                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body flex-modal-body">
+                                      <div className="container"></div>
+                                    </div>
+                                    
+                                  </div>
+                                </div>
                               </div>
                               <div className="col-md-2">
                                 <button type="button" class="btn btn-primary dilla-btn btn-sm mt-2 px-3">Decline</button>
@@ -277,6 +291,7 @@ function DillaBody() {
                               <div className="col-md-2">
                                 <button type="button" class="btn btn-primary dilla-btn btn-sm mt-2 px-3">Initiate</button>
                               </div>
+                              
                               <div className="col-md-2">
                                 <button type="button" class="btn btn-primary dilla-btn btn-sm mt-2 px-3">Decline</button>
                               </div>
@@ -387,10 +402,10 @@ function DillaBody() {
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
+
     </section>
   );
 }
