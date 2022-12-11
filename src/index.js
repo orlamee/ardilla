@@ -58,6 +58,7 @@ import TargetOverview from "./dashboard/targetOverview";
 import TargetOverviewSan from "./dashboard/targetOverviewSan";
 import TargetOverviewCard from "./dashboard/targetOverviewCard";
 import DillaMain from "./dashboard/dilla";
+import Ot from "./pages/newOtp";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -117,6 +118,7 @@ root.render(
       <Route path="/target-overview" element={<TargetOverview/>}></Route>
       <Route path="/target-overview/san" element={<TargetOverviewSan/>}></Route>
       <Route path="/target-overview/card" element={<TargetOverviewCard/>}></Route>
+      <Route path="/ot" element={<Ot/>}></Route>
 
       
       <Route path="/dilla" element={<DillaMain/>}></Route>
