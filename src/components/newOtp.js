@@ -8,7 +8,7 @@ function NewOtp(params) {
       <div className="row justify-content-center">
         <div className="col-md-4">
           <div className="text-center">
-            <OTPInput value={OTP} onChange={setOTP} autoFocus OTPLength={6} otpType="number" disabled={false}  />
+            <OTPInput value={OTP} onChange={setOTP} autoFocus OTPLength={7} otpType="number" disabled={false}  />
           </div>
           {/* <ResendOTP onResendClick={() => console.log("Resend clicked")} /> */}
         </div>
