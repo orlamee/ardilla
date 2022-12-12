@@ -1739,3 +1739,20 @@ button.owl-prev, .owl-carousel button.owl-dot {
   font-weight: 600;
   line-height: 18px;
 }
+
+.decline-card {
+  background-color: #FEF6F8;
+  border-radius: 30px;
+  
+}
+
+.decline-card h2 {
+  color: #E8356D;
+  margin-bottom: 0;
+}
+
+.btn-f6 {
+  font-size: 14px!important;
+  padding-left: 50px!important;
+  padding-right: 67px!important;
+}

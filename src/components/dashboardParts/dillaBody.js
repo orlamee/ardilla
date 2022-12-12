@@ -27,6 +27,8 @@ import cadet from "../../img/dashboard/caddet.svg";
 import successful from "../../img/dashboard/cadet-success.svg";
 import dep from "../../img/dashboard/dep.svg";
 import sent from "../../img/dashboard/checked.svg";
+import cancel from "../../img/dashboard/cancel.svg";
+import revoke from "../../img/dashboard/revoke.svg";
 
 
 
@@ -491,7 +493,104 @@ function DillaBody() {
                               </div>
 
                               <div className="col-md-2">
-                                <button type="button" class="btn btn-primary dilla-btn-outline btn-sm mt-2 px-3">Decline</button>
+                                <button data-bs-toggle="modal" data-bs-target="#decline" type="button" to="#" class="btn btn-primary dilla-btn-outline btn-sm mt-2 px-3">Decline</button>
+                              </div>
+                              {/* Decline */}
+                              <div className="modal flex-modal fade" id="decline" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog right-dialog">
+                                  <div className="modal-content right-content">
+                                    <div className="modal-header">
+                                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body flex-modal-body">
+                                      <div className="container initiate-modal p-5">
+                                        <div className="row justify-content-center">
+                                          <div className="col-md-6 text-center ">
+                                            <img src={cadet} alt="" className="img-fluid" />
+                                            <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                                            <p className="mb-3">0708 7788 7890</p>
+                                          </div>
+                                          <hr/>
+                                        </div>
+                                        <div className="row my-3">
+                                          <div className="col">
+                                            <h3>Request history</h3>
+                                          </div>
+                                        </div>
+                                        <div className="row border-bottom pb-2">
+                                          <div className="d-flex flex-row">
+                                            <img src={withdraw} alt="" className="img-fluid me-3" />
+                                            <div className="hist">
+                                              <h2>You sent <span style={{color: "#3D0072"}}>NGN 2000</span> to <span style={{color: "#3D0072"}}>{"<"}StarBoy{"/>"}</span> </h2>
+                                              <h5>20th of November, 2022</h5>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="row border-bottom py-4">
+                                          <div className="d-flex flex-row">
+                                            <img src={dep} alt="" className="img-fluid me-3" />
+                                            <div className="hist">
+                                              <h2>You received <span style={{color: "#3D0072"}}>NGN 2000</span> from <span style={{color: "#3D0072"}}>{"<"}StarBoy{"/>"}</span> </h2>
+                                              <h5>20th of November, 2022</h5>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      
+                                        <div className="row mt-5">
+                                          <div className="col text-center">
+                                            <div className="decline-card p-3">
+                                              <h2>Are you sure you want to decline?</h2>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="row mt-5 justify-content-center">
+                                          <div className="col text-center">
+                                            <div className="d-flex flex-row">
+                                              <Link data-bs-toggle="modal" data-bs-target="#decline-success" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn btn-f6 mt-4 me-3">Yes</Link>
+                                              <Link type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn btn-f6 outline-btn fs-6 mt-4">No, Cancel</Link>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              {/* Decline-Successful */}
+                              <div className="modal flex-modal fade" id="decline-success" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog right-dialog">
+                                  <div className="modal-content right-content">
+                                    <div className="modal-header">
+                                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body flex-modal-body">
+                                      <div className="container initiate-modal p-5">
+                                        <div className="row justify-content-center">
+                                          <div className="col-md-6 text-center ">
+                                            <img src={revoke} alt="" className="img-fluid" />
+                                            <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                                            <p className="mb-3">0708 7788 7890</p>
+                                          </div>
+                                        </div>
+                                        <div className="row my-3 sent-details">
+                                          <div className="col text-center">
+                                            <img src={cancel} alt="" className="img-fluid" />
+                                          </div>
+                                        </div>
+                                        <div className="row">
+                                          <div className="mt-5 ots-success text-center">
+                                            <h4 style={{color: "#E8356D"}}>Payment Declined</h4>
+                                          </div>
+                                        </div>
+                                        <div className="row text-center">
+                                          <div className="mt-5">
+                                            <a type="button" href="/dilla" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" style={{width: "60%"}}>Back to Dilla</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                             <div className="row mt-3 pending">
