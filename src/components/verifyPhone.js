@@ -49,8 +49,10 @@ function VerifyPhone() {
 
       sessionStorage.setItem("user", JSON.stringify(data.user));
 
+      setWrongContactSuc(true);
       setLoading(false);
-      // setModal(false);
+
+      setNewPhoneNumber("");
     } catch (error) {
       setLoading(false);
       setOnSuccess(false);
@@ -142,13 +144,13 @@ function VerifyPhone() {
               aria-labelledby="staticBackdropLabel"
               aria-hidden="true"
             >
-              <h4>parent</h4>
+              {/* <h4>parent</h4> */}
               <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                   <div className="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                    {/* <h1 class="modal-title fs-5" id="staticBackdropLabel">
                       Modal title
-                    </h1>
+                    </h1> */}
                     <button
                       onClick={() => setModal(!modal)}
                       type="button"
