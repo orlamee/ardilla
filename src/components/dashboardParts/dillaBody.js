@@ -207,7 +207,7 @@ function DillaBody() {
                             <div className="mt-5">
                               <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#dilla-bank-transfer" className="btn btn-secondary bg-ussd" style={{width: "100%"}}>Bank Transfer</Link>
                               <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="" className="btn btn-secondary mt-3 bg-ussd" style={{width: "100%"}}>USSD</Link>
-                              <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="" className="btn btn-secondary mt-3 bg-ussd" style={{width: "100%"}}>Card</Link>
+                              <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#dilla-card-transc" className="btn btn-secondary mt-3 bg-ussd" style={{width: "100%"}}>Card</Link>
                             </div>
                           </div>
                         </div>
@@ -290,6 +290,26 @@ function DillaBody() {
                   </div>
                 </div>
               </div>
+              {/* Card Transaction */}
+              <div className="modal flex-modal fade" id="dilla-card-transc" data-backdrop="static">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container">
+                        <div className="row mx-3 justify-content-center">
+                          <div className="col">
+                            <h3>First time? Add a card</h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <Link type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 mt-4">Send Money</Link>
             </div>
             <div className="recent-transaction mt-5">
@@ -346,7 +366,7 @@ function DillaBody() {
                     <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div className="modal-body flex-modal-body">
-                    <div className="container initiate-modal p-4">
+                    <div className="container initiate-modal p-5">
                       <div className="row justify-content-center">
                         <div className="col-md-6 text-center ">
                           <img src={cadet} alt="" className="img-fluid" />
@@ -391,7 +411,7 @@ function DillaBody() {
                     <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div className="modal-body flex-modal-body">
-                    <div className="container initiate-modal p-4">
+                    <div className="container initiate-modal p-5">
                       <div className="row justify-content-center">
                         <div className="col-md-6 text-center ">
                           <img src={cadet} alt="" className="img-fluid" />
@@ -470,7 +490,7 @@ function DillaBody() {
                     <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div className="modal-body flex-modal-body">
-                    <div className="container initiate-modal p-4">
+                    <div className="container initiate-modal p-5">
                       <div className="row justify-content-center">
                         <div className="col-md-6 text-center ">
                           <img src={cadet} alt="" className="img-fluid" />

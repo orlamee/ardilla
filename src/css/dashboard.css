@@ -1634,7 +1634,7 @@ button.owl-prev, .owl-carousel button.owl-dot {
 .right-dialog {
   position: fixed;
   margin: auto;
-  width: 450px;
+  width: 500px;
   height: 100%;
   right: 0px;
   /* top: 50px; */
