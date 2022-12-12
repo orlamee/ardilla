@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -11,11 +11,90 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
-
+import axios from "axios";
 
 function FlexPlanSetDuration() {
+  const [loading, setLoading] = useState(false);
+  const [customDuration, setCustomDuration] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
+
+  // to="/flex-set-duration"
+
+  const navigate = useNavigate();
+
+  let user = JSON.parse(sessionStorage.getItem("user"));
+
+  const handleEarn = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/account/custom-flex-plan/duration/${user._id}`,
+        { customDuration }
+      );
+
+      // const ernInfo = data.plan;
+
+      setLoading(false);
+      console.log(data);
+
+      sessionStorage.setItem("acct", JSON.stringify(data.plan));
+      navigate("/flex-dashboard");
+    } catch (error) {
+      setLoading(false);
+      setErr(true);
+      setMsg(`${error.response.data.msg} ` || "Network error");
+    }
+  };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+  };
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
@@ -30,7 +109,7 @@ function FlexPlanSetDuration() {
           </div>
         </Link>
         <Link to="/savings" className="active">
-          <div className="d-flex flex-row" >
+          <div className="d-flex flex-row">
             <img src={saving} alt="" className="img-fluid me-2 icons" />
             Savings
           </div>
@@ -89,21 +168,52 @@ function FlexPlanSetDuration() {
       <div className="content py-5 px-5 earning-section step-six">
         <div className="row earning">
           <div className="col-md-6">
-            <h2>Cadet {"<"}Starboy{"/>"},</h2>
+            <h2>
+              Cadet {"<"}
+              {user.kodeHex}
+              {"/>"},
+            </h2>
           </div>
         </div>
         <div className="row justify-content-center earns saving-top">
           <div className="col-md-8 text-center">
-            <h3>Set <span style={{color: "#E8356D"}}>Flex </span><br/>duration</h3>
+            <h3>
+              Set <span style={{ color: "#E8356D" }}>Flex </span>
+              <br />
+              duration
+            </h3>
             <p className="my-5">Choose how often you want to save</p>
             <div className="row justify-content-center">
               <div className="col-md-5">
-                <form>
+                <form onSubmit={handleEarn}>
                   <div className="mb-3">
-                    <input type="number" className="form-control target-form" placeholder="Set duration" required/>
+                    <input
+                      type="number"
+                      className="form-control target-form"
+                      placeholder="Set duration"
+                      required
+                      value={customDuration}
+                      onChange={(e) => setCustomDuration(e.target.value)}
+                    />
                   </div>
                   <div className="mb-5">
-                    <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" to="/flex-dashboard" style={{width: "100%"}}>Next</Link>
+                    {loading ? (
+                      <button
+                        type="button"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
+                        style={{ width: "100%" }}
+                      >
+                        Loading
+                      </button>
+                    ) : (
+                      <button
+                        type="submit"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
+                        style={{ width: "100%" }}
+                      >
+                        Next
+                      </button>
+                    )}
                   </div>
                 </form>
               </div>
@@ -116,4 +226,3 @@ function FlexPlanSetDuration() {
 }
 
 export default FlexPlanSetDuration;
- 

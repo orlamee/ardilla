@@ -14,7 +14,7 @@ import chat from "../../img/dashboard/chat.svg";
 import axios from "axios";
 
 function FlexPlanCreate() {
-  const [ern] = useState(350000);
+  const [ern, setErn] = useState();
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
@@ -171,7 +171,9 @@ function FlexPlanCreate() {
         <div className="row earning">
           <div className="col-md-6">
             <h2>
-              Cadet {"<"}Starboy{"/>"},
+              Cadet {"<"}
+              {user.kodeHex}
+              {"/>"},
             </h2>
           </div>
         </div>
@@ -266,9 +268,20 @@ function FlexPlanCreate() {
                 role="group"
                 aria-label="First group"
               >
-                <button type="button" className="btn btn-flex">
+                {/* <button type="button" className="btn btn-flex">
                   Enter Amount
-                </button>
+                </button> */}
+
+                {/* <div className="mb-3"> */}
+                <input
+                  type="number"
+                  className="form-control target-form"
+                  placeholder="Enter amount"
+                  required
+                  value={ern}
+                  onChange={(e) => setErn(e.target.value)}
+                />
+                {/* </div> */}
               </div>
             </div>
             <div>

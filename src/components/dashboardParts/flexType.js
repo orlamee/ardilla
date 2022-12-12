@@ -16,6 +16,10 @@ function TypeFlex() {
   const location = useLocation();
   console.log(location);
 
+  let acct = JSON.parse(sessionStorage.getItem("acct"));
+
+  const flexPlan = acct.flexPlan;
+
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -111,11 +115,11 @@ function TypeFlex() {
                 <h6>
                   NGN{" "}
                   {Intl.NumberFormat("en-US").format(
-                    location.state.recommendedSavingRate
+                    flexPlan.recommendedSavingRate
                   )}
                 </h6>
                 <p>
-                  Every month for {location.state.durationInMonths}
+                  Every month for {flexPlan.durationInMonths}
                   months
                 </p>
               </div>
@@ -127,9 +131,7 @@ function TypeFlex() {
                 </div>
                 <div className="col-md-6 text-end">
                   <h5>
-                    {Intl.NumberFormat("en-US").format(
-                      location.state.savingTarget
-                    )}
+                    {Intl.NumberFormat("en-US").format(flexPlan.savingTarget)}
                   </h5>
                   <h5>11%</h5>
                   <h5>Cadet</h5>
@@ -169,7 +171,7 @@ function TypeFlex() {
               <div className="text-center">
                 <Link
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5"
-                  to="/"
+                  to="/flex-set-amount"
                   style={{ width: "70%" }}
                 >
                   Go Custom
