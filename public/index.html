@@ -134,6 +134,21 @@
           $("#choosepayment").modal("hide");
       });
     </script>
+    <script>
+      $("#dilla-enter-card").on('show.bs.modal', function (e) {
+          $("#dilla-card-transc").modal("hide");
+      });
+    </script>
+    <script>
+      $("#dilla-card-transc-two").on('show.bs.modal', function (e) {
+          $("#dilla-enter-card").modal("hide");
+      });
+    </script>
+    <script>
+      $("#dilla-card-transc-four").on('show.bs.modal', function (e) {
+          $("#dilla-card-transc-three").modal("hide");
+      });
+    </script>
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

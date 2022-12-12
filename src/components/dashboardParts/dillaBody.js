@@ -31,6 +31,9 @@ import cancel from "../../img/dashboard/cancel.svg";
 import revoke from "../../img/dashboard/revoke.svg";
 import dillalogo from "../../img/dashboard/tt-icon.svg";
 import success from "../../img/dashboard/payment-success.svg";
+import addcard from "../../img/dashboard/addcard.svg";
+import blur from "../../img/dashboard/blur-card.svg";
+import carddetails from "../../img/dashboard/card-details.svg";
 
 
 
@@ -290,8 +293,120 @@ function DillaBody() {
                   </div>
                 </div>
               </div>
-              {/* Card Transaction */}
+              {/* Card Transaction -step 1 */}
               <div className="modal flex-modal fade" id="dilla-card-transc" data-backdrop="static">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container add-card">
+                        <div className="row mx-3">
+                          <div className="col-md-6">
+                            <h3>First time? Add a card</h3>
+                            <div className="addcard-bg text-center">
+                              <img src={addcard} alt="" className="img-fluid" />
+                              <p><Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#dilla-enter-card">Add a new card</Link></p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Card Transaction -step 2 */}
+              <div className="modal flex-modal fade" id="dilla-card-transc-two" data-backdrop="static">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container add-card">
+                        <div className="row mx-3">
+                          <div className="col-md-6">
+                            <h3>First time? Add a card</h3>
+                          </div>
+                        </div>
+                        <div className="row mx-3">
+                          <div className="col-md-6">
+                            <div className="addcard-bg text-center">
+                              <img src={addcard} alt="" className="img-fluid" />
+                              <p><Link>Add a new card</Link></p>
+                            </div>
+                          </div>
+                          <div className="col-md-6">
+                            <div className="addcarddetail-bg text-center">
+                              <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#dilla-card-transc-three"><img src={carddetails} alt="" className="img-fluid" /></Link>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Card Transaction -step 3 */}
+              <div className="modal flex-modal fade" id="dilla-card-transc-three" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container">
+                        <div className="row mx-3">
+                          <div className="col">
+                            <div className="row t-card p-4 bg-white">
+                              <div className="col-md-6">
+                                <img src={dillalogo} alt="" className="img-fluid" />
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <img src={blur} alt="" className="img-fluid" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="row mx-3 mb-4 mt-5 title-card">
+                          <div className="col text-center">
+                            <h3 className="transfer-amt">Pay Now</h3>
+                          </div>
+                        </div>
+                        <div className="row mx-3">
+                          <div className="col text-center">
+                            <div className="input-group cart-group my-3">
+                              <span className="input-group-btn">
+                                <button type="button" className="quantity-left-minus minus-bg btn btn-number me-3"  data-type="minus" data-field="">
+                                  <i className="bi bi-dash"></i>
+                                </button>
+                              </span>
+                              <input type="text" id="quantity" name="quantity" className="form-control input-number" defaultValue="30000" min="1" max="100"/>
+                              <span className="input-group-btn">
+                                <button type="button" className="quantity-right-plus btn minus-bg btn-number ms-3" data-type="plus" data-field="">
+                                  <i className="bi bi-plus"></i>
+                                </button>
+                              </span>
+                            </div>
+                            <span className="charges">₦250.00 (1.5% fee caped at ₦250) </span>
+                          </div>
+                        </div>
+                      
+                        <div className="row mx-3">
+                          <Link type="button" data-bs-toggle="modal" data-bs-target="#dilla-card-transc-four" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Card Transaction step-4 */}
+              <div className="modal flex-modal fade" id="dilla-card-transc-four" data-backdrop="static">
                 <div className="modal-dialog modal-dialog-centered">
                   <div className="modal-content">
                     <div className="modal-header">
@@ -301,10 +416,63 @@ function DillaBody() {
                     <div className="modal-body flex-modal-body">
                       <div className="container">
                         <div className="row mx-3 justify-content-center">
-                          <div className="col">
-                            <h3>First time? Add a card</h3>
+                          <div className="col-md-8 text-center payment-success">
+                            <img src={success} alt="" className="img-fluid" />
+                            <h2 className="my-5">Payment Received</h2>
+                            <p className="mb-5">Lorem ipsum dolor sit amet consectetur. Sapien vel netus eget orci semper parturient. Ut nec pellentesque consequat vitae massa nisi.</p>
+                            {/* <a href="/flex/top-up" >Back to Overview</a> */}
                           </div>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Card Transaction Enter Details */}
+              <div className="modal flex-modal fade" id="dilla-enter-card" data-backdrop="static">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container add-card">
+                        <div className="row mx-3">
+                          <div className="col-md-12">
+                            <h3>Enter Card Details</h3>
+                            <div className="row mt-3">
+                              <div className="c-details">
+                                <form>
+                                  <label>Card Number</label>
+                                  <div className="mb-3 mt-1">
+                                    <input type="number" className="form-control target-form" placeholder="0000 0000 0000 0000" required/>
+                                  </div>
+                                  <div className="row">
+                                    <div className="col-md-6">
+                                      <label>Expiry Date</label>
+                                      <div className="mb-3 mt-1">
+                                        <input type="number" className="form-control target-form" placeholder="MM/YY" required/>
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <label>CVV</label>
+                                      <div className="mb-3 mt-1">
+                                        <input type="number" className="form-control target-form" placeholder="***" required/>
+                                      </div>
+                                    </div>
+                                    <label>Cardholder’s Name</label>
+                                    <div className="mb-3 mt-1">
+                                      <input type="text" className="form-control target-form" placeholder="Full Name" required/>
+                                    </div>
+                                    <Link  data-bs-toggle="modal" data-bs-target="#dilla-card-transc-two" type="button" className="btn px-5 py-3 ardilla-btn fs-6 mt-4 me-3">Pay NGN 5,000</Link>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
                       </div>
                     </div>
                   </div>

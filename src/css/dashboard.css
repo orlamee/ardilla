@@ -1364,7 +1364,7 @@ input:checked + .slider:before {
 
 .transfer-amt {
   color: #3C0071;
-  font-size: 24px;
+  font-size: 24px!important;
   line-height: 27px;
   font-weight: 700;
 }
@@ -1764,4 +1764,42 @@ button.owl-prev, .owl-carousel button.owl-dot {
 
 .media-29101 img {
   width: 5.9375rem!important;
+}
+
+.add-card h3 {
+  color: #3D0072;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.add-card a {
+  color: #3D0072;
+  font-size: 9px;
+  font-weight: 400;
+  /* line-height: 10px; */
+  margin-top: 10px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.addcard-bg {
+  background-color: #F9F9F9;
+  padding: 50px;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.addcarddetail-bg {
+  background-color: #F9F9F9;
+  padding: 20px 0px 14px 6px;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.c-details label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+  color: #6B7280;
 }

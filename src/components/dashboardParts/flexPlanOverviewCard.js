@@ -183,24 +183,13 @@ function FlexPlanOverviewCard() {
                           <span className="charges">₦250.00 (1.5% fee caped at ₦250) </span>
                         </div>
                       </div>
-                      {/* <div className="row mx-3 mt-4 title-card justify-content-center">
-                        <div className="col-md-10">
-                          <h3> Top up your SAN USING;</h3>
-                          <div className="mt-4">
-                            <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#ussd" className="btn btn-secondary bg-ussd" style={{width: "100%"}}>USSD</Link>
-                            <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#banktransfer" className="btn btn-secondary mt-3 bg-ussd" style={{width: "100%"}}>Bank Transfer</Link>
-                          </div>
-                        </div>
-                      </div> */}
+                      
                       <div className="row mx-3">
                         <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
                       </div>
                     </div>
                   </div>
-                  {/* <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" className="btn btn-primary">Save changes</button>
-                  </div> */}
+                  
                 </div>
               </div>
             </div>
