@@ -26,6 +26,9 @@ function VerifyPhone() {
   const [onSuccess, setOnSuccess] = useState(false);
   const [newPhoneNumber, setNewPhoneNumber] = useState("");
   const [modal, setModal] = useState(false);
+  const [wrongContactErr, setWrongContactErr] = useState("");
+  const [wrongContactMsg, setWrongContactMsg] = useState("");
+  const [wrongContactSuc, setWrongContactSuc] = useState("");
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
@@ -36,7 +39,8 @@ function VerifyPhone() {
     try {
       e.preventDefault();
       setLoading(true);
-      setErr(false);
+      // setErr(false);
+      setWrongContactErr(false);
 
       const { data } = await axios.put(
         `https://ardilla.herokuapp.com/ardilla/api/auth/wrong-contact/${user._id}`,
@@ -44,13 +48,18 @@ function VerifyPhone() {
       );
 
       sessionStorage.setItem("user", JSON.stringify(data.user));
+
       setLoading(false);
-      setModal(false);
+      // setModal(false);
     } catch (error) {
       setLoading(false);
       setOnSuccess(false);
       setMsg(`${error.response.data.msg || "Network error"} `);
-      setErr(true);
+
+      setWrongContactErr(true);
+
+      setWrongContactMsg(`${error.response.data.msg}` || "Network Error");
+      // setErr(true);
       setLoading(false);
     }
   };
@@ -115,7 +124,7 @@ function VerifyPhone() {
               <br />
               <Link
                 style={{ color: "#E6356D" }}
-                // data-bs-toggle="modal"
+                data-bs-toggle="modal"
                 onClick={() => setModal(!modal)}
                 data-bs-target="#staticBackdrop"
                 type="button"
@@ -124,84 +133,124 @@ function VerifyPhone() {
               </Link>
             </h6>
 
-            {modal && (
-              <div
-                className="modal fade"
-                id="staticBackdrop"
-                data-bs-backdrop="static"
-                data-bs-keyboard="false"
-                tabIndex="-1"
-                aria-labelledby="staticBackdropLabel"
-                aria-hidden="true"
-              >
-                <h4>parent</h4>
-                <div className="modal-dialog modal-dialog-centered">
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                        Modal title
-                      </h1>
-                      <button
-                        onClick={() => setModal(!modal)}
-                        type="button"
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div className="modal-body">
-                      <div className="container">
-                        <div className="row justify-content-center">
-                          <div className="col-md-7 text-center">
-                            <img src={icon} alt="" className="img-fluid" />
-                            <h3 className="my-2">Enter Phone Number</h3>
-                            <h6>Enter a valid telephone number</h6>
-                          </div>
+            <div
+              className="modal fade"
+              id="staticBackdrop"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabIndex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <h4>parent</h4>
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                      Modal title
+                    </h1>
+                    <button
+                      onClick={() => setModal(!modal)}
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  {wrongContactErr && (
+                    <div className="row justify-content-center  ardilla-alert">
+                      <div className="col-md-6">
+                        <div
+                          className="alert alert-danger alert-dismissible fade show text-center text-danger"
+                          role="alert"
+                        >
+                          <i className="bi bi-exclamation-circle me-3"></i>
+                          {wrongContactMsg}
+                          <button
+                            type="button"
+                            className="btn-close"
+                            data-bs-dismiss="alert"
+                            onClick={() => setWrongContactErr(false)}
+                            aria-label="Close"
+                          ></button>
                         </div>
-                        <div className="row justify-content-center">
-                          <div className="col-md-4">
-                            <form className="my-4">
-                              <div className="mb-3">
-                                <input
-                                  type="tel"
-                                  className="form-control custom-form"
-                                  placeholder="Enter Phone Number"
-                                  required
-                                  value={newPhoneNumber}
-                                  onChange={(e) =>
-                                    setNewPhoneNumber(e.target.value)
-                                  }
-                                />
+                      </div>
+                    </div>
+                  )}
+
+                  {wrongContactSuc && (
+                    <div className="row justify-content-center mt-5  ardilla-alert">
+                      <div className="col-md-6">
+                        <div
+                          className="alert alert-success alert-dismissible fade show text-center text-success"
+                          role="alert"
+                        >
+                          <i className="bi bi-patch-check-fill me-3"></i>
+                          successfull
+                          <button
+                            type="button"
+                            className="btn-close"
+                            // data-bs-dismiss="alert"
+                            onClick={() => setWrongContactSuc(!wrongContactSuc)}
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="modal-body">
+                    <div className="container">
+                      <div className="row justify-content-center">
+                        <div className="col-md-7 text-center">
+                          <img src={icon} alt="" className="img-fluid" />
+                          <h3 className="my-2">Enter Phone Number</h3>
+                          <h6>Enter a valid telephone number</h6>
+                        </div>
+                      </div>
+                      <div className="row justify-content-center">
+                        <div className="col-md-4">
+                          <form className="my-4">
+                            <div className="mb-3">
+                              <input
+                                type="tel"
+                                className="form-control custom-form"
+                                placeholder="Enter Phone Number"
+                                required
+                                value={newPhoneNumber}
+                                onChange={(e) =>
+                                  setNewPhoneNumber(e.target.value)
+                                }
+                              />
+                            </div>
+                            {loading ? (
+                              <div className="mt-5 mb-3">
+                                <button
+                                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
+                                  style={{ width: "100%" }}
+                                >
+                                  Loading
+                                </button>
                               </div>
-                              {loading ? (
-                                <div className="mt-5 mb-3">
-                                  <button
-                                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
-                                    style={{ width: "100%" }}
-                                  >
-                                    Loading
-                                  </button>
-                                </div>
-                              ) : (
-                                <div className="mt-5 mb-3">
-                                  <button
-                                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
-                                    style={{ width: "100%" }}
-                                    onClick={wrongContact}
-                                  >
-                                    Continue
-                                  </button>
-                                </div>
-                              )}
-                            </form>
-                          </div>
+                            ) : (
+                              <div className="mt-5 mb-3">
+                                <button
+                                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
+                                  style={{ width: "100%" }}
+                                  onClick={wrongContact}
+                                >
+                                  Continue
+                                </button>
+                              </div>
+                            )}
+                          </form>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            )}
+            </div>
 
             <form className="my-5" id="otp">
               <div className="d-flex flex-row">
