@@ -537,7 +537,159 @@ function DillaBody() {
                                 <h5 className="mt-3">₦4,000.00 </h5>
                               </div>
                               <div className="col-md-2">
-                                <button type="button" class="btn btn-primary dilla-btn btn-sm px-4 mt-2">OTS Code</button>
+                                <button data-bs-toggle="modal" data-bs-target="#ots-code" type="button" class="btn btn-primary dilla-btn btn-sm px-4 mt-2">OTS Code</button>
+                              </div>
+                              {/* OTS CODE */}
+                              <div className="modal flex-modal fade" id="ots-code" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog right-dialog">
+                                  <div className="modal-content right-content">
+                                    <div className="modal-header">
+                                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body flex-modal-body">
+                                      <div className="container initiate-modal p-5">
+                                        <div className="row justify-content-center">
+                                          <div className="col-md-6 text-center ">
+                                            <img src={cadet} alt="" className="img-fluid" />
+                                            <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                                            <p className="mb-3">0708 7788 7890</p>
+                                          </div>
+                                          <hr/>
+                                        </div>
+                                        <div className="row my-3">
+                                          <div className="col">
+                                            <h3>Request history</h3>
+                                          </div>
+                                        </div>
+                                        <div className="row border-bottom pb-2">
+                                          <div className="d-flex flex-row">
+                                            <img src={withdraw} alt="" className="img-fluid me-3" />
+                                            <div className="hist">
+                                              <h2>You sent <span style={{color: "#3D0072"}}>NGN 2000</span> to <span style={{color: "#3D0072"}}>{"<"}StarBoy{"/>"}</span> </h2>
+                                              <h5>20th of November, 2022</h5>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="row border-bottom py-4">
+                                          <div className="d-flex flex-row">
+                                            <img src={dep} alt="" className="img-fluid me-3" />
+                                            <div className="hist">
+                                              <h2>You received <span style={{color: "#3D0072"}}>NGN 2000</span> from <span style={{color: "#3D0072"}}>{"<"}StarBoy{"/>"}</span> </h2>
+                                              <h5>20th of November, 2022</h5>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="row">
+                                          <div className="mt-5">
+                                            <h3>OTS Code</h3>
+                                            <form>
+                                              <div className="mb-3 mt-1">
+                                                <input type="text" className="form-control target-form" placeholder="Enter OTS code " required/>
+                                              </div>
+                                            </form>
+                                          </div>
+                                        </div>
+                                        
+                                        <div className="row text-center">
+                                          <div className="mt-5">
+                                            <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#ots-sent" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" style={{width: "60%"}}>Verify</Link>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              {/* Otp Success */}
+                              <div className="modal flex-modal fade" id="ots-sent" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog right-dialog">
+                                  <div className="modal-content right-content">
+                                    <div className="modal-header">
+                                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body flex-modal-body">
+                                      <div className="container initiate-modal p-5">
+                                        <div className="row justify-content-center">
+                                          <div className="col-md-6 text-center ">
+                                            <img src={cadet} alt="" className="img-fluid" />
+                                            <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                                            <p className="mb-3">0708 7788 7890</p>
+                                          </div>
+                                          <hr/>
+                                        </div>
+                                        <div className="row my-3">
+                                          <div className="col">
+                                            <h3>Request history</h3>
+                                          </div>
+                                        </div>
+                                        <div className="row border-bottom pb-2">
+                                          <div className="d-flex flex-row">
+                                            <img src={withdraw} alt="" className="img-fluid me-3" />
+                                            <div className="hist">
+                                              <h2>You sent <span style={{color: "#3D0072"}}>NGN 2000</span> to <span style={{color: "#3D0072"}}>{"<"}StarBoy{"/>"}</span> </h2>
+                                              <h5>20th of November, 2022</h5>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="row border-bottom py-4">
+                                          <div className="d-flex flex-row">
+                                            <img src={dep} alt="" className="img-fluid me-3" />
+                                            <div className="hist">
+                                              <h2>You received <span style={{color: "#3D0072"}}>NGN 2000</span> from <span style={{color: "#3D0072"}}>{"<"}StarBoy{"/>"}</span> </h2>
+                                              <h5>20th of November, 2022</h5>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="row">
+                                          <div className="mt-5 ots-success text-center">
+                                            <h4>OTS code accepted successfully</h4>
+                                          </div>
+                                        </div>
+                                        <div className="row text-center">
+                                          <div className="mt-5">
+                                            <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#ots-pay" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" style={{width: "60%"}}>Continue</Link>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              {/* Otp-payment */}
+                              <div className="modal flex-modal fade" id="ots-pay" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog right-dialog">
+                                  <div className="modal-content right-content">
+                                    <div className="modal-header">
+                                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body flex-modal-body">
+                                      <div className="container initiate-modal p-5">
+                                        <div className="row justify-content-center">
+                                          <div className="col-md-6 text-center ">
+                                            <img src={successful} alt="" className="img-fluid" />
+                                            <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                                            <p className="mb-3">0708 7788 7890</p>
+                                          </div>
+                                        </div>
+                                        <div className="row my-3 sent-details">
+                                          <div className="col text-center">
+                                            <img src={sent} alt="" className="img-fluid" />
+                                          </div>
+                                        </div>
+                                        <div className="row">
+                                          <div className="mt-5 ots-success text-center">
+                                            <h4>OTS code accepted successfully</h4>
+                                          </div>
+                                        </div>
+                                        <div className="row text-center">
+                                          <div className="mt-5">
+                                            <a type="button" href="/dilla" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" style={{width: "60%"}}>Back to Dilla</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                               <div className="col-md-2">
                                 <button type="button" class="btn btn-primary dilla-btn-outline btn-sm px-3 mt-2">Decline</button>

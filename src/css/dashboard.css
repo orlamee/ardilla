@@ -1716,3 +1716,10 @@ button.owl-prev, .owl-carousel button.owl-dot {
   border: 1px solid #E5E7EB!important;
   color: #6B7280!important;
 }
+
+.ots-success h4 {
+  color: #0D9488;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 18px;
+}
