@@ -392,7 +392,7 @@ function DillaBody() {
                                           <div className="col-md-6 text-center ">
                                             <img src={cadet} alt="" className="img-fluid" />
                                             <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
-                                            <p className="mb-5">0708 7788 7890</p>
+                                            <p className="mb-3">0708 7788 7890</p>
                                           </div>
                                           <hr/>
                                         </div>
@@ -401,7 +401,7 @@ function DillaBody() {
                                             <h3>Request history</h3>
                                           </div>
                                         </div>
-                                        <div className="row border-bottom pb-4">
+                                        <div className="row border-bottom pb-2">
                                           <div className="d-flex flex-row">
                                             <img src={withdraw} alt="" className="img-fluid me-3" />
                                             <div className="hist">
@@ -420,7 +420,7 @@ function DillaBody() {
                                           </div>
                                         </div>
                                         <div className="row">
-                                          <div className="mt-3">
+                                          <div className="mt-2">
                                             <h3>Set OTS Question</h3>
                                             <form>
                                               <div className="mb-3 mt-1">
