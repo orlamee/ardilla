@@ -24,7 +24,9 @@ import withdraw from "../../img/dashboard/w-icon.svg";
 import rec from "../../img/dashboard/rec.svg";
 import use from "../../img/dashboard/userr.svg";
 import cadet from "../../img/dashboard/caddet.svg";
+import successful from "../../img/dashboard/cadet-success.svg";
 import dep from "../../img/dashboard/dep.svg";
+import sent from "../../img/dashboard/checked.svg";
 
 
 
@@ -290,7 +292,7 @@ function DillaBody() {
                                           <div className="d-flex flex-row">
                                             <img src={withdraw} alt="" className="img-fluid me-3" />
                                             <div className="hist">
-                                              <h2>You sent NGN 2000 to  {"<"}StarBoy{"/>"} </h2>
+                                              <h2>You sent <span style={{color: "#3D0072"}}>NGN 2000</span> to <span style={{color: "#3D0072"}}>{"<"}StarBoy{"/>"}</span> </h2>
                                               <h5>20th of November, 2022</h5>
                                             </div>
                                           </div>
@@ -299,7 +301,7 @@ function DillaBody() {
                                           <div className="d-flex flex-row">
                                             <img src={dep} alt="" className="img-fluid me-3" />
                                             <div className="hist">
-                                              <h2>You sent NGN 2000 to  {"<"}StarBoy{"/>"} </h2>
+                                            <h2>You received <span style={{color: "#3D0072"}}>NGN 2000</span> from <span style={{color: "#3D0072"}}>{"<"}StarBoy{"/>"}</span> </h2>
                                               <h5>20th of November, 2022</h5>
                                             </div>
                                           </div>
@@ -345,7 +347,7 @@ function DillaBody() {
                                           <div className="d-flex flex-row">
                                             <img src={withdraw} alt="" className="img-fluid me-3" />
                                             <div className="hist">
-                                              <h2>You sent NGN 2000 to  {"<"}StarBoy{"/>"} </h2>
+                                              <h2>You sent <span style={{color: "#3D0072"}}>NGN 2000</span> to <span style={{color: "#3D0072"}}>{"<"}StarBoy{"/>"}</span> </h2>
                                               <h5>20th of November, 2022</h5>
                                             </div>
                                           </div>
@@ -354,7 +356,7 @@ function DillaBody() {
                                           <div className="d-flex flex-row">
                                             <img src={dep} alt="" className="img-fluid me-3" />
                                             <div className="hist">
-                                              <h2>You sent NGN 2000 to  {"<"}StarBoy{"/>"} </h2>
+                                              <h2>You received <span style={{color: "#3D0072"}}>NGN 2000</span> from <span style={{color: "#3D0072"}}>{"<"}StarBoy{"/>"}</span> </h2>
                                               <h5>20th of November, 2022</h5>
                                             </div>
                                           </div>
@@ -405,7 +407,7 @@ function DillaBody() {
                                           <div className="d-flex flex-row">
                                             <img src={withdraw} alt="" className="img-fluid me-3" />
                                             <div className="hist">
-                                              <h2>You sent NGN 2000 to  {"<"}StarBoy{"/>"} </h2>
+                                              <h2>You sent <span style={{color: "#3D0072"}}>NGN 2000</span> to <span style={{color: "#3D0072"}}>{"<"}StarBoy{"/>"}</span> </h2>
                                               <h5>20th of November, 2022</h5>
                                             </div>
                                           </div>
@@ -414,7 +416,7 @@ function DillaBody() {
                                           <div className="d-flex flex-row">
                                             <img src={dep} alt="" className="img-fluid me-3" />
                                             <div className="hist">
-                                              <h2>You sent NGN 2000 to  {"<"}StarBoy{"/>"} </h2>
+                                              <h2>You received <span style={{color: "#3D0072"}}>NGN 2000</span> from <span style={{color: "#3D0072"}}>{"<"}StarBoy{"/>"}</span> </h2>
                                               <h5>20th of November, 2022</h5>
                                             </div>
                                           </div>
@@ -451,7 +453,7 @@ function DillaBody() {
                                         </div>
                                         <div className="row text-center">
                                           <div className="">
-                                            <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" to="" style={{width: "60%"}}>Continue</Link>
+                                            <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#sendmoney-success" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6" style={{width: "60%"}}>Continue</Link>
                                           </div>
                                         </div>
                                       </div>
@@ -459,6 +461,35 @@ function DillaBody() {
                                   </div>
                                 </div>
                               </div>
+                              {/* initiate 4 */}
+                              <div className="modal flex-modal fade" id="sendmoney-success" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog right-dialog">
+                                  <div className="modal-content right-content">
+                                    <div className="modal-header">
+                                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body flex-modal-body">
+                                      <div className="container initiate-modal p-5">
+                                        <div className="row justify-content-center">
+                                          <div className="col-md-6 text-center ">
+                                            <img src={successful} alt="" className="img-fluid" />
+                                            <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                                            <p className="mb-3">0708 7788 7890</p>
+                                          </div>
+                                        </div>
+                                        <div className="row my-3 sent-details">
+                                          <div className="col text-center">
+                                            <img src={sent} alt="" className="img-fluid" />
+                                            <h3 className="my-3">Money Sent</h3>
+                                            <p>You have successfully sent <span style={{color: "#3D0072"}}>NGN4000 to <br/>{"<"}StarBoy{"/>"}</span></p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
                               <div className="col-md-2">
                                 <button type="button" class="btn btn-primary dilla-btn-outline btn-sm mt-2 px-3">Decline</button>
                               </div>
@@ -468,7 +499,7 @@ function DillaBody() {
                                 <div className="d-flex flex-row">
                                   <img src={rec} alt="" className="img-fluid" />
                                   <div className="ms-2 pending mt-2">
-                                    <p>Money Request </p>
+                                    <p>Request sent </p>
                                     <h5>{"<"}Ola{"/>"}</h5>
                                   </div>
                                 </div>
@@ -480,11 +511,11 @@ function DillaBody() {
                                 <h5 className="mt-3">₦4,000.00 </h5>
                               </div>
                               <div className="col-md-2">
-                                <button type="button" class="btn btn-primary dilla-btn btn-sm mt-2 px-3">Initiate</button>
+                                <button type="button" class="btn btn-primary sent-btn btn-sm mt-2 px-4" disabled>Sent</button>
                               </div>
                               
                               <div className="col-md-2">
-                                <button type="button" class="btn btn-primary dilla-btn-outline btn-sm mt-2 px-3">Decline</button>
+                                <button type="button" class="btn btn-primary dilla-btn-outline btn-sm mt-2 px-3">Cancel</button>
                               </div>
                             </div>
                           </div>
