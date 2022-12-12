@@ -1717,6 +1717,22 @@ button.owl-prev, .owl-carousel button.owl-dot {
   color: #6B7280!important;
 }
 
+.success-btn {
+  font-size: 10px;
+  border-radius: 50px;
+  background-color: #22C55E!important;
+  border: 1px solid #22C55E!important;
+  color: #fff!important;
+}
+
+.danger-btn {
+  font-size: 10px;
+  border-radius: 50px;
+  background-color: #E8356D!important;
+  border: 1px solid #E8356D!important;
+  color: #fff!important;
+}
+
 .ots-success h4 {
   color: #0D9488;
   font-size: 15px;

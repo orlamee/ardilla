@@ -713,11 +713,8 @@ function DillaBody() {
                               <div className="col-md-2">
                                 <h5 className="mt-3">₦4,000.00 </h5>
                               </div>
-                              <div className="col-md-2">
-                                <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Initiate</button>
-                              </div>
-                              <div className="col-md-2">
-                                <button type="button" class="btn btn-primary dilla-btn-outline btn-sm px-3 mt-2">Decline</button>
+                              <div className="col-md-4">
+                                <button type="button" class="btn btn-primary success-btn btn-sm px-3 mt-2">Successful</button>
                               </div>
                             </div>
                           </div>
@@ -738,11 +735,8 @@ function DillaBody() {
                                 <div className="col-md-2">
                                   <h5 className="mt-3">₦4,000.00 </h5>
                                 </div>
-                                <div className="col-md-2">
-                                  <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Initiate</button>
-                                </div>
-                                <div className="col-md-2">
-                                  <button type="button" class="btn btn-primary dilla-btn-outline btn-sm px-3 mt-2">Decline</button>
+                                <div className="col-md-4">
+                                  <button type="button" class="btn btn-primary danger-btn btn-sm px-3 mt-2" disabled>Declined</button>
                                 </div>
                               </div>
                               <div className="row mt-3 pending">
@@ -761,11 +755,8 @@ function DillaBody() {
                                 <div className="col-md-2">
                                   <h5 className="mt-3">₦4,000.00 </h5>
                                 </div>
-                                <div className="col-md-2">
-                                  <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Initiate</button>
-                                </div>
-                                <div className="col-md-2">
-                                  <button type="button" class="btn btn-primary dilla-btn-outline btn-sm px-3 mt-2">Decline</button>
+                                <div className="col-md-4">
+                                  <button type="button" class="btn btn-primary danger-btn btn-sm px-3 mt-2" disabled>Declined</button>
                                 </div>
                               </div>
                           </div>
