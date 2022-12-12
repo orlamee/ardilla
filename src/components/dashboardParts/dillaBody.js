@@ -302,37 +302,257 @@ function DillaBody() {
               </div>
               <div className="col-md-10">
                 <div className="owl-carousel owl-theme">
-                  <div className="media-29101">
-                    <a href="#"><img src={user} alt="Image" className="img-fluid"/></a>
+                  <Link data-bs-toggle="modal" data-bs-target="#user-profile" type="button" className="media-29101">
+                    <img src={user} alt="Image" className="img-fluid"/>
                     <p className="text-center">{"<"}StarBoy{"/>"}</p>
-                  </div>
-                  <div className="media-29101">
-                    <a href="#"><img src={ola} alt="Image" className="img-fluid"/></a>
+                  </Link>
+                  <Link data-bs-toggle="modal" data-bs-target="#user-profile" type="button" className="media-29101">
+                    <img src={ola} alt="Image" className="img-fluid"/>
+                    <p className="text-center">{"<"}StarBoy{"/>"}</p>
+                  </Link>
+                  <Link data-bs-toggle="modal" data-bs-target="#user-profile" type="button" className="media-29101">
+                    <img src={levi} alt="Image" className="img-fluid"/>
+                    <p className="text-center">{"<"}StarBoy{"/>"}</p>
+                  </Link>
+                  <Link data-bs-toggle="modal" data-bs-target="#user-profile" type="button" className="media-29101">
+                    <img src={nike} alt="Image" className="img-fluid"/>
                     <p className="text-center">{"<"}Ola{"/>"}</p>
-                  </div>
-                  <div className="media-29101">
-                    <a href="#"><img src={levi} alt="Image" className="img-fluid"/></a>
+                  </Link>
+                  <Link data-bs-toggle="modal" data-bs-target="#user-profile" type="button" className="media-29101">
+                    <img src={user} alt="Image" className="img-fluid"/>
+                    <p className="text-center">{"<"}StarBoy{"/>"}</p>
+                  </Link>
+                  <Link data-bs-toggle="modal" data-bs-target="#user-profile" type="button" className="media-29101">
+                    <img src={starboy} alt="Image" className="img-fluid"/>
                     <p className="text-center">{"<"}Ola{"/>"}</p>
-                  </div>
-                  <div className="media-29101">
-                    <a href="#"><img src={nike} alt="Image" className="img-fluid"/></a>
+                  </Link>
+                  <Link data-bs-toggle="modal" data-bs-target="#user-profile" type="button" className="media-29101">
+                    <img src={levi} alt="Image" className="img-fluid"/>
                     <p className="text-center">{"<"}Ola{"/>"}</p>
-                  </div>
-                  <div className="media-29101">
-                    <a href="#"><img src={starboy} alt="Image" className="img-fluid"/></a>
+                  </Link>
+                  <Link data-bs-toggle="modal" data-bs-target="#user-profile" type="button" className="media-29101">
+                    <img src={user} alt="Image" className="img-fluid"/>
                     <p className="text-center">{"<"}Ola{"/>"}</p>
+                  </Link>
+                
+                </div>
+              </div>
+            </div>
+            {/* User Profile Modal */}
+            <div className="modal flex-modal fade" id="user-profile" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog right-dialog">
+                <div className="modal-content right-content">
+                  <div className="modal-header">
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div className="media-29101">
-                    <a href="#"><img src={user} alt="Image" className="img-fluid"/></a>
-                    <p className="text-center">{"<"}Ola{"/>"}</p>
+                  <div className="modal-body flex-modal-body">
+                    <div className="container initiate-modal p-4">
+                      <div className="row justify-content-center">
+                        <div className="col-md-6 text-center ">
+                          <img src={cadet} alt="" className="img-fluid" />
+                          <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                          <p className="mb-5">0708 7788 7890</p>
+                        </div>
+                        <hr/>
+                      </div>
+                      <div className="row my-3">
+                        <div className="col">
+                          <h3>Request history</h3>
+                        </div>
+                      </div>
+                      <div className="row border-bottom pb-4">
+                        <div className="d-flex flex-row">
+                          <img src={withdraw} alt="" className="img-fluid me-3" />
+                          <div className="hist">
+                            <h2>You sent <span style={{color: "#3D0072"}}>NGN 2000</span> to <span style={{color: "#3D0072"}}>{"<"}StarBoy{"/>"}</span> </h2>
+                            <h5>20th of November, 2022</h5>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="row mt-5 justify-content-center">
+                        <div className="col text-center">
+                          <div className="d-flex flex-row">
+                            <Link  data-bs-toggle="modal" data-bs-target="#user-send-money" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn btn-f6 mt-4 me-3">Send Money</Link>
+                            <Link  data-bs-toggle="modal" data-bs-target="#request-money" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn btn-f6 outline-btn fs-6 mt-4">Receive Money</Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="media-29101">
-                    <a href="#"><img src={user} alt="Image" className="img-fluid"/></a>
-                    <p className="text-center">{"<"}Ola{"/>"}</p>
+                </div>
+              </div>
+            </div>
+            {/* Money Request */}
+            <div className="modal flex-modal fade" id="request-money" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog right-dialog">
+                <div className="modal-content right-content">
+                  <div className="modal-header">
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div className="media-29101">
-                    <a href="#"><img src={user} alt="Image" className="img-fluid"/></a>
-                    <p className="text-center">{"<"}Ola{"/>"}</p>
+                  <div className="modal-body flex-modal-body">
+                    <div className="container initiate-modal p-4">
+                      <div className="row justify-content-center">
+                        <div className="col-md-6 text-center ">
+                          <img src={cadet} alt="" className="img-fluid" />
+                          <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                          <p className="mb-5">0708 7788 7890</p>
+                        </div>
+                        <hr/>
+                      </div>
+                      <div className="row my-3">
+                        <div className="col">
+                          <h3>Request history</h3>
+                        </div>
+                      </div>
+                      <div className="row border-bottom pb-4">
+                        <div className="d-flex flex-row">
+                          <img src={withdraw} alt="" className="img-fluid me-3" />
+                          <div className="hist">
+                            <h2>You sent <span style={{color: "#3D0072"}}>NGN 2000</span> to <span style={{color: "#3D0072"}}>{"<"}StarBoy{"/>"}</span> </h2>
+                            <h5>20th of November, 2022</h5>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="mt-5">
+                          <h3>Input Money</h3>
+                          <form>
+                            <div className="mb-3 mt-1">
+                              <input type="number" className="form-control target-form" placeholder="Enter Amount" required/>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <div className="row mt-5 justify-content-center">
+                        <div className="col text-center">
+                          <Link data-bs-toggle="modal" data-bs-target="#request-success" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn btn-f6 mt-4 me-3">Send Request</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Money Request Successful */}
+            <div className="modal flex-modal fade" id="request-success" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog right-dialog">
+                <div className="modal-content right-content">
+                  <div className="modal-header">
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div className="modal-body flex-modal-body">
+                    <div className="container initiate-modal p-5">
+                      <div className="row justify-content-center">
+                        <div className="col-md-6 text-center ">
+                          <img src={successful} alt="" className="img-fluid" />
+                          <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                          <p className="mb-3">0708 7788 7890</p>
+                        </div>
+                      </div>
+                      <div className="row my-3 sent-details">
+                        <div className="col text-center">
+                          <img src={sent} alt="" className="img-fluid" />
+                          <h3 className="my-3">Request Sent</h3>
+                          <p>You have successfully requested <span style={{color: "#3D0072"}}>NGN4000 from <br/>{"<"}StarBoy{"/>"}</span></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Send Money */}
+            <div className="modal flex-modal fade" id="user-send-money" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog right-dialog">
+                <div className="modal-content right-content">
+                  <div className="modal-header">
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div className="modal-body flex-modal-body">
+                    <div className="container initiate-modal p-4">
+                      <div className="row justify-content-center">
+                        <div className="col-md-6 text-center ">
+                          <img src={cadet} alt="" className="img-fluid" />
+                          <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                          <p className="mb-5">0708 7788 7890</p>
+                        </div>
+                        <hr/>
+                      </div>
+                      <div className="row">
+                        <div className="mt-3">
+                          <h3>Amount</h3>
+                          <form>
+                            <div className="mb-3 mt-1">
+                              <input type="number" className="form-control target-form" placeholder="NGN 10,000" required/>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="mt-2">
+                          <h3>Set OTS Question </h3>
+                          <form>
+                            <div className="mb-3 mt-1">
+                              <input type="number" className="form-control target-form" placeholder="E.g What is your name" required/>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="mt-2">
+                          <h3>Set OTS Answer </h3>
+                          <form>
+                            <div className="mb-3 mt-1">
+                              <input type="text" className="form-control target-form" placeholder="Chukwukwa Adekunle" required/>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="mt-2">
+                          <h3>Pin</h3>
+                          <form>
+                            <div className="mb-3 mt-1">
+                              <input type="number" className="form-control target-form" placeholder="Enter Pin" required/>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <div className="row mt-3 justify-content-center">
+                        <div className="col text-center">
+                          <Link data-bs-toggle="modal" data-bs-target="#sent-success" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn btn-f6 mt-4 me-3">Send Money</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Money Sent Successful */}
+            <div className="modal flex-modal fade" id="sent-success" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog right-dialog">
+                <div className="modal-content right-content">
+                  <div className="modal-header">
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div className="modal-body flex-modal-body">
+                    <div className="container initiate-modal p-5">
+                      <div className="row justify-content-center">
+                        <div className="col-md-6 text-center ">
+                          <img src={successful} alt="" className="img-fluid" />
+                          <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                          <p className="mb-3">0708 7788 7890</p>
+                        </div>
+                      </div>
+                      <div className="row my-3 sent-details">
+                        <div className="col text-center">
+                          <img src={sent} alt="" className="img-fluid" />
+                          <h3 className="my-3">Request Sent</h3>
+                          <p>You have successfully sent <span style={{color: "#3D0072"}}>NGN4000 to <br/>{"<"}StarBoy{"/>"}</span></p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

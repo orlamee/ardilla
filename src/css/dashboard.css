@@ -1752,7 +1752,16 @@ button.owl-prev, .owl-carousel button.owl-dot {
 }
 
 .btn-f6 {
-  font-size: 14px!important;
+  font-size: 11px!important;
   padding-left: 50px!important;
   padding-right: 67px!important;
+  font-weight: 600!important;
+}
+
+.owl-theme a {
+  text-decoration: none;
+}
+
+.media-29101 img {
+  width: 5.9375rem!important;
 }
