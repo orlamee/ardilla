@@ -1,18 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "../img/verify-icon.svg";
 import logo from "../img/logo.svg";
-// import { auth } from "../firbase-config";
-// import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
+
 import axios from "axios";
 
 function VerifyPhone() {
-  let user = JSON.parse(sessionStorage.getItem("user"));
-
-  // console.log(user);
-
-  const navigate = useNavigate();
-
   // const [phoneNumber] = useState(`+234${user.contact}`);
   const [otp1, setOtp1] = useState("");
   const [otp2, setOtp2] = useState("");
@@ -29,6 +22,38 @@ function VerifyPhone() {
   const [wrongContactErr, setWrongContactErr] = useState("");
   const [wrongContactMsg, setWrongContactMsg] = useState("");
   const [wrongContactSuc, setWrongContactSuc] = useState("");
+
+  const [pinID, setPinID] = useState("");
+
+  let user = JSON.parse(sessionStorage.getItem("user"));
+
+  const fullpin = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
+
+  useEffect(() => {
+    console.log("");
+  }, []);
+
+  const checkOut = async (e) => {
+    e.preventDefault();
+
+    try {
+      const { data } = axios.post(
+        "https://api.ng.termii.com/api/sms/otp/verify",
+        {
+          api_key:
+            "TLLaX7wOf3XL3uiEY1paXi4pereGKAGjNXTV5rpJGoLaEujFbueaMfbuCReNkY",
+          pin_id: pinID,
+          pin: fullpin,
+        }
+      );
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const navigate = useNavigate();
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
@@ -254,7 +279,7 @@ function VerifyPhone() {
               </div>
             </div>
 
-            <form className="my-5" id="otp">
+            <form className="my-5" id="otp" onSubmit={checkOut}>
               <div className="d-flex flex-row">
                 <div className="me-2">
                   <input
@@ -341,7 +366,6 @@ function VerifyPhone() {
                         className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
                         style={{ width: "100%" }}
                         type="submit"
-                        onClick={() => navigate("/set-pin")}
                       >
                         Continue
                       </button>
