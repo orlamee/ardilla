@@ -66,6 +66,8 @@ function FlexPlanSpend() {
 
         console.log(data);
 
+        sessionStorage.setItem("acct", JSON.stringify(data.plan));
+
         navigate("/flex-type", { state: exp });
       } else {
         setLoading(false);
