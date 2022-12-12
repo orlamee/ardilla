@@ -537,7 +537,7 @@ function DillaBody() {
                                 <h5 className="mt-3">₦4,000.00 </h5>
                               </div>
                               <div className="col-md-2">
-                                <button type="button" class="btn btn-primary dilla-btn btn-sm px-3 mt-2">Initiate</button>
+                                <button type="button" class="btn btn-primary dilla-btn btn-sm px-4 mt-2">OTS Code</button>
                               </div>
                               <div className="col-md-2">
                                 <button type="button" class="btn btn-primary dilla-btn-outline btn-sm px-3 mt-2">Decline</button>

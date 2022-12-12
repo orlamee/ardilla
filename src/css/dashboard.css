@@ -1619,6 +1619,8 @@ button.owl-prev, .owl-carousel button.owl-dot {
   border-radius: 50px;
   background-color: #8807f7;
   border: 1px solid #8807f7;
+  padding-left: 10px!important;
+  padding-right: 10px!important;
 }
 
 .dilla-btn-outline {
