@@ -25,6 +25,7 @@ function VerifyPhone() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
   const [newPhoneNumber, setNewPhoneNumber] = useState("");
+  const [modal, setModal] = useState(false);
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
@@ -44,7 +45,7 @@ function VerifyPhone() {
 
       sessionStorage.setItem("user", JSON.stringify(data.user));
       setLoading(false);
-      navigate("/verify-mobile");
+      setModal(false);
     } catch (error) {
       setLoading(false);
       setOnSuccess(false);
@@ -109,88 +110,99 @@ function VerifyPhone() {
             <img src={icon} alt="" className="img-fluid" />
             <h3 className="my-2">Verify Phone Number</h3>
             <h6>
-              Enter the OTP Verification code sent to {user.contact} <br />
+              Enter the OTP Verification code sent to {user.contact.slice(0, 4)}{" "}
+              XXX XX{user.contact.slice(9, 11)}
+              <br />
               <Link
                 style={{ color: "#E6356D" }}
-                data-bs-toggle="modal"
+                // data-bs-toggle="modal"
+                onClick={() => setModal(!modal)}
                 data-bs-target="#staticBackdrop"
                 type="button"
               >
                 Wrong Number?
               </Link>
             </h6>
-            <div
-              className="modal fade"
-              id="staticBackdrop"
-              data-bs-backdrop="static"
-              data-bs-keyboard="false"
-              tabIndex="-1"
-              aria-labelledby="staticBackdropLabel"
-              aria-hidden="true"
-            >
-              <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    {/* <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1> */}
-                    <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div className="modal-body">
-                    <div className="container">
-                      <div className="row justify-content-center">
-                        <div className="col-md-7 text-center">
-                          <img src={icon} alt="" className="img-fluid" />
-                          <h3 className="my-2">Enter Phone Number</h3>
-                          <h6>Enter a valid telephone number</h6>
+
+            {modal && (
+              <div
+                className="modal fade"
+                id="staticBackdrop"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                tabIndex="-1"
+                aria-labelledby="staticBackdropLabel"
+                aria-hidden="true"
+              >
+                <h4>parent</h4>
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                        Modal title
+                      </h1>
+                      <button
+                        onClick={() => setModal(!modal)}
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div className="modal-body">
+                      <div className="container">
+                        <div className="row justify-content-center">
+                          <div className="col-md-7 text-center">
+                            <img src={icon} alt="" className="img-fluid" />
+                            <h3 className="my-2">Enter Phone Number</h3>
+                            <h6>Enter a valid telephone number</h6>
+                          </div>
                         </div>
-                      </div>
-                      <div className="row justify-content-center">
-                        <div className="col-md-4">
-                          <form className="my-4">
-                            <div className="mb-3">
-                              <input
-                                type="tel"
-                                className="form-control custom-form"
-                                placeholder="Enter Phone Number"
-                                required
-                                value={newPhoneNumber}
-                                onChange={(e) =>
-                                  setNewPhoneNumber(e.target.value)
-                                }
-                              />
-                            </div>
-                            {loading ? (
-                              <div className="mt-5 mb-3">
-                                <button
-                                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
-                                  style={{ width: "100%" }}
-                                >
-                                  Loading
-                                </button>
+                        <div className="row justify-content-center">
+                          <div className="col-md-4">
+                            <form className="my-4">
+                              <div className="mb-3">
+                                <input
+                                  type="tel"
+                                  className="form-control custom-form"
+                                  placeholder="Enter Phone Number"
+                                  required
+                                  value={newPhoneNumber}
+                                  onChange={(e) =>
+                                    setNewPhoneNumber(e.target.value)
+                                  }
+                                />
                               </div>
-                            ) : (
-                              <div className="mt-5 mb-3">
-                                <button
-                                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
-                                  style={{ width: "100%" }}
-                                  onClick={wrongContact}
-                                >
-                                  Continue
-                                </button>
-                              </div>
-                            )}
-                          </form>
+                              {loading ? (
+                                <div className="mt-5 mb-3">
+                                  <button
+                                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
+                                    style={{ width: "100%" }}
+                                  >
+                                    Loading
+                                  </button>
+                                </div>
+                              ) : (
+                                <div className="mt-5 mb-3">
+                                  <button
+                                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
+                                    style={{ width: "100%" }}
+                                    onClick={wrongContact}
+                                  >
+                                    Continue
+                                  </button>
+                                </div>
+                              )}
+                            </form>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
+
             <form className="my-5" id="otp">
               <div className="d-flex flex-row">
                 <div className="me-2">
