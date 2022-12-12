@@ -29,6 +29,10 @@ import dep from "../../img/dashboard/dep.svg";
 import sent from "../../img/dashboard/checked.svg";
 import cancel from "../../img/dashboard/cancel.svg";
 import revoke from "../../img/dashboard/revoke.svg";
+import dillalogo from "../../img/dashboard/tt-icon.svg";
+import success from "../../img/dashboard/payment-success.svg";
+
+
 
 
 
@@ -123,7 +127,169 @@ function DillaBody() {
               </label>
             </div>
             <div className="d-flex flex-row">
-              <Link type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 me-3">Top Up</Link>
+              <Link data-bs-toggle="modal" data-bs-target="#topup-dilla" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 me-3">Top Up</Link>
+              {/* Topup Modal */}
+              <div className="modal flex-modal fade" id="topup-dilla" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container">
+                        <div className="row mx-3">
+                          <div className="col">
+                            <div className="row t-card p-4 bg-white">
+                              <div className="col-md-6">
+                                <img src={dillalogo} alt="" className="img-fluid" />
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <h4>₦30,000.00</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="row mx-3 mt-4 title-card">
+                          <div className="col text-center">
+                            <h3>Amount</h3>
+                          </div>
+                        </div>
+                        <div className="row mx-3">
+                          <div className="col text-center">
+                            <div className="input-group cart-group my-3">
+                              <span className="input-group-btn">
+                                <button type="button" className="quantity-left-minus minus-bg btn btn-number me-3"  data-type="minus" data-field="">
+                                  <i className="bi bi-dash"></i>
+                                </button>
+                              </span>
+                              <input type="text" id="quantity" name="quantity" className="form-control input-number" defaultValue="30000" min="1" max="100"/>
+                              <span className="input-group-btn">
+                                <button type="button" className="quantity-right-plus btn minus-bg btn-number ms-3" data-type="plus" data-field="">
+                                  <i className="bi bi-plus"></i>
+                                </button>
+                              </span>
+                            </div>
+                            <span className="charges">₦250.00 (1.5% fee caped at ₦250) </span>
+                          </div>
+                        </div>
+                        <div className="row mx-3  mt-5">
+                          <Link data-bs-toggle="modal" data-bs-target="#choosepayment" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* choose payment */}
+              <div className="modal flex-modal fade" id="choosepayment" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container">
+                        <div className="row mx-3">
+                          <div className="col">
+                            <div className="row t-card p-4 bg-white">
+                              <div className="col-md-6">
+                                <img src={dillalogo} alt="" className="img-fluid" />
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <h4>₦30,000.00</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="row mx-3 mt-5 title-card justify-content-center">
+                          <div className="col-md-10 text-center">
+                            <h3 className="fs-3">Choose a Payment Method</h3>
+                            <div className="mt-5">
+                              <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#dilla-bank-transfer" className="btn btn-secondary bg-ussd" style={{width: "100%"}}>Bank Transfer</Link>
+                              <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="" className="btn btn-secondary mt-3 bg-ussd" style={{width: "100%"}}>USSD</Link>
+                              <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="" className="btn btn-secondary mt-3 bg-ussd" style={{width: "100%"}}>Card</Link>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* dilla-transfer */}
+              <div className="modal flex-modal fade" id="dilla-bank-transfer" data-backdrop="static">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container">
+                        <div className="row mx-3">
+                          <div className="col">
+                            <div className="row t-card p-4 bg-white">
+                              <div className="col-md-6">
+                                <img src={dillalogo} alt="" className="img-fluid" />
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <h4>₦30,000.00</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="row mx-3 mt-5 title-card">
+                          <div className="col text-center">
+                            <span className="transfer-amt">Pay Now</span>
+                          </div>
+                        </div>
+                        <div className="row mx-3 detail-transfer">
+                          <div className="col-md-6">
+                            <p className="mt-4">Amount</p>
+                            <p className="mt-4">Account Number</p>
+                            <p className="mt-4">Bank</p>
+                            <p className="mt-4">Name</p>
+                            <p className="mt-4">Narration</p>
+                          </div>
+                          <div className="col-md-6 text-end">
+                            <h5 className="mt-4">NGN 20,250</h5>
+                            <h5 className="mt-4">2004434887 <i className="ms-2 bi bi-files"></i></h5>
+                            <h5 className="mt-4">Wema Bank</h5>
+                            <h5 className="mt-4">Oshodi Mathew</h5>
+                            <h5 className="mt-4">Falcon</h5>
+                          </div>
+                        </div>
+                        <div className="row mx-3  mt-5">
+                          <Link data-bs-toggle="modal" data-bs-target="#bank-tranfer-success" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>I have Paid</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Complete-transfer */}
+              <div className="modal flex-modal fade" id="bank-tranfer-success" data-backdrop="static">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container">
+                        <div className="row mx-3 justify-content-center">
+                          <div className="col-md-8 text-center payment-success">
+                            <img src={success} alt="" className="img-fluid" />
+                            <h2 className="my-5">Payment Received</h2>
+                            <p className="mb-5">Lorem ipsum dolor sit amet consectetur. Sapien vel netus eget orci semper parturient. Ut nec pellentesque consequat vitae massa nisi.</p>
+                            {/* <a href="/flex/top-up" >Back to Overview</a> */}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <Link type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 mt-4">Send Money</Link>
             </div>
             <div className="recent-transaction mt-5">

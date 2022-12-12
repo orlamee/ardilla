@@ -1309,15 +1309,15 @@ input:checked + .slider:before {
 }
 
 .t-card {
-  box-shadow: 0px 12px 24px rgba(115, 107, 122, 0.15);
-  border-radius: 10px;
+  box-shadow: 0px 12px 24px rgba(115, 107, 122, 0.15)!important;
+  border-radius: 10px!important;
 }
 
 .t-card h4 {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 27px;
-  color: #3D0072;
+  font-size: 24px!important;
+  font-weight: 700!important;
+  line-height: 27px!important;
+  color: #3D0072!important;
 }
 
 .minus-bg {
@@ -1378,11 +1378,11 @@ input:checked + .slider:before {
 }
 
 .detail-transfer h5 {
-  color: #3C0071;
+  color: #3C0071!important;
   font-size: 14px;
   line-height: 16px;
   margin-bottom: 0;
-  font-weight: 700;
+  font-weight: 700!important;
 }
 
 .payment-success h2 {
