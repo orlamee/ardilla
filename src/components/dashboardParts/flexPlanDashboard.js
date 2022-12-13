@@ -15,8 +15,9 @@ import interest from "../../img/dashboard/int.svg";
 import big from "../../img/dashboard/big-graph.png";
 import save from "../../img/dashboard/save-i.svg";
 
-
 function FlexPlanDashboard() {
+  let acct = JSON.parse(sessionStorage.getItem("acct"));
+  let user = JSON.parse(sessionStorage.getItem("user"));
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -33,7 +34,7 @@ function FlexPlanDashboard() {
           </div>
         </Link>
         <Link to="/savings" className="active">
-          <div className="d-flex flex-row" >
+          <div className="d-flex flex-row">
             <img src={saving} alt="" className="img-fluid me-2 icons" />
             Savings
           </div>
@@ -91,16 +92,30 @@ function FlexPlanDashboard() {
       </div>
       <div className="content py-5 px-5 earning-section">
         <div className="row backto">
-          <Link to="/flex-type"><span><i className="bi bi-chevron-left me-3"></i>Back</span></Link>
+          <Link to="/flex-type">
+            <span>
+              <i className="bi bi-chevron-left me-3"></i>Back
+            </span>
+          </Link>
         </div>
         <div className="row mt-5 dashboard-t">
           <div className="col-md-8">
             {/* <img src={verticalthree} alt="" className="img-fluid"/> */}
-            <h2>Cadet {"<"}Starboy{"/>"},</h2>
-            <p>Here is your overview for custom <span style={{color: "#3C0071"}}>Emergency</span> </p>
+            <h2>
+              Cadet {"<"}Starboy{"/>"},
+            </h2>
+            <p>
+              Here is your overview for custom{" "}
+              <span style={{ color: "#3C0071" }}>Emergency</span>{" "}
+            </p>
           </div>
           <div className="col-md-4 text-end">
-            <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4" to="/flex-success">Continue</Link>
+            <Link
+              className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
+              to="/flex-success"
+            >
+              Continue
+            </Link>
           </div>
         </div>
         <div className="row mt-5">
@@ -111,7 +126,8 @@ function FlexPlanDashboard() {
                   <div className="d-flex flex-row">
                     <img src={interest} alt="" className="img-fluid" />
                     <div className="ms-3">
-                      <p>Interest -  11%</p>
+                      <p>Interest - 11%</p>
+
                       <h3 className="mt-3">Lieutenant</h3>
                     </div>
                   </div>
@@ -122,7 +138,7 @@ function FlexPlanDashboard() {
                   <div className="d-flex flex-row">
                     <img src={interest} alt="" className="img-fluid" />
                     <div className="ms-3">
-                      <p>Interest -  11%</p>
+                      <p>Interest - 11%</p>
                       <h3 className="mt-3">Lieutenant</h3>
                     </div>
                   </div>
@@ -135,7 +151,7 @@ function FlexPlanDashboard() {
                   <div className="d-flex flex-row">
                     <img src={interest} alt="" className="img-fluid" />
                     <div className="ms-3">
-                      <p>Interest -  11%</p>
+                      <p>Interest - 11%</p>
                       <h3 className="mt-3">Lieutenant</h3>
                     </div>
                   </div>
@@ -146,7 +162,7 @@ function FlexPlanDashboard() {
                   <div className="d-flex flex-row">
                     <img src={save} alt="" className="img-fluid" />
                     <div className="ms-3">
-                      <p>Interest -  11%</p>
+                      <p>Interest - 11%</p>
                       <h3 className="mt-3">Lieutenant</h3>
                     </div>
                   </div>
@@ -155,7 +171,7 @@ function FlexPlanDashboard() {
             </div>
           </div>
           <div className="col-md-7">
-            <img src={big} alt="" className="img-fluid"/>
+            <img src={big} alt="" className="img-fluid" />
           </div>
         </div>
         <div className="row mt-3">
@@ -163,14 +179,28 @@ function FlexPlanDashboard() {
             <div className="row">
               <div className="col-md-6">
                 <div className="int px-4">
-                  <p>Total left-  40%</p>
-                  <h3 className="mt-3">NGN 240,000</h3>
+                  <p>Total left- 40%</p>
+                  {acct.flexPlan.type === "custom" ? (
+                    <h3 className="mt-3">
+                      NGN {acct.flexPlan.customTotalSavingTarget}
+                    </h3>
+                  ) : (
+                    <h3 className="mt-3">NGN {acct.flexPlan.savingTarget}</h3>
+                  )}
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="int px-4">
-                  <p>Total left-  40%</p>
-                  <h3 className="mt-3">NGN 240,000</h3>
+                  <p>Total left- 40%</p>
+                  {acct.flexPlan.type === "custom" ? (
+                    <h3 className="mt-3">
+                      NGN {acct.flexPlan.customMonthlySavingTarget}
+                    </h3>
+                  ) : (
+                    <h3 className="mt-3">
+                      NGN {acct.flexPlan.recommendedSavingRate}
+                    </h3>
+                  )}
                 </div>
               </div>
             </div>
@@ -179,19 +209,25 @@ function FlexPlanDashboard() {
             <div className="row">
               <div className="col">
                 <div className="int px-4">
-                  <p>Total left-  40%</p>
+                  <p>Total left- 40%</p>
+                  {acct.flexPlan.type === "custom" ? (
+                    <h3 className="mt-3">NGN {acct.flexPlan.customDuration}</h3>
+                  ) : (
+                    <h3 className="mt-3">
+                      NGN {acct.flexPlan.durationInMonths}
+                    </h3>
+                  )}
+                </div>
+              </div>
+              <div className="col">
+                <div className="int px-4">
+                  <p>Total left- 40%</p>
                   <h3 className="mt-3">NGN 240,000</h3>
                 </div>
               </div>
               <div className="col">
                 <div className="int px-4">
-                  <p>Total left-  40%</p>
-                  <h3 className="mt-3">NGN 240,000</h3>
-                </div>
-              </div>
-              <div className="col">
-                <div className="int px-4">
-                  <p>Total left-  40%</p>
+                  <p>Total left- 40%</p>
                   <h3 className="mt-3">NGN 240,000</h3>
                 </div>
               </div>
@@ -205,11 +241,21 @@ function FlexPlanDashboard() {
               <table className="table table-borderless">
                 <thead className="table-dark">
                   <tr>
-                    <th scope="col" className="headtable">DATE</th>
-                    <th scope="col" className="headtable">AMOUNT (₦)</th>
-                    <th scope="col" className="headtable">INTEREST - 11%P.A(₦)</th>
-                    <th scope="col" className="headtable">TOTAL BALANCE (₦)</th>
-                    <th scope="col" className="headtable">STATUS</th>
+                    <th scope="col" className="headtable">
+                      DATE
+                    </th>
+                    <th scope="col" className="headtable">
+                      AMOUNT (₦)
+                    </th>
+                    <th scope="col" className="headtable">
+                      INTEREST - 11%P.A(₦)
+                    </th>
+                    <th scope="col" className="headtable">
+                      TOTAL BALANCE (₦)
+                    </th>
+                    <th scope="col" className="headtable">
+                      STATUS
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -218,31 +264,37 @@ function FlexPlanDashboard() {
                     <td>180,000</td>
                     <td>1,650</td>
                     <td>1,650</td>
-                    <td><span className="statuses">Not Active</span></td>
+                    <td>
+                      <span className="statuses">Not Active</span>
+                    </td>
                   </tr>
                   <tr>
                     <td>29-11-2022</td>
                     <td>180,000</td>
                     <td>1,650</td>
                     <td>1,650</td>
-                    <td><span className="statuses">Not Active</span></td>
+                    <td>
+                      <span className="statuses">Not Active</span>
+                    </td>
                   </tr>
                   <tr>
                     <td>29-11-2022</td>
                     <td>180,000</td>
                     <td>1,650</td>
                     <td>1,650</td>
-                    <td><span className="statuses">Not Active</span></td>
+                    <td>
+                      <span className="statuses">Not Active</span>
+                    </td>
                   </tr>
                   <tr>
                     <td>29-11-2022</td>
                     <td>180,000</td>
                     <td>1,650</td>
                     <td>1,650</td>
-                    <td><span className="statuses">Not Active</span></td>
+                    <td>
+                      <span className="statuses">Not Active</span>
+                    </td>
                   </tr>
-                  
-                  
                 </tbody>
               </table>
             </div>
@@ -269,4 +321,3 @@ function FlexPlanDashboard() {
 }
 
 export default FlexPlanDashboard;
- 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "../img/verify-icon.svg";
 import logo from "../img/logo.svg";
@@ -29,9 +29,33 @@ function VerifyPhone() {
 
   const fullpin = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
 
-  useEffect(() => {
-    console.log("");
-  }, []);
+  // const sendMsg = async () => {
+  //   try {
+  //     const { data } = await axios.post(
+  //       "https://api.ng.termii.com/api/sms/otp/send",
+  //       {
+  //         api_key:
+  //           "TLHefRG7zB7nqGB1TOekkwud3UOZcra1KR3R5legoFnL4GKH7J7KFJ7HKpo1FF",
+  //         message_type: "NUMERIC",
+  //         to: "2348160853127",
+  //         from: "Ardilla",
+  //         channel: "generic",
+  //         pin_attempts: 10,
+  //         pin_time_to_live: 5,
+  //         pin_length: 6,
+  //         pin_placeholder: "< 123456 >",
+  //         message_text: "Your pin is < 123456 >",
+  //         pin_type: "NUMERIC",
+  //       }
+  //     );
+
+  //     setPinID(data.pinId);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // sendMsg();
 
   const checkOut = async (e) => {
     e.preventDefault();
