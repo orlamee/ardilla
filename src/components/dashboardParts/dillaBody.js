@@ -209,7 +209,7 @@ function DillaBody() {
                             <h3 className="fs-3">Choose a Payment Method</h3>
                             <div className="mt-5">
                               <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#dilla-bank-transfer" className="btn btn-secondary bg-ussd" style={{width: "100%"}}>Bank Transfer</Link>
-                              <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="" className="btn btn-secondary mt-3 bg-ussd" style={{width: "100%"}}>USSD</Link>
+                              <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#dilla-ussd" className="btn btn-secondary mt-3 bg-ussd" style={{width: "100%"}}>USSD</Link>
                               <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#dilla-card-transc" className="btn btn-secondary mt-3 bg-ussd" style={{width: "100%"}}>Card</Link>
                             </div>
                           </div>
@@ -473,6 +473,117 @@ function DillaBody() {
                           </div>
                         </div>
                         
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* USSD */}
+              <div className="modal flex-modal fade" id="dilla-ussd" data-backdrop="static">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container">
+                        <div className="row mx-3">
+                          <div className="col">
+                            <div className="row t-card p-4 bg-white">
+                              <div className="col-md-6">
+                                <img src={dillalogo} alt="" className="img-fluid" />
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <h4>₦30,000.00</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="row mx-3 mt-5 title-card">
+                          <div className="col text-center">
+                            <span className="transfer-amt">Pay Now</span>
+                          </div>
+                        </div>
+                        <div className="row mx-3 detail-transfer">
+                          <div className="col-md-6">
+                            <p className="mt-4">Amount</p>
+                            <p className="mt-4">Account Number</p>
+                            <p className="mt-4">Bank</p>
+                            <p className="mt-4">Name</p>
+                            <p className="mt-4">USSD</p>
+                          </div>
+                          <div className="col-md-6 text-end">
+                            <h5 className="mt-4">NGN 20,250</h5>
+                            <h5 className="mt-4">2004434887 <i className="ms-2 bi bi-files"></i></h5>
+                            <h5 className="mt-4">Wema Bank</h5>
+                            <h5 className="mt-4">Oshodi Mathew</h5>
+                            <h5 className="mt-4">*949*2004434887*20250#</h5>
+                            <span className="nb">Dial this code to complete the transaction</span>
+                          </div>
+                        </div>
+                        <div className="row mx-3">
+                          <Link  data-bs-toggle="modal" data-bs-target="#dilla-ussd-pay" type="button" className="btn px-5 py-3 ardilla-btn fs-6 mt-4 me-3" style={{width: "100%"}}>Continue</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* USSD - 2 */}
+              <div className="modal flex-modal fade" id="dilla-ussd-pay" data-backdrop="static">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container">
+                        <div className="row mx-3">
+                          <div className="col">
+                            <div className="row t-card p-4 bg-white">
+                              <div className="col-md-6">
+                                <img src={dillalogo} alt="" className="img-fluid" />
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <h4>₦30,000.00</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="row mx-3 mt-5 title-card">
+                          <div className="col text-center">
+                            <span className="transfer-amt">Pay Now ₦30,250.00</span>
+                            <h5 className="nb my-3">Dial this code to complete the transaction</h5>
+                            <span class="transfer-amt">*949*2004434887*30250#</span>
+                          </div>
+                        </div>
+                        
+                        <div className="row mx-3 mt-5">
+                          <Link  data-bs-toggle="modal" data-bs-target="#dilla-ussd-success" type="button" className="btn px-5 py-3 ardilla-btn fs-6 mt-4 me-3" style={{width: "100%"}}>I have Paid</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* USSD Success */}
+              <div className="modal flex-modal fade" id="dilla-ussd-success" data-backdrop="static">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container">
+                        <div className="row mx-3 justify-content-center">
+                          <div className="col-md-8 text-center payment-success">
+                            <img src={success} alt="" className="img-fluid" />
+                            <h2 className="my-5">Payment Received</h2>
+                            <p className="mb-5">Lorem ipsum dolor sit amet consectetur. Sapien vel netus eget orci semper parturient. Ut nec pellentesque consequat vitae massa nisi.</p>
+                            {/* <a href="/flex/top-up" >Back to Overview</a> */}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

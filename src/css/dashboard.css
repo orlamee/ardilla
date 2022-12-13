@@ -637,7 +637,7 @@ input:checked + .slider:before {
 }
 
 .flex-modal-body {
-  padding: 10px 0px 90px 0px!important;
+  padding: 10px 0px 70px 0px!important;
 }
 
 .modal-content {
@@ -1802,4 +1802,11 @@ button.owl-prev, .owl-carousel button.owl-dot {
   font-weight: 500;
   line-height: 12px;
   color: #6B7280;
+}
+
+.nb {
+  color: #6B7280!important;
+  font-size: 10px!important;
+  line-height: 11px!important;
+  font-weight: 500!important;
 }
