@@ -180,7 +180,7 @@ function Header() {
                 </div>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/learn" target="_blank">
+                <Link className="nav-link" to="/learn-more" target="_blank">
                   Learn
                 </Link>
               </li>

@@ -15,7 +15,7 @@ function LearnHeader() {
   return(
     <nav className="navbar fixed-top navbar-expand-lg navbar-light py-4 px-1">
       <div className='container header'>
-        <a className='navbar-brand' href="/learn">
+        <a className='navbar-brand' href="/learn-more">
           <img src={logo} alt="" className='img-fluid' style={{marginTop: "-8px"}} />
         </a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">

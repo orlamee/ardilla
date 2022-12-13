@@ -148,7 +148,7 @@ function PortfolioBody() {
             Explore
           </div>
         </Link>
-        <Link>
+        <Link to="/learn">
           <div className="d-flex flex-row">
             <img src={learn} alt="" className="img-fluid me-2 icons" />
             Learn

@@ -59,6 +59,7 @@ import TargetOverviewSan from "./dashboard/targetOverviewSan";
 import TargetOverviewCard from "./dashboard/targetOverviewCard";
 import DillaMain from "./dashboard/dilla";
 import Ot from "./pages/newOtp";
+import LearnMain from "./dashboard/learn";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -68,7 +69,7 @@ root.render(
       <Route path="/" element={<App />}></Route>
       <Route path="/alerts" element={<Alerts />}></Route>
       <Route path="/sign-up" element={<SignUp />}></Route>
-      <Route path="/learn" element={<Learn />}></Route>
+      <Route path="/learn-more" element={<Learn />}></Route>
       <Route path="/security" element={<AnswerQuestion />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/verify-mobile" element={<VerifyMobile />}></Route>
@@ -122,6 +123,8 @@ root.render(
 
       
       <Route path="/dilla" element={<DillaMain/>}></Route>
+      <Route path="/learn" element={<LearnMain/>}></Route>
+
 
       <Route
         path="/otp"
