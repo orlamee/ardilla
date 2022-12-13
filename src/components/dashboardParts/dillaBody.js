@@ -29,7 +29,7 @@ import dep from "../../img/dashboard/dep.svg";
 import sent from "../../img/dashboard/checked.svg";
 import cancel from "../../img/dashboard/cancel.svg";
 import revoke from "../../img/dashboard/revoke.svg";
-import dillalogo from "../../img/dashboard/tt-icon.svg";
+import dillalogo from "../../img/dashboard/dilla-new.png";
 import success from "../../img/dashboard/payment-success.svg";
 import addcard from "../../img/dashboard/addcard.svg";
 import blur from "../../img/dashboard/blur-card.svg";
@@ -589,7 +589,65 @@ function DillaBody() {
                   </div>
                 </div>
               </div>
-              <Link type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 mt-4">Send Money</Link>
+              <Link data-bs-toggle="modal" data-bs-target="#dilla-send-money" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 mt-4">Send Money</Link>
+              {/* Send Money Modal */}
+              <div className="modal flex-modal fade" id="dilla-send-money" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog right-dialog">
+                  <div className="modal-content right-content">
+                    <div className="modal-header">
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container initiate-modal p-5">
+                        <div className="row justify-content-center">
+                          <div className="col-md-6 text-center ">
+                            <img src={cadet} alt="" className="img-fluid" />
+                            <h2 className="mt-3">{"<"}StarBoy{"/>"}</h2>
+                          </div>
+                        </div>
+                        <div className="row mx-3 mt-5">
+                          <div className="col">
+                            <div className="row t-card p-4 bg-white">
+                              <div className="col-md-6">
+                                <img src={dillalogo} alt="" className="img-fluid" />
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <h4>₦30,000.00</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="row mx-3 mt-4 title-card">
+                          <div className="col text-center">
+                            <h3>Amount</h3>
+                          </div>
+                        </div>
+                        <div className="row mx-3">
+                          <div className="col text-center">
+                            <div className="input-group cart-group my-3">
+                              <span className="input-group-btn">
+                                <button type="button" className="quantity-left-minus minus-bg btn btn-number me-3"  data-type="minus" data-field="">
+                                  <i className="bi bi-dash"></i>
+                                </button>
+                              </span>
+                              <input type="text" id="quantity" name="quantity" className="form-control input-number" defaultValue="30000" min="1" max="100"/>
+                              <span className="input-group-btn">
+                                <button type="button" className="quantity-right-plus btn minus-bg btn-number ms-3" data-type="plus" data-field="">
+                                  <i className="bi bi-plus"></i>
+                                </button>
+                              </span>
+                            </div>
+                            <span className="charges">₦250.00 (1.5% fee caped at ₦250) </span>
+                          </div>
+                        </div>
+                        <div className="row mx-3 btn-bottom">
+                          <Link data-bs-toggle="modal" data-bs-target="#" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="recent-transaction mt-5">
               <h3>Friends</h3>
