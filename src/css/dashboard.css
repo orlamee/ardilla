@@ -1370,11 +1370,11 @@ input:checked + .slider:before {
 }
 
 .detail-transfer p {
-  color: #9CA3AF;
-  font-size: 14px;
-  line-height: 16px;
-  margin-bottom: 0;
-  font-weight: 500;
+  color: #9CA3AF!important;
+  font-size: 14px!important;
+  line-height: 16px!important;
+  margin-bottom: 0!important;
+  font-weight: 500!important;
 }
 
 .detail-transfer h5 {
@@ -1754,7 +1754,7 @@ button.owl-prev, .owl-carousel button.owl-dot {
 .btn-f6 {
   font-size: 11px!important;
   padding-left: 50px!important;
-  padding-right: 67px!important;
+  padding-right: 50px!important;
   font-weight: 600!important;
 }
 

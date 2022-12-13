@@ -782,8 +782,58 @@ function DillaBody() {
                             </div>
                           </div>
                         </div>
-                        <div className="row mx-3 btn-bottom">
-                          <Link data-bs-toggle="modal" data-bs-target="#dilla-send-choose" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                        <div className="row mx-3">
+                          <div className="mt-3">
+                            <h3>Pin</h3>
+                            <form>
+                              <div className="mb-3 mt-1">
+                                <input type="number" className="form-control target-form" placeholder="Enter Pin" required/>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div className="row mx-3 detail-transfer mt-2">
+                          <div className="col-md-6">
+                            <p className="mt-4">SAN Name</p>
+                            <p className="mt-4">SAN Account</p>
+                            <p className="mt-4">SAN Number</p>
+                          </div>
+                          <div className="col-md-6 text-end">
+                            <h5 className="mt-4">Aiyeola Mathew</h5>
+                            <h5 className="mt-4">Wema Bank</h5>
+                            <h5 className="mt-4">2003849232</h5>
+                          </div>
+                        </div>
+                        <div className="row mx-3">
+                          <Link data-bs-toggle="modal" data-bs-target="#dillatosan" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Dilla To San Success */}
+              <div className="modal flex-modal fade" id="dillatosan" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog right-dialog">
+                  <div className="modal-content right-content">
+                    <div className="modal-header">
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container initiate-modal p-5">
+                        <div className="row justify-content-center">
+                          <div className="col-md-6 text-center ">
+                            <img src={successful} alt="" className="img-fluid" />
+                            <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                            <p className="mb-3">0708 7788 7890</p>
+                          </div>
+                        </div>
+                        <div className="row my-3 sent-details">
+                          <div className="col text-center">
+                            <img src={sent} alt="" className="img-fluid" />
+                            <h3 className="my-3">Money Transfered</h3>
+                            <p>You have successfully sent <span style={{color: "#3D0072"}}>NGN50000 to <br/>SAN</span></p>
+                          </div>
                         </div>
                       </div>
                     </div>
