@@ -34,6 +34,12 @@ import success from "../../img/dashboard/payment-success.svg";
 import addcard from "../../img/dashboard/addcard.svg";
 import blur from "../../img/dashboard/blur-card.svg";
 import carddetails from "../../img/dashboard/card-details.svg";
+import mysan from "../../img/dashboard/mysan.svg";
+import dillauser from "../../img/dashboard/dilla-user.svg";
+import savingsplan from "../../img/dashboard/savingsplan.svg";
+import investmentplan from "../../img/dashboard/investmentplan.svg";
+import insuranceplan from "../../img/dashboard/insuranceplan.svg";
+import sanlogo from "../../img/dashboard/san-new.png";
 
 
 
@@ -612,7 +618,7 @@ function DillaBody() {
                                 <img src={dillalogo} alt="" className="img-fluid" />
                               </div>
                               <div className="col-md-6 text-end">
-                                <h4>₦30,000.00</h4>
+                                <h4>₦500,000.00</h4>
                               </div>
                             </div>
                           </div>
@@ -664,7 +670,7 @@ function DillaBody() {
                                 <img src={dillalogo} alt="" className="img-fluid" />
                               </div>
                               <div className="col-md-6 text-end">
-                                <h4>₦30,000.00</h4>
+                                <h4>₦500,000.00</h4>
                               </div>
                             </div>
                           </div>
@@ -674,8 +680,110 @@ function DillaBody() {
                             <h3>Choose a payment destination</h3>
                           </div>
                         </div>
-                        <div className="row mx-3">
-                          <div className=""></div>
+                        <div className="row mx-3 mysan mt-4">
+                          <Link className="border-bottom pb-3 mb-3" data-bs-toggle="modal" data-bs-target="#dilla-send-san" type="button">
+                            <div className="d-flex flex-row">
+                              <img src={mysan} alt="" className="img-fluid" />
+                              <div className="ms-2 mt-2">
+                                <h2>My SAN</h2>
+                                <h3>Send money to your SAN account</h3>
+                              </div>
+                            </div>
+                            <i className="bi bi-chevron-right float-end" style={{marginTop: "-29px"}}></i>
+                          </Link>
+                          <Link className="border-bottom pb-3 mb-3">
+                            <div className="d-flex flex-row">
+                              <img src={dillauser} alt="" className="img-fluid" />
+                              <div className="ms-2 mt-2">
+                                <h2>A Dilla user</h2>
+                                <h3>Send money to your SAN account</h3>
+                              </div>
+                            </div>
+                            <i className="bi bi-chevron-right float-end" style={{marginTop: "-29px"}}></i>
+                          </Link>
+                          <Link className="border-bottom pb-3 mb-3">
+                            <div className="d-flex flex-row">
+                              <img src={savingsplan} alt="" className="img-fluid" />
+                              <div className="ms-2 mt-2">
+                                <h2>My Savings Plan</h2>
+                                <h3>Send money to your SAN account</h3>
+                              </div>
+                            </div>
+                            <i className="bi bi-chevron-right float-end" style={{marginTop: "-29px"}}></i>
+                          </Link>
+                          <Link className="border-bottom pb-3 mb-3">
+                            <div className="d-flex flex-row">
+                              <img src={investmentplan} alt="" className="img-fluid" />
+                              <div className="ms-2 mt-2">
+                                <h2>My Investment Plan</h2>
+                                <h3>Send money to your SAN account</h3>
+                              </div>
+                            </div>
+                            <i className="bi bi-chevron-right float-end" style={{marginTop: "-29px"}}></i>
+                          </Link>
+                          <Link className="border-bottom pb-3 mb-3">
+                            <div className="d-flex flex-row">
+                              <img src={insuranceplan} alt="" className="img-fluid" />
+                              <div className="ms-2 mt-2">
+                                <h2>My Insurance Plan</h2>
+                                <h3>Send money to your SAN account</h3>
+                              </div>
+                            </div>
+                            <i className="bi bi-chevron-right float-end" style={{marginTop: "-29px"}}></i>
+                          </Link>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Send Money to SAN */}
+              <div className="modal flex-modal fade" id="dilla-send-san" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog right-dialog">
+                  <div className="modal-content right-content">
+                    <div className="modal-header">
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container initiate-modal p-5">
+                        <div className="row justify-content-center">
+                          <div className="col-md-6 text-center ">
+                            <img src={cadet} alt="" className="img-fluid" />
+                            <h2 className="mt-3">{"<"}StarBoy{"/>"}</h2>
+                          </div>
+                        </div>
+                        <div className="row mx-3 mt-3">
+                          <div className="col">
+                            <div className="row t-card p-4 bg-white">
+                              <div className="col-md-6">
+                                <img src={dillalogo} alt="" className="img-fluid" />
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <h4>₦450,000.00</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="row">
+                          <div className="col text-center">
+                            <i className="bi bi-arrow-down fs-4" style={{color: "#3C0071"}}></i>
+                          </div>
+                        </div>
+                        <div className="row mx-3 mt-3">
+                          <div className="col">
+                            <div className="row t-card p-4 bg-white">
+                              <div className="col-md-6">
+                                <img src={sanlogo} alt="" className="img-fluid" />
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <h4>₦50,000.00</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="row mx-3 btn-bottom">
+                          <Link data-bs-toggle="modal" data-bs-target="#dilla-send-choose" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
                         </div>
                       </div>
                     </div>

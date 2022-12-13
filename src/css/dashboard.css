@@ -1814,3 +1814,22 @@ button.owl-prev, .owl-carousel button.owl-dot {
 .btn-bottom {
   margin-top: 120px;
 }
+
+.mysan h2 {
+  color: #3D0072!important;
+  font-size: 13px!important;
+  line-height: 14px!important;
+  font-weight: 600!important;
+}
+
+.mysan h3 {
+  color: #9CA3AF!important;
+  font-size: 9px!important;
+  line-height: 10px!important;
+  font-weight: 500!important;
+}
+
+.mysan a {
+  text-decoration: none;
+  color: #3C0071;
+}
