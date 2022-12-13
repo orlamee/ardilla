@@ -12,6 +12,7 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
+import savenow from "../../img/dashboard/learn-ref.svg";
 
 
 function LearnBody() {
@@ -93,6 +94,42 @@ function LearnBody() {
         </div>
         <div className="row mt-5">
           <h2>Educate yourself</h2>
+        </div>
+        <div className="row mt-3">
+          <div className="col-md-4">
+            <div className="d-flex flex-row">
+              <button type="button" className="btn me-3 btn-learn">Videos</button>
+              <button type="button" className="btn me-3 btn-learn">Articles</button>
+              <button type="button" className="btn me-3 btn-learn">Quiz</button>
+              <button type="button" className="btn me-3 btn-learn">Profile</button>
+            </div>
+            <div className="row mt-5">
+              <div className="search-box">
+                <input type="text" class="search-learn" placeholder="Search"/>
+                <button className="search-button-learn">
+                  <i className="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-8 right-learn">
+            <div className="float-end">
+              <Link to="/savings" className="d-flex flex-row mb-2">
+                {/* <h4 className="mt-3 me-3">Save Now</h4> */}
+                <img src={savenow} alt="" className="img-fluid" />
+              </Link>
+              <Link to="/savings" className="d-flex flex-row mb-2">
+                {/* <h4 className="mt-3 me-3">Save Now</h4> */}
+                <img src={savenow} alt="" className="img-fluid" />
+              </Link>
+              <Link to="/savings" className="d-flex flex-row mb-2">
+                {/* <h4 className="mt-3 me-3">Save Now</h4> */}
+                <img src={savenow} alt="" className="img-fluid" />
+              </Link>
+              
+              
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -11,3 +11,66 @@
   line-height: 22px;
   font-weight: 700;
 }
+
+.btn-learn {
+  border-color: #9CA3AF;
+  color: #9CA3AF;
+  border-radius: 28px;
+  padding: 11px 35px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.btn-learn:hover {
+  color: #3D0072;
+  border-color: #9CA3AF;
+  background: #9CA3AF;
+  border-radius: 28px;
+  padding: 11px 35px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.search-learn {
+  width: 100%;
+  padding: 20px;
+  border: 0;
+  border-radius: 40px 0 0 40px;
+  border-right: none;
+  outline: none;
+  font-size: 20px;
+  color: #3C0071;
+  background: #F3F4F6;
+}
+
+.search-button-learn {
+  text-align: center;
+  height: 70px;
+  width: 90px;
+  outline: none;
+  cursor: pointer;
+  border: 0;
+  border-radius: 0 40px 40px 0;
+  border-left: none;
+  background: #F3F4F6;
+  font-size: 20px;
+  border-left: 1px solid #F3F4F6;
+}
+
+.right-learn h4 {
+  color: #fff;
+  font-size: 15px;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+.right-learn h4:hover {
+  color: #3D0072;
+  font-size: 15px;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+.right-learn {
+  padding-right: 90px;
+}
