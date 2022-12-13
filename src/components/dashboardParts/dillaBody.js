@@ -641,7 +641,41 @@ function DillaBody() {
                           </div>
                         </div>
                         <div className="row mx-3 btn-bottom">
-                          <Link data-bs-toggle="modal" data-bs-target="#" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                          <Link data-bs-toggle="modal" data-bs-target="#dilla-send-choose" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Send Money Modal - Step 2 */}
+              <div className="modal flex-modal fade" id="dilla-send-choose" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog right-dialog">
+                  <div className="modal-content right-content">
+                    <div className="modal-header">
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container initiate-modal p-5">
+                        <div className="row mx-3 mt-5">
+                          <div className="col">
+                            <div className="row t-card p-4 bg-white">
+                              <div className="col-md-6">
+                                <img src={dillalogo} alt="" className="img-fluid" />
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <h4>₦30,000.00</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="row mx-3 mt-4 title-card">
+                          <div className="col text-center">
+                            <h3>Choose a payment destination</h3>
+                          </div>
+                        </div>
+                        <div className="row mx-3">
+                          <div className=""></div>
                         </div>
                       </div>
                     </div>
