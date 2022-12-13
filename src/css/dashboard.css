@@ -1833,3 +1833,26 @@ button.owl-prev, .owl-carousel button.owl-dot {
   text-decoration: none;
   color: #3C0071;
 }
+
+.owl-friends p {
+  color: #3C0071;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 10px;
+  margin-top: 10px;
+}
+
+i.fas.fa-search {
+  color: #9B7DB6;
+}
+
+.friends-list p {
+  color: #3C0071;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 13px;
+}
+
+.friends-list a {
+  text-decoration: none;
+}
