@@ -18,6 +18,12 @@ import save from "../../img/dashboard/save-i.svg";
 function FlexPlanDashboard() {
   let acct = JSON.parse(sessionStorage.getItem("acct"));
   let user = JSON.parse(sessionStorage.getItem("user"));
+  // const location = useLocation();
+  // console.log(location.state);
+  // location.state?.from?.pathname
+  // let lastPageUrl = windowdocument.referrer;
+  // console.log(`Last visited page URL is ${lastPageUrl}`);
+
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -102,7 +108,9 @@ function FlexPlanDashboard() {
           <div className="col-md-8">
             {/* <img src={verticalthree} alt="" className="img-fluid"/> */}
             <h2>
-              Cadet {"<"}Starboy{"/>"},
+              Cadet {"<"}
+              {user.kodeHex}
+              {"/>"},
             </h2>
             <p>
               Here is your overview for custom{" "}
@@ -128,7 +136,7 @@ function FlexPlanDashboard() {
                     <div className="ms-3">
                       <p>Interest - 11%</p>
 
-                      <h3 className="mt-3">Lieutenant</h3>
+                      <h3 className="mt-3">{user.badge}</h3>
                     </div>
                   </div>
                 </div>
@@ -138,8 +146,10 @@ function FlexPlanDashboard() {
                   <div className="d-flex flex-row">
                     <img src={interest} alt="" className="img-fluid" />
                     <div className="ms-3">
-                      <p>Interest - 11%</p>
-                      <h3 className="mt-3">Lieutenant</h3>
+                      <p>Earn</p>
+                      <h3 className="mt-3">
+                        {Intl.NumberFormat("en-US").format(acct.flexPlan.ern)}
+                      </h3>
                     </div>
                   </div>
                 </div>
@@ -151,8 +161,8 @@ function FlexPlanDashboard() {
                   <div className="d-flex flex-row">
                     <img src={interest} alt="" className="img-fluid" />
                     <div className="ms-3">
-                      <p>Interest - 11%</p>
-                      <h3 className="mt-3">Lieutenant</h3>
+                      <p>Spend</p>
+                      <h3 className="mt-3">{acct.flexPlan.expRange}</h3>
                     </div>
                   </div>
                 </div>
@@ -162,7 +172,7 @@ function FlexPlanDashboard() {
                   <div className="d-flex flex-row">
                     <img src={save} alt="" className="img-fluid" />
                     <div className="ms-3">
-                      <p>Interest - 11%</p>
+                      <p>Save</p>
                       <h3 className="mt-3">Lieutenant</h3>
                     </div>
                   </div>
@@ -179,26 +189,27 @@ function FlexPlanDashboard() {
             <div className="row">
               <div className="col-md-6">
                 <div className="int px-4">
-                  <p>Total left- 40%</p>
-                  {acct.flexPlan.type === "custom" ? (
-                    <h3 className="mt-3">
-                      NGN {acct.flexPlan.customTotalSavingTarget}
-                    </h3>
-                  ) : (
-                    <h3 className="mt-3">NGN {acct.flexPlan.savingTarget}</h3>
-                  )}
+                  <p>Plan Type</p>
+
+                  <h3 className="mt-3">{acct.flexPlan.type}</h3>
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="int px-4">
-                  <p>Total left- 40%</p>
+                  <p>Saving Rate</p>
                   {acct.flexPlan.type === "custom" ? (
                     <h3 className="mt-3">
-                      NGN {acct.flexPlan.customMonthlySavingTarget}
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        acct.flexPlan.customMonthlySavingTarget
+                      )}
                     </h3>
                   ) : (
                     <h3 className="mt-3">
-                      NGN {acct.flexPlan.recommendedSavingRate}
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        acct.flexPlan.recommendedSavingRate
+                      )}
                     </h3>
                   )}
                 </div>
@@ -209,26 +220,38 @@ function FlexPlanDashboard() {
             <div className="row">
               <div className="col">
                 <div className="int px-4">
-                  <p>Total left- 40%</p>
+                  <p>Duration</p>
                   {acct.flexPlan.type === "custom" ? (
-                    <h3 className="mt-3">NGN {acct.flexPlan.customDuration}</h3>
+                    <h3 className="mt-3">{acct.flexPlan.customDuration}</h3>
                   ) : (
-                    <h3 className="mt-3">
-                      NGN {acct.flexPlan.durationInMonths}
-                    </h3>
+                    <h3 className="mt-3">{acct.flexPlan.durationInMonths}</h3>
                   )}
                 </div>
               </div>
               <div className="col">
                 <div className="int px-4">
-                  <p>Total left- 40%</p>
+                  <p>Intrest- 11%</p>
                   <h3 className="mt-3">NGN 240,000</h3>
                 </div>
               </div>
               <div className="col">
                 <div className="int px-4">
-                  <p>Total left- 40%</p>
-                  <h3 className="mt-3">NGN 240,000</h3>
+                  <p>Total</p>
+                  {acct.flexPlan.type === "custom" ? (
+                    <h3 className="mt-3">
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        acct.flexPlan.customTotalSavingTarget
+                      )}
+                    </h3>
+                  ) : (
+                    <h3 className="mt-3">
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        acct.flexPlan.savingTarget
+                      )}
+                    </h3>
+                  )}
                 </div>
               </div>
             </div>

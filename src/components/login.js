@@ -44,6 +44,18 @@ function Login() {
     getIP(`https://api.ipdata.co?api-key=${apiKey}`);
   }, [apiKey]);
 
+  const getAcctStatement = async (id) => {
+    try {
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/account/get-account/${id}`
+      );
+
+      sessionStorage.setItem("acct", JSON.stringify(data.acct));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const navigate = useNavigate();
 
   const sendRequest = async () => {
@@ -68,6 +80,8 @@ function Login() {
 
       Cookies.set("user", data.token);
       console.log(data);
+
+      getAcctStatement(data.user._id);
 
       sessionStorage.setItem("user", JSON.stringify(data.user));
 

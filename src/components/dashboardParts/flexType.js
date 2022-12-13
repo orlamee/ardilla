@@ -18,6 +18,8 @@ function TypeFlex() {
 
   let acct = JSON.parse(sessionStorage.getItem("acct"));
 
+  let user = JSON.parse(sessionStorage.getItem("user"));
+
   const flexPlan = acct.flexPlan;
 
   return (
@@ -102,7 +104,9 @@ function TypeFlex() {
         <div className="row cadet mt-4">
           <div className="col-md-6 ms-5">
             <h3>
-              Cadet {"<"}Starboy{"/>"},
+              Cadet {"<"}
+              {user.KodeHex}
+              {"/>"},
             </h3>
           </div>
         </div>
@@ -140,7 +144,7 @@ function TypeFlex() {
               <div className="text-center">
                 <Link
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn mt-5"
-                  to="/"
+                  to="/flex-dashboard"
                   style={{ width: "70%" }}
                 >
                   Go Automated
