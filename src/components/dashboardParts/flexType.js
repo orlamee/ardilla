@@ -20,6 +20,8 @@ function TypeFlex() {
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
+  console.log(user.kodeHex);
+
   const flexPlan = acct.flexPlan;
 
   return (
@@ -105,7 +107,7 @@ function TypeFlex() {
           <div className="col-md-6 ms-5">
             <h3>
               Cadet {"<"}
-              {user.KodeHex}
+              {user?.kodeHex}
               {"/>"},
             </h3>
           </div>

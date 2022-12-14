@@ -136,7 +136,7 @@ function FlexPlanDashboard() {
                     <div className="ms-3">
                       <p>Interest - 11%</p>
 
-                      <h3 className="mt-3">{user.badge}</h3>
+                      <h3 className="mt-3">{acct.badge}</h3>
                     </div>
                   </div>
                 </div>
@@ -189,9 +189,9 @@ function FlexPlanDashboard() {
             <div className="row">
               <div className="col-md-6">
                 <div className="int px-4">
-                  <p>Plan Type</p>
+                  <p>Total left</p>
 
-                  <h3 className="mt-3">{acct.flexPlan.type}</h3>
+                  <h3 className="mt-3">100,000</h3>
                 </div>
               </div>
               <div className="col-md-6">

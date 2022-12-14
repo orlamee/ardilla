@@ -15,6 +15,7 @@ function SecurityPage() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
+  // const [pinID, setPinID] = useState("");
 
   const navigate = useNavigate();
 
@@ -27,33 +28,6 @@ function SecurityPage() {
       return navigate("/404");
     }
   }, [verified, navigate]);
-
-  const sendMsg = async () => {
-    try {
-      const { data } = await axios.post(
-        "https://api.ng.termii.com/api/sms/otp/send",
-        {
-          api_key:
-            "TLHefRG7zB7nqGB1TOekkwud3UOZcra1KR3R5legoFnL4GKH7J7KFJ7HKpo1FF",
-          message_type: "NUMERIC",
-          to: "2348160853127",
-          from: "Ardilla",
-          channel: "generic",
-          pin_attempts: 10,
-          pin_time_to_live: 5,
-          pin_length: 6,
-          pin_placeholder: "< 123456 >",
-          message_text: "Your pin is < 123456 >",
-          pin_type: "NUMERIC",
-        }
-      );
-
-      console.log(data);
-      // setPinID(data.pinId);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -89,9 +63,10 @@ function SecurityPage() {
   };
 
   const handleClickSuccess = () => {
-    sendMsg();
+    // sendMsg();
     setOnSuccess(false);
-    // navigate("/verify-mobile");
+
+    navigate("/verify-mobile");
   };
 
   return (

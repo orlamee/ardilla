@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "../img/verify-icon.svg";
 import logo from "../img/logo.svg";
@@ -6,7 +6,9 @@ import logo from "../img/logo.svg";
 import axios from "axios";
 
 function VerifyPhone() {
-  // const [phoneNumber] = useState(`+234${user.contact}`);
+  let user = JSON.parse(sessionStorage.getItem("user"));
+
+  const [phoneNumber] = useState(`+234${user.contact}`);
   const [otp1, setOtp1] = useState("");
   const [otp2, setOtp2] = useState("");
   const [otp3, setOtp3] = useState("");
@@ -23,29 +25,83 @@ function VerifyPhone() {
   const [wrongContactMsg, setWrongContactMsg] = useState("");
   const [wrongContactSuc, setWrongContactSuc] = useState("");
 
-  const [pinID, setPinID] = useState("");
+  const pin = useRef();
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  const sendMsg = async () => {
+    try {
+      const { data } = await axios.post(
+        "https://api.ng.termii.com/api/sms/otp/send",
+        {
+          api_key:
+            "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
+          message_type: "NUMERIC",
+          to: phoneNumber,
+          from: "Ardilla",
+          channel: "generic",
+          pin_attempts: 10,
+          pin_time_to_live: 5,
+          pin_length: 6,
+          pin_placeholder: "< 123456 >",
+          message_text: "Your pin is < 123456 >",
+          pin_type: "NUMERIC",
+        }
+      );
+
+      pin.current = data.pinId;
+
+      if (data.status !== 200) {
+        setOnSuccess(false);
+        setMsg(data.smsStatus);
+        setLoading(false);
+        setErr(true);
+      }
+    } catch (error) {
+      setOnSuccess(false);
+      setMsg("Message was not set");
+      setLoading(false);
+      setErr(true);
+    }
+  };
+
+  useEffect(() => {
+    sendMsg();
+  }, []);
 
   const fullpin = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
 
   const checkOut = async (e) => {
     e.preventDefault();
+    setErr(false);
+    setLoading(true);
 
     try {
-      const { data } = axios.post(
+      const { data } = await axios.post(
         "https://api.ng.termii.com/api/sms/otp/verify",
         {
           api_key:
-            "TLLaX7wOf3XL3uiEY1paXi4pereGKAGjNXTV5rpJGoLaEujFbueaMfbuCReNkY",
-          pin_id: pinID,
+            "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
+          pin_id: pin.current,
           pin: fullpin,
         }
       );
 
-      console.log(data);
+      setLoading(false);
+      setOnSuccess(true);
+      setMsg("Mobile verifcation successful");
+
+      if (!data.verified) {
+        setErr(false);
+        setOnSuccess(false);
+        setMsg("Wrong pin");
+        setLoading(false);
+        setErr(true);
+      }
     } catch (error) {
-      console.log(error);
+      setLoading(false);
+      setOnSuccess(false);
+      setMsg("Oops something went wrong");
+      setLoading(false);
+      setErr(true);
     }
   };
 
@@ -72,6 +128,7 @@ function VerifyPhone() {
 
       setWrongContactSuc(true);
       setLoading(false);
+      sendMsg();
 
       setNewPhoneNumber("");
     } catch (error) {
@@ -209,7 +266,7 @@ function VerifyPhone() {
                           role="alert"
                         >
                           <i className="bi bi-patch-check-fill me-3"></i>
-                          successfull
+                          successfull, a new OTP has been sent
                           <button
                             type="button"
                             className="btn-close"
@@ -293,6 +350,7 @@ function VerifyPhone() {
                     type="text"
                     className="form-control rounded verify-otp"
                     maxLength="1"
+                    required
                     name="digit-2"
                     id="digit-2"
                     value={otp2}
@@ -370,7 +428,9 @@ function VerifyPhone() {
 
                   <p>
                     Didn’t get code?{" "}
-                    <span style={{ color: "#E6356D" }}>Resend</span>
+                    <span style={{ color: "#E6356D" }} onClick={sendMsg}>
+                      Resend
+                    </span>
                   </p>
                   <div className="logout">
                     <Link className="log-out">
