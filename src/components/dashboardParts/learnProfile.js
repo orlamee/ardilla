@@ -115,8 +115,9 @@ function LearnProfile() {
         </div>
         <div className="mt-5 row">
           <div className="col-md-6">
-            <div className="d-flex flex-row">
+            <div className="d-flex flex-row profile-avi">
               <img src={profile} alt="" className="img-fluid" />
+              <h3 className="mt-4 ms-4">Annabel Omah</h3>
             </div>
           </div>
         </div>
