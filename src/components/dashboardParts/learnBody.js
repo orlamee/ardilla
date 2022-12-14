@@ -17,6 +17,7 @@ import chat from "../../img/dashboard/chat.svg";
 import savenow from "../../img/dashboard/learn-ref.svg";
 import insurenow from "../../img/dashboard/insurenow.svg";
 import investnow from "../../img/dashboard/investnow.svg";
+import ardilla from "../../img/dashboard/ardilla.mp4";
 
 
 function LearnBody() {
@@ -140,20 +141,21 @@ function LearnBody() {
         </div>
         <div className="row mt-3">
           <div className="col-md-4">
-            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+            <Player src={ardilla}>
               <BigPlayButton position="center" />
             </Player>
           </div>
           <div className="col-md-4">
-            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+            <Player src={ardilla}>
               <BigPlayButton position="center" />
             </Player>
           </div>
           <div className="col-md-4">
-            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+            <Player src={ardilla}>
               <BigPlayButton position="center" />
             </Player>
           </div>
+          
           
         </div>
         <div className="row mt-5">
@@ -163,17 +165,17 @@ function LearnBody() {
         </div>
         <div className="row mt-3">
           <div className="col-md-4">
-            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+            <Player src={ardilla}>
               <BigPlayButton position="center" />
             </Player>
           </div>
           <div className="col-md-4">
-            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+            <Player src={ardilla}>
               <BigPlayButton position="center" />
             </Player>
           </div>
           <div className="col-md-4">
-            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+            <Player src={ardilla}>
               <BigPlayButton position="center" />
             </Player>
           </div>
