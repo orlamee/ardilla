@@ -126,14 +126,15 @@ function VerifyPhone() {
         { newPhoneNumber }
       );
 
+      sendMsg();
+
       sessionStorage.setItem("user", JSON.stringify(data.user));
 
       setWrongContactSuc(true);
       setLoading(false);
-      sendMsg();
 
       setNewPhoneNumber("");
-      window.location.reload();
+      // window.location.reload();
     } catch (error) {
       setLoading(false);
       setOnSuccess(false);
