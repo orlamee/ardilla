@@ -12,6 +12,7 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
+import profile from "../../img/dashboard/profile.svg";
 
 
 function LearnProfile() {
@@ -109,6 +110,13 @@ function LearnProfile() {
                 <Link to="/learn" type="button" className="btn me-3 btn-right">Share progress link</Link>
                 <Link to="/learn/article" type="button" className="btn me-3 btn-right">Learn</Link>
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="mt-5 row">
+          <div className="col-md-6">
+            <div className="d-flex flex-row">
+              <img src={profile} alt="" className="img-fluid" />
             </div>
           </div>
         </div>
