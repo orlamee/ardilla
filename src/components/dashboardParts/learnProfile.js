@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Player, BigPlayButton  } from 'video-react';
-
 import "../../css/learn.css"
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -14,13 +12,11 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
-import savenow from "../../img/dashboard/learn-ref.svg";
-import insurenow from "../../img/dashboard/insurenow.svg";
-import investnow from "../../img/dashboard/investnow.svg";
-import ardilla from "../../img/dashboard/ardilla.mp4";
+import profile from "../../img/dashboard/profile.svg";
+import badgeone from "../../img/dashboard/badg-1.svg";
 
 
-function LearnBody() {
+function LearnProfile() {
     return (
     <section className="main-dash">
       <div className="sidebar">
@@ -107,84 +103,76 @@ function LearnBody() {
               <Link to="/learn/article" type="button" className="btn me-3 btn-learn">Articles</Link>
               <Link to="/learn/quiz" type="button" className="btn me-3 btn-learn">Quiz</Link>
               <Link to="/learn/profile" type="button" className="btn me-3 btn-learn">Profile</Link>
-              {/* <button type="button" className="btn me-3 btn-learn">Profile</button> */}
             </div>
-            <div className="row mt-5">
-              <div className="search-box">
-                <input type="text" class="search-learn" placeholder="Search"/>
-                <button className="search-button-learn">
-                  <i className="fas fa-search"></i>
-                </button>
+          </div>
+          <div className="col-md-8">
+            <div className="float-end">
+              <div className="d-flex flex-row">
+                <Link to="/learn" type="button" className="btn me-3 btn-right">Share progress link</Link>
+                <Link to="/learn/article" type="button" className="btn me-3 btn-right">Learn</Link>
               </div>
             </div>
           </div>
-          <div className="col-md-8 right-learn">
-            <div className="float-end">
-              <Link to="/savings" className="d-flex flex-row mb-2">
-                {/* <h4 className="mt-3 me-3">Save Now</h4> */}
-                <img src={savenow} alt="" className="img-fluid" />
-              </Link>
-              <Link to="/savings" className="d-flex flex-row mb-2">
-                {/* <h4 className="mt-3 me-3">Save Now</h4> */}
-                <img src={investnow} alt="" className="img-fluid" />
-              </Link>
-              <Link to="/savings" className="d-flex flex-row mb-2">
-                {/* <h4 className="mt-3 me-3">Save Now</h4> */}
-                <img src={insurenow} alt="" className="img-fluid" />
-              </Link>
+        </div>
+        <div className="mt-5 row">
+          <div className="col-md-6">
+            <div className="d-flex flex-row profile-avi">
+              <img src={profile} alt="" className="img-fluid" />
+              <h3 className="mt-4 ms-4">Annabel Omah</h3>
             </div>
           </div>
         </div>
         <div className="row mt-5">
           <div className="col">
-            <span className="learn-title">Recent Videos</span>
+            <div id="" className="row">
+              <ul className="nav nav-pills dilla-link">
+                <li className="ms-3 me-5 profile-pills">
+                  <a  href="#1a" data-toggle="tab">Achievement</a>
+                </li>
+                <li className="me-5 profile-pills">
+                  <a href="#2a" data-toggle="tab">Statistics</a>
+                </li>
+              </ul>
+              <div className="tab-content clearfix">
+                <div className="tab-pane active" id="1a">
+                  <div className="row mt-5">
+                    <div className="col">
+                      <h5>Badges</h5>
+                      <div className="d-flex flex-row mt-2">
+                        <img src={badgeone} alt="" className="img-fluid me-4" />
+                        <img src={badgeone} alt="" className="img-fluid me-4" />
+                        <img src={badgeone} alt="" className="img-fluid me-4" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="tab-pane" id="2a">
+                  <div className="row mt-5">
+                    <div className="col-md-2">
+                      <div className="p-4 border rounded"></div>
+                    </div>
+                    <div className="col-md-2">
+                      <div className="p-4 border rounded"></div>
+                    </div>
+                  </div>
+                  <div className="row mt-4">
+                    <div className="col-md-2">
+                      <div className="p-4 border rounded"></div>
+                    </div>
+                    <div className="col-md-2">
+                      <div className="p-4 border rounded"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="row mt-3">
-          <div className="col-md-4">
-            <Player src={ardilla}>
-              <BigPlayButton position="center" />
-            </Player>
-          </div>
-          <div className="col-md-4">
-            <Player src={ardilla}>
-              <BigPlayButton position="center" />
-            </Player>
-          </div>
-          <div className="col-md-4">
-            <Player src={ardilla}>
-              <BigPlayButton position="center" />
-            </Player>
-          </div>
-          
-          
-        </div>
-        <div className="row mt-5">
-          <div className="col">
-            <span className="learn-title">About Ardilla</span>
-          </div>
-        </div>
-        <div className="row mt-3">
-          <div className="col-md-4">
-            <Player src={ardilla}>
-              <BigPlayButton position="center" />
-            </Player>
-          </div>
-          <div className="col-md-4">
-            <Player src={ardilla}>
-              <BigPlayButton position="center" />
-            </Player>
-          </div>
-          <div className="col-md-4">
-            <Player src={ardilla}>
-              <BigPlayButton position="center" />
-            </Player>
-          </div>
-          
-        </div>
+        
+        
       </div>
     </section>
   );
 }
 
-export default LearnBody;
+export default LearnProfile;

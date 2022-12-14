@@ -61,6 +61,8 @@ import DillaMain from "./dashboard/dilla";
 import Ot from "./pages/newOtp";
 import LearnMain from "./dashboard/learn";
 import LearnBlog from "./dashboard/learnBlog";
+import LearnQuizes from "./dashboard/learnQuizes";
+import LearnProfiles from "./dashboard/learnProfiles";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -120,6 +122,7 @@ root.render(
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
 
+<<<<<<< HEAD
       <Route path="/target-prefer" element={<TargetPrefer />}></Route>
       <Route
         path="/target-public-selection"
@@ -147,6 +150,30 @@ root.render(
         element={<TargetOverviewCard />}
       ></Route>
       <Route path="/ot" element={<Ot />}></Route>
+=======
+      <Route path="/target-prefer" element={<TargetPrefer/>}></Route>
+      <Route path="/target-public-selection" element={<TargetPublicSelection/>}></Route>
+      <Route path="/target-public-desc" element={<TargetDesc/>}></Route>
+      <Route path="/target-share-link" element={<TargetPlanShare/>}></Route>
+      <Route path="/target-set-amount" element={<TargetSetAmount/>}></Route>
+      <Route path="/target-set-save" element={<TargetSetSave/>}></Route>
+      <Route path="/target-set-duration" element={<TargetSetDuration/>}></Route>
+      <Route path="/target-custom-save" element={<TargetCustomSave/>}></Route>
+      <Route path="/flex/top-up" element={<FlexOverviewTopped/>}></Route>
+      <Route path="/flex-overview/san" element={<FlexOverviewSan/>}></Route>
+      <Route path="/flex-overview/card" element={<FlexOverviewCard/>}></Route>
+      <Route path="/target-overview" element={<TargetOverview/>}></Route>
+      <Route path="/target-overview/san" element={<TargetOverviewSan/>}></Route>
+      <Route path="/target-overview/card" element={<TargetOverviewCard/>}></Route>
+      <Route path="/ot" element={<Ot/>}></Route>
+
+      
+      <Route path="/dilla" element={<DillaMain/>}></Route>
+      <Route path="/learn" element={<LearnMain/>}></Route>
+      <Route path="/learn/article" element={<LearnBlog/>}></Route>
+      <Route path="/learn/quiz" element={<LearnQuizes/>}></Route>
+      <Route path="/learn/profile" element={<LearnProfiles/>}></Route>
+>>>>>>> 2c5fdd87ed20fb4dbf671bcf5a8e2f9a1e7997f4
 
       <Route path="/dilla" element={<DillaMain />}></Route>
       <Route path="/learn" element={<LearnMain />}></Route>
