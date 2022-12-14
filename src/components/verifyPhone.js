@@ -49,6 +49,8 @@ function VerifyPhone() {
 
       pin.current = data.pinId;
 
+      console.log(data);
+
       if (data.status !== 200) {
         setOnSuccess(false);
         setMsg(data.smsStatus);
@@ -131,6 +133,7 @@ function VerifyPhone() {
       sendMsg();
 
       setNewPhoneNumber("");
+      window.location.reload();
     } catch (error) {
       setLoading(false);
       setOnSuccess(false);
