@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Player, BigPlayButton  } from 'video-react';
 
 import "../../css/learn.css"
 import home from "../../img/dashboard/home.svg";
@@ -19,7 +18,7 @@ import insurenow from "../../img/dashboard/insurenow.svg";
 import investnow from "../../img/dashboard/investnow.svg";
 
 
-function LearnBody() {
+function LearnArticle() {
     return (
     <section className="main-dash">
       <div className="sidebar">
@@ -135,48 +134,19 @@ function LearnBody() {
         </div>
         <div className="row mt-5">
           <div className="col">
-            <span className="learn-title">Recent Videos</span>
+            <span className="learn-title">Recent Articles</span>
           </div>
         </div>
         <div className="row mt-3">
-          <div className="col-md-4">
-            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
-              <BigPlayButton position="center" />
-            </Player>
-          </div>
-          <div className="col-md-4">
-            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
-              <BigPlayButton position="center" />
-            </Player>
-          </div>
-          <div className="col-md-4">
-            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
-              <BigPlayButton position="center" />
-            </Player>
-          </div>
           
         </div>
         <div className="row mt-5">
           <div className="col">
-            <span className="learn-title">About Ardilla</span>
+            <span className="learn-title">Old Articles</span>
           </div>
         </div>
         <div className="row mt-3">
-          <div className="col-md-4">
-            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
-              <BigPlayButton position="center" />
-            </Player>
-          </div>
-          <div className="col-md-4">
-            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
-              <BigPlayButton position="center" />
-            </Player>
-          </div>
-          <div className="col-md-4">
-            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
-              <BigPlayButton position="center" />
-            </Player>
-          </div>
+          
           
         </div>
       </div>
@@ -184,4 +154,4 @@ function LearnBody() {
   );
 }
 
-export default LearnBody;
+export default LearnArticle;

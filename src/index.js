@@ -60,6 +60,7 @@ import TargetOverviewCard from "./dashboard/targetOverviewCard";
 import DillaMain from "./dashboard/dilla";
 import Ot from "./pages/newOtp";
 import LearnMain from "./dashboard/learn";
+import LearnBlog from "./dashboard/learnBlog";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -124,6 +125,7 @@ root.render(
       
       <Route path="/dilla" element={<DillaMain/>}></Route>
       <Route path="/learn" element={<LearnMain/>}></Route>
+      <Route path="/learn/article" element={<LearnBlog/>}></Route>
 
 
       <Route
