@@ -126,7 +126,7 @@ function LearnProfile() {
           <div className="col">
             <div id="" className="row">
               <ul className="nav nav-pills dilla-link">
-                <li className="active ms-3 me-5 profile-pills">
+                <li className="ms-3 me-5 profile-pills">
                   <a  href="#1a" data-toggle="tab">Achievement</a>
                 </li>
                 <li className="me-5 profile-pills">
@@ -136,17 +136,32 @@ function LearnProfile() {
               <div className="tab-content clearfix">
                 <div className="tab-pane active" id="1a">
                   <div className="row mt-5">
-                    <h5>Badges</h5>
-                    <div className="d-flex flex-row mt-2">
-                      <img src={badgeone} alt="" className="img-fluid me-4" />
-                      <img src={badgeone} alt="" className="img-fluid me-4" />
-                      <img src={badgeone} alt="" className="img-fluid me-4" />
+                    <div className="col">
+                      <h5>Badges</h5>
+                      <div className="d-flex flex-row mt-2">
+                        <img src={badgeone} alt="" className="img-fluid me-4" />
+                        <img src={badgeone} alt="" className="img-fluid me-4" />
+                        <img src={badgeone} alt="" className="img-fluid me-4" />
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div className="tab-pane" id="2a">
                   <div className="row mt-5">
-                    <p>Lorem Lorem</p>
+                    <div className="col-md-2">
+                      <div className="p-4 border rounded"></div>
+                    </div>
+                    <div className="col-md-2">
+                      <div className="p-4 border rounded"></div>
+                    </div>
+                  </div>
+                  <div className="row mt-4">
+                    <div className="col-md-2">
+                      <div className="p-4 border rounded"></div>
+                    </div>
+                    <div className="col-md-2">
+                      <div className="p-4 border rounded"></div>
+                    </div>
                   </div>
                 </div>
               </div>
