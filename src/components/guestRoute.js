@@ -1,11 +1,12 @@
 import { Navigate } from "react-router-dom";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 
 const GuestRoute = ({ children }) => {
-  const activated = Cookies.get("token");
+  // const activated = Cookies.get("token");
+  const user = JSON.parse(sessionStorage.getItem("user"));
 
-  if (!activated) {
-    return <Navigate to={"/sign-up"} />;
+  if (!user) {
+    return <Navigate to={"/sign-up"} replace={true} />;
   }
 
   return children;

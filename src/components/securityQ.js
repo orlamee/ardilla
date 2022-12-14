@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../img/logo.svg";
 import home from "../img/home-login.svg";
 import axios from "axios";
 
 function SecurityPage() {
-  const location = useLocation();
+  // const location = useLocation();
+  // , useLocation
 
   let securityQusetion;
+
+  let user = JSON.parse(sessionStorage.getItem("user"));
 
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
@@ -15,19 +18,52 @@ function SecurityPage() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
-  // const [pinID, setPinID] = useState("");
 
   const navigate = useNavigate();
 
-  const { _id, verified } = location.state.user;
+  const { _id, verified } = user;
 
   useEffect(() => {
-    if (verified === "cp") {
-      return;
-    } else {
-      return navigate("/404");
+    try {
+      const getUserById = async () => {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+        );
+
+        if (data?.user?.verified === "cp") {
+          return;
+        } else if (data?.user?.verified === "sq") {
+          return navigate("/verify-mobile");
+        } else {
+          return navigate("/404");
+        }
+      };
+
+      getUserById();
+    } catch (error) {
+      console.log(error);
     }
-  }, [verified, navigate]);
+  }, [user._id, navigate]);
+
+  // useEffect(() => {
+  //   try {
+  //     const getUserById = async () => {
+  //       const { data } = await axios.get(
+  //         `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+  //       );
+
+  //       if (data?.user?.verified === "cp") {
+  //         return;
+  //       } else {
+  //         return navigate("/404");
+  //       }
+  //     };
+
+  //     getUserById();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [user._id, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,10 +99,18 @@ function SecurityPage() {
   };
 
   const handleClickSuccess = () => {
-    // sendMsg();
-    setOnSuccess(false);
+    const getUserById = async () => {
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/user/find/${_id}`
+      );
 
-    navigate("/verify-mobile");
+      setOnSuccess(false);
+
+      const { user } = data;
+      navigate("/verify-mobile", { state: { user } });
+    };
+
+    getUserById();
   };
 
   return (

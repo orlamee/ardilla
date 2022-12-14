@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import pin from "../img/pin.svg";
 import logo from "../img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
@@ -20,12 +20,63 @@ function CreatePin() {
   const [confirmPin3, setConfirmPin3] = useState("");
   const [confirmPin4, setConfirmPin4] = useState("");
 
+  let user = JSON.parse(sessionStorage.getItem("user"));
+  const navigate = useNavigate();
+
   const code = `${pin1}${pin2}${pin3}${pin4}`;
   const confirmCode = `${confirmPin1}${confirmPin2}${confirmPin3}${confirmPin4}`;
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  useEffect(() => {
+    try {
+      const getUserById = async () => {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+        );
 
-  const navigate = useNavigate();
+        if (data?.user?.verified === "mv") {
+          return;
+        } else if (data?.user?.verified === "completed") {
+          return navigate("/login");
+        } else {
+          return navigate("/404");
+        }
+      };
+
+      getUserById();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [user._id, navigate]);
+
+  const veriP = async () => {
+    try {
+      await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/auth/mobile/${user._id}`
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // useEffect(() => {
+  //   try {
+  //     const getUserById = async () => {
+  //       const { data } = await axios.get(
+  //         `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+  //       );
+
+  //       if (data?.user?.verified === "vm") {
+  //         return;
+  //       } else {
+  //         return navigate("/404");
+  //       }
+  //     };
+
+  //     getUserById();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [user._id, navigate]);
 
   const sendRequest = async () => {
     try {
@@ -39,6 +90,8 @@ function CreatePin() {
         setErr(true);
         return;
       }
+
+      veriP();
 
       const { data } = await axios.post(
         `https://ardilla.herokuapp.com/ardilla/api/auth//set-transaction-pin/${user._id}`,

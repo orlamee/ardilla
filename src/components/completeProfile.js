@@ -1,17 +1,84 @@
 import React, { useState, useEffect } from "react";
 import logo from "../img/logo.svg";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import complete from "../img/profilecomplete.svg";
 import axios from "axios";
 
 function CompleteProfile() {
-  const location = useLocation();
+  // const location = useLocation();
+  // , useLocation
+
+  let user = JSON.parse(sessionStorage.getItem("user"));
+
+  const { _id, verified } = user;
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    try {
+      const getUserById = async () => {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+        );
+
+        if (data?.user?.verified === "otp") {
+          return;
+        } else if (data?.user?.verified === "cp") {
+          return navigate("/security-question");
+        } else {
+          return navigate("/404");
+        }
+      };
+
+      getUserById();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [user._id, navigate]);
+
+  // useEffect(() => {
+  //   try {
+  //     const getUserById = async () => {
+  //       const { data } = await axios.get(
+  //         `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+  //       );
+
+  //       if (data?.user?.verified === "otp") {
+  //         return;
+  //       } else {
+  //         return navigate("/404");
+  //       }
+  //     };
+
+  //     getUserById();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [user._id, navigate]);
+
+  // useEffect(() => {
+  //   try {
+  //     const getUserById = async () => {
+  //       const { data } = await axios.get(
+  //         `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+  //       );
+
+  //       if (data?.user?.verified === "otp") {
+  //         return;
+  //       } else {
+  //         return navigate("/404");
+  //       }
+  //     };
+
+  //     getUserById();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [user._id, navigate]);
+
   let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
 
-  const [email, setEmail] = useState(location.state.user.email);
+  const [email, setEmail] = useState(user.email);
   const [kodeHex, setKodeHex] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -24,19 +91,9 @@ function CompleteProfile() {
   const [onSuccess, setOnSuccess] = useState(false);
   const [ip, setIp] = useState("");
 
-  const { _id, verified } = location.state.user;
-
   const userID = _id;
 
   const accountName = `${firstname} ${lastname}`;
-
-  useEffect(() => {
-    if (verified === "otp") {
-      return;
-    } else {
-      return navigate("/404");
-    }
-  }, [verified, navigate]);
 
   function getIP(url) {
     return fetch(url).then((res) => res.json());
@@ -78,6 +135,8 @@ function CompleteProfile() {
         { email, firstname, lastname, contact, password, kodeHex, ip }
       );
 
+      sessionStorage.setItem("user", JSON.stringify(data.data));
+
       if (data.success === true) {
         setErr(false);
         setMsg(data.msg);
@@ -89,7 +148,7 @@ function CompleteProfile() {
       setIsLoading(false);
     } catch (error) {
       console.log(error);
-      setMsg(`${error.response.data.msg || "Network error"} `);
+      setMsg(`${error.response.data.msg} ` || "Network error");
       setErr(true);
       setIsLoading(false);
     }

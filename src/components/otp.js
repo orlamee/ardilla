@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import logo from "../img/logo.svg";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
 import Cookies from "js-cookie";
 
 function OtpPage() {
-  const location = useLocation();
+  // const location = useLocation();
+  // , useLocation
 
   const [code, setCode] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -14,12 +15,43 @@ function OtpPage() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
   const [resend, setResend] = useState(false);
+  const [userCheck, setUserCheck] = useState();
 
   const token = Cookies.get("token");
 
-  const { _id, email, verified } = location.state.user;
+  let user = JSON.parse(sessionStorage.getItem("user"));
+
+  console.log(user);
+
+  const { _id, email, verified } = user;
+
+  console.log(_id, email, verified);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    try {
+      const getUserById = async () => {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+        );
+
+        setUserCheck(data.user);
+
+        if (data?.user?.verified === "activated") {
+          return;
+        } else if (data?.user?.verified === "otp") {
+          return navigate("/complete-profile");
+        } else {
+          return navigate("/404");
+        }
+      };
+
+      getUserById();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [user._id, navigate]);
 
   useEffect(() => {
     if (verified === "activated") {
@@ -41,6 +73,10 @@ function OtpPage() {
         { code }
       );
 
+      // sessionStorage.setItem("user", JSON.stringify(data.data));
+
+      console.log(data);
+
       if (data.success === true) {
         setErr(false);
         setMsg(data.msg);
@@ -52,7 +88,7 @@ function OtpPage() {
     } catch (error) {
       setErr(true);
       setOnSuccess(false);
-      setMsg(`${error.response.data.msg || "Network error"} `);
+      setMsg(`${error.response.data.msg}` || "Network error");
       setIsLoading(false);
     }
   };
@@ -85,6 +121,8 @@ function OtpPage() {
 
       Cookies.remove("token");
 
+      sessionStorage.setItem("user", JSON.stringify(data.user));
+
       Cookies.set("token", data.token);
 
       if (data) {
@@ -94,7 +132,7 @@ function OtpPage() {
         setIsLoading(false);
       }
     } catch (error) {
-      setMsg(`${error.response.data.msg || "Network error"} `);
+      setMsg(`${error.response.data.msg}` || "Network error");
       setErr(true);
       setOnSuccess(false);
       setIsLoading(false);
@@ -221,7 +259,17 @@ function OtpPage() {
                       onChange={(e) => setCode(e.target.value)}
                     />
                   </div>
-                  {isLoading ? (
+                  {userCheck?.verified !== "activated" ? (
+                    <div className="my-5">
+                      <button
+                        type="button"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                        style={{ width: "100%" }}
+                      >
+                        done
+                      </button>
+                    </div>
+                  ) : isLoading ? (
                     <div className="my-5">
                       <button
                         type="button"
@@ -232,15 +280,17 @@ function OtpPage() {
                       </button>
                     </div>
                   ) : (
-                    <div className="my-5">
-                      <button
-                        type="submit"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                        style={{ width: "100%" }}
-                      >
-                        Continue
-                      </button>
-                    </div>
+                    !isLoading && (
+                      <div className="my-5">
+                        <button
+                          type="submit"
+                          className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                          style={{ width: "100%" }}
+                        >
+                          Continue
+                        </button>
+                      </div>
+                    )
                   )}
 
                   <div className="bottom">

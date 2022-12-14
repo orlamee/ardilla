@@ -8,6 +8,63 @@ import axios from "axios";
 function VerifyPhone() {
   let user = JSON.parse(sessionStorage.getItem("user"));
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    try {
+      const getUserById = async () => {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+        );
+
+        if (data?.user?.verified === "sq") {
+          return;
+        } else if (data?.user?.verified === "mv") {
+          return navigate("/set-pin");
+        } else {
+          return navigate("/404");
+        }
+      };
+
+      getUserById();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [user._id, navigate]);
+
+  // const location = useLocation();
+  // , useLocation
+
+  // const { verified } = user;
+
+  // useEffect(() => {
+  //   if (verified === "sq") {
+  //     return;
+  //   } else {
+  //     return navigate("/404");
+  //   }
+  // }, [verified, navigate]);
+
+  // useEffect(() => {
+  //   try {
+  //     const getUserById = async () => {
+  //       const { data } = await axios.get(
+  //         `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+  //       );
+
+  //       if (data?.user?.verified === "sq") {
+  //         return;
+  //       } else {
+  //         return navigate("/404");
+  //       }
+  //     };
+
+  //     getUserById();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [user._id, navigate]);
+
   const [phoneNumber] = useState(`+234${user.contact}`);
   const [otp1, setOtp1] = useState("");
   const [otp2, setOtp2] = useState("");
@@ -143,8 +200,6 @@ function VerifyPhone() {
       setErr(true);
     }
   };
-
-  const navigate = useNavigate();
 
   const handleClickSuccess = () => {
     setOnSuccess(false);

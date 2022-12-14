@@ -73,8 +73,22 @@ root.render(
       <Route path="/learn-more" element={<Learn />}></Route>
       <Route path="/security" element={<AnswerQuestion />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
-      <Route path="/verify-mobile" element={<VerifyMobile />}></Route>
-      <Route path="/set-pin" element={<Pin />}></Route>
+      <Route
+        path="/verify-mobile"
+        element={
+          <GuestRoute>
+            <VerifyMobile />
+          </GuestRoute>
+        }
+      ></Route>
+      <Route
+        path="/set-pin"
+        element={
+          <GuestRoute>
+            <Pin />
+          </GuestRoute>
+        }
+      ></Route>
       <Route path="/bvn-verify" element={<KycVerify />}></Route>
       <Route
         path="/dashboard"
@@ -106,27 +120,37 @@ root.render(
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
 
-      <Route path="/target-prefer" element={<TargetPrefer/>}></Route>
-      <Route path="/target-public-selection" element={<TargetPublicSelection/>}></Route>
-      <Route path="/target-public-desc" element={<TargetDesc/>}></Route>
-      <Route path="/target-share-link" element={<TargetPlanShare/>}></Route>
-      <Route path="/target-set-amount" element={<TargetSetAmount/>}></Route>
-      <Route path="/target-set-save" element={<TargetSetSave/>}></Route>
-      <Route path="/target-set-duration" element={<TargetSetDuration/>}></Route>
-      <Route path="/target-custom-save" element={<TargetCustomSave/>}></Route>
-      <Route path="/flex/top-up" element={<FlexOverviewTopped/>}></Route>
-      <Route path="/flex-overview/san" element={<FlexOverviewSan/>}></Route>
-      <Route path="/flex-overview/card" element={<FlexOverviewCard/>}></Route>
-      <Route path="/target-overview" element={<TargetOverview/>}></Route>
-      <Route path="/target-overview/san" element={<TargetOverviewSan/>}></Route>
-      <Route path="/target-overview/card" element={<TargetOverviewCard/>}></Route>
-      <Route path="/ot" element={<Ot/>}></Route>
+      <Route path="/target-prefer" element={<TargetPrefer />}></Route>
+      <Route
+        path="/target-public-selection"
+        element={<TargetPublicSelection />}
+      ></Route>
+      <Route path="/target-public-desc" element={<TargetDesc />}></Route>
+      <Route path="/target-share-link" element={<TargetPlanShare />}></Route>
+      <Route path="/target-set-amount" element={<TargetSetAmount />}></Route>
+      <Route path="/target-set-save" element={<TargetSetSave />}></Route>
+      <Route
+        path="/target-set-duration"
+        element={<TargetSetDuration />}
+      ></Route>
+      <Route path="/target-custom-save" element={<TargetCustomSave />}></Route>
+      <Route path="/flex/top-up" element={<FlexOverviewTopped />}></Route>
+      <Route path="/flex-overview/san" element={<FlexOverviewSan />}></Route>
+      <Route path="/flex-overview/card" element={<FlexOverviewCard />}></Route>
+      <Route path="/target-overview" element={<TargetOverview />}></Route>
+      <Route
+        path="/target-overview/san"
+        element={<TargetOverviewSan />}
+      ></Route>
+      <Route
+        path="/target-overview/card"
+        element={<TargetOverviewCard />}
+      ></Route>
+      <Route path="/ot" element={<Ot />}></Route>
 
-      
-      <Route path="/dilla" element={<DillaMain/>}></Route>
-      <Route path="/learn" element={<LearnMain/>}></Route>
-      <Route path="/learn/article" element={<LearnBlog/>}></Route>
-
+      <Route path="/dilla" element={<DillaMain />}></Route>
+      <Route path="/learn" element={<LearnMain />}></Route>
+      <Route path="/learn/article" element={<LearnBlog />}></Route>
 
       <Route
         path="/otp"

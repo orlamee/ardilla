@@ -29,6 +29,8 @@ function Register() {
 
       const { user } = data;
 
+      sessionStorage.setItem("user", JSON.stringify(data.user));
+
       Cookies.set("token", data.token);
 
       navigate("/otp", { state: { user } });
