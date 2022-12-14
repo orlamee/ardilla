@@ -13,6 +13,7 @@ import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
 import profile from "../../img/dashboard/profile.svg";
+import badgeone from "../../img/dashboard/badg-1.svg";
 
 
 function LearnProfile() {
@@ -118,6 +119,37 @@ function LearnProfile() {
             <div className="d-flex flex-row profile-avi">
               <img src={profile} alt="" className="img-fluid" />
               <h3 className="mt-4 ms-4">Annabel Omah</h3>
+            </div>
+          </div>
+        </div>
+        <div className="row mt-5">
+          <div className="col">
+            <div id="" className="row">
+              <ul className="nav nav-pills dilla-link">
+                <li className="active ms-3 me-5 profile-pills">
+                  <a  href="#1a" data-toggle="tab">Achievement</a>
+                </li>
+                <li className="me-5 profile-pills">
+                  <a href="#2a" data-toggle="tab">Statistics</a>
+                </li>
+              </ul>
+              <div className="tab-content clearfix">
+                <div className="tab-pane active" id="1a">
+                  <div className="row mt-5">
+                    <h5>Badges</h5>
+                    <div className="d-flex flex-row mt-2">
+                      <img src={badgeone} alt="" className="img-fluid me-4" />
+                      <img src={badgeone} alt="" className="img-fluid me-4" />
+                      <img src={badgeone} alt="" className="img-fluid me-4" />
+                    </div>
+                  </div>
+                </div>
+                <div className="tab-pane" id="2a">
+                  <div className="row mt-5">
+                    <p>Lorem Lorem</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

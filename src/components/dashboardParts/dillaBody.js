@@ -1400,7 +1400,7 @@ function DillaBody() {
                       <div id="exTab1" className="row">	
                         <ul  className="nav nav-pills dilla-link">
                           <li className="active ms-3 me-5">
-                            <a  href="#1a" data-toggle="tab">Pending</a>
+                            <a  href="#2" data-toggle="tab">Pending</a>
                           </li>
                           <li className="me-5">
                             <a href="#2a" data-toggle="tab">Received</a>

@@ -165,3 +165,12 @@
   line-height: 22px;
   font-weight: 500;
 }
+
+.profile-pills a {
+  color: #9CA3AF;
+  font-size: 17px!important;
+  font-weight: 500;
+  line-height: 14px;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
