@@ -21,6 +21,16 @@
   font-weight: 500;
 }
 
+.btn-right {
+  border-color: #8807F7;
+  color: #8807F7;
+  border-radius: 28px;
+  padding: 11px 35px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
 .btn-learn:hover {
   color: #3D0072;
   border-color: #9CA3AF;
@@ -121,4 +131,30 @@
   max-width: 100%;
   height: 0;
   border-radius: 20px;
+}
+
+.articles h6 {
+  color: #9D9D9D;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.articles h3 {
+  color: #3D0072;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.articles p {
+  color: #9CA3AF;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.read-btn {
+  font-size: 10px!important;
+  font-weight: 600!important;
 }

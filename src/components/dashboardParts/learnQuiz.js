@@ -16,10 +16,10 @@ import chat from "../../img/dashboard/chat.svg";
 import savenow from "../../img/dashboard/learn-ref.svg";
 import insurenow from "../../img/dashboard/insurenow.svg";
 import investnow from "../../img/dashboard/investnow.svg";
-import article from "../../img/dashboard/article.svg";
+import quiz from "../../img/dashboard/quiz.svg";
 
 
-function LearnArticle() {
+function LearnQuiz() {
     return (
     <section className="main-dash">
       <div className="sidebar">
@@ -134,89 +134,30 @@ function LearnArticle() {
             </div>
           </div>
         </div>
+        
         <div className="row mt-5">
-          <div className="col">
-            <span className="learn-title">Recent Articles</span>
-          </div>
-        </div>
-        <div className="row mt-3">
           <div className="col-md-3 mb-2">
             <div className="articles">
-              <img src={article} alt="" className="img-fluid mb-3"/>
-              <h6>April 22, 2022 . 1hr Ago</h6>
-              <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
-              <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
+              <img src={quiz} alt="" className="img-fluid mb-3"/>
+              <h3 className="my-3">Savings Quiz</h3>
+              <p>Answer our savings quiz and win some rewards</p>
+              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Start Quiz</Link>
             </div>
           </div>
           <div className="col-md-3 mb-2">
             <div className="articles">
-              <img src={article} alt="" className="img-fluid mb-3"/>
-              <h6>April 22, 2022 . 1hr Ago</h6>
+              <img src={quiz} alt="" className="img-fluid mb-3"/>
               <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
-              <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
+              <p>Answer our savings quiz and win some rewards</p>
+              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Start Quiz</Link>
             </div>
           </div>
           <div className="col-md-3 mb-2">
             <div className="articles">
-              <img src={article} alt="" className="img-fluid mb-3"/>
-              <h6>April 22, 2022 . 1hr Ago</h6>
+              <img src={quiz} alt="" className="img-fluid mb-3"/>
               <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
-              <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
-            </div>
-          </div>
-          <div className="col-md-3 mb-2">
-            <div className="articles">
-              <img src={article} alt="" className="img-fluid mb-3"/>
-              <h6>April 22, 2022 . 1hr Ago</h6>
-              <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
-              <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
-            </div>
-          </div>
-        </div>
-        <div className="row mt-5">
-          <div className="col">
-            <span className="learn-title">Old Articles</span>
-          </div>
-        </div>
-        <div className="row mt-3">
-          <div className="col-md-3 mb-2">
-            <div className="articles">
-              <img src={article} alt="" className="img-fluid mb-3"/>
-              <h6>April 22, 2022 . 1hr Ago</h6>
-              <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
-              <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
-            </div>
-          </div>
-          <div className="col-md-3 mb-2">
-            <div className="articles">
-              <img src={article} alt="" className="img-fluid mb-3"/>
-              <h6>April 22, 2022 . 1hr Ago</h6>
-              <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
-              <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
-            </div>
-          </div>
-          <div className="col-md-3 mb-2">
-            <div className="articles">
-              <img src={article} alt="" className="img-fluid mb-3"/>
-              <h6>April 22, 2022 . 1hr Ago</h6>
-              <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
-              <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
-            </div>
-          </div>
-          <div className="col-md-3 mb-2">
-            <div className="articles">
-              <img src={article} alt="" className="img-fluid mb-3"/>
-              <h6>April 22, 2022 . 1hr Ago</h6>
-              <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
-              <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
+              <p>Answer our savings quiz and win some rewards </p>
+              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Start Quiz</Link>
             </div>
           </div>
         </div>
@@ -225,4 +166,4 @@ function LearnArticle() {
   );
 }
 
-export default LearnArticle;
+export default LearnQuiz;

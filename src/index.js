@@ -61,6 +61,8 @@ import DillaMain from "./dashboard/dilla";
 import Ot from "./pages/newOtp";
 import LearnMain from "./dashboard/learn";
 import LearnBlog from "./dashboard/learnBlog";
+import LearnQuizes from "./dashboard/learnQuizes";
+import LearnProfiles from "./dashboard/learnProfiles";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -126,6 +128,8 @@ root.render(
       <Route path="/dilla" element={<DillaMain/>}></Route>
       <Route path="/learn" element={<LearnMain/>}></Route>
       <Route path="/learn/article" element={<LearnBlog/>}></Route>
+      <Route path="/learn/quiz" element={<LearnQuizes/>}></Route>
+      <Route path="/learn/profile" element={<LearnProfiles/>}></Route>
 
 
       <Route
