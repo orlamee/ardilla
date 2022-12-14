@@ -27,7 +27,50 @@ function VerifyPhone() {
 
   const pin = useRef();
 
-  const sendMsg = async () => {
+  useEffect(() => {
+    const sendMsg = async () => {
+      try {
+        const { data } = await axios.post(
+          "https://api.ng.termii.com/api/sms/otp/send",
+          {
+            api_key:
+              "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
+            message_type: "NUMERIC",
+            to: phoneNumber,
+            from: "Ardilla",
+            channel: "generic",
+            pin_attempts: 1,
+            pin_time_to_live: 5,
+            pin_length: 6,
+            pin_placeholder: "< 123456 >",
+            message_text: "Your pin is < 123456 >",
+            pin_type: "NUMERIC",
+          }
+        );
+
+        pin.current = data.pinId;
+
+        console.log(data);
+
+        if (data.status !== 200) {
+          setOnSuccess(false);
+          setMsg(data.smsStatus);
+          setLoading(false);
+          setErr(true);
+        }
+      } catch (error) {
+        setOnSuccess(false);
+        setMsg("Message was not set");
+        setLoading(false);
+        setErr(true);
+      }
+    };
+    sendMsg();
+  }, [phoneNumber]);
+
+  const fullpin = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
+
+  const resend = async () => {
     try {
       const { data } = await axios.post(
         "https://api.ng.termii.com/api/sms/otp/send",
@@ -35,10 +78,10 @@ function VerifyPhone() {
           api_key:
             "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
           message_type: "NUMERIC",
-          to: phoneNumber,
+          to: `234${user.contact}`,
           from: "Ardilla",
           channel: "generic",
-          pin_attempts: 10,
+          pin_attempts: 1,
           pin_time_to_live: 5,
           pin_length: 6,
           pin_placeholder: "< 123456 >",
@@ -64,12 +107,6 @@ function VerifyPhone() {
       setErr(true);
     }
   };
-
-  useEffect(() => {
-    sendMsg();
-  }, []);
-
-  const fullpin = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
 
   const checkOut = async (e) => {
     e.preventDefault();
@@ -118,15 +155,33 @@ function VerifyPhone() {
     try {
       e.preventDefault();
       setLoading(true);
-      // setErr(false);
       setWrongContactErr(false);
+
+      const otpData = await axios.post(
+        "https://api.ng.termii.com/api/sms/otp/send",
+        {
+          api_key:
+            "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
+          message_type: "NUMERIC",
+          to: `234${newPhoneNumber}`,
+          from: "Ardilla",
+          channel: "generic",
+          pin_attempts: 1,
+          pin_time_to_live: 5,
+          pin_length: 6,
+          pin_placeholder: "< 123456 >",
+          message_text: "Your pin is < 123456 >",
+          pin_type: "NUMERIC",
+        }
+      );
+
+      pin.current = otpData.data.pinId;
+      console.log(otpData.data);
 
       const { data } = await axios.put(
         `https://ardilla.herokuapp.com/ardilla/api/auth/wrong-contact/${user._id}`,
         { newPhoneNumber }
       );
-
-      sendMsg();
 
       sessionStorage.setItem("user", JSON.stringify(data.user));
 
@@ -134,7 +189,6 @@ function VerifyPhone() {
       setLoading(false);
 
       setNewPhoneNumber("");
-      // window.location.reload();
     } catch (error) {
       setLoading(false);
       setOnSuccess(false);
@@ -432,7 +486,7 @@ function VerifyPhone() {
 
                   <p>
                     Didn’t get code?{" "}
-                    <span style={{ color: "#E6356D" }} onClick={sendMsg}>
+                    <span onClick={resend} style={{ color: "#E6356D" }}>
                       Resend
                     </span>
                   </p>
