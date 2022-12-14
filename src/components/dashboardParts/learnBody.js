@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Player, BigPlayButton  } from 'video-react';
+
 import "../../css/learn.css"
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -13,6 +15,8 @@ import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
 import savenow from "../../img/dashboard/learn-ref.svg";
+import insurenow from "../../img/dashboard/insurenow.svg";
+import investnow from "../../img/dashboard/investnow.svg";
 
 
 function LearnBody() {
@@ -120,16 +124,60 @@ function LearnBody() {
               </Link>
               <Link to="/savings" className="d-flex flex-row mb-2">
                 {/* <h4 className="mt-3 me-3">Save Now</h4> */}
-                <img src={savenow} alt="" className="img-fluid" />
+                <img src={investnow} alt="" className="img-fluid" />
               </Link>
               <Link to="/savings" className="d-flex flex-row mb-2">
                 {/* <h4 className="mt-3 me-3">Save Now</h4> */}
-                <img src={savenow} alt="" className="img-fluid" />
+                <img src={insurenow} alt="" className="img-fluid" />
               </Link>
-              
-              
             </div>
           </div>
+        </div>
+        <div className="row mt-5">
+          <div className="col">
+            <span className="learn-title">Recent Videos</span>
+          </div>
+        </div>
+        <div className="row mt-3">
+          <div className="col-md-4">
+            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+              <BigPlayButton position="center" />
+            </Player>
+          </div>
+          <div className="col-md-4">
+            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+              <BigPlayButton position="center" />
+            </Player>
+          </div>
+          <div className="col-md-4">
+            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+              <BigPlayButton position="center" />
+            </Player>
+          </div>
+          
+        </div>
+        <div className="row mt-5">
+          <div className="col">
+            <span className="learn-title">About Ardilla</span>
+          </div>
+        </div>
+        <div className="row mt-3">
+          <div className="col-md-4">
+            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+              <BigPlayButton position="center" />
+            </Player>
+          </div>
+          <div className="col-md-4">
+            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+              <BigPlayButton position="center" />
+            </Player>
+          </div>
+          <div className="col-md-4">
+            <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+              <BigPlayButton position="center" />
+            </Player>
+          </div>
+          
         </div>
       </div>
     </section>

@@ -5,6 +5,7 @@ import Products from "./components/landingpage/product";
 import Testimonial from "./components/landingpage/testimonial";
 import Videos from "./components/landingpage/video";
 import Header from "./components/navBar";
+import "../node_modules/video-react/dist/video-react.css"
 import "./css/App.css";
 import "./css/home.css";
 
