@@ -48,35 +48,15 @@ function CreatePin() {
     }
   }, [user._id, navigate]);
 
-  const veriP = async () => {
-    try {
-      await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/mobile/${user._id}`
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  // useEffect(() => {
+  // const veriP = async () => {
   //   try {
-  //     const getUserById = async () => {
-  //       const { data } = await axios.get(
-  //         `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-  //       );
-
-  //       if (data?.user?.verified === "vm") {
-  //         return;
-  //       } else {
-  //         return navigate("/404");
-  //       }
-  //     };
-
-  //     getUserById();
+  //     await axios.get(
+  //       `https://ardilla.herokuapp.com/ardilla/api/auth/mobile/${user._id}`
+  //     );
   //   } catch (error) {
   //     console.log(error);
   //   }
-  // }, [user._id, navigate]);
+  // };
 
   const sendRequest = async () => {
     try {
@@ -91,7 +71,7 @@ function CreatePin() {
         return;
       }
 
-      veriP();
+      // veriP();
 
       const { data } = await axios.post(
         `https://ardilla.herokuapp.com/ardilla/api/auth//set-transaction-pin/${user._id}`,
@@ -114,6 +94,12 @@ function CreatePin() {
     setOnSuccess(false);
     navigate("/login");
   };
+
+  setTimeout(() => {
+    if (onSuccess) {
+      navigate("/login");
+    }
+  }, 2000);
 
   const handleSubmit = (e) => {
     e.preventDefault();

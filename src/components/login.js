@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import platform from "platform";
+import date from "date-and-time";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -18,11 +19,20 @@ function Login() {
   const [city, setCity] = useState("");
   const [countryCode, setCountryCode] = useState("");
 
+  const now = new Date();
+
+  const today = date.format(now, "ddd, MMM DD YYYY");
+  const time = date.format(new Date(), "hh:mm A [GMT]Z");
+
   let platName = platform.name;
   let userOs = platform.os.family;
   let userOsVersion = platform.os.version;
 
   let currentTimestamp = new Date().getTime();
+
+  console.log(currentTimestamp);
+
+  console.log(today, time);
 
   let logDetails;
 
@@ -73,7 +83,17 @@ function Login() {
 
       const { data } = await axios.post(
         "https://ardilla.herokuapp.com/ardilla/api/auth/login",
-        { email, password, ip, platName, userOs, logDetails, currentTimestamp }
+        {
+          email,
+          password,
+          ip,
+          platName,
+          userOs,
+          logDetails,
+          currentTimestamp,
+          time,
+          today,
+        }
       );
 
       Cookies.remove("token");
@@ -104,6 +124,13 @@ function Login() {
   const handleClickSuccess = () => {
     setOnSuccess(false);
   };
+
+  setTimeout(() => {
+    if (err) {
+      setErr(false);
+      // navigate("/set-pin");
+    }
+  }, 2000);
 
   const handleSubmit = (e) => {
     e.preventDefault();

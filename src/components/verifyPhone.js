@@ -35,36 +35,6 @@ function VerifyPhone() {
   // const location = useLocation();
   // , useLocation
 
-  // const { verified } = user;
-
-  // useEffect(() => {
-  //   if (verified === "sq") {
-  //     return;
-  //   } else {
-  //     return navigate("/404");
-  //   }
-  // }, [verified, navigate]);
-
-  // useEffect(() => {
-  //   try {
-  //     const getUserById = async () => {
-  //       const { data } = await axios.get(
-  //         `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-  //       );
-
-  //       if (data?.user?.verified === "sq") {
-  //         return;
-  //       } else {
-  //         return navigate("/404");
-  //       }
-  //     };
-
-  //     getUserById();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [user._id, navigate]);
-
   const [phoneNumber] = useState(`+234${user.contact}`);
   const [otp1, setOtp1] = useState("");
   const [otp2, setOtp2] = useState("");
@@ -83,6 +53,16 @@ function VerifyPhone() {
   const [wrongContactSuc, setWrongContactSuc] = useState("");
 
   const pin = useRef();
+
+  const veriP = async () => {
+    try {
+      await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/auth/mobile/${user._id}`
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     const sendMsg = async () => {
@@ -184,6 +164,7 @@ function VerifyPhone() {
       setLoading(false);
       setOnSuccess(true);
       setMsg("Mobile verifcation successful");
+      veriP();
 
       if (!data.verified) {
         setErr(false);
@@ -205,6 +186,12 @@ function VerifyPhone() {
     setOnSuccess(false);
     navigate("/set-pin");
   };
+
+  setTimeout(() => {
+    if (onSuccess) {
+      navigate("/set-pin");
+    }
+  }, 2000);
 
   const wrongContact = async (e) => {
     try {

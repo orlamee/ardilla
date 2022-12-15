@@ -10,7 +10,7 @@ function CompleteProfile() {
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  const { _id, verified } = user;
+  const { _id } = user;
 
   const navigate = useNavigate();
 
@@ -35,46 +35,6 @@ function CompleteProfile() {
       console.log(error);
     }
   }, [user._id, navigate]);
-
-  // useEffect(() => {
-  //   try {
-  //     const getUserById = async () => {
-  //       const { data } = await axios.get(
-  //         `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-  //       );
-
-  //       if (data?.user?.verified === "otp") {
-  //         return;
-  //       } else {
-  //         return navigate("/404");
-  //       }
-  //     };
-
-  //     getUserById();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [user._id, navigate]);
-
-  // useEffect(() => {
-  //   try {
-  //     const getUserById = async () => {
-  //       const { data } = await axios.get(
-  //         `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-  //       );
-
-  //       if (data?.user?.verified === "otp") {
-  //         return;
-  //       } else {
-  //         return navigate("/404");
-  //       }
-  //     };
-
-  //     getUserById();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [user._id, navigate]);
 
   let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
 
@@ -168,6 +128,12 @@ function CompleteProfile() {
 
     getUserById();
   };
+
+  setTimeout(() => {
+    if (onSuccess) {
+      navigate("/complete-profile");
+    }
+  }, 2000);
 
   return (
     <section className="login-section">

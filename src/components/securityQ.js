@@ -21,7 +21,7 @@ function SecurityPage() {
 
   const navigate = useNavigate();
 
-  const { _id, verified } = user;
+  const { _id } = user;
 
   useEffect(() => {
     try {
@@ -44,26 +44,6 @@ function SecurityPage() {
       console.log(error);
     }
   }, [user._id, navigate]);
-
-  // useEffect(() => {
-  //   try {
-  //     const getUserById = async () => {
-  //       const { data } = await axios.get(
-  //         `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-  //       );
-
-  //       if (data?.user?.verified === "cp") {
-  //         return;
-  //       } else {
-  //         return navigate("/404");
-  //       }
-  //     };
-
-  //     getUserById();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [user._id, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -112,6 +92,12 @@ function SecurityPage() {
 
     getUserById();
   };
+
+  setTimeout(() => {
+    if (onSuccess) {
+      navigate("/verify-mobile");
+    }
+  }, 2000);
 
   return (
     <section className="login-section">
