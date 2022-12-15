@@ -255,3 +255,10 @@ li.active {
   line-height: 13px;
   font-weight: 600;
 }
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus {
+    cursor: default;
+    border-bottom: 3px solid #3D0072;
+    color: #3C0071;
+}

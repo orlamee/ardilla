@@ -108,14 +108,14 @@ function LearnQuiz() {
               <Link to="/learn/profile" type="button" className="btn me-3 btn-learn">Profile</Link>
               {/* <button type="button" className="btn me-3 btn-learn">Profile</button> */}
             </div>
-            <div className="row mt-5">
+            {/* <div className="row mt-5">
               <div className="search-box">
                 <input type="text" class="search-learn" placeholder="Search"/>
                 <button className="search-button-learn">
                   <i className="fas fa-search"></i>
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="col-md-8 right-learn">
             <div className="float-end">
@@ -135,7 +135,7 @@ function LearnQuiz() {
           </div>
         </div>
         
-        <div className="row mt-5">
+        <div className="row">
           <div className="col-md-3 mb-2">
             <div className="articles">
               <img src={quiz} alt="" className="img-fluid mb-3"/>

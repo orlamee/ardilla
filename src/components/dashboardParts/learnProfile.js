@@ -135,7 +135,7 @@ function LearnProfile() {
               <div className="col">
                 <div id="" className="row">
                   <ul className="nav nav-pills dilla-link">
-                    <li className="ms-3 me-5 profile-pills">
+                    <li className="ms-3 me-5 profile-pills active">
                       <a  href="#1a" data-toggle="tab">Achievement</a>
                     </li>
                     <li className="me-5 profile-pills">
