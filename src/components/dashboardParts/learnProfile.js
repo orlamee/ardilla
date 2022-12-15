@@ -18,6 +18,9 @@ import badgetwo from "../../img/dashboard/orange.svg";
 import badgethree from "../../img/dashboard/bdg3.svg";
 import blue from "../../img/dashboard/bluerec.svg";
 import streak from "../../img/dashboard/Streak.svg";
+import becca from "../../img/dashboard/leader.svg";
+import rank from "../../img/dashboard/Rank.png";
+
 
 
 function LearnProfile() {
@@ -224,7 +227,99 @@ function LearnProfile() {
           <div className="col-md-5 mt-5">
             <div className="cheerleader p-4">
               <h2>Leadership Board</h2>
+              <img src={rank} alt="" className="mt-4 img-fluid" />
+              <div className="mt-5">
+                <div className="row">
+                  <div className="col-md-1 text-center sn">
+                    <span>1.</span>
+                  </div>
+                  <div className="col-md-11">
+                    <div className="border-bottom py-4">
+                      <div className="d-flex flex-row">
+                        <img src={becca} alt="" className="img-fluid" />
+                        <div className="ms-2 leader-name">
+                          <h6>Roalat Abiola</h6>
+                          <p className="mt-1">{"<"}StarBoy{"/>"}</p>
+                        </div>
+                      </div>
+                      <h5 className="float-end pt">5000 pts</h5>
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-1 text-center sn">
+                    <span>2.</span>
+                  </div>
+                  <div className="col-md-11">
+                    <div className="border-bottom py-4">
+                      <div className="d-flex flex-row">
+                        <img src={becca} alt="" className="img-fluid" />
+                        <div className="ms-2 leader-name">
+                          <h6>Roalat Abiola</h6>
+                          <p className="mt-1">{"<"}StarBoy{"/>"}</p>
+                        </div>
+                      </div>
+                      <h5 className="float-end pt">4000 pts</h5>
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-1 text-center sn">
+                    <span>3.</span>
+                  </div>
+                  <div className="col-md-11">
+                    <div className="border-bottom py-4">
+                      <div className="d-flex flex-row">
+                        <img src={becca} alt="" className="img-fluid" />
+                        <div className="ms-2 leader-name">
+                          <h6>Roalat Abiola</h6>
+                          <p className="mt-1">{"<"}StarBoy{"/>"}</p>
+                        </div>
+                      </div>
+                      <h5 className="float-end pt">3000 pts</h5>
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-1 text-center sn">
+                    <span>4.</span>
+                  </div>
+                  <div className="col-md-11">
+                    <div className="border-bottom py-4">
+                      <div className="d-flex flex-row">
+                        <img src={becca} alt="" className="img-fluid" />
+                        <div className="ms-2 leader-name">
+                          <h6>Roalat Abiola</h6>
+                          <p className="mt-1">{"<"}StarBoy{"/>"}</p>
+                        </div>
+                      </div>
+                      <h5 className="float-end pt">3000 pts</h5>
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-1 text-center sn">
+                    <span>5.</span>
+                  </div>
+                  <div className="col-md-11">
+                    <div className="py-4">
+                      <div className="d-flex flex-row">
+                        <img src={becca} alt="" className="img-fluid" />
+                        <div className="ms-2 leader-name">
+                          <h6>Roalat Abiola</h6>
+                          <p className="mt-1">{"<"}StarBoy{"/>"}</p>
+                        </div>
+                      </div>
+                      <h5 className="float-end pt">3000 pts</h5>
+                    </div>
+                  </div>
+                </div>
+                
+                
+              </div>
+              
             </div>
+            
           </div>
         </div>
         
