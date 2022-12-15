@@ -63,6 +63,7 @@ import LearnMain from "./dashboard/learn";
 import LearnBlog from "./dashboard/learnBlog";
 import LearnQuizes from "./dashboard/learnQuizes";
 import LearnProfiles from "./dashboard/learnProfiles";
+import ReadBlog from "./dashboard/learnReadBlog";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -144,6 +145,7 @@ root.render(
       <Route path="/learn/article" element={<LearnBlog/>}></Route>
       <Route path="/learn/quiz" element={<LearnQuizes/>}></Route>
       <Route path="/learn/profile" element={<LearnProfiles/>}></Route>
+      <Route path="/article/read-article" element={<ReadBlog/>}></Route>
 
       {/* <Route path="/dilla" element={<DillaMain />}></Route>
       <Route path="/learn" element={<LearnMain />}></Route>

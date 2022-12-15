@@ -146,7 +146,7 @@ function LearnArticle() {
               <h6>April 22, 2022 . 1hr Ago</h6>
               <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
               <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
+              <Link to="/article/read-article" className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
             </div>
           </div>
           <div className="col-md-3 mb-2">
@@ -155,7 +155,7 @@ function LearnArticle() {
               <h6>April 22, 2022 . 1hr Ago</h6>
               <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
               <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
+              <Link to="/article/read-article" className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
             </div>
           </div>
           <div className="col-md-3 mb-2">
@@ -164,7 +164,7 @@ function LearnArticle() {
               <h6>April 22, 2022 . 1hr Ago</h6>
               <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
               <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
+              <Link to="/article/read-article" className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
             </div>
           </div>
           <div className="col-md-3 mb-2">
@@ -173,7 +173,7 @@ function LearnArticle() {
               <h6>April 22, 2022 . 1hr Ago</h6>
               <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
               <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
+              <Link to="/article/read-article" className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
             </div>
           </div>
         </div>
@@ -189,7 +189,7 @@ function LearnArticle() {
               <h6>April 22, 2022 . 1hr Ago</h6>
               <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
               <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
+              <Link to="/article/read-article" className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
             </div>
           </div>
           <div className="col-md-3 mb-2">
@@ -198,7 +198,7 @@ function LearnArticle() {
               <h6>April 22, 2022 . 1hr Ago</h6>
               <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
               <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
+              <Link to="/article/read-article" className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
             </div>
           </div>
           <div className="col-md-3 mb-2">
@@ -207,7 +207,7 @@ function LearnArticle() {
               <h6>April 22, 2022 . 1hr Ago</h6>
               <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
               <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
+              <Link to="/article/read-article" className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
             </div>
           </div>
           <div className="col-md-3 mb-2">
@@ -216,7 +216,7 @@ function LearnArticle() {
               <h6>April 22, 2022 . 1hr Ago</h6>
               <h3 className="my-3">Everything You Need To Know About Web 3 </h3>
               <p>Web 3 as we have all been hearing about for a<br/>while now and has stirred alot of attention on </p>
-              <Link  className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
+              <Link to="/article/read-article" className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn mt-3">Read Article</Link>
             </div>
           </div>
         </div>
