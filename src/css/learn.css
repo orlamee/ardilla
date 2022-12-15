@@ -178,3 +178,42 @@
 li.active {
   color: red;
 }
+
+.reward-bg {
+  border-radius: 20px;
+  border: 1px solid #D1D5DB;
+}
+
+.reward-bg h3 {
+  color: #3D0072;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+.reward-bg p {
+  color: #9CA3AF;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.quiz-pane h4 {
+  color: #9CA3AF;
+  font-size: 12px;
+  line-height: 13px;
+  font-weight: 600;
+}
+
+.quiz-pane span {
+  color: #000;
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 700; 
+}
+
+.cheerleader {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 10px rgba(63, 63, 63, 0.07);
+  border-radius: 16px;
+}

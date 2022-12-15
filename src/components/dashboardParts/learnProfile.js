@@ -14,6 +14,10 @@ import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
 import profile from "../../img/dashboard/profile.svg";
 import badgeone from "../../img/dashboard/badg-1.svg";
+import badgetwo from "../../img/dashboard/orange.svg";
+import badgethree from "../../img/dashboard/bdg3.svg";
+import blue from "../../img/dashboard/bluerec.svg";
+import streak from "../../img/dashboard/Streak.svg";
 
 
 function LearnProfile() {
@@ -114,60 +118,116 @@ function LearnProfile() {
             </div>
           </div>
         </div>
-        <div className="mt-5 row">
-          <div className="col-md-6">
-            <div className="d-flex flex-row profile-avi">
-              <img src={profile} alt="" className="img-fluid" />
-              <h3 className="mt-4 ms-4">Annabel Omah</h3>
+        <div className="row">
+          <div className="col-md-7">
+            <div className="mt-5 row">
+              <div className="col-md-6">
+                <div className="d-flex flex-row profile-avi">
+                  <img src={profile} alt="" className="img-fluid" />
+                  <h3 className="mt-4 ms-4">Annabel Omah</h3>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="row mt-5">
-          <div className="col">
-            <div id="" className="row">
-              <ul className="nav nav-pills dilla-link">
-                <li className="ms-3 me-5 profile-pills">
-                  <a  href="#1a" data-toggle="tab">Achievement</a>
-                </li>
-                <li className="me-5 profile-pills">
-                  <a href="#2a" data-toggle="tab">Statistics</a>
-                </li>
-              </ul>
-              <div className="tab-content clearfix">
-                <div className="tab-pane active" id="1a">
-                  <div className="row mt-5">
-                    <div className="col">
-                      <h5>Badges</h5>
-                      <div className="d-flex flex-row mt-2">
-                        <img src={badgeone} alt="" className="img-fluid me-4" />
-                        <img src={badgeone} alt="" className="img-fluid me-4" />
-                        <img src={badgeone} alt="" className="img-fluid me-4" />
+            <div className="row mt-5">
+              <div className="col">
+                <div id="" className="row">
+                  <ul className="nav nav-pills dilla-link">
+                    <li className="ms-3 me-5 profile-pills">
+                      <a  href="#1a" data-toggle="tab">Achievement</a>
+                    </li>
+                    <li className="me-5 profile-pills">
+                      <a href="#2a" data-toggle="tab">Statistics</a>
+                    </li>
+                  </ul>
+                  <div className="tab-content clearfix">
+                    <div className="tab-pane active" id="1a">
+                      <div className="row mt-5">
+                        <div className="col">
+                          <h5 className="text-muted">Badges</h5>
+                          <div className="d-flex flex-row mt-2">
+                            <img src={badgeone} alt="" className="img-fluid me-4" />
+                            <img src={badgetwo} alt="" className="img-fluid me-4" />
+                            <img src={badgethree} alt="" className="img-fluid me-4" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row mt-5 rewards">
+                        <div className="col-md-6">
+                          <h5 className="text-muted">Rewards</h5>
+                          <div className="p-4 reward-bg">
+                            <div className="d-flex flex-row">
+                              <img src={blue} alt="" className="img-fluid" />
+                              <div className="ms-4 mt-3">
+                                <h3>Diligent Saver</h3>
+                                <p>You are such a deligent saver</p>
+                                <Link className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn">Claim Reward</Link>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row mt-3 rewards">
+                        <div className="col-md-6">
+                          <div className="p-4 reward-bg">
+                            <div className="d-flex flex-row">
+                              <img src={blue} alt="" className="img-fluid" />
+                              <div className="ms-4 mt-3">
+                                <h3>Diligent Saver</h3>
+                                <p>You are such a deligent saver</p>
+                                <Link className="btn btn-outline-primary px-3 py-1 ardilla-btn outline-btn read-btn">Claim Reward</Link>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div className="tab-pane" id="2a">
-                  <div className="row mt-5">
-                    <div className="col-md-2">
-                      <div className="p-4 border rounded"></div>
-                    </div>
-                    <div className="col-md-2">
-                      <div className="p-4 border rounded"></div>
-                    </div>
-                  </div>
-                  <div className="row mt-4">
-                    <div className="col-md-2">
-                      <div className="p-4 border rounded"></div>
-                    </div>
-                    <div className="col-md-2">
-                      <div className="p-4 border rounded"></div>
+                    <div className="tab-pane quiz-pane" id="2a">
+                      <div className="row mt-5">
+                        <div className="col-md-4">
+                          <div className="p-4 border rounded">
+                            <h4>Quiz completed</h4>
+                            <span>10</span>
+                          </div>
+                        </div>
+                        <div className="col-md-4">
+                          <div className="p-4 border rounded">
+                            <div className="d-flex flex-row">
+                              <img src={streak} alt="" className="img-fluid" />
+                              <div className="ms-3">
+                                <h4>Streaks</h4>
+                                <span>10</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row mt-4">
+                        <div className="col-md-4">
+                          <div className="p-4 border rounded">
+                            <h4>Quiz completed</h4>
+                            <span>10</span>
+                          </div>
+                        </div>
+                        <div className="col-md-4">
+                          <div className="p-4 border rounded">
+                            <h4>Quiz completed</h4>
+                            <span>10</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div className="col-md-5 mt-5">
+            <div className="cheerleader p-4">
+              <h2>Leadership Board</h2>
+            </div>
+          </div>
         </div>
+        
         
         
       </div>
