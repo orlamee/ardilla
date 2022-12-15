@@ -53,13 +53,19 @@ function OtpPage() {
     }
   }, [user._id, navigate]);
 
-  useEffect(() => {
-    if (verified === "activated") {
-      return;
-    } else {
-      return navigate("/sign-up");
+  // useEffect(() => {
+  //   if (verified === "activated") {
+  //     return;
+  //   } else {
+  //     return navigate("/sign-up");
+  //   }
+  // }, [verified, navigate]);
+
+  setTimeout(() => {
+    if (onSuccess) {
+      navigate("/complete-profile");
     }
-  }, [verified, navigate]);
+  }, 2000);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

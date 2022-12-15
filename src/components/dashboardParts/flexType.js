@@ -24,6 +24,14 @@ function TypeFlex() {
 
   const flexPlan = acct.flexPlan;
 
+  const check = true;
+
+  setTimeout(() => {
+    if (check) {
+      console.log("Hello, World!");
+    }
+  }, 8000);
+
   return (
     <section className="main-dash">
       <div className="sidebar">
