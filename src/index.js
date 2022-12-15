@@ -64,6 +64,7 @@ import LearnBlog from "./dashboard/learnBlog";
 import LearnQuizes from "./dashboard/learnQuizes";
 import LearnProfiles from "./dashboard/learnProfiles";
 import ReadBlog from "./dashboard/learnReadBlog";
+import TargetPlanPrivate from "./dashboard/targetPlanPrivate";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -137,6 +138,8 @@ root.render(
       <Route path="/target-overview" element={<TargetOverview/>}></Route>
       <Route path="/target-overview/san" element={<TargetOverviewSan/>}></Route>
       <Route path="/target-overview/card" element={<TargetOverviewCard/>}></Route>
+      <Route path="/target-private" element={<TargetPlanPrivate/>}></Route>
+      
       <Route path="/ot" element={<Ot/>}></Route>
 
       
