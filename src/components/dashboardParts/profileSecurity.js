@@ -110,7 +110,7 @@ function ProfileSecurity() {
               <Link to="/profile/security" type="button" className="btn me-3 btn-profile active"> <i className="bi bi-shield-lock me-2"></i> Security</Link>
             </div>
             <div className="mb-4">
-              <Link to="" type="button" className="btn me-3 btn-profile"> <i className="bi bi-patch-question-fill me-2"></i> Get Help</Link>
+              <Link to="/profile/get-help" type="button" className="btn me-3 btn-profile"> <i className="bi bi-patch-question-fill me-2"></i> Get Help</Link>
             </div>
             <div className="mb-4">
               <Link to="" type="button" className="btn me-3 btn-profile"> <i className="bi bi-person-square me-2"></i> Account</Link>
