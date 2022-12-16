@@ -162,7 +162,12 @@ function FlexPlanDashboard() {
                     <img src={interest} alt="" className="img-fluid" />
                     <div className="ms-3">
                       <p>Spend</p>
-                      <h3 className="mt-3">{acct.flexPlan.expRange}</h3>
+                      <h3 className="mt-3">
+                        {" "}
+                        {Intl.NumberFormat("en-US").format(
+                          acct.flexPlan.expRange
+                        )}
+                      </h3>
                     </div>
                   </div>
                 </div>
@@ -191,7 +196,12 @@ function FlexPlanDashboard() {
                 <div className="int px-4">
                   <p>Total left</p>
 
-                  <h3 className="mt-3">100,000</h3>
+                  <h3 className="mt-3">
+                    {" "}
+                    {Intl.NumberFormat("en-US").format(
+                      acct.flexPlan.ern - acct.flexPlan.expRange
+                    )}
+                  </h3>
                 </div>
               </div>
               <div className="col-md-6">

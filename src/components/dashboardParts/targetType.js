@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -11,9 +11,33 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
-
+import axios from "axios";
 
 function TypeTarget() {
+  const [targetAcct, setTargetAcct] = useState();
+  let user = JSON.parse(sessionStorage.getItem("user"));
+
+  // const navigate = useNavigate();
+
+  useEffect(() => {
+    const getTargetAccount = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/target-plan/get-target-account/${user._id}`
+        );
+
+        // console.log(data);
+        setTargetAcct(data.targetPlan);
+        // setLoading(false);
+        // navigate("/target-spend");
+      } catch (error) {
+        // setLoading(false);
+        console.log(error);
+      }
+    };
+
+    getTargetAccount();
+  }, [user._id]);
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -30,7 +54,7 @@ function TypeTarget() {
           </div>
         </Link>
         <Link to="/savings" className="active">
-          <div className="d-flex flex-row" >
+          <div className="d-flex flex-row">
             <img src={saving} alt="" className="img-fluid me-2 icons" />
             Savings
           </div>
@@ -95,7 +119,9 @@ function TypeTarget() {
         </div>
         <div className="row cadet mt-4">
           <div className="col-md-6 ms-5">
-            <h3>Cadet {"<"}Starboy{"/>"},</h3>
+            <h3>
+              Cadet {"<"}Starboy{"/>"},
+            </h3>
           </div>
         </div>
         <div className="row justify-content-center mt-5">
@@ -104,8 +130,13 @@ function TypeTarget() {
               <h4>Go Automated </h4>
               <div className="text-center my-5 border-bottom">
                 <span>Recommended Amount</span>
-                <h6>NGN 180,000</h6>
-                <p>Every month for 13months</p>
+                <h6>
+                  NGN{" "}
+                  {Intl.NumberFormat("en-US").format(
+                    targetAcct?.autoSavingRate
+                  )}
+                </h6>
+                <p>Every month for {targetAcct?.autoDuration} months</p>
               </div>
               <div className="row values">
                 <div className="col-md-6 border-end">
@@ -114,12 +145,24 @@ function TypeTarget() {
                   <h5>Badge:</h5>
                 </div>
                 <div className="col-md-6 text-end">
-                  <h5>2,160,000</h5>
+                  <h5>
+                    {Intl.NumberFormat("en-US").format(
+                      targetAcct?.autoSavingTarget
+                    )}
+                  </h5>
                   <h5>11%</h5>
                   <h5>Cadet</h5>
                 </div>
               </div>
-              <div className="text-center"><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn mt-5" to="/target-dashboard" style={{width: "70%"}}>Go Automated</Link></div>
+              <div className="text-center">
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn mt-5"
+                  to="/target-dashboard"
+                  style={{ width: "70%" }}
+                >
+                  Go Automated
+                </Link>
+              </div>
             </div>
           </div>
           <div className="col-md-4 mx-3">
@@ -127,8 +170,10 @@ function TypeTarget() {
               <h4>Go Custom </h4>
               <div className="text-center my-5 border-bottom">
                 <span>Recommended Amount</span>
-                <h6>NGN 0</h6>
-                <p>Every month for 13months</p>
+                <h6>NGN {targetAcct?.customSavingRate === 0 && "0.00"}</h6>
+                {/* {!targetAcct?.customSavingRate === 0 && ( */}
+                <p>Every month for 13 months</p>
+                {/* )} */}
               </div>
               <div className="row values">
                 <div className="col-md-6 border-end">
@@ -142,7 +187,15 @@ function TypeTarget() {
                   <h5>-</h5>
                 </div>
               </div>
-              <div className="text-center"><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5" to="/target-set-amount" style={{width: "70%"}}>Go Custom</Link></div>
+              <div className="text-center">
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5"
+                  to="/target-set-amount"
+                  style={{ width: "70%" }}
+                >
+                  Go Custom
+                </Link>
+              </div>
             </div>
           </div>
           {/* <div className="col-md-4">
@@ -162,4 +215,3 @@ function TypeTarget() {
 }
 
 export default TypeTarget;
- 

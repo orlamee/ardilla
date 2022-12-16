@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -12,9 +12,34 @@ import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
 import verticaltwo from "../../img/dashboard/vertical-two.svg";
-
+import axios from "axios";
 
 function TargetPlanEarn() {
+  const [loading, setLoading] = useState(false);
+  const [ern, setErn] = useState();
+
+  let user = JSON.parse(sessionStorage.getItem("user"));
+
+  const navigate = useNavigate();
+
+  const handleClick = async () => {
+    setLoading(true);
+
+    try {
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/target-plan/set-earning/${user._id}`,
+        { ern }
+      );
+
+      console.log(data);
+      setLoading(false);
+      navigate("/target-spend");
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  };
+
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -31,7 +56,7 @@ function TargetPlanEarn() {
           </div>
         </Link>
         <Link to="/savings" className="active">
-          <div className="d-flex flex-row" >
+          <div className="d-flex flex-row">
             <img src={saving} alt="" className="img-fluid me-2 icons" />
             Savings
           </div>
@@ -89,54 +114,114 @@ function TargetPlanEarn() {
       </div>
       <div className="content py-5 px-5 earning-section">
         <div className="row backto">
-          <Link to="/create-target"><span><i className="bi bi-chevron-left me-3"></i>Back</span></Link>
+          <Link to="/create-target">
+            <span>
+              <i className="bi bi-chevron-left me-3"></i>Back
+            </span>
+          </Link>
         </div>
         <div className="row earning">
           <div className="col-md-12 text-center">
-            <img src={verticaltwo} alt="" className="img-fluid"/>
+            <img src={verticaltwo} alt="" className="img-fluid" />
             {/* <h2>Cadet {"<"}Starboy{"/>"},</h2> */}
           </div>
         </div>
         <div className="row justify-content-center earns">
           <div className="col-md-8 text-center">
-            <h3>How much do you<br/><span style={{color: "#E8356D"}}>earn</span> monthly</h3>
-            <p className="my-5">Enter a name you want to give your target plan</p>
+            <h3>
+              How much do you
+              <br />
+              <span style={{ color: "#E8356D" }}>earn</span> monthly
+            </h3>
+            <p className="my-5">
+              Enter a name you want to give your target plan
+            </p>
 
-            <div className="mb-3">
-              <div className="btn-group me-3" role="group" aria-label="First group">
-                <button type="button" className="btn btn-flex">{"<"}50k</button>
-                
+            {/* <div className="mb-3">
+              <div
+                className="btn-group me-3"
+                role="group"
+                aria-label="First group"
+              >
+                <button type="button" className="btn btn-flex">
+                  {"<"}50k
+                </button>
               </div>
-              <div className="btn-group me-3" role="group" aria-label="Second group">
-                <button type="button" className="btn btn-flex">50k - 250k</button>
-                
+              <div
+                className="btn-group me-3"
+                role="group"
+                aria-label="Second group"
+              >
+                <button type="button" className="btn btn-flex">
+                  50k - 250k
+                </button>
               </div>
               <div className="btn-group" role="group" aria-label="Third group">
-                <button type="button" className="btn btn-flex">251k - 500k</button>
+                <button type="button" className="btn btn-flex">
+                  251k - 500k
+                </button>
               </div>
             </div>
             <div className="mb-3">
-              <div className="btn-group me-3" role="group" aria-label="First group">
-                <button type="button" className="btn btn-flex">501k - 1M</button>
-                
+              <div
+                className="btn-group me-3"
+                role="group"
+                aria-label="First group"
+              >
+                <button type="button" className="btn btn-flex">
+                  501k - 1M
+                </button>
               </div>
-              <div className="btn-group me-3" role="group" aria-label="Second group">
-                <button type="button" className="btn btn-flex">1M - 5M </button>
-                
+              <div
+                className="btn-group me-3"
+                role="group"
+                aria-label="Second group"
+              >
+                <button type="button" className="btn btn-flex">
+                  1M - 5M{" "}
+                </button>
               </div>
               <div className="btn-group" role="group" aria-label="Third group">
-                <button type="button" className="btn btn-flex">5M+ </button>
+                <button type="button" className="btn btn-flex">
+                  5M+{" "}
+                </button>
               </div>
-            </div>
+            </div> */}
             <div className="row justify-content-center">
               <div className="col-md-3 text-center">
                 <div className="mb-3">
-                  <input type="number" className="form-control target-form enter-amount" placeholder="Enter Amount" required/>
+                  <input
+                    type="number"
+                    className="form-control target-form enter-amount"
+                    placeholder="Enter Amount"
+                    required
+                    // value={ern}
+                    onChange={(e) => setErn(~~e.target.value)}
+                  />
                 </div>
               </div>
             </div>
-            
-            <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/target-spend" style={{width: "50%"}}>Continue</Link></div>
+
+            <div>
+              {loading ? (
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                  // to="/target-spend"
+                  style={{ width: "50%" }}
+                >
+                  Loading
+                </Link>
+              ) : (
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                  onClick={handleClick}
+                  // to="/target-spend"
+                  style={{ width: "50%" }}
+                >
+                  Continue
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -145,4 +230,3 @@ function TargetPlanEarn() {
 }
 
 export default TargetPlanEarn;
- 

@@ -43,7 +43,7 @@ function FlexPlanSpend() {
 
     setExp({
       type,
-      expRange: p[index],
+      expRange: pDigit[index],
       recommendedSavingRate,
       savingTarget,
       durationInMonths,
