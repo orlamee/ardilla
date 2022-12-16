@@ -121,7 +121,39 @@ function ProfileAccount() {
           </div>
           <div className="col-md-6 right-profile">
             <img src={acc} alt="" className="img-fluid" />
-            
+            <div>
+              <h3 className="mt-4">Halal</h3>
+              <div className="d-flex flex-row mt-3">
+                <h5>You can enable or disable interest<br/>by toggling on or off</h5>
+                <label className="switch ms-5">
+                  <input type="checkbox" placeholder="USD" />
+                  <span className="slider round"></span>
+                </label>
+              </div>
+            </div>
+            <div className="my-5">
+              <h3 className="mt-4">Profile Visibility</h3>
+              <div className="d-flex flex-row mt-3">
+                <h5>You can enable or disable interest<br/>by toggling on or off</h5>
+                <label className="switch ms-5">
+                  <input type="checkbox" placeholder="USD" />
+                  <span className="slider round"></span>
+                </label>
+              </div>
+            </div>
+            <div>
+              <h3 className="mt-4">Allow Notifications</h3>
+              <div className="d-flex flex-row mt-3">
+                <h5>You can enable or disable interest<br/>by toggling on or off</h5>
+                <label className="switch ms-5">
+                  <input type="checkbox" placeholder="USD" />
+                  <span className="slider round"></span>
+                </label>
+              </div>
+            </div>
+            <div>
+              <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="">Pause Account</Link>
+            </div>
           </div>
         </div>
       </div>

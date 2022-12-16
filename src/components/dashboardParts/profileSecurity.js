@@ -389,7 +389,7 @@ function ProfileSecurity() {
                             <h3>Update Security Questions</h3>
                             <span>Set a new security question to protect your Ardilla Funds</span>
                             <form className="mt-4">
-                              <div>
+                              <div className="mb-3">
                                 <label className="form-label">Set a New Security Question</label>
                                 <select className="form-select p-select" aria-label="Default select example">
                                   <option selected>Choose a security question</option>
