@@ -115,12 +115,6 @@ function TargetPrivate() {
                 <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">Create new target</button>
               </div>
             </div>
-            <input type="checkbox" class="pill-button-input" checked="checked"/>
-            <span class="pill-button">
-              <span class="pill-button-selection pill-button-selection_on pill-button-selection_active">Live Stream</span>
-              <span class="pill-button-selection pill-button-selection_off">Captured</span>
-              <span class="pill-button-highlight"></span>
-            </span>
           </div>
           <div className="col-md-6 private-right">
             <div className="private-card p-4">
