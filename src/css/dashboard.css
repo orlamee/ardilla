@@ -1856,3 +1856,15 @@ i.fas.fa-search {
 .friends-list a {
   text-decoration: none;
 }
+
+.header-toggle::after {
+  display: none;
+}
+
+.settings p, a {
+  color: #3C0071;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 12px;
+  text-decoration: none;
+}

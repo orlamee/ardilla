@@ -65,6 +65,8 @@ import LearnQuizes from "./dashboard/learnQuizes";
 import LearnProfiles from "./dashboard/learnProfiles";
 import ReadBlog from "./dashboard/learnReadBlog";
 import TargetPlanPrivate from "./dashboard/targetPlanPrivate";
+import Profile from "./dashboard/profile";
+import Security from "./dashboard/profileSecurity";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -149,6 +151,12 @@ root.render(
       <Route path="/learn/quiz" element={<LearnQuizes/>}></Route>
       <Route path="/learn/profile" element={<LearnProfiles/>}></Route>
       <Route path="/article/read-article" element={<ReadBlog/>}></Route>
+
+    
+      <Route path="/profile" element={<Profile/>}></Route>
+      <Route path="/profile/security" element={<Security/>}></Route>
+
+      
 
       {/* <Route path="/dilla" element={<DillaMain />}></Route>
       <Route path="/learn" element={<LearnMain />}></Route>
