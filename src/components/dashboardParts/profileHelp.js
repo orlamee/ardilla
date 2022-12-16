@@ -16,6 +16,12 @@ import headset from "../../img/dashboard/headset.svg";
 import call from "../../img/dashboard/call.svg";
 import mp from "../../img/dashboard/mp4.svg";
 import chats from "../../img/dashboard/chat-support.svg";
+import cogs from "../../img/dashboard/cogs.svg";
+import key from "../../img/dashboard/key.svg";
+import lock from "../../img/dashboard/Padlock.svg";
+import dillasan from "../../img/dashboard/d-icon.svg";
+import transaction from "../../img/dashboard/transaction.svg";
+import dillauser from "../../img/dashboard/dilla-user.svg";
 
 
 
@@ -112,7 +118,7 @@ function ProfileHelp() {
               <Link to="/profile/get-help" type="button" className="btn me-3 btn-profile active"> <i className="bi bi-patch-question-fill me-2"></i> Get Help</Link>
             </div>
             <div className="mb-4">
-              <Link to="" type="button" className="btn me-3 btn-profile"> <i className="bi bi-person-square me-2"></i> Account</Link>
+              <Link to="/profile/account" type="button" className="btn me-3 btn-profile"> <i className="bi bi-person-square me-2"></i> Account</Link>
             </div>
             <div className="mb-4">
               <Link to="" type="button" className="btn me-3 btn-profile"> <i className="bi bi-share-fill me-2"></i> Referral</Link>
@@ -163,12 +169,48 @@ function ProfileHelp() {
                 <div className="row">
                   <div className="col-md-6">
                     <div className="care-card p-4">
-                      hhdh
+                      <img src={cogs} alt="" className="img-fluid" />
+                      <h3 className="my-3">Account Settings</h3>
+                      <p>Know more about adjusting setting, managing notifcations and name change and more</p>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="care-card p-4">
-                      hhdh
+                      <img src={key} alt="" className="img-fluid" />
+                      <h3 className="my-3">Login and Password</h3>
+                      <p>Know more about adjusting setting, managing notifcations and name change and more</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="row my-3">
+                  <div className="col-md-6">
+                    <div className="care-card p-4">
+                      <img src={lock} alt="" className="img-fluid" />
+                      <h3 className="my-3">Privacy and Security</h3>
+                      <p>Know more about adjusting setting, managing notifcations and name change and more</p>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="care-card p-4">
+                      <img src={dillasan} alt="" className="img-fluid" />
+                      <h3 className="my-3">SAN & Dilla</h3>
+                      <p>Know more about adjusting setting, managing notifcations and name change and more</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="care-card p-4">
+                      <img src={transaction} alt="" className="img-fluid" />
+                      <h3 className="my-3">Transaction</h3>
+                      <p>Know more about adjusting setting, managing notifcations and name change and more</p>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="care-card p-4">
+                      <img src={dillauser} alt="" className="img-fluid" />
+                      <h3 className="my-3">Dilla Users</h3>
+                      <p>Know more about adjusting setting, managing notifcations and name change and more</p>
                     </div>
                   </div>
                 </div>

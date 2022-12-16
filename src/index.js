@@ -68,6 +68,7 @@ import TargetPlanPrivate from "./dashboard/targetPlanPrivate";
 import Profile from "./dashboard/profile";
 import Security from "./dashboard/profileSecurity";
 import ProfileGetHelp from "./dashboard/profileGetHelp";
+import ProfileAccountSettings from "./dashboard/profileAccountSettings";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -157,6 +158,7 @@ root.render(
       <Route path="/profile" element={<Profile/>}></Route>
       <Route path="/profile/security" element={<Security/>}></Route>
       <Route path="/profile/get-help" element={<ProfileGetHelp/>}></Route>
+      <Route path="/profile/account" element={<ProfileAccountSettings/>}></Route>
 
       
 
