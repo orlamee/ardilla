@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -14,95 +14,62 @@ import chat from "../../img/dashboard/chat.svg";
 import axios from "axios";
 
 function FlexPlanSpend() {
-  const [exp, setExp] = useState();
-  const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
-
-  const navigate = useNavigate();
-
-  const location = useLocation();
-
-  console.log(location);
-
-  const p = location.state.flexPlan.psrange;
-  const pDigit = location.state.flexPlan.cPsr;
-  const ern = location.state.flexPlan.ern;
-
-  const handleSpend = (index) => {
-    const diff = ern - pDigit[index];
-
-    const recommendedSavingRate = diff * 0.4;
-
-    let savingTarget = pDigit[index] * 6;
-
-    const durationInMonths = savingTarget / recommendedSavingRate;
-
-    const type = "auto";
-
-    setExp({
-      type,
-      expRange: pDigit[index],
-      recommendedSavingRate,
-      savingTarget,
-      durationInMonths,
-    });
-  };
+  const [flexAcct, setFlexAcct] = useState();
+  const [loading, setLoading] = useState();
+  const [value, setValue] = useState();
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  const handleExp = async () => {
-    setErr(false);
-    setLoading(true);
-    try {
-      if (exp) {
-        const { data } = await axios.put(
-          `https://ardilla.herokuapp.com/ardilla/api/account//calc-target-saving-rate/${user._id}`,
-          { exp }
-        );
-
-        setErr(false);
-        setLoading(false);
-
-        console.log(data);
-
-        sessionStorage.setItem("acct", JSON.stringify(data.plan));
-
-        navigate("/flex-type", { state: exp });
-      } else {
-        setLoading(false);
-        setErr(true);
-        setOnSuccess(false);
-        setMsg("choose a plan first");
-      }
-    } catch (error) {
-      setLoading(false);
-      setErr(true);
-      setMsg(`${error.response.data.msg} ` || "Network error");
-    }
-
-    // if (exp) {
-    //   try {
-    //     const { data } = await axios.put(
-    //       `https://ardilla.herokuapp.com/ardilla/api/account/auto-flex-plan/${user._id}`,
-    //       { ern }
-    //     );
-
-    //     const ernInfo = data.plan;
-
-    //     setLoading(false);
-    //   setLoading(false);
-
-    // } else {
-    //   setLoading(false);
-    //   setErr(true);
-    //   setMsg("choose a plan first");
-    // }
-  };
+  const navigate = useNavigate();
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
+  };
+
+  useEffect(() => {
+    const getFlexAccount = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
+        );
+
+        console.log(data);
+        setFlexAcct(data.flexPlan);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getFlexAccount();
+  }, [user._id]);
+
+  const handleSpend = async () => {
+    if (value) {
+      console.log(value);
+      setLoading(true);
+      try {
+        const { data } = await axios.put(
+          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/set-expenditure/${user._id}`,
+          { value }
+        );
+
+        console.log(data);
+        setLoading(false);
+        navigate("/flex-type");
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+        setErr(true);
+        setMsg(`${error.response.data.msg} ` || "Network error");
+      }
+    } else {
+      setLoading(false);
+      setErr(true);
+      setMsg(" Pick a range that best describe your expenditure");
+    }
   };
   return (
     <section className="main-dash">
@@ -238,7 +205,7 @@ function FlexPlanSpend() {
             </p>
 
             <div className="mb-3">
-              {p.map((vl, index) => {
+              {flexAcct?.psr?.map((vl, index) => {
                 return (
                   <div
                     className="btn-group me-3"
@@ -249,7 +216,8 @@ function FlexPlanSpend() {
                     <button
                       type="button"
                       className="btn btn-flex"
-                      onClick={() => handleSpend(index)}
+                      // onClick={() => handleSpend(index)}
+                      onClick={() => setValue(index + 1)}
                     >
                       {vl}
                     </button>
@@ -281,7 +249,7 @@ function FlexPlanSpend() {
                 <button
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
                   style={{ width: "50%" }}
-                  onClick={handleExp}
+                  onClick={handleSpend}
                 >
                   Continue
                 </button>

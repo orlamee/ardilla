@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -14,15 +14,33 @@ import chat from "../../img/dashboard/chat.svg";
 import interest from "../../img/dashboard/int.svg";
 import big from "../../img/dashboard/big-graph.png";
 import save from "../../img/dashboard/save-i.svg";
+import axios from "axios";
 
 function FlexPlanDashboard() {
-  let acct = JSON.parse(sessionStorage.getItem("acct"));
+  const [flexAcct, setFlexAcct] = useState();
+
   let user = JSON.parse(sessionStorage.getItem("user"));
-  // const location = useLocation();
-  // console.log(location.state);
-  // location.state?.from?.pathname
-  // let lastPageUrl = windowdocument.referrer;
-  // console.log(`Last visited page URL is ${lastPageUrl}`);
+  
+
+  useEffect(() => {
+    const getTargetAccount = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
+        );
+
+        // console.log(data);
+        setFlexAcct(data.flexPlan);
+        // setLoading(false);
+        // navigate("/target-spend");
+      } catch (error) {
+        // setLoading(false);
+        console.log(error);
+      }
+    };
+
+    getTargetAccount();
+  }, [user._id]);
 
   return (
     <section className="main-dash">
@@ -136,7 +154,7 @@ function FlexPlanDashboard() {
                     <div className="ms-3">
                       <p>Interest - 11%</p>
 
-                      <h3 className="mt-3">{acct.badge}</h3>
+                      <h3 className="mt-3">STUFF</h3>
                     </div>
                   </div>
                 </div>
@@ -147,9 +165,12 @@ function FlexPlanDashboard() {
                     <img src={interest} alt="" className="img-fluid" />
                     <div className="ms-3">
                       <p>Earn</p>
-                      <h3 className="mt-3">
-                        {Intl.NumberFormat("en-US").format(acct.flexPlan.ern)}
-                      </h3>
+                      {flexAcct && (
+                        <h3 className="mt-3">
+                          {" "}
+                          {Intl.NumberFormat("en-US").format(flexAcct?.earn)}
+                        </h3>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -162,12 +183,11 @@ function FlexPlanDashboard() {
                     <img src={interest} alt="" className="img-fluid" />
                     <div className="ms-3">
                       <p>Spend</p>
-                      <h3 className="mt-3">
-                        {" "}
-                        {Intl.NumberFormat("en-US").format(
-                          acct.flexPlan.expRange
-                        )}
-                      </h3>
+                      {flexAcct && (
+                        <h3 className="mt-3">
+                          {Intl.NumberFormat("en-US").format(flexAcct?.exp)}
+                        </h3>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -178,7 +198,21 @@ function FlexPlanDashboard() {
                     <img src={save} alt="" className="img-fluid" />
                     <div className="ms-3">
                       <p>Save</p>
-                      <h3 className="mt-3">Lieutenant</h3>
+                      {flexAcct && flexAcct?.type === "custom" ? (
+                        <h3 className="mt-3">
+                          NGN{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.customSavingRate
+                          )}
+                        </h3>
+                      ) : (
+                        <h3 className="mt-3">
+                          NGN{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.autoSavingRate
+                          )}
+                        </h3>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -197,28 +231,29 @@ function FlexPlanDashboard() {
                   <p>Total left</p>
 
                   <h3 className="mt-3">
-                    {" "}
+                    NGN{" "}
                     {Intl.NumberFormat("en-US").format(
-                      acct.flexPlan.ern - acct.flexPlan.expRange
+                      flexAcct?.earn - flexAcct?.exp
                     )}
                   </h3>
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="int px-4">
-                  <p>Saving Rate</p>
-                  {acct.flexPlan.type === "custom" ? (
+                  <p>Target</p>
+
+                  {flexAcct && flexAcct?.type === "custom" ? (
                     <h3 className="mt-3">
                       NGN{" "}
                       {Intl.NumberFormat("en-US").format(
-                        acct.flexPlan.customMonthlySavingTarget
+                        flexAcct?.customSavingTarget
                       )}
                     </h3>
                   ) : (
                     <h3 className="mt-3">
                       NGN{" "}
                       {Intl.NumberFormat("en-US").format(
-                        acct.flexPlan.recommendedSavingRate
+                        flexAcct?.autoSavingTarget
                       )}
                     </h3>
                   )}
@@ -231,37 +266,34 @@ function FlexPlanDashboard() {
               <div className="col">
                 <div className="int px-4">
                   <p>Duration</p>
-                  {acct.flexPlan.type === "custom" ? (
-                    <h3 className="mt-3">{acct.flexPlan.customDuration}</h3>
+                  {flexAcct && flexAcct?.type === "custom" ? (
+                    <h3 className="mt-3">
+                      {/* NGN{" "} */}
+                      {Intl.NumberFormat("en-US").format(
+                        flexAcct?.customDuration
+                      )}
+                    </h3>
                   ) : (
-                    <h3 className="mt-3">{acct.flexPlan.durationInMonths}</h3>
+                    <h3 className="mt-3">
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        flexAcct?.autoDuration
+                      )}
+                    </h3>
                   )}
                 </div>
               </div>
               <div className="col">
                 <div className="int px-4">
                   <p>Intrest- 11%</p>
-                  <h3 className="mt-3">NGN 240,000</h3>
+                  {/* <h3 className="mt-3">NGN 240,000</h3> */}
+                  <h3 className="mt-3">null</h3>
                 </div>
               </div>
               <div className="col">
                 <div className="int px-4">
                   <p>Total</p>
-                  {acct.flexPlan.type === "custom" ? (
-                    <h3 className="mt-3">
-                      NGN{" "}
-                      {Intl.NumberFormat("en-US").format(
-                        acct.flexPlan.customTotalSavingTarget
-                      )}
-                    </h3>
-                  ) : (
-                    <h3 className="mt-3">
-                      NGN{" "}
-                      {Intl.NumberFormat("en-US").format(
-                        acct.flexPlan.savingTarget
-                      )}
-                    </h3>
-                  )}
+                  <h3 className="mt-3">null</h3>
                 </div>
               </div>
             </div>

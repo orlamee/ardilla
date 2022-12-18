@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -11,26 +11,33 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
+import axios from "axios";
 
 function TypeFlex() {
-  const location = useLocation();
-  console.log(location);
-
-  let acct = JSON.parse(sessionStorage.getItem("acct"));
-
+  const [flexAcct, setFlexAcct] = useState();
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  console.log(user.kodeHex);
+  // const navigate = useNavigate();
 
-  const flexPlan = acct.flexPlan;
+  useEffect(() => {
+    const getFlexAccount = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
+        );
 
-  const check = true;
+        // console.log(data);
+        setFlexAcct(data.flexPlan);
+        // setLoading(false);
+        // navigate("/target-spend");
+      } catch (error) {
+        // setLoading(false);
+        console.log(error);
+      }
+    };
 
-  setTimeout(() => {
-    if (check) {
-      console.log("Hello, World!");
-    }
-  }, 8000);
+    getFlexAccount();
+  }, [user._id]);
 
   return (
     <section className="main-dash">
@@ -128,14 +135,10 @@ function TypeFlex() {
                 <span>Recommended Amount</span>
                 <h6>
                   NGN{" "}
-                  {Intl.NumberFormat("en-US").format(
-                    flexPlan.recommendedSavingRate
-                  )}
+                  {flexAcct &&
+                    Intl.NumberFormat("en-US").format(flexAcct?.autoSavingRate)}
                 </h6>
-                <p>
-                  Every month for {flexPlan.durationInMonths}
-                  months
-                </p>
+                <p>Every month for {flexAcct?.autoDuration} months</p>
               </div>
               <div className="row values">
                 <div className="col-md-6">
@@ -145,7 +148,9 @@ function TypeFlex() {
                 </div>
                 <div className="col-md-6 text-end">
                   <h5>
-                    {Intl.NumberFormat("en-US").format(flexPlan.savingTarget)}
+                    {Intl.NumberFormat("en-US").format(
+                      flexAcct?.autoSavingTarget
+                    )}
                   </h5>
                   <h5>11%</h5>
                   <h5>Cadet</h5>

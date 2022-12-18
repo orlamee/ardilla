@@ -15,44 +15,64 @@ import axios from "axios";
 
 function FlexPlanSetSave() {
   const [loading, setLoading] = useState(false);
-  const [customMonthlySavingTarget, setCustomMonthlySavingTarget] =
-    useState(false);
+
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
 
-  // to="/flex-set-duration"
+  const [savingRate, setSavingRate] = useState();
 
   const navigate = useNavigate();
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  const handleEarn = async (e) => {
-    e.preventDefault();
+  // const handleEarn = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+
+  //   try {
+  //     const { data } = await axios.put(
+  //       `https://ardilla.herokuapp.com/ardilla/api/account/custom-flex-plan/monthly-saving/${user._id}`,
+  //       { customMonthlySavingTarget }
+  //     );
+
+  //     // const ernInfo = data.plan;
+
+  //     setLoading(false);
+  //     console.log(data);
+
+  //     sessionStorage.setItem("acct", JSON.stringify(data.plan));
+  //     navigate("/flex-set-duration");
+  //   } catch (error) {
+  //     setLoading(false);
+  //     setErr(true);
+  //     setMsg(`${error.response.data.msg} ` || "Network error");
+  //   }
+  // };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+  };
+
+  const handleSubmit = async (e) => {
     setLoading(true);
+    e.preventDefault();
 
     try {
       const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/account/custom-flex-plan/monthly-saving/${user._id}`,
-        { customMonthlySavingTarget }
+        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/custom-saving-rate/${user._id}`,
+        { savingRate }
       );
 
-      // const ernInfo = data.plan;
-
-      setLoading(false);
       console.log(data);
-
-      sessionStorage.setItem("acct", JSON.stringify(data.plan));
+      setLoading(false);
       navigate("/flex-set-duration");
     } catch (error) {
       setLoading(false);
       setErr(true);
       setMsg(`${error.response.data.msg} ` || "Network error");
+      console.log(error);
     }
-  };
-
-  const handleClickSuccess = () => {
-    setOnSuccess(false);
   };
   return (
     <section className="main-dash">
@@ -170,7 +190,9 @@ function FlexPlanSetSave() {
         <div className="row earning">
           <div className="col-md-6">
             <h2>
-              Cadet {"<"}Starboy{"/>"},
+              Cadet {"<"}
+              {user.kodeHex}
+              {"/>"},
             </h2>
           </div>
         </div>
@@ -184,17 +206,15 @@ function FlexPlanSetSave() {
             <p className="my-5">Choose how often you want to save</p>
             <div className="row justify-content-center">
               <div className="col-md-5">
-                <form onSubmit={handleEarn}>
+                <form onSubmit={handleSubmit}>
                   <div className="mb-3">
                     <input
                       type="number"
                       className="form-control target-form"
                       placeholder="Enter Amount"
                       required
-                      value={customMonthlySavingTarget}
-                      onChange={(e) =>
-                        setCustomMonthlySavingTarget(e.target.value)
-                      }
+                      value={savingRate}
+                      onChange={(e) => setSavingRate(e.target.value)}
                     />
                   </div>
                   <div className="mb-5">

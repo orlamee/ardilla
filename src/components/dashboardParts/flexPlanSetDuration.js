@@ -15,7 +15,7 @@ import axios from "axios";
 
 function FlexPlanSetDuration() {
   const [loading, setLoading] = useState(false);
-  const [customDuration, setCustomDuration] = useState(false);
+  const [duration, setDuration] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
@@ -26,32 +26,54 @@ function FlexPlanSetDuration() {
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  const handleEarn = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  // const handleEarn = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
 
-    try {
-      const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/account/custom-flex-plan/duration/${user._id}`,
-        { customDuration }
-      );
+  //   try {
+  //     const { data } = await axios.put(
+  //       `https://ardilla.herokuapp.com/ardilla/api/account/custom-flex-plan/duration/${user._id}`,
+  //       { customDuration }
+  //     );
 
-      // const ernInfo = data.plan;
+  //     // const ernInfo = data.plan;
 
-      setLoading(false);
-      console.log(data);
+  //     setLoading(false);
+  //     console.log(data);
 
-      sessionStorage.setItem("acct", JSON.stringify(data.plan));
-      navigate("/flex-dashboard");
-    } catch (error) {
-      setLoading(false);
-      setErr(true);
-      setMsg(`${error.response.data.msg} ` || "Network error");
-    }
-  };
+  //     sessionStorage.setItem("acct", JSON.stringify(data.plan));
+  //     navigate("/flex-dashboard");
+  //   } catch (error) {
+  //     setLoading(false);
+  //     setErr(true);
+  //     setMsg(`${error.response.data.msg} ` || "Network error");
+  //   }
+  // };
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
+  };
+
+  const handleSubmit = async (e) => {
+    setLoading(true);
+    e.preventDefault();
+
+    try {
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/custom-duration/${user._id}`,
+        { duration }
+      );
+
+      console.log(data);
+      setLoading(false);
+      navigate("/flex-dashboard");
+    } catch (error) {
+      setLoading(false);
+
+      setErr(true);
+      setMsg(`${error.response.data.msg} ` || "Network error");
+      console.log(error);
+    }
   };
   return (
     <section className="main-dash">
@@ -185,15 +207,15 @@ function FlexPlanSetDuration() {
             <p className="my-5">Choose how often you want to save</p>
             <div className="row justify-content-center">
               <div className="col-md-5">
-                <form onSubmit={handleEarn}>
+                <form onSubmit={handleSubmit}>
                   <div className="mb-3">
                     <input
                       type="number"
                       className="form-control target-form"
                       placeholder="Set duration"
                       required
-                      value={customDuration}
-                      onChange={(e) => setCustomDuration(e.target.value)}
+                      value={duration}
+                      onChange={(e) => setDuration(e.target.value)}
                     />
                   </div>
                   <div className="mb-5">

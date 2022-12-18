@@ -14,30 +14,31 @@ import chat from "../../img/dashboard/chat.svg";
 import axios from "axios";
 
 function FlexPlanCreate() {
-  const [ern, setErn] = useState();
-  const [loading, setLoading] = useState(false);
+  // const [ern, setErn] = useState();
+  // const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
 
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [ern, setErn] = useState();
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  const handleEarn = async () => {
-    setLoading(true);
+  const navigate = useNavigate();
 
+  const handleClick = async () => {
+    setLoading(true);
     if (ern) {
       try {
         const { data } = await axios.put(
-          `https://ardilla.herokuapp.com/ardilla/api/account/auto-flex-plan/${user._id}`,
+          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/set-earning/${user._id}`,
           { ern }
         );
 
-        const ernInfo = data.plan;
-
+        console.log(data);
         setLoading(false);
-        navigate("/flex-spend", { state: ernInfo });
+        navigate("/flex-spend");
       } catch (error) {
         setLoading(false);
         setErr(true);
@@ -46,9 +47,39 @@ function FlexPlanCreate() {
     } else {
       setLoading(false);
       setErr(true);
-      setMsg("choose a plan first");
+      setMsg("Please enter an the amount you earn");
     }
   };
+
+  // const navigate = useNavigate();
+
+  // let user = JSON.parse(sessionStorage.getItem("user"));
+
+  // const handleEarn = async () => {
+  //   setLoading(true);
+
+  //   if (ern) {
+  //     try {
+  //       const { data } = await axios.put(
+  //         `https://ardilla.herokuapp.com/ardilla/api/account/auto-flex-plan/${user._id}`,
+  //         { ern }
+  //       );
+
+  //       const ernInfo = data.plan;
+
+  //       setLoading(false);
+  //       navigate("/flex-spend", { state: ernInfo });
+  //     } catch (error) {
+  //       setLoading(false);
+  //       setErr(true);
+  //       setMsg(`${error.response.data.msg} ` || "Network error");
+  //     }
+  //   } else {
+  //     setLoading(false);
+  //     setErr(true);
+  //     setMsg("choose a plan first");
+  //   }
+  // };
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
@@ -298,7 +329,7 @@ function FlexPlanCreate() {
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
                   // to="/flex-spend"
                   style={{ width: "50%" }}
-                  onClick={handleEarn}
+                  onClick={handleClick}
                 >
                   Continue
                 </button>

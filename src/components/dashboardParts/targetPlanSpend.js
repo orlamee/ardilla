@@ -18,6 +18,9 @@ function TargetPlanSpend() {
   const [targetAcct, setTargetAcct] = useState();
   const [loading, setLoading] = useState();
   const [value, setValue] = useState();
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
@@ -32,8 +35,6 @@ function TargetPlanSpend() {
 
         // console.log(data);
         setTargetAcct(data.targetPlan);
-        // setLoading(false);
-        // navigate("/target-spend");
       } catch (error) {
         // setLoading(false);
         console.log(error);
@@ -42,6 +43,10 @@ function TargetPlanSpend() {
 
     getTargetAccount();
   }, [user._id]);
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+  };
 
   const handleSpend = async () => {
     if (value) {
@@ -57,16 +62,59 @@ function TargetPlanSpend() {
         setLoading(false);
         navigate("/target-type");
       } catch (error) {
+        setErr(true);
         setLoading(false);
         console.log(error);
       }
     } else {
-      alert(" pick a value");
+      setLoading(false);
+      setErr(true);
+      setMsg(" Pick a range that best describe your expenditure");
     }
   };
 
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
