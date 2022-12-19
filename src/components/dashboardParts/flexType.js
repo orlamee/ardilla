@@ -162,7 +162,7 @@ function TypeFlex() {
                   to="/flex-dashboard"
                   style={{ width: "70%" }}
                 >
-                  Go Automated
+                  Go Automated baby
                 </Link>
               </div>
             </div>
