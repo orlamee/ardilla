@@ -149,17 +149,9 @@ function FlexPlanDashboard() {
                   <div className="d-flex flex-row">
                     <img src={interest} alt="" className="img-fluid" />
                     <div className="ms-3">
-                      <p>Interest - 11%</p>
+                      <p>Badge</p>
 
-                      {/* <h3 className="mt-3">null</h3> */}
-                      {flexAcct && (
-                        <h3 className="mt-3">
-                          {" "}
-                          {Intl.NumberFormat("en-US").format(
-                            flexAcct?.totalIntrest
-                          )}
-                        </h3>
-                      )}
+                      <h3 className="mt-3">{flexAcct?.badge}</h3>
                     </div>
                   </div>
                 </div>
@@ -203,7 +195,7 @@ function FlexPlanDashboard() {
                     <img src={save} alt="" className="img-fluid" />
                     <div className="ms-3">
                       <p>Save</p>
-                      {/* {flexAcct && flexAcct?.type === "custom" ? (
+                      {flexAcct && flexAcct?.type === "custom" ? (
                         <h3 className="mt-3">
                           NGN{" "}
                           {Intl.NumberFormat("en-US").format(
@@ -217,15 +209,7 @@ function FlexPlanDashboard() {
                             flexAcct?.autoSavingRate
                           )}
                         </h3>
-                      )} */}
-                      <h3 className="mt-3">
-                        {" "}
-                        NGN{" "}
-                        {flexAcct &&
-                          Intl.NumberFormat("en-US").format(
-                            (flexAcct?.earn - flexAcct?.exp) * 0.3
-                          )}
-                      </h3>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -243,13 +227,25 @@ function FlexPlanDashboard() {
                 <div className="int px-4">
                   <p>Total left</p>
 
-                  <h3 className="mt-3">
-                    NGN{" "}
-                    {flexAcct &&
-                      Intl.NumberFormat("en-US").format(
-                        flexAcct?.earn - flexAcct?.exp
+                  {flexAcct && flexAcct?.type === "custom" ? (
+                    <h3 className="mt-3">
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        flexAcct?.earn -
+                          flexAcct?.exp -
+                          flexAcct?.customSavingRate
                       )}
-                  </h3>
+                    </h3>
+                  ) : (
+                    <h3 className="mt-3">
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        flexAcct?.earn -
+                          flexAcct?.exp -
+                          flexAcct?.autoSavingRate
+                      )}
+                    </h3>
+                  )}
                 </div>
               </div>
               <div className="col-md-6">
