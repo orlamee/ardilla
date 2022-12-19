@@ -136,3 +136,63 @@
   font-weight: 400;
   line-height: 18px;
 }
+
+.refer h6 {
+  color: #6B7280;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.refer h3{
+  color: #3C0071;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.refer span {
+  color: #3C0071;
+  font-size: 40px;
+  line-height: 45px;
+  font-weight: 700;
+}
+
+.card-refer {
+  background: #F7F7F7;
+  border-radius: 10px;
+}
+
+.card-refer p{
+  margin-bottom: 0;
+  color: #8807F7;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.cardy {
+  box-shadow: 0px 4px 10px rgba(136, 7, 247, 0.07);
+  border-radius: 10px;
+  margin-right: 200px;
+}
+
+.cardy span {
+  color: #3C0071;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.cardy p {
+  color: #6B7280;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+.cardy h3 {
+  color: #3C0071;
+  font-size: 25px;
+  line-height: 28px;
+  font-weight: 500;
+}

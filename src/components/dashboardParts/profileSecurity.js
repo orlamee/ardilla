@@ -116,7 +116,7 @@ function ProfileSecurity() {
               <Link to="/profile/account" type="button" className="btn me-3 btn-profile"> <i className="bi bi-person-square me-2"></i> Account</Link>
             </div>
             <div className="mb-4">
-              <Link to="" type="button" className="btn me-3 btn-profile"> <i className="bi bi-share-fill me-2"></i> Referral</Link>
+              <Link to="/profile/referral" type="button" className="btn me-3 btn-profile"> <i className="bi bi-share-fill me-2"></i> Referral</Link>
             </div>
             <div className="mb-4">
               <Link to="" type="button" className="btn me-3 btn-profile"> <i className="bi bi-person-check-fill me-2"></i> KYC</Link>
