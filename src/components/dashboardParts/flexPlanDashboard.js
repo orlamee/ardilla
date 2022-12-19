@@ -151,7 +151,7 @@ function FlexPlanDashboard() {
                     <div className="ms-3">
                       <p>Interest - 11%</p>
 
-                      <h3 className="mt-3">STUFF</h3>
+                      <h3 className="mt-3">null</h3>
                     </div>
                   </div>
                 </div>
@@ -213,9 +213,10 @@ function FlexPlanDashboard() {
                       <h3 className="mt-3">
                         {" "}
                         NGN{" "}
-                        {Intl.NumberFormat("en-US").format(
-                          (flexAcct?.earn - flexAcct?.exp) * 0.3
-                        )}
+                        {flexAcct &&
+                          Intl.NumberFormat("en-US").format(
+                            (flexAcct?.earn - flexAcct?.exp) * 0.3
+                          )}
                       </h3>
                     </div>
                   </div>
