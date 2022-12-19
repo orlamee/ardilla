@@ -195,7 +195,7 @@ function FlexPlanDashboard() {
                     <img src={save} alt="" className="img-fluid" />
                     <div className="ms-3">
                       <p>Save</p>
-                      {flexAcct && flexAcct?.type === "custom" ? (
+                      {/* {flexAcct && flexAcct?.type === "custom" ? (
                         <h3 className="mt-3">
                           NGN{" "}
                           {Intl.NumberFormat("en-US").format(
@@ -209,7 +209,14 @@ function FlexPlanDashboard() {
                             flexAcct?.autoSavingRate
                           )}
                         </h3>
-                      )}
+                      )} */}
+                      <h3 className="mt-3">
+                        {" "}
+                        NGN{" "}
+                        {Intl.NumberFormat("en-US").format(
+                          (flexAcct?.earn - flexAcct?.exp) * 0.3
+                        )}
+                      </h3>
                     </div>
                   </div>
                 </div>
