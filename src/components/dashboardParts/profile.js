@@ -63,7 +63,7 @@ function ProfileMain() {
             Budgeting
           </div>
         </Link>
-        <Link to="/learn" className="active">
+        <Link to="/learn" className="">
           <div className="d-flex flex-row">
             <img src={learn} alt="" className="img-fluid me-2 icons" />
             Learn

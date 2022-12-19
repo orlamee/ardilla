@@ -10,7 +10,7 @@ import explore from "../../img/dashboard/explore.svg";
 import learn from "../../img/dashboard/learn.svg";
 import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
-import contact from "../../img/dashboard/contact.svg";
+import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
 import headset from "../../img/dashboard/headset.svg";
 import call from "../../img/dashboard/call.svg";
