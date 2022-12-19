@@ -70,6 +70,7 @@ import Security from "./dashboard/profileSecurity";
 import ProfileGetHelp from "./dashboard/profileGetHelp";
 import ProfileAccountSettings from "./dashboard/profileAccountSettings";
 import ProfileRefer from "./dashboard/profileRefer";
+import KYC from "./dashboard/profileKYC";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -161,6 +162,7 @@ root.render(
       <Route path="/profile/get-help" element={<ProfileGetHelp/>}></Route>
       <Route path="/profile/account" element={<ProfileAccountSettings/>}></Route>
       <Route path="/profile/referral" element={<ProfileRefer/>}></Route>
+      <Route path="/profile/kyc" element={<KYC/>}></Route>
 
       
 

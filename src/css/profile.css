@@ -196,3 +196,15 @@
   line-height: 28px;
   font-weight: 500;
 }
+
+.kyc-profile h5 {
+  color: #3C0071;
+  font-size: 40px;
+  line-height: 45px;
+  font-weight: 500;
+}
+
+.card-upload {
+  background-color: #FBF3FA;
+  border-radius: 10px;
+}
