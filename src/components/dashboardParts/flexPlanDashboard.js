@@ -151,7 +151,15 @@ function FlexPlanDashboard() {
                     <div className="ms-3">
                       <p>Interest - 11%</p>
 
-                      <h3 className="mt-3">null</h3>
+                      {/* <h3 className="mt-3">null</h3> */}
+                      {flexAcct && (
+                        <h3 className="mt-3">
+                          {" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.totalIntrest
+                          )}
+                        </h3>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -293,13 +301,35 @@ function FlexPlanDashboard() {
                 <div className="int px-4">
                   <p>Intrest- 11%</p>
                   {/* <h3 className="mt-3">NGN 240,000</h3> */}
-                  <h3 className="mt-3">null</h3>
+                  {/* <h3 className="mt-3">null</h3> */}
+                  {flexAcct && (
+                    <h3 className="mt-3">
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        flexAcct?.totalIntrest
+                      )}
+                    </h3>
+                  )}
                 </div>
               </div>
               <div className="col">
                 <div className="int px-4">
                   <p>Total</p>
-                  <h3 className="mt-3">null</h3>
+                  {flexAcct && flexAcct?.type === "custom" ? (
+                    <h3 className="mt-3">
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        flexAcct?.customSavingTarget + flexAcct?.totalIntrest
+                      )}
+                    </h3>
+                  ) : (
+                    <h3 className="mt-3">
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        flexAcct?.autoSavingTarget + flexAcct?.totalIntrest
+                      )}
+                    </h3>
+                  )}
                 </div>
               </div>
             </div>
@@ -330,7 +360,29 @@ function FlexPlanDashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  {flexAcct?.breakdown?.map((data) => {
+                    return (
+                      <tr>
+                        <td>
+                          {flexAcct?.paymentDate}-{data.date.month}-
+                          {data.date.year}
+                        </td>
+                        <td>
+                          {Intl.NumberFormat("en-US").format(data.amount)}
+                        </td>
+                        <td>{Intl.NumberFormat("en-US").format(data.ipp)}</td>
+                        <td>
+                          {Intl.NumberFormat("en-US").format(
+                            data.ipp + data.amount
+                          )}
+                        </td>
+                        <td>
+                          <span className="statuses">Not Active</span>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                  {/* <tr>
                     <td>29-11-2022</td>
                     <td>180,000</td>
                     <td>1,650</td>
@@ -338,8 +390,8 @@ function FlexPlanDashboard() {
                     <td>
                       <span className="statuses">Not Active</span>
                     </td>
-                  </tr>
-                  <tr>
+                  </tr> */}
+                  {/* <tr>
                     <td>29-11-2022</td>
                     <td>180,000</td>
                     <td>1,650</td>
@@ -347,8 +399,8 @@ function FlexPlanDashboard() {
                     <td>
                       <span className="statuses">Not Active</span>
                     </td>
-                  </tr>
-                  <tr>
+                  </tr> */}
+                  {/* <tr>
                     <td>29-11-2022</td>
                     <td>180,000</td>
                     <td>1,650</td>
@@ -356,8 +408,8 @@ function FlexPlanDashboard() {
                     <td>
                       <span className="statuses">Not Active</span>
                     </td>
-                  </tr>
-                  <tr>
+                  </tr> */}
+                  {/* <tr>
                     <td>29-11-2022</td>
                     <td>180,000</td>
                     <td>1,650</td>
@@ -365,7 +417,7 @@ function FlexPlanDashboard() {
                     <td>
                       <span className="statuses">Not Active</span>
                     </td>
-                  </tr>
+                  </tr> */}
                 </tbody>
               </table>
             </div>
