@@ -280,7 +280,7 @@ function FlexPlanDashboard() {
                     </h3>
                   ) : (
                     <h3 className="mt-3">
-                      NGN{" "}
+                      {/* NGN{" "} */}
                       {Intl.NumberFormat("en-US").format(
                         flexAcct?.autoDuration
                       )}

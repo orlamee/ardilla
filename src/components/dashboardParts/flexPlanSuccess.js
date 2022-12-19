@@ -40,7 +40,7 @@ function FlexPlanSuccess() {
 
         console.log(data);
         setLoading(false);
-        // navigate(""/flex-overview");
+        navigate("/flex-overview");
       } catch (error) {
         setLoading(false);
         setErr(true);
