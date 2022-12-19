@@ -20,7 +20,6 @@ function FlexPlanDashboard() {
   const [flexAcct, setFlexAcct] = useState();
 
   let user = JSON.parse(sessionStorage.getItem("user"));
-  
 
   useEffect(() => {
     const getTargetAccount = async () => {
@@ -31,8 +30,6 @@ function FlexPlanDashboard() {
 
         // console.log(data);
         setFlexAcct(data.flexPlan);
-        // setLoading(false);
-        // navigate("/target-spend");
       } catch (error) {
         // setLoading(false);
         console.log(error);
