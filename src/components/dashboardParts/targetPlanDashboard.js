@@ -186,7 +186,15 @@ function TargetPlanDashboard() {
                     <img src={interest} alt="" className="img-fluid" />
                     <div className="ms-3">
                       <p>Save</p>
-                      {targetAcct && targetAcct?.type === "custom" ? (
+                      <h3 className="mt-3">
+                        {" "}
+                        NGN{" "}
+                        {targetAcct &&
+                          Intl.NumberFormat("en-US").format(
+                            (targetAcct?.earn - targetAcct?.exp) * 0.3
+                          )}
+                      </h3>
+                      {/* {targetAcct && targetAcct?.type === "custom" ? (
                         <h3 className="mt-3">
                           NGN{" "}
                           {Intl.NumberFormat("en-US").format(
@@ -200,7 +208,7 @@ function TargetPlanDashboard() {
                             targetAcct?.autoSavingRate
                           )}
                         </h3>
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </div>
