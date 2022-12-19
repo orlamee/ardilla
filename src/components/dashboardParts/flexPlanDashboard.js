@@ -237,9 +237,10 @@ function FlexPlanDashboard() {
 
                   <h3 className="mt-3">
                     NGN{" "}
-                    {Intl.NumberFormat("en-US").format(
-                      flexAcct?.earn - flexAcct?.exp
-                    )}
+                    {flexAcct &&
+                      Intl.NumberFormat("en-US").format(
+                        flexAcct?.earn - flexAcct?.exp
+                      )}
                   </h3>
                 </div>
               </div>
