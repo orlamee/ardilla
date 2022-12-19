@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -15,9 +15,26 @@ import axios from "axios";
 
 function TypeFlex() {
   const [flexAcct, setFlexAcct] = useState();
+  const [loading, setLoading] = useState();
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const calculateIntrest = async () => {
+    try {
+      setLoading(true);
+
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/calculate-intrest/${user._id}`
+      );
+
+      setLoading(false);
+      navigate("/flex-dashboard");
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     const getFlexAccount = async () => {
@@ -157,13 +174,22 @@ function TypeFlex() {
                 </div>
               </div>
               <div className="text-center">
-                <Link
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn mt-5"
-                  to="/flex-dashboard"
-                  style={{ width: "70%" }}
-                >
-                  Go Automated
-                </Link>
+                {loading ? (
+                  <Link
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn mt-5"
+                    style={{ width: "70%" }}
+                  >
+                    Loading
+                  </Link>
+                ) : (
+                  <Link
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn mt-5"
+                    onClick={calculateIntrest}
+                    style={{ width: "70%" }}
+                  >
+                    Go Automated
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -190,7 +216,7 @@ function TypeFlex() {
               <div className="text-center">
                 <Link
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5"
-                  to="/flex-set-amount"
+                  to={"/flex-set-amount"}
                   style={{ width: "70%" }}
                 >
                   Go Custom
