@@ -152,7 +152,40 @@ function ProfileAccount() {
               </div>
             </div>
             <div>
-              <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="">Pause Account</Link>
+              <Link data-bs-toggle="modal" data-bs-target="#pause" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="">Pause Account</Link>
+              <div className="modal flex-modal fade" id="pause" data-backdrop="static">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container">
+                        <div className="row mx-3 justify-content-center">
+                          <div className="col-md-11">
+                            <h3>Pause Account</h3>
+                            <span>Pausing your account restricts your account access</span>
+                            <form className="mt-4">
+                              <div classname="">
+                                <label className="form-label">Why do you want to pause your account?</label>
+                                <select className="form-select p-select" aria-label="Default select example">
+                                  <option selected>Choose an option</option>
+                                  <option value="2">My Account got hacked</option>
+                                  <option value="3">Unauthorized login to my account</option>
+                                </select>
+                                {/* <input type="text" className="form-control p-form" placeholder="Annie"/> */}
+                              </div>
+                              <div>
+                                <Link data-bs-toggle="modal" data-bs-target="" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
