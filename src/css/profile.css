@@ -303,3 +303,10 @@
   font-weight: 500;
   line-height: 14px;
 }
+
+.fone-number {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #3C0071;
+}

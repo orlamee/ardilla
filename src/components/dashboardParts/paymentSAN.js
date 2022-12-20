@@ -145,7 +145,7 @@ function PaymentSAN() {
                                   <a href="#5a" data-toggle="tab">SAN</a>
                                 </li>
                                 <li className="me-4 transf-pills">
-                                  <a href="#6a" data-toggle="tab">Bank</a>
+                                  <a href="#6a" data-toggle="tab">Banks</a>
                                 </li>
                               </ul>
                               <div className="tab-content clearfix">
@@ -374,7 +374,7 @@ function PaymentSAN() {
                           <div className="col text-center">
                             <img src={sent} alt="" className="img-fluid" />
                             <h3 className="my-3">Money Transfered</h3>
-                            <p>You have successfully sent <span style={{color: "#3D0072"}}>NGN50000 to <br/>your Dilla</span></p>
+                            {/* <p>You have successfully sent <span style={{color: "#3D0072"}}>NGN50000 to <br/>your Dilla</span></p> */}
                           </div>
                         </div>
                       </div>
@@ -703,7 +703,7 @@ function PaymentSAN() {
                       </select>
                     </div>
                     <div className="row mx-3">
-                      <Link data-bs-toggle="modal" data-bs-target="#" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                      <Link data-bs-toggle="modal" data-bs-target="#proceed-payment" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
                     </div>
                   </form>
                 </div>
@@ -817,7 +817,7 @@ function PaymentSAN() {
                       </select>
                     </div>
                     <div className="row mx-3">
-                      <Link data-bs-toggle="modal" data-bs-target="#" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Send Money</Link>
+                      <Link data-bs-toggle="modal" data-bs-target="#proceed-payment" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Send Money</Link>
                     </div>
                   </form>
                 </div>
@@ -825,7 +825,70 @@ function PaymentSAN() {
             </div>
           </div>
         </div>
-        Add 
+        {/* Add Bank Process Payment */}
+        <div className="modal flex-modal fade" id="proceed-payment" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal p-5">
+                  <div className="row justify-content-center">
+                    <div className="col-md-6 text-center ">
+                      <img src={cadet} alt="" className="img-fluid" />
+                      <h2 className="mt-3">{"<"}StarBoy{"/>"}</h2>
+                    </div>
+                  </div>
+                  <div className="row mx-3 mt-3">
+                    <div className="col">
+                      <div className="row t-card p-4 bg-white">
+                        <div className="col-md-6">
+                          <img src={sanlogo} alt="" className="img-fluid" />
+                        </div>
+                        <div className="col-md-6 text-end mt-2">
+                          <h4>₦450,000.00</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col text-center">
+                      <i className="bi bi-arrow-down fs-4" style={{color: "#3C0071"}}></i>
+                    </div>
+                  </div>
+                  <div className="row mx-3 mt-3">
+                    <div className="col">
+                      <div className="row t-card p-4 bg-white">
+                        <div className="col-md-6">
+                          <span className="fone-number">2435678643</span>
+                          <p>Rolat - Olaide</p>
+                          {/* <img src={sanlogo} alt="" className="img-fluid" /> */}
+                        </div>
+                        <div className="col-md-6 text-end">
+                          <h4>₦50,000.00</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row mx-3">
+                    <div className="mt-3">
+                      <h3>Pin</h3>
+                      <form>
+                        <div className="mb-3 mt-1">
+                          <input type="number" className="form-control target-form" placeholder="Enter Pin" required/>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div className="row mx-3">
+                    <Link data-bs-toggle="modal" data-bs-target="#successdilla" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
