@@ -5,7 +5,6 @@ import settings from "../../img/dashboard/settings.svg";
 import { Link } from "react-router-dom";
 import d from "../../img/dashboard/profile-icon.svg";
 import c from "../../img/dashboard/account-icon.svg";
-import s from "../../img/dashboard/explore-icon.svg";
 
 function PortfolioHeader() {
   return (
@@ -26,10 +25,6 @@ function PortfolioHeader() {
                   <Link to="/profile" className="d-flex flex-row settings">
                     <img src={d} alt="" className="img-fluid me-2"/>
                     <p className="mt-3">Profile</p>
-                  </Link>
-                  <Link to="/66" className="d-flex flex-row my-3 settings">
-                    <img src={s} alt="" className="img-fluid me-2"/>
-                    <p className="mt-3">Account</p>
                   </Link>
                   <Link to="/" className="d-flex flex-row settings">
                     <img src={c} alt="" className="img-fluid me-2"/>

@@ -264,5 +264,42 @@
 }
 
 .transf-pills a {
-  font-size: 14px!important;
+  font-size: 12px!important;
+}
+
+.my-bank {
+  background: #F9FAFB;
+  margin-left: -48px;
+  margin-right: -48px;
+  color: #9CA3AF;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.addbank {
+  color: #8807F7;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.acc h5 {
+  color: #3C0071;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  margin-bottom: 0px;
+}
+
+.acc h6{
+  color: #8807F7;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.acc span {
+  color: #9CA3AF;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
 }
