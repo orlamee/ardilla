@@ -182,7 +182,44 @@ function PaymentSAN() {
                                   </div>
                                 </div>
                                 <div className="tab-pane quiz-pane" id="2a">
-                                  dhdh
+                                  <div className="row mx-3 mt-5">
+                                    <div className="col">
+                                      <div className="row t-card p-4 bg-white">
+                                        <div className="col-md-6">
+                                          <img src={sanlogo} alt="" className="img-fluid" />
+                                        </div>
+                                        <div className="col-md-6 text-end mt-2">
+                                          <h4>₦500,000.00</h4>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="row mx-3 mt-4 title-card">
+                                    <div className="col">
+                                      <h3>Amount</h3>
+                                    </div>
+                                  </div>
+                                  <div className="row mx-3">
+                                    <div className="col text-center">
+                                      <div className="input-group cart-group my-3">
+                                        <span className="input-group-btn">
+                                          <button type="button" className="quantity-left-minus minus-bg btn btn-number me-3"  data-type="minus" data-field="">
+                                            <i className="bi bi-dash"></i>
+                                          </button>
+                                        </span>
+                                        <input type="text" id="quantity" name="quantity" className="form-control input-number" defaultValue="30000" min="1" max="100"/>
+                                        <span className="input-group-btn">
+                                          <button type="button" className="quantity-right-plus btn minus-bg btn-number ms-3" data-type="plus" data-field="">
+                                            <i className="bi bi-plus"></i>
+                                          </button>
+                                        </span>
+                                      </div>
+                                      <span className="charges">₦250.00 (1.5% fee caped at ₦250) </span>
+                                    </div>
+                                  </div>
+                                  <div className="row mx-3 btn-bottom">
+                                    <Link data-bs-toggle="modal" data-bs-target="#" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                                  </div>
                                 </div>
                               </div>
                             </div>
