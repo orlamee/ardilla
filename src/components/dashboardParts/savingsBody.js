@@ -9,7 +9,7 @@ import explore from "../../img/dashboard/explore.svg";
 import learn from "../../img/dashboard/learn.svg";
 import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
-import contact from "../../img/dashboard/contact.svg";
+import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
 import flex from "../../img/dashboard/flex.svg";
 import percent from "../../img/dashboard/per.svg";
@@ -128,7 +128,7 @@ function SavingsBody() {
         <Link>
           <div className="d-flex flex-row">
             <img src={explore} alt="" className="img-fluid me-2 icons" />
-            Explore
+            Budgeting
           </div>
         </Link>
         <Link to="/learn">
@@ -141,7 +141,7 @@ function SavingsBody() {
           <Link>
             <div className="d-flex flex-row">
               <img src={contact} alt="" className="img-fluid me-2 icons" />
-              Contact Dilla Coach
+              Payment
             </div>
           </Link>
           <Link>

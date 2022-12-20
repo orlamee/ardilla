@@ -26,7 +26,7 @@ import dillauser from "../../img/dashboard/dilla-user.svg";
 
 
 
-function ProfileHelp() {
+function PaymentSAN() {
     return (
     <section className="main-dash">
       <div className="sidebar">
@@ -72,14 +72,14 @@ function ProfileHelp() {
             Budgeting
           </div>
         </Link>
-        <Link to="/learn" className="active">
+        <Link to="/learn" className="">
           <div className="d-flex flex-row">
             <img src={learn} alt="" className="img-fluid me-2 icons" />
             Learn
           </div>
         </Link>
         <div className="second-nav">
-          <Link>
+          <Link to="/payment">
             <div className="d-flex flex-row">
               <img src={contact} alt="" className="img-fluid me-2 icons" />
               Payment
@@ -223,4 +223,4 @@ function ProfileHelp() {
   );
 }
 
-export default ProfileHelp;
+export default PaymentSAN;
