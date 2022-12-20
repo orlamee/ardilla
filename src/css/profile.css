@@ -245,7 +245,6 @@
   background-color: #E5FAED;
   border: 1px solid #E5FAED;
   width: 50%;
-
 }
 
 .dilla-failed:disabled {
@@ -255,5 +254,15 @@
   background-color: #FAD1DE;
   border: 1px solid #FAD1DE;
   width: 50%;
+}
 
+.modal-title h3 {
+  font-size: 20px;
+  color: #3D0072;
+  line-height: 22px;
+  font-weight: 500;
+}
+
+.transf-pills a {
+  font-size: 14px!important;
 }
