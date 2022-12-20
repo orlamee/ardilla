@@ -18,7 +18,8 @@ function Header() {
         </div>
         <div className="d-flex flex-row float-end desktop cogs">
           <Link to=""><img src={nots} alt="" className="img-fluid me-4" /></Link>
-          <span to="" className="dropdown-toggle header-toggle" href="#" role="button" data-bs-toggle="dropdown"><img src={settings} alt="" className="img-fluid" />
+          <div className="dropdown">
+            <Link to="" className="dropdown-toggle header-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src={settings} alt="" className="img-fluid" /></Link>
             <ul className="dropdown-menu">
               <div className="row m-3">
                 <div className="col">
@@ -37,7 +38,8 @@ function Header() {
                 </div>
               </div>
             </ul>
-          </span>
+          </div>
+          
         </div>
       </div>
     </section>

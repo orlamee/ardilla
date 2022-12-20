@@ -18,26 +18,27 @@ function SavingsHeader() {
         </div>
         <div className="d-flex flex-row float-end desktop cogs">
           <Link to=""><img src={nots} alt="" className="img-fluid me-4" /></Link>
-          <Link to="" className="dropdown-toggle header-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src={settings} alt="" className="img-fluid" />
+          <div className="dropdown">
+            <Link to="" className="dropdown-toggle header-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src={settings} alt="" className="img-fluid" /></Link>
             <ul className="dropdown-menu">
               <div className="row m-3">
                 <div className="col">
-                  <Link to="/flex-overview" className="d-flex flex-row settings">
+                  <Link to="/profile" className="d-flex flex-row settings">
                     <img src={d} alt="" className="img-fluid me-2"/>
                     <p className="mt-3">Profile</p>
                   </Link>
-                  <Link to="/flex-overview/san" className="d-flex flex-row my-3">
+                  <Link to="/66" className="d-flex flex-row my-3 settings">
                     <img src={s} alt="" className="img-fluid me-2"/>
                     <p className="mt-3">Account</p>
                   </Link>
-                  <Link to="/flex-overview/card" className="d-flex flex-row">
+                  <Link to="/" className="d-flex flex-row settings">
                     <img src={c} alt="" className="img-fluid me-2"/>
                     <p className="mt-3">Explore</p>
                   </Link>
                 </div>
               </div>
             </ul>
-          </Link>
+          </div>
         </div>
       </div>
     </section>
