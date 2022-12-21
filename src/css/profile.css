@@ -310,3 +310,43 @@
   line-height: 16px;
   color: #3C0071;
 }
+
+.explore-section h1 {
+  font-size: 55px;
+  line-height: 67px;
+  font-weight: 700;
+  color: #3C0071;
+}
+
+.explore-section h2 {
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 400;
+  color: #3C0071;
+}
+
+.explore-section h3 {
+  font-size: 22px;
+  line-height: 27px;
+  font-weight: 500;
+  color: #3C0071;
+}
+
+.explore-section p {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #9CA3AF;
+}
+
+.bg-products {
+  background-color: #F9FAFB;
+  border-radius: 15px;
+}
+
+.linker {
+  color: #8807F7;
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 700;
+}

@@ -72,6 +72,7 @@ import ProfileAccountSettings from "./dashboard/profileAccountSettings";
 import ProfileRefer from "./dashboard/profileRefer";
 import KYC from "./dashboard/profileKYC";
 import Payment from "./dashboard/payment";
+import ExplorePage from "./dashboard/explorePage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -166,6 +167,7 @@ root.render(
       <Route path="/profile/kyc" element={<KYC/>}></Route>
 
       <Route path="/payment" element={<Payment/>}></Route>
+      <Route path="/explore" element={<ExplorePage/>}></Route>
 
 
       

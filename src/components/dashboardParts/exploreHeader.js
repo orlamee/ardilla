@@ -1,12 +1,12 @@
 import React from "react";
-import icon from "../../img/dashboard/logo.svg";
+import icon from "../../img/dashboard/e-icon.svg";
 import nots from "../../img/dashboard/nots.svg";
 import settings from "../../img/dashboard/settings.svg";
 import { Link } from "react-router-dom";
 import d from "../../img/dashboard/profile-icon.svg";
 import c from "../../img/dashboard/account-icon.svg";
 
-function Header() {
+function ExploreHeader() {
   return (
     <section className="dashboard-header fixed-top">
       <div className="container-fluid">
@@ -41,4 +41,4 @@ function Header() {
   )
 }
 
-export default Header;
+export default ExploreHeader;
