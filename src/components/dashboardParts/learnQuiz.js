@@ -62,7 +62,7 @@ function LearnQuiz() {
         <Link>
           <div className="d-flex flex-row">
             <img src={explore} alt="" className="img-fluid me-2 icons" />
-            Budgeting
+            Budgeting <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <Link to="/learn" className="active">

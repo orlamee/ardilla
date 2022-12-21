@@ -15,13 +15,17 @@ import chat from "../../img/dashboard/chat.svg";
 import tar from "../../img/dashboard/targett.svg";
 import flex from "../../img/dashboard/f-icon.svg";
 import vault from "../../img/dashboard/Vault.svg";
+import dillacom from "../../img/dashboard/dilla-comp.svg";
+import stash from "../../img/dashboard/stash.svg";
+import shield from "../../img/dashboard/shiel.svg";
+
 
 
 
 
 
 function Explore() {
-    return (
+  return (
     <section className="main-dash">
       <div className="sidebar">
         <Link to="/dashboard" className="">
@@ -63,7 +67,7 @@ function Explore() {
         <Link>
           <div className="d-flex flex-row">
             <img src={explore} alt="" className="img-fluid me-2 icons" />
-            Budgeting
+            Budgeting <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <Link to="/learn" className="">
@@ -93,13 +97,15 @@ function Explore() {
           </Link>
         </div>
       </div>
-      <div className="content py-5 px-5 explore-section">
-        <div className="row">
-          <h1><span style={{color: "#E8356D"}}>Saving</span> At Your Pace</h1>
-          <h2 className="mt-3">Lorem ipsum gethem jnjfjntem mentem</h2>
+      <div className="content py-5 px-5 explore-section no-margin">
+        <div className="row justify-content-center">
+          <div className="col-md-9">
+            <h1><span style={{color: "#E8356D"}}>Saving</span> At Your Pace</h1>
+            <h2 className="mt-3">Lorem ipsum gethem jnjfjntem mentem</h2>
+          </div>
         </div>
-        <div className="row mt-5">
-          <div className="col-md-4 mb-3">
+        <div className="row mt-5 justify-content-center">
+          <div className="col-md-3 mb-3">
             <div className="bg-products p-5">
               <div className="d-flex flex-row">
                 <img src={tar} alt="" className="img-fluid" />
@@ -111,7 +117,7 @@ function Explore() {
               </div>
             </div>
           </div>
-          <div className="col-md-4 mb-3">
+          <div className="col-md-3 mb-3">
             <div className="bg-products p-5">
               <div className="d-flex flex-row">
                 <img src={flex} alt="" className="img-fluid" />
@@ -123,7 +129,7 @@ function Explore() {
               </div>
             </div>
           </div>
-          <div className="col-md-4 mb-3">
+          <div className="col-md-3 mb-3">
             <div className="bg-products p-5">
               <div className="d-flex flex-row">
                 <img src={vault} alt="" className="img-fluid" />
@@ -138,14 +144,14 @@ function Explore() {
         </div>
         <div className="container-fluid">
           <div className="second">
-            <div className="row">
+            <div className="row justify-content-center">
               <div className="col-md-9">
                 <h1>Get The <span style={{color: "#F59E0B"}}>Best Savings Style</span><br/>For You</h1>
                 <h2 className="mt-3">Be part of ardilla’s saving circle board to improve your saving capacity<br/>you get 10.5% P.A</h2>
               </div>
             </div>
             <div className="row justify-content-center mt-5">
-              <div className="col-md-4 mx-3">
+              <div className="col-md-3 mx-3">
                 <div className="automated p-5">
                   <h4>Go Automated </h4>
                   <div className="text-center my-5 border-bottom">
@@ -166,16 +172,16 @@ function Explore() {
                     </div>
                   </div>
                   <div className="text-center">
-                  <Link
+                    <Link
                       className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn mt-5"
-                      style={{ width: "70%" }}
+                      style={{ width: "86%" }}
                     >
                       Go Automated
                     </Link>
                   </div>
                 </div>
               </div>
-              <div className="col-md-4 mx-3">
+              <div className="col-md-3 mx-3">
                 <div className="automated p-5 customed">
                   <h4>Go Custom </h4>
                   <div className="text-center my-5 border-bottom">
@@ -210,11 +216,91 @@ function Explore() {
             </div>
           </div>
           <div className="third bg-white">
-            <div className="row">
-              <div className="col-md-6">
-                <h1>jdjjj</h1>
+            <div className="row justify-content-center ">
+              <div className="col-md-5 text-center">
+                <img src={dillacom} alt="" className="img-fluid" />
+              </div>
+              <div className="col-md-5 right-explore text-center">
+                <h6>Dilla</h6>
+                <h5 className="my-4">Request and send money to your friends and family </h5>
+                <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn">
+                  Go to Dilla
+                </Link>
               </div>
             </div>
+            <div className="row mt-5 justify-content-center">
+              <div className="col-md-5 right-explore text-center">
+                <h6>A Multipurpose Stash</h6>
+                <h5 className="my-4">SAN account for all transactions you need</h5>
+                <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn">
+                  Go to SAN
+                </Link>
+              </div>
+              <div className="col-md-5 text-center">
+                <img src={stash} alt="" className="img-fluid" />
+              </div>
+            </div>
+          </div>
+          <div className="second no-margin">
+            <div className="row justify-content-center">
+              <div className="col-md-9">
+                <h1>Coming Soon</h1>
+                <h2 className="mt-3">We have other features coming soon</h2>
+              </div>
+            </div>
+            <div className="row mt-5 justify-content-center">
+              <div className="col-md-3 mb-3">
+                <div className="bg-soon p-5">
+                  <img src={shield} alt="" className="img-fluid" />
+                  <h5 className="mt-4">Insurance</h5>
+                  <p>With dilla insurance is covered and<br/>ready at anytime </p>
+                  <span className="linker">I want to be notified</span>
+                </div>
+              </div>
+              <div className="col-md-3 mb-3">
+                <div className="bg-soon p-5">
+                  <img src={shield} alt="" className="img-fluid" />
+                  <h5 className="mt-4">Insurance</h5>
+                  <p>With dilla insurance is covered and<br/>ready at anytime </p>
+                  <span className="linker">I want to be notified</span>
+                </div>
+              </div>
+              <div className="col-md-3 mb-3">
+                <div className="bg-soon p-5">
+                  <img src={shield} alt="" className="img-fluid" />
+                  <h5 className="mt-4">Insurance</h5>
+                  <p>With dilla insurance is covered and<br/>ready at anytime </p>
+                  <span className="linker">I want to be notified</span>
+                </div>
+              </div>
+            </div>
+            <div className="row mt-5 justify-content-center">
+              <div className="col-md-3 mb-3">
+                <div className="bg-soon p-5">
+                  <img src={shield} alt="" className="img-fluid" />
+                  <h5 className="mt-4">Insurance</h5>
+                  <p>With dilla insurance is covered and<br/>ready at anytime </p>
+                  <span className="linker">I want to be notified</span>
+                </div>
+              </div>
+              <div className="col-md-3 mb-3">
+                <div className="bg-soon p-5">
+                  <img src={shield} alt="" className="img-fluid" />
+                  <h5 className="mt-4">Insurance</h5>
+                  <p>With dilla insurance is covered and<br/>ready at anytime </p>
+                  <span className="linker">I want to be notified</span>
+                </div>
+              </div>
+              <div className="col-md-3 mb-3">
+                <div className="bg-soon p-5">
+                  <img src={shield} alt="" className="img-fluid" />
+                  <h5 className="mt-4">Insurance</h5>
+                  <p>With dilla insurance is covered and<br/>ready at anytime </p>
+                  <span className="linker">I want to be notified</span>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
