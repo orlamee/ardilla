@@ -28,7 +28,7 @@ function FlexPlanDashboard() {
           `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
         );
 
-        // console.log(data);
+        console.log(data);
         setFlexAcct(data.flexPlan);
       } catch (error) {
         // setLoading(false);

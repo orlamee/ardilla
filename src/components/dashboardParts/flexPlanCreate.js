@@ -51,36 +51,6 @@ function FlexPlanCreate() {
     }
   };
 
-  // const navigate = useNavigate();
-
-  // let user = JSON.parse(sessionStorage.getItem("user"));
-
-  // const handleEarn = async () => {
-  //   setLoading(true);
-
-  //   if (ern) {
-  //     try {
-  //       const { data } = await axios.put(
-  //         `https://ardilla.herokuapp.com/ardilla/api/account/auto-flex-plan/${user._id}`,
-  //         { ern }
-  //       );
-
-  //       const ernInfo = data.plan;
-
-  //       setLoading(false);
-  //       navigate("/flex-spend", { state: ernInfo });
-  //     } catch (error) {
-  //       setLoading(false);
-  //       setErr(true);
-  //       setMsg(`${error.response.data.msg} ` || "Network error");
-  //     }
-  //   } else {
-  //     setLoading(false);
-  //     setErr(true);
-  //     setMsg("choose a plan first");
-  //   }
-  // };
-
   const handleClickSuccess = () => {
     setOnSuccess(false);
   };

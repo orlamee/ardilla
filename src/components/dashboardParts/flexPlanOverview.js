@@ -19,40 +19,99 @@ import c from "../../img/dashboard/c.svg";
 import s from "../../img/dashboard/s.svg";
 import axios from "axios";
 
-import PaystackPop from "@paystack/inline-js";
+// import PaystackPop from "@paystack/inline-js";
 
 function FlexPlanOverview() {
   const [flexAcct, setFlexAcct] = useState();
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
+  const [loading, setLoading] = useState();
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
   const day = new Date().getDate();
-  const month = new Date().getMonth();
-  const year = new Date().getFullYear();
 
-  // sk_test_c71639640027d7b90e141cacea5776be0e44af33
-  // pk_test_820864edf00e25d73eeb6bf0d1df11ff33fa62e9
-
-  const payment = () => {
-    console.log("test");
-    const paystack = new PaystackPop();
-
-    paystack.newTransaction({
-      key: "pk_test_bdeef845da401d49681c94007d802d6c68ac2ef8",
-      amount: 100000,
-      email: "davidoshodi656@gmail.com",
-      name: "david",
-      onSuccess(transaction) {
-        // setPay(!pay);
-        // toast.success('Transaction successful');
-        console.log(transaction);
-        // price * 100
-      },
-      oncancel() {
-        console.log("cancel");
-      },
-    });
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
   };
+
+  const handleCreate = async () => {
+    try {
+      setLoading(true);
+
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/activate-plan/${user._id}`
+      );
+
+      console.log(data);
+      setLoading(false);
+      setOnSuccess(true);
+      setMsg(data.msg);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+      setErr(true);
+      setMsg(`${error.response.data.msg} ` || "Network error");
+    }
+  };
+
+  // const config = {
+  //   public_key: "FLWPUBK_TEST-992ecad07f109c391d1ba645e5782842-X",
+  //   tx_ref: Date.now(),
+  //   amount: flexAcct?.autoSavingRate,
+  //   currency: "NGN",
+  //   payment_options: "mobilemoney",
+  //   customer: {
+  //     email: "rexatuzie@gmail.com",
+  //     phone_number: "08160853127",
+  //     name: "atuzie rex",
+  //   },
+  //   customizations: {
+  //     title: "Ardilla",
+  //     description: "Top up your dilla wallet.",
+  //     logo: "https://i.postimg.cc/GpczCJRb/Ardilla-Logo.png",
+  //   },
+  // };
+
+  // const fwConfig = {
+  //   ...config,
+  //   text: "Pay with Flutterwave!",
+  //   callback: (response) => {
+  //     console.log(response);
+  //     closePaymentModal(); // this will close the modal programmatically
+  //   },
+  //   onClose: () => {
+  //     console.log("you closed me");
+  //   },
+  // };
+
+  // <FlutterWaveButton {...fwConfig} />
+
+  setTimeout(() => {
+    if (onSuccess) {
+      setOnSuccess(false);
+    }
+  }, 5000);
+
+  // const payment = () => {
+  //   console.log("test");
+  //   const paystack = new PaystackPop();
+
+  //   paystack.newTransaction({
+  //     key: "pk_test_bdeef845da401d49681c94007d802d6c68ac2ef8",
+  //     amount: 100000,
+  //     email: "davidoshodi656@gmail.com",
+  //     name: "david",
+  //     onSuccess(transaction) {
+  //       console.log(transaction);
+  //       // price * 100
+  //     },
+  //     oncancel() {
+  //       console.log("cancel");
+  //     },
+  //   });
+  // };
 
   // payment();
 
@@ -78,8 +137,50 @@ function FlexPlanOverview() {
 
   const endDate = flexAcct?.breakdown[findLength - 1];
 
+  const startDate = flexAcct?.breakdown[0];
+
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
@@ -189,7 +290,7 @@ function FlexPlanOverview() {
                 )}
                 {/* <p className="mt-5">₦50,000.00</p> */}
                 {/* <p className="mt-5">29-11-2022</p> */}
-                <p className="mt-5">{`${day}-${month}-${year}`}</p>
+                <p className="mt-5">{`${day}-${startDate?.date.month}-${startDate?.date.year}`}</p>
                 <p className="mt-5">{`${day}-${endDate?.date.month}-${endDate?.date.year}`}</p>
                 <p className="mt-5 overview-perc">11%</p>
                 <p className="mt-5">
@@ -590,14 +691,24 @@ function FlexPlanOverview() {
               </label>
             </div>
             <div>
-              <Link
-                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
-                to=""
-                onClick={payment}
-                style={{ width: "100%" }}
-              >
-                Create Plan
-              </Link>
+              {loading ? (
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
+                  to=""
+                  style={{ width: "100%" }}
+                >
+                  Loading
+                </Link>
+              ) : (
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
+                  to=""
+                  onClick={handleCreate}
+                  style={{ width: "100%" }}
+                >
+                  Create Plan
+                </Link>
+              )}
             </div>
           </div>
         </div>

@@ -43,12 +43,8 @@ function TypeFlex() {
           `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
         );
 
-        // console.log(data);
         setFlexAcct(data.flexPlan);
-        // setLoading(false);
-        // navigate("/target-spend");
       } catch (error) {
-        // setLoading(false);
         console.log(error);
       }
     };

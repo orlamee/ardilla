@@ -20,6 +20,23 @@ function TargetPlanDashboard() {
   const [targetAcct, setTargetAcct] = useState();
   let user = JSON.parse(sessionStorage.getItem("user"));
 
+  const calculateIntrest = async () => {
+    console.log("test");
+    // try {
+    //   // setLoading(true);
+
+    //   const { data } = await axios.get(
+    //     `https://ardilla.herokuapp.com/ardilla/api/target-plan/calculate-intrest/${user._id}`
+    //   );
+
+    //   // setLoading(false);
+    //   // navigate("/target-dashboard");
+    //   console.log(data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+  };
+
   useEffect(() => {
     const getTargetAccount = async () => {
       try {
@@ -27,17 +44,14 @@ function TargetPlanDashboard() {
           `https://ardilla.herokuapp.com/ardilla/api/target-plan/get-target-account/${user._id}`
         );
 
-        // console.log(data);
         setTargetAcct(data.targetPlan);
-        // setLoading(false);
-        // navigate("/target-spend");
       } catch (error) {
-        // setLoading(false);
         console.log(error);
       }
     };
 
     getTargetAccount();
+    // calculateIntrest();
   }, [user._id]);
   return (
     <section className="main-dash">
@@ -141,8 +155,8 @@ function TargetPlanDashboard() {
                   <div className="d-flex flex-row">
                     <img src={interest} alt="" className="img-fluid" />
                     <div className="ms-3">
-                      <p>Interest - 11%</p>
-                      <h3 className="mt-3">Lieutenant</h3>
+                      <p onClick={calculateIntrest}>Badge</p>
+                      <h3 className="mt-3">{targetAcct?.badge}</h3>
                     </div>
                   </div>
                 </div>
@@ -186,15 +200,8 @@ function TargetPlanDashboard() {
                     <img src={interest} alt="" className="img-fluid" />
                     <div className="ms-3">
                       <p>Save</p>
-                      <h3 className="mt-3">
-                        {" "}
-                        NGN{" "}
-                        {targetAcct &&
-                          Intl.NumberFormat("en-US").format(
-                            (targetAcct?.earn - targetAcct?.exp) * 0.3
-                          )}
-                      </h3>
-                      {/* {targetAcct && targetAcct?.type === "custom" ? (
+
+                      {targetAcct && targetAcct?.type === "custom" ? (
                         <h3 className="mt-3">
                           NGN{" "}
                           {Intl.NumberFormat("en-US").format(
@@ -208,7 +215,7 @@ function TargetPlanDashboard() {
                             targetAcct?.autoSavingRate
                           )}
                         </h3>
-                      )} */}
+                      )}
                     </div>
                   </div>
                 </div>
@@ -224,13 +231,26 @@ function TargetPlanDashboard() {
             <div className="row">
               <div className="col-md-6">
                 <div className="int px-4">
-                  <p>Total left- 40%</p>
-                  <h3 className="mt-3">
-                    NGN{" "}
-                    {Intl.NumberFormat("en-US").format(
-                      targetAcct?.earn - targetAcct?.exp
-                    )}
-                  </h3>
+                  <p>Total left</p>
+                  {targetAcct && targetAcct?.type === "custom" ? (
+                    <h3 className="mt-3">
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        targetAcct?.earn -
+                          targetAcct?.exp -
+                          targetAcct?.customSavingRate
+                      )}
+                    </h3>
+                  ) : (
+                    <h3 className="mt-3">
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        targetAcct?.earn -
+                          targetAcct?.exp -
+                          targetAcct?.autoSavingRate
+                      )}
+                    </h3>
+                  )}
                 </div>
               </div>
               <div className="col-md-6">
@@ -262,14 +282,12 @@ function TargetPlanDashboard() {
                   <p>Duration</p>
                   {targetAcct && targetAcct?.type === "custom" ? (
                     <h3 className="mt-3">
-                      {/* NGN{" "} */}
                       {Intl.NumberFormat("en-US").format(
                         targetAcct?.customDuration
                       )}
                     </h3>
                   ) : (
                     <h3 className="mt-3">
-                      {/* NGN{" "} */}
                       {Intl.NumberFormat("en-US").format(
                         targetAcct?.autoDuration
                       )}
@@ -280,13 +298,35 @@ function TargetPlanDashboard() {
               <div className="col">
                 <div className="int px-4">
                   <p>Interest</p>
-                  <h3 className="mt-3">null</h3>
+                  {targetAcct && (
+                    <h3 className="mt-3">
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        targetAcct?.totalIntrest
+                      )}
+                    </h3>
+                  )}
                 </div>
               </div>
               <div className="col">
                 <div className="int px-4">
                   <p>Total</p>
-                  <h3 className="mt-3">null</h3>
+                  {targetAcct && targetAcct?.type === "custom" ? (
+                    <h3 className="mt-3">
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        targetAcct?.customSavingTarget +
+                          targetAcct?.totalIntrest
+                      )}
+                    </h3>
+                  ) : (
+                    <h3 className="mt-3">
+                      NGN{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        targetAcct?.autoSavingTarget + targetAcct?.totalIntrest
+                      )}
+                    </h3>
+                  )}
                 </div>
               </div>
             </div>
@@ -317,7 +357,29 @@ function TargetPlanDashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  {targetAcct?.breakdown?.map((data) => {
+                    return (
+                      <tr>
+                        <td>
+                          {targetAcct?.paymentDate}-{data.date.month}-
+                          {data.date.year}
+                        </td>
+                        <td>
+                          {Intl.NumberFormat("en-US").format(data.amount)}
+                        </td>
+                        <td>{Intl.NumberFormat("en-US").format(data.ipp)}</td>
+                        <td>
+                          {Intl.NumberFormat("en-US").format(
+                            data.ipp + data.amount
+                          )}
+                        </td>
+                        <td>
+                          <span className="statuses">Not Active</span>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                  {/* <tr>
                     <td>29-11-2022</td>
                     <td>180,000</td>
                     <td>1,650</td>
@@ -325,8 +387,8 @@ function TargetPlanDashboard() {
                     <td>
                       <span className="statuses">Not Active</span>
                     </td>
-                  </tr>
-                  <tr>
+                  </tr> */}
+                  {/* <tr>
                     <td>29-11-2022</td>
                     <td>180,000</td>
                     <td>1,650</td>
@@ -334,8 +396,8 @@ function TargetPlanDashboard() {
                     <td>
                       <span className="statuses">Not Active</span>
                     </td>
-                  </tr>
-                  <tr>
+                  </tr> */}
+                  {/* <tr>
                     <td>29-11-2022</td>
                     <td>180,000</td>
                     <td>1,650</td>
@@ -343,8 +405,8 @@ function TargetPlanDashboard() {
                     <td>
                       <span className="statuses">Not Active</span>
                     </td>
-                  </tr>
-                  <tr>
+                  </tr> */}
+                  {/* <tr>
                     <td>29-11-2022</td>
                     <td>180,000</td>
                     <td>1,650</td>
@@ -352,7 +414,7 @@ function TargetPlanDashboard() {
                     <td>
                       <span className="statuses">Not Active</span>
                     </td>
-                  </tr>
+                  </tr> */}
                 </tbody>
               </table>
             </div>

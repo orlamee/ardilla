@@ -22,6 +22,22 @@ function TargetPlanSetDuration() {
 
   const navigate = useNavigate();
 
+  const calculateIntrest = async () => {
+    try {
+      // setLoading(true);
+
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/calculate-intrest/${user._id}`
+      );
+
+      // setLoading(false);
+      // navigate("/target-dashboard");
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -34,6 +50,7 @@ function TargetPlanSetDuration() {
 
       console.log(data);
       setLoading(false);
+      calculateIntrest();
       navigate("/target-dashboard");
     } catch (error) {
       setLoading(false);

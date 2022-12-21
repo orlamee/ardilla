@@ -25,30 +25,6 @@ function FlexPlanSet() {
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  // const handleEarn = async (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-
-  //   try {
-  //     const { data } = await axios.put(
-  //       `https://ardilla.herokuapp.com/ardilla/api/account/custom-flex-plan/total-saving/${user._id}`,
-  //       { customTotalSavingTarget }
-  //     );
-
-  //     // const ernInfo = data.plan;
-
-  //     setLoading(false);
-  //     console.log(data);
-
-  //     sessionStorage.setItem("acct", JSON.stringify(data.plan));
-  //     navigate("/flex-savings");
-  //   } catch (error) {
-  //     setLoading(false);
-  //     setErr(true);
-  //     setMsg(`${error.response.data.msg} ` || "Network error");
-  //   }
-  // };
-
   const handleClickSuccess = () => {
     setOnSuccess(false);
   };

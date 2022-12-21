@@ -56,7 +56,7 @@ function CreateFlex() {
     if (setErr) {
       setErr(false);
     }
-  }, 2500);
+  }, 5000);
   return (
     <section className="main-dash">
       {err && (

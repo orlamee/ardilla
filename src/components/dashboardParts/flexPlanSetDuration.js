@@ -20,35 +20,25 @@ function FlexPlanSetDuration() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
 
-  // to="/flex-set-duration"
-
   const navigate = useNavigate();
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  // const handleEarn = async (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
+  const calculateIntrest = async () => {
+    try {
+      // setLoading(true);
 
-  //   try {
-  //     const { data } = await axios.put(
-  //       `https://ardilla.herokuapp.com/ardilla/api/account/custom-flex-plan/duration/${user._id}`,
-  //       { customDuration }
-  //     );
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/calculate-intrest/${user._id}`
+      );
 
-  //     // const ernInfo = data.plan;
-
-  //     setLoading(false);
-  //     console.log(data);
-
-  //     sessionStorage.setItem("acct", JSON.stringify(data.plan));
-  //     navigate("/flex-dashboard");
-  //   } catch (error) {
-  //     setLoading(false);
-  //     setErr(true);
-  //     setMsg(`${error.response.data.msg} ` || "Network error");
-  //   }
-  // };
+      // setLoading(false);
+      // navigate("/target-dashboard");
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
@@ -66,6 +56,7 @@ function FlexPlanSetDuration() {
 
       console.log(data);
       setLoading(false);
+      calculateIntrest();
       navigate("/flex-dashboard");
     } catch (error) {
       setLoading(false);
