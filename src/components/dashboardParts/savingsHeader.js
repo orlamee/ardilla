@@ -26,7 +26,7 @@ function SavingsHeader() {
                     <img src={d} alt="" className="img-fluid me-2"/>
                     <p className="mt-3">Profile</p>
                   </Link>
-                  <Link to="/" className="d-flex flex-row settings">
+                  <Link to="/explore" className="d-flex flex-row settings">
                     <img src={c} alt="" className="img-fluid me-2"/>
                     <p className="mt-3">Explore</p>
                   </Link>
