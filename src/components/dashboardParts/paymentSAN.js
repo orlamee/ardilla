@@ -229,6 +229,52 @@ function PaymentSAN() {
                                     <Link data-bs-toggle="modal" data-bs-target="#savings-plan" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
                                   </div>
                                 </div>
+                                <div className="tab-pane quiz-pane" id="5a">
+                                  <div className="row mx-3 mt-5">
+                                    <div className="col">
+                                      <div className="row t-card p-4 bg-white">
+                                        <div className="col-md-6">
+                                          <img src={sanlogo} alt="" className="img-fluid" />
+                                        </div>
+                                        <div className="col-md-6 text-end mt-2">
+                                          <h4>₦50,000.00</h4>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="row mx-3 mt-4 title-card">
+                                    <div className="col">
+                                      <h3>Amount</h3>
+                                    </div>
+                                  </div>
+                                  <div className="row mx-3">
+                                    <div className="col text-center">
+                                      <div className="input-group cart-group my-3">
+                                        <span className="input-group-btn">
+                                          <button type="button" className="quantity-left-minus minus-bg btn btn-number me-3"  data-type="minus" data-field="">
+                                            <i className="bi bi-dash"></i>
+                                          </button>
+                                        </span>
+                                        <input type="text" id="quantity" name="quantity" className="form-control input-number" defaultValue="30000" min="1" max="100"/>
+                                        <span className="input-group-btn">
+                                          <button type="button" className="quantity-right-plus btn minus-bg btn-number ms-3" data-type="plus" data-field="">
+                                            <i className="bi bi-plus"></i>
+                                          </button>
+                                        </span>
+                                      </div>
+                                      <span className="charges">₦250.00 (1.5% fee caped at ₦250) </span>
+                                    </div>
+                                  </div>
+                                  <form className="mt-4 row mx-4">
+                                    <div classname="">
+                                      <label className="form-label">Enter SAN number</label>
+                                      <input type="text" className="form-control p-form" placeholder="SAN Number"/>
+                                    </div>
+                                  </form>
+                                  <div className="row mx-3 btn-bottom">
+                                    <Link data-bs-toggle="modal" data-bs-target="#sendtosan" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                                  </div>
+                                </div>
                                 <div className="tab-pane quiz-pane" id="6a">
                                   <div className="row mx-3 mt-5">
                                     <div className="col">
@@ -866,6 +912,71 @@ function PaymentSAN() {
                           {/* <img src={sanlogo} alt="" className="img-fluid" /> */}
                         </div>
                         <div className="col-md-6 text-end">
+                          <h4>₦50,000.00</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row mx-3">
+                    <div className="mt-3">
+                      <h3>Pin</h3>
+                      <form>
+                        <div className="mb-3 mt-1">
+                          <input type="number" className="form-control target-form" placeholder="Enter Pin" required/>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div className="row mx-3">
+                    <Link data-bs-toggle="modal" data-bs-target="#successdilla" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Send Money to san */}
+        <div className="modal flex-modal fade" id="sendtosan" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="row mx-3">
+                <Link data-bs-toggle="modal" data-bs-target="#transfersan" type="button"><i className="bi bi-chevron-left"></i> Back</Link>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal p-5">
+                  <div className="mx-3 row">
+                    <div className="col modal-title">
+                      <h3>Transfer</h3>
+                    </div>
+                  </div>
+                  <div className="row mx-3 mt-3">
+                    <div className="col">
+                      <div className="row t-card p-4 bg-white">
+                        <div className="col-md-6">
+                          <img src={sanlogo} alt="" className="img-fluid" />
+                        </div>
+                        <div className="col-md-6 text-end mt-2">
+                          <h4>₦450,000.00</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col text-center">
+                      <i className="bi bi-arrow-down fs-4" style={{color: "#3C0071"}}></i>
+                    </div>
+                  </div>
+                  <div className="row mx-3 mt-3">
+                    <div className="col">
+                      <div className="row t-card p-4 bg-white">
+                        <div className="col-md-6 acc">
+                          <h5>2146789541</h5>
+                          <span>Olawale levi</span>
+                        </div>
+                        <div className="col-md-6 text-end mt-2">
                           <h4>₦50,000.00</h4>
                         </div>
                       </div>
