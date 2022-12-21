@@ -102,7 +102,7 @@ function Explore() {
           </Link>
         </div>
       </div>
-      <div className="content pt-5 px-5 explore-section">
+      <div className="content pt-5 spacing explore-section">
         <div className="row" style={{marginTop: "90px"}}>
           <div className="col-md-9">
             <h1><span style={{color: "#E8356D"}}>Saving</span> At Your Pace</h1>

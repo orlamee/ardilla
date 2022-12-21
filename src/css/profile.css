@@ -372,16 +372,16 @@
 
 .second {
   background-color: #F9FAFB;
-  margin-left: -60px;
-  margin-right: -60px;
-  padding: 90px 50px 120px 50px;
+  margin-left: -102px;
+  margin-right: -102px;
+  padding: 90px 95px 120px 95px;
   margin-top: 90px;
 }
 
 .third {
-  margin-left: -60px;
-  margin-right: -60px;
-  padding: 90px 50px 120px 50px;
+  margin-left: -102px;
+  margin-right: -102px;
+  padding: 90px 95px 120px 95px;
 }
 
 .right-explore h6 {
@@ -434,4 +434,9 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   transition: all 0.2s ease;
   cursor: pointer;
+}
+
+.spacing {
+  padding-left: 90px!important;
+  padding-right: 90px!important;
 }
