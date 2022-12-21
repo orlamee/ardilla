@@ -23,6 +23,7 @@ import budget from "../../img/dashboard/budget.svg";
 import clan from "../../img/dashboard/clan.svg";
 import ym from "../../img/dashboard/ym.svg";
 import grit from "../../img/dashboard/grit.svg";
+import auto from "../../img/dashboard/auto.svg";
 
 
 
@@ -155,68 +156,9 @@ function Explore() {
               </div>
             </div>
             <div className="row justify-content-center mt-5">
-              <div className="col-md-3 mx-3">
-                <div className="automated p-5">
-                  <h4>Go Automated </h4>
-                  <div className="text-center my-5 border-bottom">
-                    <span>Recommended Amount</span>
-                    <h6>NGN 0</h6>
-                    <p>Every month for  months</p>
-                  </div>
-                  <div className="row values">
-                    <div className="col-md-6">
-                      <h5>Target</h5>
-                      <h5>Interest Rate:</h5>
-                      <h5>Badge:</h5>
-                    </div>
-                    <div className="col-md-6 text-end">
-                      <h5>2,160,000</h5>
-                      <h5>11%</h5>
-                      <h5>Lieutenant</h5>
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <Link
-                      className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn mt-5"
-                      style={{ width: "86%" }}
-                    >
-                      Go Automated
-                    </Link>
-                  </div>
-                </div>
+              <div className="col-md-7 mx-3">
+                <img src={auto} alt="" className="img-fluid" />
               </div>
-              <div className="col-md-3 mx-3">
-                <div className="automated p-5 customed">
-                  <h4>Go Custom </h4>
-                  <div className="text-center my-5 border-bottom">
-                    <span>Recommended Amount</span>
-                    <h6>NGN 0</h6>
-                    <p>Every month for 13months</p>
-                  </div>
-                  <div className="row values">
-                    <div className="col-md-6">
-                      <h5>Target</h5>
-                      <h5>Interest Rate:</h5>
-                      <h5>Badge:</h5>
-                    </div>
-                    <div className="col-md-6 text-end">
-                      <h5>0</h5>
-                      <h5>11%</h5>
-                      <h5>-</h5>
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <Link
-                      className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5"
-                      to={"/flex-set-amount"}
-                      style={{ width: "70%" }}
-                    >
-                      Go Custom
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              
             </div>
           </div>
           <div className="third bg-white">
