@@ -13,6 +13,8 @@ import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
 import tar from "../../img/dashboard/targett.svg";
+import flex from "../../img/dashboard/f-icon.svg";
+import vault from "../../img/dashboard/Vault.svg";
 
 
 
@@ -112,11 +114,11 @@ function Explore() {
           <div className="col-md-4 mb-3">
             <div className="bg-products p-5">
               <div className="d-flex flex-row">
-                <img src={tar} alt="" className="img-fluid" />
+                <img src={flex} alt="" className="img-fluid" />
                 <div className="ms-3">
-                  <h3>Target</h3>
-                  <p>Fixed Savings lets you save and lock your funds until a later date. You get 10% P.A</p>
-                  <span className="linker">Create Target Plan <i className="bi bi-chevron-right"></i></span>
+                  <h3>Flex</h3>
+                  <p>Save, Withdraw, Transfer, Manage and organize your money for free at any time, anywhere.</p>
+                  <span className="linker">Create Flex Plan <i className="bi bi-chevron-right"></i></span>
                 </div>
               </div>
             </div>
@@ -124,12 +126,93 @@ function Explore() {
           <div className="col-md-4 mb-3">
             <div className="bg-products p-5">
               <div className="d-flex flex-row">
-                <img src={tar} alt="" className="img-fluid" />
+                <img src={vault} alt="" className="img-fluid" />
                 <div className="ms-3">
-                  <h3>Target</h3>
+                  <h3>Safe Lock</h3>
                   <p>Fixed Savings lets you save and lock your funds until a later date. You get 10% P.A</p>
-                  <span className="linker">Create Target Plan <i className="bi bi-chevron-right"></i></span>
+                  <span className="linker">Create Safe Lock <i className="bi bi-chevron-right"></i></span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="container-fluid">
+          <div className="second">
+            <div className="row">
+              <div className="col-md-9">
+                <h1>Get The <span style={{color: "#F59E0B"}}>Best Savings Style</span><br/>For You</h1>
+                <h2 className="mt-3">Be part of ardilla’s saving circle board to improve your saving capacity<br/>you get 10.5% P.A</h2>
+              </div>
+            </div>
+            <div className="row justify-content-center mt-5">
+              <div className="col-md-4 mx-3">
+                <div className="automated p-5">
+                  <h4>Go Automated </h4>
+                  <div className="text-center my-5 border-bottom">
+                    <span>Recommended Amount</span>
+                    <h6>NGN 0</h6>
+                    <p>Every month for  months</p>
+                  </div>
+                  <div className="row values">
+                    <div className="col-md-6">
+                      <h5>Target</h5>
+                      <h5>Interest Rate:</h5>
+                      <h5>Badge:</h5>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <h5>2,160,000</h5>
+                      <h5>11%</h5>
+                      <h5>Lieutenant</h5>
+                    </div>
+                  </div>
+                  <div className="text-center">
+                  <Link
+                      className="btn btn-outline-primary px-5 py-3 ardilla-btn automated-btn mt-5"
+                      style={{ width: "70%" }}
+                    >
+                      Go Automated
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-4 mx-3">
+                <div className="automated p-5 customed">
+                  <h4>Go Custom </h4>
+                  <div className="text-center my-5 border-bottom">
+                    <span>Recommended Amount</span>
+                    <h6>NGN 0</h6>
+                    <p>Every month for 13months</p>
+                  </div>
+                  <div className="row values">
+                    <div className="col-md-6">
+                      <h5>Target</h5>
+                      <h5>Interest Rate:</h5>
+                      <h5>Badge:</h5>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <h5>0</h5>
+                      <h5>11%</h5>
+                      <h5>-</h5>
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <Link
+                      className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5"
+                      to={"/flex-set-amount"}
+                      style={{ width: "70%" }}
+                    >
+                      Go Custom
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div className="third bg-white">
+            <div className="row">
+              <div className="col-md-6">
+                <h1>jdjjj</h1>
               </div>
             </div>
           </div>

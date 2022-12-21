@@ -342,6 +342,8 @@
 .bg-products {
   background-color: #F9FAFB;
   border-radius: 15px;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .linker {
@@ -350,3 +352,37 @@
   line-height: 13px;
   font-weight: 700;
 }
+
+.bg-products:hover {
+  background-color: #E95656;
+  transform: scale(1.1);
+}
+
+.bg-products:hover h3 {
+  color: #fff;
+}
+
+.bg-products:hover p {
+  color: #fff;
+}
+
+.bg-products:hover span {
+  color: #fff;
+}
+
+.second {
+  background-color: #F9FAFB;
+  margin-left: -60px;
+  margin-right: -60px;
+  padding: 90px 50px 120px 50px;
+  margin-top: 90px;
+}
+
+.third {
+  /* background-color: #F9FAFB; */
+  margin-left: -60px;
+  margin-right: -60px;
+  padding: 50px;
+  /* margin-top: 80px; */
+}
+

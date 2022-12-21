@@ -1039,12 +1039,12 @@ input:checked + .slider:before {
 }
 
 .automated p {
-  color: #3C0071;
-  font-size: 10px;
-  line-height: 11px;
-  font-weight: 600;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  color: #3C0071!important;
+  font-size: 10px!important;
+  line-height: 11px!important;
+  font-weight: 600!important;
+  margin-top: 20px!important;
+  margin-bottom: 40px!important;
 }
 
 .automated-btn {
