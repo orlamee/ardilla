@@ -18,7 +18,11 @@ import vault from "../../img/dashboard/Vault.svg";
 import dillacom from "../../img/dashboard/dilla-comp.svg";
 import stash from "../../img/dashboard/stash.svg";
 import shield from "../../img/dashboard/shiel.svg";
-
+import invest from "../../img/dashboard/investment-sson.svg";
+import budget from "../../img/dashboard/budget.svg";
+import clan from "../../img/dashboard/clan.svg";
+import ym from "../../img/dashboard/ym.svg";
+import grit from "../../img/dashboard/grit.svg";
 
 
 
@@ -97,8 +101,8 @@ function Explore() {
           </Link>
         </div>
       </div>
-      <div className="content py-5 px-5 explore-section no-margin">
-        <div className="row justify-content-center">
+      <div className="content pt-5 px-5 explore-section">
+        <div className="row justify-content-center" style={{marginTop: "90px"}}>
           <div className="col-md-9">
             <h1><span style={{color: "#E8356D"}}>Saving</span> At Your Pace</h1>
             <h2 className="mt-3">Lorem ipsum gethem jnjfjntem mentem</h2>
@@ -259,16 +263,16 @@ function Explore() {
               </div>
               <div className="col-md-3 mb-3">
                 <div className="bg-soon p-5">
-                  <img src={shield} alt="" className="img-fluid" />
-                  <h5 className="mt-4">Insurance</h5>
+                  <img src={invest} alt="" className="img-fluid" />
+                  <h5 className="mt-4">Investment</h5>
                   <p>With dilla insurance is covered and<br/>ready at anytime </p>
                   <span className="linker">I want to be notified</span>
                 </div>
               </div>
               <div className="col-md-3 mb-3">
                 <div className="bg-soon p-5">
-                  <img src={shield} alt="" className="img-fluid" />
-                  <h5 className="mt-4">Insurance</h5>
+                  <img src={budget} alt="" className="img-fluid" />
+                  <h5 className="mt-4">Budgeting</h5>
                   <p>With dilla insurance is covered and<br/>ready at anytime </p>
                   <span className="linker">I want to be notified</span>
                 </div>
@@ -277,24 +281,24 @@ function Explore() {
             <div className="row mt-5 justify-content-center">
               <div className="col-md-3 mb-3">
                 <div className="bg-soon p-5">
-                  <img src={shield} alt="" className="img-fluid" />
-                  <h5 className="mt-4">Insurance</h5>
+                  <img src={clan} alt="" className="img-fluid" />
+                  <h5 className="mt-4">Clan</h5>
                   <p>With dilla insurance is covered and<br/>ready at anytime </p>
                   <span className="linker">I want to be notified</span>
                 </div>
               </div>
               <div className="col-md-3 mb-3">
                 <div className="bg-soon p-5">
-                  <img src={shield} alt="" className="img-fluid" />
-                  <h5 className="mt-4">Insurance</h5>
+                  <img src={ym} alt="" className="img-fluid" />
+                  <h5 className="mt-4">Young Money</h5>
                   <p>With dilla insurance is covered and<br/>ready at anytime </p>
                   <span className="linker">I want to be notified</span>
                 </div>
               </div>
               <div className="col-md-3 mb-3">
                 <div className="bg-soon p-5">
-                  <img src={shield} alt="" className="img-fluid" />
-                  <h5 className="mt-4">Insurance</h5>
+                  <img src={grit} alt="" className="img-fluid" />
+                  <h5 className="mt-4">Grit</h5>
                   <p>With dilla insurance is covered and<br/>ready at anytime </p>
                   <span className="linker">I want to be notified</span>
                 </div>
