@@ -19,8 +19,6 @@ import c from "../../img/dashboard/c.svg";
 import s from "../../img/dashboard/s.svg";
 import axios from "axios";
 
-// import PaystackPop from "@paystack/inline-js";
-
 function FlexPlanOverview() {
   const [flexAcct, setFlexAcct] = useState();
   const [msg, setMsg] = useState("");
@@ -93,27 +91,6 @@ function FlexPlanOverview() {
       setOnSuccess(false);
     }
   }, 5000);
-
-  // const payment = () => {
-  //   console.log("test");
-  //   const paystack = new PaystackPop();
-
-  //   paystack.newTransaction({
-  //     key: "pk_test_bdeef845da401d49681c94007d802d6c68ac2ef8",
-  //     amount: 100000,
-  //     email: "davidoshodi656@gmail.com",
-  //     name: "david",
-  //     onSuccess(transaction) {
-  //       console.log(transaction);
-  //       // price * 100
-  //     },
-  //     oncancel() {
-  //       console.log("cancel");
-  //     },
-  //   });
-  // };
-
-  // payment();
 
   useEffect(() => {
     const getTargetAccount = async () => {
