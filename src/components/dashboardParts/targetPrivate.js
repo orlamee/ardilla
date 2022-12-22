@@ -15,6 +15,7 @@ import chat from "../../img/dashboard/chat.svg";
 import withdraw from "../../img/dashboard/w-icon.svg";
 import lieu from "../../img/dashboard/lieu.svg";
 import colo from "../../img/dashboard/col.svg";
+import top from "../../img/dashboard/top.png";
 
 
 
@@ -133,21 +134,153 @@ function TargetPrivate() {
                 </div>
               </div>
             </div>
-            <div className="mt-5">
+            <div className="row mt-5">
               <div className="col">
-                <ul className="nav nav-pills dilla-link">
-                  <li className="ms-3 me-5 profile-pills active">
-                    <a  href="#1a" data-toggle="tab">Private</a>
-                  </li>
-                  <li className="me-5 profile-pills">
-                    <a href="#2a" data-toggle="tab">Public</a>
-                  </li>
-                  <li className="me-5 profile-pills">
-                    <a href="#3a" data-toggle="tab">Completed</a>
-                  </li>
-                </ul>
-                <div className="tab-content clearfix">
-                  <div className="tab-pane active" id="1a"></div>
+                <div id="" className="row">
+                  <ul className="nav nav-pills dilla-link">
+                    <li className="ms-3 me-5 profile-pills active">
+                      <a  href="#1a" data-toggle="tab">Private</a>
+                    </li>
+                    <li className="me-5 profile-pills">
+                      <a href="#2a" data-toggle="tab">Public</a>
+                    </li>
+                    <li className="me-5 profile-pills">
+                      <a href="#3a" data-toggle="tab">Completed</a>
+                    </li>
+                  </ul>
+                  <div className="tab-content clearfix">
+                    <div className="tab-pane active" id="1a">
+                      <div className="row mt-5">
+                        <div className="col-md-6 mb-3">
+                          <img src={top} alt="" className="img-fluid" />
+                          <div className="bg-white bg-private p-4">
+                            <div className="d-flex flex-row">
+                              <h4>Travel <span className="badge-private">ongoing</span></h4>
+                              <p style={{marginLeft: "90px"}}>200 days left</p>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Target</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Interest</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3 mb-4">
+                              <div className="col-md-6">
+                                <p>Maturity date</p>
+                                <h3>29-11-2023</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Frequency</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-md-6 mb-3">
+                          <img src={top} alt="" className="img-fluid" />
+                          <div className="bg-white bg-private p-4">
+                            <div className="d-flex flex-row">
+                              <h4>Travel <span className="badge-private">ongoing</span></h4>
+                              <p style={{marginLeft: "90px"}}>200 days left</p>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Target</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Interest</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3 mb-4">
+                              <div className="col-md-6">
+                                <p>Maturity date</p>
+                                <h3>29-11-2023</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Frequency</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row mt-5">
+                        <div className="col-md-6 mb-3">
+                          <img src={top} alt="" className="img-fluid" />
+                          <div className="bg-white bg-private p-4">
+                            <div className="d-flex flex-row">
+                              <h4>Travel <span className="badge-private">ongoing</span></h4>
+                              <p style={{marginLeft: "90px"}}>200 days left</p>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Target</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Interest</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3 mb-4">
+                              <div className="col-md-6">
+                                <p>Maturity date</p>
+                                <h3>29-11-2023</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Frequency</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-md-6 mb-3">
+                          <img src={top} alt="" className="img-fluid" />
+                          <div className="bg-white bg-private p-4">
+                            <div className="d-flex flex-row">
+                              <h4>Travel <span className="badge-private">ongoing</span></h4>
+                              <p style={{marginLeft: "90px"}}>200 days left</p>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Target</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Interest</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3 mb-4">
+                              <div className="col-md-6">
+                                <p>Maturity date</p>
+                                <h3>29-11-2023</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Frequency</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="tab-pane quiz-pane" id="2a">
+                      <div className="row mt-5">
+                        
+                      </div>
+                    </div>
+                    <div className="tab-pane quiz-pane" id="3a">
+                      <div className="row mt-5">
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -233,7 +366,7 @@ function TargetPrivate() {
                     <div className="card-progress p-4">
                       <div className="d-flex flex-row">
                         <img src={lieu} alt="" className="img-fluid me-3" />
-                        <div className="lieu">
+                        <div className="lieu mb-2">
                           <span>Badge</span>
                           <h5>Lieutenant</h5>
                         </div>
