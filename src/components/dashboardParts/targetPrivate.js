@@ -10,7 +10,7 @@ import explore from "../../img/dashboard/explore.svg";
 import learn from "../../img/dashboard/learn.svg";
 import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
-import contact from "../../img/dashboard/contact.svg";
+import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
 import withdraw from "../../img/dashboard/w-icon.svg";
 
@@ -60,7 +60,7 @@ function TargetPrivate() {
         <Link>
           <div className="d-flex flex-row">
             <img src={explore} alt="" className="img-fluid me-2 icons" />
-            Explore
+            Budgeting <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <Link to="/learn">
@@ -73,7 +73,7 @@ function TargetPrivate() {
           <Link>
             <div className="d-flex flex-row">
               <img src={contact} alt="" className="img-fluid me-2 icons" />
-              Contact Dilla Coach
+              Payment
             </div>
           </Link>
           <Link>
@@ -113,6 +113,40 @@ function TargetPrivate() {
               </div>
               <div className="col-md-6">
                 <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">Create new target</button>
+              </div>
+            </div>
+            <div className="row mt-5">
+              <div className="col-md-6">
+                <div className="switches-container">
+                  <input type="radio" id="switchMonthly" name="switchPlan" value="Monthly" checked="checked" />
+                  <input type="radio" id="switchYearly" name="switchPlan" value="Yearly" />
+                  <label htmlFor="switchMonthly">My Targets</label>
+                  <label htmlFor="switchYearly">Explore Targets</label>
+                  <div className="switch-wrapper">
+                    <div className="switchies">
+                      <div>My Targets</div>
+                      <div>Explore Targets</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="mt-5">
+              <div className="col">
+                <ul className="nav nav-pills dilla-link">
+                  <li className="ms-3 me-5 profile-pills active">
+                    <a  href="#1a" data-toggle="tab">Private</a>
+                  </li>
+                  <li className="me-5 profile-pills">
+                    <a href="#2a" data-toggle="tab">Public</a>
+                  </li>
+                  <li className="me-5 profile-pills">
+                    <a href="#3a" data-toggle="tab">Completed</a>
+                  </li>
+                </ul>
+                <div className="tab-content clearfix">
+                  <div className="tab-pane active" id="1a"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -165,6 +199,16 @@ function TargetPrivate() {
             <div className="private-card p-4 mt-3">
               <div className="history-title">
                 <h3>Target Behaviour</h3>
+                <div className="row justify-content-center mt-2 border-bottom py-3">
+                  <div className="col-md-6">
+                    <h6>Streak</h6>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="d-flex flex-row">
+                      <h6>₦10,000.00 saved in 2months</h6>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="private-card p-4 mt-3">

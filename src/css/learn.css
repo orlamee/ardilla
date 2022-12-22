@@ -168,10 +168,10 @@
 }
 
 .profile-pills a {
-  color: #9CA3AF;
+  color: #9CA3AF!important;
   font-size: 17px!important;
-  font-weight: 500;
-  line-height: 14px;
+  font-weight: 500!important;
+  line-height: 14px!important;
   text-decoration: none;
   border-bottom: 3px solid transparent;
 }
