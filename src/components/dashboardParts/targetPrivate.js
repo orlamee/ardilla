@@ -13,6 +13,8 @@ import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
 import withdraw from "../../img/dashboard/w-icon.svg";
+import lieu from "../../img/dashboard/lieu.svg";
+import colo from "../../img/dashboard/col.svg";
 
 
 
@@ -199,21 +201,57 @@ function TargetPrivate() {
             <div className="private-card p-4 mt-3">
               <div className="history-title">
                 <h3>Target Behaviour</h3>
-                <div className="row justify-content-center mt-2 border-bottom py-3">
+                <div className="row justify-content-center mt-2 border-bottom py-2">
                   <div className="col-md-6">
                     <h6>Streak</h6>
                   </div>
-                  <div className="col-md-6">
-                    <div className="d-flex flex-row">
-                      <h6>₦10,000.00 saved in 2months</h6>
-                    </div>
+                  <div className="col-md-6 text-end">
+                    <h6 style={{color: "#EAB308"}}><i className="bi bi-shield-fill-x me-2"></i> ₦10,000.00 saved in 2months</h6>
                   </div>
+                </div>
+                <div className="row justify-content-center mt-2 border-bottom py-2">
+                  <div className="col-md-6">
+                    <h6>Missed deposit</h6>
+                  </div>
+                  <div className="col-md-6 text-end">
+                    <h6 style={{color: "#E8356D"}}><i className="bi bi-shield-fill-x me-2"></i> ₦10,000.00 | 20 days</h6>
+                  </div>
+                </div>
+                <div className="row mt-2 py-2">
+                  <div className="col-md-6">
+                    <h6 style={{color: "#8807F7"}}>Contact financial coach</h6>
+                  </div>
+                  
                 </div>
               </div>
             </div>
             <div className="private-card p-4 mt-3">
               <div className="history-title">
                 <h3>Badge progress</h3>
+                <div className="row mt-4">
+                  <div className="col-md-6 mb-3">
+                    <div className="card-progress p-4">
+                      <div className="d-flex flex-row">
+                        <img src={lieu} alt="" className="img-fluid me-3" />
+                        <div className="lieu">
+                          <span>Badge</span>
+                          <h5>Lieutenant</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 mb-3">
+                    <div className="card-progress p-4">
+                      <div className="d-flex flex-row">
+                        <img src={colo} alt="" className="img-fluid me-3" />
+                        <div className="lieu">
+                          <span className="text-muted">Badge</span>
+                          <h5 className="text-muted">Colonel</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
