@@ -123,11 +123,13 @@ function DillaBody() {
 
   // pk_test_bdeef845da401d49681c94007d802d6c68ac2ef8;
 
+  // pk_live_30a03519aa70060b7fa4021fa8cf98b9c3d3619e
+
   const config = {
     reference: new Date().getTime().toString(),
     email: user1.email,
     amount: amount * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-    publicKey: "pk_live_30a03519aa70060b7fa4021fa8cf98b9c3d3619e",
+    publicKey: "pk_test_bdeef845da401d49681c94007d802d6c68ac2ef8",
   };
 
   // you can call this function anything
@@ -376,7 +378,7 @@ function DillaBody() {
                                 />
                               </div>
                               <div className="col-md-6 text-end">
-                                <h4>₦30,000.00</h4>
+                                <h4>₦{amount}</h4>
                               </div>
                             </div>
                           </div>
@@ -412,6 +414,9 @@ function DillaBody() {
                                 data-bs-target="#dilla-card-transc"
                                 className="btn btn-secondary mt-3 bg-ussd"
                                 style={{ width: "100%" }}
+                                onClick={() =>
+                                  initializePayment(onSuccess, onClose)
+                                }
                               >
                                 Card
                               </Link>
