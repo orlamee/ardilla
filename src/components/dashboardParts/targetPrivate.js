@@ -397,14 +397,14 @@ function TargetPrivate() {
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div className="modal-body flex-modal-body">
-                <div className="container initiate-modal p-4">
+                <div className="container initiate-modal px-4 py-2">
                   <div className="mx-3 row">
                     <div className="col text-center">
                       <h3 className="topuptarget">NGN 10,000</h3>
                       <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" style={{width:"100%"}}>Top Up</button>
                     </div>
                   </div>
-                  <div className="row target-details px-5 mt-5">
+                  <div className="row target-details px-5 mt-3">
                     <div className="col-md-6">
                       <h6>Name</h6>
                     </div>
@@ -448,6 +448,57 @@ function TargetPrivate() {
                       <p>10,000 (Monthly)</p>
                     </div>
                     <hr/>
+                  </div>
+                  <div className="c-tar px-5 py-4">
+                    <div className="history-title">
+                      <h3>Recent Activities</h3>
+                      <h4 className="float-end">view all</h4>
+                    </div>
+                    <div className="row justify-content-center mt-3">
+                      <div className="col-md-5">
+                        <h5>Target </h5>
+                      </div>
+                      <div className="col-md-3">
+                        <h5>Date</h5>
+                      </div>
+                      <div className="col-md-3">
+                        <h5>Amount</h5>
+                      </div>
+                    </div>
+                    <div className="row justify-content-center mt-2 border-bottom py-2">
+                      <div className="col-md-5">
+                        <div className="d-flex flex-row">
+                          <img src={withdraw} alt="" className="img-fluid me-3" />
+                          <h6>Transportation</h6>
+                        </div>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>30 Days</h6>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>₦4,000.00 </h6>
+                      </div>
+                    </div>
+                    <div className="row justify-content-center mt-2 py-2">
+                      <div className="col-md-5">
+                        <div className="d-flex flex-row">
+                          <img src={withdraw} alt="" className="img-fluid me-3" />
+                          <h6>Travel</h6>
+                        </div>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>30 Days</h6>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>₦4,000.00 </h6>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row justify-content-center">
+                    <div className="col-md-5 text-center">
+                      <h5>Automation</h5>
+                      
+                    </div>
                   </div>
                 </div>
               </div>
