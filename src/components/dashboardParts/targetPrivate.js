@@ -151,7 +151,7 @@ function TargetPrivate() {
                   <div className="tab-content clearfix">
                     <div className="tab-pane active" id="1a">
                       <div className="row mt-5">
-                        <div className="col-md-6 mb-3">
+                        <Link data-bs-toggle="modal" data-bs-target="#targetplan" type="button" to="#" className="col-md-6 mb-3">
                           <img src={top} alt="" className="img-fluid" />
                           <div className="bg-white bg-private p-4">
                             <div className="d-flex flex-row">
@@ -179,7 +179,7 @@ function TargetPrivate() {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </Link>
                         <div className="col-md-6 mb-3">
                           <img src={top} alt="" className="img-fluid" />
                           <div className="bg-white bg-private p-4">
@@ -388,7 +388,71 @@ function TargetPrivate() {
               </div>
             </div>
           </div>
-          
+        </div>
+        {/* Modal for Target */}
+        <div className="modal flex-modal fade" id="targetplan" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal p-4">
+                  <div className="mx-3 row">
+                    <div className="col text-center">
+                      <h3 className="topuptarget">NGN 10,000</h3>
+                      <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" style={{width:"100%"}}>Top Up</button>
+                    </div>
+                  </div>
+                  <div className="row target-details px-5 mt-5">
+                    <div className="col-md-6">
+                      <h6>Name</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>Transportation</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Target</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>₦100,000.00</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Interest</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>₦15000 (11%/p.a)</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Maturity</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>200 days left</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Frequency</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>10,000 (Monthly)</p>
+                    </div>
+                    <hr/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
