@@ -183,7 +183,7 @@ function FlexPlanSpend() {
           </Link>
         </div>
       </div>
-      <div className="content py-5 px-5 earning-section step-two">
+      <div className="content py-5 px-5 earning-section fix-bottom step-two">
         <div className="row earning">
           <div className="col-md-6">
             <h2>

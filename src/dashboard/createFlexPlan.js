@@ -4,7 +4,7 @@ import SavingsHeader from "../components/dashboardParts/savingsHeader";
 
 function CreateFlexPlan() {
   return (
-    <div>
+    <div className="overflow-hidden">
       <SavingsHeader/>
       <FlexPlanCreate/>
     </div>

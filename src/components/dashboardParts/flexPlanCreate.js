@@ -9,7 +9,7 @@ import explore from "../../img/dashboard/explore.svg";
 import learn from "../../img/dashboard/learn.svg";
 import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
-import contact from "../../img/dashboard/contact.svg";
+import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
 import axios from "axios";
 
@@ -138,7 +138,7 @@ function FlexPlanCreate() {
         <Link>
           <div className="d-flex flex-row">
             <img src={explore} alt="" className="img-fluid me-2 icons" />
-            Explore
+            Budgeting <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <Link>
@@ -148,10 +148,10 @@ function FlexPlanCreate() {
           </div>
         </Link>
         <div className="second-nav">
-          <Link>
+          <Link to="/payment">
             <div className="d-flex flex-row">
               <img src={contact} alt="" className="img-fluid me-2 icons" />
-              Contact Dilla Coach
+              Payment
             </div>
           </Link>
           <Link>
@@ -168,7 +168,7 @@ function FlexPlanCreate() {
           </Link>
         </div>
       </div>
-      <div className="content py-5 px-5 earning-section step-one">
+      <div className="content px-5 earning-section step-one fix-bottom">
         <div className="row earning">
           <div className="col-md-6">
             <h2>

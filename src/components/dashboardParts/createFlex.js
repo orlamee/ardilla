@@ -139,17 +139,17 @@ function CreateFlex() {
         <Link to="/">
           <div className="d-flex flex-row">
             <img src={explore} alt="" className="img-fluid me-2 icons" />
-            Budgeting
+            Budgeting <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <Link to="/learn">
           <div className="d-flex flex-row">
             <img src={learn} alt="" className="img-fluid me-2 icons" />
-            Learn
+            Learn 
           </div>
         </Link>
         <div className="second-nav">
-          <Link>
+          <Link to="/payment">
             <div className="d-flex flex-row">
               <img src={contact} alt="" className="img-fluid me-2 icons" />
               Payment
