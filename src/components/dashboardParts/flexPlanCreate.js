@@ -129,7 +129,7 @@ function FlexPlanCreate() {
             Insurance <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
-        <Link>
+        <Link to="/dilla">
           <div className="d-flex flex-row">
             <img src={dilla} alt="" className="img-fluid me-2 icons" />
             Dilla
@@ -141,7 +141,7 @@ function FlexPlanCreate() {
             Budgeting <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
-        <Link>
+        <Link to="/learn">
           <div className="d-flex flex-row">
             <img src={learn} alt="" className="img-fluid me-2 icons" />
             Learn
