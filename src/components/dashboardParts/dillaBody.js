@@ -98,29 +98,6 @@ function DillaBody() {
     }
   };
 
-  // const payment = () => {
-  //   console.log("test");
-  //   const paystack = new PaystackPop();
-
-  //   paystack.newTransaction({
-  //     key: "pk_test_bdeef845da401d49681c94007d802d6c68ac2ef8",
-  //     amount: amount,
-  //     email: user.email,
-  //     name: user.kodeHex,
-  //     onSuccess(transaction) {
-  //       console.log(transaction);
-  //       // price * 100
-  //     },
-  //     oncancel() {
-  //       console.log("cancel");
-  //     },
-  //   });
-  // };
-
-  // payment();
-
-  //
-
   // pk_test_bdeef845da401d49681c94007d802d6c68ac2ef8;
 
   // pk_live_30a03519aa70060b7fa4021fa8cf98b9c3d3619e

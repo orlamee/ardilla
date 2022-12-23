@@ -5,9 +5,6 @@ import home from "../img/home-login.svg";
 import axios from "axios";
 
 function SecurityPage() {
-  // const location = useLocation();
-  // , useLocation
-
   let securityQusetion;
 
   let user = JSON.parse(sessionStorage.getItem("user"));
@@ -44,6 +41,37 @@ function SecurityPage() {
       console.log(error);
     }
   }, [user._id, navigate]);
+
+  const sendMsg = async () => {
+    try {
+      const { data } = await axios.post(
+        "https://api.ng.termii.com/api/sms/otp/send",
+        {
+          api_key:
+            "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
+          message_type: "NUMERIC",
+          to: user.contact,
+          from: "Ardilla",
+          channel: "generic",
+          pin_attempts: 1,
+          pin_time_to_live: 5,
+          pin_length: 6,
+          pin_placeholder: "< 123456 >",
+          message_text: "Your pin is < 123456 >",
+          pin_type: "NUMERIC",
+        }
+      );
+
+      const pin = data.pinId;
+
+      await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/auth/mobile/${user._id}`,
+        { pin }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -95,9 +123,10 @@ function SecurityPage() {
 
   setTimeout(() => {
     if (onSuccess) {
+      sendMsg();
       navigate("/verify-mobile");
     }
-  }, 2000);
+  }, 5000);
 
   return (
     <section className="login-section">

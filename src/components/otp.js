@@ -6,9 +6,6 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 function OtpPage() {
-  // const location = useLocation();
-  // , useLocation
-
   const [code, setCode] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [msg, setMsg] = useState("");
@@ -52,14 +49,6 @@ function OtpPage() {
       console.log(error);
     }
   }, [user._id, navigate]);
-
-  // useEffect(() => {
-  //   if (verified === "activated") {
-  //     return;
-  //   } else {
-  //     return navigate("/sign-up");
-  //   }
-  // }, [verified, navigate]);
 
   setTimeout(() => {
     if (onSuccess) {
