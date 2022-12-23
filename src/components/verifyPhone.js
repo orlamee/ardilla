@@ -10,32 +10,8 @@ function VerifyPhone() {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    try {
-      const getUserById = async () => {
-        const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-        );
+  const pinRef = useRef();
 
-        if (data?.user?.verified === "sq") {
-          return;
-        } else if (data?.user?.verified === "mv") {
-          return navigate("/set-pin");
-        } else {
-          return navigate("/404");
-        }
-      };
-
-      getUserById();
-    } catch (error) {
-      console.log(error);
-    }
-  }, [user._id, navigate]);
-
-  // const location = useLocation();
-  // , useLocation
-
-  const [phoneNumber] = useState(`+234${user.contact}`);
   const [otp1, setOtp1] = useState("");
   const [otp2, setOtp2] = useState("");
   const [otp3, setOtp3] = useState("");
@@ -52,60 +28,41 @@ function VerifyPhone() {
   const [wrongContactMsg, setWrongContactMsg] = useState("");
   const [wrongContactSuc, setWrongContactSuc] = useState("");
 
-  const pin = useRef();
+  useEffect(() => {
+    try {
+      const getUserById = async () => {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+        );
 
-  const veriP = async () => {
+        pinRef.current = data.user.mobilePinId;
+
+        if (data?.user?.verified === "sq") {
+          return;
+        } else if (data?.user?.verified === "mv") {
+          return navigate("/set-pin");
+        } else {
+          return navigate("/404");
+        }
+      };
+
+      getUserById();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [user._id, navigate]);
+
+  const fullpin = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
+
+  const updateProcess = async () => {
     try {
       await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/mobile/${user._id}`
+        `https://ardilla.herokuapp.com/ardilla/api/auth/mobile-status-update/${user._id}`
       );
     } catch (error) {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    const sendMsg = async () => {
-      try {
-        const { data } = await axios.post(
-          "https://api.ng.termii.com/api/sms/otp/send",
-          {
-            api_key:
-              "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
-            message_type: "NUMERIC",
-            to: phoneNumber,
-            from: "Ardilla",
-            channel: "generic",
-            pin_attempts: 1,
-            pin_time_to_live: 5,
-            pin_length: 6,
-            pin_placeholder: "< 123456 >",
-            message_text: "Your pin is < 123456 >",
-            pin_type: "NUMERIC",
-          }
-        );
-
-        pin.current = data.pinId;
-
-        console.log(data);
-
-        if (data.status !== 200) {
-          setOnSuccess(false);
-          setMsg(data.smsStatus);
-          setLoading(false);
-          setErr(true);
-        }
-      } catch (error) {
-        setOnSuccess(false);
-        setMsg("Message was not set");
-        setLoading(false);
-        setErr(true);
-      }
-    };
-    sendMsg();
-  }, [phoneNumber]);
-
-  const fullpin = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
 
   const resend = async () => {
     try {
@@ -127,9 +84,15 @@ function VerifyPhone() {
         }
       );
 
-      pin.current = data.pinId;
+      const pin = data.pinId;
+      pinRef.current = data.pinId;
 
-      console.log(data);
+      //update mobile verif pin
+
+      await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/auth/mobile/${user._id}`,
+        { pin }
+      );
 
       if (data.status !== 200) {
         setOnSuccess(false);
@@ -156,7 +119,7 @@ function VerifyPhone() {
         {
           api_key:
             "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
-          pin_id: pin.current,
+          pin_id: pinRef.current,
           pin: fullpin,
         }
       );
@@ -164,7 +127,6 @@ function VerifyPhone() {
       setLoading(false);
       setOnSuccess(true);
       setMsg("Mobile verifcation successful");
-      veriP();
 
       if (!data.verified) {
         setErr(false);
@@ -217,9 +179,16 @@ function VerifyPhone() {
         }
       );
 
-      pin.current = otpData.data.pinId;
-      console.log(otpData.data);
+      const pin = otpData.data.pinId;
+      pinRef.current = otpData.data.pinId;
 
+      //update pin
+      await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/auth/mobile/${user._id}`,
+        { pin }
+      );
+
+      //update new phone number
       const { data } = await axios.put(
         `https://ardilla.herokuapp.com/ardilla/api/auth/wrong-contact/${user._id}`,
         { newPhoneNumber }

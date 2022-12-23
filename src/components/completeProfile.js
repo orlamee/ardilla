@@ -5,10 +5,20 @@ import complete from "../img/profilecomplete.svg";
 import axios from "axios";
 
 function CompleteProfile() {
-  // const location = useLocation();
-  // , useLocation
-
   let user = JSON.parse(sessionStorage.getItem("user"));
+
+  const [email, setEmail] = useState(user.email);
+  const [kodeHex, setKodeHex] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [contact, setContact] = useState("");
+  const [password, setPassword] = useState("");
+  const [agree, setAgree] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
+  const [ip, setIp] = useState("");
 
   const { _id } = user;
 
@@ -38,50 +48,14 @@ function CompleteProfile() {
 
   let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
 
-  const [email, setEmail] = useState(user.email);
-  const [kodeHex, setKodeHex] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [contact, setContact] = useState("");
-  const [password, setPassword] = useState("");
-  const [agree, setAgree] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [msg, setMsg] = useState("");
-  const [err, setErr] = useState(false);
-  const [onSuccess, setOnSuccess] = useState(false);
-  const [ip, setIp] = useState("");
-
-  const userID = _id;
-
-  const accountName = `${firstname} ${lastname}`;
-
   function getIP(url) {
     return fetch(url).then((res) => res.json());
   }
 
+  //send device id here insted
   getIP(`https://api.ipdata.co?api-key=${apiKey}`).then((data) => {
     setIp(data.ip);
   });
-
-  const createAcct = async () => {
-    try {
-      setErr(false);
-      const { data } = await axios.post(
-        `https://ardilla.herokuapp.com/ardilla/api/account/create-account`,
-        { userID, accountName }
-      );
-
-      sessionStorage.setItem("acct", JSON.stringify(data.test));
-
-      setOnSuccess(true);
-      setIsLoading(false);
-    } catch (error) {
-      setOnSuccess(false);
-      setMsg(`${error.response.data.msg || "Network error"} `);
-      setErr(true);
-      setIsLoading(false);
-    }
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -102,7 +76,6 @@ function CompleteProfile() {
         setMsg(data.msg);
         setOnSuccess(true);
         setIsLoading(false);
-        createAcct();
       }
 
       setIsLoading(false);
@@ -131,7 +104,7 @@ function CompleteProfile() {
 
   setTimeout(() => {
     if (onSuccess) {
-      navigate("/complete-profile");
+      navigate("/security-question");
     }
   }, 2000);
 
