@@ -1207,8 +1207,56 @@ function TargetPrivate() {
                             </select>
                           </div>
                           <div>
-                            <button data-bs-toggle="modal" data-bs-target="#" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3 mb-3" style={{width: "100%"}}>Continue</button>
-                            <Link data-bs-toggle="modal" data-bs-target="#" type="button" to="#rollover" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Roll over</Link>
+                            <button data-bs-toggle="modal" data-bs-target="#savings-plan" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3 mb-3" style={{width: "100%"}}>Continue</button>
+                            <Link data-bs-toggle="modal" data-bs-target="#rollover" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Roll over</Link>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal for Savings Plan */}
+        <div className="modal flex-modal fade" id="savings-plan" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="row px-5">
+                <div className="col">
+                  <Link data-bs-toggle="modal" data-bs-target="#withdraw" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                </div>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal px-4 py-2">
+                  <div className="c-tar px-5 py-4">
+                    <div className="history-title">
+                      <h3 className="rec-act">Withdraw</h3>
+                      <span className="sub-head">Withdraw to your plans or source</span>
+                    </div>
+                    <div className="row">
+                      <div className="col">
+                        <form className="mt-4">
+                          <div className="mb-3">
+                            <label className="form-label label-target">Select a Plan</label>
+                            <select className="form-select p-select tar-select">
+                              <option selected>Choose Plan</option>
+                              <option value="2">Transportation - ₦15000</option>
+                              <option value="3">Housing - ₦15000</option>
+                              <option value="4">Travel - ₦15000</option>
+                            </select>
+                          </div>
+                          <div className="mb-3">
+                            <label className="form-label label-target">Enter Pin</label>
+                            <input type="password" className="form-control target-form tar-form" id="" placeholder="Enter Pin"/>
+                          </div>
+                          <div>
+                            <button data-bs-toggle="modal" data-bs-target="#" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3 mb-3" style={{width: "100%"}}>Submit</button>
                           </div>
                         </form>
                       </div>

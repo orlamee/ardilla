@@ -42,11 +42,14 @@ import insuranceplan from "../../img/dashboard/insuranceplan.svg";
 import sanlogo from "../../img/dashboard/san-new.png";
 import becca from "../../img/dashboard/becca.svg";
 import axios from "axios";
+import Collapse from 'react-bootstrap/Collapse';
+// import Button from 'react-bootstrap/Button';
 
 // import PaystackPop from "@paystack/inline-js";
 import { usePaystackPayment } from "react-paystack";
 
 function DillaBody() {
+  const [open, setOpen] = useState(false);
   let user1 = JSON.parse(sessionStorage.getItem("user"));
 
   const email = user1.email;
@@ -1452,7 +1455,9 @@ function DillaBody() {
                         </div>
                         <div className="row mt-5 friends">
                           <div className="col-md-2 text-center">
-                            <Link>
+                            <Link onClick={() => setOpen(!open)}
+                              aria-controls="example-collapse-text"
+                              aria-expanded={open}>
                               <img
                                 src={search}
                                 alt=""
@@ -1547,18 +1552,21 @@ function DillaBody() {
                             </div>
                           </div>
                         </div>
-                        <div className="row mt-4">
-                          <div className="search-box">
-                            <input
-                              type="text"
-                              class="search-input"
-                              placeholder="Search"
-                            />
-                            <button className="search-button">
-                              <i className="fas fa-search"></i>
-                            </button>
+                        <Collapse in={open}>
+                          <div className="row mt-4">
+                            <div className="search-box">
+                              <input
+                                type="text"
+                                class="search-input"
+                                placeholder="Search"
+                              />
+                              <button className="search-button">
+                                <i className="fas fa-search"></i>
+                              </button>
+                            </div>
                           </div>
-                        </div>
+                        </Collapse>
+                        
                         <div className="row mt-4">
                           <div className="col friends-list">
                             <Link
@@ -1858,7 +1866,9 @@ function DillaBody() {
             </div>
             <div className="row mt-5 friends">
               <div className="col-md-2 text-center">
-                <Link>
+                <Link onClick={() => setOpen(!open)}
+                  aria-controls="example-collapse-text"
+                  aria-expanded={open}>
                   <img src={search} alt="" className="img-fluid" width={150} />
                 </Link>
                 <p className="text-center">Search</p>
@@ -2330,14 +2340,17 @@ function DillaBody() {
                 </div>
               </div>
             </div>
-            <div className="row mt-4">
-              <div className="search-box">
-                <input type="text" class="search-input" placeholder="Search" />
-                <button className="search-button">
-                  <i className="fas fa-search"></i>
-                </button>
+            <Collapse in={open}>
+              <div className="row mt-4">
+                <div className="search-box">
+                  <input type="text" class="search-input" placeholder="Search" />
+                  <button className="search-button">
+                    <i className="fas fa-search"></i>
+                  </button>
+                </div>
               </div>
-            </div>
+            </Collapse>
+            
           </div>
           <div className="col-md-6 px-5">
             <div className="dilla-transaction p-5">
