@@ -318,6 +318,86 @@ function TargetPrivate() {
                             </div>
                           </div>
                         </Link>
+                        <Link data-bs-toggle="modal" data-bs-target="#global-create" type="button" to="#" className="col-md-6 mb-3">
+                          <img src={global} alt="" className="img-fluid" />
+                          <div className="bg-white bg-private p-4">
+                            <div className="d-flex flex-row">
+                              <h4>Travel <span className="badge-private">ongoing</span></h4>
+                              <p style={{marginLeft: "80px"}}>200 days left</p>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Target</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Interest</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Maturity date</p>
+                                <h3>29-11-2023</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Frequency</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3 mb-4">
+                              <div className="col-md-6">
+                                <p>Members</p>
+                                <h3>10+ <img src={members} alt="members" className="img-fluid" /></h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Per Member</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                      <div className="row mt-5">
+                        <Link data-bs-toggle="modal" data-bs-target="#" type="button" to="#" className="col-md-6 mb-3">
+                          <img src={publictarget} alt="" className="img-fluid" />
+                          <div className="bg-white bg-private p-4">
+                            <div className="d-flex flex-row">
+                              <h4>FIFA <span className="badge-private">ongoing</span></h4>
+                              <p style={{marginLeft: "80px"}}>200 days left</p>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Target</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Interest</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Maturity date</p>
+                                <h3>29-11-2023</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Frequency</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3 mb-4">
+                              <div className="col-md-6">
+                                <p>Members</p>
+                                <h3>10+ <img src={members} alt="members" className="img-fluid" /></h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Per Member</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
                         <div className="col-md-6 mb-3">
                           <img src={global} alt="" className="img-fluid" />
                           <div className="bg-white bg-private p-4">
@@ -1326,6 +1406,146 @@ function TargetPrivate() {
                           <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3" style={{width: "100%"}}>Submit</button>
                         </div>
                       </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal for Global -Public Target */}
+        <div className="modal flex-modal fade" id="global-create" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal px-4 py-2">
+                  <div className="mx-3 row">
+                    <div className="col text-center">
+                      <h3 className="topuptarget">NGN 10,000</h3>
+                      <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" style={{width:"100%"}}>Top Up</button>
+                    </div>
+                  </div>
+                  <div className="row target-details px-5 mt-3">
+                    <div className="col-md-6">
+                      <h6>Name</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>Transportation</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Target</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>₦100,000.00</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Interest</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>₦15000 (11%/p.a)</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Maturity</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>200 days left</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Frequency</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>10,000 (Monthly)</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="c-tar px-5 py-4">
+                    <div className="history-title">
+                      <h3>Recent Activities</h3>
+                      <h4 className="float-end">view all</h4>
+                    </div>
+                    <div className="row justify-content-center mt-3">
+                      <div className="col-md-5">
+                        <h5>Target </h5>
+                      </div>
+                      <div className="col-md-3">
+                        <h5>Date</h5>
+                      </div>
+                      <div className="col-md-3">
+                        <h5>Amount</h5>
+                      </div>
+                    </div>
+                    <div className="row justify-content-center mt-2 border-bottom py-2">
+                      <div className="col-md-5">
+                        <div className="d-flex flex-row">
+                          <img src={withdraw} alt="" className="img-fluid me-3" />
+                          <h6>Transportation</h6>
+                        </div>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>30 Days</h6>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>₦4,000.00 </h6>
+                      </div>
+                    </div>
+                    <div className="row justify-content-center mt-2 py-2">
+                      <div className="col-md-5">
+                        <div className="d-flex flex-row">
+                          <img src={withdraw} alt="" className="img-fluid me-3" />
+                          <h6>Travel</h6>
+                        </div>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>30 Days</h6>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>₦4,000.00 </h6>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row justify-content-center px-5">
+                    <div className="col-md-5 text-center">
+                      <h5>Automation</h5>
+                      <label className="switch mt-2">
+                        <input type="checkbox" placeholder="USD" />
+                        <span className="slider round"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div className="row next-saving my-3 px-5">
+                    <div className="col-md-6">
+                      <h5>Next Saving Date</h5>
+                      <h6>24-01-2022</h6>
+                    </div>
+                    <div className="col-md-6 mt-3">
+                      <div className="d-flex flex-row">
+                        <h6>₦50,000.00</h6>
+                        <img src={visacard} alt="Visa Card" className="img-fluid ms-3" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row px-5 btn-private">
+                    <div className="col-md-6">
+                      <Link data-bs-toggle="modal" data-bs-target="#settings" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Settings</Link>
+                    </div>
+                    <div className="col-md-6">
+                      <Link data-bs-toggle="modal" data-bs-target="#break" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Break</Link>
                     </div>
                   </div>
                 </div>

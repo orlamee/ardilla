@@ -2226,7 +2226,7 @@ function DillaBody() {
                           <form>
                             <div className="mb-3 mt-1">
                               <input
-                                type="number"
+                                type="text"
                                 className="form-control target-form"
                                 placeholder="E.g What is your name"
                                 required
