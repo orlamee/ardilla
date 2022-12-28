@@ -19,6 +19,9 @@ import top from "../../img/dashboard/top.png";
 import visacard from "../../img/dashboard/visa-card.svg";
 import done from "../../img/dashboard/done.svg";
 import completed from "../../img/dashboard/top-completed.png";
+import publictarget from "../../img/dashboard/public.png";
+import members from "../../img/dashboard/members.svg";
+import global from "../../img/dashboard/globe.png";
 
 
 
@@ -276,7 +279,84 @@ function TargetPrivate() {
                     </div>
                     <div className="tab-pane quiz-pane" id="2a">
                       <div className="row mt-5">
-                        
+                        <Link data-bs-toggle="modal" data-bs-target="#" type="button" to="#" className="col-md-6 mb-3">
+                          <img src={publictarget} alt="" className="img-fluid" />
+                          <div className="bg-white bg-private p-4">
+                            <div className="d-flex flex-row">
+                              <h4>FIFA <span className="badge-private">ongoing</span></h4>
+                              <p style={{marginLeft: "80px"}}>200 days left</p>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Target</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Interest</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Maturity date</p>
+                                <h3>29-11-2023</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Frequency</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3 mb-4">
+                              <div className="col-md-6">
+                                <p>Members</p>
+                                <h3>10+ <img src={members} alt="members" className="img-fluid" /></h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Per Member</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                        <div className="col-md-6 mb-3">
+                          <img src={global} alt="" className="img-fluid" />
+                          <div className="bg-white bg-private p-4">
+                            <div className="d-flex flex-row">
+                              <h4>Travel <span className="badge-private">ongoing</span></h4>
+                              <p style={{marginLeft: "80px"}}>200 days left</p>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Target</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Interest</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Maturity date</p>
+                                <h3>29-11-2023</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Frequency</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3 mb-4">
+                              <div className="col-md-6">
+                                <p>Members</p>
+                                <h3>10+ <img src={members} alt="members" className="img-fluid" /></h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Per Member</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div className="tab-pane quiz-pane" id="3a">
