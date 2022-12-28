@@ -650,3 +650,17 @@ h3.topuptarget {
   font-weight: 600;
   line-height: 18px;
 }
+
+.rec-act {
+  font-size: 18px!important;
+  font-weight: 700!important;
+  color: #3C0071!important;
+  line-height: 20px!important;
+}
+
+.sub-head {
+  font-size: 12px!important;
+  font-weight: 500!important;
+  color: #9CA3AF!important;
+  line-height: 13px!important;
+}

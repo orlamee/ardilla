@@ -290,7 +290,7 @@ function TargetPrivate() {
             <div className="private-card p-4">
               <div className="history-title">
                 <h3>Recent Activities</h3>
-                <h4 className="float-end">view all</h4>
+                <Link data-bs-toggle="modal" data-bs-target="#recentactivities" type="button" to="#" className="float-end">view all</Link>
               </div>
               <div className="row justify-content-center mt-3">
                 <div className="col-md-5">
@@ -390,7 +390,7 @@ function TargetPrivate() {
             </div>
           </div>
         </div>
-        {/* Modal for Target */}
+        {/* Modal for Target Private */}
         <div className="modal flex-modal fade" id="targetplan" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog right-dialog">
             <div className="modal-content right-content">
@@ -518,7 +518,7 @@ function TargetPrivate() {
                   </div>
                   <div className="row px-5 btn-private">
                     <div className="col-md-6">
-                      <Link type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Extend</Link>
+                      <Link data-bs-toggle="modal" data-bs-target="#extension" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Extend</Link>
                     </div>
                     <div className="col-md-6">
                       <Link type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Settings</Link>
@@ -527,6 +527,92 @@ function TargetPrivate() {
                   <div className="row px-5 mt-3">
                     <div className="col-md-6">
                       <Link type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Break</Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal for Recent Activities */}
+        <div className="modal flex-modal fade" id="recentactivities" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal px-4 py-2">
+                  <div className="c-tar px-5 py-4">
+                    <div className="history-title">
+                      <h3 className="rec-act">Recent Activities</h3>
+                      <span className="sub-head">Most recent activities for this savings</span>
+                    </div>
+                    <div className="row justify-content-center mt-5">
+                      <div className="col-md-5">
+                        <h5>Target </h5>
+                      </div>
+                      <div className="col-md-3">
+                        <h5>Date</h5>
+                      </div>
+                      <div className="col-md-3">
+                        <h5>Amount</h5>
+                      </div>
+                    </div>
+                    <div className="row justify-content-center mt-2 border-bottom py-3">
+                      <div className="col-md-5">
+                        <div className="d-flex flex-row">
+                          <img src={withdraw} alt="" className="img-fluid me-3" />
+                          <h6>Transportation</h6>
+                        </div>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>30 Days</h6>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>₦4,000.00 </h6>
+                      </div>
+                    </div>
+                    <div className="row justify-content-center mt-2 py-3">
+                      <div className="col-md-5">
+                        <div className="d-flex flex-row">
+                          <img src={withdraw} alt="" className="img-fluid me-3" />
+                          <h6>Travel</h6>
+                        </div>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>30 Days</h6>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>₦4,000.00 </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal for Extension */}
+        <div className="modal flex-modal fade" id="extension" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal px-4 py-2">
+                  <div className="c-tar px-5 py-4">
+                    <div className="history-title">
+                      <h3 className="rec-act">Extend</h3>
+                      <span className="sub-head">Make preferred changes to your Target</span>
+                    </div>
+                    <div className="row">
+                      <div className="col">
+                        <form></form>
+                      </div>
                     </div>
                   </div>
                 </div>
