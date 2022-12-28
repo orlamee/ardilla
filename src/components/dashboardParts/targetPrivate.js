@@ -17,6 +17,7 @@ import lieu from "../../img/dashboard/lieu.svg";
 import colo from "../../img/dashboard/col.svg";
 import top from "../../img/dashboard/top.png";
 import visacard from "../../img/dashboard/visa-card.svg";
+import done from "../../img/dashboard/done.svg";
 import completed from "../../img/dashboard/top-completed.png";
 
 
@@ -900,6 +901,11 @@ function TargetPrivate() {
               <div className="modal-header">
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
+              <div className="row px-5">
+                <div className="col">
+                  <Link data-bs-toggle="modal" data-bs-target="#withdraw" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                </div>
+              </div>
               <div className="modal-body flex-modal-body">
                 <div className="container initiate-modal px-4 py-2">
                   <div className="mx-3 row">
@@ -1108,10 +1114,138 @@ function TargetPrivate() {
                             <input type="password" className="form-control target-form tar-form" id="" placeholder="Enter Pin"/>
                           </div>
                           <div className="mt-3">
-                            <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3" style={{width: "100%"}}>Submit</button>
+                            <button data-bs-toggle="modal" data-bs-target="#overview" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3" style={{width: "100%"}}>Submit</button>
                           </div>
                         </form>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal for overview rollback */}
+        <div className="modal flex-modal fade" id="overview" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="row px-5">
+                <div className="col">
+                  <Link data-bs-toggle="modal" data-bs-target="#withdraw" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                </div>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal px-4 py-2">
+                  <div className="mx-3 row">
+                    <div className="history-title">
+                      <h3 className="rec-act">Overview</h3>
+                      <span className="sub-head">Here is an overview of your roll over plan</span>
+                    </div>
+                  </div>
+                  <div className="row mt-5">
+                    <div className="col text-center">
+                      <span>Roll over amount <span>₦100,000.00</span></span>
+                    </div>
+                  </div>
+                  <div className="row target-details px-5 mt-5">
+                    <div className="col-md-6">
+                      <h6>Name</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>Transportation</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Target</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>₦100,000.00</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Interest</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>₦15000 (11%/p.a)</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Maturity</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>200 days left</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Frequency</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>10,000 (Monthly)</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row px-5">
+                    <div className="form-check my-4">
+                      <input className="form-check-input" type="checkbox"/>
+                      <label className="form-check-label" for="flexCheckDefault">
+                        lorem ipsum in adrem eff antares encrypt infer inde 
+                      </label>
+                    </div>
+                    <button data-bs-toggle="modal" data-bs-target="#rolloverdone" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-3" style={{width:"100%"}}>Roll Over</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal for rollback - Completed */}
+        <div className="modal flex-modal fade" id="rolloverdone" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="row px-5">
+                <div className="col">
+                  <Link data-bs-toggle="modal" data-bs-target="#withdraw" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                </div>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal px-4 py-2">
+                  <div className="row">
+                    <div className="col text-center done-roll">
+                      <img src={done} alt="completed" className="img-fluid" />
+                      <h6 className="mt-3">Your roll over is successful</h6>
+                    </div>
+                  </div>
+                  <div className="row px-5 mt-5">
+                    <div className="col">
+                      <form>
+                        <div className="mb-3">
+                          <label className="form-label label-target">Choose withdrawal</label>
+                          <select className="form-select p-select tar-select">
+                            <option selected>Select withdrawal destination</option>
+                            <option value="2">SAN</option>
+                            <option value="3">Dilla</option>
+                          </select>
+                        </div>
+                        <div className="mt-3">
+                          <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3" style={{width: "100%"}}>Submit</button>
+                        </div>
+                      </form>
                     </div>
                   </div>
                 </div>

@@ -694,3 +694,10 @@ h3.topuptarget {
   line-height: 37px;
   font-weight: 500;
 }
+
+.done-roll h6 {
+  color: #3C0071!important;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 700;
+}
