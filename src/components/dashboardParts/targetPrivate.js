@@ -16,6 +16,7 @@ import withdraw from "../../img/dashboard/w-icon.svg";
 import lieu from "../../img/dashboard/lieu.svg";
 import colo from "../../img/dashboard/col.svg";
 import top from "../../img/dashboard/top.png";
+import visacard from "../../img/dashboard/visa-card.svg";
 
 
 
@@ -494,10 +495,38 @@ function TargetPrivate() {
                       </div>
                     </div>
                   </div>
-                  <div className="row justify-content-center">
+                  <div className="row justify-content-center px-5">
                     <div className="col-md-5 text-center">
                       <h5>Automation</h5>
-                      
+                      <label className="switch mt-2">
+                        <input type="checkbox" placeholder="USD" />
+                        <span className="slider round"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div className="row next-saving my-3 px-5">
+                    <div className="col-md-6">
+                      <h5>Next Saving Date</h5>
+                      <h6>24-01-2022</h6>
+                    </div>
+                    <div className="col-md-6 mt-3">
+                      <div className="d-flex flex-row">
+                        <h6>₦50,000.00</h6>
+                        <img src={visacard} alt="Visa Card" className="img-fluid ms-3" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row px-5 btn-private">
+                    <div className="col-md-6">
+                      <Link type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Extend</Link>
+                    </div>
+                    <div className="col-md-6">
+                      <Link type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Settings</Link>
+                    </div>
+                  </div>
+                  <div className="row px-5 mt-3">
+                    <div className="col-md-6">
+                      <Link type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Break</Link>
                     </div>
                   </div>
                 </div>
