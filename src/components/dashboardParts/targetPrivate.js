@@ -17,6 +17,7 @@ import lieu from "../../img/dashboard/lieu.svg";
 import colo from "../../img/dashboard/col.svg";
 import top from "../../img/dashboard/top.png";
 import visacard from "../../img/dashboard/visa-card.svg";
+import completed from "../../img/dashboard/top-completed.png";
 
 
 
@@ -279,6 +280,124 @@ function TargetPrivate() {
                     </div>
                     <div className="tab-pane quiz-pane" id="3a">
                       <div className="row mt-5">
+                        <Link data-bs-toggle="modal" data-bs-target="#withdraw" type="button" to="#" className="col-md-6 mb-3">
+                          <img src={completed} alt="" className="img-fluid" />
+                          <div className="bg-white bg-private p-4">
+                            <div className="d-flex flex-row">
+                              <h4>Travel <span className="badge-completed">completed</span></h4>
+                              <p style={{marginLeft: "80px"}}>200 days left</p>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Target</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Interest</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3 mb-4">
+                              <div className="col-md-6">
+                                <p>Maturity date</p>
+                                <h3>29-11-2023</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Frequency</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                        <div className="col-md-6 mb-3">
+                          <img src={completed} alt="" className="img-fluid" />
+                          <div className="bg-white bg-private p-4">
+                            <div className="d-flex flex-row">
+                              <h4>Travel <span className="badge-completed">completed</span></h4>
+                              <p style={{marginLeft: "80px"}}>200 days left</p>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Target</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Interest</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3 mb-4">
+                              <div className="col-md-6">
+                                <p>Maturity date</p>
+                                <h3>29-11-2023</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Frequency</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row mt-5">
+                        <Link data-bs-toggle="modal" data-bs-target="#withdrawal" type="button" to="#" className="col-md-6 mb-3">
+                          <img src={completed} alt="" className="img-fluid" />
+                          <div className="bg-white bg-private p-4">
+                            <div className="d-flex flex-row">
+                              <h4>Travel <span className="badge-completed">completed</span></h4>
+                              <p style={{marginLeft: "80px"}}>200 days left</p>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Target</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Interest</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3 mb-4">
+                              <div className="col-md-6">
+                                <p>Maturity date</p>
+                                <h3>29-11-2023</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Frequency</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                        <div className="col-md-6 mb-3">
+                          <img src={completed} alt="" className="img-fluid" />
+                          <div className="bg-white bg-private p-4">
+                            <div className="d-flex flex-row">
+                              <h4>Travel <span className="badge-completed">completed</span></h4>
+                              <p style={{marginLeft: "80px"}}>200 days left</p>
+                            </div>
+                            <div className="row mt-3">
+                              <div className="col-md-6">
+                                <p>Target</p>
+                                <h3>₦100,000.00</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Interest</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                            <div className="row mt-3 mb-4">
+                              <div className="col-md-6">
+                                <p>Maturity date</p>
+                                <h3>29-11-2023</h3>
+                              </div>
+                              <div className="col-md-6 text-end">
+                                <p>Frequency</p>
+                                <h3>15000 (11%/p.a)</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -521,12 +640,12 @@ function TargetPrivate() {
                       <Link data-bs-toggle="modal" data-bs-target="#extension" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Extend</Link>
                     </div>
                     <div className="col-md-6">
-                      <Link type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Settings</Link>
+                      <Link data-bs-toggle="modal" data-bs-target="#settings" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Settings</Link>
                     </div>
                   </div>
                   <div className="row px-5 mt-3">
                     <div className="col-md-6">
-                      <Link type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Break</Link>
+                      <Link data-bs-toggle="modal" data-bs-target="#break" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Break</Link>
                     </div>
                   </div>
                 </div>
@@ -541,6 +660,11 @@ function TargetPrivate() {
             <div className="modal-content right-content">
               <div className="modal-header">
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="row px-5">
+                <div className="col">
+                  <Link data-bs-toggle="modal" data-bs-target="#targetplan" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                </div>
               </div>
               <div className="modal-body flex-modal-body">
                 <div className="container initiate-modal px-4 py-2">
@@ -602,6 +726,11 @@ function TargetPrivate() {
               <div className="modal-header">
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
+              <div className="row px-5">
+                <div className="col">
+                  <Link data-bs-toggle="modal" data-bs-target="#targetplan" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                </div>
+              </div>
               <div className="modal-body flex-modal-body">
                 <div className="container initiate-modal px-4 py-2">
                   <div className="c-tar px-5 py-4">
@@ -611,7 +740,377 @@ function TargetPrivate() {
                     </div>
                     <div className="row">
                       <div className="col">
-                        <form></form>
+                        <form className="mt-4">
+                          <div className="mb-3">
+                            <label className="form-label label-target">Increase Target amount</label>
+                            <input type="number" className="form-control target-form tar-form" id="" placeholder="₦100,000.00"/>
+                          </div>
+                          <div className="mb-3">
+                            <label className="form-label label-target">How often do you want to save</label>
+                            <select className="form-select p-select tar-select">
+                              <option selected>Monthly</option>
+                              <option value="2">Quarterly</option>
+                              <option value="3">Yearly</option>
+                            </select>
+                          </div>
+                          <div className="mb-3">
+                            <label className="form-label label-target">How much would you like to save monthly</label>
+                            <input type="number" className="form-control target-form tar-form" id="" placeholder="₦100,000.00"/>
+                          </div>
+                          <div className="mb-3">
+                            <input type="password" className="form-control target-form tar-form" id="" placeholder="Enter Password"/>
+                          </div>
+                          <div>
+                            <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3" style={{width: "100%"}}>Submit</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal for Settings */}
+        <div className="modal flex-modal fade" id="settings" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="row px-5">
+                <div className="col">
+                  <Link data-bs-toggle="modal" data-bs-target="#targetplan" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                </div>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal px-4 py-2">
+                  <div className="c-tar px-5 py-4">
+                    <div className="history-title">
+                      <h3 className="rec-act">Settings</h3>
+                      <span className="sub-head">Make preferred changes to your Target</span>
+                    </div>
+                    <div className="row">
+                      <div className="col">
+                        <form className="mt-4">
+                          <div className="mb-3">
+                            <label className="form-label label-target">Edit Target name</label>
+                            <input type="number" className="form-control target-form tar-form" id="" placeholder="Transportation"/>
+                          </div>
+                          <div className="mb-3">
+                            <label className="form-label label-target">Edit Target description</label>
+                            <input type="text" className="form-control target-form tar-form" placeholder="Save for rainy days" />
+                          </div>
+                          <div className="mb-3">
+                            <label className="form-label label-target">Edit primary source</label>
+                            <input type="number" className="form-control target-form tar-form" id="" placeholder="Dilla"/>
+                          </div>
+                          <div className="mb-3">
+                            <input type="password" className="form-control target-form tar-form" id="" placeholder="Enter Password"/>
+                          </div>
+                          <div>
+                            <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3" style={{width: "100%"}}>Submit</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal for Break */}
+        <div className="modal flex-modal fade" id="break" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="row px-5">
+                <div className="col">
+                  <Link data-bs-toggle="modal" data-bs-target="#targetplan" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                </div>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal px-4 py-2">
+                  <div className="c-tar px-5 py-4">
+                    <div className="history-title">
+                      <h3 className="rec-act">Break</h3>
+                      <span className="sub-head">Make preferred changes to your Target</span>
+                    </div>
+                    <div className="row">
+                      <div className="col">
+                        <form className="mt-4">
+                          <div className="mb-3">
+                            <label className="form-label label-target">Target name</label>
+                            <input type="number" className="form-control target-form tar-form" id="" placeholder="Transportation"/>
+                          </div>
+                          <div className="row my-3">
+                            <div className="col">
+                              <p>Target amount</p>
+                              <span className="big-amt">₦99,000.00</span>
+                            </div>
+                          </div>
+                          <div className="mb-3">
+                            <label className="form-label label-target">Enter reasons</label>
+                            <select className="form-select p-select tar-select">
+                              <option selected>Enter reasons</option>
+                              <option value="2">Rents</option>
+                              <option value="3">Education</option>
+                            </select>
+                          </div>
+                          <div className="mb-3">
+                            <label className="form-label label-target">Security questions</label>
+                            <select className="form-select p-select tar-select">
+                              <option selected>Enter reasons</option>
+                              <option value="2">Rents</option>
+                              <option value="3">Education</option>
+                            </select>
+                          </div>
+                          <div className="">
+                            <input type="password" className="form-control target-form tar-form" id="" placeholder="Enter Password"/>
+                          </div>
+                          <div className="form-check my-4">
+                            <input className="form-check-input" type="checkbox"/>
+                            <label className="form-check-label" for="flexCheckDefault">
+                              lorem ipsum in adrem eff antares encrypt infer inde 
+                            </label>
+                          </div>
+                          <div>
+                            <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3" style={{width: "100%"}}>Break</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal for withdraw -completed */}
+        <div className="modal flex-modal fade" id="withdraw" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal px-4 py-2">
+                  <div className="mx-3 row">
+                    <div className="col text-center">
+                      <h3 className="topuptarget">NGN 10,000</h3>
+                    </div>
+                  </div>
+                  <div className="row target-details px-5 mt-5">
+                    <div className="col-md-6">
+                      <h6>Name</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>Transportation</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Target</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>₦100,000.00</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Interest</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>₦15000 (11%/p.a)</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Maturity</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>200 days left</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Frequency</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>10,000 (Monthly)</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="c-tar px-5 py-4">
+                    <div className="history-title">
+                      <h3>Recent Activities</h3>
+                      <h4 className="float-end">view all</h4>
+                    </div>
+                    <div className="row justify-content-center mt-3">
+                      <div className="col-md-5">
+                        <h5>Target </h5>
+                      </div>
+                      <div className="col-md-3">
+                        <h5>Date</h5>
+                      </div>
+                      <div className="col-md-3">
+                        <h5>Amount</h5>
+                      </div>
+                    </div>
+                    <div className="row justify-content-center mt-2 border-bottom py-2">
+                      <div className="col-md-5">
+                        <div className="d-flex flex-row">
+                          <img src={withdraw} alt="" className="img-fluid me-3" />
+                          <h6>Transportation</h6>
+                        </div>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>30 Days</h6>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>₦4,000.00 </h6>
+                      </div>
+                    </div>
+                    <div className="row justify-content-center border-bottom mt-2 py-2">
+                      <div className="col-md-5">
+                        <div className="d-flex flex-row">
+                          <img src={withdraw} alt="" className="img-fluid me-3" />
+                          <h6>Travel</h6>
+                        </div>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>30 Days</h6>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>₦4,000.00 </h6>
+                      </div>
+                    </div>
+                    <div className="row mt-5">
+                      <div className="col text-center">
+                        <Link data-bs-toggle="modal" data-bs-target="#" type="button" to="#destination" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6">Withdraw</Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal for withdrawal destination */}
+        <div className="modal flex-modal fade" id="destination" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="row px-5">
+                <div className="col">
+                  <Link data-bs-toggle="modal" data-bs-target="#withdraw" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                </div>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal px-4 py-2">
+                  <div className="c-tar px-5 py-4">
+                    <div className="history-title">
+                      <h3 className="rec-act">Withdraw</h3>
+                      <span className="sub-head">Withdraw to your plans or source</span>
+                    </div>
+                    <div className="row">
+                      <div className="col">
+                        <form className="mt-4">
+                          
+                          <div className="mb-3">
+                            <label className="form-label label-target">Choose withdrawal</label>
+                            <select className="form-select p-select tar-select">
+                              <option selected>Select withdrawal destination</option>
+                              <option value="2">Savings Plan</option>
+                              <option value="3">Dilla</option>
+                              <option value="4">SAN</option>
+                            </select>
+                          </div>
+                          <div>
+                            <button data-bs-toggle="modal" data-bs-target="#" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3 mb-3" style={{width: "100%"}}>Continue</button>
+                            <Link data-bs-toggle="modal" data-bs-target="#" type="button" to="#rollover" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Roll over</Link>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal for Rollover */}
+        <div className="modal flex-modal fade" id="rollover" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="row px-5">
+                <div className="col">
+                  <Link data-bs-toggle="modal" data-bs-target="#withdraw" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                </div>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal px-4 py-2">
+                  <div className="c-tar px-5 py-4">
+                    <div className="history-title">
+                      <h3 className="rec-act">Roll over</h3>
+                      <span className="sub-head">Make preferred changes to your Target</span>
+                    </div>
+                    <div className="row">
+                      <div className="col">
+                        <form className="mt-4">
+                          
+                          <div className="row my-3">
+                            <div className="col">
+                              <p>Target amount</p>
+                              <span className="big-amt">₦99,000.00</span>
+                            </div>
+                          </div>
+                          <div className="mb-3">
+                            <label className="form-label label-target">How much do you want to roll over</label>
+                            <input type="number" className="form-control target-form tar-form" id="" placeholder="Minimum of ₦80,000.00"/>
+                          </div>
+                          <div className="mb-3">
+                            <label className="form-label label-target">Set Target amount</label>
+                            <input type="number" className="form-control target-form tar-form" id="" placeholder="Minimum of ₦280,000.00"/>
+                          </div>
+                          <div className="mb-3">
+                            <label className="form-label label-target">How often do you want to save</label>
+                            <select className="form-select p-select tar-select">
+                              <option selected>Monthly</option>
+                              <option value="2">Yearly</option>
+                              <option value="3">Quarterly</option>
+                            </select>
+                          </div>
+                          <div className="mb-3">
+                            <label className="form-label label-target">How much would you like to save monthly</label>
+                            <input type="number" className="form-control target-form tar-form" id="" placeholder="₦100,000.00"/>
+                          </div>
+                          <div className="">
+                            <label className="form-label label-target">Pin</label>
+                            <input type="password" className="form-control target-form tar-form" id="" placeholder="Enter Pin"/>
+                          </div>
+                          <div className="mt-3">
+                            <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3" style={{width: "100%"}}>Submit</button>
+                          </div>
+                        </form>
                       </div>
                     </div>
                   </div>
