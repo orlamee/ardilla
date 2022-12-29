@@ -16,12 +16,7 @@ import withdraw from "../../img/dashboard/w-icon.svg";
 import lieu from "../../img/dashboard/lieu.svg";
 import colo from "../../img/dashboard/col.svg";
 import top from "../../img/dashboard/top.png";
-import visacard from "../../img/dashboard/visa-card.svg";
-import done from "../../img/dashboard/done.svg";
-import completed from "../../img/dashboard/top-completed.png";
-import publictarget from "../../img/dashboard/public.png";
 import members from "../../img/dashboard/members.svg";
-import global from "../../img/dashboard/globe.png";
 import join from "../../img/dashboard/join.svg";
 
 

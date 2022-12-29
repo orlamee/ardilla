@@ -74,6 +74,7 @@ import KYC from "./dashboard/profileKYC";
 import Payment from "./dashboard/payment";
 import ExplorePage from "./dashboard/explorePage";
 import Explore from "./dashboard/explore";
+import Vault from "./dashboard/vault";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -170,6 +171,8 @@ root.render(
 
       <Route path="/payment" element={<Payment/>}></Route>
       <Route path="/explore" element={<ExplorePage/>}></Route>
+      <Route path="/vault" element={<Vault/>}></Route>
+
 
 
       

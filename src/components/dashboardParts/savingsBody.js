@@ -285,7 +285,7 @@ function SavingsBody() {
                     <div className="d-flex flex-row">
                       <img src={lock} alt="" className="img-fluid" />
                       <div className="mt-2 ms-3">
-                        <h5>Safe Lock</h5>
+                        <h5>Vault</h5>
                         <h6>
                           Get closer to your goal with autosave. Set
                           <br /> daily, weekly, or monthly automatic
@@ -298,7 +298,7 @@ function SavingsBody() {
                   <div className="col-md-4 mt-3">
                     <Link
                       className="btn btn-outline-primary px-5 py-3 savings-btn fs-6"
-                      to=""
+                      to="/vault"
                     >
                       Create a Locked Plan
                     </Link>
