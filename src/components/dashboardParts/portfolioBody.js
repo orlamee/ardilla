@@ -27,7 +27,7 @@ import axios from "axios";
 
 function PortfolioBody() {
   const navigate = useNavigate();
-  const [acctDetail, setAcctDetail] = useState("");
+  const [dillaWallet, setDillaWallet] = useState({});
 
   let user = JSON.parse(sessionStorage.getItem("user"));
 
@@ -45,22 +45,19 @@ function PortfolioBody() {
   };
 
   useEffect(() => {
-    const getAcctStatement = async () => {
-      if (user) {
-        try {
-          const { data } = await axios.get(
-            `https://ardilla.herokuapp.com/ardilla/api/account/get-account/${user._id}`
-          );
-          // setAcctDetail(data.acct);
+    const getDillaWallet = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/get-dilla-wallet/${user._id}`
+        );
 
-          setAcctDetail(data.acct);
-        } catch (error) {
-          console.log(error);
-        }
+        setDillaWallet(data.dillaWallet.accountBalance);
+      } catch (error) {
+        console.log(error);
       }
     };
 
-    getAcctStatement();
+    getDillaWallet();
   }, [user]);
 
   useEffect(() => {
@@ -269,7 +266,7 @@ function PortfolioBody() {
               </div>
               <h6>Current Balance</h6>
               <div>
-                <p>NGN {acctDetail?.dillaWallet}</p>
+                <p>NGN {Intl.NumberFormat("en-US").format(dillaWallet)}</p>
                 <i className="bi bi-eye-fill float-end dilla-eye"></i>
               </div>
             </div>
