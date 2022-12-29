@@ -24,14 +24,10 @@ function TargetPlanSetDuration() {
 
   const calculateIntrest = async () => {
     try {
-      // setLoading(true);
-
       const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/calculate-intrest/${user._id}`
+        `https://ardilla.herokuapp.com/ardilla/api/target-plan/calculate-intrest/${user._id}`
       );
 
-      // setLoading(false);
-      // navigate("/target-dashboard");
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -48,9 +44,9 @@ function TargetPlanSetDuration() {
         { duration }
       );
 
+      calculateIntrest();
       console.log(data);
       setLoading(false);
-      calculateIntrest();
       navigate("/target-dashboard");
     } catch (error) {
       setLoading(false);

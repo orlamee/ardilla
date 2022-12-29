@@ -30,7 +30,8 @@ import greetPlugin from "dayjs-greet";
 dayjs.extend(greetPlugin);
 
 function Sidebar() {
-  const [acctDetail, setAcctDetail] = useState("");
+  const [dillaWallet, setDillaWallet] = useState({});
+  const [sanBalance, setSanBalance] = useState({});
   // const [idle, setIdle] = useState(false);
   let user = JSON.parse(sessionStorage.getItem("user"));
   const navigate = useNavigate();
@@ -49,30 +50,44 @@ function Sidebar() {
   };
 
   useEffect(() => {
-    const getAcctStatement = async () => {
-      if (user) {
-        try {
-          const { data } = await axios.get(
-            `https://ardilla.herokuapp.com/ardilla/api/account/get-account/${user._id}`
-          );
+    const getDillaWallet = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/get-dilla-wallet/${user._id}`
+        );
 
-          setAcctDetail(data.acct);
-        } catch (error) {
-          console.log(error);
-        }
+        setDillaWallet(data.dillaWallet.accountBalance);
+      } catch (error) {
+        console.log(error);
       }
     };
 
-    getAcctStatement();
+    const getSanAcct = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/san-account/get-san-account/${user._id}`
+        );
+
+        setSanBalance(data.sanAccount.accountBalance);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getDillaWallet();
+    getSanAcct();
   }, [user]);
 
-  useEffect(() => {
-    let interval = setInterval(() => {
-      refreshToken();
-    }, 6000);
+  console.log(dillaWallet);
+  console.log(sanBalance);
 
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   let interval = setInterval(() => {
+  //     refreshToken();
+  //   }, 6000);
+
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const handleOnIdle = () => {
     sessionStorage.clear();
@@ -115,8 +130,6 @@ function Sidebar() {
     navigate("/login");
     window.location.reload();
   };
-
-  console.log(acctDetail);
 
   return (
     <section className="main-dash">
@@ -213,7 +226,9 @@ function Sidebar() {
                 <span className="roi">+10.00%</span>
               </div>
               <div className="p-2 mt-3">
-                <span className="amount">NGN {acctDetail?.sanBalance}</span>
+                <span className="amount">
+                  NGN {Intl.NumberFormat("en-US").format(sanBalance)}
+                </span>
                 <i className="bi bi-eye-fill float-end"></i>
               </div>
               <div className="mt-2 p-2">
@@ -247,7 +262,9 @@ function Sidebar() {
                 <span className="me-4 san">Dilla Wallet</span>
               </div>
               <div className="p-2 mt-3">
-                <span className="amount">USD {acctDetail?.dillaWallet}</span>
+                <span className="amount">
+                  USD {Intl.NumberFormat("en-US").format(dillaWallet)}
+                </span>
                 <i className="bi bi-eye-fill float-end"></i>
               </div>
               <div className="mt-4 p-2">
@@ -270,7 +287,10 @@ function Sidebar() {
                 <span className="me-4 san">Total Funds</span>
               </div>
               <div className="p-2 mt-3">
-                <span className="amount">NGN {acctDetail?.totalFunds}</span>
+                <span className="amount">
+                  NGN{" "}
+                  {Intl.NumberFormat("en-US").format(dillaWallet + sanBalance)}{" "}
+                </span>
                 <i className="bi bi-eye-fill float-end"></i>
               </div>
               <div className="mt-4 p-2">

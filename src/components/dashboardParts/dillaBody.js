@@ -42,7 +42,7 @@ import insuranceplan from "../../img/dashboard/insuranceplan.svg";
 import sanlogo from "../../img/dashboard/san-new.png";
 import becca from "../../img/dashboard/becca.svg";
 import axios from "axios";
-import Collapse from 'react-bootstrap/Collapse';
+import Collapse from "react-bootstrap/Collapse";
 // import Button from 'react-bootstrap/Button';
 
 // import PaystackPop from "@paystack/inline-js";
@@ -50,12 +50,19 @@ import { usePaystackPayment } from "react-paystack";
 
 function DillaBody() {
   const [open, setOpen] = useState(false);
+  const [dillaWallet, setDillaWallet] = useState({});
+  const [amount, setAmount] = useState();
+  const [pin, setPin] = useState("");
+  const [san, setSan] = useState({});
+
+  const [loading, setLoading] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onTransferSuccess, setOnTransferSuccess] = useState(false);
+
   let user1 = JSON.parse(sessionStorage.getItem("user"));
 
   const email = user1.email;
-
-  const [dillaWallet, setDillaWallet] = useState({});
-  const [amount, setAmount] = useState();
 
   useEffect(() => {
     const getDillaWallet = async () => {
@@ -71,8 +78,26 @@ function DillaBody() {
       }
     };
 
+    const getSanAcct = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/san-account/get-san-account/${user1._id}`
+        );
+
+        setSan(data.sanAccount);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getDillaWallet();
+    getSanAcct();
+
     getDillaWallet();
   }, [user1._id]);
+
+  console.log(san);
 
   const getDillaWallet = async () => {
     try {
@@ -96,6 +121,7 @@ function DillaBody() {
 
       console.log(data);
       getDillaWallet();
+      setAmount(0);
     } catch (error) {
       console.log(error);
     }
@@ -126,9 +152,63 @@ function DillaBody() {
   };
 
   const initializePayment = usePaystackPayment(config);
+  const getSanAcct = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/san-account/get-san-account/${user1._id}`
+      );
+
+      setSan(data.sanAccount);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const transferToSan = async () => {
+    try {
+      setLoading(true);
+      setErr(false);
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/transfer-to-san/${user1._id}`,
+        { amount, pin }
+      );
+
+      setLoading(false);
+      getSanAcct();
+      getDillaWallet();
+      setOnTransferSuccess(true);
+      console.log(data);
+    } catch (error) {
+      setOnTransferSuccess(false);
+      setMsg(`${error.response.data.msg} `);
+      setLoading(false);
+      setErr(true);
+    }
+  };
 
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
@@ -213,7 +293,10 @@ function DillaBody() {
           <div className="col-md-6 dilla-right">
             <h5 className="mt-5">Amount Balance</h5>
             <div className="d-flex flex-row">
-              <h4 className="amt-left">NGN {dillaWallet?.accountBalance}</h4>
+              <h4 className="amt-left">
+                NGN
+                {Intl.NumberFormat("en-US").format(dillaWallet?.accountBalance)}
+              </h4>
               <label className="switch mt-2">
                 <input type="checkbox" placeholder="USD" />
                 <span className="slider round"></span>
@@ -259,7 +342,12 @@ function DillaBody() {
                                 />
                               </div>
                               <div className="col-md-6 text-end">
-                                <h4>₦ {dillaWallet?.accountBalance}</h4>
+                                <h4>
+                                  ₦{" "}
+                                  {Intl.NumberFormat("en-US").format(
+                                    dillaWallet?.accountBalance
+                                  )}
+                                </h4>
                               </div>
                             </div>
                           </div>
@@ -1043,7 +1131,9 @@ function DillaBody() {
                           <div className="col-md-6 text-center ">
                             <img src={cadet} alt="" className="img-fluid" />
                             <h2 className="mt-3">
-                              {"<"}StarBoy{"/>"}
+                              {"<"}
+                              {user1?.kodeHex}
+                              {"/>"}
                             </h2>
                           </div>
                         </div>
@@ -1058,7 +1148,12 @@ function DillaBody() {
                                 />
                               </div>
                               <div className="col-md-6 text-end">
-                                <h4>₦500,000.00</h4>
+                                <h4>
+                                  ₦
+                                  {Intl.NumberFormat("en-US").format(
+                                    dillaWallet?.accountBalance
+                                  )}
+                                </h4>
                               </div>
                             </div>
                           </div>
@@ -1086,7 +1181,9 @@ function DillaBody() {
                                 id="quantity"
                                 name="quantity"
                                 className="form-control input-number"
-                                defaultValue="30000"
+                                // defaultValue="30000"
+                                value={amount}
+                                onChange={(e) => setAmount(~~e.target.value)}
                                 min="1"
                                 max="100"
                               />
@@ -1154,7 +1251,12 @@ function DillaBody() {
                                 />
                               </div>
                               <div className="col-md-6 text-end">
-                                <h4>₦500,000.00</h4>
+                                <h4>
+                                  ₦
+                                  {Intl.NumberFormat("en-US").format(
+                                    dillaWallet?.accountBalance
+                                  )}
+                                </h4>
                               </div>
                             </div>
                           </div>
@@ -1291,7 +1393,9 @@ function DillaBody() {
                           <div className="col-md-6 text-center ">
                             <img src={cadet} alt="" className="img-fluid" />
                             <h2 className="mt-3">
-                              {"<"}StarBoy{"/>"}
+                              {"<"}
+                              {user1?.kodeHex}
+                              {"/>"}
                             </h2>
                           </div>
                         </div>
@@ -1306,7 +1410,12 @@ function DillaBody() {
                                 />
                               </div>
                               <div className="col-md-6 text-end">
-                                <h4>₦450,000.00</h4>
+                                <h4>
+                                  ₦
+                                  {Intl.NumberFormat("en-US").format(
+                                    dillaWallet?.accountBalance
+                                  )}
+                                </h4>
                               </div>
                             </div>
                           </div>
@@ -1330,7 +1439,7 @@ function DillaBody() {
                                 />
                               </div>
                               <div className="col-md-6 text-end">
-                                <h4>₦50,000.00</h4>
+                                <h4>₦ {san?.accountBalance}</h4>
                               </div>
                             </div>
                           </div>
@@ -1345,6 +1454,8 @@ function DillaBody() {
                                   className="form-control target-form"
                                   placeholder="Enter Pin"
                                   required
+                                  value={pin}
+                                  onChange={(e) => setPin(e.target.value)}
                                 />
                               </div>
                             </form>
@@ -1357,22 +1468,37 @@ function DillaBody() {
                             <p className="mt-4">SAN Number</p>
                           </div>
                           <div className="col-md-6 text-end">
-                            <h5 className="mt-4">Aiyeola Mathew</h5>
+                            <h5 className="mt-4">{san?.accountName}</h5>
                             <h5 className="mt-4">Wema Bank</h5>
-                            <h5 className="mt-4">2003849232</h5>
+                            <h5 className="mt-4">{san?.accountNumber}</h5>
                           </div>
                         </div>
                         <div className="row mx-3">
-                          <Link
-                            data-bs-toggle="modal"
-                            data-bs-target="#dillatosan"
-                            type="button"
-                            className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
-                            to=""
-                            style={{ width: "100%" }}
-                          >
-                            Continue
-                          </Link>
+                          {loading ? (
+                            <Link
+                              // data-bs-toggle="modal"
+                              // onClick={transferToSan}
+                              data-bs-target="#dillatosan"
+                              type="button"
+                              className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                              to=""
+                              style={{ width: "100%" }}
+                            >
+                              Sending
+                            </Link>
+                          ) : (
+                            <Link
+                              // data-bs-toggle="modal"
+                              onClick={transferToSan}
+                              data-bs-target="#dillatosan"
+                              type="button"
+                              className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                              to=""
+                              style={{ width: "100%" }}
+                            >
+                              Continue
+                            </Link>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -1380,56 +1506,61 @@ function DillaBody() {
                 </div>
               </div>
               {/* Dilla To San Success */}
-              <div
-                className="modal flex-modal fade"
-                id="dillatosan"
-                tabIndex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div className="modal-dialog right-dialog">
-                  <div className="modal-content right-content">
-                    <div className="modal-header">
-                      <button
-                        type="button"
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div className="modal-body flex-modal-body">
-                      <div className="container initiate-modal p-5">
-                        <div className="row justify-content-center">
-                          <div className="col-md-6 text-center ">
-                            <img
-                              src={successful}
-                              alt=""
-                              className="img-fluid"
-                            />
-                            <h2 className="mt-4 mb-2">
-                              {"<"}StarBoy{"/>"}
-                            </h2>
-                            <p className="mb-3">0708 7788 7890</p>
+              {onTransferSuccess && (
+                <div
+                  className="modal flex-modal fade"
+                  id="dillatosan"
+                  tabIndex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  // aria-hidden="true"
+                >
+                  <div className="modal-dialog right-dialog">
+                    <div className="modal-content right-content">
+                      <div className="modal-header">
+                        <button
+                          type="button"
+                          className="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div className="modal-body flex-modal-body">
+                        <div className="container initiate-modal p-5">
+                          <div className="row justify-content-center">
+                            <div className="col-md-6 text-center ">
+                              <img
+                                src={successful}
+                                alt=""
+                                className="img-fluid"
+                              />
+                              <h2 className="mt-4 mb-2">
+                                {"<"}
+                                {user1.kodeHex}
+                                {"/>"}
+                              </h2>
+                              <p className="mb-3">{user1.contact}</p>
+                            </div>
                           </div>
-                        </div>
-                        <div className="row my-3 sent-details">
-                          <div className="col text-center">
-                            <img src={sent} alt="" className="img-fluid" />
-                            <h3 className="my-3">Money Transfered</h3>
-                            <p>
-                              You have successfully sent{" "}
-                              <span style={{ color: "#3D0072" }}>
-                                NGN50000 to <br />
-                                SAN
-                              </span>
-                            </p>
+                          <div className="row my-3 sent-details">
+                            <div className="col text-center">
+                              <img src={sent} alt="" className="img-fluid" />
+                              <h3 className="my-3">Money Transfered</h3>
+                              <p>
+                                You have successfully sent{" "}
+                                <span style={{ color: "#3D0072" }}>
+                                  NGN {amount} to <br />
+                                  SAN
+                                </span>
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
+
               {/* Send Money to User */}
               <div
                 className="modal flex-modal fade"
@@ -1455,9 +1586,11 @@ function DillaBody() {
                         </div>
                         <div className="row mt-5 friends">
                           <div className="col-md-2 text-center">
-                            <Link onClick={() => setOpen(!open)}
+                            <Link
+                              onClick={() => setOpen(!open)}
                               aria-controls="example-collapse-text"
-                              aria-expanded={open}>
+                              aria-expanded={open}
+                            >
                               <img
                                 src={search}
                                 alt=""
@@ -1566,7 +1699,7 @@ function DillaBody() {
                             </div>
                           </div>
                         </Collapse>
-                        
+
                         <div className="row mt-4">
                           <div className="col friends-list">
                             <Link
@@ -1866,9 +1999,11 @@ function DillaBody() {
             </div>
             <div className="row mt-5 friends">
               <div className="col-md-2 text-center">
-                <Link onClick={() => setOpen(!open)}
+                <Link
+                  onClick={() => setOpen(!open)}
                   aria-controls="example-collapse-text"
-                  aria-expanded={open}>
+                  aria-expanded={open}
+                >
                   <img src={search} alt="" className="img-fluid" width={150} />
                 </Link>
                 <p className="text-center">Search</p>
@@ -2343,14 +2478,17 @@ function DillaBody() {
             <Collapse in={open}>
               <div className="row mt-4">
                 <div className="search-box">
-                  <input type="text" class="search-input" placeholder="Search" />
+                  <input
+                    type="text"
+                    class="search-input"
+                    placeholder="Search"
+                  />
                   <button className="search-button">
                     <i className="fas fa-search"></i>
                   </button>
                 </div>
               </div>
             </Collapse>
-            
           </div>
           <div className="col-md-6 px-5">
             <div className="dilla-transaction p-5">

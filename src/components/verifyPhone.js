@@ -126,6 +126,7 @@ function VerifyPhone() {
 
       setLoading(false);
       setOnSuccess(true);
+      updateProcess();
       setMsg("Mobile verifcation successful");
 
       if (!data.verified) {
