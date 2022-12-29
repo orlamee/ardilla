@@ -73,6 +73,7 @@ import ProfileRefer from "./dashboard/profileRefer";
 import KYC from "./dashboard/profileKYC";
 import Payment from "./dashboard/payment";
 import ExplorePage from "./dashboard/explorePage";
+import Explore from "./dashboard/explore";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -147,6 +148,7 @@ root.render(
       <Route path="/target-overview/san" element={<TargetOverviewSan/>}></Route>
       <Route path="/target-overview/card" element={<TargetOverviewCard/>}></Route>
       <Route path="/target-private" element={<TargetPlanPrivate/>}></Route>
+      <Route path="/target-private/explore" element={<Explore/>}></Route>
       
       <Route path="/ot" element={<Ot/>}></Route>
 
