@@ -110,7 +110,7 @@ function VaultPlan() {
               suspendisse felis
               <br /> morbi interdum. Eget sit ultricies facilisi elementum.{" "}
             </h6>
-            <Link
+            <Link to="/create-vault"
               className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
             >
               Create a Target

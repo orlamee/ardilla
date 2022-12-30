@@ -75,6 +75,9 @@ import Payment from "./dashboard/payment";
 import ExplorePage from "./dashboard/explorePage";
 import Explore from "./dashboard/explore";
 import Vault from "./dashboard/vault";
+import CreateVault from "./dashboard/createVault";
+import EarnVault from "./dashboard/vaultPlanEarn";
+import SpendVault from "./dashboard/vaultPlanSpend";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -172,6 +175,9 @@ root.render(
       <Route path="/payment" element={<Payment/>}></Route>
       <Route path="/explore" element={<ExplorePage/>}></Route>
       <Route path="/vault" element={<Vault/>}></Route>
+      <Route path="/create-vault" element={<CreateVault/>}></Route>
+      <Route path="/vault-earn" element={<EarnVault/>}></Route>
+      <Route path="/vault-spend" element={<SpendVault/>}></Route>
 
 
 
