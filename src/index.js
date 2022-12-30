@@ -85,6 +85,8 @@ import VaultOverview from "./dashboard/vaultOverview";
 import VaultPlanSet from "./dashboard/vaultPlanSet";
 import SetSaveVault from "./dashboard/vaultPlanSetSave";
 import VaultPlanSetDuration from "./dashboard/vaultPlanSetDuration";
+import CustomSaveVault from "./dashboard/vaultCustomSave";
+import CustomVault from "./dashboard/customVaultPlanDashboard";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -192,6 +194,8 @@ root.render(
       <Route path="/vault-set-amount" element={<VaultPlanSet/>}></Route>
       <Route path="/vault-set-save" element={<SetSaveVault/>}></Route>
       <Route path="/vault-set-duration" element={<VaultPlanSetDuration/>}></Route>
+      <Route path="/vault-custom-save" element={<CustomSaveVault/>}></Route>
+      <Route path="/custom-vault" element={<CustomVault/>}></Route>
 
 
 

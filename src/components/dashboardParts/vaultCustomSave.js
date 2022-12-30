@@ -11,9 +11,10 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
-import verticalone from "../../img/dashboard/setduration.svg";
+import verticalfour from "../../img/dashboard/custom-save.svg";
 
-function VaultSetDuration() {
+
+function VaultCustomSave() {
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -87,55 +88,38 @@ function VaultSetDuration() {
         </div>
       </div>
       <div className="content py-5 px-5 earning-section">
-        <div className="row backto">
-          <Link to="/vault-set-save">
-            <span>
-              <i className="bi bi-chevron-left me-3"></i>Back
-            </span>
-          </Link>
-        </div>
+        {/* <div className="row backto">
+          <Link to="/vault-dashboard"><span><i className="bi bi-chevron-left me-3"></i>Back</span></Link>
+        </div> */}
         <div className="row earning">
           <div className="col-md-12 text-center">
-            <img src={verticalone} alt="" className="img-fluid" />
+            <img src={verticalfour} alt="" className="img-fluid"/>
             {/* <h2>Cadet {"<"}Starboy{"/>"},</h2> */}
           </div>
         </div>
-        <div className="row justify-content-center earns">
+        <div className="row justify-content-center earns saving-top">
           <div className="col-md-8 text-center">
-            <h3>
-              Set <span style={{ color: "#E8356D" }}>Target</span>
-              <br />
-              duration
-            </h3>
-            <p className="my-5">Choose how much you will like to save</p>
-            <div className="row justify-content-center">
-              <div className="col-md-5">
-                <form>
-                  <div className="mb-3">
-                    <select
-                      className="form-select target-form"
-                      required
-                    >
-                      <option selected>Select Duration</option>
-                      <option value="3">3 Months</option>
-                      <option value="6">6 Months</option>
-                      <option value="9">9 Months</option>
-                      <option value="12">12 Months</option>
-                    </select>
-                    {/* <input type="number" className="form-control target-form" placeholder="Enter Amount" required/> */}
-                  </div>
-                  <div className="mb-3">
-                    <Link to="/custom-vault"
-                      className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
-                      type="submit"
-                      style={{ width: "100%" }}
-                    >
-                      Next
-                    </Link>
-                  </div>
-                </form>
+            <h3>How often do you want to <br/><span style={{color: "#E8356D"}}>save?</span></h3>
+            <p className="my-5">Choose how often you want to save</p>
+
+            <div className="mb-3">
+              <div className="btn-group me-3" role="group" aria-label="First group">
+                <button type="button" className="btn btn-flex">Daily</button>
+                
+              </div>
+              <div className="btn-group me-3" role="group" aria-label="Second group">
+                <button type="button" className="btn btn-flex">Weekly</button>
+                
+              </div>
+              <div className="btn-group" role="group" aria-label="Third group">
+                <button type="button" className="btn btn-flex">Monthly</button>
+              </div>
+              <div className="btn-group" role="group" aria-label="Third group">
+                <button type="button" className="btn btn-flex">Anytime/Manual</button>
               </div>
             </div>
+            
+            <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/vault-overview" style={{width: "50%"}}>Continue</Link></div>
           </div>
         </div>
       </div>
@@ -143,4 +127,5 @@ function VaultSetDuration() {
   );
 }
 
-export default VaultSetDuration;
+export default VaultCustomSave;
+ 
