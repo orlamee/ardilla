@@ -9,7 +9,7 @@ import explore from "../../img/dashboard/explore.svg";
 import learn from "../../img/dashboard/learn.svg";
 import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
-import contact from "../../img/dashboard/contact.svg";
+import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
 import final from "../../img/dashboard/prefer.svg";
 import hex from "../../img/dashboard/kodehex.svg";
@@ -32,7 +32,7 @@ function TargetShareLink() {
           </div>
         </Link>
         <Link to="/savings" className="active">
-          <div className="d-flex flex-row" >
+          <div className="d-flex flex-row">
             <img src={saving} alt="" className="img-fluid me-2 icons" />
             Savings
           </div>
@@ -49,7 +49,7 @@ function TargetShareLink() {
             Insurance <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
-        <Link>
+        <Link to="/dilla">
           <div className="d-flex flex-row">
             <img src={dilla} alt="" className="img-fluid me-2 icons" />
             Dilla
@@ -58,10 +58,10 @@ function TargetShareLink() {
         <Link>
           <div className="d-flex flex-row">
             <img src={explore} alt="" className="img-fluid me-2 icons" />
-            Explore
+            Budgeting <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
-        <Link>
+        <Link to="/learn">
           <div className="d-flex flex-row">
             <img src={learn} alt="" className="img-fluid me-2 icons" />
             Learn
@@ -71,7 +71,7 @@ function TargetShareLink() {
           <Link>
             <div className="d-flex flex-row">
               <img src={contact} alt="" className="img-fluid me-2 icons" />
-              Contact Dilla Coach
+              Payment
             </div>
           </Link>
           <Link>
