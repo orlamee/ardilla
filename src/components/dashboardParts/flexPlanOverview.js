@@ -208,7 +208,7 @@ function FlexPlanOverview() {
           </div>
         </Link>
         <div className="second-nav">
-          <Link to="/payment">
+          <Link>
             <div className="d-flex flex-row">
               <img src={contact} alt="" className="img-fluid me-2 icons" />
               Payment

@@ -119,7 +119,7 @@ function VaultSave() {
               </div>
             </div>
             
-            <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "50%"}}>Continue</Link></div>
+            <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/vault-overview" style={{width: "50%"}}>Continue</Link></div>
           </div>
         </div>
       </div>

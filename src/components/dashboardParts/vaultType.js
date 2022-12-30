@@ -160,7 +160,7 @@ function TypeVault() {
               <div className="text-center">
                 <Link
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5"
-                  to="/target-set-amount"
+                  to=""
                   style={{ width: "70%" }}
                 >
                   Select
