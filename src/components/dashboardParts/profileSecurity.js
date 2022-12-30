@@ -453,7 +453,7 @@ function ProfileSecurity() {
                             <h3>Confirm PIN</h3>
                             <span>Enter 4- digit PIN to change your Phone Number</span>
                             <form className="mt-4">
-                              <label className="form-label mb-2">Enter Old PIN</label>
+                              <label className="form-label mb-2">Enter PIN</label>
                               <div className="d-flex flex-row mb-3">
                                 <div className="me-2">
                                   <input
