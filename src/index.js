@@ -78,6 +78,9 @@ import Vault from "./dashboard/vault";
 import CreateVault from "./dashboard/createVault";
 import EarnVault from "./dashboard/vaultPlanEarn";
 import SpendVault from "./dashboard/vaultPlanSpend";
+import VaultType from "./dashboard/vaultPlanType";
+import DashboardVault from "./dashboard/vaultPlanDashboard";
+import VaultSetSave from "./dashboard/vaultPlanSave";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -178,6 +181,9 @@ root.render(
       <Route path="/create-vault" element={<CreateVault/>}></Route>
       <Route path="/vault-earn" element={<EarnVault/>}></Route>
       <Route path="/vault-spend" element={<SpendVault/>}></Route>
+      <Route path="/vault-type" element={<VaultType/>}></Route>
+      <Route path="/vault-dashboard" element={<DashboardVault/>}></Route>
+      <Route path="/vault-save" element={<VaultSetSave/>}></Route>
 
 
 
