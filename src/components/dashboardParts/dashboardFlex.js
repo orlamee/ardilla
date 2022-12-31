@@ -15,18 +15,14 @@ import chat from "../../img/dashboard/chat.svg";
 import withdraw from "../../img/dashboard/w-icon.svg";
 import lieu from "../../img/dashboard/lieu.svg";
 import colo from "../../img/dashboard/col.svg";
-import top from "../../img/dashboard/top.png";
 import visacard from "../../img/dashboard/visa-card.svg";
 import done from "../../img/dashboard/done.svg";
-import completed from "../../img/dashboard/top-completed.png";
-import publictarget from "../../img/dashboard/public.png";
-import members from "../../img/dashboard/members.svg";
-import global from "../../img/dashboard/globe.png";
 
 
 
 
-function TargetPrivate() {
+
+function DashboardFlex() {
     return (
     <section className="main-dash">
       <div className="sidebar">
@@ -102,8 +98,8 @@ function TargetPrivate() {
       <div className="content py-5 px-5 t-private">
         <div className="row">
           <div className="d-flex flex-row privatelinks">
-            <Link className="me-5" to="/flexplan-dashboard">Flex</Link>
-            <Link className="me-5 target-active">Target</Link>
+            <Link className="me-5 target-active">Flex</Link>
+            <Link className="me-5" to="/target-private">Target</Link>
             <Link className="me-5">Family and I</Link>
             <Link className="me-5">Safe lock</Link>
             <Link className="me-5">VIP</Link>
@@ -112,7 +108,7 @@ function TargetPrivate() {
         <div className="row mt-5">
           <div className="col-md-6 t-savings">
             <div className="d-flex flex-row">
-              <h2 className="me-4">Target Savings</h2>
+              <h2 className="me-4">Flex Savings</h2>
               <Link className="mt-3">Learn More</Link>
             </div>
             <div className="row mt-4">
@@ -120,13 +116,11 @@ function TargetPrivate() {
                 <span>Total Balance</span>
                 <h5>₦40,000.00 </h5>
               </div>
-              <div className="col-md-6">
-                <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">Create new target</button>
-              </div>
             </div>
-            <div className="row mt-5">
+            <div className="row mt-3">
               <div className="col-md-6">
-                <div className="switches-container">
+                <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">Top Up</button>
+                {/* <div className="switches-container">
                   <input type="radio" id="switchMonthly" name="switchPlan" value="Monthly" checked="checked" />
                   <input type="radio" id="switchYearly" name="switchPlan" value="Yearly" />
                   <label htmlFor="switchMonthly">My Targets</label>
@@ -137,431 +131,14 @@ function TargetPrivate() {
                       <div>Explore Targets</div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="row mt-5">
-              <div className="col">
-                <div id="" className="row">
-                  <ul className="nav nav-pills dilla-link">
-                    <li className="ms-3 me-5 profile-pills active">
-                      <a  href="#1a" data-toggle="tab">Private</a>
-                    </li>
-                    <li className="me-5 profile-pills">
-                      <a href="#2a" data-toggle="tab">Public</a>
-                    </li>
-                    <li className="me-5 profile-pills">
-                      <a href="#3a" data-toggle="tab">Completed</a>
-                    </li>
-                  </ul>
-                  <div className="tab-content clearfix">
-                    <div className="tab-pane active" id="1a">
-                      <div className="row mt-5">
-                        <Link data-bs-toggle="modal" data-bs-target="#targetplan" type="button" to="#" className="col-md-6 mb-3">
-                          <img src={top} alt="" className="img-fluid" />
-                          <div className="bg-white bg-private p-4">
-                            <div className="d-flex flex-row">
-                              <h4>Travel <span className="badge-private">ongoing</span></h4>
-                              <p style={{marginLeft: "90px"}}>200 days left</p>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Target</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Interest</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3 mb-4">
-                              <div className="col-md-6">
-                                <p>Maturity date</p>
-                                <h3>29-11-2023</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                        <div className="col-md-6 mb-3">
-                          <img src={top} alt="" className="img-fluid" />
-                          <div className="bg-white bg-private p-4">
-                            <div className="d-flex flex-row">
-                              <h4>Travel <span className="badge-private">ongoing</span></h4>
-                              <p style={{marginLeft: "90px"}}>200 days left</p>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Target</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Interest</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3 mb-4">
-                              <div className="col-md-6">
-                                <p>Maturity date</p>
-                                <h3>29-11-2023</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row mt-5">
-                        <div className="col-md-6 mb-3">
-                          <img src={top} alt="" className="img-fluid" />
-                          <div className="bg-white bg-private p-4">
-                            <div className="d-flex flex-row">
-                              <h4>Travel <span className="badge-private">ongoing</span></h4>
-                              <p style={{marginLeft: "90px"}}>200 days left</p>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Target</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Interest</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3 mb-4">
-                              <div className="col-md-6">
-                                <p>Maturity date</p>
-                                <h3>29-11-2023</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-md-6 mb-3">
-                          <img src={top} alt="" className="img-fluid" />
-                          <div className="bg-white bg-private p-4">
-                            <div className="d-flex flex-row">
-                              <h4>Travel <span className="badge-private">ongoing</span></h4>
-                              <p style={{marginLeft: "90px"}}>200 days left</p>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Target</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Interest</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3 mb-4">
-                              <div className="col-md-6">
-                                <p>Maturity date</p>
-                                <h3>29-11-2023</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="tab-pane quiz-pane" id="2a">
-                      <div className="row mt-5">
-                        <Link data-bs-toggle="modal" data-bs-target="#" type="button" to="#" className="col-md-6 mb-3">
-                          <img src={publictarget} alt="" className="img-fluid" />
-                          <div className="bg-white bg-private p-4">
-                            <div className="d-flex flex-row">
-                              <h4>FIFA <span className="badge-private">ongoing</span></h4>
-                              <p style={{marginLeft: "80px"}}>200 days left</p>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Target</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Interest</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Maturity date</p>
-                                <h3>29-11-2023</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3 mb-4">
-                              <div className="col-md-6">
-                                <p>Members</p>
-                                <h3>10+ <img src={members} alt="members" className="img-fluid" /></h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Per Member</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                        <Link data-bs-toggle="modal" data-bs-target="#global-create" type="button" to="#" className="col-md-6 mb-3">
-                          <img src={global} alt="" className="img-fluid" />
-                          <div className="bg-white bg-private p-4">
-                            <div className="d-flex flex-row">
-                              <h4>Travel <span className="badge-private">ongoing</span></h4>
-                              <p style={{marginLeft: "80px"}}>200 days left</p>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Target</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Interest</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Maturity date</p>
-                                <h3>29-11-2023</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3 mb-4">
-                              <div className="col-md-6">
-                                <p>Members</p>
-                                <h3>10+ <img src={members} alt="members" className="img-fluid" /></h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Per Member</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                      <div className="row mt-5">
-                        <Link data-bs-toggle="modal" data-bs-target="#" type="button" to="#" className="col-md-6 mb-3">
-                          <img src={publictarget} alt="" className="img-fluid" />
-                          <div className="bg-white bg-private p-4">
-                            <div className="d-flex flex-row">
-                              <h4>FIFA <span className="badge-private">ongoing</span></h4>
-                              <p style={{marginLeft: "80px"}}>200 days left</p>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Target</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Interest</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Maturity date</p>
-                                <h3>29-11-2023</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3 mb-4">
-                              <div className="col-md-6">
-                                <p>Members</p>
-                                <h3>10+ <img src={members} alt="members" className="img-fluid" /></h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Per Member</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                        <div className="col-md-6 mb-3">
-                          <img src={global} alt="" className="img-fluid" />
-                          <div className="bg-white bg-private p-4">
-                            <div className="d-flex flex-row">
-                              <h4>Travel <span className="badge-private">ongoing</span></h4>
-                              <p style={{marginLeft: "80px"}}>200 days left</p>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Target</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Interest</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Maturity date</p>
-                                <h3>29-11-2023</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3 mb-4">
-                              <div className="col-md-6">
-                                <p>Members</p>
-                                <h3>10+ <img src={members} alt="members" className="img-fluid" /></h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Per Member</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="tab-pane quiz-pane" id="3a">
-                      <div className="row mt-5">
-                        <Link data-bs-toggle="modal" data-bs-target="#withdraw" type="button" to="#" className="col-md-6 mb-3">
-                          <img src={completed} alt="" className="img-fluid" />
-                          <div className="bg-white bg-private p-4">
-                            <div className="d-flex flex-row">
-                              <h4>Travel <span className="badge-completed">completed</span></h4>
-                              <p style={{marginLeft: "80px"}}>200 days left</p>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Target</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Interest</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3 mb-4">
-                              <div className="col-md-6">
-                                <p>Maturity date</p>
-                                <h3>29-11-2023</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                        <div className="col-md-6 mb-3">
-                          <img src={completed} alt="" className="img-fluid" />
-                          <div className="bg-white bg-private p-4">
-                            <div className="d-flex flex-row">
-                              <h4>Travel <span className="badge-completed">completed</span></h4>
-                              <p style={{marginLeft: "80px"}}>200 days left</p>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Target</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Interest</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3 mb-4">
-                              <div className="col-md-6">
-                                <p>Maturity date</p>
-                                <h3>29-11-2023</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row mt-5">
-                        <Link data-bs-toggle="modal" data-bs-target="#withdrawal" type="button" to="#" className="col-md-6 mb-3">
-                          <img src={completed} alt="" className="img-fluid" />
-                          <div className="bg-white bg-private p-4">
-                            <div className="d-flex flex-row">
-                              <h4>Travel <span className="badge-completed">completed</span></h4>
-                              <p style={{marginLeft: "80px"}}>200 days left</p>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Target</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Interest</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3 mb-4">
-                              <div className="col-md-6">
-                                <p>Maturity date</p>
-                                <h3>29-11-2023</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                        <div className="col-md-6 mb-3">
-                          <img src={completed} alt="" className="img-fluid" />
-                          <div className="bg-white bg-private p-4">
-                            <div className="d-flex flex-row">
-                              <h4>Travel <span className="badge-completed">completed</span></h4>
-                              <p style={{marginLeft: "80px"}}>200 days left</p>
-                            </div>
-                            <div className="row mt-3">
-                              <div className="col-md-6">
-                                <p>Target</p>
-                                <h3>₦100,000.00</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Interest</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                            <div className="row mt-3 mb-4">
-                              <div className="col-md-6">
-                                <p>Maturity date</p>
-                                <h3>29-11-2023</h3>
-                              </div>
-                              <div className="col-md-6 text-end">
-                                <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              <div className="current-flex p-4">
+                <div>
+                  <h2>Your Current <span style={{color: "#E8356D"}}>Flex</span> Plan</h2>
+                  <span className="float-end" style={{marginTop: "-30px"}}>Review Flex</span>
                 </div>
               </div>
             </div>
@@ -1606,4 +1183,4 @@ function TargetPrivate() {
   );
 }
 
-export default TargetPrivate;
+export default DashboardFlex;

@@ -34,7 +34,7 @@
 
 .t-savings span {
   color: #3D0072;
-  font-size: 12px;
+  /* font-size: 12px; */
   line-height: 13px;
   font-weight: 500; 
 }

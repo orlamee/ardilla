@@ -701,3 +701,15 @@ h3.topuptarget {
   line-height: 20px;
   font-weight: 700;
 }
+
+.current-flex {
+  background-color: #FAFAFA;
+  border-radius: 10px;
+}
+
+.current-flex h2 {
+  color: #3C0071!important;
+  font-size: 25px!important;
+  line-height: 28px!important;
+  font-weight: 500!important;
+}
