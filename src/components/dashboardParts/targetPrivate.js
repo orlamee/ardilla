@@ -113,7 +113,7 @@ function TargetPrivate() {
           <div className="col-md-6 t-savings">
             <div className="d-flex flex-row">
               <h2 className="me-4">Target Savings</h2>
-              <Link className="mt-3">Learn More</Link>
+              <Link to="/learn" className="mt-3">Learn More</Link>
             </div>
             <div className="row mt-4">
               <div className="col-md-6">
