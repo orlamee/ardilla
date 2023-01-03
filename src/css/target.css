@@ -34,7 +34,7 @@
 
 .t-savings span {
   color: #3D0072;
-  /* font-size: 12px; */
+  font-size: 12px;
   line-height: 13px;
   font-weight: 500; 
 }
@@ -68,7 +68,7 @@
 .private-card h5 {
   color: #9CA3AF;
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 11px;
 }
 
@@ -78,5 +78,24 @@
   font-weight: 600;
   line-height: 13px;
   margin-top: 10px;
+}
+
+.inner-current h6 {
+  color: #9CA3AF;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+}
+
+.inner-current h5 {
+  color: #3D0072;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 17px;
+}
+
+.deposit-container {
+  width: 17rem!important;
+  line-height: 3rem!important;
 }
 

@@ -17,6 +17,7 @@ import lieu from "../../img/dashboard/lieu.svg";
 import colo from "../../img/dashboard/col.svg";
 import visacard from "../../img/dashboard/visa-card.svg";
 import done from "../../img/dashboard/done.svg";
+import dib from "../../img/dashboard/dib.png";
 
 
 
@@ -135,23 +136,60 @@ function DashboardFlex() {
               </div>
             </div>
             <div className="row mt-5">
-              <div className="current-flex p-4">
+              <Link className="current-flex px-5 py-5">
                 <div>
-                  <h2>Your Current <span style={{color: "#E8356D"}}>Flex</span> Plan</h2>
-                  <span className="float-end" style={{marginTop: "-30px"}}>Review Flex</span>
+                  <h2>Your Current <span style={{color: "#E8356D"}}>DIB</span> Plan</h2>
+                  <p className="float-end review-dib" style={{marginTop: "-30px"}}>Review DIB <i className="bi bi-chevron-right"></i></p>
                 </div>
-              </div>
+                <div className="row inner-current mt-5">
+                  <div className="col-md-6">
+                    <h6>How much you save</h6>
+                  </div>
+                  <div className="col-md-6 text-end">
+                    <h5>₦60,000 (Monthly)</h5>
+                  </div>
+                </div>
+                <div className="row inner-current mt-3">
+                  <div className="col-md-6">
+                    <h6>Total DIB Savings</h6>
+                  </div>
+                  <div className="col-md-6 text-end">
+                    <h5>₦60,000 (Monthly)</h5>
+                  </div>
+                </div>
+                <div className="row inner-current mt-3 mb-4">
+                  <div className="col-md-6">
+                    <h6>Interest</h6>
+                  </div>
+                  <div className="col-md-6 text-end">
+                    <h5>₦60,000 (Monthly)</h5>
+                  </div>
+                </div>
+                <img src={dib} alt="range" className="img-fluid"/>
+              </Link>
             </div>
           </div>
           <div className="col-md-6 private-right">
-            <div className="private-card p-4">
+            <div className="private-card px-5 py-4">
               <div className="history-title">
-                <h3>Recent Activities</h3>
-                <Link data-bs-toggle="modal" data-bs-target="#recentactivities" type="button" to="#" className="float-end">view all</Link>
+                <h3>History</h3>
+                <Link data-bs-toggle="modal" data-bs-target="#recentactivities" type="button" to="#" className="float-end" style={{marginTop: "-19px"}}>view all</Link>
               </div>
-              <div className="row justify-content-center mt-3">
-                <div className="col-md-5">
-                  <h5>Target </h5>
+              <div className="switches-container deposit-container mt-3">
+                <input type="radio" id="switchMonthly" name="switchPlan" value="Monthly" checked="checked" />
+                <input type="radio" id="switchYearly" name="switchPlan" value="Yearly" />
+                <label htmlFor="switchMonthly">Transactions</label>
+                <label htmlFor="switchYearly">Missed deposits</label>
+                <div className="switch-wrapper">
+                  <div className="switchies">
+                    <div>Transactions</div>
+                    <div>Missed deposits</div>
+                  </div>
+                </div>
+              </div>
+              <div className="row mt-5">
+                <div className="col-md-4">
+                  <h5>Description </h5>
                 </div>
                 <div className="col-md-3">
                   <h5>Date</h5>
@@ -159,9 +197,12 @@ function DashboardFlex() {
                 <div className="col-md-3">
                   <h5>Amount</h5>
                 </div>
+                <div className="col-md-2">
+                  <h5>Reason</h5>
+                </div>
               </div>
-              <div className="row justify-content-center mt-2 border-bottom py-3">
-                <div className="col-md-5">
+              <div className="row mt-2 border-bottom py-3">
+                <div className="col-md-4">
                   <div className="d-flex flex-row">
                     <img src={withdraw} alt="" className="img-fluid me-3" />
                     <h6>Transportation</h6>
@@ -173,25 +214,31 @@ function DashboardFlex() {
                 <div className="col-md-3">
                   <h6>₦4,000.00 </h6>
                 </div>
+                <div className="col-md-2">
+                  <h6> </h6>
+                </div>
               </div>
               <div className="row justify-content-center mt-2 py-3">
-                <div className="col-md-5">
+                <div className="col-md-4">
                   <div className="d-flex flex-row">
                     <img src={withdraw} alt="" className="img-fluid me-3" />
                     <h6>Travel</h6>
                   </div>
                 </div>
                 <div className="col-md-3">
-                  <h6>30 Days</h6>
+                  <h6>4hrs</h6>
                 </div>
                 <div className="col-md-3">
-                  <h6>₦4,000.00 </h6>
+                  <h6>400.00 </h6>
+                </div>
+                <div className="col-md-2">
+                  <h6>Emergency</h6>
                 </div>
               </div>
             </div>
-            <div className="private-card p-4 mt-3">
+            <div className="private-card px-5 py-4 mt-3">
               <div className="history-title">
-                <h3>Target Behaviour</h3>
+                <h3>DIB Behaviour</h3>
                 <div className="row justify-content-center mt-2 border-bottom py-2">
                   <div className="col-md-6">
                     <h6>Streak</h6>
@@ -216,7 +263,7 @@ function DashboardFlex() {
                 </div>
               </div>
             </div>
-            <div className="private-card p-4 mt-3">
+            <div className="private-card px-5 py-4 mt-3">
               <div className="history-title">
                 <h3>Badge progress</h3>
                 <div className="row mt-4">
