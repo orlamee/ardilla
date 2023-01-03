@@ -567,7 +567,7 @@ function TargetPrivate() {
             </div>
           </div>
           <div className="col-md-6 private-right">
-            <div className="private-card p-4">
+            <div className="private-card px-5 py-4">
               <div className="history-title">
                 <h3>Recent Activities</h3>
                 <Link data-bs-toggle="modal" data-bs-target="#recentactivities" type="button" to="#" className="float-end">view all</Link>
@@ -612,7 +612,7 @@ function TargetPrivate() {
                 </div>
               </div>
             </div>
-            <div className="private-card p-4 mt-3">
+            <div className="private-card px-5 py-4 mt-3">
               <div className="history-title">
                 <h3>Target Behaviour</h3>
                 <div className="row justify-content-center mt-2 border-bottom py-2">
@@ -639,7 +639,7 @@ function TargetPrivate() {
                 </div>
               </div>
             </div>
-            <div className="private-card p-4 mt-3">
+            <div className="private-card px-5 py-4 mt-3">
               <div className="history-title">
                 <h3>Badge progress</h3>
                 <div className="row mt-4">
