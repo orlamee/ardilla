@@ -100,9 +100,7 @@ function DashboardFlex() {
           <div className="d-flex flex-row privatelinks">
             <Link className="me-5 target-active">DIB</Link>
             <Link className="me-5" to="/target-private">Dreams</Link>
-            <Link className="me-5">Family and I</Link>
-            <Link className="me-5">Vault</Link>
-            <Link className="me-5">VIP</Link>
+            <Link className="me-5" to="/vaultplan-dashboard">Vault</Link>
           </div>
         </div>
         <div className="row mt-5">

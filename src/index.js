@@ -88,6 +88,7 @@ import VaultPlanSetDuration from "./dashboard/vaultPlanSetDuration";
 import CustomSaveVault from "./dashboard/vaultCustomSave";
 import CustomVault from "./dashboard/customVaultPlanDashboard";
 import DashboardFlexPlan from "./dashboard/dashboardFlexPlan";
+import VaultDash from "./dashboard/dashboardVaultPlan";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -198,6 +199,7 @@ root.render(
       <Route path="/vault-custom-save" element={<CustomSaveVault/>}></Route>
       <Route path="/custom-vault" element={<CustomVault/>}></Route>
       <Route path="/flexplan-dashboard" element={<DashboardFlexPlan/>}></Route>
+      <Route path="/vaultplan-dashboard" element={<VaultDash/>}></Route>
 
 
 

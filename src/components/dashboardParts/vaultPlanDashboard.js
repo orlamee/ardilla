@@ -26,7 +26,7 @@ import global from "../../img/dashboard/globe.png";
 
 
 
-function TargetPrivate() {
+function VaultPlanDashboard() {
     return (
     <section className="main-dash">
       <div className="sidebar">
@@ -103,14 +103,14 @@ function TargetPrivate() {
         <div className="row">
           <div className="d-flex flex-row privatelinks">
             <Link className="me-5" to="/flexplan-dashboard">DIB</Link>
-            <Link className="me-5 target-active">Dreams</Link>
-            <Link className="me-5" to="/vaultplan-dashboard">Vault</Link>
+            <Link className="me-5">Dreams</Link>
+            <Link className="me-5 target-active" to="/vaultplan-dashboard">Vault</Link>
           </div>
         </div>
         <div className="row mt-5">
           <div className="col-md-6 t-savings">
             <div className="d-flex flex-row">
-              <h2 className="me-4">Dreams Savings</h2>
+              <h2 className="me-4">Vault Savings</h2>
               <Link to="/learn" className="mt-3">Learn More</Link>
             </div>
             <div className="row mt-4">
@@ -122,7 +122,7 @@ function TargetPrivate() {
                 <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">Create new target</button>
               </div>
             </div>
-            <div className="row mt-5">
+            {/* <div className="row mt-5">
               <div className="col-md-6">
                 <div className="switches-container">
                   <input type="radio" id="switchMonthly" name="switchPlan" value="Monthly" checked="checked" />
@@ -137,16 +137,13 @@ function TargetPrivate() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="row mt-5">
               <div className="col">
                 <div id="" className="row">
                   <ul className="nav nav-pills dilla-link">
                     <li className="ms-3 me-5 profile-pills active">
-                      <a  href="#1a" data-toggle="tab">Private</a>
-                    </li>
-                    <li className="me-5 profile-pills">
-                      <a href="#2a" data-toggle="tab">Public</a>
+                      <a  href="#1a" data-toggle="tab">My Vault</a>
                     </li>
                     <li className="me-5 profile-pills">
                       <a href="#3a" data-toggle="tab">Completed</a>
@@ -1604,4 +1601,4 @@ function TargetPrivate() {
   );
 }
 
-export default TargetPrivate;
+export default VaultPlanDashboard;
