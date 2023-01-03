@@ -136,7 +136,7 @@ function DashboardFlex() {
               </div>
             </div>
             <div className="row mt-5">
-              <Link className="current-flex px-5 py-5">
+              <Link data-bs-toggle="modal" data-bs-target="#review-dib" type="button" to="#" className="current-flex px-5 py-5">
                 <div>
                   <h2>Your Current <span style={{color: "#E8356D"}}>DIB</span> Plan</h2>
                   <p className="float-end review-dib" style={{marginTop: "-30px"}}>Review DIB <i className="bi bi-chevron-right"></i></p>
@@ -294,6 +294,242 @@ function DashboardFlex() {
             </div>
           </div>
         </div>
+        {/* Modal for Review DIB */}
+        <div className="modal flex-modal fade" id="review-dib" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal px-4 py-2">
+                  <div className="mx-3 row">
+                    <div className="col text-center">
+                      <h3 className="topuptarget">Review DIB plan</h3>
+                      {/* <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" style={{width:"100%"}}>Top Up</button> */}
+                    </div>
+                  </div>
+                  <div className="row target-details px-5 mt-5">
+                    <div className="col-md-6">
+                      <h6>Amount</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>₦200,000.00</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Dreams</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>₦500,000.00</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>Interest</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>₦15000 (11%/p.a)</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>How much you save</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>₦40,000(Monthly)</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>How you earn</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>₦250k - ₦500k</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row target-details px-5">
+                    <div className="col-md-6">
+                      <h6>How much you spend</h6>
+                    </div>
+                    <div className="col-md-6 text-end">
+                      <p>₦250k - ₦500k</p>
+                    </div>
+                    <hr/>
+                  </div>
+                  <div className="row my-5 justify-content-center px-5">
+                    <div className="col-md-5 text-center">
+                      <h5>Automation</h5>
+                      <label className="switch mt-2">
+                        <input type="checkbox" placeholder="USD" />
+                        <span className="slider round"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div className="row next-saving my-3 px-5">
+                    <div className="col-md-6">
+                      <h5>Next Saving Date</h5>
+                      <h6>24-01-2022</h6>
+                    </div>
+                    <div className="col-md-6 mt-3">
+                      <div className="d-flex flex-row">
+                        <h6>₦50,000.00</h6>
+                        <img src={visacard} alt="Visa Card" className="img-fluid ms-3" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row px-5 btn-private">
+                    <div className="col-md-6">
+                      <Link data-bs-toggle="modal" data-bs-target="#settings" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Withdraw</Link>
+                    </div>
+                    <div className="col-md-6">
+                      <Link data-bs-toggle="modal" data-bs-target="#settings" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Settings</Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal for Recent Activities */}
+        <div className="modal flex-modal fade" id="recentactivities" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="row px-5">
+                <div className="col">
+                  <Link data-bs-toggle="modal" data-bs-target="#targetplan" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                </div>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal px-4 py-2">
+                  <div className="c-tar px-5 py-4">
+                    <div className="history-title">
+                      <h3 className="rec-act">Recent Activities</h3>
+                      <span className="sub-head">Most recent activities for this savings</span>
+                    </div>
+                    {/* <div className="switches-container deposit-container mt-3">
+                      <input type="radio" id="switchMonthly" name="switchPlan" value="Monthly" checked="checked" />
+                      <input type="radio" id="switchYearly" name="switchPlan" value="Yearly" />
+                      <label htmlFor="switchMonthly">Transactions</label>
+                      <label htmlFor="switchYearly">Missed deposits</label>
+                      <div className="switch-wrapper">
+                        <div className="switchies">
+                          <div>Transactions</div>
+                          <div>Missed deposits</div>
+                        </div>
+                      </div>
+                    </div> */}
+                    <div className="row mt-5">
+                      <div className="col-md-4">
+                        <h5>Description </h5>
+                      </div>
+                      <div className="col-md-3">
+                        <h5>Date</h5>
+                      </div>
+                      <div className="col-md-3">
+                        <h5>Amount</h5>
+                      </div>
+                      <div className="col-md-2">
+                        <h5>Reason</h5>
+                      </div>
+                    </div>
+                    <div className="row mt-2 border-bottom py-3">
+                      <div className="col-md-4">
+                        <div className="d-flex flex-row">
+                          <img src={withdraw} alt="" className="img-fluid me-3" />
+                          <h6>Top Up</h6>
+                        </div>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>30 Days</h6>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>₦4,000.00 </h6>
+                      </div>
+                      <div className="col-md-2">
+                        <h6> </h6>
+                      </div>
+                    </div>
+                    <div className="row justify-content-center mt-2 py-3">
+                      <div className="col-md-4">
+                        <div className="d-flex flex-row">
+                          <img src={withdraw} alt="" className="img-fluid me-3" />
+                          <h6>Travel</h6>
+                        </div>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>4hrs</h6>
+                      </div>
+                      <div className="col-md-3">
+                        <h6>400.00 </h6>
+                      </div>
+                      <div className="col-md-2">
+                        <h6>Emergency</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal for Settings */}
+        <div className="modal flex-modal fade" id="settings" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="row px-5">
+                <div className="col">
+                  <Link data-bs-toggle="modal" data-bs-target="#review-dib" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                </div>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal px-4 py-2">
+                  <div className="c-tar px-5 py-4">
+                    <div className="history-title">
+                      <h3 className="rec-act">Settings</h3>
+                      <span className="sub-head">Make preferred changes to your Dreams</span>
+                    </div>
+                    <div className="row">
+                      <div className="col">
+                        <form className="mt-4">
+                          <div className="mb-3">
+                            <label className="form-label label-target">Edit primary source</label>
+                            <select className="form-select p-select tar-select">
+                              <option selected>Edit primary source</option>
+                              <option value="2">Dilla</option>
+                              <option value="3">SAN</option>
+                            </select>
+                          </div>
+                          <div className="mb-3">
+                            <input type="password" className="form-control target-form tar-form" id="" placeholder="Enter Password"/>
+                          </div>
+                          <div>
+                            <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3" style={{width: "100%"}}>Submit</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Modal for Target Private */}
         <div className="modal flex-modal fade" id="targetplan" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog right-dialog">
@@ -439,71 +675,6 @@ function DashboardFlex() {
           </div>
         </div>
 
-        {/* Modal for Recent Activities */}
-        <div className="modal flex-modal fade" id="recentactivities" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog right-dialog">
-            <div className="modal-content right-content">
-              <div className="modal-header">
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div className="row px-5">
-                <div className="col">
-                  <Link data-bs-toggle="modal" data-bs-target="#targetplan" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
-                </div>
-              </div>
-              <div className="modal-body flex-modal-body">
-                <div className="container initiate-modal px-4 py-2">
-                  <div className="c-tar px-5 py-4">
-                    <div className="history-title">
-                      <h3 className="rec-act">Recent Activities</h3>
-                      <span className="sub-head">Most recent activities for this savings</span>
-                    </div>
-                    <div className="row justify-content-center mt-5">
-                      <div className="col-md-5">
-                        <h5>Target </h5>
-                      </div>
-                      <div className="col-md-3">
-                        <h5>Date</h5>
-                      </div>
-                      <div className="col-md-3">
-                        <h5>Amount</h5>
-                      </div>
-                    </div>
-                    <div className="row justify-content-center mt-2 border-bottom py-3">
-                      <div className="col-md-5">
-                        <div className="d-flex flex-row">
-                          <img src={withdraw} alt="" className="img-fluid me-3" />
-                          <h6>Transportation</h6>
-                        </div>
-                      </div>
-                      <div className="col-md-3">
-                        <h6>30 Days</h6>
-                      </div>
-                      <div className="col-md-3">
-                        <h6>₦4,000.00 </h6>
-                      </div>
-                    </div>
-                    <div className="row justify-content-center mt-2 py-3">
-                      <div className="col-md-5">
-                        <div className="d-flex flex-row">
-                          <img src={withdraw} alt="" className="img-fluid me-3" />
-                          <h6>Travel</h6>
-                        </div>
-                      </div>
-                      <div className="col-md-3">
-                        <h6>30 Days</h6>
-                      </div>
-                      <div className="col-md-3">
-                        <h6>₦4,000.00 </h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Modal for Extension */}
         <div className="modal flex-modal fade" id="extension" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog right-dialog">
@@ -558,55 +729,7 @@ function DashboardFlex() {
           </div>
         </div>
 
-        {/* Modal for Settings */}
-        <div className="modal flex-modal fade" id="settings" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog right-dialog">
-            <div className="modal-content right-content">
-              <div className="modal-header">
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div className="row px-5">
-                <div className="col">
-                  <Link data-bs-toggle="modal" data-bs-target="#targetplan" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
-                </div>
-              </div>
-              <div className="modal-body flex-modal-body">
-                <div className="container initiate-modal px-4 py-2">
-                  <div className="c-tar px-5 py-4">
-                    <div className="history-title">
-                      <h3 className="rec-act">Settings</h3>
-                      <span className="sub-head">Make preferred changes to your Target</span>
-                    </div>
-                    <div className="row">
-                      <div className="col">
-                        <form className="mt-4">
-                          <div className="mb-3">
-                            <label className="form-label label-target">Edit Target name</label>
-                            <input type="number" className="form-control target-form tar-form" id="" placeholder="Transportation"/>
-                          </div>
-                          <div className="mb-3">
-                            <label className="form-label label-target">Edit Target description</label>
-                            <input type="text" className="form-control target-form tar-form" placeholder="Save for rainy days" />
-                          </div>
-                          <div className="mb-3">
-                            <label className="form-label label-target">Edit primary source</label>
-                            <input type="number" className="form-control target-form tar-form" id="" placeholder="Dilla"/>
-                          </div>
-                          <div className="mb-3">
-                            <input type="password" className="form-control target-form tar-form" id="" placeholder="Enter Password"/>
-                          </div>
-                          <div>
-                            <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3" style={{width: "100%"}}>Submit</button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
         {/* Modal for Break */}
         <div className="modal flex-modal fade" id="break" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1086,145 +1209,7 @@ function DashboardFlex() {
           </div>
         </div>
 
-        {/* Modal for Global -Public Target */}
-        <div className="modal flex-modal fade" id="global-create" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog right-dialog">
-            <div className="modal-content right-content">
-              <div className="modal-header">
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div className="modal-body flex-modal-body">
-                <div className="container initiate-modal px-4 py-2">
-                  <div className="mx-3 row">
-                    <div className="col text-center">
-                      <h3 className="topuptarget">NGN 10,000</h3>
-                      <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" style={{width:"100%"}}>Top Up</button>
-                    </div>
-                  </div>
-                  <div className="row target-details px-5 mt-3">
-                    <div className="col-md-6">
-                      <h6>Name</h6>
-                    </div>
-                    <div className="col-md-6 text-end">
-                      <p>Transportation</p>
-                    </div>
-                    <hr/>
-                  </div>
-                  <div className="row target-details px-5">
-                    <div className="col-md-6">
-                      <h6>Target</h6>
-                    </div>
-                    <div className="col-md-6 text-end">
-                      <p>₦100,000.00</p>
-                    </div>
-                    <hr/>
-                  </div>
-                  <div className="row target-details px-5">
-                    <div className="col-md-6">
-                      <h6>Interest</h6>
-                    </div>
-                    <div className="col-md-6 text-end">
-                      <p>₦15000 (11%/p.a)</p>
-                    </div>
-                    <hr/>
-                  </div>
-                  <div className="row target-details px-5">
-                    <div className="col-md-6">
-                      <h6>Maturity</h6>
-                    </div>
-                    <div className="col-md-6 text-end">
-                      <p>200 days left</p>
-                    </div>
-                    <hr/>
-                  </div>
-                  <div className="row target-details px-5">
-                    <div className="col-md-6">
-                      <h6>Frequency</h6>
-                    </div>
-                    <div className="col-md-6 text-end">
-                      <p>10,000 (Monthly)</p>
-                    </div>
-                    <hr/>
-                  </div>
-                  <div className="c-tar px-5 py-4">
-                    <div className="history-title">
-                      <h3>Recent Activities</h3>
-                      <h4 className="float-end">view all</h4>
-                    </div>
-                    <div className="row justify-content-center mt-3">
-                      <div className="col-md-5">
-                        <h5>Target </h5>
-                      </div>
-                      <div className="col-md-3">
-                        <h5>Date</h5>
-                      </div>
-                      <div className="col-md-3">
-                        <h5>Amount</h5>
-                      </div>
-                    </div>
-                    <div className="row justify-content-center mt-2 border-bottom py-2">
-                      <div className="col-md-5">
-                        <div className="d-flex flex-row">
-                          <img src={withdraw} alt="" className="img-fluid me-3" />
-                          <h6>Transportation</h6>
-                        </div>
-                      </div>
-                      <div className="col-md-3">
-                        <h6>30 Days</h6>
-                      </div>
-                      <div className="col-md-3">
-                        <h6>₦4,000.00 </h6>
-                      </div>
-                    </div>
-                    <div className="row justify-content-center mt-2 py-2">
-                      <div className="col-md-5">
-                        <div className="d-flex flex-row">
-                          <img src={withdraw} alt="" className="img-fluid me-3" />
-                          <h6>Travel</h6>
-                        </div>
-                      </div>
-                      <div className="col-md-3">
-                        <h6>30 Days</h6>
-                      </div>
-                      <div className="col-md-3">
-                        <h6>₦4,000.00 </h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row justify-content-center px-5">
-                    <div className="col-md-5 text-center">
-                      <h5>Automation</h5>
-                      <label className="switch mt-2">
-                        <input type="checkbox" placeholder="USD" />
-                        <span className="slider round"></span>
-                      </label>
-                    </div>
-                  </div>
-                  <div className="row next-saving my-3 px-5">
-                    <div className="col-md-6">
-                      <h5>Next Saving Date</h5>
-                      <h6>24-01-2022</h6>
-                    </div>
-                    <div className="col-md-6 mt-3">
-                      <div className="d-flex flex-row">
-                        <h6>₦50,000.00</h6>
-                        <img src={visacard} alt="Visa Card" className="img-fluid ms-3" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row px-5 btn-private">
-                    <div className="col-md-6">
-                      <Link data-bs-toggle="modal" data-bs-target="#settings" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Settings</Link>
-                    </div>
-                    <div className="col-md-6">
-                      <Link data-bs-toggle="modal" data-bs-target="#break" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Break</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </section>
   );
