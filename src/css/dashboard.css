@@ -194,17 +194,25 @@ input:checked + .slider:before {
 
 .generate {
   color: #fff!important;
-  font-weight: 600!important;
-  font-size: 14px!important;
+  font-weight: 500!important;
+  font-size: 12px!important;
 }
 
 .one {
   padding-bottom: 21px!important;
   background-color: #8807F7!important;
+  background-image: url('../img/dashboard/san-bg.png');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover; 
 }
 
 .two {
   background-color: #E8356D!important;
+  /* background-image: url('../img/dashboard/dilla-bg.png'); */
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover; 
 }
 
 .three {
