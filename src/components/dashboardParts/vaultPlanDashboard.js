@@ -19,9 +19,7 @@ import top from "../../img/dashboard/top.png";
 import visacard from "../../img/dashboard/visa-card.svg";
 import done from "../../img/dashboard/done.svg";
 import completed from "../../img/dashboard/top-completed.png";
-import publictarget from "../../img/dashboard/public.png";
-import members from "../../img/dashboard/members.svg";
-import global from "../../img/dashboard/globe.png";
+
 
 
 
@@ -103,7 +101,7 @@ function VaultPlanDashboard() {
         <div className="row">
           <div className="d-flex flex-row privatelinks">
             <Link className="me-5" to="/flexplan-dashboard">DIB</Link>
-            <Link className="me-5">Dreams</Link>
+            <Link className="me-5" to="/target-private">Dreams</Link>
             <Link className="me-5 target-active" to="/vaultplan-dashboard">Vault</Link>
           </div>
         </div>
@@ -119,7 +117,7 @@ function VaultPlanDashboard() {
                 <h5>₦40,000.00 </h5>
               </div>
               <div className="col-md-6">
-                <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">Create new target</button>
+                <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">Top up</button>
               </div>
             </div>
             {/* <div className="row mt-5">
@@ -176,7 +174,7 @@ function VaultPlanDashboard() {
                               </div>
                               <div className="col-md-6 text-end">
                                 <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
+                                <h3>10,000 (Monthly)</h3>
                               </div>
                             </div>
                           </div>
@@ -205,7 +203,7 @@ function VaultPlanDashboard() {
                               </div>
                               <div className="col-md-6 text-end">
                                 <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
+                                <h3>10,000 (Monthly)</h3>
                               </div>
                             </div>
                           </div>
@@ -236,7 +234,7 @@ function VaultPlanDashboard() {
                               </div>
                               <div className="col-md-6 text-end">
                                 <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
+                                <h3>10,000 (Monthly)</h3>
                               </div>
                             </div>
                           </div>
@@ -265,14 +263,14 @@ function VaultPlanDashboard() {
                               </div>
                               <div className="col-md-6 text-end">
                                 <p>Frequency</p>
-                                <h3>15000 (11%/p.a)</h3>
+                                <h3>10,000 (Monthly)</h3>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div className="tab-pane quiz-pane" id="2a">
+                    {/* <div className="tab-pane quiz-pane" id="2a">
                       <div className="row mt-5">
                         <Link data-bs-toggle="modal" data-bs-target="#" type="button" to="#" className="col-md-6 mb-3">
                           <img src={publictarget} alt="" className="img-fluid" />
@@ -433,7 +431,7 @@ function VaultPlanDashboard() {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="tab-pane quiz-pane" id="3a">
                       <div className="row mt-5">
                         <Link data-bs-toggle="modal" data-bs-target="#withdraw" type="button" to="#" className="col-md-6 mb-3">
@@ -569,7 +567,7 @@ function VaultPlanDashboard() {
               </div>
               <div className="row justify-content-center mt-3">
                 <div className="col-md-5">
-                  <h5>Target </h5>
+                  <h5>Vault </h5>
                 </div>
                 <div className="col-md-3">
                   <h5>Date</h5>
@@ -609,7 +607,7 @@ function VaultPlanDashboard() {
             </div>
             <div className="private-card px-5 py-4 mt-3">
               <div className="history-title">
-                <h3>Target Behaviour</h3>
+                <h3>Vault Behaviour</h3>
                 <div className="row justify-content-center mt-2 border-bottom py-2">
                   <div className="col-md-6">
                     <h6>Streak</h6>
@@ -728,11 +726,11 @@ function VaultPlanDashboard() {
                   <div className="c-tar px-5 py-4">
                     <div className="history-title">
                       <h3>Recent Activities</h3>
-                      <h4 className="float-end">view all</h4>
+                      <Link data-bs-toggle="modal" data-bs-target="#recentactivities" type="button" to="#" className="float-end">view all</Link>
                     </div>
                     <div className="row justify-content-center mt-3">
                       <div className="col-md-5">
-                        <h5>Target </h5>
+                        <h5>Vault </h5>
                       </div>
                       <div className="col-md-3">
                         <h5>Date</h5>
@@ -797,11 +795,6 @@ function VaultPlanDashboard() {
                     </div>
                     <div className="col-md-6">
                       <Link data-bs-toggle="modal" data-bs-target="#settings" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Settings</Link>
-                    </div>
-                  </div>
-                  <div className="row px-5 mt-3">
-                    <div className="col-md-6">
-                      <Link data-bs-toggle="modal" data-bs-target="#break" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Break</Link>
                     </div>
                   </div>
                 </div>

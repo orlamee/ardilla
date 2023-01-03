@@ -114,10 +114,13 @@ function DashboardFlex() {
                 <span>Total Balance</span>
                 <h5>₦40,000.00 </h5>
               </div>
+              <div className="col-md-6">
+                <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">Top up</button>
+              </div>
             </div>
             <div className="row mt-3">
               <div className="col-md-6">
-                <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">Top Up</button>
+                {/* <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">Top Up</button> */}
                 {/* <div className="switches-container">
                   <input type="radio" id="switchMonthly" name="switchPlan" value="Monthly" checked="checked" />
                   <input type="radio" id="switchYearly" name="switchPlan" value="Yearly" />

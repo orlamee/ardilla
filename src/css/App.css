@@ -155,6 +155,16 @@ nav.navbar {
   line-height: 20px;
 }
 
+.ardilla-btn-inverted{
+  background-color: #fff!important;
+  border-color: #fff!important;
+  border-radius: 60px;
+  color: #3D0072!important;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
 .ardilla-btn:hover {
   background-color: #5f0aaa!important;
   border-color: #5f0aaa!important;

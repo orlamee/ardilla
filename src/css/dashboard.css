@@ -81,8 +81,8 @@ div.content {
 
 .kodename h6 {
   color: #3D0072;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 22px;
+  font-weight: 700;
   line-height: 25px;
 }
 
@@ -97,14 +97,14 @@ div.content {
 }
 
 .san {
-  color: #3D0072;
+  color: #fff;
   font-size: 15px;
   font-weight: 600;
   /* line-height: 12px; */
 }
 
 .amount {
-  color: #3D0072;
+  color: #fff;
   font-size: 20px;
   font-weight: 700;
 }
@@ -120,9 +120,9 @@ div.content {
   border-radius: 20px;
 }
 
-i.bi.bi-eye-fill {
+/* i.bi.bi-eye-fill {
   color: #3D007280;
-}
+} */
 
 .add-money {
   margin-top: -40px;
@@ -193,13 +193,18 @@ input:checked + .slider:before {
 }
 
 .generate {
-  color: #8807F7!important;
+  color: #fff!important;
   font-weight: 600!important;
   font-size: 14px!important;
 }
 
 .one {
   padding-bottom: 21px!important;
+  background-color: #8807F7!important;
+}
+
+.two {
+  background-color: #E8356D!important;
 }
 
 .three {
@@ -228,7 +233,7 @@ input:checked + .slider:before {
 }
 
 .hash {
-  color: #3D00724D!important;
+  color: #fff!important;
   font-size: 18px!important;
   line-height: 20px!important;
   font-weight: 500!important;

@@ -24,6 +24,7 @@ import mp from "../../img/dashboard/mp4.svg";
 import chats from "../../img/dashboard/chat-support.svg";
 import jar from "../../img/dashboard/jar.svg";
 import shield from "../../img/dashboard/shields.svg";
+import daylight from "../../img/dashboard/daylight.svg";
 
 import dayjs from "dayjs";
 import greetPlugin from "dayjs-greet";
@@ -112,13 +113,13 @@ function Sidebar() {
     debounce: 500,
   });
 
-  const today = new Date();
+  // const today = new Date();
 
-  const date =
-    today.getMonth() + "," + today.getDate() + " " + today.getFullYear();
+  // const date =
+  //   today.getMonth() + "," + today.getDate() + " " + today.getFullYear();
 
-  const time =
-    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  // const time =
+  //   today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
   //form log out btn
   const handleLogOut = () => {
@@ -204,20 +205,21 @@ function Sidebar() {
         {/* <div className="container-fluid"> */}
         <div className="row kodename">
           <div className="col-md-6">
-            <h2>
+            {/* <h2>
               Welcome {"<"}
               {user?.kodeHex}
               {"/>"}
-            </h2>
+            </h2> */}
             <h6 className="mt-4">
-              {dayjs(`${date} ${time}`).greet()}.{" "}
-              <i className="bi bi-sun-fill"></i>
+              Good Morning.
+              {/* {dayjs(`${date} ${time}`).greet()}.{" "} */}
+              <img src={daylight} alt="day" className="img-fluid ms-3" />
             </h6>
           </div>
         </div>
         <div className="row mt-4">
           <div className="col-md-4 mb-3">
-            <div className="card p-3 bg-white border border-0 inner-card one">
+            <div className="card p-3 border border-0 inner-card one">
               <div className="d-flex flex-row p-2">
                 <span className="me-4 san">SAN</span>
                 <span className="roi">+10.00%</span>
@@ -226,7 +228,7 @@ function Sidebar() {
                 <span className="amount">
                   NGN {Intl.NumberFormat("en-US").format(sanBalance)}
                 </span>
-                <i className="bi bi-eye-fill float-end"></i>
+                <i className="bi bi-eye-fill float-end text-white"></i>
               </div>
               <div className="mt-2 p-2">
                 <div className="details">
@@ -239,7 +241,7 @@ function Sidebar() {
                   </span>
                 </div>
                 <Link
-                  className="add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn fs-6 desktop"
+                  className="add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn-inverted fs-6 desktop"
                   to=""
                 >
                   Add Money
@@ -262,7 +264,7 @@ function Sidebar() {
                 <span className="amount">
                   USD {Intl.NumberFormat("en-US").format(dillaWallet)}
                 </span>
-                <i className="bi bi-eye-fill float-end"></i>
+                <i className="bi bi-eye-fill float-end text-white"></i>
               </div>
               <div className="mt-4 p-2">
                 <label className="switch">
@@ -270,7 +272,7 @@ function Sidebar() {
                   <span className="slider round"></span>
                 </label>
                 <Link
-                  className="float-end btn btn-outline-primary px-4 py-2 ardilla-btn fs-6"
+                  className="float-end btn btn-outline-primary px-4 py-2 ardilla-btn-inverted fs-6"
                   to=""
                 >
                   Add Money
