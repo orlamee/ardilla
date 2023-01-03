@@ -116,7 +116,7 @@ div.content {
 }
 
 .inner-card {
-  box-shadow: 0px 6px 12px rgba(134, 133, 133, 0.06);
+  /* box-shadow: 0px 6px 12px rgba(134, 133, 133, 0.06); */
   border-radius: 20px;
 }
 
@@ -205,18 +205,34 @@ input:checked + .slider:before {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover; 
+  box-shadow: 0px 15px 22px rgb(197 155 223);
 }
 
 .two {
   background-color: #E8356D!important;
-  /* background-image: url('../img/dashboard/dilla-bg.png'); */
-  background-position: 50%;
+  background-image: url('../img/dashboard/dilla-bg.png');
+  background-position: 65%;
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: 598px 292px;
+  box-shadow: 0px 15px 22px rgb(193 150 171);
 }
 
 .three {
   padding-bottom: 21px!important;
+  background-color: #F9F9F9;
+  border: 1px solid rgba(136, 7, 247, 0.1);
+}
+
+.three .san {
+  color: #3D0072!important;
+}
+
+.three .amount {
+  color: #3D0072!important;
+}
+
+.three .bi-eye-fill {
+  color: #3D007280;
 }
 
 .kyc {
@@ -228,6 +244,13 @@ input:checked + .slider:before {
   line-height: 14px;
   font-weight: 700;
   color: #3D0072;
+}
+
+.new-kyc h3 {
+  font-size: 18px;
+  line-height: 14px;
+  font-weight: 500;
+  color: #9CA3AF!important;
 }
 
 .second-nav {
