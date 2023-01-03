@@ -98,17 +98,17 @@ function DashboardFlex() {
       <div className="content py-5 px-5 t-private">
         <div className="row">
           <div className="d-flex flex-row privatelinks">
-            <Link className="me-5 target-active">Flex</Link>
-            <Link className="me-5" to="/target-private">Target</Link>
+            <Link className="me-5 target-active">DIB</Link>
+            <Link className="me-5" to="/target-private">Dreamsfixes</Link>
             <Link className="me-5">Family and I</Link>
-            <Link className="me-5">Safe lock</Link>
+            <Link className="me-5">Vault</Link>
             <Link className="me-5">VIP</Link>
           </div>
         </div>
         <div className="row mt-5">
           <div className="col-md-6 t-savings">
             <div className="d-flex flex-row">
-              <h2 className="me-4">Flex Savings</h2>
+              <h2 className="me-4">DIB Savings</h2>
               <Link to="/learn" className="mt-3">Learn More</Link>
             </div>
             <div className="row mt-4">

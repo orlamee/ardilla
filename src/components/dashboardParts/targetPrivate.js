@@ -102,10 +102,10 @@ function TargetPrivate() {
       <div className="content py-5 px-5 t-private">
         <div className="row">
           <div className="d-flex flex-row privatelinks">
-            <Link className="me-5" to="/flexplan-dashboard">Flex</Link>
-            <Link className="me-5 target-active">Target</Link>
+            <Link className="me-5" to="/flexplan-dashboard">DIB</Link>
+            <Link className="me-5 target-active">Dreams</Link>
             <Link className="me-5">Family and I</Link>
-            <Link className="me-5">Safe lock</Link>
+            <Link className="me-5">Vault</Link>
             <Link className="me-5">VIP</Link>
           </div>
         </div>
