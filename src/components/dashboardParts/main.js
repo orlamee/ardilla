@@ -425,9 +425,9 @@ function Sidebar() {
             <div className="goal-card refer-bg px-4">
               <h1 style={{color: "#3C0071"}}>Earn</h1>
               <small>Invite using your Kode Hex.</small>
-              <h6 className="mt-5">
+              <Link className="mt-5" to="/profile/referral">
                 Click here <i className="bi bi-arrow-right"></i>
-              </h6>
+              </Link>
             </div>
           </div>
         </div>
