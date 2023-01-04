@@ -1,6 +1,6 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 
-body {
+html,body {
   /* background-color: #fef5fc; */
   overflow-x: hidden!important;
   -webkit-box-sizing: border-box;
@@ -107,6 +107,13 @@ nav.navbar {
 }
 
 @media (min-width: 992px){
+  .login-form-new {
+    box-shadow: 0px 0px 0px rgba(10, 7, 12, 0.15)!important;
+    border-radius: 0px!important;
+  }
+}
+
+@media (min-width: 992px){
   .login-form {
     background-color: transparent;
     padding: 50px 50px;
@@ -121,6 +128,13 @@ nav.navbar {
     padding: 50px 26px;
     box-shadow: 0px 12px 24px rgba(10, 7, 12, 0.15);
     border-radius: 20px;
+  }
+}
+
+@media (max-width: 767.98px){
+  .login-form-new {
+    box-shadow: 0px 0px 0px rgba(10, 7, 12, 0.15)!important;
+    border-radius: 0px!important;
   }
 }
 
@@ -507,8 +521,8 @@ h6 a {
   background-position: 50%!important;
   background-repeat: no-repeat!important;
   background-size: cover!important; 
-  height: 100%!important;;
-  margin: 0!important;;
+  height: 100%!important;
+  margin: 0!important;
 }
 
 .verify-section {
@@ -560,4 +574,48 @@ h6 a {
 
 .fix-bottom {
   padding-bottom: 200px!important;
+}
+
+.new-aside {
+  background-image: url('../img/Right.svg');
+  background-repeat: no-repeat!important;
+  background-size: cover!important; 
+}
+
+.half, .half .container > .row {
+  height: 100vh;
+}
+
+@media (max-width: 991.98px) {
+  .half .bg {
+    height: 500px; 
+  }
+}
+
+.half .contents, .half .bg {
+  width: 50%; 
+}
+
+.half .bg {
+  background-size: cover;
+  background-position: center; 
+}
+
+@media (max-width: 767.98px){
+  .half .contents, .half .bg {
+    width: 100%; 
+  }
+}
+
+.new-sign h5 {
+  color: #9CA3AF;
+  font-size: 15px;
+  line-height: 17px;
+}
+
+@media (min-width: 992px){
+  .logo-new {
+    margin-top: -62px;
+    margin-left: 43px;
+  }
 }
