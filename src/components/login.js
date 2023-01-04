@@ -179,16 +179,6 @@ function Login() {
           </div>
         </div>
       )}
-      {/* <div className="container">
-        <div className="row logo">
-          <div className="col-md-6 ">
-            <Link to="/">
-              <img src={logo} alt="" className="img-fluid mb-5" />
-            </Link>
-          </div>
-        </div>
-
-      </div> */}
       <div className="d-lg-flex half">
         <div className="bg order-1 order-md-2 new-aside"></div>
           <div className="contents order-2 order-md-1">
