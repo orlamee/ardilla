@@ -10,20 +10,21 @@ import learn from "../../img/dashboard/learn.svg";
 import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
-import badge from "../../img/dashboard/badge.svg";
+import badge from "../../img/dashboard/b-cadet.svg";
 import chat from "../../img/dashboard/chat.svg";
 import pie from "../../img/dashboard/piechart.svg";
+import medal from "../../img/dashboard/medal.svg";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { useIdleTimer } from "react-idle-timer";
 import chart from "../../img/dashboard/new-graph.png";
 // import coins from "../../img/dashboard/coinss/s.svg";
-import video from "../../img/dashboard/video.png";
-import call from "../../img/dashboard/call.svg";
-import mp from "../../img/dashboard/mp4.svg";
-import chats from "../../img/dashboard/chat-support.svg";
-import jar from "../../img/dashboard/jar.svg";
-import shield from "../../img/dashboard/shields.svg";
+import ceo from "../../img/dashboard/ceo.svg";
+// import call from "../../img/dashboard/call.svg";
+// import mp from "../../img/dashboard/mp4.svg";
+// import chats from "../../img/dashboard/chat-support.svg";
+import jar from "../../img/dashboard/new-jar.svg";
+import shield from "../../img/dashboard/new-shield.svg";
 import daylight from "../../img/dashboard/daylight.svg";
 import op from "../../img/dashboard/op.svg";
 
@@ -235,11 +236,11 @@ function Sidebar() {
                 <div className="details">
                   <span className="hash">**********</span>
                   <br />
-                  <span className="generate">
+                  <Link className="generate" to="/profile/kyc">
                     {/* {userDetail?.firstname} {userDetail?.lastname} */}
                     Generate Account Number{" "}
                     <i className="bi bi-arrow-right-circle-fill"></i>
-                  </span>
+                  </Link>
                 </div>
                 <Link
                   className="add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn-inverted fs-6 desktop"
@@ -257,7 +258,7 @@ function Sidebar() {
             </div>
           </div>
           <div className="col-md-4 mb-3">
-            <div className="card px-3 py-4 bg-white border border-0 inner-card two">
+            <div className="card px-3 py-5 bg-white border border-0 inner-card two">
               <div className="d-flex flex-row p-2">
                 <span className="me-4 san">Dilla Wallet</span>
               </div>
@@ -311,9 +312,10 @@ function Sidebar() {
           <div className="col-md-4 mb-3">
             <div className="card py-5 px-3 kyc-card border border-0 inner-card">
               <div className="row">
-                <div className="col-md-6 text-center">
+                <div className="col-md-6 text-center color-link">
                   {/* Add pie chart. */}
                   <img src={pie} alt="" className="img-fluid" />
+                  <Link to="/profile/kyc">Complete your KYC <i className="bi bi-arrow-right"></i></Link>
                 </div>
                 <div className="col-md-6 mt-4">
                   <div className="form-check mb-2">
@@ -321,6 +323,7 @@ function Sidebar() {
                       className="form-check-input red"
                       type="checkbox"
                       defaultChecked
+                      disabled
                     />
                     <label className="form-check-label custom-check ">
                       Add Phone Number
@@ -331,6 +334,7 @@ function Sidebar() {
                       className="form-check-input"
                       type="checkbox"
                       defaultChecked
+                      disabled
                     />
                     <label className="form-check-label custom-check">
                       Add Your BVN
@@ -341,13 +345,14 @@ function Sidebar() {
                       className="form-check-input red"
                       type="checkbox"
                       // defaultChecked
+                      disabled
                     />
                     <label className="form-check-label custom-check">
                       Upload your Utility bill
                     </label>
                   </div>
                   <div className="form-check mb-2">
-                    <input className="form-check-input" type="checkbox" />
+                    <input className="form-check-input" type="checkbox" disabled />
                     <label className="form-check-label custom-check">
                       Upload Your Valid ID
                     </label>
@@ -362,75 +367,63 @@ function Sidebar() {
         </div>
         <div className="row roi-cards">
           <div className="col-md-4 mb-3 text-center">
-            <div className="card-new">
+            <div className="card-new-one carder-bottom">
               <img src={op} alt="charts" className="img-fluid" />
+              <h6 className="my-3">Unprecedented access to<br/>investment opportunities</h6>
+              <p>20% Monthly ROI</p>
+              <Link>Start Investing <i className="bi bi-arrow-right"></i></Link>
             </div>
           </div>
-          <div className="col-md-4 mb-3">
-            <div className="cards-roi px-5">
-              <span>
-                Build your savings
-                <br />
-                the right way
-              </span>
-              <h6 className="my-3">
-                Save Now <i className="bi bi-arrow-right"></i>
-              </h6>
-              <div className="row">
-                <div className="col-md-6 percentile">
-                  <h5>12% Annual ROI</h5>
-                </div>
-                <div className="col-md-6 text-end">
-                  <img src={jar} alt="" className="img-fluid" />
-                </div>
-              </div>
+          <div className="col-md-4 mb-3 text-center">
+            <div className="card-new-one jar-bg">
+              <img src={jar} alt="charts" className="img-fluid" />
+              <h6 className="my-3">Build your savings the<br/>right way</h6>
+              <p>20% Monthly ROI</p>
+              <Link to="/savings">Start Saving <i className="bi bi-arrow-right"></i></Link>
             </div>
           </div>
-          <div className="col-md-4 mb-3">
-            <div className="cards-roi px-5 insured">
-              <span>
-                Insurance policies
-                <br />
-                you can trust
-              </span>
-              <h6 className="my-3">
-                Make your first claim <i className="bi bi-arrow-right"></i>
-              </h6>
-              <div className="row">
-                <div className="col-md-6 percentile">
-                  <h5>12% Annual ROI</h5>
-                </div>
-                <div className="col-md-6 text-end">
-                  <img src={shield} alt="" className="img-fluid" />
-                </div>
-              </div>
+          <div className="col-md-4 mb-3 text-center">
+            <div className="card-new-one shield-bg">
+              <img src={shield} alt="charts" className="img-fluid" />
+              <h6 className="my-3">Insurance policies you<br/>can trust</h6>
+              <p>20% Monthly ROI</p>
+              <Link>Make your first claim <i className="bi bi-arrow-right"></i></Link>
             </div>
           </div>
         </div>
         <div className="row goals">
           <div className="col-md-4 mb-3">
-            <h2 className="mb-5">Badge</h2>
-            <figure className="figure">
-              <img src={badge} alt="" className="img-fluid" />
-              <figcaption className="text-center figure-caption">
-                Beginner
-              </figcaption>
-            </figure>
-          </div>
-          <div className="col-md-4 mb-3">
-            <h2 className="mb-5">Goals</h2>
-            <div className="goal-card px-5">
-              <h1>Financial Success & You</h1>
-              <small>Create a goal</small>
-              <h6 className="mt-5">
-                Start Investing <i className="bi bi-arrow-right"></i>
-              </h6>
+            <h2 className="mb-4">Rank</h2>
+            <div className="goal-card px-4">
+              <div className="row">
+                <div className="col-md-5">
+                  <h1>Cadet</h1>
+                  <p>Move up your Rank by completing transactions</p>
+                </div>
+                <div className="col-md-7 text-end">
+                  <img src={badge} alt="cadet" className="img-fluid" width="200px" />
+                </div>
+              </div>
             </div>
           </div>
           <div className="col-md-4 mb-3">
-            <h2 className="mb-5">Referrals</h2>
-            <div className="refer-card px-5">
-              <h1>Refer & Earn</h1>
+            <h2 className="mb-4">Badges</h2>
+            <div className="goal-card beginner-card px-4">
+              <div className="row">
+                <div className="col-md-5">
+                  <h1 style={{color: "#3C0071"}}>Beginner</h1>
+                  <p>Move up your Rank by completing transactions</p>
+                </div>
+                <div className="col-md-7 text-end">
+                  <img src={medal} alt="cadet" className="img-fluid medal-img" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4 mb-3">
+            <h2 className="mb-4">Referrals</h2>
+            <div className="goal-card refer-bg px-4">
+              <h1 style={{color: "#3C0071"}}>Earn</h1>
               <small>Invite using your Kode Hex.</small>
               <h6 className="mt-5">
                 Click here <i className="bi bi-arrow-right"></i>
@@ -439,27 +432,28 @@ function Sidebar() {
           </div>
         </div>
         <div className="row goals">
-          <div className="col-md-4 mb-3">
-            <h2 className="mb-5">Money Wise</h2>
-            <div className="refer-card wise px-5">
-              <h1>Financial nuggets</h1>
-              <small>
-                Take a step towards financial literacy
-                <br />
-                with financial advice from the best
-                <br />
-                minds in the game.
-              </small>
-              <h6 className="mt-5">
-                Click here <i className="bi bi-arrow-right"></i>
-              </h6>
+          <h2 className="mb-4">Money Wise</h2>
+          <div className="m-wise">
+            <div className="row">
+              <div className="col-md-7">
+                <h1>Financial nuggets</h1>
+                <p className="mt-4">
+                  Take a step towards financial literacy
+                  with financial advice from the best
+                  <br />
+                  minds in the game.
+                </p>
+                <h6 className="mt-5">
+                  Click here <i className="bi bi-arrow-right"></i>
+                </h6>
+              </div>
+              <div className="col-md-5">
+                <img src={ceo} alt="ceo" className="img-fluid" />
+              </div>
             </div>
           </div>
-          <div className="col-md-5 text-end" style={{ marginLeft: "212px" }}>
-            <img src={video} alt="" className="img-fluid" />
-          </div>
         </div>
-        <div className="row support-card p-5">
+        {/* <div className="row support-card p-5">
           <div className="col-md-6 mt-3">
             <h4>Get Introduced to your personal dilla coach</h4>
             <h6 className="mt-4">
@@ -483,10 +477,10 @@ function Sidebar() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="row goals">
           <div className="col-md-6">
-            <h2 className="mb-5">Explore</h2>
+            <h2 className="mb-4">Explore</h2>
           </div>
         </div>
         <div className="row footer-dashboard">
