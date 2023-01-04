@@ -213,8 +213,9 @@ input:checked + .slider:before {
   background-image: url('../img/dashboard/dilla-bg.png');
   background-position: 65%;
   background-repeat: no-repeat;
-  background-size: 598px 292px;
+  background-size: 570px 339px;
   box-shadow: 0px 15px 22px rgb(193 150 171);
+  padding-bottom: 41px!important;
 }
 
 .three {
@@ -272,8 +273,8 @@ input:checked + .slider:before {
 
 @media (min-width: 992px){
   .chartjs {
-    margin-top: -90px;
-    margin-left: 145px;
+    margin-top: -10px;
+    margin-left: 25px;
 
   }
 

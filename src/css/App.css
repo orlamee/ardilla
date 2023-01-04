@@ -243,6 +243,11 @@ input [type=email] {
   border-color: #8807F7;
 }
 
+.red:checked {
+  background-color: #E8356D!important;
+  border-color: #E8356D!important;
+}
+
 .separator{
   display:flex;
   align-items: center;
@@ -513,7 +518,7 @@ h6 a {
 .ardilla-alert {
   position: absolute;
   right: 40px;
-  width: 700px;
+  width: 800px;
 }
 
 .verify-body {
@@ -618,4 +623,8 @@ h6 a {
     margin-top: -62px;
     margin-left: 43px;
   }
+}
+
+.kyc-card {
+  background-color: #F9F9F9;
 }
