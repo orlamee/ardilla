@@ -443,9 +443,7 @@ function Sidebar() {
                   <br />
                   minds in the game.
                 </p>
-                <h6 className="mt-5">
-                  Click here <i className="bi bi-arrow-right"></i>
-                </h6>
+                  <Link to="/learn" className="mt-5">Click here <i className="bi bi-arrow-right"></i></Link>
               </div>
               <div className="col-md-5">
                 <img src={ceo} alt="ceo" className="img-fluid" />
