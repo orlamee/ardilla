@@ -72,7 +72,7 @@ function CreatePin() {
       }
 
       const { data } = await axios.post(
-        `https://ardilla.herokuapp.com/ardilla/api/auth//set-transaction-pin/${user._id}`,
+        `https://ardilla.herokuapp.com/ardilla/api/auth/set-transaction-pin/${user._id}`,
         { code, confirmCode }
       );
 

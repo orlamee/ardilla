@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../../css/profile.css"
+import "../../css/profile.css";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -14,11 +14,63 @@ import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
 import avi from "../../img/dashboard/avi-profilr.svg";
 import badge from "../../img/dashboard/profile-bdg.svg";
+import axios from "axios";
 
-
+// import {fill} from "@cloudinary/url-gen/actions/resize";
+// import {CloudinaryImage} from '@cloudinary/url-gen';
 
 function ProfileMain() {
-    return (
+  let user = JSON.parse(sessionStorage.getItem("user"));
+
+  const [userDetails, setUserDetails] = useState();
+  const [profileImg, setProfileImg] = useState();
+  const [img, setImg] = useState();
+
+  useEffect(() => {
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+        );
+
+        setUserDetails(data.user);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getUserById();
+  }, [user._id]);
+
+  function previewFile(file) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onloadend = () => {
+      setImg(reader.result);
+    };
+  }
+
+  const handlePic = (e) => {
+    const file = e.target.files[0];
+    setProfileImg(file);
+    previewFile(file);
+  };
+
+  const handleUpload = async () => {
+    try {
+      const { data } = await axios.post(`http://localhost:4000/`, {
+        image: img,
+      });
+
+      console.log(data);
+      // getUserById();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
     <section className="main-dash">
       <div className="sidebar">
         <Link to="/dashboard" className="">
@@ -100,28 +152,75 @@ function ProfileMain() {
         <div className="row mt-5">
           <div className="col-md-6">
             <div className="mb-4">
-              <Link to="/profile" type="button" className="btn me-3 btn-profile active"> <i className="bi bi-person-fill me-2"></i> Personal Information</Link>
+              <Link
+                to="/profile"
+                type="button"
+                className="btn me-3 btn-profile active"
+              >
+                {" "}
+                <i className="bi bi-person-fill me-2"></i> Personal Information
+              </Link>
             </div>
             <div className="mb-4">
-              <Link to="/profile/security" type="button" className="btn me-3 btn-profile"> <i className="bi bi-shield-lock me-2"></i> Security</Link>
+              <Link
+                to="/profile/security"
+                type="button"
+                className="btn me-3 btn-profile"
+              >
+                {" "}
+                <i className="bi bi-shield-lock me-2"></i> Security
+              </Link>
             </div>
             <div className="mb-4">
-              <Link to="/profile/get-help" type="button" className="btn me-3 btn-profile"> <i className="bi bi-patch-question-fill me-2"></i> Get Help</Link>
+              <Link
+                to="/profile/get-help"
+                type="button"
+                className="btn me-3 btn-profile"
+              >
+                {" "}
+                <i className="bi bi-patch-question-fill me-2"></i> Get Help
+              </Link>
             </div>
             <div className="mb-4">
-              <Link to="/profile/account" type="button" className="btn me-3 btn-profile"> <i className="bi bi-person-square me-2"></i> Account</Link>
+              <Link
+                to="/profile/account"
+                type="button"
+                className="btn me-3 btn-profile"
+              >
+                {" "}
+                <i className="bi bi-person-square me-2"></i> Account
+              </Link>
             </div>
             <div className="mb-4">
-              <Link to="/profile/referral" type="button" className="btn me-3 btn-profile"> <i className="bi bi-share-fill me-2"></i> Referral</Link>
+              <Link
+                to="/profile/referral"
+                type="button"
+                className="btn me-3 btn-profile"
+              >
+                {" "}
+                <i className="bi bi-share-fill me-2"></i> Referral
+              </Link>
             </div>
             <div className="mb-4">
-              <Link to="/profile/kyc" type="button" className="btn me-3 btn-profile"> <i className="bi bi-person-check-fill me-2"></i> KYC</Link>
+              <Link
+                to="/profile/kyc"
+                type="button"
+                className="btn me-3 btn-profile"
+              >
+                {" "}
+                <i className="bi bi-person-check-fill me-2"></i> KYC
+              </Link>
             </div>
-            
           </div>
           <div className="col-md-6 right-profile">
             <div className="d-flex flex-row">
-              <img src={avi} alt="" className="img-fluid" />
+              <input type="file" name="file" onChange={handlePic} />
+              <img
+                src={img ? img : avi}
+                alt=""
+                className="img-fluid"
+                // onClick={handleUpload}
+              />
               <img src={badge} alt="" className="img-fluid" />
             </div>
             <form>
@@ -131,7 +230,12 @@ function ProfileMain() {
                 </div>
                 <div className="col-md-4">
                   {/* <form> */}
-                    <input type="text" className="form-control target-form p-form" defaultValue="Starboy" required/>
+                  <input
+                    type="text"
+                    className="form-control target-form p-form"
+                    defaultValue={userDetails?.kodeHex}
+                    required
+                  />
                   {/* </form> */}
                 </div>
               </div>
@@ -140,7 +244,9 @@ function ProfileMain() {
                   <h5>Name</h5>
                 </div>
                 <div className="col-md-4">
-                  <p>Ola Ola</p>
+                  <p>
+                    {userDetails?.firstname} {userDetails?.lastname}
+                  </p>
                 </div>
               </div>
               <div className="row mt-3">
@@ -156,7 +262,7 @@ function ProfileMain() {
                   <h5>Email</h5>
                 </div>
                 <div className="col-md-4">
-                  <p>johndoe@gmail.com</p>
+                  <p>{userDetails?.email}</p>
                 </div>
               </div>
               <div className="row mt-3">
@@ -164,7 +270,10 @@ function ProfileMain() {
                   <h5>Gender</h5>
                 </div>
                 <div className="col-md-4">
-                  <select className="form-select p-select" aria-label="Default select example">
+                  <select
+                    className="form-select p-select"
+                    aria-label="Default select example"
+                  >
                     <option selected>Male</option>
                     <option value="2">Female</option>
                     <option value="3">Trans</option>
@@ -175,7 +284,7 @@ function ProfileMain() {
             <div className="row mt-5">
               <div className="col-md-8">
                 <h3>Next of Kin</h3>
-                <hr/>
+                <hr />
               </div>
             </div>
             <div>
@@ -186,7 +295,12 @@ function ProfileMain() {
                   </div>
                   <div className="col-md-4">
                     {/* <form> */}
-                      <input type="text" className="form-control target-form p-form" placeholder="Enter first name" required/>
+                    <input
+                      type="text"
+                      className="form-control target-form p-form"
+                      placeholder="Enter first name"
+                      required
+                    />
                     {/* </form> */}
                   </div>
                 </div>
@@ -196,7 +310,12 @@ function ProfileMain() {
                   </div>
                   <div className="col-md-4">
                     {/* <form> */}
-                      <input type="text" className="form-control target-form p-form" placeholder="Enter last name" required/>
+                    <input
+                      type="text"
+                      className="form-control target-form p-form"
+                      placeholder="Enter last name"
+                      required
+                    />
                     {/* </form> */}
                   </div>
                 </div>
@@ -206,7 +325,12 @@ function ProfileMain() {
                   </div>
                   <div className="col-md-4">
                     {/* <form> */}
-                      <input type="text" className="form-control target-form p-form" placeholder="Enter phone number" required/>
+                    <input
+                      type="text"
+                      className="form-control target-form p-form"
+                      placeholder="Enter phone number"
+                      required
+                    />
                     {/* </form> */}
                   </div>
                 </div>
@@ -216,7 +340,12 @@ function ProfileMain() {
                   </div>
                   <div className="col-md-4">
                     {/* <form> */}
-                      <input type="email" className="form-control target-form p-form" placeholder="enter email" required/>
+                    <input
+                      type="email"
+                      className="form-control target-form p-form"
+                      placeholder="enter email"
+                      required
+                    />
                     {/* </form> */}
                   </div>
                 </div>
@@ -225,14 +354,22 @@ function ProfileMain() {
                     <h5>Relationship</h5>
                   </div>
                   <div className="col-md-4">
-                    <select className="form-select p-select" aria-label="Default select example">
+                    <select
+                      className="form-select p-select"
+                      aria-label="Default select example"
+                    >
                       <option selected>Cousin</option>
                       <option value="2">Wife</option>
                       <option value="3">Uncle</option>
                     </select>
                   </div>
                 </div>
-                <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="">Save Changes</Link>
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                  to=""
+                >
+                  Save Changes
+                </Link>
               </form>
             </div>
           </div>
