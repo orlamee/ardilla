@@ -237,7 +237,7 @@ function PortfolioBody() {
             <div className="new-p text-center">
               <img src={psan} alt="san" className="img-fluid" />
               <h3 className="my-3">Savings</h3>
-              <Link to="/">View your savings portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
+              <Link to="/savings-portfolio">View your savings portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
             </div>
           </div>
           <div className="col-md-6 mb-3">

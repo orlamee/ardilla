@@ -89,6 +89,7 @@ import CustomSaveVault from "./dashboard/vaultCustomSave";
 import CustomVault from "./dashboard/customVaultPlanDashboard";
 import DashboardFlexPlan from "./dashboard/dashboardFlexPlan";
 import VaultDash from "./dashboard/dashboardVaultPlan";
+import PortfolioSavings from "./dashboard/savingsPortfolio";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -200,6 +201,7 @@ root.render(
       <Route path="/custom-vault" element={<CustomVault/>}></Route>
       <Route path="/flexplan-dashboard" element={<DashboardFlexPlan/>}></Route>
       <Route path="/vaultplan-dashboard" element={<VaultDash/>}></Route>
+      <Route path="/savings-portfolio" element={<PortfolioSavings/>}></Route>
 
 
 
