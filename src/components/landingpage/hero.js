@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import demo from "../../img/demo.svg";
+import demo from "../../img/home-hero.svg";
 import left from "../../img/left.svg";
 
 
@@ -9,10 +9,10 @@ function Hero() {
     <section className="banner">
       <div className="container">
         <div className="row">
-          <div className="col-md-6 mb-3" >
-            <h2 className="desktop">The Smartest<br/>way to grow<br/>your wealth</h2>
-            <h2 className="mobile">The Smartest way to grow your wealth</h2>
-            <h6 className="my-5">Ardilla helps you save and invest in achieving your<br/>financial goals, we have the most flexible and seamless<br/>way to grow your funds.</h6>
+          <div className="col-md-6 mb-3 mt-5" >
+            <h2 className="desktop">Your <span style={{color: "#E8356D"}}>Access</span> <br/>To <span style={{color: "#E8356D"}}>More</span></h2>
+            <h2 className="mobile">Your Access To More</h2>
+            <h6 className="my-5">Ardilla helps you save and invest in achieving your financial goals, we<br/>have the most flexible and seamless way to grow your funds.</h6>
             <Link className='btn btn-outline-primary px-5 py-3 ardilla-btn fs-6' to="/">Get Started</Link>
           </div>
           <div className="col-md-6 text-end">
