@@ -286,7 +286,7 @@ function SavingsBody() {
             </div>
           </div>
           <div className="col-md-6 mb-3">
-            <div className="new-pp">
+            <div className="new-pp overlay">
               <div className="row">
                 <div className="col-md-2 text-end">
                   <img src={psan} alt="" className="img-fluid" />
@@ -297,7 +297,7 @@ function SavingsBody() {
                       <h3>GRIT</h3>
                       <span className="dibbg">12% p.a</span>
                     </div>
-                    <p>Everyone needs an emergency fund. We make it DIBible and<br/>automatic.</p>
+                    <p>For the big-time savers. Save more and get more<br/>interest.</p>
                     <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3">Create a Grit</button>
                   </div>
                 </div>
@@ -307,7 +307,7 @@ function SavingsBody() {
         </div>
         <div className="row mt-4">
           <div className="col-md-6 mb-3">
-            <div className="new-pp">
+            <div className="new-pp overlay">
               <div className="row">
                 <div className="col-md-2 text-end">
                   <img src={psan} alt="" className="img-fluid" />
@@ -318,13 +318,10 @@ function SavingsBody() {
                       <h3>CLAN</h3>
                       <span className="dibbg">12% p.a</span>
                     </div>
-                    <p>Everyone needs an emergency fund. We make it DIBible and<br/>automatic.</p>
+                    <p>The family matters. Save collectively or individually for your <br/>family members.</p>
                     <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3">Create a Clan</button>
                   </div>
                 </div>
-              </div>
-              <div className="overlay">
-                <p className="text-center">Coming Soon</p>
               </div>
             </div>
           </div>
