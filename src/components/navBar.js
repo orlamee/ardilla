@@ -189,9 +189,9 @@ function Header() {
           <div className="ms-auto">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link me-3" to="/login">
+                <a className="nav-link me-3" href="/login">
                   Sign in
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
                 <Link
