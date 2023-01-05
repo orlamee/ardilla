@@ -12,7 +12,6 @@ import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
 import linechart from "../../img/dashboard/linechart.svg";
-import withdraw from "../../img/dashboard/w-icon.svg";
 
 import Cookies from "js-cookie";
 
@@ -34,13 +33,13 @@ function SavingPortfolio() {
             Home
           </div>
         </Link>
-        <Link to="/portfolio" className="">
+        <Link to="/portfolio" className="active">
           <div className="d-flex flex-row">
             <img src={portfolio} alt="" className="img-fluid me-2 icons" />
             Portfolio
           </div>
         </Link>
-        <Link to="/savings" className="active">
+        <Link to="/savings" className="">
           <div className="d-flex flex-row">
             <img src={saving} alt="" className="img-fluid me-2 icons" />
             Savings
