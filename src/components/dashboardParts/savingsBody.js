@@ -239,7 +239,7 @@ function SavingsBody() {
                       <span className="dibbg">12% p.a</span>
                     </div>
                     <p>Everyone needs an emergency fund. We make it DIBible and<br/>automatic.</p>
-                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3">Create a DIB Plan</button>
+                    <Link to="/flex-plan" className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#FBBF24", borderColor: "#FBBF24"}}>Create a DIB Plan</Link>
                   </div>
                 </div>
               </div>
@@ -258,7 +258,7 @@ function SavingsBody() {
                       <span className="dibbg" style={{background: "#F8BFD1"}}>12% p.a</span>
                     </div>
                     <p>Dreams do come through. Save up for that dream phone, car, house, or any other goal you have.</p>
-                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#E8356D", borderColor: "#E8356D"}}>Create a Dream</button>
+                    <Link to="target-plan" className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#E8356D", borderColor: "#E8356D"}}>Create a Dream</Link>
                   </div>
                 </div>
               </div>
@@ -279,7 +279,7 @@ function SavingsBody() {
                       <span className="dibbg" style={{background: "#BAFCE8"}}>12% p.a</span>
                     </div>
                     <p>Make your money, make more money. Lock up your extra cash and make a profit,<br/>rather than spending it all and wondering what happened.</p>
-                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#069669", borderColor: "#069669"}}>Create a Vault</button>
+                    <Link to="/vault" className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#069669", borderColor: "#069669"}}>Create a Vault</Link>
                   </div>
                 </div>
               </div>
@@ -313,7 +313,7 @@ function SavingsBody() {
                   <img src={psan} alt="" className="img-fluid" />
                 </div>
                 <div className="col-md-8">
-                   <div className="dibb">
+                  <div className="dibb">
                     <div className="d-flex flex-row mb-2">
                       <h3>CLAN</h3>
                       <span className="dibbg">12% p.a</span>
@@ -322,6 +322,9 @@ function SavingsBody() {
                     <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3">Create a Clan</button>
                   </div>
                 </div>
+              </div>
+              <div className="overlay">
+                <p className="text-center">Coming Soon</p>
               </div>
             </div>
           </div>
@@ -332,3 +335,5 @@ function SavingsBody() {
 }
 
 export default SavingsBody;
+
+

@@ -243,7 +243,7 @@ function PortfolioBody() {
           <div className="col-md-6 mb-3">
             <div className="new-p text-center" style={{background:"#FDF1F5"}}>
               <img src={psaving} alt="san" className="img-fluid" />
-              <h3 className="my-3" style={{color: "#E8356D"}}>SAN</h3>
+              <h3 className="my-3" style={{color: "#E8356D"}}>Budgeting</h3>
               <Link>View your SAN portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
             </div>
           </div>
