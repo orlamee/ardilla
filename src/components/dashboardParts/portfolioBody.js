@@ -241,23 +241,26 @@ function PortfolioBody() {
             </div>
           </div>
           <div className="col-md-6 mb-3">
-            <div className="new-p text-center" style={{background:"#FDF1F5"}}>
-              <img src={psaving} alt="san" className="img-fluid" />
-              <h3 className="my-3" style={{color: "#E8356D"}}>Budgeting</h3>
-              <Link>View your SAN portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
+            <div className="overlay">
+              <div className="new-p text-center" style={{background:"#FDF1F5"}}>
+                <img src={psaving} alt="san" className="img-fluid" />
+                <h3 className="my-3" style={{color: "#E8356D"}}>Budgeting</h3>
+                <Link>View your SAN portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
+              </div>
             </div>
+            
           </div>
         </div>
         <div className="row mt-2">
           <div className="col-md-6 mb-3">
-            <div className="new-p text-center" style={{background: "#F0FEFA"}}>
+            <div className="new-p text-center overlay" style={{background: "#F0FEFA"}}>
               <img src={pinvest} alt="san" className="img-fluid" />
               <h3 className="my-3" style={{color: "#069669"}}>Investment</h3>
               <Link>View your investment portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
             </div>
           </div>
           <div className="col-md-6 mb-3">
-            <div className="new-p text-center" style={{background: "#F8F0FF"}}>
+            <div className="new-p text-center overlay" style={{background: "#F8F0FF"}}>
               <img src={pinsurance} alt="san" className="img-fluid" />
               <h3 className="my-3" style={{color: "#8807F7"}}>Insurance</h3>
               <Link>View your insurance portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
