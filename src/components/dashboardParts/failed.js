@@ -20,7 +20,7 @@ import pass from "../../img/dashboard/pass.svg";
 
 
 
-function ProfileKYC() {
+function ProfileKYCFailed() {
     return (
     <section className="main-dash">
       <div className="sidebar">
@@ -125,7 +125,7 @@ function ProfileKYC() {
           <div className="col-md-6 right-profile">
             <div className="d-flex flex-row kyc-profile">
               <img src={pie} alt="" className="img-fluid" />
-              <h5 className="mt-5 ms-4">2 of 4 Completed</h5>
+              <h5 className="mt-5 ms-4">KYC Not Approved</h5>
             </div>
             <form>
               <div className="row mt-3">
@@ -151,33 +151,33 @@ function ProfileKYC() {
                 </div>
               </div>
               <div className="row mt-5">
-                <h5>Upload Your valid ID <small>Please make sure your document is clear and genuine</small></h5>
+                <h5>Upload Your valid ID <small style={{color: "#E8356D"}}>Document not auntheticated, please reupload</small></h5>
               </div>
               <div className="row mt-5">
                 <div className="col-md-4">
                   <div className="card-upload text-center p-4">
                     <img src={up} alt="" className="img-fluid" />
                     <h6>Upload the Front View</h6>
-                    <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5>
+                    {/* <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5> */}
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="card-upload text-center p-4">
                     <img src={up} alt="" className="img-fluid" />
                     <h6>Upload the Back View</h6>
-                    <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5>
+                    {/* <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5> */}
                   </div>
                 </div>
               </div>
               <div className="row mt-5">
-                <h5>Upload Your Utility ID <small>Please make sure your document is clear and genuine</small></h5>
+                <h5>Upload Your valid ID <small style={{color: "#E8356D"}}>Document not auntheticated, please reupload</small></h5>
               </div>
               <div className="row mt-5">
                 <div className="col-md-4">
                   <div className="card-upload text-center p-4">
                     <img src={cloud} alt="" className="img-fluid" />
                     <h6>Upload Utility Bill</h6>
-                    <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5>
+                    {/* <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5> */}
                   </div>
                 </div>
               </div>
@@ -189,4 +189,4 @@ function ProfileKYC() {
   );
 }
 
-export default ProfileKYC;
+export default ProfileKYCFailed;

@@ -90,6 +90,9 @@ import CustomVault from "./dashboard/customVaultPlanDashboard";
 import DashboardFlexPlan from "./dashboard/dashboardFlexPlan";
 import VaultDash from "./dashboard/dashboardVaultPlan";
 import PortfolioSavings from "./dashboard/savingsPortfolio";
+import KYCReview from "./dashboard/reviewKYC";
+import KYCFailed from "./dashboard/failedKYC";
+import KYCCompleted from "./dashboard/completeKYC";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -183,6 +186,9 @@ root.render(
       <Route path="/profile/account" element={<ProfileAccountSettings/>}></Route>
       <Route path="/profile/referral" element={<ProfileRefer/>}></Route>
       <Route path="/profile/kyc" element={<KYC/>}></Route>
+      <Route path="/kyc-review" element={<KYCReview/>}></Route>
+      <Route path="/kyc-failed" element={<KYCFailed/>}></Route>
+      <Route path="/kyc-completed" element={<KYCCompleted/>}></Route>
 
       <Route path="/payment" element={<Payment/>}></Route>
       <Route path="/explore" element={<ExplorePage/>}></Route>

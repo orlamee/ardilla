@@ -209,6 +209,20 @@
   border-radius: 10px;
 }
 
+.card-upload h6 {
+  color: #3C0071;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.card-upload h5 {
+  color: #9CA3AF;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
 .san-transaction {
   background: #F9F9F9;
   border-radius: 10px;
@@ -718,4 +732,14 @@ h3.topuptarget {
   font-size: 25px!important;
   line-height: 28px!important;
   font-weight: 500!important;
+}
+
+.right-profile small {
+  margin-left: 20px;
+  color: #3D0072;
+  font-weight: 600;
+}
+
+.review-bg {
+  background-color: #FFF8E3!important;
 }

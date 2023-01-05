@@ -13,14 +13,13 @@ import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
 import pie from "../../img/dashboard/50.svg";
-import cloud from "../../img/dashboard/cloud.svg";
-import up from "../../img/dashboard/up.svg";
+import check from "../../img/dashboard/Check.svg";
 import pass from "../../img/dashboard/pass.svg";
 
 
 
 
-function ProfileKYC() {
+function ProfileKYCReview() {
     return (
     <section className="main-dash">
       <div className="sidebar">
@@ -151,33 +150,30 @@ function ProfileKYC() {
                 </div>
               </div>
               <div className="row mt-5">
-                <h5>Upload Your valid ID <small>Please make sure your document is clear and genuine</small></h5>
+                <h5>Upload Your valid ID</h5>
               </div>
               <div className="row mt-5">
                 <div className="col-md-4">
-                  <div className="card-upload text-center p-4">
-                    <img src={up} alt="" className="img-fluid" />
-                    <h6>Upload the Front View</h6>
-                    <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5>
+                  <div className="card-upload text-center p-4 review-bg">
+                    <img src={check} alt="" className="img-fluid" />
+                    <h6 className="mt-2">Upload Succesful Awaiting confirmation...</h6>
                   </div>
                 </div>
                 <div className="col-md-4">
-                  <div className="card-upload text-center p-4">
-                    <img src={up} alt="" className="img-fluid" />
-                    <h6>Upload the Back View</h6>
-                    <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5>
+                  <div className="card-upload text-center p-4 review-bg">
+                    <img src={check} alt="" className="img-fluid" />
+                    <h6 className="mt-2">Upload Succesful Awaiting confirmation...</h6>
                   </div>
                 </div>
               </div>
               <div className="row mt-5">
-                <h5>Upload Your Utility ID <small>Please make sure your document is clear and genuine</small></h5>
+                <h5>Upload Your Utility ID</h5>
               </div>
-              <div className="row mt-5">
+              <div className="row mt-4">
                 <div className="col-md-4">
-                  <div className="card-upload text-center p-4">
-                    <img src={cloud} alt="" className="img-fluid" />
-                    <h6>Upload Utility Bill</h6>
-                    <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5>
+                  <div className="card-upload text-center p-4 review-bg">
+                    <img src={check} alt="" className="img-fluid" />
+                    <h6 className="mt-2">Upload Succesful Awaiting confirmation...</h6>
                   </div>
                 </div>
               </div>
@@ -189,4 +185,4 @@ function ProfileKYC() {
   );
 }
 
-export default ProfileKYC;
+export default ProfileKYCReview;
