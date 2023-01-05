@@ -14,6 +14,8 @@ import chat from "../../img/dashboard/chat.svg";
 import psan from "../../img/dashboard/dibb.svg";
 import withdraw from "../../img/dashboard/w-icon.svg";
 import drims from "../../img/dashboard/drims.svg";
+import grit from "../../img/dashboard/gritt.svg";
+import clan from "../../img/dashboard/clann.svg";
 import vlt from "../../img/dashboard/vlt.svg";
 import { useIdleTimer } from "react-idle-timer";
 import axios from "axios";
@@ -289,16 +291,16 @@ function SavingsBody() {
             <div className="new-pp overlay">
               <div className="row">
                 <div className="col-md-2 text-end">
-                  <img src={psan} alt="" className="img-fluid" />
+                  <img src={grit} alt="" className="img-fluid" />
                 </div>
                 <div className="col-md-8">
                    <div className="dibb">
                     <div className="d-flex flex-row mb-2">
                       <h3>GRIT</h3>
-                      <span className="dibbg">12% p.a</span>
+                      <span className="dibbg" style={{background: "#F6EBFE"}}>12% p.a</span>
                     </div>
                     <p>For the big-time savers. Save more and get more<br/>interest.</p>
-                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3">Create a Grit</button>
+                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#8807F7", borderColor: "#8807F7"}}>Create a Grit</button>
                   </div>
                 </div>
               </div>
@@ -310,16 +312,16 @@ function SavingsBody() {
             <div className="new-pp overlay">
               <div className="row">
                 <div className="col-md-2 text-end">
-                  <img src={psan} alt="" className="img-fluid" />
+                  <img src={clan} alt="" className="img-fluid" />
                 </div>
                 <div className="col-md-8">
                   <div className="dibb">
                     <div className="d-flex flex-row mb-2">
                       <h3>CLAN</h3>
-                      <span className="dibbg">12% p.a</span>
+                      <span className="dibbg" style={{background: "#F6EBFE"}}>12% p.a</span>
                     </div>
                     <p>The family matters. Save collectively or individually for your <br/>family members.</p>
-                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3">Create a Clan</button>
+                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#8807F7", borderColor: "#8807F7"}}>Create a Clan</button>
                   </div>
                 </div>
               </div>
