@@ -23,8 +23,11 @@ function ProfileMain() {
   let user = JSON.parse(sessionStorage.getItem("user"));
 
   const [userDetails, setUserDetails] = useState();
-  const [profileImg, setProfileImg] = useState();
-  const [img, setImg] = useState();
+  // const [profileImg, setProfileImg] = useState({});
+  // const [img, setImg] = useState();
+  // const [image, setImage] = useState({ preview: "", data: "" });
+
+  const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
     const getUserById = async () => {
@@ -42,32 +45,39 @@ function ProfileMain() {
     getUserById();
   }, [user._id]);
 
-  function previewFile(file) {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   let formData = new FormData();
+  //   formData.append("file", image.data);
 
-    reader.onloadend = () => {
-      setImg(reader.result);
-    };
-  }
+  //   const response = await fetch("http://localhost:4000/image", {
+  //     method: "POST",
+  //     body: formData,
+  //   });
 
-  const handlePic = (e) => {
-    const file = e.target.files[0];
-    setProfileImg(file);
-    previewFile(file);
-  };
+  //   console.log(response);
+  //   // if (response) setStatus(response.statusText)
+  // };
 
-  const handleUpload = async () => {
-    try {
-      const { data } = await axios.post(`http://localhost:4000/`, {
-        image: img,
-      });
+  // const handleFileChange = (e) => {
+  //   const img = {
+  //     preview: URL.createObjectURL(e.target.files[0]),
+  //     data: e.target.files[0],
+  //   };
 
-      console.log(data);
-      // getUserById();
-    } catch (error) {
-      console.log(error);
-    }
+  //   setImage(img);
+  // };
+
+  // onSubmit={handleSubmit} encType="multipart/form-data"
+  //  onChange={(e) => handleFileChange(e)}
+
+  const handleFileInput = (e) => {
+    // handle validations
+    setSelectedFile(e.target.files[0]);
+    const stuff = e.target.files[0];
+
+    console.log(selectedFile);
+    console.log(stuff);
   };
 
   return (
@@ -214,14 +224,15 @@ function ProfileMain() {
           </div>
           <div className="col-md-6 right-profile">
             <div className="d-flex flex-row">
-              <input type="file" name="file" onChange={handlePic} />
-              <img
-                src={img ? img : avi}
-                alt=""
-                className="img-fluid"
-                // onClick={handleUpload}
-              />
-              <img src={badge} alt="" className="img-fluid" />
+              <form>
+                <input type="file" onChange={handleFileInput} />
+
+                <img src={avi} alt="" className="img-fluid" />
+
+                <img src={badge} alt="" className="img-fluid" />
+
+                <button type="submit">Submit</button>
+              </form>
             </div>
             <form>
               <div className="row mt-5">
