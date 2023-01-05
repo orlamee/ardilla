@@ -213,7 +213,7 @@ input:checked + .slider:before {
   background-image: url('../img/dashboard/dilla-bg.png');
   background-position: 65%;
   background-repeat: no-repeat;
-  background-size: 570px 339px;
+  background-size: 604px 352px;
   box-shadow: 0px 15px 22px rgb(193 150 171);
   padding-bottom: 17px!important;
 }
