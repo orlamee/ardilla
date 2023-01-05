@@ -237,14 +237,14 @@ function PortfolioBody() {
             <div className="new-p text-center">
               <img src={psan} alt="san" className="img-fluid" />
               <h3 className="my-3">Savings</h3>
-              <Link to="/">View your savings portfolio <i class="bi bi-arrow-right-circle-fill"></i></Link>
+              <Link to="/">View your savings portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
             </div>
           </div>
           <div className="col-md-6 mb-3">
             <div className="new-p text-center" style={{background:"#FDF1F5"}}>
               <img src={psaving} alt="san" className="img-fluid" />
               <h3 className="my-3" style={{color: "#E8356D"}}>SAN</h3>
-              <Link>View your SAN portfolio <i class="bi bi-arrow-right-circle-fill"></i></Link>
+              <Link>View your SAN portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
             </div>
           </div>
         </div>
@@ -253,14 +253,14 @@ function PortfolioBody() {
             <div className="new-p text-center" style={{background: "#F0FEFA"}}>
               <img src={pinvest} alt="san" className="img-fluid" />
               <h3 className="my-3" style={{color: "#069669"}}>Investment</h3>
-              <Link>View your investment portfolio <i class="bi bi-arrow-right-circle-fill"></i></Link>
+              <Link>View your investment portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
             </div>
           </div>
           <div className="col-md-6 mb-3">
             <div className="new-p text-center" style={{background: "#F8F0FF"}}>
               <img src={pinsurance} alt="san" className="img-fluid" />
               <h3 className="my-3" style={{color: "#8807F7"}}>Insurance</h3>
-              <Link>View your insurance portfolio <i class="bi bi-arrow-right-circle-fill"></i></Link>
+              <Link>View your insurance portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
             </div>
           </div>
         </div>

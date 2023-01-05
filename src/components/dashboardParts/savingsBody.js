@@ -11,19 +11,10 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
-import flex from "../../img/dashboard/flex.svg";
-import percent from "../../img/dashboard/per.svg";
-import hone from "../../img/dashboard/deposit-icon.svg";
-import withdrawal from "../../img/dashboard/withdraw.svg";
-import chart from "../../img/dashboard/stats-chart.svg";
-import red from "../../img/dashboard/red.svg";
-import yellow from "../../img/dashboard/yellow.svg";
-import purple from "../../img/dashboard/purple.svg";
-import blue from "../../img/dashboard/blue.svg";
-import get from "../../img/dashboard/target-icon.svg";
-import lock from "../../img/dashboard/lock.svg";
-import family from "../../img/dashboard/family.svg";
-import vip from "../../img/dashboard/vip.svg";
+import psan from "../../img/dashboard/dibb.svg";
+import withdraw from "../../img/dashboard/w-icon.svg";
+import drims from "../../img/dashboard/drims.svg";
+import vlt from "../../img/dashboard/vlt.svg";
 import { useIdleTimer } from "react-idle-timer";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -160,257 +151,176 @@ function SavingsBody() {
       </div>
       <div className="content py-5 px-5">
         <div className="row">
-          <div className="col-md-7">
-            <div className="total-savings">
-              <h3>Total Savings</h3>
-              <div className="d-flex flex-row my-3">
-                <p>NGN 0.00</p>
-                <i className="bi bi-eye-fill ms-5 save-eyes"></i>
+          <div className="col-md-4 mb-3">
+            <div className="card px-3 py-5 border inner-card three">
+              <div className="d-flex flex-row p-2">
+                <span className="me-4 san">Total Funds</span>
               </div>
-              <div className="d-flex flex-row">
+              <div className="p-2 mt-3">
+                <span className="amount">
+                  NGN 400,000.00
+                </span>
+                <i className="bi bi-eye-fill float-end"></i>
+              </div>
+              <div className="d-flex flex-row mt-3">
                 <label className="switch">
                   <input type="checkbox" placeholder="USD" />
                   <span className="slider round"></span>
                 </label>
-                <span className="dollar mt-2 ms-2">₦740 /$1</span>
+                <span className="ms-2 mt-2 dollar-rate" style={{color: "#B69FC9"}}>₦740 /$1</span>
               </div>
             </div>
+            <div className="mt-4 saving-learn">
+              <Link>Learn More about savings <i className="bi bi-chevron-right"></i></Link>
+            </div>
           </div>
-          <div className="col-md-5 dilla-section text-end mt-5">
-            <span className="learn">
-              Learn More <i className="bi bi-chevron-right"></i>
-            </span>
+          <div className="col-md-3"></div>
+          <div className="col-md-5">
+            <div className="save-hist">
+              <div className="">
+                <h3>History</h3>
+                <h4 className="float-end">See all</h4>
+              </div>
+              <div className="row mt-5">
+                <div className="col-md-6" style={{marginTop: "-7px"}}>
+                  <h6><img src={withdraw} alt="withdraw" className="img-fluid me-2" /> Savings Withdrawal</h6>
+                </div>
+                <div className="col-md-3 text-center">
+                  <h6>1 hr ago</h6>
+                </div>
+                <div className="col-md-3 text-end">
+                  <h6>₦4,000.00 </h6>
+                </div>
+              </div>
+              <hr/>
+              <div className="row mt-2">
+                <div className="col-md-6" style={{marginTop: "-7px"}}>
+                  <h6><img src={withdraw} alt="withdraw" className="img-fluid me-2" /> Savings Withdrawal</h6>
+                </div>
+                <div className="col-md-3 text-center">
+                  <h6>1 hr ago</h6>
+                </div>
+                <div className="col-md-3 text-end">
+                  <h6>₦4,000.00 </h6>
+                </div>
+              </div>
+              <hr/>
+              <div className="row mt-2">
+                <div className="col-md-6" style={{marginTop: "-7px"}}>
+                  <h6><img src={withdraw} alt="withdraw" className="img-fluid me-2" /> Savings Withdrawal</h6>
+                </div>
+                <div className="col-md-3 text-center">
+                  <h6>1 hr ago</h6>
+                </div>
+                <div className="col-md-3 text-end">
+                  <h6>₦4,000.00 </h6>
+                </div>
+              </div>
+              <hr/>
+            </div>
           </div>
         </div>
-        <div className="row create-plan">
+        <div className="row my-5 title-save">
           <div className="col">
             <h4>Create a new savings plan</h4>
           </div>
         </div>
-        <div className="row mt-4">
-          <div className="col-md-7">
-            <div className="flex-section">
-              <img src={percent} alt="" className="img-fluid float-end pc" />
-              <div className="card-s px-4">
-                <div className="row">
-                  <div className="col-md-8">
-                    <div className="d-flex flex-row">
-                      <img src={flex} alt="" className="img-fluid" />
-                      <div className="mt-2 ms-3">
-                        <h5>Flex</h5>
-                        <h6>
-                          Get closer to your goal with autosave. Set
-                          <br /> daily, weekly, or monthly automatic
-                          <br />
-                          deposits. You don’t have to lift a finger.
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4 mt-3">
-                    <Link
-                      className="btn btn-outline-primary px-5 py-3 savings-btn fs-6"
-                      to="/flex-plan"
-                    >
-                      Create a Flex Plan
-                    </Link>
-                  </div>
+        <div className="row">
+          <div className="col-md-6 mb-3">
+            <div className="new-pp">
+              <div className="row">
+                <div className="col-md-2 text-end">
+                  <img src={psan} alt="" className="img-fluid" />
                 </div>
-              </div>
-            </div>
-            <div className="flex-section">
-              <img src={percent} alt="" className="img-fluid float-end pc" />
-              <div className="card-s px-4 bg-target">
-                <div className="row">
-                  <div className="col-md-8">
-                    <div className="d-flex flex-row">
-                      <img src={get} alt="" className="img-fluid" />
-                      <div className="mt-2 ms-3">
-                        <h5>Target</h5>
-                        <h6>
-                          Get closer to your goal with autosave. Set
-                          <br /> daily, weekly, or monthly automatic
-                          <br />
-                          deposits. You don’t have to lift a finger.
-                        </h6>
-                      </div>
+                <div className="col-md-8">
+                   <div className="dibb">
+                    <div className="d-flex flex-row mb-2">
+                      <h3>DIB</h3>
+                      <span className="dibbg">12% p.a</span>
                     </div>
-                  </div>
-                  <div className="col-md-4 mt-3">
-                    <Link
-                      className="btn btn-outline-primary px-5 py-3 savings-btn fs-6"
-                      to="/target-plan"
-                    >
-                      Create a Fixed Plan
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex-section">
-              <img src={percent} alt="" className="img-fluid float-end pc" />
-              <div className="card-s px-4 family-bg">
-                <div className="row">
-                  <div className="col-md-8">
-                    <div className="d-flex flex-row">
-                      <img src={family} alt="" className="img-fluid" />
-                      <div className="mt-2 ms-3">
-                        <h5>Family & I</h5>
-                        <h6>
-                          Get closer to your goal with autosave. Set
-                          <br /> daily, weekly, or monthly automatic
-                          <br />
-                          deposits. You don’t have to lift a finger.
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4 mt-3">
-                    <Link
-                      className="btn btn-outline-primary px-5 py-3 savings-btn fs-6"
-                      to=""
-                      disabled
-                    >
-                      Coming Soon
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex-section">
-              <img src={percent} alt="" className="img-fluid float-end pc" />
-              <div className="card-s px-4 lock-bg">
-                <div className="row">
-                  <div className="col-md-8">
-                    <div className="d-flex flex-row">
-                      <img src={lock} alt="" className="img-fluid" />
-                      <div className="mt-2 ms-3">
-                        <h5>Vault</h5>
-                        <h6>
-                          Get closer to your goal with autosave. Set
-                          <br /> daily, weekly, or monthly automatic
-                          <br />
-                          deposits. You don’t have to lift a finger.
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4 mt-3">
-                    <Link
-                      className="btn btn-outline-primary px-5 py-3 savings-btn fs-6"
-                      to="/vault"
-                    >
-                      Create a Locked Plan
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex-section">
-              <img src={percent} alt="" className="img-fluid float-end pc" />
-              <div className="card-s px-4 vip-bg">
-                <div className="row">
-                  <div className="col-md-8">
-                    <div className="d-flex flex-row">
-                      <img src={vip} alt="" className="img-fluid" />
-                      <div className="mt-2 ms-3">
-                        <h5>VIP</h5>
-                        <h6>
-                          Get closer to your goal with autosave. Set
-                          <br /> daily, weekly, or monthly automatic
-                          <br />
-                          deposits. You don’t have to lift a finger.
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4 mt-3">
-                    <Link
-                      className="btn btn-outline-primary px-5 py-3 savings-btn fs-6"
-                      to="/"
-                    >
-                      Create a VIP Plan
-                    </Link>
+                    <p>Everyone needs an emergency fund. We make it DIBible and<br/>automatic.</p>
+                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3">Create a DIB Plan</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-md-5 dilla-section">
-            <div className="history-card">
-              <div>
-                <h3>History</h3>
-                <p className="float-end view">View all</p>
-              </div>
-              <div className="mt-4">
-                <div className="d-flex flex-row">
-                  <img src={hone} alt="" className="img-fluid me-3" />
-                  <div className="mt-2">
-                    <h6>Savings deposit</h6>
-                    <p>18th Dec 2022</p>
+          <div className="col-md-6 mb-3">
+            <div className="new-pp" style={{background:"#FDF1F5"}}>
+              <div className="row">
+                <div className="col-md-2 text-end">
+                  <img src={drims} alt="" className="img-fluid" />
+                </div>
+                <div className="col-md-8">
+                   <div className="dibb">
+                    <div className="d-flex flex-row mb-2">
+                      <h3>DREAMS</h3>
+                      <span className="dibbg" style={{background: "#F8BFD1"}}>12% p.a</span>
+                    </div>
+                    <p>Dreams do come through. Save up for that dream phone, car, house, or any other goal you have.</p>
+                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#E8356D", borderColor: "#E8356D"}}>Create a Dream</button>
                   </div>
                 </div>
-                <span className="float-end left-number">+20,000</span>
-              </div>
-              <hr />
-              <div className="mt-4">
-                <div className="d-flex flex-row">
-                  <img src={withdrawal} alt="" className="img-fluid me-3" />
-                  <div className="mt-2">
-                    <h6>Savings withdrawal</h6>
-                    <p>12th Dec 2022</p>
-                  </div>
-                </div>
-                <span className="float-end left-number debit">-20,000</span>
               </div>
             </div>
-            <div className="history-card nth-history">
-              <h3>
-                Get access to
-                <br />
-                Investment Opportunites
-              </h3>
-              <p className="mt-3">
-                Start Investing <i className="bi bi-arrow-right"></i>
-              </p>
-              <span className="mt-5">20% Monthly ROI</span>
+          </div>
+        </div>
+        <div className="row mt-4">
+          <div className="col-md-6 mb-3">
+            <div className="new-pp" style={{background: "#F0FEFA"}}>
+              <div className="row">
+                <div className="col-md-2 text-end">
+                  <img src={vlt} alt="" className="img-fluid" />
+                </div>
+                <div className="col-md-8">
+                   <div className="dibb">
+                    <div className="d-flex flex-row mb-2">
+                      <h3>VAULT</h3>
+                      <span className="dibbg" style={{background: "#BAFCE8"}}>12% p.a</span>
+                    </div>
+                    <p>Make your money, make more money. Lock up your extra cash and make a profit,<br/>rather than spending it all and wondering what happened.</p>
+                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#069669", borderColor: "#069669"}}>Create a Vault</button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="history-card bg-stat">
-              <div className="text-center">
-                <h4>Saving Statistics</h4>
-                <img src={chart} alt="" className="img-fluid mt-4" />
-                <div className="text-center mapping mapping-save">
-                  <div className="d-flex flex-row">
-                    <img src={red} alt="" className="img-fluid me-3" />
-                    <p className="mt-3">Savings</p>
-                  </div>
-                  <h3 className="float-end">0.00</h3>
+          </div>
+          <div className="col-md-6 mb-3">
+            <div className="new-pp">
+              <div className="row">
+                <div className="col-md-2 text-end">
+                  <img src={psan} alt="" className="img-fluid" />
                 </div>
-                <div className="text-center mapping mapping-save">
-                  <div className="d-flex flex-row">
-                    <img src={yellow} alt="" className="img-fluid me-3" />
-                    <p className="mt-3">Investment</p>
+                <div className="col-md-8">
+                   <div className="dibb">
+                    <div className="d-flex flex-row mb-2">
+                      <h3>GRIT</h3>
+                      <span className="dibbg">12% p.a</span>
+                    </div>
+                    <p>Everyone needs an emergency fund. We make it DIBible and<br/>automatic.</p>
+                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3">Create a Grit</button>
                   </div>
-                  <h3 className="float-end">0.00</h3>
                 </div>
-                <div className="text-center mapping mapping-save">
-                  <div className="d-flex flex-row">
-                    <img src={purple} alt="" className="img-fluid me-3" />
-                    <p className="mt-3">Insurance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row mt-4">
+          <div className="col-md-6 mb-3">
+            <div className="new-pp">
+              <div className="row">
+                <div className="col-md-2 text-end">
+                  <img src={psan} alt="" className="img-fluid" />
+                </div>
+                <div className="col-md-8">
+                   <div className="dibb">
+                    <div className="d-flex flex-row mb-2">
+                      <h3>CLAN</h3>
+                      <span className="dibbg">12% p.a</span>
+                    </div>
+                    <p>Everyone needs an emergency fund. We make it DIBible and<br/>automatic.</p>
+                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3">Create a Clan</button>
                   </div>
-                  <h3 className="float-end">0.00</h3>
-                </div>
-                <div className="text-center mapping mapping-save">
-                  <div className="d-flex flex-row">
-                    <img src={blue} alt="" className="img-fluid me-3" />
-                    <p className="mt-3">SAN</p>
-                  </div>
-                  <h3 className="float-end">0.00</h3>
-                </div>
-                <div className="mt-5 mapping-save text-start footer-card">
-                  5% Money flow increase
-                  <br />
-                  Well done Boss
                 </div>
               </div>
             </div>
