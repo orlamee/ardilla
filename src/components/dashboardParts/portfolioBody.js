@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -11,95 +11,91 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
-import save from "../../img/dashboard/saving-p.svg";
-import arrow from "../../img/dashboard/right-arrow.svg";
-import invest from "../../img/dashboard/investment-p.svg";
-import san from "../../img/dashboard/san-p.svg";
-import pie from "../../img/dashboard/chart-pie.svg";
-import red from "../../img/dashboard/red.svg";
-import yellow from "../../img/dashboard/yellow.svg";
-import purple from "../../img/dashboard/purple.svg";
-import blue from "../../img/dashboard/blue.svg";
-import port from "../../img/dashboard/portie.svg";
-import { useIdleTimer } from "react-idle-timer";
-import Cookies from "js-cookie";
-import axios from "axios";
+import linear from "../../img/dashboard/linear.svg";
+import stats from "../../img/dashboard/stats.svg";
+import psan from "../../img/dashboard/p-san.svg";
+import pinsurance from "../../img/dashboard/pinsurance.svg";
+import psaving from "../../img/dashboard/p-saving.svg";
+import pinvest from "../../img/dashboard/pinvest.svg";
+// import { useIdleTimer } from "react-idle-timer";
+// import Cookies from "js-cookie";
+// import axios from "axios";
 
 function PortfolioBody() {
-  const navigate = useNavigate();
-  const [dillaWallet, setDillaWallet] = useState({});
+  // const navigate = useNavigate();
+  // const [dillaWallet, setDillaWallet] = useState({});
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  // let user = JSON.parse(sessionStorage.getItem("user"));
 
-  const refreshToken = async () => {
-    try {
-      const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/refresh-token/${Cookies.get(
-          "user"
-        )}`
-      );
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const refreshToken = async () => {
+  //   try {
+  //     const { data } = await axios.get(
+  //       `https://ardilla.herokuapp.com/ardilla/api/auth/refresh-token/${Cookies.get(
+  //         "user"
+  //       )}`
+  //     );
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    const getDillaWallet = async () => {
-      try {
-        const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/get-dilla-wallet/${user._id}`
-        );
+  // useEffect(() => {
+  //   const getDillaWallet = async () => {
+  //     try {
+  //       const { data } = await axios.get(
+  //         `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/get-dilla-wallet/${user._id}`
+  //       );
 
-        setDillaWallet(data.dillaWallet.accountBalance);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  //       setDillaWallet(data.dillaWallet.accountBalance);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
 
-    getDillaWallet();
-  }, [user]);
+  //   getDillaWallet();
+  // }, [user]);
 
-  useEffect(() => {
-    let interval = setInterval(() => {
-      refreshToken();
-    }, 6000);
+  // useEffect(() => {
+  //   let interval = setInterval(() => {
+  //     refreshToken();
+  //   }, 6000);
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
-  const handleOnIdle = () => {
-    sessionStorage.clear();
-    Cookies.remove("user");
-    navigate("/login");
-    console.log("last active", getLastActiveTime());
-  };
+  // const handleOnIdle = () => {
+  //   sessionStorage.clear();
+  //   Cookies.remove("user");
+  //   navigate("/login");
+  //   console.log("last active", getLastActiveTime());
+  // };
 
-  const { getLastActiveTime } = useIdleTimer({
-    timeout: 1000 * 60 * 2,
-    onIdle: handleOnIdle,
-    events: [
-      "mousemove",
-      "keydown",
-      "wheel",
-      "DOMMouseScroll",
-      "mousewheel",
-      "mousedown",
-      "touchstart",
-      "touchmove",
-      "MSPointerDown",
-      "MSPointerMove",
-      "visibilitychange",
-    ],
-    debounce: 500,
-  });
+  // const { getLastActiveTime } = useIdleTimer({
+  //   timeout: 1000 * 60 * 2,
+  //   onIdle: handleOnIdle,
+  //   events: [
+  //     "mousemove",
+  //     "keydown",
+  //     "wheel",
+  //     "DOMMouseScroll",
+  //     "mousewheel",
+  //     "mousedown",
+  //     "touchstart",
+  //     "touchmove",
+  //     "MSPointerDown",
+  //     "MSPointerMove",
+  //     "visibilitychange",
+  //   ],
+  //   debounce: 500,
+  // });
 
-  const handleLogOut = () => {
-    Cookies.remove("user");
-    sessionStorage.clear();
-    navigate("/login");
-    window.location.reload();
-  };
+  // const handleLogOut = () => {
+  //   Cookies.remove("user");
+  //   sessionStorage.clear();
+  //   navigate("/login");
+  //   window.location.reload();
+  // };
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -164,7 +160,7 @@ function PortfolioBody() {
               Chat Support
             </div>
           </Link>
-          <Link onClick={handleLogOut}>
+          <Link>
             <div className="d-flex flex-row">
               <img src={logout} alt="" className="img-fluid me-2 icons" />
               Log Out
@@ -174,137 +170,97 @@ function PortfolioBody() {
       </div>
       <div className="content py-5 px-5">
         <div className="row">
+          <div className="col-md-4 mb-3">
+            <div className="card px-3 py-5 bg-white border border-0 inner-card two">
+              <div className="d-flex flex-row p-2">
+                <span className="me-4 san">Dilla Wallet</span>
+              </div>
+              <div className="p-2 mt-3">
+                <span className="amount">
+                  USD 10,000.00
+                </span>
+                <i className="bi bi-eye-fill float-end text-white"></i>
+              </div>
+              <div className="mt-4 p-2">
+                <div className="d-flex flex-row">
+                  <label className="switch">
+                    <input type="checkbox" placeholder="USD" />
+                    <span className="slider round"></span>
+                  </label>
+                  <span className="text-white ms-2 mt-2 dollar-rate">₦740 /$1</span>
+                </div>
+              
+                <Link
+                  className="float-end btn btn-outline-primary px-4 py-2 ardilla-btn-inverted fs-6"
+                  to="" style={{marginTop: "-37px"}}
+                >
+                  Add Money
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-7 text-end">
+            <img src={linear} alt="chart" className="img-fluid" />
+          </div>
+        </div>
+        <div className="row mt-5">
           <div className="col-md-7">
-            <div className="d-flex flex-row value">
-              <div>
+            <div className="row">
+              <div className="col-md-6 value">
                 <h6 className="mb-2">Market value</h6>
-                <h2 className="mb-2">-NGN 2000 (5%)</h2>
+                <div className="d-flex flex-row">
+                  <h2 className="mb-2 me-3">-NGN 2000 (5%)</h2>
+                  <h3 className="mt-2">+4.oo% (₦5,000.00)</h3>
+                </div>
                 <p>
                   Updated September 16, 2022{" "}
                   <i className="bi bi-clock-history"></i>
                 </p>
               </div>
-              <div className="right-portfolio">
+              <div className="col-md-6 value">
                 <h6 className="mb-2">Today’s change</h6>
-                <h2 className="mb-2">-NGN 2000 (5%)</h2>
-              </div>
-            </div>
-            <div className="text-center mt-4 mb-5">
-              <img src={port} alt="" className="img-fluid chartie mb-5" />
-              <span className="desc">
-                Your portfolio performance between 1/10/2022 & 2/11/2022
-              </span>
-            </div>
-            <div className="card-p p-4 mb-5">
-              <div className="d-flex flex-row">
-                <img src={save} alt="" className="img-fluid" />
-                <div className="mt-2 ms-3">
-                  <h5>
-                    Savings <span className="roi ms-2">+10.00%</span>
-                  </h5>
-                  <h6>View your savings portfolio</h6>
+                <div className="d-flex flex-row">
+                  <h2 className="mb-2 me-3">NGN 2000 (5%)</h2>
+                  <h3 className="mt-2">+4.oo% (₦5,000.00)</h3>
                 </div>
-              </div>
-              <div className="float-end desktop" style={{ marginTop: "-50px" }}>
-                <img src={arrow} alt="" className="img-fluid" />
-              </div>
-            </div>
-            <div className="card-p p-4 mb-5 bg-invest">
-              <div className="d-flex flex-row">
-                <img src={invest} alt="" className="img-fluid" />
-                <div className="mt-2 ms-3">
-                  <h5>
-                    Investment <span className="roi ms-2">+10.00%</span>
-                  </h5>
-                  <h6>View your savings portfolio</h6>
-                </div>
-              </div>
-              <div className="float-end desktop" style={{ marginTop: "-50px" }}>
-                <img src={arrow} alt="" className="img-fluid" />
-              </div>
-            </div>
-            <div className="card-p p-4 mb-5">
-              <div className="d-flex flex-row">
-                <img src={san} alt="" className="img-fluid" />
-                <div className="mt-2 ms-3">
-                  <h5>
-                    Insurance <span className="roi ms-2">+10.00%</span>
-                  </h5>
-                  <h6>View your savings portfolio</h6>
-                </div>
-              </div>
-              <div className="float-end desktop" style={{ marginTop: "-50px" }}>
-                <img src={arrow} alt="" className="img-fluid" />
-              </div>
-            </div>
-            <div className="card-p p-4 mb-5 bg-invest">
-              <div className="d-flex flex-row">
-                <img src={san} alt="" className="img-fluid" />
-                <div className="mt-2 ms-3">
-                  <h5>
-                    SAN <span className="roi ms-2">+10.00%</span>
-                  </h5>
-                  <h6>View your savings portfolio</h6>
-                </div>
-              </div>
-              <div className="float-end desktop" style={{ marginTop: "-50px" }}>
-                <img src={arrow} alt="" className="img-fluid" />
               </div>
             </div>
           </div>
-          <div className="col-md-5 dilla-section">
-            <div className="dillawallet p-5 mb-5">
-              <div className="mb-5">
-                <h2>Dilla Wallet</h2>
-                <label
-                  className="switch float-end"
-                  style={{ marginTop: "-27px" }}
-                >
-                  <input type="checkbox" placeholder="USD" />
-                  <span className="slider round"></span>
-                </label>
-              </div>
-              <h6>Current Balance</h6>
-              <div>
-                <p>NGN {Intl.NumberFormat("en-US").format(dillaWallet)}</p>
-                <i className="bi bi-eye-fill float-end dilla-eye"></i>
-              </div>
+        </div>
+        <div className="row my-5">
+          <div className="col">
+            <img src={stats} alt="statistic" className="img-fluid" width="100%" />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-6 mb-3">
+            <div className="new-p text-center">
+              <img src={psan} alt="san" className="img-fluid" />
+              <h3 className="my-3">Savings</h3>
+              <Link to="/">View your savings portfolio <i class="bi bi-arrow-right-circle-fill"></i></Link>
             </div>
-            <div className="stats p-5">
-              <h2>Statistics</h2>
-              <h6>Monthly activity</h6>
-              <hr></hr>
-              <div className="text-center mb-3">
-                <img src={pie} alt="" className="img-fluid mt-4" />
-              </div>
-              <div className="text-center mapping">
-                <div className="d-flex flex-row">
-                  <img src={red} alt="" className="img-fluid me-3" />
-                  <p className="mt-3">Savings</p>
-                </div>
-                <h3 className="float-end">0.00</h3>
-              </div>
-              <div className="text-center mapping">
-                <div className="d-flex flex-row">
-                  <img src={yellow} alt="" className="img-fluid me-3" />
-                  <p className="mt-3">Investment</p>
-                </div>
-                <h3 className="float-end">0.00</h3>
-              </div>
-              <div className="text-center mapping">
-                <div className="d-flex flex-row">
-                  <img src={purple} alt="" className="img-fluid me-3" />
-                  <p className="mt-3">Insurance</p>
-                </div>
-                <h3 className="float-end">0.00</h3>
-              </div>
-              <div className="text-center mapping">
-                <div className="d-flex flex-row">
-                  <img src={blue} alt="" className="img-fluid me-3" />
-                  <p className="mt-3">SAN</p>
-                </div>
-                <h3 className="float-end">0.00</h3>
-              </div>
+          </div>
+          <div className="col-md-6 mb-3">
+            <div className="new-p text-center" style={{background:"#FDF1F5"}}>
+              <img src={psaving} alt="san" className="img-fluid" />
+              <h3 className="my-3" style={{color: "#E8356D"}}>SAN</h3>
+              <Link>View your SAN portfolio <i class="bi bi-arrow-right-circle-fill"></i></Link>
+            </div>
+          </div>
+        </div>
+        <div className="row mt-2">
+          <div className="col-md-6 mb-3">
+            <div className="new-p text-center" style={{background: "#F0FEFA"}}>
+              <img src={pinvest} alt="san" className="img-fluid" />
+              <h3 className="my-3" style={{color: "#069669"}}>Investment</h3>
+              <Link>View your investment portfolio <i class="bi bi-arrow-right-circle-fill"></i></Link>
+            </div>
+          </div>
+          <div className="col-md-6 mb-3">
+            <div className="new-p text-center" style={{background: "#F8F0FF"}}>
+              <img src={pinsurance} alt="san" className="img-fluid" />
+              <h3 className="my-3" style={{color: "#8807F7"}}>Insurance</h3>
+              <Link>View your insurance portfolio <i class="bi bi-arrow-right-circle-fill"></i></Link>
             </div>
           </div>
         </div>

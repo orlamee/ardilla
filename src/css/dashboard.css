@@ -523,6 +523,13 @@ input:checked + .slider:before {
   font-weight: 600;
 }
 
+.value h3 {
+  font-size: 13px;
+  color: #0D9488;
+  line-height: 13px;
+  font-weight: 600;
+}
+
 .right-portfolio {
   margin-left: 90px;
 }
@@ -2027,4 +2034,30 @@ i.fas.fa-search {
   font-size: 14px;
   font-weight: 600;
   line-height: 24px; 
+}
+
+.dollar-rate {
+  font-size: 8px;
+  line-height: 10px;
+  font-weight: 600;
+}
+
+.new-p {
+  background: #FFFAF0;
+  border-radius: 16px;
+  padding: 45px;
+}
+
+.new-p h3 {
+  color: #FBBF24;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 14px; 
+}
+
+.new-p a {
+  color: #322401;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 13px; 
 }
