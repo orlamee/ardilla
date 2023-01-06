@@ -563,3 +563,22 @@ h5 a {
 .top-products {
   margin-top: 100px;
 }
+
+.words-section {
+  padding: 200px 20px;
+}
+
+.words-section h2 {
+  color: #3D0072;
+  font-size: 85px;
+  line-height: 100px;
+  font-weight: 700;
+  font-family: Ubuntu-Bold;
+}
+
+.words-section h6 {
+  color: #3D0072;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+}

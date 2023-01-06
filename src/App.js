@@ -8,6 +8,7 @@ import Header from "./components/navBar";
 import "../node_modules/video-react/dist/video-react.css"
 import "./css/App.css";
 import "./css/home.css";
+import Words from "./components/landingpage/words";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Products />
       <Build />
       <Videos />
+      <Words/>
       <Testimonial />
       <Footer />
     </div>
