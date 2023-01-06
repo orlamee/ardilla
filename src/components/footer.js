@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import fone from "../img/fone.svg";
-import logo from "../img/ardilla.svg";
 import facebook from "../img/facebook.svg";
 import twitter from "../img/twitter.svg";
 import linkedin from "../img/linkedin.svg";
@@ -15,15 +14,8 @@ function Footer() {
           <div className="col-md-10">
             <div className="row footer-top">
               <div className="col-md-6">
-                <h2>Download for free<br/>Start saving Today</h2>
-                <form className="mt-5">
-                  <div className="input-group">
-                    <input type="email" className="form-control input-lg download" placeholder="Your email"/>
-                    <span className="input-group-btn" style={{marginLeft: "-9px"}}>
-                      <Link className="btn download-btn btn-lg">Download for free</Link>
-                    </span>
-                  </div>
-                </form>
+                <h2 className="mb-4">Download for free<br/>Start saving Today</h2>
+                <Link className="btn download-btn btn-lg">Download for free</Link>
               </div>
               <div className="col-md-6 text-center" >
                 <img src={fone} alt="" className="img-fluid" style={{marginTop: "49px"}} />
@@ -35,11 +27,7 @@ function Footer() {
       <footer className="footer-bottom">
         <div className="container">
           <div className="row bottom-line" >
-            <div className="col-md-3 mb-3">
-              <img src={logo} alt="" className="img-fluid" />
-              <p className="mt-3">Ardilla is a savings and investment<br/>platform that helps customers in achieving<br/>your financial goals.</p>
-            </div>
-            <div className="col-md-9">
+            <div className="col-md-12">
               <div className="row">
                 <div className="col-sm mb-3">
                   <h4>Products</h4>

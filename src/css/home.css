@@ -322,22 +322,27 @@ h5 a {
 
 .webapp p {
   font-size: 12px;
-  line-height: 13px;
+  line-height: 20px;
   font-weight: 400;
   color: #3D0072;
 }
 
 .testimonies h3 {
   color: #3D0072;
-  font-size: 40px;
-  line-height: 45px;
+  font-size: 36px;
+  line-height: 41px;
   font-weight: 700;
+  font-family: Ubuntu-Bold;
+}
+
+.testimonies {
+  padding-bottom: 90px;
 }
 
 .testimonies p {
   color: #3D0072;
   font-size: 12px;
-  line-height: 15px;
+  line-height: 24px;
   font-weight: 400;
 }
 
@@ -363,6 +368,7 @@ h5 a {
   font-size: 37px;
   line-height: 42px;
   font-weight: 700;
+  font-family: Ubuntu-Bold;
 }
 
 .download {
@@ -390,13 +396,13 @@ h5 a {
 }
 
 .footer-bottom {
-  background: rgba(136, 7, 247, 0.05);
+  background: #8807F7;
   padding: 270px 20px 60px 20px;
   margin-top: -240px;
 }
 
 .footer-bottom p {
-  color: #666;
+  color: #fff;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -404,7 +410,7 @@ h5 a {
 
 .footer-bottom h4 {
   font-size: 13px;
-  color: #3d0072;
+  color: #fff;
   /* line-height: 32px; */
   font-weight: 700;
   margin-bottom: 34px;
@@ -416,7 +422,7 @@ h5 a {
 
 .footer-bottom .links li {
   display: block;
-  color: #666666;
+  color: #fff;
   font-size: 13px;
   font-weight: 400;
   line-height: 32px;
@@ -433,11 +439,11 @@ h5 a {
 }
 
 .copyright h6 {
-  font-family: 'Sofia-Pro';
+  /* font-family: 'Sofia-Pro'; */
   font-weight: 300;
   font-size: 14px;
   line-height: 14px;
-  color: #6B7280;
+  color: #fff;
 }
 
 .download::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -564,6 +570,10 @@ h5 a {
   margin-top: 100px;
 }
 
+.top-product {
+  margin-top: 200px;
+}
+
 .words-section {
   padding: 200px 20px;
 }
@@ -582,3 +592,4 @@ h5 a {
   font-weight: 400;
   line-height: 16px;
 }
+
