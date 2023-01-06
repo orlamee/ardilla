@@ -44,14 +44,13 @@ function Footer() {
                     <li>About us</li>
                     <li>Careers</li>
                     <li>FAQS</li>
-                    <li>Securities</li>
                   </ul>
                 </div>
                 <div className="col-sm mb-3">
                   <h4>Transparency</h4>
                   <ul className="list-unstyled links">
                     <li>Terms & conditions</li>
-                    <li>Information security policy</li>
+                    <li>Information security</li>
                     <li>Privacy policy</li>
                   </ul>
                 </div>
