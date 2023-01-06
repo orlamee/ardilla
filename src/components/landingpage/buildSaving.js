@@ -5,9 +5,9 @@ import calculate from "../../img/calculator.svg"
 
 function Build() {
   return(
-    <section className="build-saving" data-aos="slide-down" data-aos-duration="1000">
+    <section className="build-saving">
       <div className="container">
-        <div className="row">
+        <div className="row" data-aos="slide-right" data-aos-duration="1000">
           <div className="col">
             <h2 className="mb-3">We’re keen on<br/><span style={{color: "#E8356D"}}>transparency.</span></h2>
           </div>

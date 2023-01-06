@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import opp from "../../img/opp.svg";
+import shield from "../../img/draem.svg";
+import invest from "../../img/dashboard/investment-sson.svg";
+import budget from "../../img/dashboard/budget.svg";
 function Videos() {
   return(
     <section className="videos">
@@ -22,7 +25,19 @@ function Videos() {
         </div>
         <div className="row top-access">
           <div className="col-md-9">
-            <h2><span style={{color: "#E8356D"}}>Access More</span><span style={{color: "#3D0072"}}> With Your Money</span></h2>
+            <h2 className="mb-3"><span style={{color: "#E8356D"}}>Access More</span><span style={{color: "#3D0072"}}> With Your Money</span></h2>
+            <h5 className="mb-3">Plan towards your future by saving with ardilla,  Grow your money with pro-vetted savings plans just for you.</h5>
+            <Link>Learn more about Savings <i className="bi bi-chevron-right"></i></Link>
+          </div>
+        </div>
+        <div className="row top-products">
+          <div className="col-md-4 mb-3">
+            <div className="">
+              <img src={shield} alt="" className="img-fluid" style={{marginLeft: "-56px"}} />
+              <h5>Dreams</h5>
+              <p>Lorem ipsum dolor sit amet consectetur. Felis proin ut proin aliquet semper congue malesuada. Eget penatibus </p>
+              <span className="linker">Learn More</span>
+            </div>
           </div>
         </div>
       </div>
