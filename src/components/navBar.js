@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../img/ardilla.svg";
-// import globe from "../img/globe.svg";
 import save from "../img/save.svg";
 import wallet from "../img/wallet.svg";
 import learn from "../img/learn.svg";

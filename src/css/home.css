@@ -56,9 +56,9 @@ h5 a {
 }
 
 .features-product {
-  padding: 300px 20px;
+  padding: 150px 20px;
   background-image: url('../img/bgproduct.svg');
-  /* background-position: 50%; */
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -105,11 +105,11 @@ h5 a {
 }
 
 .build-saving {
-  padding: 300px 20px 500px 20px;
+  padding: 150px 20px 150px 20px;
   background-image: url('../img/keen.svg');
   background-position: 50%;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
 }
 
 @media (min-width: 992px){
@@ -229,7 +229,7 @@ h5 a {
 }
 
 .videos {
-  padding: 250px 20px;
+  padding: 150px 20px;
   background-color: #F3F4F6;
 }
 
@@ -567,7 +567,7 @@ h5 a {
 }
 
 .top-products {
-  margin-top: 100px;
+  margin-top: 90px;
 }
 
 .top-product {
