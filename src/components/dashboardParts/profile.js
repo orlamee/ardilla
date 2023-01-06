@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../../css/profile.css";
 import home from "../../img/dashboard/home.svg";
@@ -16,18 +16,24 @@ import avi from "../../img/dashboard/avi-profilr.svg";
 import badge from "../../img/dashboard/profile-bdg.svg";
 import axios from "axios";
 
-// import {fill} from "@cloudinary/url-gen/actions/resize";
-// import {CloudinaryImage} from '@cloudinary/url-gen';
-
 function ProfileMain() {
   let user = JSON.parse(sessionStorage.getItem("user"));
+  let nextOfKin;
+
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [relationship, setRelationship] = useState("");
 
   const [userDetails, setUserDetails] = useState();
-  // const [profileImg, setProfileImg] = useState({});
-  // const [img, setImg] = useState();
-  // const [image, setImage] = useState({ preview: "", data: "" });
+  const [nok, setNok] = useState();
+  const [img, setImg] = useState();
 
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
 
   useEffect(() => {
     const getUserById = async () => {
@@ -37,6 +43,7 @@ function ProfileMain() {
         );
 
         setUserDetails(data.user);
+        setNok(data.user.nextOfKin);
       } catch (error) {
         console.log(error);
       }
@@ -45,43 +52,151 @@ function ProfileMain() {
     getUserById();
   }, [user._id]);
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   let formData = new FormData();
-  //   formData.append("file", image.data);
+  const getUserById = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+      );
 
-  //   const response = await fetch("http://localhost:4000/image", {
-  //     method: "POST",
-  //     body: formData,
-  //   });
-
-  //   console.log(response);
-  //   // if (response) setStatus(response.statusText)
-  // };
-
-  // const handleFileChange = (e) => {
-  //   const img = {
-  //     preview: URL.createObjectURL(e.target.files[0]),
-  //     data: e.target.files[0],
-  //   };
-
-  //   setImage(img);
-  // };
-
-  // onSubmit={handleSubmit} encType="multipart/form-data"
-  //  onChange={(e) => handleFileChange(e)}
-
-  const handleFileInput = (e) => {
-    // handle validations
-    setSelectedFile(e.target.files[0]);
-    const stuff = e.target.files[0];
-
-    console.log(selectedFile);
-    console.log(stuff);
+      setUserDetails(data.user);
+      setNok(data.user.nextOfKin);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  // const [profileImg, setProfileImg] = useState({});
+  // const [image, setImage] = useState({ preview: "", data: "" });
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const file = useRef();
+
+  console.log(userDetails);
+
+  // setNok(userDetails?.nextOfKin);
+
+  // setFirstName(userDetails?.nextOfKin?.firstname);
+
+  // console.log(nok);
+
+  const handleFileInput = async (e) => {
+    e.preventDefault();
+
+    setImg(URL.createObjectURL(e.target.files[0]));
+    file.current = e.target.files[0];
+
+    setSelectedFile(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      let formData = new FormData();
+      formData.append("image", selectedFile);
+
+      console.log(selectedFile);
+
+      const { data } = await axios.post(
+        `https://ardilla.herokuapp.com/ardilla/api/user/profile-pic/${user._id}`,
+        formData
+      );
+
+      console.log(data);
+      getUserById();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleNOK = async () => {
+    setLoading(true);
+    setErr(false);
+
+    nextOfKin = {
+      firstname,
+      lastname,
+      phone,
+      email,
+      relationship,
+    };
+
+    try {
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/user/next-of-kin/${user._id}`,
+        { nextOfKin }
+      );
+
+      setErr(false);
+      setMsg(data.msg);
+      setOnSuccess(true);
+      setLoading(false);
+      console.log(data);
+    } catch (error) {
+      setLoading(false);
+      setErr(true);
+      setMsg(`${error.response.data.msg || "Network error"} `);
+    }
+  };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+  };
+
+  setTimeout(() => {
+    if (onSuccess) {
+      setOnSuccess(false);
+    }
+  }, 5000);
+
+  setTimeout(() => {
+    if (err) {
+      setErr(false);
+    }
+  }, 5000);
 
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
@@ -224,10 +339,16 @@ function ProfileMain() {
           </div>
           <div className="col-md-6 right-profile">
             <div className="d-flex flex-row">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <input type="file" onChange={handleFileInput} />
 
-                <img src={avi} alt="" className="img-fluid" />
+                <img
+                  src={userDetails?.profilePic}
+                  alt=""
+                  className="img-fluid rounded-circle"
+                  on
+                />
+                {/* <img src={img ? img : avi} alt="" className="img-fluid" on /> */}
 
                 <img src={badge} alt="" className="img-fluid" />
 
@@ -311,6 +432,8 @@ function ProfileMain() {
                       className="form-control target-form p-form"
                       placeholder="Enter first name"
                       required
+                      value={firstname}
+                      onChange={(e) => setFirstName(e.target.value)}
                     />
                     {/* </form> */}
                   </div>
@@ -326,6 +449,8 @@ function ProfileMain() {
                       className="form-control target-form p-form"
                       placeholder="Enter last name"
                       required
+                      value={lastname}
+                      onChange={(e) => setLastName(e.target.value)}
                     />
                     {/* </form> */}
                   </div>
@@ -341,6 +466,8 @@ function ProfileMain() {
                       className="form-control target-form p-form"
                       placeholder="Enter phone number"
                       required
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
                     />
                     {/* </form> */}
                   </div>
@@ -356,6 +483,8 @@ function ProfileMain() {
                       className="form-control target-form p-form"
                       placeholder="enter email"
                       required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                     {/* </form> */}
                   </div>
@@ -368,19 +497,32 @@ function ProfileMain() {
                     <select
                       className="form-select p-select"
                       aria-label="Default select example"
+                      onChange={(e) => setRelationship(e.target.value)}
                     >
-                      <option selected>Cousin</option>
-                      <option value="2">Wife</option>
-                      <option value="3">Uncle</option>
+                      <option selected value={"cousin"}>
+                        {"Cousin"}
+                      </option>
+                      <option value="wife">Wife</option>
+                      <option value="uncle">Uncle</option>
                     </select>
                   </div>
                 </div>
-                <Link
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
-                  to=""
-                >
-                  Save Changes
-                </Link>
+                {loading ? (
+                  <Link
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                    to=""
+                  >
+                    Loading
+                  </Link>
+                ) : (
+                  <Link
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                    to=""
+                    onClick={handleNOK}
+                  >
+                    Save Changes
+                  </Link>
+                )}
               </form>
             </div>
           </div>
