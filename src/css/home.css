@@ -34,7 +34,7 @@
 
 .badge {
   background-color: #E8CEFF;
-  color: #3D0072;
+  color: #8807F7;
   font-size: 15px;
   font-weight: 500;
   border-radius: 40px;
@@ -226,14 +226,16 @@ h5 a {
 
 
 .videos {
-  padding-top: 100px;
+  padding: 250px 20px;
+  background-color: #F3F4F6;
 }
 
 .videos h2 {
-  color: #3D0072;
-  font-size: 55px;
-  line-height: 64px;
+  color: #0D9488;
+  font-size: 85px;
+  line-height: 100px;
   font-weight: 700;
+  font-family: Ubuntu-Bold;
 }
 
 .videos h6 {
