@@ -112,11 +112,26 @@ h5 a {
   background-size: cover;
 }
 
-.build-saving h2 {
-  color: #3D0072;
-  font-size: 80px;
-  line-height: 120px;
-  font-weight: 700;
+@media (min-width: 992px){
+  .build-saving h2 {
+    color: #3D0072;
+    font-size: 80px;
+    line-height: 120px;
+    font-weight: 700;
+    font-family: Ubuntu-Bold;
+
+  }
+}
+
+@media (max-width: 767.98px){
+  .build-saving h2 {
+    color: #3D0072;
+    font-size: 45px;
+    line-height: 60px;
+    font-weight: 700;
+    font-family: Ubuntu-Bold;
+
+  }
 }
 
 .build-saving h6 {
