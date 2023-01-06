@@ -224,6 +224,9 @@ h5 a {
   }
 }
 
+.top-access {
+  margin-top: 190px;
+}
 
 .videos {
   padding: 250px 20px;
@@ -238,10 +241,17 @@ h5 a {
   font-family: Ubuntu-Bold;
 }
 
-.videos h6 {
+.videos h5 {
   color: #3D0072;
-  font-size: 13px;
-  line-height: 17px;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 400;
+}
+
+.videos a {
+  color: #8807F7;
+  font-size: 16px;
+  line-height: 32px;
   font-weight: 500;
 }
 
