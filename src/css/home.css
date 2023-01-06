@@ -1,10 +1,14 @@
 .banner {
-  margin: 250px 10px 70px 10px;
+  padding: 300px 10px 250px 10px;
+  background-image: url('../img/herobg.svg');
+  /* background-position: 50%; */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .banner h2 {
-  font-size: 70px;
-  line-height: 80px;
+  font-size: 85px;
+  line-height: 97px;
   font-weight: 700;
   color: #3D0072;
   font-family: Ubuntu-Bold;
@@ -18,8 +22,8 @@
 }
 
 .banner h6 {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 32px;
   font-weight: 400;
   color: #3D0072;
 }
@@ -52,34 +56,47 @@ h5 a {
 }
 
 .features-product {
-  padding-bottom: 100px;
+  padding: 300px 20px;
+  background-image: url('../img/bgproduct.svg');
+  /* background-position: 50%; */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .features-product h2 {
   color: #3D0072;
-  font-size: 55px;
-  line-height: 64px;
+  font-size: 75px;
+  line-height: 91px;
   font-weight: 700;
+  font-family: Ubuntu-Bold;
 }
 
 .features-product h3 {
-  color: #3D0072;
-  font-size: 32px;
-  line-height: 37px;
+  color: #E8356D;
+  font-size: 50px;
+  line-height: 57px;
   font-weight: 700;
+  font-family: Ubuntu-Bold;
 }
 
 .features-product h6 {
   color: #3D0072;
-  font-size: 13px;
+  font-size: 18px;
+  line-height: 40px;
+  font-weight: 500;
+}
+
+.features-product h5 {
+  color: #3D0072;
+  font-size: 15px;
   line-height: 17px;
   font-weight: 500;
 }
 
 .features-product p {
-  color: #3D0072;
+  color: #9CA3AF;
   font-size: 15px;
-  line-height: 17px;
+  line-height: 30px;
   font-weight: 500;
 }
 
@@ -476,7 +493,22 @@ h5 a {
   position: fixed;
 }
 
-/* .navbar{
-  position: relative;
-  z-index: 15;
-} */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.top-products {
+  margin-top: 90px;
+}
