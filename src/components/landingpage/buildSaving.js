@@ -12,7 +12,7 @@ function Build() {
             <h2 className="mb-3">We’re keen on<br/><span style={{color: "#E8356D"}}>transparency.</span></h2>
           </div>
         </div>
-        <div className="row top-products">
+        <div className="row">
           <div className="col-md-6 top-products mb-3">
             <h6>Calculate your interests everytime you<br/>save on our platform</h6>
             <div className="mt-5">
