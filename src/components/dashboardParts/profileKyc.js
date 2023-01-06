@@ -28,10 +28,10 @@ function ProfileKYC() {
     setSelectedFile(e.target.files[0]);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const handleUploadFront = async (e) => {
     try {
+      e.preventDefault();
+
       let formData = new FormData();
       formData.append("image", selectedFile);
 
@@ -39,6 +39,26 @@ function ProfileKYC() {
 
       const { data } = await axios.post(
         `https://ardilla.herokuapp.com/ardilla/api/user/id-front/${user._id}`,
+        formData
+      );
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleUploadBack = async (e) => {
+    try {
+      e.preventDefault();
+
+      let formData = new FormData();
+      formData.append("image", selectedFile);
+
+      console.log(selectedFile);
+
+      const { data } = await axios.post(
+        `https://ardilla.herokuapp.com/ardilla/api/user/id-back/${user._id}`,
         formData
       );
 
@@ -195,50 +215,52 @@ function ProfileKYC() {
               <img src={pie} alt="" className="img-fluid" />
               <h5 className="mt-5 ms-4">2 of 4 Completed</h5>
             </div>
-            <form>
-              <div className="row mt-3">
-                <div className="col-md-4 mt-3">
-                  <h5>BVN Verification</h5>
-                </div>
-                <div className="col-md-4">
-                  <div className="d-flex flex-row">
-                    <input
-                      type="number"
-                      className="form-control target-form p-form"
-                      placeholder="234*********12"
-                      required
-                    />
-                    <img src={pass} alt="success" className="img-fluid ms-2" />
-                  </div>
+            {/* <form onSubmit={handleSubmit}> */}
+            <div className="row mt-3">
+              <div className="col-md-4 mt-3">
+                <h5>BVN Verification</h5>
+              </div>
+              <div className="col-md-4">
+                <div className="d-flex flex-row">
+                  <input
+                    type="number"
+                    className="form-control target-form p-form"
+                    placeholder="234*********12"
+                    required
+                  />
+                  <img src={pass} alt="success" className="img-fluid ms-2" />
                 </div>
               </div>
-              <div className="row mt-3">
-                <div className="col-md-4 mt-3">
-                  <h5>Phone Number</h5>
-                </div>
-                <div className="col-md-4">
-                  <div className="d-flex flex-row">
-                    <input
-                      type="tel"
-                      className="form-control target-form p-form"
-                      placeholder="+234 902 123 4567"
-                      required
-                    />
-                    <img src={pass} alt="success" className="img-fluid ms-2" />
-                  </div>
+            </div>
+            <div className="row mt-3">
+              <div className="col-md-4 mt-3">
+                <h5>Phone Number</h5>
+              </div>
+              <div className="col-md-4">
+                <div className="d-flex flex-row">
+                  <input
+                    type="tel"
+                    className="form-control target-form p-form"
+                    placeholder="+234 902 123 4567"
+                    required
+                  />
+                  <img src={pass} alt="success" className="img-fluid ms-2" />
                 </div>
               </div>
-              <div className="row mt-5">
-                <h5>
-                  Upload Your valid ID{" "}
-                  <small>
-                    Please make sure your document is clear and genuine
-                  </small>
-                </h5>
-              </div>
-              <div className="row mt-5">
-                <div className="col-md-4">
+            </div>
+            <div className="row mt-5">
+              <h5>
+                Upload Your valid ID{" "}
+                <small>
+                  Please make sure your document is clear and genuine
+                </small>
+              </h5>
+            </div>
+            <div className="row mt-5">
+              <div className="col-md-4">
+                <form onSubmit={handleUploadFront}>
                   <div className="card-upload text-center p-4">
+                    <input type="file" onChange={handleFileInput} />
                     <img src={up} alt="" className="img-fluid" />
                     <h6>Upload the Front View</h6>
                     <h5>
@@ -247,10 +269,14 @@ function ProfileKYC() {
                         Browse
                       </span>
                     </h5>
+                    <button type="submit">Submit</button>
                   </div>
-                </div>
-                <div className="col-md-4">
+                </form>
+              </div>
+              <div className="col-md-4">
+                <form onSubmit={handleUploadBack}>
                   <div className="card-upload text-center p-4">
+                    <input type="file" onChange={handleFileInput} />
                     <img src={up} alt="" className="img-fluid" />
                     <h6>Upload the Back View</h6>
                     <h5>
@@ -260,31 +286,31 @@ function ProfileKYC() {
                       </span>
                     </h5>
                   </div>
+                </form>
+              </div>
+            </div>
+            <div className="row mt-5">
+              <h5>
+                Upload Your Utility ID{" "}
+                <small>
+                  Please make sure your document is clear and genuine
+                </small>
+              </h5>
+            </div>
+            <div className="row mt-5">
+              <div className="col-md-4">
+                <div className="card-upload text-center p-4">
+                  <img src={cloud} alt="" className="img-fluid" />
+                  <h6>Upload Utility Bill</h6>
+                  <h5>
+                    Drag and drop image, or{" "}
+                    <span className="fw-bold" style={{ color: "#E8356D" }}>
+                      Browse
+                    </span>
+                  </h5>
                 </div>
               </div>
-              <div className="row mt-5">
-                <h5>
-                  Upload Your Utility ID{" "}
-                  <small>
-                    Please make sure your document is clear and genuine
-                  </small>
-                </h5>
-              </div>
-              <div className="row mt-5">
-                <div className="col-md-4">
-                  <div className="card-upload text-center p-4">
-                    <img src={cloud} alt="" className="img-fluid" />
-                    <h6>Upload Utility Bill</h6>
-                    <h5>
-                      Drag and drop image, or{" "}
-                      <span className="fw-bold" style={{ color: "#E8356D" }}>
-                        Browse
-                      </span>
-                    </h5>
-                  </div>
-                </div>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
