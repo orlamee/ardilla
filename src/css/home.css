@@ -105,7 +105,7 @@ h5 a {
 }
 
 .build-saving {
-  padding: 300px 20px;
+  padding: 300px 20px 500px 20px;
   background-image: url('../img/keen.svg');
   background-position: 50%;
   background-repeat: no-repeat;
