@@ -260,7 +260,7 @@ function SavingsBody() {
                       <span className="dibbg" style={{background: "#F8BFD1"}}>12% p.a</span>
                     </div>
                     <p>Dreams do come through. Save up for that dream phone, car, house, or any other goal you have.</p>
-                    <Link to="target-plan" className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#E8356D", borderColor: "#E8356D"}}>Create a Dream</Link>
+                    <Link to="/target-plan" className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#E8356D", borderColor: "#E8356D"}}>Create a Dream</Link>
                   </div>
                 </div>
               </div>
