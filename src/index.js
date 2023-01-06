@@ -93,6 +93,7 @@ import PortfolioSavings from "./dashboard/savingsPortfolio";
 import KYCReview from "./dashboard/reviewKYC";
 import KYCFailed from "./dashboard/failedKYC";
 import KYCCompleted from "./dashboard/completeKYC";
+import Save from "./pages/save";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -105,6 +106,7 @@ root.render(
       <Route path="/learn-more" element={<Learn />}></Route>
       <Route path="/security" element={<AnswerQuestion />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
+      <Route path="/save" element={<Save/>}></Route>
       <Route
         path="/verify-mobile"
         element={

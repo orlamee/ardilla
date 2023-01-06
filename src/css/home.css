@@ -593,3 +593,166 @@ h5 a {
   line-height: 16px;
 }
 
+.bg-save {
+  background-color: #f9f9f9!important;
+}
+
+.hero-save {
+  padding: 200px 10px 250px 10px;
+}
+
+.hero-save h2 {
+  font-size: 85px;
+  line-height: 97px;
+  font-weight: 700;
+  color: #3D0072;
+  font-family: Ubuntu-Bold;
+}
+
+.hero-save h6 {
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: 500;
+  color: #3D0072;
+}
+
+.hero-save p {
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #9CA3AF;
+}
+
+.our-save {
+  background-image: url('../img/bg-plan.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 150px 0px;
+}
+
+.our-save h2 {
+  font-size: 80px;
+  line-height: 91px;
+  font-weight: 700;
+  color: #3D0072;
+  font-family: Ubuntu-Bold;
+}
+
+.our-save h6 {
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 400;
+  color: #3D0072;
+}
+
+@media (min-width: 992px){
+  .bg-dib {
+    background-image: url('../img/bg-dib.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 120px 200px 120px 100px;
+  }
+
+  .bg-drims {
+    background-image: url('../img/drims.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 120px 200px 120px 100px;
+
+  }
+
+  .bg-vault {
+    background-image: url('../img/vault-bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 120px 200px 120px 100px;
+
+  }
+}
+
+
+@media (max-width: 767.98px){
+  .bg-dib {
+    background-image: url('../img/bg-dib.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px;
+  }
+
+  .bg-drims {
+    background-image: url('../img/drims.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px;
+  }
+
+  .bg-vault {
+    background-image: url('../img/vault-bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px;
+  }
+}
+
+.bg-dib h3 {
+  color: #3D0072;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 70px;
+}
+
+.bg-dib h5 {
+  color: #3D0072;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.bg-dib p {
+  color: #3D0072;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.bg-drims h3 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 70px;
+}
+
+.bg-drims h5 {
+  color: #fff;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.bg-drims p {
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.bg-vault h3 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 70px;
+}
+
+.bg-vault h5 {
+  color: #fff;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.bg-vault p {
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+}
