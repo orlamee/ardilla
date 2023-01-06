@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import opp from "../../img/opp.svg";
 import shield from "../../img/draem.svg";
+import dib from "../../img/DIB.svg";
+import vault from "../../img/Vault.svg";
 
 function Videos() {
   return(
@@ -33,9 +35,25 @@ function Videos() {
           <div className="col-md-4 mb-3">
             <div className="">
               <img src={shield} alt="" className="img-fluid" style={{marginLeft: "-56px"}} />
-              <h5>Dreams</h5>
-              <p>Lorem ipsum dolor sit amet consectetur. Felis proin ut proin aliquet semper congue malesuada. Eget penatibus </p>
-              <span className="linker">Learn More</span>
+              <h1>Dreams</h1>
+              <p className="my-4">Lorem ipsum dolor sit amet consectetur.<br/>Felis proin ut proin aliquet semper<br/>congue malesuada. Eget penatibus </p>
+              <Link>Learn More</Link>
+            </div>
+          </div>
+          <div className="col-md-4 mb-3">
+            <div className="">
+              <img src={dib} alt="" className="img-fluid" style={{marginLeft: "-56px"}} />
+              <h1>DIB</h1>
+              <p className="my-4">Lorem ipsum dolor sit amet consectetur.<br/>Felis proin ut proin aliquet semper<br/>congue malesuada. Eget penatibus </p>
+              <Link>Learn More</Link>
+            </div>
+          </div>
+          <div className="col-md-4 mb-3">
+            <div className="">
+              <img src={vault} alt="" className="img-fluid" style={{marginLeft: "-56px"}} />
+              <h1>Vault</h1>
+              <p className="my-4">Lorem ipsum dolor sit amet consectetur.<br/>Felis proin ut proin aliquet semper<br/>congue malesuada. Eget penatibus </p>
+              <Link>Learn More</Link>
             </div>
           </div>
         </div>
