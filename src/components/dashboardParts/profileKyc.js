@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../css/profile.css";
 import home from "../../img/dashboard/home.svg";
@@ -17,31 +17,82 @@ import cloud from "../../img/dashboard/cloud.svg";
 import up from "../../img/dashboard/up.svg";
 import pass from "../../img/dashboard/pass.svg";
 import axios from "axios";
+import check from "../../img/dashboard/Check.svg";
+// import pass from "../../img/dashboard/pass.svg";
 
 function ProfileKYC() {
   let user = JSON.parse(sessionStorage.getItem("user"));
-  const [selectedFile, setSelectedFile] = useState(null);
 
-  const handleFileInput = async (e) => {
+  const [idFront, setIdFront] = useState(null);
+  const [idBack, setIdBack] = useState(null);
+  const [utility, setUtility] = useState(null);
+
+  const [loading1, setLoading1] = useState(null);
+  const [loading2, setLoading2] = useState(null);
+  const [loading3, setLoading3] = useState(null);
+  const [userDetails, setUserDetails] = useState();
+
+  useEffect(() => {
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+        );
+
+        setUserDetails(data.user);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getUserById();
+  }, [user._id]);
+
+  const getUserById = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+      );
+
+      setUserDetails(data.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleIdFront = (e) => {
     e.preventDefault();
+    // setSelectedFile(e.target.files[0]);
+    setIdFront(e.target.files[0]);
+  };
 
-    setSelectedFile(e.target.files[0]);
+  const handleIdBack = (e) => {
+    e.preventDefault();
+    // setSelectedFile(e.target.files[0]);
+    setIdBack(e.target.files[0]);
+  };
+
+  const handleUtility = (e) => {
+    e.preventDefault();
+    // setSelectedFile(e.target.files[0]);
+    setUtility(e.target.files[0]);
   };
 
   const handleUploadFront = async (e) => {
     try {
       e.preventDefault();
+      setLoading1(true);
 
       let formData = new FormData();
-      formData.append("image", selectedFile);
-
-      console.log(selectedFile);
+      formData.append("image", idFront);
 
       const { data } = await axios.post(
         `https://ardilla.herokuapp.com/ardilla/api/user/id-front/${user._id}`,
         formData
       );
 
+      setLoading1(false);
+      getUserById();
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -51,17 +102,39 @@ function ProfileKYC() {
   const handleUploadBack = async (e) => {
     try {
       e.preventDefault();
+      setLoading2(true);
 
       let formData = new FormData();
-      formData.append("image", selectedFile);
-
-      console.log(selectedFile);
+      formData.append("image", idBack);
 
       const { data } = await axios.post(
         `https://ardilla.herokuapp.com/ardilla/api/user/id-back/${user._id}`,
         formData
       );
 
+      setLoading2(false);
+      getUserById();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleUploadUtility = async (e) => {
+    try {
+      e.preventDefault();
+      setLoading3(true);
+
+      let formData = new FormData();
+      formData.append("image", utility);
+
+      const { data } = await axios.post(
+        `https://ardilla.herokuapp.com/ardilla/api/user/utility-bill/${user._id}`,
+        formData
+      );
+
+      setLoading3(false);
+      getUserById();
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -257,37 +330,69 @@ function ProfileKYC() {
               </h5>
             </div>
             <div className="row mt-5">
-              <div className="col-md-4">
-                <form onSubmit={handleUploadFront}>
-                  <div className="card-upload text-center p-4">
-                    <input type="file" onChange={handleFileInput} />
-                    <img src={up} alt="" className="img-fluid" />
-                    <h6>Upload the Front View</h6>
-                    <h5>
-                      Drag and drop image, or{" "}
-                      <span className="fw-bold" style={{ color: "#E8356D" }}>
-                        Browse
-                      </span>
-                    </h5>
-                    <button type="submit">Submit</button>
+              {userDetails?.idFrontStatus === "pending" ? (
+                <div className="col-md-4">
+                  <div className="card-upload text-center p-4 review-bg">
+                    <img src={check} alt="" className="img-fluid" />
+                    <h6 className="mt-2">
+                      Upload Succesful Awaiting confirmation...
+                    </h6>
                   </div>
-                </form>
-              </div>
-              <div className="col-md-4">
-                <form onSubmit={handleUploadBack}>
-                  <div className="card-upload text-center p-4">
-                    <input type="file" onChange={handleFileInput} />
-                    <img src={up} alt="" className="img-fluid" />
-                    <h6>Upload the Back View</h6>
-                    <h5>
-                      Drag and drop image, or{" "}
-                      <span className="fw-bold" style={{ color: "#E8356D" }}>
-                        Browse
-                      </span>
-                    </h5>
+                </div>
+              ) : (
+                <div className="col-md-4">
+                  <form onSubmit={handleUploadFront}>
+                    <div className="card-upload text-center p-4">
+                      <input type="file" required onChange={handleIdFront} />
+                      <img src={up} alt="" className="img-fluid" />
+                      <h6>Upload the Front View</h6>
+                      <h5>
+                        Drag and drop image, or{" "}
+                        <span className="fw-bold" style={{ color: "#E8356D" }}>
+                          Browse
+                        </span>
+                      </h5>
+                      {loading1 ? (
+                        <button>Loading</button>
+                      ) : (
+                        <button type="submit">Submit</button>
+                      )}
+                    </div>
+                  </form>
+                </div>
+              )}
+
+              {userDetails?.idBackStatus === "pending" ? (
+                <div className="col-md-4">
+                  <div className="card-upload text-center p-4 review-bg">
+                    <img src={check} alt="" className="img-fluid" />
+                    <h6 className="mt-2">
+                      Upload Succesful Awaiting confirmation...
+                    </h6>
                   </div>
-                </form>
-              </div>
+                </div>
+              ) : (
+                <div className="col-md-4">
+                  <form onSubmit={handleUploadBack}>
+                    <div className="card-upload text-center p-4">
+                      <input type="file" required onChange={handleIdBack} />
+                      <img src={up} alt="" className="img-fluid" />
+                      <h6>Upload the Back View</h6>
+                      <h5>
+                        Drag and drop image, or{" "}
+                        <span className="fw-bold" style={{ color: "#E8356D" }}>
+                          Browse
+                        </span>
+                      </h5>
+                      {loading2 ? (
+                        <button>Loading</button>
+                      ) : (
+                        <button type="submit">Submit</button>
+                      )}
+                    </div>
+                  </form>
+                </div>
+              )}
             </div>
             <div className="row mt-5">
               <h5>
@@ -298,18 +403,58 @@ function ProfileKYC() {
               </h5>
             </div>
             <div className="row mt-5">
-              <div className="col-md-4">
-                <div className="card-upload text-center p-4">
-                  <img src={cloud} alt="" className="img-fluid" />
-                  <h6>Upload Utility Bill</h6>
-                  <h5>
-                    Drag and drop image, or{" "}
-                    <span className="fw-bold" style={{ color: "#E8356D" }}>
-                      Browse
-                    </span>
-                  </h5>
+              {userDetails?.utilityBillStatus === "pending" ? (
+                <div className="col-md-4">
+                  <div className="card-upload text-center p-4 review-bg">
+                    <img src={check} alt="" className="img-fluid" />
+                    <h6 className="mt-2">
+                      Upload Succesful Awaiting confirmation...
+                    </h6>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="col-md-4">
+                  <form onSubmit={handleUploadUtility}>
+                    <div className="card-upload text-center p-4">
+                      <input type="file" required onChange={handleUtility} />
+                      <img src={cloud} alt="" className="img-fluid" />
+                      <h6>Upload Utility Bill</h6>
+                      <h5>
+                        Drag and drop image, or{" "}
+                        <span className="fw-bold" style={{ color: "#E8356D" }}>
+                          Browse
+                        </span>
+                      </h5>
+                      {loading3 ? (
+                        <button>Loading</button>
+                      ) : (
+                        <button type="submit">Submit</button>
+                      )}
+                    </div>
+                  </form>
+                </div>
+              )}
+
+              {/* <div className="col-md-4">
+                <form onSubmit={handleUploadUtility}>
+                  <div className="card-upload text-center p-4">
+                    <input type="file" onChange={handleUtility} />
+                    <img src={cloud} alt="" className="img-fluid" />
+                    <h6>Upload Utility Bill</h6>
+                    <h5>
+                      Drag and drop image, or{" "}
+                      <span className="fw-bold" style={{ color: "#E8356D" }}>
+                        Browse
+                      </span>
+                    </h5>
+                    {loading3 ? (
+                      <button>Loading</button>
+                    ) : (
+                      <button type="submit">Submit</button>
+                    )}
+                  </div>
+                </form>
+              </div> */}
             </div>
           </div>
         </div>
