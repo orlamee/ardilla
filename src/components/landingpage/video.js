@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import opp from "../../img/opp.svg";
 import shield from "../../img/draem.svg";
-import invest from "../../img/dashboard/investment-sson.svg";
-import budget from "../../img/dashboard/budget.svg";
+
 function Videos() {
   return(
     <section className="videos">
