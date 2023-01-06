@@ -1,5 +1,5 @@
 import Footer from "./components/footer";
-// import Build from "./components/landingpage/buildSaving";
+import Build from "./components/landingpage/buildSaving";
 import Hero from "./components/landingpage/hero";
 import Products from "./components/landingpage/product";
 import Testimonial from "./components/landingpage/testimonial";
@@ -15,7 +15,7 @@ function App() {
       <Header />
       <Hero />
       <Products />
-      {/* <Build /> */}
+      <Build />
       {/* <Videos /> */}
       <Testimonial />
       <Footer />

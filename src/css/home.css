@@ -104,16 +104,24 @@ h5 a {
   color: #E6366E;
 }
 
+.build-saving {
+  padding: 300px 20px;
+  background-image: url('../img/keen.svg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .build-saving h2 {
   color: #3D0072;
-  font-size: 55px;
-  line-height: 64px;
+  font-size: 80px;
+  line-height: 120px;
   font-weight: 700;
 }
 
 .build-saving h6 {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 24px;
+  line-height: 40px;
   font-weight: 400;
   color: #3D0072;
 }
