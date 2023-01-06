@@ -27,7 +27,7 @@ function ProfileMain() {
   const [relationship, setRelationship] = useState("");
 
   const [userDetails, setUserDetails] = useState();
-  const [nok, setNok] = useState();
+  // const [nok, setNok] = useState();
   const [img, setImg] = useState();
 
   const [loading, setLoading] = useState(false);
@@ -43,7 +43,7 @@ function ProfileMain() {
         );
 
         setUserDetails(data.user);
-        setNok(data.user.nextOfKin);
+        // setNok(data.user.nextOfKin);
       } catch (error) {
         console.log(error);
       }
@@ -59,7 +59,7 @@ function ProfileMain() {
       );
 
       setUserDetails(data.user);
-      setNok(data.user.nextOfKin);
+      // setNok(data.user.nextOfKin);
     } catch (error) {
       console.log(error);
     }
@@ -103,6 +103,7 @@ function ProfileMain() {
       );
 
       console.log(data);
+      setImg(false);
       getUserById();
     } catch (error) {
       console.log(error);
@@ -342,12 +343,30 @@ function ProfileMain() {
               <form onSubmit={handleSubmit}>
                 <input type="file" onChange={handleFileInput} />
 
-                <img
+                {userDetails?.profilePic && (
+                  <img
+                    src={userDetails?.profilePic}
+                    alt=""
+                    className="img-fluid rounded-circle"
+                    on
+                  />
+                )}
+
+                {img && (
+                  <img
+                    src={userDetails?.profilePic}
+                    alt=""
+                    className="img-fluid rounded-circle"
+                    on
+                  />
+                )}
+
+                {/* <img
                   src={userDetails?.profilePic}
                   alt=""
                   className="img-fluid rounded-circle"
                   on
-                />
+                /> */}
                 {/* <img src={img ? img : avi} alt="" className="img-fluid" on /> */}
 
                 <img src={badge} alt="" className="img-fluid" />
