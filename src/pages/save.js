@@ -1,4 +1,6 @@
 
+import Footer from "../components/footer";
+import CalculateInterest from "../components/landingpage/calculateInterest";
 import HeroSave from "../components/landingpage/heroSave";
 import OurSavePlan from "../components/landingpage/ourSavePlan";
 import NavbarSave from "../components/landingpage/saveNavbar";
@@ -11,6 +13,8 @@ function Save() {
       <NavbarSave/>
       <HeroSave/>
       <OurSavePlan/>
+      <CalculateInterest/>
+      <Footer/>
     </div>
   );
 }
