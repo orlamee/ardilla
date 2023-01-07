@@ -770,3 +770,40 @@ h5 a {
   font-size: 80px;
   line-height: 90px;
 }
+
+.int-form {
+  width: 60%;
+}
+
+.int-select {
+  background-color: transparent;
+  padding: 20px;
+  margin-top: 20px;
+  color: #9CA3AF;
+}
+
+.int-control {
+  background-color: transparent;
+  padding: 20px;
+  margin-top: 20px;
+  color: #9CA3AF;
+  border-radius: 0px;
+  border-bottom: 1px solid #fff;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.int-label {
+  color: #9CA3AF;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: Ubuntu-Regular;
+}
+
+.int-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 1; /* Firefox */
+  font-size: 25px;
+  font-weight: 600;
+}
