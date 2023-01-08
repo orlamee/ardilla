@@ -94,6 +94,7 @@ import KYCReview from "./dashboard/reviewKYC";
 import KYCFailed from "./dashboard/failedKYC";
 import KYCCompleted from "./dashboard/completeKYC";
 import Save from "./pages/save";
+import DillaWallet from "./pages/dillaWallet";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -107,6 +108,7 @@ root.render(
       <Route path="/security" element={<AnswerQuestion />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/save" element={<Save/>}></Route>
+      <Route path="/dilla-wallet" element={<DillaWallet/>}></Route>
       <Route
         path="/verify-mobile"
         element={

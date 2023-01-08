@@ -1,5 +1,5 @@
 .banner {
-  padding: 300px 10px 250px 10px;
+  padding: 300px 0px 250px 0px;
   background-image: url('../img/herobg.svg');
   /* background-position: 50%; */
   background-repeat: no-repeat;
@@ -572,6 +572,7 @@ h5 a {
 
 .top-product {
   margin-top: 200px;
+  padding: 0px;
 }
 
 .words-section {
@@ -806,4 +807,119 @@ h5 a {
   opacity: 1; /* Firefox */
   font-size: 25px;
   font-weight: 600;
+}
+
+.circle {
+  padding: 100px 20px;
+  background-color: #E2E2E2;
+}
+
+.halal {
+  padding: 100px 0px 200px 0px;
+  background-color: #fff;
+}
+
+.circle h2 {
+  font-size: 80px;
+  line-height: 110px;
+  font-weight: 700;
+  color: #3D0072;
+  font-family: Ubuntu-Bold;
+}
+
+.halal h2 {
+  font-size: 80px;
+  line-height: 110px;
+  font-weight: 700;
+  color: #3D0072;
+  font-family: Ubuntu-Bold;
+}
+
+.bg-halal {
+  background-image: url("../img/bg-halal.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 250px 50px;
+}
+
+.bg-halal-right {
+  background-color: #fff;
+  padding: 250px 60px;
+}
+
+.bg-halal-right h6 {
+  font-size: 24px;
+  line-height: 45px;
+  font-weight: 400;
+  color: #3D0072;
+  text-align: center;
+}
+
+.bg-savemonth {
+  background-color: #8807F7;
+  padding: 250px 70px;
+}
+
+.bg-savemonth-right {
+  background-image: url("../img/savemonth.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-savemonth h2 {
+  font-size: 48px;
+  line-height: 45px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.bg-savemonth h6 {
+  font-size: 18px;
+  line-height: 38px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.savemonth {
+  padding-bottom: 150px;
+  background-color: #fff;
+}
+
+.dilla-text h2 {
+  font-size: 80px;
+  line-height: 110px;
+  font-weight: 700;
+  color: #3D0072;
+  font-family: Ubuntu-Bold;
+}
+
+.dilla-text h6 {
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 400;
+  color: #3D0072;
+}
+
+.sendmoney {
+  padding: 100px 0px 0px 0px;
+  background-image: url("../img/sendbg.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.req {
+  padding: 100px 0px 0px 0px;
+  background-image: url("../img/req.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 200px;
+}
+
+.receivemoney {
+  padding: 100px 0px 0px 0px;
+  background-color: #F5F5F5;
 }
