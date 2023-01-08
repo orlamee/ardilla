@@ -12,7 +12,7 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
-import avi from "../../img/dashboard/avi-profilr.svg";
+// import avi from "../../img/dashboard/avi-profilr.svg";
 import badge from "../../img/dashboard/profile-bdg.svg";
 import axios from "axios";
 
