@@ -8,7 +8,7 @@ import linkedin from "../img/linkedin.svg";
 
 function Footer() {
   return(
-    <section>
+    <section className="">
       <div className="container mb-5">
         <div className="row justify-content-center">
           <div className="col-md-10">
@@ -76,7 +76,7 @@ function Footer() {
           </div>
           <div className="row copyright">
             <div className="col-md-10 mb-3">
-              <h6>© 2022 Ardilla. All right reserved</h6>
+              <h6>© 2023 Ardilla. All right reserved</h6>
             </div>
             <div className="col-md-2">
               <div className="d-flex flex-row">

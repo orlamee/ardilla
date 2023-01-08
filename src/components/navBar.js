@@ -79,7 +79,7 @@ function Header() {
                           </div>
                         </div>
                       </Link>
-                      <Link>
+                      <Link to="/dilla-wallet">
                         <div className="d-flex flex-row">
                           <img src={wallet} alt="" className="img-fluid" />
                           <div className="mt-3">
