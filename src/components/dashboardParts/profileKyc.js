@@ -330,7 +330,61 @@ function ProfileKYC() {
               </h5>
             </div>
             <div className="row mt-5">
-              {userDetails?.idFrontStatus === "pending" ? (
+              {userDetails?.idFrontStatus === "" && (
+                <div className="col-md-4">
+                  <form onSubmit={handleUploadFront}>
+                    <div className="card-upload text-center p-4">
+                      <input type="file" required onChange={handleIdFront} />
+                      <img src={up} alt="" className="img-fluid" />
+                      <h6>Upload the Front View</h6>
+                      <h5>
+                        Drag and drop image, or{" "}
+                        <span className="fw-bold" style={{ color: "#E8356D" }}>
+                          Browse
+                        </span>
+                      </h5>
+                      {loading1 ? (
+                        <button>Loading</button>
+                      ) : (
+                        <button type="submit">Submit</button>
+                      )}
+                    </div>
+                  </form>
+                </div>
+              )}
+
+              {userDetails?.idFrontStatus === "pending" && (
+                <div className="col-md-4">
+                  <div className="card-upload text-center p-4 review-bg">
+                    <img src={check} alt="" className="img-fluid" />
+                    <h6 className="mt-2">
+                      Upload Succesful Awaiting confirmation...
+                    </h6>
+                  </div>
+                </div>
+              )}
+
+              {userDetails?.idFrontStatus === "approve" && (
+                <div className="row mt-5">
+                  <h5>
+                    Upload Your valid ID{" "}
+                    <img src={pass} alt="success" className="img-fluid ms-2" />
+                  </h5>
+                </div>
+              )}
+
+              {userDetails?.idFrontStatus === "decline" && (
+                <div className="col-md-4">
+                  <div className="card-upload text-center p-4 review-bg">
+                    <img src={check} alt="" className="img-fluid" />
+                    <h6 className="mt-2">
+                      Upload Succesful Awaiting confirmation...
+                    </h6>
+                  </div>
+                </div>
+              )}
+
+              {/* {userDetails?.idFrontStatus === "pending" ? (
                 <div className="col-md-4">
                   <div className="card-upload text-center p-4 review-bg">
                     <img src={check} alt="" className="img-fluid" />
@@ -360,9 +414,63 @@ function ProfileKYC() {
                     </div>
                   </form>
                 </div>
+              )} */}
+
+              {userDetails?.idBackStatus === "" && (
+                <div className="col-md-4">
+                  <form onSubmit={handleUploadBack}>
+                    <div className="card-upload text-center p-4">
+                      <input type="file" required onChange={handleIdBack} />
+                      <img src={up} alt="" className="img-fluid" />
+                      <h6>Upload the Front View</h6>
+                      <h5>
+                        Drag and drop image, or{" "}
+                        <span className="fw-bold" style={{ color: "#E8356D" }}>
+                          Browse
+                        </span>
+                      </h5>
+                      {loading2 ? (
+                        <button>Loading</button>
+                      ) : (
+                        <button type="submit">Submit</button>
+                      )}
+                    </div>
+                  </form>
+                </div>
               )}
 
-              {userDetails?.idBackStatus === "pending" ? (
+              {userDetails?.idBackStatus === "pending" && (
+                <div className="col-md-4">
+                  <div className="card-upload text-center p-4 review-bg">
+                    <img src={check} alt="" className="img-fluid" />
+                    <h6 className="mt-2">
+                      Upload Succesful Awaiting confirmation...
+                    </h6>
+                  </div>
+                </div>
+              )}
+
+              {userDetails?.idBackStatus === "approve" && (
+                <div className="row mt-5">
+                  <h5>
+                    Upload Your valid ID{" "}
+                    <img src={pass} alt="success" className="img-fluid ms-2" />
+                  </h5>
+                </div>
+              )}
+
+              {userDetails?.idBackStatus === "decline" && (
+                <div className="col-md-4">
+                  <div className="card-upload text-center p-4 review-bg">
+                    <img src={check} alt="" className="img-fluid" />
+                    <h6 className="mt-2">
+                      Upload Succesful Awaiting confirmation...
+                    </h6>
+                  </div>
+                </div>
+              )}
+
+              {/* {userDetails?.idBackStatus === "pending" ? (
                 <div className="col-md-4">
                   <div className="card-upload text-center p-4 review-bg">
                     <img src={check} alt="" className="img-fluid" />
@@ -392,7 +500,7 @@ function ProfileKYC() {
                     </div>
                   </form>
                 </div>
-              )}
+              )} */}
             </div>
             <div className="row mt-5">
               <h5>
@@ -403,7 +511,61 @@ function ProfileKYC() {
               </h5>
             </div>
             <div className="row mt-5">
-              {userDetails?.utilityBillStatus === "pending" ? (
+              {userDetails?.utilityBillStatus === "" && (
+                <div className="col-md-4">
+                  <form onSubmit={handleUploadUtility}>
+                    <div className="card-upload text-center p-4">
+                      <input type="file" required onChange={handleUtility} />
+                      <img src={cloud} alt="" className="img-fluid" />
+                      <h6>Upload Utility Bill</h6>
+                      <h5>
+                        Drag and drop image, or{" "}
+                        <span className="fw-bold" style={{ color: "#E8356D" }}>
+                          Browse
+                        </span>
+                      </h5>
+                      {loading3 ? (
+                        <button>Loading</button>
+                      ) : (
+                        <button type="submit">Submit</button>
+                      )}
+                    </div>
+                  </form>
+                </div>
+              )}
+
+              {userDetails?.utilityBillStatus === "pending" && (
+                <div className="col-md-4">
+                  <div className="card-upload text-center p-4 review-bg">
+                    <img src={check} alt="" className="img-fluid" />
+                    <h6 className="mt-2">
+                      Upload Succesful Awaiting confirmation...
+                    </h6>
+                  </div>
+                </div>
+              )}
+
+              {userDetails?.utilityBillStatus === "approve" && (
+                <div className="row mt-5">
+                  <h5>
+                    Upload Your valid ID{" "}
+                    <img src={pass} alt="success" className="img-fluid ms-2" />
+                  </h5>
+                </div>
+              )}
+
+              {userDetails?.utilityBillStatus === "decline" && (
+                <div className="col-md-4">
+                  <div className="card-upload text-center p-4 review-bg">
+                    <img src={check} alt="" className="img-fluid" />
+                    <h6 className="mt-2">
+                      Upload Succesful Awaiting confirmation...
+                    </h6>
+                  </div>
+                </div>
+              )}
+
+              {/* {userDetails?.utilityBillStatus === "pending" ? (
                 <div className="col-md-4">
                   <div className="card-upload text-center p-4 review-bg">
                     <img src={check} alt="" className="img-fluid" />
@@ -433,7 +595,7 @@ function ProfileKYC() {
                     </div>
                   </form>
                 </div>
-              )}
+              )} */}
 
               {/* <div className="col-md-4">
                 <form onSubmit={handleUploadUtility}>

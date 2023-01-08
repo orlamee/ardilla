@@ -60,9 +60,14 @@ function DillaBody() {
   const [err, setErr] = useState(false);
   const [onTransferSuccess, setOnTransferSuccess] = useState(false);
 
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
+
   let user1 = JSON.parse(sessionStorage.getItem("user"));
 
   const email = user1.email;
+
+  const userID = "639998243d3d6769fbe39642";
 
   useEffect(() => {
     const getDillaWallet = async () => {
@@ -71,7 +76,7 @@ function DillaBody() {
           `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/get-dilla-wallet/${user1._id}`
         );
 
-        console.log(data);
+        // console.log(data);
         setDillaWallet(data.dillaWallet);
       } catch (error) {
         console.log(error);
@@ -85,7 +90,7 @@ function DillaBody() {
         );
 
         setSan(data.sanAccount);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -97,7 +102,7 @@ function DillaBody() {
     getDillaWallet();
   }, [user1._id]);
 
-  console.log(san);
+  // console.log(san);
 
   const getDillaWallet = async () => {
     try {
@@ -105,7 +110,7 @@ function DillaBody() {
         `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/get-dilla-wallet/${user1._id}`
       );
 
-      console.log(data);
+      // console.log(data);
       setDillaWallet(data.dillaWallet);
     } catch (error) {
       console.log(error);
@@ -159,7 +164,7 @@ function DillaBody() {
       );
 
       setSan(data.sanAccount);
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -172,6 +177,40 @@ function DillaBody() {
       const { data } = await axios.put(
         `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/transfer-to-san/${user1._id}`,
         { amount, pin }
+      );
+
+      setLoading(false);
+      getSanAcct();
+      getDillaWallet();
+      setOnTransferSuccess(true);
+      // console.log(data);
+    } catch (error) {
+      setOnTransferSuccess(false);
+      setMsg(`${error.response.data.msg} `);
+      setLoading(false);
+      setErr(true);
+    }
+  };
+
+  const requestMoney = () => {};
+
+  let ots;
+
+  const tranfertoDilla = async () => {
+    ots = {
+      question,
+      answer,
+    };
+    // e.preventDefault();
+    // setLoading(true);
+    // setErr(false);
+
+    try {
+      setLoading(true);
+      setErr(false);
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/transfer/${user1._id}`,
+        { amount, pin, ots, userID }
       );
 
       setLoading(false);
@@ -1995,7 +2034,7 @@ function DillaBody() {
               </div>
             </div>
             <div className="recent-transaction mt-5">
-              <h3>Friends</h3>
+              <h3>Friends boobs</h3>
             </div>
             <div className="row mt-5 friends">
               <div className="col-md-2 text-center">
@@ -2358,8 +2397,10 @@ function DillaBody() {
                               <input
                                 type="number"
                                 className="form-control target-form"
-                                placeholder="NGN 10,000"
+                                placeholder="amount"
                                 required
+                                value={amount}
+                                onChange={(e) => setAmount(e.target.value)}
                               />
                             </div>
                           </form>
@@ -2375,6 +2416,8 @@ function DillaBody() {
                                 className="form-control target-form"
                                 placeholder="E.g What is your name"
                                 required
+                                value={question}
+                                onChange={(e) => setQuestion(e.target.value)}
                               />
                             </div>
                           </form>
@@ -2390,6 +2433,8 @@ function DillaBody() {
                                 className="form-control target-form"
                                 placeholder="Chukwukwa Adekunle"
                                 required
+                                value={answer}
+                                onChange={(e) => setAnswer(e.target.value)}
                               />
                             </div>
                           </form>
@@ -2405,6 +2450,8 @@ function DillaBody() {
                                 className="form-control target-form"
                                 placeholder="Enter Pin"
                                 required
+                                value={pin}
+                                onChange={(e) => setPin(e.target.value)}
                               />
                             </div>
                           </form>
@@ -2412,15 +2459,28 @@ function DillaBody() {
                       </div>
                       <div className="row mt-3 justify-content-center">
                         <div className="col text-center">
-                          <Link
-                            data-bs-toggle="modal"
-                            data-bs-target="#sent-success"
-                            type="button"
-                            to="#"
-                            className="btn btn-outline-primary px-5 py-3 ardilla-btn btn-f6 mt-4 me-3"
-                          >
-                            Send Money
-                          </Link>
+                          {loading ? (
+                            <Link
+                              data-bs-toggle="modal"
+                              data-bs-target="#sent-success"
+                              type="button"
+                              to="#"
+                              className="btn btn-outline-primary px-5 py-3 ardilla-btn btn-f6 mt-4 me-3"
+                            >
+                              Sending
+                            </Link>
+                          ) : (
+                            <Link
+                              data-bs-toggle="modal"
+                              data-bs-target="#sent-success"
+                              type="button"
+                              to="#"
+                              className="btn btn-outline-primary px-5 py-3 ardilla-btn btn-f6 mt-4 me-3"
+                              onClick={tranfertoDilla}
+                            >
+                              Send Money
+                            </Link>
+                          )}
                         </div>
                       </div>
                     </div>
