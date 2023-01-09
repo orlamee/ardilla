@@ -114,6 +114,7 @@ function VerifyPhone() {
     setLoading(true);
 
     console.log(pinRef.current);
+    console.log(fullpin);
 
     try {
       const { data } = await axios.post(
