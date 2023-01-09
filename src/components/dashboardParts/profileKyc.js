@@ -375,11 +375,10 @@ function ProfileKYC() {
 
               {userDetails?.idFrontStatus === "decline" && (
                 <div className="col-md-4">
-                  <div className="card-upload text-center p-4 review-bg">
-                    <img src={check} alt="" className="img-fluid" />
-                    <h6 className="mt-2">
-                      Upload Succesful Awaiting confirmation...
-                    </h6>
+                  <div className="card-upload text-center p-4">
+                    <img src={up} alt="" className="img-fluid" />
+                    <h6>Upload the Back View</h6>
+                    {/* <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5> */}
                   </div>
                 </div>
               )}
@@ -451,23 +450,20 @@ function ProfileKYC() {
               )}
 
               {userDetails?.idBackStatus === "approve" && (
-                <h2>stuff</h2>
-
-                // <div className="row mt-5">
-                //   <h5>
-                //     Upload Your valid ID{" "}
-                //     <img src={pass} alt="success" className="img-fluid ms-2" />
-                //   </h5>
-                // </div>
+                <div className="row mt-5">
+                  <h5>
+                    Upload Your valid ID{" "}
+                    <img src={pass} alt="success" className="img-fluid ms-2" />
+                  </h5>
+                </div>
               )}
 
               {userDetails?.idBackStatus === "decline" && (
                 <div className="col-md-4">
-                  <div className="card-upload text-center p-4 review-bg">
-                    <img src={check} alt="" className="img-fluid" />
-                    <h6 className="mt-2">
-                      Upload Succesful Awaiting confirmation...
-                    </h6>
+                  <div className="card-upload text-center p-4">
+                    <img src={up} alt="" className="img-fluid" />
+                    <h6>Upload the Back View</h6>
+                    {/* <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5> */}
                   </div>
                 </div>
               )}
@@ -558,11 +554,10 @@ function ProfileKYC() {
 
               {userDetails?.utilityBillStatus === "decline" && (
                 <div className="col-md-4">
-                  <div className="card-upload text-center p-4 review-bg">
-                    <img src={check} alt="" className="img-fluid" />
-                    <h6 className="mt-2">
-                      Upload Succesful Awaiting confirmation...
-                    </h6>
+                  <div className="card-upload text-center p-4">
+                    <img src={cloud} alt="" className="img-fluid" />
+                    <h6>Upload Utility Bill</h6>
+                    {/* <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5> */}
                   </div>
                 </div>
               )}
