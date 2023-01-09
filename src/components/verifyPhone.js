@@ -42,7 +42,7 @@ function VerifyPhone() {
 
         console.log("heavy");
 
-        console.log(data);
+        console.log(data.user.mobilePinId);
 
         if (data?.user?.verified === "sq") {
           return;
