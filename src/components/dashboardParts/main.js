@@ -36,8 +36,9 @@ function Sidebar() {
   const [dillaWallet, setDillaWallet] = useState({});
   const [sanBalance, setSanBalance] = useState({});
   const [userDetails, setUserDetails] = useState();
-  // const [idle, setIdle] = useState(false);
+
   let user = JSON.parse(sessionStorage.getItem("user"));
+
   const navigate = useNavigate();
 
   const refreshToken = async () => {
@@ -61,7 +62,7 @@ function Sidebar() {
         );
 
         setDillaWallet(data.dillaWallet);
-        console.log("san", data);
+        console.log("dilla", data);
       } catch (error) {
         console.log(error);
       }
@@ -93,7 +94,6 @@ function Sidebar() {
     };
 
     getUserById();
-
     getDillaWallet();
     getSanAcct();
   }, [user]);
@@ -131,14 +131,6 @@ function Sidebar() {
     ],
     debounce: 500,
   });
-
-  // const today = new Date();
-
-  // const date =
-  //   today.getMonth() + "," + today.getDate() + " " + today.getFullYear();
-
-  // const time =
-  //   today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
   //form log out btn
   const handleLogOut = () => {
