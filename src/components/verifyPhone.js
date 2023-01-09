@@ -113,6 +113,8 @@ function VerifyPhone() {
     setErr(false);
     setLoading(true);
 
+    console.log(pinRef.current);
+
     try {
       const { data } = await axios.post(
         "https://api.ng.termii.com/api/sms/otp/verify",
