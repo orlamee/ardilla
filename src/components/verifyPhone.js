@@ -27,9 +27,9 @@ function VerifyPhone() {
   const [wrongContactErr, setWrongContactErr] = useState("");
   const [wrongContactMsg, setWrongContactMsg] = useState("");
   const [wrongContactSuc, setWrongContactSuc] = useState("");
-  // const [code, setCode] = useState("");
+  const [code, setCode] = useState("");
 
-  let code;
+  // let code;
 
   useEffect(() => {
     try {
@@ -40,9 +40,9 @@ function VerifyPhone() {
 
         console.log("better man");
 
-        // setCode(data.user.mobilePinId);
+        setCode(data.user.mobilePinId);
 
-        code = data.user.mobilePinId;
+        // code = data.user?.mobilePinId;
 
         if (data?.user?.verified === "sq") {
           return;
