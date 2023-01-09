@@ -451,12 +451,14 @@ function ProfileKYC() {
               )}
 
               {userDetails?.idBackStatus === "approve" && (
-                <div className="row mt-5">
-                  <h5>
-                    Upload Your valid ID{" "}
-                    <img src={pass} alt="success" className="img-fluid ms-2" />
-                  </h5>
-                </div>
+                <h2>stuff</h2>
+
+                // <div className="row mt-5">
+                //   <h5>
+                //     Upload Your valid ID{" "}
+                //     <img src={pass} alt="success" className="img-fluid ms-2" />
+                //   </h5>
+                // </div>
               )}
 
               {userDetails?.idBackStatus === "decline" && (
