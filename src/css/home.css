@@ -509,13 +509,16 @@ h5 a {
   font-size: 10px;
   line-height: 14px;
   font-weight: 400;
+  margin-top: 4px;
 }
 
 .header h2 {
   color: #3D0072;
   font-size: 14px;
-  line-height: 17px;
+  /* line-height: 9px; */
   font-weight: 700;
+  margin-bottom: 0px;
+
 }
 
 .header a {
@@ -922,4 +925,14 @@ h5 a {
 .receivemoney {
   padding: 100px 0px 0px 0px;
   background-color: #F5F5F5;
+}
+
+.bg-list {
+  border: 1px solid #E6356D;
+  padding: 1px 6px 0px 6px;
+  font-size: 8px;
+  border-radius: 30px;
+  color: #E6356D;
+  font-weight: 400;
+  /* margin-top: 5px; */
 }

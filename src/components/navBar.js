@@ -13,6 +13,7 @@ import terms from "../img/terms.svg";
 import earth from "../img/earth.svg";
 import naija from "../img/9ja.svg";
 import uk from "../img/uk.svg";
+import budget from "../img/b-con.svg";
 import us from "../img/us.svg";
 
 function Header() {
@@ -65,7 +66,10 @@ function Header() {
                         <div className="d-flex flex-row">
                           <img src={invest} alt="" className="img-fluid" />
                           <div className="mt-3">
-                            <h2>Invest</h2>
+                            <div className="d-flex flex-row">
+                              <h2>Invest</h2>
+                              <span className="bg-list ms-2">Coming soon</span> 
+                            </div>
                             <h6>Unlimited Returns opportunities</h6>
                           </div>
                         </div>
@@ -74,7 +78,10 @@ function Header() {
                         <div className="d-flex flex-row">
                           <img src={claim} alt="" className="img-fluid" />
                           <div className="mt-3">
-                            <h2>Make a claim</h2>
+                             <div className="d-flex flex-row">
+                              <h2>Insure</h2>
+                              <span className="bg-list ms-2">Coming soon</span> 
+                            </div>
                             <h6>Create a claim at any time</h6>
                           </div>
                         </div>
@@ -83,7 +90,7 @@ function Header() {
                         <div className="d-flex flex-row">
                           <img src={wallet} alt="" className="img-fluid" />
                           <div className="mt-3">
-                            <h2>Wallet</h2>
+                            <h2>Dilla</h2>
                             <h6>Unlimited transactions</h6>
                           </div>
                         </div>
@@ -93,6 +100,18 @@ function Header() {
                           <img src={learn} alt="" className="img-fluid" />
                           <div className="mt-3">
                             <h2>Learn</h2>
+                            <h6>Learn and get paid</h6>
+                          </div>
+                        </div>
+                      </Link>
+                      <Link>
+                        <div className="d-flex flex-row">
+                          <img src={budget} alt="" className="img-fluid" width="81px" />
+                          <div className="mt-3">
+                            <div className="d-flex flex-row">
+                              <h2>Budget</h2>
+                              <span className="bg-list ms-2">Coming soon</span> 
+                            </div>
                             <h6>Learn and get paid</h6>
                           </div>
                         </div>
