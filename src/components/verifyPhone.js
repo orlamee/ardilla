@@ -61,6 +61,26 @@ function VerifyPhone() {
 
   console.log(code);
 
+  const getUserById = async () => {
+    const { data } = await axios.get(
+      `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+    );
+
+    console.log("outside");
+
+    setCode(data.user.mobilePinId);
+
+    if (data?.user?.verified === "sq") {
+      return;
+    } else if (data?.user?.verified === "mv") {
+      return navigate("/set-pin");
+    } else {
+      return navigate("/404");
+    }
+  };
+
+  getUserById();
+
   const fullpin = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
 
   const updateProcess = async () => {
