@@ -249,9 +249,9 @@ function Sidebar() {
                 ) : (
                   <span>0</span>
                 )}
-                <span className="amount">
+                {/* <span className="amount">
                   NGN {Intl.NumberFormat("en-US").format(sanBalance)}
-                </span>
+                </span> */}
                 <i className="bi bi-eye-fill float-end text-white"></i>
               </div>
               <div className="mt-2 p-2">
