@@ -131,6 +131,12 @@ function VerifyPhone() {
     console.log(fullpin);
 
     try {
+      const { data1 } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+      );
+
+      console.log(data1);
+
       const { data } = await axios.post(
         "https://api.ng.termii.com/api/sms/otp/verify",
         {
