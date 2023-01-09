@@ -96,6 +96,27 @@ function Sidebar() {
     getSanAcct();
   }, [user]);
 
+  const generateAccount = async () => {
+    try {
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/user/generate-san/${user._id}`
+      );
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  if (
+    userDetails?.idFrontStatus === "approve" &&
+    userDetails?.idBackStatus === "approve" &&
+    userDetails?.idBackStatus === "approve"
+  ) {
+    console.log("nothing is immpossible");
+    generateAccount();
+  }
+
   // useEffect(() => {
   //   let interval = setInterval(() => {
   //     refreshToken();
@@ -239,7 +260,7 @@ function Sidebar() {
                     NGN {Intl.NumberFormat("en-US").format(sanBalance)}
                   </span>
                 ) : (
-                  <span>0</span>
+                  <span className="amount">0</span>
                 )}
                 {/* <span className="amount">
                   NGN {Intl.NumberFormat("en-US").format(sanBalance)}
@@ -298,7 +319,7 @@ function Sidebar() {
                     USD {Intl.NumberFormat("en-US").format(dillaWallet)}
                   </span>
                 ) : (
-                  <span>0</span>
+                  <span className="amount">0</span>
                 )}
                 <i className="bi bi-eye-fill float-end text-white"></i>
               </div>
@@ -330,7 +351,7 @@ function Sidebar() {
                     )}{" "}
                   </span>
                 ) : (
-                  <span>0</span>
+                  <span className="amount">0</span>
                 )}
                 {/* <span className="amount">
                   NGN{" "}
