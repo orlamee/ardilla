@@ -27,6 +27,7 @@ function VerifyPhone() {
   const [wrongContactErr, setWrongContactErr] = useState("");
   const [wrongContactMsg, setWrongContactMsg] = useState("");
   const [wrongContactSuc, setWrongContactSuc] = useState("");
+  const [code, setCode] = useState("");
 
   useEffect(() => {
     try {
@@ -36,6 +37,12 @@ function VerifyPhone() {
         );
 
         pinRef.current = data.user.mobilePinId;
+
+        console.log("new");
+
+        console.log("heavy");
+
+        console.log(data);
 
         if (data?.user?.verified === "sq") {
           return;
