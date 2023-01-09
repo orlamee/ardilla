@@ -55,6 +55,8 @@ function ProfileKYC() {
       );
 
       setUserDetails(data.user);
+
+      console.log(data.user);
     } catch (error) {
       console.log(error);
     }
@@ -402,33 +404,33 @@ function ProfileKYC() {
               )}
 
               {userDetails?.idFrontStatus === "approve" && (
-                // <div className="row mt-5">
-                <h5>
-                  Upload Your valid ID{" "}
-                  <img src={pass} alt="success" className="img-fluid ms-2" />
-                </h5>
-                // </div>
+                <div className="row mt-5">
+                  <h5>
+                    Upload Your valid ID{" "}
+                    <img src={pass} alt="success" className="img-fluid ms-2" />
+                  </h5>
+                </div>
               )}
 
               {userDetails?.idBackStatus === "approve" && (
-                // <div className="row mt-5">
-                <h5>
-                  Upload Your valid ID{" "}
-                  <img src={pass} alt="success" className="img-fluid ms-2" />
-                </h5>
-                // </div>
+                <div className="row mt-5">
+                  <h5>
+                    Upload Your valid ID{" "}
+                    <img src={pass} alt="success" className="img-fluid ms-2" />
+                  </h5>
+                </div>
               )}
 
               {userDetails?.idFrontStatus === "decline" && (
                 <div>
-                  {/* <div className="row mt-5"> */}
-                  <h5>
-                    Upload Your valid ID{" "}
-                    <small style={{ color: "#E8356D" }}>
-                      Document not auntheticated, please reupload
-                    </small>
-                  </h5>
-                  {/* </div> */}
+                  <div className="row mt-5">
+                    <h5>
+                      Upload Your valid ID{" "}
+                      <small style={{ color: "#E8356D" }}>
+                        Document not auntheticated, please reupload
+                      </small>
+                    </h5>
+                  </div>
                   <div className="col-md-4">
                     <div className="card-upload text-center p-4">
                       <img src={up} alt="" className="img-fluid" />
@@ -441,14 +443,14 @@ function ProfileKYC() {
 
               {userDetails?.idBackStatus === "decline" && (
                 <div>
-                  {/* <div className="row mt-5"> */}
-                  <h5>
-                    Upload Your valid ID{" "}
-                    <small style={{ color: "#E8356D" }}>
-                      Document not auntheticated, please reupload
-                    </small>
-                  </h5>
-                  {/* </div> */}
+                  <div className="row mt-5">
+                    <h5>
+                      Upload Your valid ID{" "}
+                      <small style={{ color: "#E8356D" }}>
+                        Document not auntheticated, please reupload
+                      </small>
+                    </h5>
+                  </div>
                   <div className="col-md-4">
                     <div className="card-upload text-center p-4">
                       <img src={up} alt="" className="img-fluid" />
