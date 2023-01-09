@@ -62,7 +62,6 @@ function Sidebar() {
         );
 
         setDillaWallet(data.dillaWallet);
-        console.log("dilla", data);
       } catch (error) {
         console.log(error);
       }
@@ -75,7 +74,6 @@ function Sidebar() {
         );
 
         setSanBalance(data.sanAccount);
-        console.log("san", data);
       } catch (error) {
         console.log(error);
       }
