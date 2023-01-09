@@ -15,7 +15,7 @@ import zim from "../../img/zimba.svg";
 
 function LearnHeader() {
   return(
-    <nav className="navbar fixed-top navbar-expand-lg navbar-light py-4 px-1">
+    <nav className="navbar fixed-top navbar-expand-lg navbar-light py-4 px-1 bg-save">
       <div className='container header'>
         <a className='navbar-brand' href="/learn-more">
           <img src={logo} alt="" className='img-fluid' style={{marginTop: "-8px"}} />
