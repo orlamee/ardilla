@@ -42,6 +42,10 @@ function VerifyPhone() {
 
         setCode(data.user.mobilePinId);
 
+        console.log(data.user);
+
+        console.log(data);
+
         // code = data.user?.mobilePinId;
 
         if (data?.user?.verified === "sq") {
