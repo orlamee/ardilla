@@ -239,7 +239,7 @@ function Sidebar() {
                     NGN {Intl.NumberFormat("en-US").format(sanBalance)}
                   </span>
                 ) : (
-                  <span>0</span>
+                  <span className="amount">0</span>
                 )}
                 {/* <span className="amount">
                   NGN {Intl.NumberFormat("en-US").format(sanBalance)}
@@ -298,7 +298,7 @@ function Sidebar() {
                     USD {Intl.NumberFormat("en-US").format(dillaWallet)}
                   </span>
                 ) : (
-                  <span>0</span>
+                  <span className="amount">0</span>
                 )}
                 <i className="bi bi-eye-fill float-end text-white"></i>
               </div>
@@ -330,7 +330,7 @@ function Sidebar() {
                     )}{" "}
                   </span>
                 ) : (
-                  <span>0</span>
+                  <span className="amount">0</span>
                 )}
                 {/* <span className="amount">
                   NGN{" "}
