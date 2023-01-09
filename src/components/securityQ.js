@@ -50,7 +50,7 @@ function SecurityPage() {
           api_key:
             "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
           message_type: "NUMERIC",
-          to: user.contact,
+          to: `234${user.contact}`,
           from: "Ardilla",
           channel: "generic",
           pin_attempts: 1,
