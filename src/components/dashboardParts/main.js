@@ -41,18 +41,18 @@ function Sidebar() {
 
   const navigate = useNavigate();
 
-  const refreshToken = async () => {
-    try {
-      const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/refresh-token/${Cookies.get(
-          "user"
-        )}`
-      );
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const refreshToken = async () => {
+  //   try {
+  //     const { data } = await axios.get(
+  //       `https://ardilla.herokuapp.com/ardilla/api/auth/refresh-token/${Cookies.get(
+  //         "user"
+  //       )}`
+  //     );
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   useEffect(() => {
     const getDillaWallet = async () => {
