@@ -242,6 +242,13 @@ function Sidebar() {
                 <span className="roi">+10.00%</span>
               </div>
               <div className="p-2 mt-3">
+                {sanBalance ? (
+                  <span className="amount">
+                    NGN {Intl.NumberFormat("en-US").format(sanBalance)}
+                  </span>
+                ) : (
+                  <span>0</span>
+                )}
                 <span className="amount">
                   NGN {Intl.NumberFormat("en-US").format(sanBalance)}
                 </span>
@@ -291,9 +298,16 @@ function Sidebar() {
                 <span className="me-4 san">Dilla Wallet</span>
               </div>
               <div className="p-2 mt-3">
-                <span className="amount">
+                {/* <span className="amount">
                   USD {Intl.NumberFormat("en-US").format(dillaWallet)}
-                </span>
+                </span> */}
+                {dillaWallet ? (
+                  <span className="amount">
+                    USD {Intl.NumberFormat("en-US").format(dillaWallet)}
+                  </span>
+                ) : (
+                  <span>0</span>
+                )}
                 <i className="bi bi-eye-fill float-end text-white"></i>
               </div>
               <div className="mt-4 p-2">
@@ -316,10 +330,20 @@ function Sidebar() {
                 <span className="me-4 san">Total Funds</span>
               </div>
               <div className="p-2 mt-3">
-                <span className="amount">
+                {sanBalance && dillaWallet ? (
+                  <span className="amount">
+                    NGN{" "}
+                    {Intl.NumberFormat("en-US").format(
+                      dillaWallet + sanBalance
+                    )}{" "}
+                  </span>
+                ) : (
+                  <span>0</span>
+                )}
+                {/* <span className="amount">
                   NGN{" "}
                   {Intl.NumberFormat("en-US").format(dillaWallet + sanBalance)}{" "}
-                </span>
+                </span> */}
                 <i className="bi bi-eye-fill float-end"></i>
               </div>
               <div className="mt-4 p-2">
