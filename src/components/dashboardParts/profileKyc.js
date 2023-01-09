@@ -163,6 +163,56 @@ function ProfileKYC() {
     }
   };
 
+  //front
+  const approveIdFront = async () => {
+    try {
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/user/approve-front/${user._id}`
+      );
+
+      console.log(data.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const declineIdFront = async () => {
+    try {
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/user/decline-front/${user._id}`
+      );
+
+      console.log(data.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //back
+  const approveIdBack = async () => {
+    try {
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/user/approve-back/${user._id}`
+      );
+
+      console.log(data.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const declineIdBack = async () => {
+    try {
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/user/decline-back/${user._id}`
+      );
+
+      console.log(data.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <section className="main-dash">
       <div className="sidebar">
