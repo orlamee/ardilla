@@ -60,7 +60,8 @@ function Sidebar() {
           `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/get-dilla-wallet/${user._id}`
         );
 
-        setDillaWallet(data.dillaWallet.accountBalance);
+        setDillaWallet(data.dillaWallet);
+        console.log("san", data);
       } catch (error) {
         console.log(error);
       }
@@ -72,7 +73,8 @@ function Sidebar() {
           `https://ardilla.herokuapp.com/ardilla/api/san-account/get-san-account/${user._id}`
         );
 
-        setSanBalance(data.sanAccount.accountBalance);
+        setSanBalance(data.sanAccount);
+        console.log("san", data);
       } catch (error) {
         console.log(error);
       }
