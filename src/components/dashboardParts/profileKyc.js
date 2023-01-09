@@ -459,11 +459,30 @@ function ProfileKYC() {
               )}
 
               {userDetails?.idBackStatus === "decline" && (
-                <div className="col-md-4">
-                  <div className="card-upload text-center p-4">
-                    <img src={up} alt="" className="img-fluid" />
-                    <h6>Upload the Back View</h6>
-                    {/* <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5> */}
+                <div>
+                  <div className="row mt-5">
+                    <h5>
+                      Upload Your valid ID{" "}
+                      <small style={{ color: "#E8356D" }}>
+                        Document not auntheticated, please reupload
+                      </small>
+                    </h5>
+                  </div>
+                  <div className="row mt-5">
+                    <div className="col-md-4">
+                      <div className="card-upload text-center p-4">
+                        <img src={up} alt="" className="img-fluid" />
+                        <h6>Upload the Front View</h6>
+                        {/* <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5> */}
+                      </div>
+                    </div>
+                    <div className="col-md-4">
+                      <div className="card-upload text-center p-4">
+                        <img src={up} alt="" className="img-fluid" />
+                        <h6>Upload the Back View</h6>
+                        {/* <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5> */}
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}
