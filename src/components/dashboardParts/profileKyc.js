@@ -68,7 +68,7 @@ function ProfileKYC() {
         `https://ardilla.herokuapp.com/ardilla/api/user/generate-san/${user._id}`
       );
 
-      console.log(data.user);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
