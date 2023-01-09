@@ -62,14 +62,6 @@ function ProfileKYC() {
     }
   };
 
-  if (
-    userDetails?.idFrontStatus === "approve" &&
-    userDetails?.idBackStatus === "approve" &&
-    userDetails?.idBackStatus === "approve"
-  ) {
-    console.log("nothing is immpossible");
-  }
-
   const generateAccount = async () => {
     try {
       const { data } = await axios.put(
@@ -81,6 +73,15 @@ function ProfileKYC() {
       console.log(error);
     }
   };
+
+  if (
+    userDetails?.idFrontStatus === "approve" &&
+    userDetails?.idBackStatus === "approve" &&
+    userDetails?.idBackStatus === "approve"
+  ) {
+    console.log("nothing is immpossible");
+    generateAccount();
+  }
 
   const handleIdFront = (e) => {
     e.preventDefault();
