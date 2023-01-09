@@ -486,47 +486,43 @@ function ProfileKYC() {
             )}
 
             {userDetails?.utilityBillStatus === "pending" && (
-              <div className="row mt-4">
-                <div className="col-md-4">
-                  <div className="card-upload text-center p-4 review-bg">
-                    <img src={check} alt="" className="img-fluid" />
-                    <h6 className="mt-2">
-                      Upload Succesful Awaiting confirmation...
-                    </h6>
-                  </div>
+              <div className="col-md-4">
+                <div className="card-upload text-center p-4 review-bg">
+                  <img src={check} alt="" className="img-fluid" />
+                  <h6 className="mt-2">
+                    Upload Succesful Awaiting confirmation...
+                  </h6>
                 </div>
               </div>
             )}
 
             {userDetails?.utilityBillStatus === "approve" && (
-              <div className="row mt-5">
-                <h5>
-                  Upload Your valid ID{" "}
-                  <img src={pass} alt="success" className="img-fluid ms-2" />
-                </h5>
-              </div>
+              <h5>
+                Upload Your valid ID{" "}
+                <img src={pass} alt="success" className="img-fluid ms-2" />
+              </h5>
             )}
 
             {userDetails?.utilityBillStatus === "decline" && (
               <div>
-                <div className="row mt-5">
-                  <h5>
-                    Upload Your valid ID{" "}
-                    <small style={{ color: "#E8356D" }}>
-                      Document not auntheticated, please reupload
-                    </small>
-                  </h5>
-                </div>
-                <div className="row mt-5">
-                  <div className="col-md-4">
-                    <div className="card-upload text-center p-4">
-                      <img src={cloud} alt="" className="img-fluid" />
-                      <h6>Upload Utility Bill</h6>
-                      {/* <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5> */}
-                    </div>
+                {/* <div className="row mt-5"> */}
+                <h5>
+                  Upload Your valid ID{" "}
+                  <small style={{ color: "#E8356D" }}>
+                    Document not auntheticated, please reupload
+                  </small>
+                </h5>
+                {/* </div> */}
+                {/* <div className="row mt-5"> */}
+                <div className="col-md-4">
+                  <div className="card-upload text-center p-4">
+                    <img src={cloud} alt="" className="img-fluid" />
+                    <h6>Upload Utility Bill</h6>
+                    {/* <h5>Drag and drop image, or <span className="fw-bold" style={{color: "#E8356D"}}>Browse</span></h5> */}
                   </div>
                 </div>
               </div>
+              // </div>
             )}
           </div>
         </div>
