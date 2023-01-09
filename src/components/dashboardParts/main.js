@@ -252,7 +252,7 @@ function Sidebar() {
                   <div className="details">
                     <span className="hash">{userDetails?.uid}</span>
                     <br />
-                    <Link className="generate" to="/profile/kyc">
+                    <Link className="generate">
                       {userDetails?.firstname} {userDetails?.lastname}
                       {/* Generate Account Number{" "}
                       <i className="bi bi-arrow-right-circle-fill"></i> */}
