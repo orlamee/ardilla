@@ -96,6 +96,27 @@ function Sidebar() {
     getSanAcct();
   }, [user]);
 
+  const generateAccount = async () => {
+    try {
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/user/generate-san/${user._id}`
+      );
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  if (
+    userDetails?.idFrontStatus === "approve" &&
+    userDetails?.idBackStatus === "approve" &&
+    userDetails?.idBackStatus === "approve"
+  ) {
+    console.log("nothing is immpossible");
+    generateAccount();
+  }
+
   // useEffect(() => {
   //   let interval = setInterval(() => {
   //     refreshToken();
