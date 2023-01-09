@@ -95,6 +95,9 @@ import KYCFailed from "./dashboard/failedKYC";
 import KYCCompleted from "./dashboard/completeKYC";
 import Save from "./pages/save";
 import DillaWallet from "./pages/dillaWallet";
+import AboutUsPage from "./pages/aboutUs";
+import DownloadApp from "./pages/downloadApp";
+import RankPage from "./dashboard/rankPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -109,6 +112,10 @@ root.render(
       <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/save" element={<Save/>}></Route>
       <Route path="/dilla-wallet" element={<DillaWallet/>}></Route>
+      <Route path="/about-us" element={<AboutUsPage/>}></Route>
+      <Route path="/download-ardilla" element={<DownloadApp/>}></Route>
+      <Route path="/ranks" element={<RankPage/>}></Route>
+
       <Route
         path="/verify-mobile"
         element={

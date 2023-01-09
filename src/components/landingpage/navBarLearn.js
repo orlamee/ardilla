@@ -10,6 +10,8 @@ import earth from "../../img/earth.svg";
 import naija from "../../img/9ja.svg";
 import uk from "../../img/uk.svg";
 import us from "../../img/us.svg";
+import zim from "../../img/zimba.svg";
+
 
 function LearnHeader() {
   return(
@@ -128,6 +130,15 @@ function LearnHeader() {
                         <div className="d-flex flex-row">
                           <img src={uk} alt="" className="img-fluid" />
                           <h2 className="mt-3">United Kingdom</h2>
+                          <div className="mt-2 ms-5">
+                            <p className="d-inline-flex p-1 border text-muted soon">Coming Soon</p>
+                          </div>
+                        </div>
+                      </Link>
+                      <Link>
+                        <div className="d-flex flex-row">
+                          <img src={zim} alt="" className="img-fluid" />
+                          <h2 className="mt-3">Zimbabwe</h2>
                           <div className="mt-2 ms-5">
                             <p className="d-inline-flex p-1 border text-muted soon">Coming Soon</p>
                           </div>

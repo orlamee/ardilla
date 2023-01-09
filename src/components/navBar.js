@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../img/ardilla.svg";
 import save from "../img/save.svg";
 import wallet from "../img/wallet.svg";
-import learn from "../img/learn.svg";
+// import learn from "../img/learn.svg";
 import claim from "../img/claim.svg";
 import invest from "../img/invest.svg";
 import about from "../img/about-us.svg";
@@ -15,6 +15,7 @@ import naija from "../img/9ja.svg";
 import uk from "../img/uk.svg";
 import budget from "../img/b-con.svg";
 import us from "../img/us.svg";
+import zim from "../img/zimba.svg";
 
 function Header() {
   return (
@@ -52,7 +53,7 @@ function Header() {
                 </Link>
                 <div className="dropdown-menu dropdown-large">
                   <div className="row">
-                    <div className="col-md-6 border-end">
+                    <div className="col-md-6 p-4">
                       <Link to="/save">
                         <div className="d-flex flex-row">
                           <img src={save} alt="" className="img-fluid" />
@@ -95,7 +96,7 @@ function Header() {
                           </div>
                         </div>
                       </Link>
-                      <Link>
+                      {/* <Link>
                         <div className="d-flex flex-row">
                           <img src={learn} alt="" className="img-fluid" />
                           <div className="mt-3">
@@ -103,7 +104,7 @@ function Header() {
                             <h6>Learn and get paid</h6>
                           </div>
                         </div>
-                      </Link>
+                      </Link> */}
                       <Link>
                         <div className="d-flex flex-row">
                           <img src={budget} alt="" className="img-fluid" width="81px" />
@@ -117,23 +118,8 @@ function Header() {
                         </div>
                       </Link>
                     </div>
-                    <div className="col-md-6 px-5 pt-3">
-                      <div className="d-flex flex-row mb-3">
-                        <i className="bi bi-check2 me-3"></i>
-                        <h4 className="mt-1">Flex Savings Plan</h4>
-                      </div>
-                      <div className="d-flex flex-row mb-3">
-                        <i className="bi bi-check2 me-3"></i>
-                        <h4 className="mt-1">Target Savings Plan</h4>
-                      </div>
-                      <div className="d-flex flex-row mb-3">
-                        <i className="bi bi-check2 me-3"></i>
-                        <h4 className="mt-1">For me Plan</h4>
-                      </div>
-                      <div className="d-flex flex-row mb-3">
-                        <i className="bi bi-check2 me-3"></i>
-                        <h4 className="mt-1">Savings Challenge</h4>
-                      </div>
+                    <div className="col-md-6 px-5 pt-3 bg-savers">
+                      
                     </div>
                   </div>
                 </div>
@@ -157,7 +143,7 @@ function Header() {
                 <div className="dropdown-menu dropdown-single">
                   <div className="row">
                     <div className="col-md-12">
-                      <Link>
+                      <Link to="/about-us">
                         <div className="d-flex flex-row">
                           <img src={about} alt="" className="img-fluid" />
                           <div className="mt-3">
@@ -261,6 +247,15 @@ function Header() {
                         <div className="d-flex flex-row">
                           <img src={uk} alt="" className="img-fluid" />
                           <h2 className="mt-3">United Kingdom</h2>
+                          <div className="mt-2 ms-5">
+                            <p className="d-inline-flex p-1 border text-muted soon">Coming Soon</p>
+                          </div>
+                        </div>
+                      </Link>
+                      <Link>
+                        <div className="d-flex flex-row">
+                          <img src={zim} alt="" className="img-fluid" />
+                          <h2 className="mt-3">Zimbabwe</h2>
                           <div className="mt-2 ms-5">
                             <p className="d-inline-flex p-1 border text-muted soon">Coming Soon</p>
                           </div>

@@ -500,7 +500,7 @@ function ProfileMain() {
                     <input
                       type="email"
                       className="form-control target-form p-form"
-                      placeholder="enter email"
+                      placeholder="Enter email"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}

@@ -453,15 +453,15 @@ h5 a {
 
 @media only screen and (min-width: 768px){
   .dropdown-large {
-    min-width: 537px!important;
+    min-width: 600px!important;
     border: 1px solid #fff;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     background-image: url('../img/drop-bg.svg');
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
     margin-left: 30px;
-    padding: 20px 20px;
+    padding: 0px;
     margin-top: 15px!important;
   }
 }
@@ -935,4 +935,147 @@ h5 a {
   color: #E6356D;
   font-weight: 400;
   /* margin-top: 5px; */
+}
+
+.bg-savers {
+  background-color: #E5E7EB;
+  /* border-radius: 20px; */
+}
+
+.learn-more {
+  background-image: url('../img/learnhero.svg')!important;
+}
+
+.readblog{
+  background-color: #F5F5F5;
+  padding: 100px 10px;
+}
+
+.meetteam {
+  background-color: #fff;
+  padding: 100px 10px;
+}
+
+.watchvid {
+  background-color: #F5F5F5;
+  padding: 100px 10px;
+  background-image: url('../img/watchvideos.svg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.startquiz {
+  background-color: #F5F5F5;
+  padding: 100px 10px 0px 10px;
+}
+
+.leader-board {
+  background-color: #fff;
+  padding: 100px 20px;
+}
+
+.abouthero {
+  background-color: #f9f9f9;
+  padding: 200px 20px;
+}
+
+.bg-about {
+  background-image: url("../img/bg-abt.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 120px 60px;
+  background-position: center;
+  border-radius: 30px;
+}
+
+
+.bg-about h4 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 70px;
+  color: #00DF9A;
+}
+
+.bg-about h6 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 34px;
+}
+
+.bg-about p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.obj-bg {
+  background-color: #F3F4F6;
+  border-radius: 16px;
+  padding: 40px 40px 0px 40px;
+}
+
+.obj-bg h2 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 55px;
+  color: #3C0071;
+}
+
+.obj-bg p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #3C0071;
+}
+
+.img-tops {
+  margin-top: 70px;
+}
+
+.img-top {
+  margin-top: 64px;
+}
+
+.img-to {
+  margin-top: 32px;
+}
+
+.insurance {
+  background-image: url("../img/insurance-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 120px 60px;
+  background-position: center;
+}
+
+.insurance p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.meetteam h3 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #3C0071;
+}
+
+.meetteam p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 34px;
+  color: #3C0071;
+}
+
+.downloading {
+  padding: 150px 20px;
+  background-image: url("../img/download.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-left: -90px;
+  margin-right: -90px;
+  padding: 100px 0px;
 }
