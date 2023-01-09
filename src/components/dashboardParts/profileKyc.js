@@ -62,6 +62,26 @@ function ProfileKYC() {
     }
   };
 
+  if (
+    userDetails?.idFrontStatus === "approve" &&
+    userDetails?.idBackStatus === "approve" &&
+    userDetails?.idBackStatus === "approve"
+  ) {
+    console.log("nothing is immpossible");
+  }
+
+  const generateAccount = async () => {
+    try {
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/user/generate-san/${user._id}`
+      );
+
+      console.log(data.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleIdFront = (e) => {
     e.preventDefault();
     // setSelectedFile(e.target.files[0]);
