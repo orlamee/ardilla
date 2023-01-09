@@ -96,13 +96,13 @@ function Sidebar() {
     getSanAcct();
   }, [user]);
 
-  useEffect(() => {
-    let interval = setInterval(() => {
-      refreshToken();
-    }, 6000);
+  // useEffect(() => {
+  //   let interval = setInterval(() => {
+  //     refreshToken();
+  //   }, 6000);
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const handleOnIdle = () => {
     sessionStorage.clear();
