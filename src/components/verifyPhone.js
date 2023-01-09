@@ -29,6 +29,8 @@ function VerifyPhone() {
   const [wrongContactSuc, setWrongContactSuc] = useState("");
   const [code, setCode] = useState("");
 
+  // let code;
+
   useEffect(() => {
     try {
       const getUserById = async () => {
@@ -36,9 +38,11 @@ function VerifyPhone() {
           `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
         );
 
-        console.log("better");
+        console.log("better man");
 
         setCode(data.user.mobilePinId);
+
+        // code = data.user?.mobilePinId;
 
         if (data?.user?.verified === "sq") {
           return;
@@ -91,7 +95,7 @@ function VerifyPhone() {
 
       const pin = data.pinId;
       // pinRef.current = data.pinId;
-      setCode(data.pinId);
+      // setCode(data.pinId);
 
       //update mobile verif pin
 
