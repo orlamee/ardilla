@@ -362,7 +362,7 @@ function ProfileKYC() {
                     <div className="card-upload text-center p-4">
                       <input type="file" required onChange={handleIdBack} />
                       <img src={up} alt="" className="img-fluid" />
-                      <h6>Upload the back View</h6>
+                      <h6>Upload the Back View</h6>
                       <h5>
                         Drag and drop image, or{" "}
                         <span className="fw-bold" style={{ color: "#E8356D" }}>
