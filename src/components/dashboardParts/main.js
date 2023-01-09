@@ -35,6 +35,7 @@ dayjs.extend(greetPlugin);
 function Sidebar() {
   const [dillaWallet, setDillaWallet] = useState({});
   const [sanBalance, setSanBalance] = useState({});
+  const [userDetails, setUserDetails] = useState();
   // const [idle, setIdle] = useState(false);
   let user = JSON.parse(sessionStorage.getItem("user"));
   const navigate = useNavigate();
@@ -76,6 +77,20 @@ function Sidebar() {
         console.log(error);
       }
     };
+
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+        );
+
+        setUserDetails(data.user);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getUserById();
 
     getDillaWallet();
     getSanAcct();
@@ -233,15 +248,28 @@ function Sidebar() {
                 <i className="bi bi-eye-fill float-end text-white"></i>
               </div>
               <div className="mt-2 p-2">
-                <div className="details">
-                  <span className="hash">**********</span>
-                  <br />
-                  <Link className="generate" to="/profile/kyc">
-                    {/* {userDetail?.firstname} {userDetail?.lastname} */}
-                    Generate Account Number{" "}
-                    <i className="bi bi-arrow-right-circle-fill"></i>
-                  </Link>
-                </div>
+                {userDetails?.uid ? (
+                  <div className="details">
+                    <span className="hash">{userDetails?.uid}</span>
+                    <br />
+                    <Link className="generate" to="/profile/kyc">
+                      {userDetails?.firstname} {userDetails?.lastname}
+                      {/* Generate Account Number{" "}
+                      <i className="bi bi-arrow-right-circle-fill"></i> */}
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="details">
+                    <span className="hash">**********</span>
+                    <br />
+                    <Link className="generate" to="/profile/kyc">
+                      {/* {userDetail?.firstname} {userDetail?.lastname} */}
+                      Generate Account Number{" "}
+                      <i className="bi bi-arrow-right-circle-fill"></i>
+                    </Link>
+                  </div>
+                )}
+
                 <Link
                   className="add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn-inverted fs-6 desktop"
                   to=""
@@ -315,7 +343,9 @@ function Sidebar() {
                 <div className="col-md-6 text-center color-link">
                   {/* Add pie chart. */}
                   <img src={pie} alt="" className="img-fluid" />
-                  <Link to="/profile/kyc">Complete your KYC <i className="bi bi-arrow-right"></i></Link>
+                  <Link to="/profile/kyc">
+                    Complete your KYC <i className="bi bi-arrow-right"></i>
+                  </Link>
                 </div>
                 <div className="col-md-6 mt-4">
                   <div className="form-check mb-2">
@@ -352,7 +382,11 @@ function Sidebar() {
                     </label>
                   </div>
                   <div className="form-check mb-2">
-                    <input className="form-check-input" type="checkbox" disabled />
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      disabled
+                    />
                     <label className="form-check-label custom-check">
                       Upload Your Valid ID
                     </label>
@@ -369,25 +403,43 @@ function Sidebar() {
           <div className="col-md-4 mb-3 text-center">
             <div className="card-new-one carder-bottom">
               <img src={op} alt="charts" className="img-fluid" />
-              <h6 className="my-3">Unprecedented access to<br/>investment opportunities</h6>
+              <h6 className="my-3">
+                Unprecedented access to
+                <br />
+                investment opportunities
+              </h6>
               <p>20% Monthly ROI</p>
-              <Link>Start Investing <i className="bi bi-arrow-right"></i></Link>
+              <Link>
+                Start Investing <i className="bi bi-arrow-right"></i>
+              </Link>
             </div>
           </div>
           <div className="col-md-4 mb-3 text-center">
             <div className="card-new-one jar-bg">
               <img src={jar} alt="charts" className="img-fluid" />
-              <h6 className="my-3">Build your savings the<br/>right way</h6>
+              <h6 className="my-3">
+                Build your savings the
+                <br />
+                right way
+              </h6>
               <p>20% Monthly ROI</p>
-              <Link to="/savings">Start Saving <i className="bi bi-arrow-right"></i></Link>
+              <Link to="/savings">
+                Start Saving <i className="bi bi-arrow-right"></i>
+              </Link>
             </div>
           </div>
           <div className="col-md-4 mb-3 text-center">
             <div className="card-new-one shield-bg">
               <img src={shield} alt="charts" className="img-fluid" />
-              <h6 className="my-3">Insurance policies you<br/>can trust</h6>
+              <h6 className="my-3">
+                Insurance policies you
+                <br />
+                can trust
+              </h6>
               <p>20% Monthly ROI</p>
-              <Link>Make your first claim <i className="bi bi-arrow-right"></i></Link>
+              <Link>
+                Make your first claim <i className="bi bi-arrow-right"></i>
+              </Link>
             </div>
           </div>
         </div>
@@ -401,7 +453,12 @@ function Sidebar() {
                   <p>Move up your Rank by completing transactions</p>
                 </div>
                 <div className="col-md-7 text-end">
-                  <img src={badge} alt="cadet" className="img-fluid" width="200px" />
+                  <img
+                    src={badge}
+                    alt="cadet"
+                    className="img-fluid"
+                    width="200px"
+                  />
                 </div>
               </div>
             </div>
@@ -411,11 +468,15 @@ function Sidebar() {
             <div className="goal-card beginner-card px-4">
               <div className="row">
                 <div className="col-md-5">
-                  <h1 style={{color: "#3C0071"}}>Beginner</h1>
+                  <h1 style={{ color: "#3C0071" }}>Beginner</h1>
                   <p>Move up your Rank by completing transactions</p>
                 </div>
                 <div className="col-md-7 text-end">
-                  <img src={medal} alt="cadet" className="img-fluid medal-img" />
+                  <img
+                    src={medal}
+                    alt="cadet"
+                    className="img-fluid medal-img"
+                  />
                 </div>
               </div>
             </div>
@@ -423,7 +484,7 @@ function Sidebar() {
           <div className="col-md-4 mb-3">
             <h2 className="mb-4">Referrals</h2>
             <div className="goal-card refer-bg px-4">
-              <h1 style={{color: "#3C0071"}}>Earn</h1>
+              <h1 style={{ color: "#3C0071" }}>Earn</h1>
               <small>Invite using your Kode Hex.</small>
               <h6 className="mt-5">
                 Click here <i className="bi bi-arrow-right"></i>
@@ -438,12 +499,14 @@ function Sidebar() {
               <div className="col-md-7">
                 <h1>Financial nuggets</h1>
                 <p className="mt-4">
-                  Take a step towards financial literacy
-                  with financial advice from the best
+                  Take a step towards financial literacy with financial advice
+                  from the best
                   <br />
                   minds in the game.
                 </p>
-                  <Link to="/learn" className="mt-5">Click here <i className="bi bi-arrow-right"></i></Link>
+                <Link to="/learn" className="mt-5">
+                  Click here <i className="bi bi-arrow-right"></i>
+                </Link>
               </div>
               <div className="col-md-5">
                 <img src={ceo} alt="ceo" className="img-fluid" />
