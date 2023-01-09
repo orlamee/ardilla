@@ -61,7 +61,6 @@ function SecurityPage() {
           pin_type: "NUMERIC",
         }
       );
-
       const pin = data.pinId;
 
       await axios.put(
