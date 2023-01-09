@@ -36,13 +36,9 @@ function VerifyPhone() {
           `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
         );
 
-        pinRef.current = data.user.mobilePinId;
+        console.log("better");
 
-        console.log("new");
-
-        console.log("heavy");
-
-        console.log(data.user.mobilePinId);
+        setCode(data.user.mobilePinId);
 
         if (data?.user?.verified === "sq") {
           return;
@@ -92,7 +88,8 @@ function VerifyPhone() {
       );
 
       const pin = data.pinId;
-      pinRef.current = data.pinId;
+      // pinRef.current = data.pinId;
+      setCode(data.pinId);
 
       //update mobile verif pin
 
@@ -120,7 +117,7 @@ function VerifyPhone() {
     setErr(false);
     setLoading(true);
 
-    console.log(pinRef.current);
+    console.log(code);
     console.log(fullpin);
 
     try {
@@ -129,7 +126,7 @@ function VerifyPhone() {
         {
           api_key:
             "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
-          pin_id: pinRef.current,
+          pin_id: code,
           pin: fullpin,
         }
       );
