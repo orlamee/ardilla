@@ -53,11 +53,9 @@ function Register() {
 
       setIsLoading(false);
 
-      if (data) {
-        console.log("satas");
-        console.log(data);
-        navigate("/otp");
-      }
+      console.log("satasssss");
+      console.log(data);
+      navigate("/otp");
     } catch (error) {
       setMsg(`${error.response.data.msg || "Network error"} `);
       setErr(true);
