@@ -1,25 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../img/ardilla.svg";
-import save from "../img/save.svg";
-import wallet from "../img/wallet.svg";
-import learn from "../img/learn.svg";
-import claim from "../img/claim.svg";
-import invest from "../img/invest.svg";
-import about from "../img/about-us.svg";
+import logo from "../../img/logo-white.svg";
+import save from "../../img/save.svg";
+import wallet from "../../img/wallet.svg";
+import learn from "../../img/learn.svg";
+import claim from "../../img/claim.svg";
+import invest from "../../img/invest.svg";
+import about from "../../img/about-us.svg";
 // import team from "../img/team.svg";
-import privacy from "../img/privacy.svg";
-import terms from "../img/terms.svg";
-import earth from "../img/earth.svg";
-import naija from "../img/9ja.svg";
-import uk from "../img/uk.svg";
-import budget from "../img/b-con.svg";
-import us from "../img/us.svg";
-import zim from "../img/zimba.svg";
+import privacy from "../../img/privacy.svg";
+import terms from "../../img/terms.svg";
+import earth from "../../img/earth.svg";
+import naija from "../../img/9ja.svg";
+import uk from "../../img/uk.svg";
+import budget from "../../img/b-con.svg";
+import us from "../../img/us.svg";
+import zim from "../../img/zimba.svg";
 
-function Header() {
+function PrivacyHeader() {
   return (
-    <nav className="navbar fixed-top navbar-expand-lg py-4 navbar-light px-1">
+    <nav className="navbar fixed-top navbar-expand-lg py-4 navbar-light px-1 bg-privacy">
       <div className="container header">
         <Link className="navbar-brand" to="/">
           <img
@@ -42,7 +42,7 @@ function Header() {
             <ul className="navbar-nav">
               <li className="nav-item dropdown">
                 <Link
-                  className="nav-link active dropdown-toggle"
+                  className="nav-link text-white active dropdown-toggle"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
@@ -125,13 +125,13 @@ function Header() {
                 </div>
               </li>
               <li className="nav-item">
-                <Link className="nav-link">
-                  Business <span className="nav-badge ms-2">Beta</span>
+                <Link className="nav-link text-white">
+                  Business <span className="nav-badge border border-white ms-2">Beta</span>
                 </Link>
               </li>
               <li className="nav-item dropdown">
                 <Link
-                  className="nav-link dropdown-toggle"
+                  className="nav-link text-white dropdown-toggle"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
@@ -175,7 +175,7 @@ function Header() {
                 </div>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/learn-more" target="_blank">
+                <Link className="nav-link text-white" to="/learn-more" target="_blank">
                   Learn
                 </Link>
               </li>
@@ -184,7 +184,7 @@ function Header() {
           <div className="ms-auto">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link me-3" href="/login">
+                <a className="nav-link text-white me-3" href="/login">
                   Sign in
                 </a>
               </li>
@@ -264,4 +264,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default PrivacyHeader;

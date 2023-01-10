@@ -153,7 +153,7 @@ function NavbarSave() {
                           </div>
                         </div>
                       </Link>
-                      <Link>
+                      <Link to="/information-security">
                         <div className="d-flex flex-row">
                           <img src={privacy} alt="" className="img-fluid" />
                           <div className="mt-3">
@@ -162,7 +162,7 @@ function NavbarSave() {
                           </div>
                         </div>
                       </Link>
-                      <Link>
+                      <Link to="/terms-conditions">
                         <div className="d-flex flex-row">
                           <img src={terms} alt="" className="img-fluid" />
                           <div className="mt-3">

@@ -1093,3 +1093,45 @@ h5 a {
   background-size: cover;
   background-position: center;
 }
+
+.bg-privacy {
+  background-color: #ea487b!important;
+}
+
+.breadcrumb {
+  padding: 250px 10px;
+  background-image: url("../img/breadcrumb.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.breadcrumb h2 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 68px;
+}
+
+.breadcrumb h6 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.contentterms{
+  padding: 100px 10px;
+}
+
+.contentterms h2 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 34px;
+  color: #3D0072;
+}
+
+.contentterms p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #6B7280;
+}
