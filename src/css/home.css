@@ -944,6 +944,9 @@ h5 a {
 
 .learn-more {
   background-image: url('../img/learnhero.svg')!important;
+  background-repeat: no-repeat!important;
+  background-size: cover!important;
+  padding: 200px 0px!important;
 }
 
 .readblog{
@@ -1072,6 +1075,20 @@ h5 a {
 .downloading {
   padding: 150px 20px;
   background-image: url("../img/download.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 992px){
+  .learn-top{
+    padding-top: 150px;
+  }
+}
+
+.learnearn {
+  padding: 100px 10px;
+  background-image: url("../img/learnearn.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
