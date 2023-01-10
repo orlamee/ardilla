@@ -50,7 +50,7 @@ function Footer() {
                   <h4>Transparency</h4>
                   <ul className="list-unstyled links">
                     <li>Terms & conditions</li>
-                    <li>Information security</li>
+                    <li><Link to="/information-security">Information security</Link></li>
                     <li>Privacy policy</li>
                   </ul>
                 </div>

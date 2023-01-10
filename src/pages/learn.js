@@ -7,6 +7,7 @@ import LearnHeader from "../components/landingpage/navBarLearn";
 // import NavbarSave from "../components/landingpage/saveNavbar";
 import StartQuiz from "../components/landingpage/startQuiz";
 import WatchVideos from "../components/landingpage/watchVideos";
+import LearnEarn from "../components/landingpage/learnEarn";
 
 function Learn() {
   return (
@@ -17,6 +18,7 @@ function Learn() {
       <ReadBlog/>
       <WatchVideos/>
       <StartQuiz/>
+      <LearnEarn/>
       <Board/>
       <Footer/>
     </div>

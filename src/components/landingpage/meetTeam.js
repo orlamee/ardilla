@@ -17,19 +17,19 @@ function MeetTeam() {
         <div className="row top-products">
           <div className="col-md-6">
             <Link><img src={mo} alt="read" className="img-fluid"/></Link>
-            <h3 className="my-4">{"<"}Big Mo{"/>"} (Founder)</h3>
+            <h3 className="my-4">{"<"}Big Mo{"/>"}</h3>
             <p>A businessman and visionary who has had a lot of success in the<br/> financial, marketing, and travel sector.</p>
           </div>
           <div className="col-md-6">
             <Link><img src={lore} alt="read" className="img-fluid"/></Link>
-            <h3 className="my-4">{"<"}Mavrick{"/>"} (CO-Founder)</h3>
+            <h3 className="my-4">{"<"}Mavrick{"/>"}</h3>
             <p>A rising star in the business world who has had tremendous success with<br/>multiple start-ups..</p>
           </div>
         </div>
         <div className="row mt-4 justify-content-center">
           <div className="col-md-6">
             <Link><img src={mulan} alt="read" className="img-fluid"/></Link>
-            <h3 className="my-4">{"<"}Mulan{"/>"} (Founder)</h3>
+            <h3 className="my-4">{"<"}Mulan{"/>"}</h3>
             <p>A businessman and visionary who has had a lot of success in the<br/> financial, marketing, and travel sector.</p>
           </div>
         </div>
