@@ -48,12 +48,13 @@ function Register() {
     try {
       const { data } = await axios.post(
         "https://dilla-api.onrender.com/api/auth/send-otp",
-        { email }
+        { email },
+        { withCredentials: true }
       );
 
       setIsLoading(false);
 
-      console.log("satasssss");
+      console.log("gret");
       console.log(data);
       navigate("/otp");
     } catch (error) {
