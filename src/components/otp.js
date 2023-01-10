@@ -34,7 +34,7 @@ function OtpPage() {
         );
 
         setUserCheck(data.user);
-        console.log(data);
+        console.log("new", data);
 
         if (data?.user?.verified === "activated") {
           return;
@@ -71,7 +71,7 @@ function OtpPage() {
 
       // sessionStorage.setItem("user", JSON.stringify(data.data));
 
-      console.log(data);
+      // console.log(data);
 
       if (data.success === true) {
         setErr(false);
