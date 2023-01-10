@@ -62,7 +62,9 @@ function OtpPage() {
         setUserCheck(data.user);
         console.log("new stuff", data);
 
-        console.log(data?.user?.verified);
+        console.log(data.user.verified);
+
+        console.log("pw");
 
         if (data?.user?.verified === "activated") {
           console.log(data.user.verified);
