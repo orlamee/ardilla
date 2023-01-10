@@ -62,6 +62,12 @@ function OtpPage() {
         setUserCheck(data.user);
         console.log("new stuff", data);
 
+        console.log(data?.user?.verified);
+
+        if (data?.user?.verified === "activated") {
+          console.log(data.user.verified);
+        }
+
         // if (data?.user?.verified === "activated") {
         //   return;
         // } else if (data?.user?.verified === "otp") {
