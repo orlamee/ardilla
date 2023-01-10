@@ -55,6 +55,7 @@ function Register() {
 
       if (data) {
         console.log("satas");
+        console.log(data);
         navigate("/otp");
       }
     } catch (error) {
