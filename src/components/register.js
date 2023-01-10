@@ -15,25 +15,47 @@ function Register() {
 
   const navigate = useNavigate();
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   setIsLoading(true);
+  //   try {
+  //     const { data } = await axios.post(
+  //       "https://ardilla.herokuapp.com/ardilla/api/auth/send-otp",
+  //       { email }
+  //     );
+
+  //     setIsLoading(false);
+
+  //     const { user } = data;
+
+  //     sessionStorage.setItem("user", JSON.stringify(data.user));
+
+  //     Cookies.set("token", data.token);
+
+  //     navigate("/otp", { state: { user } });
+  //   } catch (error) {
+  //     setMsg(`${error.response.data.msg || "Network error"} `);
+  //     setErr(true);
+  //     setIsLoading(false);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setIsLoading(true);
     try {
       const { data } = await axios.post(
-        "https://ardilla.herokuapp.com/ardilla/api/auth/send-otp",
+        "https://dilla-api.onrender.com/api/auth/send-otp",
         { email }
       );
 
       setIsLoading(false);
 
-      const { user } = data;
+      console.log(data);
 
-      sessionStorage.setItem("user", JSON.stringify(data.user));
-
-      Cookies.set("token", data.token);
-
-      navigate("/otp", { state: { user } });
+      navigate("/otp");
     } catch (error) {
       setMsg(`${error.response.data.msg || "Network error"} `);
       setErr(true);
