@@ -62,6 +62,8 @@ function OtpPage() {
         setUserCheck(data.user);
         console.log("new stuff", data);
 
+        console.log(data.user.verified);
+
         if (data?.user?.verified === "activated") {
           return;
         } else if (data?.user?.verified === "otp") {
@@ -181,42 +183,40 @@ function OtpPage() {
   // };
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
-    // setIsLoading(true);
-    // setErr(false);
-    // setOnSuccess(false);
-    // try {
-    //   const { data } = await axios.post(
-    //     `https://ardilla.herokuapp.com/ardilla/api/auth/verify-otp/${token}/${_id}`,
-    //     { code }
-    //   );
-    //   // sessionStorage.setItem("user", JSON.stringify(data.data));
-    //   // console.log(data);
-    //   if (data.success === true) {
-    //     setErr(false);
-    //     setMsg(data.msg);
-    //     setOnSuccess(true);
-    //     setIsLoading(false);
-    //   }
-    //   setIsLoading(false);
-    // } catch (error) {
-    //   setErr(true);
-    //   setOnSuccess(false);
-    //   setMsg(`${error.response.data.msg}` || "Network error");
-    //   setIsLoading(false);
-    // }
+    e.preventDefault();
+    setIsLoading(true);
+    setErr(false);
+    setOnSuccess(false);
+
+    try {
+      const { data } = await axios.post(
+        `https://dilla-api.onrender.com/api/auth/verify-otp`,
+        { code }
+      );
+
+      setErr(false);
+      setMsg(data.msg);
+      setOnSuccess(true);
+      setIsLoading(false);
+
+      setIsLoading(false);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setOnSuccess(false);
+      setMsg(message);
+      setIsLoading(false);
+    }
   };
 
   const handleClickSuccess = () => {
-    // const getUserById = async () => {
-    //   const { data } = await axios.get(
-    //     `https://ardilla.herokuapp.com/ardilla/api/user/find/${_id}`
-    //   );
-    //   setOnSuccess(false);
-    //   const { user } = data;
-    //   navigate("/complete-profile", { state: { user } });
-    // };
-    // getUserById();
+    navigate("/complete-profile");
   };
 
   const handleResend = async (e) => {
@@ -224,22 +224,27 @@ function OtpPage() {
     setOnSuccess(false);
     setErr(false);
 
+    const email = userCheck.email;
+
     try {
-      // const { data } = await axios.post(
-      //   "https://ardilla.herokuapp.com/ardilla/api/auth/send-otp",
-      //   { email }
-      // );
-      // Cookies.remove("token");
-      // sessionStorage.setItem("user", JSON.stringify(data.user));
-      // Cookies.set("token", data.token);
-      // if (data) {
-      //   setErr(false);
-      //   setMsg(data.msg);
-      //   setResend(true);
-      //   setIsLoading(false);
-      // }
+      const { data } = await axios.post(
+        "https://dilla-api.onrender.com/api/auth/send-otp",
+        { email }
+      );
+
+      setErr(false);
+      setMsg(data.msg);
+      setResend(true);
+      setIsLoading(false);
     } catch (error) {
-      setMsg(`${error.response.data.msg}` || "Network error");
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setMsg(message);
       setErr(true);
       setOnSuccess(false);
       setIsLoading(false);
@@ -247,20 +252,23 @@ function OtpPage() {
   };
 
   const handleWrongEmail = async () => {
-    // try {
-    //   const { data } = await axios.delete(
-    //     `https://ardilla.herokuapp.com/ardilla/api/auth/wrong-email/${_id}`
-    //   );
-    //   Cookies.remove();
-    //   if (data.success === true) {
-    //     navigate("/sign-up");
-    //   }
-    // } catch (error) {
-    //   setOnSuccess(false);
-    //   setMsg(`${error.response.data.msg || "Network error"} `);
-    //   setErr(true);
-    //   setIsLoading(false);
-    // }
+    try {
+      await axios.delete(`https://dilla-api.onrender.com/api/auth/wrong-email`);
+
+      navigate("/sign-up");
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setOnSuccess(false);
+      setMsg(message);
+      setErr(true);
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -298,7 +306,7 @@ function OtpPage() {
                 type="button"
                 className="btn-close"
                 aria-label="Close"
-                // onClick={handleClickSuccess}
+                onClick={handleClickSuccess}
               ></button>
             </div>
           </div>
