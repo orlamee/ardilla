@@ -62,13 +62,13 @@ function OtpPage() {
         setUserCheck(data.user);
         console.log("new stuff", data);
 
-        if (data?.user?.verified === "activated") {
-          return;
-        } else if (data?.user?.verified === "otp") {
-          return navigate("/complete-profile");
-        } else {
-          return navigate("/404");
-        }
+        // if (data?.user?.verified === "activated") {
+        //   return;
+        // } else if (data?.user?.verified === "otp") {
+        //   return navigate("/complete-profile");
+        // } else {
+        //   return navigate("/404");
+        // }
       };
 
       getUserById();
