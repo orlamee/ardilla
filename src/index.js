@@ -100,6 +100,7 @@ import DownloadApp from "./pages/downloadApp";
 import RankPage from "./dashboard/rankPage";
 import TermsCondition from "./pages/termsCondition";
 import InformationSecurity from "./pages/informationSecurity";
+import PrivacyPolicy from "./pages/privacyPolicy";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -119,6 +120,7 @@ root.render(
         <Route path="/ranks" element={<RankPage/>}></Route>
         <Route path="/terms-conditions" element={<TermsCondition/>}></Route>
         <Route path="/information-security" element={<InformationSecurity/>}></Route>
+        <Route path="/privacy-policy" element={<PrivacyPolicy/>}></Route>
 
         <Route
           path="/verify-mobile"
