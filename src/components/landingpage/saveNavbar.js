@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import logo from "../../img/ardilla.svg";
 import save from "../../img/save.svg";
 import wallet from "../../img/wallet.svg";
-// import learn from "../../img/learn.svg";
+import learn from "../../img/learn.svg";
 import claim from "../../img/claim.svg";
 import invest from "../../img/invest.svg";
 import about from "../../img/about-us.svg";
-import team from "../../img/team.svg";
+// import team from "../../img/team.svg";
 import privacy from "../../img/privacy.svg";
 import terms from "../../img/terms.svg";
 import earth from "../../img/earth.svg";
@@ -97,15 +97,6 @@ function NavbarSave() {
                           </div>
                         </div>
                       </Link>
-                      {/* <Link>
-                        <div className="d-flex flex-row">
-                          <img src={learn} alt="" className="img-fluid" />
-                          <div className="mt-3">
-                            <h2>Learn</h2>
-                            <h6>Learn and get paid</h6>
-                          </div>
-                        </div>
-                      </Link> */}
                       <Link>
                         <div className="d-flex flex-row">
                           <img src={budget} alt="" className="img-fluid" width="81px" />
@@ -114,6 +105,15 @@ function NavbarSave() {
                               <h2>Budget</h2>
                               <span className="bg-list ms-2">Coming soon</span> 
                             </div>
+                            <h6>Learn and get paid</h6>
+                          </div>
+                        </div>
+                      </Link>
+                      <Link>
+                        <div className="d-flex flex-row">
+                          <img src={learn} alt="" className="img-fluid" />
+                          <div className="mt-3">
+                            <h2>Financial coach</h2>
                             <h6>Learn and get paid</h6>
                           </div>
                         </div>
@@ -150,15 +150,6 @@ function NavbarSave() {
                           <div className="mt-3">
                             <h2 className="active">About Us</h2>
                             <h6>Know us more</h6>
-                          </div>
-                        </div>
-                      </Link>
-                      <Link>
-                        <div className="d-flex flex-row">
-                          <img src={team} alt="" className="img-fluid" />
-                          <div className="mt-3">
-                            <h2>Meet The Team</h2>
-                            <h6>The magic happens here</h6>
                           </div>
                         </div>
                       </Link>
