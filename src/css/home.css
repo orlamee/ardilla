@@ -1129,6 +1129,13 @@ h5 a {
   color: #3D0072;
 }
 
+.contentterms h3 {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 25px;
+  color: #3D0072;
+}
+
 .contentterms p {
   font-size: 16px;
   font-weight: 400;
