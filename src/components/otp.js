@@ -14,26 +14,53 @@ function OtpPage() {
   const [resend, setResend] = useState(false);
   const [userCheck, setUserCheck] = useState();
 
-  const token = Cookies.get("token");
+  // const token = Cookies.get("token");
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  // let user = JSON.parse(sessionStorage.getItem("user"));
 
-  console.log(user);
+  // console.log(user);
 
-  const { _id, email, verified } = user;
+  // const { _id, email, verified } = user;
 
-  console.log(_id, email, verified);
+  // console.log(_id, email, verified);
 
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   try {
+  //     const getUserById = async () => {
+  //       const { data } = await axios.get(
+  //         `https://dilla-api.onrender.com/api/user/get-user`
+  //       );
+
+  //       setUserCheck(data.user);
+  //       console.log("new", data);
+
+  //       if (data?.user?.verified === "activated") {
+  //         return;
+  //       } else if (data?.user?.verified === "otp") {
+  //         return navigate("/complete-profile");
+  //       } else {
+  //         return navigate("/404");
+  //       }
+  //     };
+
+  //     getUserById();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [user._id, navigate]);
 
   useEffect(() => {
     try {
       const getUserById = async () => {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+          `https://dilla-api.onrender.com/api/user/get-user`,
+          { withCredentials: true }
         );
 
         setUserCheck(data.user);
+        console.log("new stuff", data);
 
         if (data?.user?.verified === "activated") {
           return;
@@ -48,7 +75,7 @@ function OtpPage() {
     } catch (error) {
       console.log(error);
     }
-  }, [user._id, navigate]);
+  }, [navigate]);
 
   setTimeout(() => {
     if (onSuccess) {
@@ -56,51 +83,140 @@ function OtpPage() {
     }
   }, 2000);
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setIsLoading(true);
+  //   setErr(false);
+  //   setOnSuccess(false);
+
+  //   try {
+  //     const { data } = await axios.post(
+  //       `https://ardilla.herokuapp.com/ardilla/api/auth/verify-otp/${token}/${_id}`,
+  //       { code }
+  //     );
+
+  //     // sessionStorage.setItem("user", JSON.stringify(data.data));
+
+  //     // console.log(data);
+
+  //     if (data.success === true) {
+  //       setErr(false);
+  //       setMsg(data.msg);
+  //       setOnSuccess(true);
+  //       setIsLoading(false);
+  //     }
+
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     setErr(true);
+  //     setOnSuccess(false);
+  //     setMsg(`${error.response.data.msg}` || "Network error");
+  //     setIsLoading(false);
+  //   }
+  // };
+
+  // const handleClickSuccess = () => {
+  //   const getUserById = async () => {
+  //     const { data } = await axios.get(
+  //       `https://ardilla.herokuapp.com/ardilla/api/user/find/${_id}`
+  //     );
+
+  //     setOnSuccess(false);
+
+  //     const { user } = data;
+  //     navigate("/complete-profile", { state: { user } });
+  //   };
+
+  //   getUserById();
+  // };
+
+  // const handleResend = async (e) => {
+  //   e.preventDefault();
+  //   setOnSuccess(false);
+  //   setErr(false);
+
+  //   try {
+  //     const { data } = await axios.post(
+  //       "https://ardilla.herokuapp.com/ardilla/api/auth/send-otp",
+  //       { email }
+  //     );
+
+  //     Cookies.remove("token");
+
+  //     sessionStorage.setItem("user", JSON.stringify(data.user));
+
+  //     Cookies.set("token", data.token);
+
+  //     if (data) {
+  //       setErr(false);
+  //       setMsg(data.msg);
+  //       setResend(true);
+  //       setIsLoading(false);
+  //     }
+  //   } catch (error) {
+  //     setMsg(`${error.response.data.msg}` || "Network error");
+  //     setErr(true);
+  //     setOnSuccess(false);
+  //     setIsLoading(false);
+  //   }
+  // };
+
+  // const handleWrongEmail = async () => {
+  //   try {
+  //     const { data } = await axios.delete(
+  //       `https://ardilla.herokuapp.com/ardilla/api/auth/wrong-email/${_id}`
+  //     );
+
+  //     Cookies.remove();
+
+  //     if (data.success === true) {
+  //       navigate("/sign-up");
+  //     }
+  //   } catch (error) {
+  //     setOnSuccess(false);
+  //     setMsg(`${error.response.data.msg || "Network error"} `);
+  //     setErr(true);
+  //     setIsLoading(false);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setErr(false);
-    setOnSuccess(false);
-
-    try {
-      const { data } = await axios.post(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/verify-otp/${token}/${_id}`,
-        { code }
-      );
-
-      // sessionStorage.setItem("user", JSON.stringify(data.data));
-
-      console.log(data);
-
-      if (data.success === true) {
-        setErr(false);
-        setMsg(data.msg);
-        setOnSuccess(true);
-        setIsLoading(false);
-      }
-
-      setIsLoading(false);
-    } catch (error) {
-      setErr(true);
-      setOnSuccess(false);
-      setMsg(`${error.response.data.msg}` || "Network error");
-      setIsLoading(false);
-    }
+    // e.preventDefault();
+    // setIsLoading(true);
+    // setErr(false);
+    // setOnSuccess(false);
+    // try {
+    //   const { data } = await axios.post(
+    //     `https://ardilla.herokuapp.com/ardilla/api/auth/verify-otp/${token}/${_id}`,
+    //     { code }
+    //   );
+    //   // sessionStorage.setItem("user", JSON.stringify(data.data));
+    //   // console.log(data);
+    //   if (data.success === true) {
+    //     setErr(false);
+    //     setMsg(data.msg);
+    //     setOnSuccess(true);
+    //     setIsLoading(false);
+    //   }
+    //   setIsLoading(false);
+    // } catch (error) {
+    //   setErr(true);
+    //   setOnSuccess(false);
+    //   setMsg(`${error.response.data.msg}` || "Network error");
+    //   setIsLoading(false);
+    // }
   };
 
   const handleClickSuccess = () => {
-    const getUserById = async () => {
-      const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/user/find/${_id}`
-      );
-
-      setOnSuccess(false);
-
-      const { user } = data;
-      navigate("/complete-profile", { state: { user } });
-    };
-
-    getUserById();
+    // const getUserById = async () => {
+    //   const { data } = await axios.get(
+    //     `https://ardilla.herokuapp.com/ardilla/api/user/find/${_id}`
+    //   );
+    //   setOnSuccess(false);
+    //   const { user } = data;
+    //   navigate("/complete-profile", { state: { user } });
+    // };
+    // getUserById();
   };
 
   const handleResend = async (e) => {
@@ -109,23 +225,19 @@ function OtpPage() {
     setErr(false);
 
     try {
-      const { data } = await axios.post(
-        "https://ardilla.herokuapp.com/ardilla/api/auth/send-otp",
-        { email }
-      );
-
-      Cookies.remove("token");
-
-      sessionStorage.setItem("user", JSON.stringify(data.user));
-
-      Cookies.set("token", data.token);
-
-      if (data) {
-        setErr(false);
-        setMsg(data.msg);
-        setResend(true);
-        setIsLoading(false);
-      }
+      // const { data } = await axios.post(
+      //   "https://ardilla.herokuapp.com/ardilla/api/auth/send-otp",
+      //   { email }
+      // );
+      // Cookies.remove("token");
+      // sessionStorage.setItem("user", JSON.stringify(data.user));
+      // Cookies.set("token", data.token);
+      // if (data) {
+      //   setErr(false);
+      //   setMsg(data.msg);
+      //   setResend(true);
+      //   setIsLoading(false);
+      // }
     } catch (error) {
       setMsg(`${error.response.data.msg}` || "Network error");
       setErr(true);
@@ -135,22 +247,20 @@ function OtpPage() {
   };
 
   const handleWrongEmail = async () => {
-    try {
-      const { data } = await axios.delete(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/wrong-email/${_id}`
-      );
-
-      Cookies.remove();
-
-      if (data.success === true) {
-        navigate("/sign-up");
-      }
-    } catch (error) {
-      setOnSuccess(false);
-      setMsg(`${error.response.data.msg || "Network error"} `);
-      setErr(true);
-      setIsLoading(false);
-    }
+    // try {
+    //   const { data } = await axios.delete(
+    //     `https://ardilla.herokuapp.com/ardilla/api/auth/wrong-email/${_id}`
+    //   );
+    //   Cookies.remove();
+    //   if (data.success === true) {
+    //     navigate("/sign-up");
+    //   }
+    // } catch (error) {
+    //   setOnSuccess(false);
+    //   setMsg(`${error.response.data.msg || "Network error"} `);
+    //   setErr(true);
+    //   setIsLoading(false);
+    // }
   };
 
   return (
@@ -188,7 +298,7 @@ function OtpPage() {
                 type="button"
                 className="btn-close"
                 aria-label="Close"
-                onClick={handleClickSuccess}
+                // onClick={handleClickSuccess}
               ></button>
             </div>
           </div>
@@ -230,7 +340,7 @@ function OtpPage() {
                 <br />
                 your email
               </h2>
-              <p className="code mb-5">{email}</p>
+              <p className="code mb-5">{}</p>
               <h6>
                 <button className="resend" onClick={handleWrongEmail}>
                   Wrong Email?
