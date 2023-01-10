@@ -1135,3 +1135,10 @@ h5 a {
   line-height: 32px;
   color: #6B7280;
 }
+
+.footer-bottom a {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 32px;
+}
