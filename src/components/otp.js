@@ -55,11 +55,12 @@ function OtpPage() {
     try {
       const getUserById = async () => {
         const { data } = await axios.get(
-          `https://dilla-api.onrender.com/api/user/get-user`
+          `https://dilla-api.onrender.com/api/user/get-user`,
+          { withCredentials: true }
         );
 
         setUserCheck(data.user);
-        console.log("new", data);
+        console.log("new stuff", data);
 
         if (data?.user?.verified === "activated") {
           return;
