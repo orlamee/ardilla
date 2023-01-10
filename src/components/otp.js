@@ -30,10 +30,11 @@ function OtpPage() {
     try {
       const getUserById = async () => {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+          `https://dilla-api.onrender.com/api/user/get-user`
         );
 
         setUserCheck(data.user);
+        console.log(data);
 
         if (data?.user?.verified === "activated") {
           return;
