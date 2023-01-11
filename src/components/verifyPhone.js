@@ -4,6 +4,7 @@ import icon from "../img/verify-icon.svg";
 import logo from "../img/logo.svg";
 
 import axios from "axios";
+import { response } from "express";
 
 function VerifyPhone() {
   // let user = JSON.parse(sessionStorage.getItem("user"));
@@ -76,7 +77,7 @@ function VerifyPhone() {
         setUserCheck(data.user);
 
         console.log(data.user.verified);
-        console.log(data.user.mobilePinId);
+        console.log("mobile", data.user.mobilePinId);
 
         setCode(data.user.mobilePinId);
 
@@ -115,7 +116,7 @@ function VerifyPhone() {
           api_key:
             "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
           message_type: "NUMERIC",
-          to: `234${userCheck.contact}`,
+          to: `234${userCheck?.contact}`,
           from: "Ardilla",
           channel: "generic",
           pin_attempts: 1,
@@ -208,28 +209,38 @@ function VerifyPhone() {
     console.log(fullpin);
 
     try {
-      const { data } = await axios.post(
-        "https://api.ng.termii.com/api/sms/otp/verify",
-        {
-          api_key:
-            "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
-          pin_id: code,
-          pin: fullpin,
-        }
-      );
+      await axios
+        .get(`https://dilla-api.onrender.com/api/user/get-user`, {
+          withCredentials: true,
+        })
+        .then((response) => {
+          console.log("love is war", response);
+        });
+
+      // const { data } = await axios.post(
+      //   "https://api.ng.termii.com/api/sms/otp/verify",
+      //   {
+      //     api_key:
+      //       "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
+      //     pin_id: code,
+      //     pin: fullpin,
+      //   }
+      // );
+
+      // console.log("data1", data1);
 
       setLoading(false);
       setOnSuccess(true);
       updateProcess();
       setMsg("Mobile verifcation successful");
 
-      if (!data.verified) {
-        setErr(false);
-        setOnSuccess(false);
-        setMsg("Wrong pin");
-        setLoading(false);
-        setErr(true);
-      }
+      // if (!data.verified) {
+      //   setErr(false);
+      //   setOnSuccess(false);
+      //   setMsg("Wrong pin");
+      //   setLoading(false);
+      //   setErr(true);
+      // }
     } catch (error) {
       setLoading(false);
       setOnSuccess(false);
@@ -372,8 +383,8 @@ function VerifyPhone() {
             <h3 className="my-2">Verify Phone Number</h3>
             <h6>
               Enter the OTP Verification code sent to{" "}
-              {userCheck.contact.slice(0, 4)} XXX XX
-              {userCheck.contact.slice(9, 11)}
+              {userCheck?.contact.slice(0, 4)} XXX XX
+              {userCheck?.contact.slice(9, 11)}
               <br />
               <Link
                 style={{ color: "#E6356D" }}

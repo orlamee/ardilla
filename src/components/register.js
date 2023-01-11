@@ -58,7 +58,14 @@ function Register() {
       console.log(data);
       navigate("/otp");
     } catch (error) {
-      setMsg(`${error.response.data.msg || "Network error"} `);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setMsg(message);
       setErr(true);
       setIsLoading(false);
     }

@@ -8,7 +8,7 @@ function CompleteProfile() {
   // let user = JSON.parse(sessionStorage.getItem("user"));
 
   const [userCheck, setUserCheck] = useState();
-  const [email, setEmail] = useState(userCheck?.email);
+  const [email, setEmail] = useState();
   const [kodeHex, setKodeHex] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -59,6 +59,7 @@ function CompleteProfile() {
         console.log("new stuff", data);
 
         console.log(data.user.verified);
+        setEmail(data.user.email);
 
         if (data?.user?.verified === "otp") {
           return;
@@ -139,7 +140,7 @@ function CompleteProfile() {
     setErr(false);
 
     try {
-      const { data } = await axios.post(
+      const { data } = await axios.put(
         `https://dilla-api.onrender.com/api/auth/complete-profile`,
         { email, firstname, lastname, contact, password, kodeHex, ip },
         { withCredentials: true }
