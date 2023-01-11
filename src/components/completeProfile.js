@@ -5,10 +5,9 @@ import complete from "../img/profilecomplete.svg";
 import axios from "axios";
 
 function CompleteProfile() {
-  // let user = JSON.parse(sessionStorage.getItem("user"));
+  let user = JSON.parse(sessionStorage.getItem("user"));
 
-  const [userCheck, setUserCheck] = useState();
-  const [email, setEmail] = useState();
+  const [email, setEmail] = useState(user.email);
   const [kodeHex, setKodeHex] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -21,45 +20,16 @@ function CompleteProfile() {
   const [onSuccess, setOnSuccess] = useState(false);
   const [ip, setIp] = useState("");
 
-  // const { _id } = user;
+  const { _id } = user;
 
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   try {
-  //     const getUserById = async () => {
-  //       const { data } = await axios.get(
-  //         `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-  //       );
-
-  //       if (data?.user?.verified === "otp") {
-  //         return;
-  //       } else if (data?.user?.verified === "cp") {
-  //         return navigate("/security-question");
-  //       } else {
-  //         return navigate("/404");
-  //       }
-  //     };
-
-  //     getUserById();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [user._id, navigate]);
 
   useEffect(() => {
     try {
       const getUserById = async () => {
         const { data } = await axios.get(
-          `https://dilla-api.onrender.com/api/user/get-user`,
-          { withCredentials: true }
+          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
         );
-
-        setUserCheck(data.user);
-        console.log("new stuff", data);
-
-        console.log(data.user.verified);
-        setEmail(data.user.email);
 
         if (data?.user?.verified === "otp") {
           return;
@@ -74,11 +44,10 @@ function CompleteProfile() {
     } catch (error) {
       console.log(error);
     }
-  }, [navigate]);
+  }, [user._id, navigate]);
 
   let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
 
-  //get user ip address
   function getIP(url) {
     return fetch(url).then((res) => res.json());
   }
@@ -88,51 +57,6 @@ function CompleteProfile() {
     setIp(data.ip);
   });
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setIsLoading(true);
-  //   setOnSuccess(false);
-  //   setErr(false);
-
-  //   try {
-  //     const { data } = await axios.post(
-  //       `https://ardilla.herokuapp.com/ardilla/api/auth/complete-profile/${_id}`,
-  //       { email, firstname, lastname, contact, password, kodeHex, ip }
-  //     );
-
-  //     sessionStorage.setItem("user", JSON.stringify(data.data));
-
-  //     if (data.success === true) {
-  //       setErr(false);
-  //       setMsg(data.msg);
-  //       setOnSuccess(true);
-  //       setIsLoading(false);
-  //     }
-
-  //     setIsLoading(false);
-  //   } catch (error) {
-  //     console.log(error);
-  //     setMsg(`${error.response.data.msg} ` || "Network error");
-  //     setErr(true);
-  //     setIsLoading(false);
-  //   }
-  // };
-
-  // const handleClickSuccess = () => {
-  //   const getUserById = async () => {
-  //     const { data } = await axios.get(
-  //       `https://ardilla.herokuapp.com/ardilla/api/user/find/${_id}`
-  //     );
-
-  //     setOnSuccess(false);
-
-  //     const { user } = data;
-  //     navigate("/security-question", { state: { user } });
-  //   };
-
-  //   getUserById();
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -140,34 +64,42 @@ function CompleteProfile() {
     setErr(false);
 
     try {
-      const { data } = await axios.put(
-        `https://dilla-api.onrender.com/api/auth/complete-profile`,
-        { email, firstname, lastname, contact, password, kodeHex, ip },
-        { withCredentials: true }
+      const { data } = await axios.post(
+        `https://ardilla.herokuapp.com/ardilla/api/auth/complete-profile/${_id}`,
+        { email, firstname, lastname, contact, password, kodeHex, ip }
       );
 
-      setErr(false);
-      setMsg(data.msg);
-      setOnSuccess(true);
+      sessionStorage.setItem("user", JSON.stringify(data.data));
+
+      if (data.success === true) {
+        setErr(false);
+        setMsg(data.msg);
+        setOnSuccess(true);
+        setIsLoading(false);
+      }
+
       setIsLoading(false);
     } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-
-      setMsg(message);
+      console.log(error);
+      setMsg(`${error.response.data.msg} ` || "Network error");
       setErr(true);
       setIsLoading(false);
     }
   };
 
   const handleClickSuccess = () => {
-    setOnSuccess(false);
+    const getUserById = async () => {
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/user/find/${_id}`
+      );
 
-    navigate("/security-question");
+      setOnSuccess(false);
+
+      const { user } = data;
+      navigate("/security-question", { state: { user } });
+    };
+
+    getUserById();
   };
 
   setTimeout(() => {

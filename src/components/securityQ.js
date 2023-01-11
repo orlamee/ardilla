@@ -5,9 +5,9 @@ import home from "../img/home-login.svg";
 import axios from "axios";
 
 function SecurityPage() {
-  // let securityQusetion;
+  let securityQusetion;
 
-  // let user = JSON.parse(sessionStorage.getItem("user"));
+  let user = JSON.parse(sessionStorage.getItem("user"));
 
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
@@ -15,45 +15,17 @@ function SecurityPage() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
-  // const [userCheck, setUserCheck] = useState();
 
   const navigate = useNavigate();
 
-  // const { _id } = user;
-
-  // useEffect(() => {
-  //   try {
-  //     const getUserById = async () => {
-  //       const { data } = await axios.get(
-  //         `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-  //       );
-
-  //       if (data?.user?.verified === "cp") {
-  //         return;
-  //       } else if (data?.user?.verified === "sq") {
-  //         return navigate("/verify-mobile");
-  //       } else {
-  //         return navigate("/404");
-  //       }
-  //     };
-
-  //     getUserById();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [user._id, navigate]);
+  const { _id } = user;
 
   useEffect(() => {
     try {
       const getUserById = async () => {
         const { data } = await axios.get(
-          `https://dilla-api.onrender.com/api/user/get-user`,
-          { withCredentials: true }
+          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
         );
-
-        // setUserCheck(data.user);
-
-        console.log(data.user.verified);
 
         if (data?.user?.verified === "cp") {
           return;
@@ -68,46 +40,36 @@ function SecurityPage() {
     } catch (error) {
       console.log(error);
     }
-  }, [navigate]);
+  }, [user._id, navigate]);
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   setErr(false);
+  const sendMsg = async () => {
+    try {
+      const { data } = await axios.post(
+        "https://api.ng.termii.com/api/sms/otp/send",
+        {
+          api_key:
+            "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
+          message_type: "NUMERIC",
+          to: `234${user.contact}`,
+          from: "Ardilla",
+          channel: "generic",
+          pin_attempts: 1,
+          pin_time_to_live: 5,
+          pin_length: 6,
+          pin_placeholder: "< 123456 >",
+          message_text: "Your pin is < 123456 >",
+          pin_type: "NUMERIC",
+        }
+      );
+      const pin = data.pinId;
 
-  //   securityQusetion = {
-  //     question,
-  //     answer,
-  //   };
-
-  //   try {
-  //     const { data } = await axios.put(
-  //       `https://ardilla.herokuapp.com/ardilla/api/auth/security-question/${_id}`,
-  //       { securityQusetion }
-  //     );
-
-  //     if (data.success === true) {
-  //       sessionStorage.setItem("user", JSON.stringify(data.data));
-  //       setErr(false);
-  //       setMsg(data.msg);
-  //       setOnSuccess(true);
-  //       setLoading(false);
-  //     }
-
-  //     setLoading(false);
-  //   } catch (error) {
-  //     setLoading(false);
-
-  //     setErr(true);
-  //     setMsg(`${error.response.data.msg || "Network error"} `);
-
-  //   }
-  // };
-
-  const handleClickSuccess = () => {
-    setOnSuccess(false);
-    // navigate("/verify-mobile");
-    navigate("/bvn-verify");
+      await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/auth/mobile/${user._id}`,
+        { pin }
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -115,35 +77,53 @@ function SecurityPage() {
     setLoading(true);
     setErr(false);
 
+    securityQusetion = {
+      question,
+      answer,
+    };
+
     try {
       const { data } = await axios.put(
-        `https://dilla-api.onrender.com/api/auth/security-question`,
-        { question, answer },
-        { withCredentials: true }
+        `https://ardilla.herokuapp.com/ardilla/api/auth/security-question/${_id}`,
+        { securityQusetion }
       );
 
-      setErr(false);
-      setMsg(data.msg);
-      setOnSuccess(true);
+      if (data.success === true) {
+        sessionStorage.setItem("user", JSON.stringify(data.data));
+        setErr(false);
+        setMsg(data.msg);
+        setOnSuccess(true);
+        setLoading(false);
+      }
+
       setLoading(false);
     } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-
-      setMsg(message);
-      setErr(true);
       setLoading(false);
+
+      setErr(true);
+      setMsg(`${error.response.data.msg || "Network error"} `);
     }
+  };
+
+  const handleClickSuccess = () => {
+    const getUserById = async () => {
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/user/find/${_id}`
+      );
+
+      setOnSuccess(false);
+
+      const { user } = data;
+      navigate("/verify-mobile", { state: { user } });
+    };
+
+    getUserById();
   };
 
   setTimeout(() => {
     if (onSuccess) {
-      navigate("/bvn-verify");
-      // navigate("/verify-mobile");
+      sendMsg();
+      navigate("/verify-mobile");
     }
   }, 5000);
 

@@ -53,17 +53,17 @@ function Login() {
     getIP(`https://api.ipdata.co?api-key=${apiKey}`);
   }, [apiKey]);
 
-  // const getAcctStatement = async (id) => {
-  //   try {
-  //     const { data } = await axios.get(
-  //       `https://ardilla.herokuapp.com/ardilla/api/account/get-account/${id}`
-  //     );
+  const getAcctStatement = async (id) => {
+    try {
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/account/get-account/${id}`
+      );
 
-  //     sessionStorage.setItem("acct", JSON.stringify(data.acct));
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+      sessionStorage.setItem("acct", JSON.stringify(data.acct));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const navigate = useNavigate();
 
@@ -100,7 +100,7 @@ function Login() {
       Cookies.set("user", data.token);
       console.log(data);
 
-      // getAcctStatement(data.user._id);
+      getAcctStatement(data.user._id);
 
       sessionStorage.setItem("user", JSON.stringify(data.user));
 
@@ -181,130 +181,119 @@ function Login() {
       )}
       <div className="d-lg-flex half">
         <div className="bg order-1 order-md-2 new-aside"></div>
-        <div className="contents order-2 order-md-1">
-          <div className="container">
-            <div className="row align-items-center justify-content-center">
-              <div className="col-md-7">
-                <div className="right ms-3">
-                  <div className="row logo-new desktop">
-                    <div className="col-md-6 ">
-                      <Link to="/">
-                        <img src={logo} alt="" className="img-fluid mb-5" />
-                      </Link>
+          <div className="contents order-2 order-md-1">
+            <div className="container">
+              <div className="row align-items-center justify-content-center">
+                <div className="col-md-7">
+                  
+                  <div className="right ms-3">
+                    <div className="row logo-new desktop">
+                      <div className="col-md-6 ">
+                        <Link to="/">
+                          <img src={logo} alt="" className="img-fluid mb-5" />
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                  <div className="login-form login-form-new">
-                    <h3>Welcome!</h3>
-                    <h6 className="mt-4">
-                      Here’s how to Log in to access your account
-                    </h6>
-                    <form className="mt-5" onSubmit={handleSubmit}>
-                      <div className="mb-3">
-                        <label className="form-label">
-                          <i className="bi bi-envelope-fill me-2"></i> Email
-                          address
-                        </label>
-                        <input
-                          type="email"
-                          className="form-control custom-login"
-                          required
-                          value={email}
-                          onChange={(e) =>
-                            setEmail(e.target.value.toLowerCase())
-                          }
-                        />
-                      </div>
-                      <div className="">
-                        <label className="form-label">
-                          <i className="bi bi-shield-lock-fill me-2"></i>{" "}
-                          Password
-                        </label>
-                        <input
-                          type="password"
-                          name="pass"
-                          className="form-control custom-login"
-                          id="pass"
-                          required
-                          value={password}
-                          onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <span
-                          toggle="#password-field"
-                          className="fa fa-fw fa-eye field_icon toggle-pass"
-                        ></span>
-                      </div>
-                      <div className="mobile">
-                        <div className="mb-2">
+                    <div className="login-form login-form-new">
+                      <h3>Welcome!</h3>
+                      <h6 className="mt-4">
+                        Here’s how to Log in to access your account
+                      </h6>
+                      <form className="mt-5" onSubmit={handleSubmit}>
+                        <div className="mb-3">
+                          <label className="form-label">
+                            <i className="bi bi-envelope-fill me-2"></i> Email address
+                          </label>
+                          <input
+                            type="email"
+                            className="form-control custom-login"
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value.toLowerCase())}
+                          />
+                        </div>
+                        <div className="">
+                          <label className="form-label">
+                            <i className="bi bi-shield-lock-fill me-2"></i> Password
+                          </label>
+                          <input
+                            type="password"
+                            name="pass"
+                            className="form-control custom-login"
+                            id="pass"
+                            required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                          />
+                          <span
+                            toggle="#password-field"
+                            className="fa fa-fw fa-eye field_icon toggle-pass"
+                          ></span>
+                        </div>
+                        <div className="mobile">
+                          <div className="mb-2">
+                            <label className="form-check-label remember">
+                              <input type="checkbox" className="form-check-input" />{" "}
+                              Remember me
+                            </label>
+                          </div>
+                          <div>
+                            <Link className="fg" to="/recover-password">
+                              Forgot Password?
+                            </Link>
+                          </div>
+                        </div>
+                        <div className="form-group desktop">
                           <label className="form-check-label remember">
-                            <input
-                              type="checkbox"
-                              className="form-check-input"
-                            />{" "}
+                            <input type="checkbox" className="form-check-input" />{" "}
                             Remember me
                           </label>
-                        </div>
-                        <div>
-                          <Link className="fg" to="/recover-password">
+                          <Link className="float-end fg" to="/recover-password">
                             Forgot Password?
                           </Link>
                         </div>
+                        {loading ? (
+                          <div className="mt-4 mb-5">
+                            <button
+                              type="button"
+                              className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                              style={{ width: "100%" }}
+                            >
+                              Loading
+                            </button>
+                          </div>
+                        ) : (
+                          <div className="mt-4 mb-5">
+                            <button
+                              type="submit"
+                              className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                              style={{ width: "100%" }}
+                            >
+                              Log In
+                            </button>
+                          </div>
+                        )}
+                      </form>
+                      <div className="separator">
+                        <div className="line"></div>
+                        <h6>or</h6>
+                        <div className="line"></div>
                       </div>
-                      <div className="form-group desktop">
-                        <label className="form-check-label remember">
-                          <input type="checkbox" className="form-check-input" />{" "}
-                          Remember me
-                        </label>
-                        <Link className="float-end fg" to="/recover-password">
-                          Forgot Password?
-                        </Link>
+                      <button
+                        type="button"
+                        className="mt-5 btn btn-outline-primary py-3 ardilla-btn-outline"
+                      >
+                        <i className="bi bi-box-arrow-in-right me-3"></i> Sign in with
+                        SAN ID
+                      </button>
+                      <div className="mt-3 new-sign">
+                        <h5>New user? <Link to="/sign-up" style={{color: "#8807F7"}}>Create account</Link></h5>
                       </div>
-                      {loading ? (
-                        <div className="mt-4 mb-5">
-                          <button
-                            type="button"
-                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                            style={{ width: "100%" }}
-                          >
-                            Loading
-                          </button>
-                        </div>
-                      ) : (
-                        <div className="mt-4 mb-5">
-                          <button
-                            type="submit"
-                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                            style={{ width: "100%" }}
-                          >
-                            Log In
-                          </button>
-                        </div>
-                      )}
-                    </form>
-                    <div className="separator">
-                      <div className="line"></div>
-                      <h6>or</h6>
-                      <div className="line"></div>
-                    </div>
-                    <button
-                      type="button"
-                      className="mt-5 btn btn-outline-primary py-3 ardilla-btn-outline"
-                    >
-                      <i className="bi bi-box-arrow-in-right me-3"></i> Sign in
-                      with SAN ID
-                    </button>
-                    <div className="mt-3 new-sign">
-                      <h5>
-                        New user?{" "}
-                        <Link to="/sign-up" style={{ color: "#8807F7" }}>
-                          Create account
-                        </Link>
-                      </h5>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </section>

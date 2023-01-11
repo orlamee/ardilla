@@ -191,8 +191,7 @@ function OtpPage() {
     try {
       const { data } = await axios.post(
         `https://dilla-api.onrender.com/api/auth/verify-otp`,
-        { code },
-        { withCredentials: true }
+        { code }
       );
 
       setErr(false);
@@ -225,13 +224,12 @@ function OtpPage() {
     setOnSuccess(false);
     setErr(false);
 
-    const email = userCheck?.email;
+    const email = userCheck.email;
 
     try {
       const { data } = await axios.post(
         "https://dilla-api.onrender.com/api/auth/send-otp",
-        { email },
-        { withCredentials: true }
+        { email }
       );
 
       setErr(false);
@@ -255,10 +253,7 @@ function OtpPage() {
 
   const handleWrongEmail = async () => {
     try {
-      await axios.delete(
-        `https://dilla-api.onrender.com/api/auth/wrong-email`,
-        { withCredentials: true }
-      );
+      await axios.delete(`https://dilla-api.onrender.com/api/auth/wrong-email`);
 
       navigate("/sign-up");
     } catch (error) {
@@ -353,7 +348,7 @@ function OtpPage() {
                 <br />
                 your email
               </h2>
-              <p className="code mb-5">{userCheck?.email}</p>
+              <p className="code mb-5">{}</p>
               <h6>
                 <button className="resend" onClick={handleWrongEmail}>
                   Wrong Email?

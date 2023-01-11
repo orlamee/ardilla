@@ -19,51 +19,23 @@ function CreatePin() {
   const [confirmPin2, setConfirmPin2] = useState("");
   const [confirmPin3, setConfirmPin3] = useState("");
   const [confirmPin4, setConfirmPin4] = useState("");
-  // const [userCheck, setUserCheck] = useState();
 
-  // let user = JSON.parse(sessionStorage.getItem("user"));
+  let user = JSON.parse(sessionStorage.getItem("user"));
   const navigate = useNavigate();
 
   const code = `${pin1}${pin2}${pin3}${pin4}`;
   const confirmCode = `${confirmPin1}${confirmPin2}${confirmPin3}${confirmPin4}`;
 
-  // useEffect(() => {
-  //   try {
-  //     const getUserById = async () => {
-  //       const { data } = await axios.get(
-  //         `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-  //       );
-
-  //       if (data?.user?.verified === "mv") {
-  //         return;
-  //       } else if (data?.user?.verified === "completed") {
-  //         return navigate("/login");
-  //       } else {
-  //         return navigate("/404");
-  //       }
-  //     };
-
-  //     getUserById();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [user._id, navigate]);
-
   useEffect(() => {
     try {
       const getUserById = async () => {
         const { data } = await axios.get(
-          `https://dilla-api.onrender.com/api/user/get-user`,
-          { withCredentials: true }
+          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
         );
-
-        // setUserCheck(data.user);
-
-        console.log(data.user.verified);
 
         if (data?.user?.verified === "mv") {
           return;
-        } else if (data?.user?.verified === "complete") {
+        } else if (data?.user?.verified === "completed") {
           return navigate("/login");
         } else {
           return navigate("/404");
@@ -74,7 +46,17 @@ function CreatePin() {
     } catch (error) {
       console.log(error);
     }
-  }, [navigate]);
+  }, [user._id, navigate]);
+
+  // const veriP = async () => {
+  //   try {
+  //     await axios.get(
+  //       `https://ardilla.herokuapp.com/ardilla/api/auth/mobile/${user._id}`
+  //     );
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const sendRequest = async () => {
     try {
@@ -89,13 +71,8 @@ function CreatePin() {
         return;
       }
 
-      // const { data } = await axios.post(
-      //   `https://ardilla.herokuapp.com/ardilla/api/auth/set-transaction-pin/${user._id}`,
-      //   { code, confirmCode }
-      // );
-
       const { data } = await axios.post(
-        `https://dilla-api.onrender.com/api/auth/set-pin`,
+        `https://ardilla.herokuapp.com/ardilla/api/auth/set-transaction-pin/${user._id}`,
         { code, confirmCode }
       );
 
@@ -104,14 +81,8 @@ function CreatePin() {
       setOnSuccess(true);
       setLoading(false);
     } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
       setOnSuccess(false);
-      setMsg(message);
+      setMsg(`${error.response.data.msg} `);
       setLoading(false);
       setErr(true);
     }
@@ -126,7 +97,7 @@ function CreatePin() {
     if (onSuccess) {
       navigate("/login");
     }
-  }, 5000);
+  }, 2000);
 
   const handleSubmit = (e) => {
     e.preventDefault();

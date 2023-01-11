@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import kyc from "../img/kyc-props.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../img/logo.svg";
 import axios from "axios";
 
@@ -10,80 +10,18 @@ function Kyc() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
   const [bvn, setBvn] = useState("");
-  const [userCheck, setUserCheck] = useState();
 
-  const navigate = useNavigate();
+  let user = JSON.parse(sessionStorage.getItem("user"));
 
-  useEffect(() => {
-    try {
-      const getUserById = async () => {
-        const { data } = await axios.get(
-          `https://dilla-api.onrender.com/api/user/get-user`,
-          { withCredentials: true }
-        );
-
-        setUserCheck(data.user);
-
-        console.log(data.user.verified);
-
-        if (data?.user?.verified === "sq") {
-          return;
-        } else if (data?.user?.verified === "bvn") {
-          return navigate("/verify-mobile");
-        } else {
-          return navigate("/404");
-        }
-      };
-
-      getUserById();
-    } catch (error) {
-      console.log(error);
-    }
-  }, [navigate]);
-
-  const sendMsg = async () => {
-    try {
-      const { data } = await axios.post(
-        "https://api.ng.termii.com/api/sms/otp/send",
-        {
-          api_key:
-            "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
-          message_type: "NUMERIC",
-          to: `234${userCheck.contact}`,
-          from: "Ardilla",
-          channel: "generic",
-          pin_attempts: 1,
-          pin_time_to_live: 5,
-          pin_length: 6,
-          pin_placeholder: "< 123456 >",
-          message_text: "Your pin is < 123456 >",
-          pin_type: "NUMERIC",
-        }
-      );
-      const pin = data.pinId;
-
-      await axios.put(
-        `https://dilla-api.onrender.com/api/auth/mobile-otp`,
-        {
-          pin,
-        },
-        { withCredentials: true }
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  setTimeout(() => {
-    if (onSuccess) {
-      sendMsg();
-      navigate("/verify-mobile");
-    }
-  }, 5000);
+  // setTimeout(() => {
+  //   if (onSuccess) {
+  //     navigate("/login");
+  //   }
+  // }, 2000);
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
-    navigate("/verify-mobile");
+    // navigate("/login");
   };
 
   const addBVN = async (e) => {
@@ -99,29 +37,20 @@ function Kyc() {
         return;
       }
       const { data } = await axios.put(
-        `https://dilla-api.onrender.com/api/auth/add-bvn`,
-        { bvn },
-        { withCredentials: true }
+        `https://ardilla.herokuapp.com/ardilla/api/auth/add-bvn/${user._id}`,
+        { bvn }
       );
       setMsg(data.msg);
       setErr(false);
       setOnSuccess(true);
       setLoading(false);
     } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-
-      setMsg(message);
       setOnSuccess(false);
+      setMsg(`${error.response.data.msg} `);
       setLoading(false);
       setErr(true);
     }
   };
-
   return (
     <section className="verify-section">
       {err && (

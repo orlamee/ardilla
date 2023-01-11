@@ -170,29 +170,29 @@ function DillaBody() {
     }
   };
 
-  const transferToSan = async () => {
-    try {
-      setLoading(true);
-      setErr(false);
-      const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/transfer-to-san/${user1._id}`,
-        { amount, pin }
-      );
+  // const transferToSan = async () => {
+  //   try {
+  //     setLoading(true);
+  //     setErr(false);
+  //     const { data } = await axios.put(
+  //       `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/transfer-to-san/${user1._id}`,
+  //       { amount, pin }
+  //     );
 
-      setLoading(false);
-      getSanAcct();
-      getDillaWallet();
-      setOnTransferSuccess(true);
-      // console.log(data);
-    } catch (error) {
-      setOnTransferSuccess(false);
-      setMsg(`${error.response.data.msg} `);
-      setLoading(false);
-      setErr(true);
-    }
-  };
+  //     setLoading(false);
+  //     getSanAcct();
+  //     getDillaWallet();
+  //     setOnTransferSuccess(true);
+  //     // console.log(data);
+  //   } catch (error) {
+  //     setOnTransferSuccess(false);
+  //     setMsg(`${error.response.data.msg} `);
+  //     setLoading(false);
+  //     setErr(true);
+  //   }
+  // };
 
-  const requestMoney = () => {};
+  // const requestMoney = () => {};
 
   let ots;
 
@@ -1528,7 +1528,7 @@ function DillaBody() {
                           ) : (
                             <Link
                               // data-bs-toggle="modal"
-                              onClick={transferToSan}
+                              // onClick={transferToSan}
                               data-bs-target="#dillatosan"
                               type="button"
                               className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
