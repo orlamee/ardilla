@@ -1149,3 +1149,33 @@ h5 a {
   font-weight: 400;
   line-height: 32px;
 }
+
+.product-scroller {
+  height: 600px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  direction: rtl;
+  padding-left: 40px;
+}
+
+.scrollbar {
+  direction: ltr;
+}
+
+#style-8::-webkit-scrollbar-track
+{
+  border: 1px solid #E5E7EB;
+  background-color: transparent;
+}
+
+#style-8::-webkit-scrollbar
+{
+  width: 15px;
+  background-color: transparent;
+}
+
+#style-8::-webkit-scrollbar-thumb
+{
+  background-color: #E5E7EB;	
+  border-radius: 10px;
+}
