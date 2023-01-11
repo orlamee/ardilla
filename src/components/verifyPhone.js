@@ -213,7 +213,9 @@ function VerifyPhone() {
         .get(`https://dilla-api.onrender.com/api/user/get-user`, {
           withCredentials: true,
         })
-        .then((response) => console.log("love is war", response));
+        .then((response) => {
+          console.log("love is war", response);
+        });
 
       // const { data } = await axios.post(
       //   "https://api.ng.termii.com/api/sms/otp/verify",
