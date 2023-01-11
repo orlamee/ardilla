@@ -209,7 +209,7 @@ function VerifyPhone() {
     setUserCheck(data.user);
 
     console.log(data.user.verified);
-    console.log("mobile", data.user.mobilePinId);
+    console.log("mobile oustide", data.user.mobilePinId);
 
     setCode(data.user.mobilePinId);
   };
