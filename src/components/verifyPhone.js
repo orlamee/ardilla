@@ -4,6 +4,7 @@ import icon from "../img/verify-icon.svg";
 import logo from "../img/logo.svg";
 
 import axios from "axios";
+import { response } from "express";
 
 function VerifyPhone() {
   // let user = JSON.parse(sessionStorage.getItem("user"));
@@ -208,22 +209,23 @@ function VerifyPhone() {
     console.log(fullpin);
 
     try {
-      const { data1 } = await axios.get(
-        `https://dilla-api.onrender.com/api/user/get-user`,
-        { withCredentials: true }
-      );
+      await axios
+        .get(`https://dilla-api.onrender.com/api/user/get-user`, {
+          withCredentials: true,
+        })
+        .then((response) => console.log("love is war", response));
 
-      const { data } = await axios.post(
-        "https://api.ng.termii.com/api/sms/otp/verify",
-        {
-          api_key:
-            "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
-          pin_id: code,
-          pin: fullpin,
-        }
-      );
+      // const { data } = await axios.post(
+      //   "https://api.ng.termii.com/api/sms/otp/verify",
+      //   {
+      //     api_key:
+      //       "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
+      //     pin_id: code,
+      //     pin: fullpin,
+      //   }
+      // );
 
-      console.log("data1", data1);
+      // console.log("data1", data1);
 
       setLoading(false);
       setOnSuccess(true);
