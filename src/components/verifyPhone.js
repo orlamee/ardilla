@@ -6,7 +6,7 @@ import logo from "../img/logo.svg";
 import axios from "axios";
 
 function VerifyPhone() {
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  // let user = JSON.parse(sessionStorage.getItem("user"));
 
   const navigate = useNavigate();
 
@@ -29,26 +29,58 @@ function VerifyPhone() {
   const [wrongContactSuc, setWrongContactSuc] = useState("");
   const [code, setCode] = useState("");
 
+  const [userCheck, setUserCheck] = useState();
+
   // let code;
+
+  // useEffect(() => {
+  //   try {
+  //     const getUserById = async () => {
+  //       const { data } = await axios.get(
+  //         `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+  //       );
+
+  //       console.log("better man");
+
+  //       setCode(data.user.mobilePinId);
+
+  //       console.log(data.user);
+
+  //       console.log(data);
+
+  //       // code = data.user?.mobilePinId;
+
+  //       if (data?.user?.verified === "sq") {
+  //         return;
+  //       } else if (data?.user?.verified === "mv") {
+  //         return navigate("/set-pin");
+  //       } else {
+  //         return navigate("/404");
+  //       }
+  //     };
+
+  //     getUserById();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [user._id, navigate]);
 
   useEffect(() => {
     try {
       const getUserById = async () => {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+          `https://dilla-api.onrender.com/api/user/get-user`,
+          { withCredentials: true }
         );
 
-        console.log("better man");
+        setUserCheck(data.user);
+
+        console.log(data.user.verified);
+        console.log(data.user.mobilePinId);
 
         setCode(data.user.mobilePinId);
 
-        console.log(data.user);
-
-        console.log(data);
-
-        // code = data.user?.mobilePinId;
-
-        if (data?.user?.verified === "sq") {
+        if (data?.user?.verified === "bvn") {
           return;
         } else if (data?.user?.verified === "mv") {
           return navigate("/set-pin");
@@ -61,17 +93,15 @@ function VerifyPhone() {
     } catch (error) {
       console.log(error);
     }
-  }, [user._id, navigate]);
-
-  console.log(code);
+  }, [navigate]);
 
   const fullpin = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
 
   const updateProcess = async () => {
     try {
-      await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/mobile-status-update/${user._id}`
-      );
+      await axios.get(`https://dilla-api.onrender.com/api/auth/mobile-otp-2`, {
+        withCredentials: true,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -85,7 +115,7 @@ function VerifyPhone() {
           api_key:
             "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
           message_type: "NUMERIC",
-          to: `234${user.contact}`,
+          to: `234${userCheck.contact}`,
           from: "Ardilla",
           channel: "generic",
           pin_attempts: 1,
@@ -104,8 +134,9 @@ function VerifyPhone() {
       //update mobile verif pin
 
       await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/mobile/${user._id}`,
-        { pin }
+        `https://dilla-api.onrender.com/api/auth/mobile-otp`,
+        { pin },
+        { withCredentials: true }
       );
 
       if (data.status !== 200) {
@@ -122,6 +153,52 @@ function VerifyPhone() {
     }
   };
 
+  // const checkOut = async (e) => {
+  //   e.preventDefault();
+  //   setErr(false);
+  //   setLoading(true);
+
+  //   console.log(code);
+  //   console.log(fullpin);
+
+  //   try {
+  //     const { data1 } = await axios.get(
+  //       `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+  //     );
+
+  //     console.log(data1);
+
+  //     const { data } = await axios.post(
+  //       "https://api.ng.termii.com/api/sms/otp/verify",
+  //       {
+  //         api_key:
+  //           "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
+  //         pin_id: code,
+  //         pin: fullpin,
+  //       }
+  //     );
+
+  //     setLoading(false);
+  //     setOnSuccess(true);
+  //     updateProcess();
+  //     setMsg("Mobile verifcation successful");
+
+  //     if (!data.verified) {
+  //       setErr(false);
+  //       setOnSuccess(false);
+  //       setMsg("Wrong pin");
+  //       setLoading(false);
+  //       setErr(true);
+  //     }
+  //   } catch (error) {
+  //     setLoading(false);
+  //     setOnSuccess(false);
+  //     setMsg("Oops something went wrong");
+  //     setLoading(false);
+  //     setErr(true);
+  //   }
+  // };
+
   const checkOut = async (e) => {
     e.preventDefault();
     setErr(false);
@@ -131,12 +208,6 @@ function VerifyPhone() {
     console.log(fullpin);
 
     try {
-      const { data1 } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-      );
-
-      console.log(data1);
-
       const { data } = await axios.post(
         "https://api.ng.termii.com/api/sms/otp/verify",
         {
@@ -162,7 +233,7 @@ function VerifyPhone() {
     } catch (error) {
       setLoading(false);
       setOnSuccess(false);
-      setMsg("Oops something went wrong");
+      setMsg("Oops something went wrong, Please try again");
       setLoading(false);
       setErr(true);
     }
@@ -177,7 +248,7 @@ function VerifyPhone() {
     if (onSuccess) {
       navigate("/set-pin");
     }
-  }, 2000);
+  }, 5000);
 
   const wrongContact = async (e) => {
     try {
@@ -208,34 +279,42 @@ function VerifyPhone() {
 
       //update pin
       await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/mobile/${user._id}`,
-        { pin }
+        `https://dilla-api.onrender.com/api/auth/mobile-otp`,
+        { pin },
+        { withCredentials: true }
       );
 
       //update new phone number
-      const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/wrong-contact/${user._id}`,
-        { newPhoneNumber }
+      await axios.put(
+        `https://dilla-api.onrender.com/api/auth/wrong-contact`,
+        { newPhoneNumber },
+        { withCredentials: true }
       );
-
-      sessionStorage.setItem("user", JSON.stringify(data.user));
 
       setWrongContactSuc(true);
       setLoading(false);
 
       setNewPhoneNumber("");
     } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
       setLoading(false);
       setOnSuccess(false);
-      setMsg(`${error.response.data.msg || "Network error"} `);
+      setMsg(message);
 
       setWrongContactErr(true);
 
-      setWrongContactMsg(`${error.response.data.msg}` || "Network Error");
+      setWrongContactMsg(message);
       // setErr(true);
       setLoading(false);
     }
   };
+
   return (
     <section className="verify-section">
       {err && (
@@ -292,8 +371,9 @@ function VerifyPhone() {
             <img src={icon} alt="" className="img-fluid" />
             <h3 className="my-2">Verify Phone Number</h3>
             <h6>
-              Enter the OTP Verification code sent to {user.contact.slice(0, 4)}{" "}
-              XXX XX{user.contact.slice(9, 11)}
+              Enter the OTP Verification code sent to{" "}
+              {userCheck.contact.slice(0, 4)} XXX XX
+              {userCheck.contact.slice(9, 11)}
               <br />
               <Link
                 style={{ color: "#E6356D" }}

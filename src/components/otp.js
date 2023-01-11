@@ -3,7 +3,7 @@ import logo from "../img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 
 function OtpPage() {
   const [code, setCode] = useState("");
@@ -191,7 +191,8 @@ function OtpPage() {
     try {
       const { data } = await axios.post(
         `https://dilla-api.onrender.com/api/auth/verify-otp`,
-        { code }
+        { code },
+        { withCredentials: true }
       );
 
       setErr(false);
@@ -229,7 +230,8 @@ function OtpPage() {
     try {
       const { data } = await axios.post(
         "https://dilla-api.onrender.com/api/auth/send-otp",
-        { email }
+        { email },
+        { withCredentials: true }
       );
 
       setErr(false);
@@ -253,7 +255,10 @@ function OtpPage() {
 
   const handleWrongEmail = async () => {
     try {
-      await axios.delete(`https://dilla-api.onrender.com/api/auth/wrong-email`);
+      await axios.delete(
+        `https://dilla-api.onrender.com/api/auth/wrong-email`,
+        { withCredentials: true }
+      );
 
       navigate("/sign-up");
     } catch (error) {
