@@ -32,26 +32,31 @@ function Footer() {
                 <div className="col-sm mb-3">
                   <h4>Products</h4>
                   <ul className="list-unstyled links">
-                    <li>Savings</li>
-                    <li>Investment</li>
-                    <li>Education</li>
-                    <li>Insurance</li>
+                    <li><Link to="/save">Savings</Link></li>
+                    <li><Link to="/dilla-wallet">Dilla</Link></li>
+                    <li><Link to="">Financial Coach</Link></li>
+                    <li><Link to="">Halal</Link></li>
+                    <li><Link to="">Budgettings</Link></li>
+                    <li><Link to="">Investment</Link></li>
+                    <li><Link to="">Insurance</Link></li>
                   </ul>
                 </div>
                 <div className="col-sm mb-3">
                   <h4>Company</h4>
                   <ul className="list-unstyled links">
-                    <li>About us</li>
-                    <li>Careers</li>
-                    <li>FAQS</li>
+                    <li><Link to="/about-us">About us</Link></li>
+                    <li><Link to="">Careers</Link></li>
+                    <li><Link to="">FAQ</Link></li>
+                    <li><Link to="">Press</Link></li>
                   </ul>
                 </div>
                 <div className="col-sm mb-3">
                   <h4>Transparency</h4>
                   <ul className="list-unstyled links">
                     <li>Terms & conditions</li>
-                    <li><Link to="/information-security">Information security</Link></li>
-                    <li>Privacy policy</li>
+                    <li><Link to="/information-security">Information security policy</Link></li>
+                    <li><Link to="/privacy-policy">Privacy policy</Link></li>
+                    <li><Link to="">Interest Tool</Link></li>
                   </ul>
                 </div>
                 <div className="col-sm mb-3">
