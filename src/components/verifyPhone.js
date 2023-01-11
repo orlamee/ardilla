@@ -232,13 +232,13 @@ function VerifyPhone() {
       updateProcess();
       setMsg("Mobile verifcation successful");
 
-      if (!data.verified) {
-        setErr(false);
-        setOnSuccess(false);
-        setMsg("Wrong pin");
-        setLoading(false);
-        setErr(true);
-      }
+      // if (!data.verified) {
+      //   setErr(false);
+      //   setOnSuccess(false);
+      //   setMsg("Wrong pin");
+      //   setLoading(false);
+      //   setErr(true);
+      // }
     } catch (error) {
       setLoading(false);
       setOnSuccess(false);
