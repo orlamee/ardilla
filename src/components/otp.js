@@ -225,7 +225,7 @@ function OtpPage() {
     setOnSuccess(false);
     setErr(false);
 
-    const email = userCheck.email;
+    const email = userCheck?.email;
 
     try {
       const { data } = await axios.post(
