@@ -140,7 +140,7 @@ function CompleteProfile() {
     setErr(false);
 
     try {
-      const { data } = await axios.post(
+      const { data } = await axios.put(
         `https://dilla-api.onrender.com/api/auth/complete-profile`,
         { email, firstname, lastname, contact, password, kodeHex, ip },
         { withCredentials: true }
