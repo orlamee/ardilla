@@ -200,49 +200,54 @@ function VerifyPhone() {
   //   }
   // };
 
+  const getUserById = async () => {
+    const { data } = await axios.get(
+      `https://dilla-api.onrender.com/api/user/get-user`,
+      { withCredentials: true }
+    );
+
+    setUserCheck(data.user);
+
+    console.log(data.user.verified);
+    console.log("mobile", data.user.mobilePinId);
+
+    setCode(data.user.mobilePinId);
+  };
+
   const checkOut = async (e) => {
     e.preventDefault();
     setErr(false);
     setLoading(true);
+    getUserById();
 
     console.log(code);
     console.log(fullpin);
 
-    console.log("new");
+    console.log("new  boy");
 
     try {
-      await axios
-        .get(`https://dilla-api.onrender.com/api/user/get-user`, {
-          withCredentials: true,
-        })
-        .then((response) => {
-          console.log("love is war", response);
-        });
-
-      // const { data } = await axios.post(
-      //   "https://api.ng.termii.com/api/sms/otp/verify",
-      //   {
-      //     api_key:
-      //       "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
-      //     pin_id: code,
-      //     pin: fullpin,
-      //   }
-      // );
-
-      // console.log("data1", data1);
+      const { data } = await axios.post(
+        "https://api.ng.termii.com/api/sms/otp/verify",
+        {
+          api_key:
+            "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
+          pin_id: code,
+          pin: fullpin,
+        }
+      );
 
       setLoading(false);
       setOnSuccess(true);
       updateProcess();
       setMsg("Mobile verifcation successful");
 
-      // if (!data.verified) {
-      //   setErr(false);
-      //   setOnSuccess(false);
-      //   setMsg("Wrong pin");
-      //   setLoading(false);
-      //   setErr(true);
-      // }
+      if (!data.verified) {
+        setErr(false);
+        setOnSuccess(false);
+        setMsg("Wrong pin");
+        setLoading(false);
+        setErr(true);
+      }
     } catch (error) {
       setLoading(false);
       setOnSuccess(false);
