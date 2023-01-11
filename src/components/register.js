@@ -5,7 +5,7 @@ import register from "../img/code.svg";
 import dot from "../img/dot.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 
 function Register() {
   const [email, setEmail] = useState("");
