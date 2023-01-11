@@ -12,8 +12,8 @@ import SecurityQuestion from "./pages/securityQuestion";
 import SignUp from "./pages/signUp";
 import reportWebVitals from "./reportWebVitals";
 
-import ProtectRoute from "./components/protectRoute";
-import GuestRoute from "./components/guestRoute";
+// import ProtectRoute from "./components/protectRoute";
+// import GuestRoute from "./components/guestRoute";
 import ForgotPassword from "./pages/forgotPassword";
 import SetPassword from "./pages/setPassword";
 import Learn from "./pages/learn";
