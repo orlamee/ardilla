@@ -115,7 +115,7 @@ function VerifyPhone() {
           api_key:
             "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
           message_type: "NUMERIC",
-          to: `234${userCheck.contact}`,
+          to: `234${userCheck?.contact}`,
           from: "Ardilla",
           channel: "generic",
           pin_attempts: 1,
@@ -372,8 +372,8 @@ function VerifyPhone() {
             <h3 className="my-2">Verify Phone Number</h3>
             <h6>
               Enter the OTP Verification code sent to{" "}
-              {userCheck.contact.slice(0, 4)} XXX XX
-              {userCheck.contact.slice(9, 11)}
+              {userCheck?.contact.slice(0, 4)} XXX XX
+              {userCheck?.contact.slice(9, 11)}
               <br />
               <Link
                 style={{ color: "#E6356D" }}
