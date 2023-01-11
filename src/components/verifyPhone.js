@@ -76,7 +76,7 @@ function VerifyPhone() {
         setUserCheck(data.user);
 
         console.log(data.user.verified);
-        console.log(data.user.mobilePinId);
+        console.log("mobile", data.user.mobilePinId);
 
         setCode(data.user.mobilePinId);
 
