@@ -53,7 +53,7 @@ function Footer() {
                 <div className="col-sm mb-3">
                   <h4>Transparency</h4>
                   <ul className="list-unstyled links">
-                    <li>Terms & conditions</li>
+                    <li><Link to="/terms-conditions">Terms & conditions</Link></li>
                     <li><Link to="/information-security">Information security policy</Link></li>
                     <li><Link to="/privacy-policy">Privacy policy</Link></li>
                     <li><Link to="">Interest Tool</Link></li>
