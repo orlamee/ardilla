@@ -208,6 +208,8 @@ function VerifyPhone() {
     console.log(code);
     console.log(fullpin);
 
+    console.log("new");
+
     try {
       await axios
         .get(`https://dilla-api.onrender.com/api/user/get-user`, {
