@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function CreatePin() {
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
@@ -29,13 +31,13 @@ function CreatePin() {
   useEffect(() => {
     try {
       const getUserById = async () => {
-        const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-        );
+        const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
+          withCredentials: true,
+        });
 
         if (data?.user?.verified === "mv") {
           return;
-        } else if (data?.user?.verified === "completed") {
+        } else if (data?.user?.verified === "complete") {
           return navigate("/login");
         } else {
           return navigate("/404");
@@ -44,19 +46,17 @@ function CreatePin() {
 
       getUserById();
     } catch (error) {
-      console.log(error);
-    }
-  }, [user._id, navigate]);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
 
-  // const veriP = async () => {
-  //   try {
-  //     await axios.get(
-  //       `https://ardilla.herokuapp.com/ardilla/api/auth/mobile/${user._id}`
-  //     );
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+      setMsg(message);
+      setErr(true);
+    }
+  }, [navigate, BACKEND_URL]);
 
   const sendRequest = async () => {
     try {
@@ -72,8 +72,12 @@ function CreatePin() {
       }
 
       const { data } = await axios.post(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/set-transaction-pin/${user._id}`,
-        { code, confirmCode }
+        `${BACKEND_URL}/api/auth/set-pin`,
+        {
+          code,
+          confirmCode,
+        },
+        { withCredentials: true }
       );
 
       setMsg(data.msg);
@@ -81,8 +85,15 @@ function CreatePin() {
       setOnSuccess(true);
       setLoading(false);
     } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
       setOnSuccess(false);
-      setMsg(`${error.response.data.msg} `);
+      setMsg(message);
       setLoading(false);
       setErr(true);
     }
