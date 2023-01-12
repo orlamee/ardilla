@@ -15,7 +15,7 @@ function Register() {
 
   const navigate = useNavigate();
 
-  const BANKEND_URL = process.env.BANKEND_URL;
+  const BANKEND_URL = process.env.REACTBANKEND_URL;
 
   console.log(BANKEND_URL);
 
