@@ -404,16 +404,16 @@ function DashboardFlex() {
                         </div>
                       </div>
                       <div className="col-md-3">
-                        <h6>30 Days</h6>
+                        <h6>{data.transactionDate}</h6>
                       </div>
                       <div className="col-md-3">
-                        <h6>₦4,000.00 </h6>
+                        <h6>₦ {data.transactionAmount} </h6>
                       </div>
                       <div className="col-md-2">
                         <h6> </h6>
                       </div>
                     </div>
-                    <div className="row justify-content-center mt-2 py-3">
+                    {/* <div className="row justify-content-center mt-2 py-3">
                       <div className="col-md-4">
                         <div className="d-flex flex-row">
                           <img
@@ -433,7 +433,7 @@ function DashboardFlex() {
                       <div className="col-md-2">
                         <h6>Emergency</h6>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 );
               })}
