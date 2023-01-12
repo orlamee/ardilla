@@ -20,7 +20,6 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // `https://dilla-api.onrender.com/api/auth/send-otp`,
     setIsLoading(true);
     try {
       await axios.post(

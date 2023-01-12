@@ -3,7 +3,6 @@ import logo from "../img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
-// import Cookies from "js-cookie";
 
 function OtpPage() {
   const [code, setCode] = useState("");
@@ -14,55 +13,18 @@ function OtpPage() {
   const [resend, setResend] = useState(false);
   const [userCheck, setUserCheck] = useState();
 
-  // const token = Cookies.get("token");
-
-  // let user = JSON.parse(sessionStorage.getItem("user"));
-
-  // console.log(user);
-
-  // const { _id, email, verified } = user;
-
-  // console.log(_id, email, verified);
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   try {
-  //     const getUserById = async () => {
-  //       const { data } = await axios.get(
-  //         `https://dilla-api.onrender.com/api/user/get-user`
-  //       );
-
-  //       setUserCheck(data.user);
-  //       console.log("new", data);
-
-  //       if (data?.user?.verified === "activated") {
-  //         return;
-  //       } else if (data?.user?.verified === "otp") {
-  //         return navigate("/complete-profile");
-  //       } else {
-  //         return navigate("/404");
-  //       }
-  //     };
-
-  //     getUserById();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [user._id, navigate]);
 
   useEffect(() => {
     try {
       const getUserById = async () => {
-        const { data } = await axios.get(
-          `https://dilla-api.onrender.com/api/user/get-user`,
-          { withCredentials: true }
-        );
+        const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
+          withCredentials: true,
+        });
 
         setUserCheck(data.user);
-        console.log("new stuff", data);
-
-        console.log(data.user.verified);
 
         if (data?.user?.verified === "activated") {
           return;
@@ -75,112 +37,24 @@ function OtpPage() {
 
       getUserById();
     } catch (error) {
-      console.log(error);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setOnSuccess(false);
+      setMsg(message);
     }
-  }, [navigate]);
+  }, [navigate, BACKEND_URL]);
 
   setTimeout(() => {
     if (onSuccess) {
       navigate("/complete-profile");
     }
   }, 2000);
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setIsLoading(true);
-  //   setErr(false);
-  //   setOnSuccess(false);
-
-  //   try {
-  //     const { data } = await axios.post(
-  //       `https://ardilla.herokuapp.com/ardilla/api/auth/verify-otp/${token}/${_id}`,
-  //       { code }
-  //     );
-
-  //     // sessionStorage.setItem("user", JSON.stringify(data.data));
-
-  //     // console.log(data);
-
-  //     if (data.success === true) {
-  //       setErr(false);
-  //       setMsg(data.msg);
-  //       setOnSuccess(true);
-  //       setIsLoading(false);
-  //     }
-
-  //     setIsLoading(false);
-  //   } catch (error) {
-  //     setErr(true);
-  //     setOnSuccess(false);
-  //     setMsg(`${error.response.data.msg}` || "Network error");
-  //     setIsLoading(false);
-  //   }
-  // };
-
-  // const handleClickSuccess = () => {
-  //   const getUserById = async () => {
-  //     const { data } = await axios.get(
-  //       `https://ardilla.herokuapp.com/ardilla/api/user/find/${_id}`
-  //     );
-
-  //     setOnSuccess(false);
-
-  //     const { user } = data;
-  //     navigate("/complete-profile", { state: { user } });
-  //   };
-
-  //   getUserById();
-  // };
-
-  // const handleResend = async (e) => {
-  //   e.preventDefault();
-  //   setOnSuccess(false);
-  //   setErr(false);
-
-  //   try {
-  //     const { data } = await axios.post(
-  //       "https://ardilla.herokuapp.com/ardilla/api/auth/send-otp",
-  //       { email }
-  //     );
-
-  //     Cookies.remove("token");
-
-  //     sessionStorage.setItem("user", JSON.stringify(data.user));
-
-  //     Cookies.set("token", data.token);
-
-  //     if (data) {
-  //       setErr(false);
-  //       setMsg(data.msg);
-  //       setResend(true);
-  //       setIsLoading(false);
-  //     }
-  //   } catch (error) {
-  //     setMsg(`${error.response.data.msg}` || "Network error");
-  //     setErr(true);
-  //     setOnSuccess(false);
-  //     setIsLoading(false);
-  //   }
-  // };
-
-  // const handleWrongEmail = async () => {
-  //   try {
-  //     const { data } = await axios.delete(
-  //       `https://ardilla.herokuapp.com/ardilla/api/auth/wrong-email/${_id}`
-  //     );
-
-  //     Cookies.remove();
-
-  //     if (data.success === true) {
-  //       navigate("/sign-up");
-  //     }
-  //   } catch (error) {
-  //     setOnSuccess(false);
-  //     setMsg(`${error.response.data.msg || "Network error"} `);
-  //     setErr(true);
-  //     setIsLoading(false);
-  //   }
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -190,8 +64,9 @@ function OtpPage() {
 
     try {
       const { data } = await axios.post(
-        `https://dilla-api.onrender.com/api/auth/verify-otp`,
-        { code }
+        `${BACKEND_URL}/api/auth/verify-otp`,
+        { code },
+        { withCredentials: true }
       );
 
       setErr(false);
@@ -224,12 +99,13 @@ function OtpPage() {
     setOnSuccess(false);
     setErr(false);
 
-    const email = userCheck.email;
+    const email = userCheck?.email;
 
     try {
       const { data } = await axios.post(
-        "https://dilla-api.onrender.com/api/auth/send-otp",
-        { email }
+        `${BACKEND_URL}/api/auth/send-otp`,
+        { email },
+        { withCredentials: true }
       );
 
       setErr(false);
@@ -253,7 +129,9 @@ function OtpPage() {
 
   const handleWrongEmail = async () => {
     try {
-      await axios.delete(`https://dilla-api.onrender.com/api/auth/wrong-email`);
+      await axios.delete(`${BACKEND_URL}/api/auth/wrong-email`, {
+        withCredentials: true,
+      });
 
       navigate("/sign-up");
     } catch (error) {
