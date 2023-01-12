@@ -46,7 +46,7 @@ function DashboardFlex() {
           `${BACKEND_URL}/api/flex/get-flex-account`,
           { withCredentials: true }
         );
-        // console.log("2", data);
+        console.log("2", data);
       } catch (error) {
         console.log(error);
       }
