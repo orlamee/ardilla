@@ -26,7 +26,7 @@ function DashboardFlex() {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   const [flexAcct, setFlexAcct] = useState();
-  const [amount, setAmount] = useState();
+  const [amount, setAmount] = useState(100);
 
   useEffect(() => {
     const getFlexPlan = async () => {
