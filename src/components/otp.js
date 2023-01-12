@@ -226,7 +226,7 @@ function OtpPage() {
                 <br />
                 your email
               </h2>
-              <p className="code mb-5">{}</p>
+              <p className="code mb-5">{userCheck?.email}</p>
               <h6>
                 <button className="resend" onClick={handleWrongEmail}>
                   Wrong Email?
