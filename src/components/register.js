@@ -15,39 +15,18 @@ function Register() {
 
   const navigate = useNavigate();
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  const BANKEND_URL = process.env.BANKEND_URL;
 
-  //   setIsLoading(true);
-  //   try {
-  //     const { data } = await axios.post(
-  //       "https://ardilla.herokuapp.com/ardilla/api/auth/send-otp",
-  //       { email }
-  //     );
-
-  //     setIsLoading(false);
-
-  //     const { user } = data;
-
-  //     sessionStorage.setItem("user", JSON.stringify(data.user));
-
-  //     Cookies.set("token", data.token);
-
-  //     navigate("/otp", { state: { user } });
-  //   } catch (error) {
-  //     setMsg(`${error.response.data.msg || "Network error"} `);
-  //     setErr(true);
-  //     setIsLoading(false);
-  //   }
-  // };
+  console.log(BANKEND_URL);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // `https://dilla-api.onrender.com/api/auth/send-otp`,
     setIsLoading(true);
     try {
       const { data } = await axios.post(
-        "https://dilla-api.onrender.com/api/auth/send-otp",
+        `${BANKEND_URL}/api/auth/send-otp`,
         { email },
         { withCredentials: true }
       );
@@ -58,7 +37,14 @@ function Register() {
       console.log(data);
       navigate("/otp");
     } catch (error) {
-      setMsg(`${error.response.data.msg || "Network error"} `);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setMsg(message);
       setErr(true);
       setIsLoading(false);
     }
