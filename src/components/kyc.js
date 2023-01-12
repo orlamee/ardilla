@@ -1,27 +1,89 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import kyc from "../img/kyc-props.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../img/logo.svg";
 import axios from "axios";
 
 function Kyc() {
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
   const [bvn, setBvn] = useState("");
+  const [userCheck, setUserCheck] = useState();
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  const navigate = useNavigate();
 
-  // setTimeout(() => {
-  //   if (onSuccess) {
-  //     navigate("/login");
-  //   }
-  // }, 2000);
+  useEffect(() => {
+    try {
+      const getUserById = async () => {
+        const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
+          withCredentials: true,
+        });
+
+        setUserCheck(data.user);
+
+        console.log(data.user.verified);
+
+        if (data?.user?.verified === "sq") {
+          return;
+        } else if (data?.user?.verified === "bvn") {
+          return navigate("/verify-mobile");
+        } else {
+          return navigate("/404");
+        }
+      };
+
+      getUserById();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [navigate, BACKEND_URL]);
+
+  const sendMsg = async () => {
+    try {
+      const { data } = await axios.post(
+        "https://api.ng.termii.com/api/sms/otp/send",
+        {
+          api_key:
+            "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
+          message_type: "NUMERIC",
+          to: `234${userCheck.contact}`,
+          from: "Ardilla",
+          channel: "generic",
+          pin_attempts: 1,
+          pin_time_to_live: 5,
+          pin_length: 6,
+          pin_placeholder: "< 123456 >",
+          message_text: "Your pin is < 123456 >",
+          pin_type: "NUMERIC",
+        }
+      );
+      const pin = data.pinId;
+
+      await axios.put(
+        `${BACKEND_URL}/api/auth/mobile-otp`,
+        {
+          pin,
+        },
+        { withCredentials: true }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  setTimeout(() => {
+    if (onSuccess) {
+      navigate("/verify-mobile");
+    }
+  }, 2000);
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
-    // navigate("/login");
+    navigate("/verify-mobile");
   };
 
   const addBVN = async (e) => {
@@ -37,20 +99,30 @@ function Kyc() {
         return;
       }
       const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/add-bvn/${user._id}`,
-        { bvn }
+        `${BACKEND_URL}/api/auth/add-bvn`,
+        { bvn },
+        { withCredentials: true }
       );
       setMsg(data.msg);
+      sendMsg();
       setErr(false);
       setOnSuccess(true);
       setLoading(false);
     } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setMsg(message);
       setOnSuccess(false);
-      setMsg(`${error.response.data.msg} `);
       setLoading(false);
       setErr(true);
     }
   };
+
   return (
     <section className="verify-section">
       {err && (

@@ -5,9 +5,7 @@ import complete from "../img/profilecomplete.svg";
 import axios from "axios";
 
 function CompleteProfile() {
-  let user = JSON.parse(sessionStorage.getItem("user"));
-
-  const [email, setEmail] = useState(user.email);
+  const [email, setEmail] = useState();
   const [kodeHex, setKodeHex] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -20,16 +18,18 @@ function CompleteProfile() {
   const [onSuccess, setOnSuccess] = useState(false);
   const [ip, setIp] = useState("");
 
-  const { _id } = user;
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   const navigate = useNavigate();
 
   useEffect(() => {
     try {
       const getUserById = async () => {
-        const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-        );
+        const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
+          withCredentials: true,
+        });
+
+        setEmail(data.user.email);
 
         if (data?.user?.verified === "otp") {
           return;
@@ -42,9 +42,17 @@ function CompleteProfile() {
 
       getUserById();
     } catch (error) {
-      console.log(error);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setMsg(message);
+      setErr(true);
     }
-  }, [user._id, navigate]);
+  }, [navigate, BACKEND_URL]);
 
   let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
 
@@ -64,42 +72,34 @@ function CompleteProfile() {
     setErr(false);
 
     try {
-      const { data } = await axios.post(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/complete-profile/${_id}`,
-        { email, firstname, lastname, contact, password, kodeHex, ip }
+      const { data } = await axios.put(
+        `${BACKEND_URL}/api/auth/complete-profile`,
+        { email, firstname, lastname, contact, password, kodeHex, ip },
+        { withCredentials: true }
       );
 
-      sessionStorage.setItem("user", JSON.stringify(data.data));
-
-      if (data.success === true) {
-        setErr(false);
-        setMsg(data.msg);
-        setOnSuccess(true);
-        setIsLoading(false);
-      }
-
+      setErr(false);
+      setMsg(data.msg);
+      setOnSuccess(true);
       setIsLoading(false);
     } catch (error) {
-      console.log(error);
-      setMsg(`${error.response.data.msg} ` || "Network error");
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setMsg(message);
       setErr(true);
       setIsLoading(false);
     }
   };
 
   const handleClickSuccess = () => {
-    const getUserById = async () => {
-      const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/user/find/${_id}`
-      );
+    setOnSuccess(false);
 
-      setOnSuccess(false);
-
-      const { user } = data;
-      navigate("/security-question", { state: { user } });
-    };
-
-    getUserById();
+    navigate("/security-question");
   };
 
   setTimeout(() => {
