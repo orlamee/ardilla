@@ -38,7 +38,15 @@ function Kyc() {
 
       getUserById();
     } catch (error) {
-      console.log(error);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setMsg(message);
+      setErr(true);
     }
   }, [navigate, BACKEND_URL]);
 
