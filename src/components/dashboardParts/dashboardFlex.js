@@ -23,10 +23,6 @@ function DashboardFlex() {
   let user = JSON.parse(sessionStorage.getItem("user"));
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-  const BACKEND_URL2 = process.env.BACKEND_URL;
-
-  console.log("1st url", BACKEND_URL);
-  console.log("2nd url", BACKEND_URL2);
 
   useEffect(() => {
     const getFlexPlan = async () => {
