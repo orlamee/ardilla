@@ -27,6 +27,7 @@ function DashboardFlex() {
 
   const [flexAcct, setFlexAcct] = useState();
   const [amount, setAmount] = useState(100);
+  const [flexHistory, setFlexHistory] = useState();
 
   useEffect(() => {
     const getFlexPlan = async () => {
@@ -53,8 +54,23 @@ function DashboardFlex() {
       }
     };
 
+    const getFlexHistory = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/flex-history/${user._id}`
+        );
+
+        console.log(data);
+
+        setFlexHistory(data.th);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     getFlexPlan();
     getFlexPlan2();
+    getFlexHistory();
   }, [user._id, BACKEND_URL]);
 
   const getFlexPlan = async () => {
@@ -260,15 +276,17 @@ function DashboardFlex() {
                       <h5>
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
-                          flexAcct?.customSavingTarget
+                          flexAcct?.customSavingRate
                         )}
+                        {flexAcct?.savingPeriod}
                       </h5>
                     ) : (
                       <h5>
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
-                          flexAcct?.autoSavingTarget
+                          flexAcct?.autoSavingRate
                         )}
+                        {flexAcct?.savingPeriod}
                       </h5>
                     )}
                   </div>
@@ -282,15 +300,17 @@ function DashboardFlex() {
                       <h5>
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
-                          flexAcct?.customSavingRate
+                          flexAcct?.customSavingTarget
                         )}
+                        {flexAcct?.savingPeriod}
                       </h5>
                     ) : (
                       <h5>
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
-                          flexAcct?.autoSavingRate
+                          flexAcct?.autoSavingTarget
                         )}
+                        {flexAcct?.savingPeriod}
                       </h5>
                     )}
                     {/* <h5>₦60,000 (Monthly)</h5> */}
@@ -307,6 +327,7 @@ function DashboardFlex() {
                         {Intl.NumberFormat("en-US").format(
                           flexAcct?.intrestPerMonth[0]
                         )}
+                        {flexAcct?.savingPeriod}
                       </h5>
                     )}
                     {/* <h5>₦60,000 (Monthly)</h5> */}
