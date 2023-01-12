@@ -22,7 +22,6 @@ function CreatePin() {
   const [confirmPin3, setConfirmPin3] = useState("");
   const [confirmPin4, setConfirmPin4] = useState("");
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
   const navigate = useNavigate();
 
   const code = `${pin1}${pin2}${pin3}${pin4}`;
