@@ -327,9 +327,11 @@ function FlexPlanOverviewCard() {
                               id="quantity"
                               name="quantity"
                               className="form-control input-number"
-                              defaultValue="30000"
+                              // defaultValue="30000 x c"
                               min="1"
                               max="100"
+                              value={amount}
+                              onChange={(e) => setAmount(~~e.target.value)}
                             />
                             <span className="input-group-btn">
                               <button
