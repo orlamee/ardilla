@@ -15,9 +15,7 @@ function Register() {
 
   const navigate = useNavigate();
 
-  const BANKEND_URL = process.env.REACTBANKEND_URL;
-
-  console.log(BANKEND_URL);
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +24,7 @@ function Register() {
     setIsLoading(true);
     try {
       const { data } = await axios.post(
-        `${BANKEND_URL}/api/auth/send-otp`,
+        `${BACKEND_URL}/api/auth/send-otp`,
         { email },
         { withCredentials: true }
       );
