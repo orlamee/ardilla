@@ -60,7 +60,7 @@ function FlexPlanOverviewCard() {
   const topUp = async () => {
     try {
       const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/top-up-account/${user._id}`,
+        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/top-up-flex/${user._id}`,
         { amount }
       );
 
