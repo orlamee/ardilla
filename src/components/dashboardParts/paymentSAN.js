@@ -27,6 +27,7 @@ import cadet from "../../img/dashboard/caddet.svg";
 import investmentplan from "../../img/dashboard/investmentplan.svg";
 import insuranceplan from "../../img/dashboard/insuranceplan.svg";
 import banking from "../../img/dashboard/banking.svg";
+import benef from "../../img/dashboard/benef.svg";
 
 
 
@@ -307,132 +308,6 @@ function PaymentSAN() {
                                   </div>
                                   <div className="row mx-3 btn-bottom">
                                     <Link data-bs-toggle="modal" data-bs-target="#transf-dilla" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
-                                  </div>
-                                </div>
-                                <div className="tab-pane quiz-pane" id="2a">
-                                  <div className="row mx-3 mt-5">
-                                    <div className="col">
-                                      <div className="row t-card p-4 bg-white">
-                                        <div className="col-md-6">
-                                          <img src={sanlogo} alt="" className="img-fluid" />
-                                        </div>
-                                        <div className="col-md-6 text-end mt-2">
-                                          <h4>₦500,000.00</h4>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div className="row mx-3 mt-4 title-card">
-                                    <div className="col">
-                                      <h3>Amount</h3>
-                                    </div>
-                                  </div>
-                                  <div className="row mx-3">
-                                    <div className="col text-center">
-                                      <div className="input-group cart-group my-3">
-                                        <span className="input-group-btn">
-                                          <button type="button" className="quantity-left-minus minus-bg btn btn-number me-3"  data-type="minus" data-field="">
-                                            <i className="bi bi-dash"></i>
-                                          </button>
-                                        </span>
-                                        <input type="text" id="quantity" name="quantity" className="form-control input-number" defaultValue="30000" min="1" max="100"/>
-                                        <span className="input-group-btn">
-                                          <button type="button" className="quantity-right-plus btn minus-bg btn-number ms-3" data-type="plus" data-field="">
-                                            <i className="bi bi-plus"></i>
-                                          </button>
-                                        </span>
-                                      </div>
-                                      <span className="charges">₦250.00 (1.5% fee caped at ₦250) </span>
-                                    </div>
-                                  </div>
-                                  <div className="row mx-3 btn-bottom">
-                                    <Link data-bs-toggle="modal" data-bs-target="#savings-plan" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
-                                  </div>
-                                </div>
-                                <div className="tab-pane quiz-pane" id="5a">
-                                  <div className="row mx-3 mt-5">
-                                    <div className="col">
-                                      <div className="row t-card p-4 bg-white">
-                                        <div className="col-md-6">
-                                          <img src={sanlogo} alt="" className="img-fluid" />
-                                        </div>
-                                        <div className="col-md-6 text-end mt-2">
-                                          <h4>₦50,000.00</h4>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div className="row mx-3 mt-4 title-card">
-                                    <div className="col">
-                                      <h3>Amount</h3>
-                                    </div>
-                                  </div>
-                                  <div className="row mx-3">
-                                    <div className="col text-center">
-                                      <div className="input-group cart-group my-3">
-                                        <span className="input-group-btn">
-                                          <button type="button" className="quantity-left-minus minus-bg btn btn-number me-3"  data-type="minus" data-field="">
-                                            <i className="bi bi-dash"></i>
-                                          </button>
-                                        </span>
-                                        <input type="text" id="quantity" name="quantity" className="form-control input-number" defaultValue="30000" min="1" max="100"/>
-                                        <span className="input-group-btn">
-                                          <button type="button" className="quantity-right-plus btn minus-bg btn-number ms-3" data-type="plus" data-field="">
-                                            <i className="bi bi-plus"></i>
-                                          </button>
-                                        </span>
-                                      </div>
-                                      <span className="charges">₦250.00 (1.5% fee caped at ₦250) </span>
-                                    </div>
-                                  </div>
-                                  <form className="mt-4 row mx-4">
-                                    <div classname="">
-                                      <label className="form-label">Enter SAN number</label>
-                                      <input type="text" className="form-control p-form" placeholder="SAN Number"/>
-                                    </div>
-                                  </form>
-                                  <div className="row mx-3 btn-bottom">
-                                    <Link data-bs-toggle="modal" data-bs-target="#sendtosan" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
-                                  </div>
-                                </div>
-                                <div className="tab-pane quiz-pane" id="6a">
-                                  <div className="row mx-3 mt-5">
-                                    <div className="col">
-                                      <div className="row t-card p-4 bg-white">
-                                        <div className="col-md-6">
-                                          <img src={sanlogo} alt="" className="img-fluid" />
-                                        </div>
-                                        <div className="col-md-6 text-end mt-2">
-                                          <h4>₦50,000.00</h4>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div className="row mx-3 mt-4 title-card">
-                                    <div className="col">
-                                      <h3>Amount</h3>
-                                    </div>
-                                  </div>
-                                  <div className="row mx-3">
-                                    <div className="col text-center">
-                                      <div className="input-group cart-group my-3">
-                                        <span className="input-group-btn">
-                                          <button type="button" className="quantity-left-minus minus-bg btn btn-number me-3"  data-type="minus" data-field="">
-                                            <i className="bi bi-dash"></i>
-                                          </button>
-                                        </span>
-                                        <input type="text" id="quantity" name="quantity" className="form-control input-number" defaultValue="30000" min="1" max="100"/>
-                                        <span className="input-group-btn">
-                                          <button type="button" className="quantity-right-plus btn minus-bg btn-number ms-3" data-type="plus" data-field="">
-                                            <i className="bi bi-plus"></i>
-                                          </button>
-                                        </span>
-                                      </div>
-                                      <span className="charges">₦250.00 (1.5% fee caped at ₦250) </span>
-                                    </div>
-                                  </div>
-                                  <div className="row mx-3 btn-bottom">
-                                    <Link data-bs-toggle="modal" data-bs-target="#bank" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
                                   </div>
                                 </div>
                               </div>
@@ -837,7 +712,7 @@ function PaymentSAN() {
                   <h6>Tue, 22nd December, 2022</h6>
                 </div>
                 <div className="col-md-2">
-                  <button type="button" to="#" class="btn btn-primary dilla-success btn-sm mt-2 px-3" disabled>Successful</button>
+                  <button type="button" to="#" className="btn btn-primary dilla-success btn-sm mt-2 px-3" disabled>Successful</button>
                 </div>
               </div>
               <div className="row justify-content-center mt-2 border-bottom py-3">
@@ -860,7 +735,7 @@ function PaymentSAN() {
                   <h6>Tue, 22nd December, 2022</h6>
                 </div>
                 <div className="col-md-2">
-                  <button type="button" to="#" class="btn btn-primary dilla-failed btn-sm mt-2 px-3" disabled>Failed</button>
+                  <button type="button" to="#" className="btn btn-primary dilla-failed btn-sm mt-2 px-3" disabled>Failed</button>
                 </div>
               </div>
               <div className="row justify-content-center mt-2 border-bottom py-3">
@@ -883,7 +758,7 @@ function PaymentSAN() {
                   <h6>Tue, 22nd December, 2022</h6>
                 </div>
                 <div className="col-md-2">
-                  <button type="button" to="#" class="btn btn-primary dilla-success btn-sm mt-2 px-3" disabled>Successful</button>
+                  <button type="button" to="#" className="btn btn-primary dilla-success btn-sm mt-2 px-3" disabled>Successful</button>
                 </div>
               </div>
             </div>
@@ -1072,46 +947,53 @@ function PaymentSAN() {
                       </div>
                     </div>
                   </div>
-                  <div className="row my-bank mt-5 p-3">
-                    <div className="col">
-                      <span>My Bank</span>
-                    </div>
-                  </div>
-                  <div className="row mt-4">
+                  <div className="mx-3 row mt-5 justify-content-center">
                     <div className="col text-center">
-                      <Link className="addbank" data-bs-toggle="modal" data-bs-target="#addbank" type="button"><i className="bi bi-plus ms-2"></i> Add Bank</Link>
+                      <div id="" className="row">
+                        <ul className="nav nav-pills dilla-link text-center">
+                          <li className="ms-3 me-4 payment-pills active">
+                            <a  href="#1a" data-toggle="tab">My Account</a>
+                          </li>
+                          <li className="me-4 payment-pills">
+                            <a href="#2a" data-toggle="tab">Other Banks</a>
+                          </li>
+                        </ul>
+                        <div className="tab-content clearfix mt-5">
+                          <div className="tab-pane active" id="1a">
+                            <div className="row justify-content-center">
+                              <div className="col-md-6 text-center">
+                                <Link type="button" data-bs-toggle="modal" data-bs-target="#addbank" class="btn btn-primary btn-sm addmoney-btn"><i class="bi bi-plus"></i> Add a bank account</Link>
+                              </div>
+                              <div className="row mx-3 top-product">
+                                <Link data-bs-toggle="modal" data-bs-target="#addbaak" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="tab-pane" id="2a">
+                            <div className="row">
+                              <div className="col">
+                                <form className="row">
+                                  <div classname="">
+                                    <input type="number" className="form-control p-form" placeholder="Enter Account Number"/>
+                                  </div>
+                                  <div className="row mx-3 btn-bottom">
+                                    <Link data-bs-toggle="modal" data-bs-target="#auth" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="row my-bank mt-5 p-3">
-                    <div className="col">
-                      <span>Other Banks</span>
-                    </div>
-                  </div>
-                  <form className="mt-4 row mx-4">
-                    <div classname="">
-                      <label className="form-label">Account Number</label>
-                      <input type="text" className="form-control p-form" placeholder="Account Number"/>
-                    </div>
-                    <div style={{marginTop: "30px"}}>
-                      <label className="form-label">Bank</label>
-                      <select className="form-select p-select" aria-label="Default select example">
-                        <option selected>Bank</option>
-                        <option value="2">GT Bank</option>
-                        <option value="3">UBA</option>
-                        <option value="3">Stanbic</option>
-                      </select>
-                    </div>
-                    <div className="row mx-3">
-                      <Link data-bs-toggle="modal" data-bs-target="#proceed-payment" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
-                    </div>
-                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        {/* Add bank */}
-        <div className="modal flex-modal fade" id="addbank" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        {/* Auth Account Number */}
+        <div className="modal  fade" id="auth" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog right-dialog">
             <div className="modal-content right-content">
               <div className="modal-header">
@@ -1124,7 +1006,64 @@ function PaymentSAN() {
                 <div className="container initiate-modal p-5">
                   <div className="mx-3 row">
                     <div className="col modal-title">
-                      <h3>Add Bank</h3>
+                      <h3>Transfer</h3>
+                    </div>
+                  </div>
+                  <div className="row mx-3 mt-3">
+                    <div className="col">
+                      <div className="row t-card p-4 bg-white">
+                        <div className="col-md-6">
+                          <img src={sanlogo} alt="" className="img-fluid" />
+                        </div>
+                        <div className="col-md-6 text-end mt-2">
+                          <h4>₦450,000.00</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <form className="mt-5 row mx-4">
+                    <div classname="">
+                      <label className="form-label">Account Number</label>
+                      <input type="text" className="form-control p-form" placeholder="" value="0163864843"/>
+                    </div>
+                    <div style={{marginTop: "40px"}}>
+                      <label className="form-label">Bank</label>
+                      <select className="form-select p-select" aria-label="Default select example">
+                        <option selected>GT Bank</option>
+                        <option value="2">GT Bank</option>
+                        <option value="3">UBA</option>
+                        <option value="3">Stanbic</option>
+                      </select>
+                    </div>
+                    <div className="row mt-2">
+                      <div className="col-md-9">
+                        <span className="d-inline-flex p-2 bg-auth">Olamilekan Akindele</span>
+                      </div>
+                    </div>
+                    <div className="row mx-3 btn-bottom">
+                      <Link data-bs-toggle="modal" data-bs-target="#sendtobankacc" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Add bank */}
+        <div className="modal  fade" id="addbank" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="row mx-3">
+                <Link data-bs-toggle="modal" data-bs-target="#transfersan" type="button"><i className="bi bi-chevron-left"></i> Back</Link>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal p-5">
+                  <div className="mx-3 row">
+                    <div className="col modal-title">
+                      <h3>Add Bank Account</h3>
                     </div>
                   </div>
                   <form className="mt-5 row mx-4">
@@ -1179,9 +1118,16 @@ function PaymentSAN() {
                       </div>
                     </div>
                   </div>
-                  <div className="row my-bank mt-5 p-3">
-                    <div className="col">
-                      <span>My Bank</span>
+                  <div className="row mt-5 acc">
+                    <div className="col-md-4">
+                      <h5>2435678643</h5>
+                      <span>Rolat - Olaide</span>
+                    </div>
+                    <div className="col-md-4 text-center">
+                      <h5>GT Bank</h5>
+                    </div>
+                    <div className="col-md-4 text-end">
+                      <h6>Send Money</h6>
                     </div>
                   </div>
                   <div className="row mt-4 acc">
@@ -1196,29 +1142,9 @@ function PaymentSAN() {
                       <h6>Send Money</h6>
                     </div>
                   </div>
-                  <div className="row my-bank mt-5 p-3">
-                    <div className="col">
-                      <span>Other Banks</span>
-                    </div>
+                  <div className="row mx-3 top-product">
+                    <Link data-bs-toggle="modal" data-bs-target="#proceed-payment" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Send Money</Link>
                   </div>
-                  <form className="mt-4 row mx-4">
-                    <div classname="">
-                      <label className="form-label">Account Number</label>
-                      <input type="text" className="form-control p-form" placeholder="Account Number"/>
-                    </div>
-                    <div style={{marginTop: "30px"}}>
-                      <label className="form-label">Bank</label>
-                      <select className="form-select p-select" aria-label="Default select example">
-                        <option selected>Bank</option>
-                        <option value="2">GT Bank</option>
-                        <option value="3">UBA</option>
-                        <option value="3">Stanbic</option>
-                      </select>
-                    </div>
-                    <div className="row mx-3">
-                      <Link data-bs-toggle="modal" data-bs-target="#proceed-payment" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Send Money</Link>
-                    </div>
-                  </form>
                 </div>
               </div>
             </div>
@@ -1348,6 +1274,163 @@ function PaymentSAN() {
                   <div className="row mx-3">
                     <Link data-bs-toggle="modal" data-bs-target="#successdilla" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Bank Transfer - Proceed to Payment */}
+        <div className="modal flex-modal fade" id="sendtobankacc" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal p-5">
+                  <div className="row justify-content-center">
+                    <div className="col-md-6 text-center ">
+                      <img src={cadet} alt="" className="img-fluid" />
+                      <h2 className="mt-3">{"<"}StarBoy{"/>"}</h2>
+                    </div>
+                  </div>
+                  <div className="row mx-3 mt-3">
+                    <div className="col">
+                      <div className="row t-card p-4 bg-white">
+                        <div className="col-md-6">
+                          <img src={sanlogo} alt="" className="img-fluid" />
+                        </div>
+                        <div className="col-md-6 text-end mt-2">
+                          <h4>₦450,000.00</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col text-center">
+                      <i className="bi bi-arrow-down fs-4" style={{color: "#3C0071"}}></i>
+                    </div>
+                  </div>
+                  <div className="row mx-3 mt-3">
+                    <div className="col">
+                      <div className="row t-card p-4 bg-white">
+                        <div className="col-md-6">
+                          <span className="fone-number">2435678643</span>
+                          <p>Rolat - Olaide</p>
+                          {/* <img src={sanlogo} alt="" className="img-fluid" /> */}
+                        </div>
+                        <div className="col-md-6 text-end">
+                          <h4>₦50,000.00</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row mx-3">
+                    <div className="mt-3">
+                      <h3>Pin</h3>
+                      <form>
+                        <div className="mb-3 mt-1">
+                          <input type="number" className="form-control target-form" placeholder="Enter Pin" required/>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div className="row mx-3">
+                    <Link data-bs-toggle="modal" data-bs-target="#successmodal" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Success Modal - Bank */}
+        <div className="modal flex-modal fade" id="successmodal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal p-5">
+                  <div className="row justify-content-center">
+                    <div className="col-md-6 text-center ">
+                      <img src={successful} alt="" className="img-fluid" />
+                      <h2 className="mt-4 mb-2">{"<"}StarBoy{"/>"}</h2>
+                    </div>
+                  </div>
+                  <div className="row my-5 sent-details">
+                    <div className="col text-center">
+                      <img src={sent} alt="" className="img-fluid" />
+                      <h3 className="mt-4">Money Transferred</h3>
+                      <p>You have successfully sent <span style={{color: "#3D0072"}}>NGN50000 to <br/>Olamilekan Akindele!</span></p>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6 mb-2">
+                      <button data-bs-toggle="modal" data-bs-target="#beneficiaries" type="button" className="btn btn-primary btn-lg btn-bene" style={{width: "100%"}}><i className="bi bi-people-fill"></i> Add as Beneficiary</button>
+                    </div>
+                    <div className="col-md-6 mb-2">
+                      <button data-bs-toggle="modal" data-bs-target="#" type="button" className="btn btn-primary btn-lg btn-bene" style={{width: "100%"}}><i className="bi bi-receipt"></i> Show Receipt</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Add Beneficiary */}
+        <div className="modal flex-modal fade" id="beneficiaries" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="row mx-3">
+                <Link data-bs-toggle="modal" data-bs-target="#transfersan" type="button"><i className="bi bi-chevron-left"></i> Back</Link>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal p-5">
+                  <div className="mx-3 row">
+                    <div className="col modal-title">
+                      <h3>Beneficiaries</h3>
+                    </div>
+                  </div>
+                  <div className="row mx-3 mt-3">
+                    <div className="col">
+                      <div className="row t-card p-4 bg-white">
+                        <div className="col-md-6">
+                          <img src={sanlogo} alt="" className="img-fluid" />
+                        </div>
+                        <div className="col-md-6 text-end mt-2">
+                          <h4>₦450,000.00</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row mx-4 mt-5">
+                    <div className="col-md-6">
+                      <h2>Beneficiaries</h2>
+                      <img src={benef} alt="beneficiaries" className=""/>
+                    </div>
+                  </div>
+                  <form className="mt-5 row mx-4">
+                    <div classname="">
+                      <label className="form-label">Account Number</label>
+                      <input type="text" className="form-control p-form" placeholder="Account Number"/>
+                    </div>
+                    <div style={{marginTop: "40px"}}>
+                      <label className="form-label">Bank</label>
+                      <select className="form-select p-select" aria-label="Default select example">
+                        <option selected>Bank</option>
+                        <option value="2">GT Bank</option>
+                        <option value="3">UBA</option>
+                        <option value="3">Stanbic</option>
+                      </select>
+                    </div>
+                    <div className="row mx-3">
+                      <Link data-bs-toggle="modal" data-bs-target="#addbank-successful" type="button" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Add Bank</Link>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
