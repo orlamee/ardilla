@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -23,9 +23,26 @@ import axios from "axios";
 import { usePaystackPayment } from "react-paystack";
 
 function FlexPlanOverviewCard() {
+  const [flexAcct, setFlexAcct] = useState();
   let user = JSON.parse(sessionStorage.getItem("user"));
 
   const [amount, setAmount] = useState();
+
+  useEffect(() => {
+    const getTargetAccount = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
+        );
+
+        setFlexAcct(data.flexPlan);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getTargetAccount();
+  }, [user._id]);
 
   const getFlexPlan = async () => {
     try {
@@ -54,6 +71,16 @@ function FlexPlanOverviewCard() {
       console.log(error);
     }
   };
+
+  const breakdown = flexAcct?.breakdown;
+
+  const findLength = breakdown?.length;
+
+  const endDate = flexAcct?.breakdown[findLength - 1];
+
+  const startDate = flexAcct?.breakdown[0];
+
+  const day = new Date().getDate();
 
   const config = {
     reference: new Date().getTime().toString(),
@@ -169,9 +196,26 @@ function FlexPlanOverviewCard() {
               </div>
               <div className="col-md-6 text-end">
                 <p className="mt-5">Emergency</p>
-                <p className="mt-5">₦50,000.00</p>
+                {flexAcct && flexAcct?.type === "custom" ? (
+                  <p className="mt-5">
+                    ₦{" "}
+                    {Intl.NumberFormat("en-US").format(
+                      flexAcct?.customSavingRate
+                    )}
+                  </p>
+                ) : (
+                  <p className="mt-5">
+                    ₦{" "}
+                    {Intl.NumberFormat("en-US").format(
+                      flexAcct?.autoSavingRate
+                    )}
+                  </p>
+                )}
+                <p className="mt-5">{`${day}-${startDate?.date.month}-${startDate?.date.year}`}</p>
+                <p className="mt-5">{`${day}-${endDate?.date.month}-${endDate?.date.year}`}</p>
+                {/* <p className="mt-5">₦50,000.00</p>
                 <p className="mt-5">29-11-2022</p>
-                <p className="mt-5">29-11-2022</p>
+                <p className="mt-5">29-11-2022</p> */}
                 <p className="mt-5 overview-perc">11%</p>
                 <p className="mt-5">
                   Card - <span style={{ color: "#E8356D" }}>₦30,000.00</span>
