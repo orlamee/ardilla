@@ -13,6 +13,8 @@ import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
 import cadet from "../../img/dashboard/Cadet.svg";
+import cadett from "../../img/dashboard/cadet-1.svg";
+import list from "../../img/dashboard/circlelist.svg";
 
 
 
@@ -102,10 +104,63 @@ function Rank() {
               <h2>Hi Annie,</h2>
               <p>Welcome to Ardilla, where you can have more...
               If you are reading this, you have begun your journey toward becoming a top-ranked saver on Ardilla. Exciting times ahead, Annie!!<br/>
-
-              Ardilla has a seven-tier ranking system, and just like the military, you have to work to grow in rank.
-
+              </p>
+              <p className="mt-1">Ardilla has a seven-tier ranking system, and just like the military, you have to work to grow in rank.
               So what are the ranks?</p>
+            </div>
+          </div>
+        </div>
+        <div className="container mt-5">
+          <div className="row">
+            <div className="col-md-4 mb-3">
+              <img src={cadett} alt="" className="img-fluid rankimg"/>
+              <div className="rankone">
+                <h1 className="text-end mb-5">Cadet</h1>
+                <h6><img src={list} alt=""className="img-fluid me-3" />The first level as a new user or account holder</h6>
+                <h6><img src={list} alt=""className="img-fluid me-3" />Completed KYC</h6>
+              </div>
+            </div>
+            <div className="col-md-4 mb-3">
+              <img src={cadett} alt="" className="img-fluid rankimg"/>
+              <div className="rankone">
+                <h1 className="text-end mb-5">Cadet</h1>
+                <h6><img src={list} alt=""className="img-fluid me-3" />The first level as a new user or account holder</h6>
+                <h6><img src={list} alt=""className="img-fluid me-3" />Completed KYC</h6>
+              </div>
+            </div>
+            <div className="col-md-4 mb-3">
+              <img src={cadett} alt="" className="img-fluid rankimg"/>
+              <div className="rankone">
+                <h1 className="text-end mb-5">Cadet</h1>
+                <h6><img src={list} alt=""className="img-fluid me-3" />The first level as a new user or account holder</h6>
+                <h6><img src={list} alt=""className="img-fluid me-3" />Completed KYC</h6>
+              </div>
+            </div>
+          </div>
+          <div className="row ranktops">
+            <div className="col-md-4 mb-3">
+              <img src={cadett} alt="" className="img-fluid rankimg"/>
+              <div className="rankone">
+                <h1 className="text-end mb-5">Cadet</h1>
+                <h6><img src={list} alt=""className="img-fluid me-3" />The first level as a new user or account holder</h6>
+                <h6><img src={list} alt=""className="img-fluid me-3" />Completed KYC</h6>
+              </div>
+            </div>
+            <div className="col-md-4 mb-3">
+              <img src={cadett} alt="" className="img-fluid rankimg"/>
+              <div className="rankone">
+                <h1 className="text-end mb-5">Cadet</h1>
+                <h6><img src={list} alt=""className="img-fluid me-3" />The first level as a new user or account holder</h6>
+                <h6><img src={list} alt=""className="img-fluid me-3" />Completed KYC</h6>
+              </div>
+            </div>
+            <div className="col-md-4 mb-3">
+              <img src={cadett} alt="" className="img-fluid rankimg"/>
+              <div className="rankone">
+                <h1 className="text-end mb-5">Cadet</h1>
+                <h6><img src={list} alt=""className="img-fluid me-3" />The first level as a new user or account holder</h6>
+                <h6><img src={list} alt=""className="img-fluid me-3" />Completed KYC</h6>
+              </div>
             </div>
           </div>
         </div>
