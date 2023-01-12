@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../../css/target.css"
+import "../../css/target.css";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -17,13 +17,41 @@ import lieu from "../../img/dashboard/lieu.svg";
 import colo from "../../img/dashboard/col.svg";
 import visacard from "../../img/dashboard/visa-card.svg";
 import dib from "../../img/dashboard/dib.png";
-
-
-
-
+import axios from "axios";
 
 function DashboardFlex() {
-    return (
+  let user = JSON.parse(sessionStorage.getItem("user"));
+
+  const BACKEND_URL = process.env.BACKEND_URL;
+
+  useEffect(() => {
+    const getFlexPlan = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
+        );
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const getFlexPlan2 = async () => {
+      try {
+        const { data } = await axios.get(
+          `${BACKEND_URL}/api/flex-plan/get-flex-account`,
+          { withCredentials: true }
+        );
+        console.log("2", data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getFlexPlan();
+    getFlexPlan2();
+  }, [user._id, BACKEND_URL]);
+
+  return (
     <section className="main-dash">
       <div className="sidebar">
         <Link to="/dashboard" className="">
@@ -99,15 +127,21 @@ function DashboardFlex() {
         <div className="row">
           <div className="d-flex flex-row privatelinks">
             <Link className="me-5 target-active">DIB</Link>
-            <Link className="me-5" to="/target-private">Dreams</Link>
-            <Link className="me-5" to="/vaultplan-dashboard">Vault</Link>
+            <Link className="me-5" to="/target-private">
+              Dreams
+            </Link>
+            <Link className="me-5" to="/vaultplan-dashboard">
+              Vault
+            </Link>
           </div>
         </div>
         <div className="row mt-5">
           <div className="col-md-6 t-savings">
             <div className="d-flex flex-row">
               <h2 className="me-4">DIB Savings</h2>
-              <Link to="/learn" className="mt-3">Learn More</Link>
+              <Link to="/learn" className="mt-3">
+                Learn More
+              </Link>
             </div>
             <div className="row mt-4">
               <div className="col-md-6">
@@ -115,7 +149,9 @@ function DashboardFlex() {
                 <h5>₦40,000.00 </h5>
               </div>
               <div className="col-md-6">
-                <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">Top up</button>
+                <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">
+                  Top up
+                </button>
               </div>
             </div>
             <div className="row mt-3">
@@ -136,10 +172,24 @@ function DashboardFlex() {
               </div>
             </div>
             <div className="row mt-5">
-              <Link data-bs-toggle="modal" data-bs-target="#review-dib" type="button" to="#" className="current-flex px-5 py-5">
+              <Link
+                data-bs-toggle="modal"
+                data-bs-target="#review-dib"
+                type="button"
+                to="#"
+                className="current-flex px-5 py-5"
+              >
                 <div>
-                  <h2>Your Current <span style={{color: "#E8356D"}}>DIB</span> Plan</h2>
-                  <p className="float-end review-dib" style={{marginTop: "-30px"}}>Review DIB <i className="bi bi-chevron-right"></i></p>
+                  <h2>
+                    Your Current <span style={{ color: "#E8356D" }}>DIB</span>{" "}
+                    Plan
+                  </h2>
+                  <p
+                    className="float-end review-dib"
+                    style={{ marginTop: "-30px" }}
+                  >
+                    Review DIB <i className="bi bi-chevron-right"></i>
+                  </p>
                 </div>
                 <div className="row inner-current mt-5">
                   <div className="col-md-6">
@@ -165,7 +215,7 @@ function DashboardFlex() {
                     <h5>₦60,000 (Monthly)</h5>
                   </div>
                 </div>
-                <img src={dib} alt="range" className="img-fluid"/>
+                <img src={dib} alt="range" className="img-fluid" />
               </Link>
             </div>
           </div>
@@ -173,11 +223,31 @@ function DashboardFlex() {
             <div className="private-card px-5 py-4">
               <div className="history-title">
                 <h3>History</h3>
-                <Link data-bs-toggle="modal" data-bs-target="#recentactivities" type="button" to="#" className="float-end" style={{marginTop: "-19px"}}>view all</Link>
+                <Link
+                  data-bs-toggle="modal"
+                  data-bs-target="#recentactivities"
+                  type="button"
+                  to="#"
+                  className="float-end"
+                  style={{ marginTop: "-19px" }}
+                >
+                  view all
+                </Link>
               </div>
               <div className="switches-container deposit-container mt-3">
-                <input type="radio" id="switchMonthly" name="switchPlan" value="Monthly" checked="checked" />
-                <input type="radio" id="switchYearly" name="switchPlan" value="Yearly" />
+                <input
+                  type="radio"
+                  id="switchMonthly"
+                  name="switchPlan"
+                  value="Monthly"
+                  checked="checked"
+                />
+                <input
+                  type="radio"
+                  id="switchYearly"
+                  name="switchPlan"
+                  value="Yearly"
+                />
                 <label htmlFor="switchMonthly">Transactions</label>
                 <label htmlFor="switchYearly">Missed deposits</label>
                 <div className="switch-wrapper">
@@ -244,7 +314,10 @@ function DashboardFlex() {
                     <h6>Streak</h6>
                   </div>
                   <div className="col-md-6 text-end">
-                    <h6 style={{color: "#EAB308"}}><i className="bi bi-shield-fill-x me-2"></i> ₦10,000.00 saved in 2months</h6>
+                    <h6 style={{ color: "#EAB308" }}>
+                      <i className="bi bi-shield-fill-x me-2"></i> ₦10,000.00
+                      saved in 2months
+                    </h6>
                   </div>
                 </div>
                 <div className="row justify-content-center mt-2 border-bottom py-2">
@@ -252,14 +325,18 @@ function DashboardFlex() {
                     <h6>Missed deposit</h6>
                   </div>
                   <div className="col-md-6 text-end">
-                    <h6 style={{color: "#E8356D"}}><i className="bi bi-shield-fill-x me-2"></i> ₦10,000.00 | 20 days</h6>
+                    <h6 style={{ color: "#E8356D" }}>
+                      <i className="bi bi-shield-fill-x me-2"></i> ₦10,000.00 |
+                      20 days
+                    </h6>
                   </div>
                 </div>
                 <div className="row mt-2 py-2">
                   <div className="col-md-6">
-                    <h6 style={{color: "#8807F7"}}>Contact financial coach</h6>
+                    <h6 style={{ color: "#8807F7" }}>
+                      Contact financial coach
+                    </h6>
                   </div>
-                  
                 </div>
               </div>
             </div>
@@ -295,11 +372,22 @@ function DashboardFlex() {
           </div>
         </div>
         {/* Modal for Review DIB */}
-        <div className="modal flex-modal fade" id="review-dib" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div
+          className="modal flex-modal fade"
+          id="review-dib"
+          tabIndex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
           <div className="modal-dialog right-dialog">
             <div className="modal-content right-content">
               <div className="modal-header">
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
               </div>
               <div className="modal-body flex-modal-body">
                 <div className="container initiate-modal px-4 py-2">
@@ -316,7 +404,7 @@ function DashboardFlex() {
                     <div className="col-md-6 text-end">
                       <p>₦200,000.00</p>
                     </div>
-                    <hr/>
+                    <hr />
                   </div>
                   <div className="row target-details px-5">
                     <div className="col-md-6">
@@ -325,7 +413,7 @@ function DashboardFlex() {
                     <div className="col-md-6 text-end">
                       <p>₦500,000.00</p>
                     </div>
-                    <hr/>
+                    <hr />
                   </div>
                   <div className="row target-details px-5">
                     <div className="col-md-6">
@@ -334,7 +422,7 @@ function DashboardFlex() {
                     <div className="col-md-6 text-end">
                       <p>₦15000 (11%/p.a)</p>
                     </div>
-                    <hr/>
+                    <hr />
                   </div>
                   <div className="row target-details px-5">
                     <div className="col-md-6">
@@ -343,7 +431,7 @@ function DashboardFlex() {
                     <div className="col-md-6 text-end">
                       <p>₦40,000(Monthly)</p>
                     </div>
-                    <hr/>
+                    <hr />
                   </div>
                   <div className="row target-details px-5">
                     <div className="col-md-6">
@@ -352,7 +440,7 @@ function DashboardFlex() {
                     <div className="col-md-6 text-end">
                       <p>₦250k - ₦500k</p>
                     </div>
-                    <hr/>
+                    <hr />
                   </div>
                   <div className="row target-details px-5">
                     <div className="col-md-6">
@@ -361,7 +449,7 @@ function DashboardFlex() {
                     <div className="col-md-6 text-end">
                       <p>₦250k - ₦500k</p>
                     </div>
-                    <hr/>
+                    <hr />
                   </div>
                   <div className="row my-5 justify-content-center px-5">
                     <div className="col-md-5 text-center">
@@ -380,16 +468,38 @@ function DashboardFlex() {
                     <div className="col-md-6 mt-3">
                       <div className="d-flex flex-row">
                         <h6>₦50,000.00</h6>
-                        <img src={visacard} alt="Visa Card" className="img-fluid ms-3" />
+                        <img
+                          src={visacard}
+                          alt="Visa Card"
+                          className="img-fluid ms-3"
+                        />
                       </div>
                     </div>
                   </div>
                   <div className="row px-5 btn-private">
                     <div className="col-md-6">
-                      <Link data-bs-toggle="modal" data-bs-target="#withdrawal" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Withdraw</Link>
+                      <Link
+                        data-bs-toggle="modal"
+                        data-bs-target="#withdrawal"
+                        type="button"
+                        to="#"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6"
+                        style={{ width: "100%" }}
+                      >
+                        Withdraw
+                      </Link>
                     </div>
                     <div className="col-md-6">
-                      <Link data-bs-toggle="modal" data-bs-target="#settings" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6" style={{width: "100%"}}>Settings</Link>
+                      <Link
+                        data-bs-toggle="modal"
+                        data-bs-target="#settings"
+                        type="button"
+                        to="#"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6"
+                        style={{ width: "100%" }}
+                      >
+                        Settings
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -399,15 +509,32 @@ function DashboardFlex() {
         </div>
 
         {/* Modal for Recent Activities */}
-        <div className="modal flex-modal fade" id="recentactivities" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div
+          className="modal flex-modal fade"
+          id="recentactivities"
+          tabIndex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
           <div className="modal-dialog right-dialog">
             <div className="modal-content right-content">
               <div className="modal-header">
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
               </div>
               <div className="row px-5">
                 <div className="col">
-                  <Link data-bs-toggle="modal" data-bs-target="#targetplan" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                  <Link
+                    data-bs-toggle="modal"
+                    data-bs-target="#targetplan"
+                    type="button"
+                  >
+                    <i className="bi bi-chevron-left"></i> Back
+                  </Link>
                 </div>
               </div>
               <div className="modal-body flex-modal-body">
@@ -415,7 +542,9 @@ function DashboardFlex() {
                   <div className="c-tar px-5 py-4">
                     <div className="history-title">
                       <h3 className="rec-act">Recent Activities</h3>
-                      <span className="sub-head">Most recent activities for this savings</span>
+                      <span className="sub-head">
+                        Most recent activities for this savings
+                      </span>
                     </div>
                     {/* <div className="switches-container deposit-container mt-3">
                       <input type="radio" id="switchMonthly" name="switchPlan" value="Monthly" checked="checked" />
@@ -446,7 +575,11 @@ function DashboardFlex() {
                     <div className="row mt-2 border-bottom py-3">
                       <div className="col-md-4">
                         <div className="d-flex flex-row">
-                          <img src={withdraw} alt="" className="img-fluid me-3" />
+                          <img
+                            src={withdraw}
+                            alt=""
+                            className="img-fluid me-3"
+                          />
                           <h6>Top Up</h6>
                         </div>
                       </div>
@@ -463,7 +596,11 @@ function DashboardFlex() {
                     <div className="row justify-content-center mt-2 py-3">
                       <div className="col-md-4">
                         <div className="d-flex flex-row">
-                          <img src={withdraw} alt="" className="img-fluid me-3" />
+                          <img
+                            src={withdraw}
+                            alt=""
+                            className="img-fluid me-3"
+                          />
                           <h6>Travel</h6>
                         </div>
                       </div>
@@ -485,15 +622,32 @@ function DashboardFlex() {
         </div>
 
         {/* Modal for Settings */}
-        <div className="modal flex-modal fade" id="settings" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div
+          className="modal flex-modal fade"
+          id="settings"
+          tabIndex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
           <div className="modal-dialog right-dialog">
             <div className="modal-content right-content">
               <div className="modal-header">
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
               </div>
               <div className="row px-5">
                 <div className="col">
-                  <Link data-bs-toggle="modal" data-bs-target="#review-dib" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                  <Link
+                    data-bs-toggle="modal"
+                    data-bs-target="#review-dib"
+                    type="button"
+                  >
+                    <i className="bi bi-chevron-left"></i> Back
+                  </Link>
                 </div>
               </div>
               <div className="modal-body flex-modal-body">
@@ -501,13 +655,17 @@ function DashboardFlex() {
                   <div className="c-tar px-5 py-4">
                     <div className="history-title">
                       <h3 className="rec-act">Settings</h3>
-                      <span className="sub-head">Make preferred changes to your Dreams</span>
+                      <span className="sub-head">
+                        Make preferred changes to your Dreams
+                      </span>
                     </div>
                     <div className="row">
                       <div className="col">
                         <form className="mt-4">
                           <div className="mb-3">
-                            <label className="form-label label-target">Edit primary source</label>
+                            <label className="form-label label-target">
+                              Edit primary source
+                            </label>
                             <select className="form-select p-select tar-select">
                               <option selected>Edit primary source</option>
                               <option value="2">Dilla</option>
@@ -515,10 +673,20 @@ function DashboardFlex() {
                             </select>
                           </div>
                           <div className="mb-3">
-                            <input type="password" className="form-control target-form tar-form" id="" placeholder="Enter Password"/>
+                            <input
+                              type="password"
+                              className="form-control target-form tar-form"
+                              id=""
+                              placeholder="Enter Password"
+                            />
                           </div>
                           <div>
-                            <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3" style={{width: "100%"}}>Submit</button>
+                            <button
+                              className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
+                              style={{ width: "100%" }}
+                            >
+                              Submit
+                            </button>
                           </div>
                         </form>
                       </div>
@@ -531,15 +699,32 @@ function DashboardFlex() {
         </div>
 
         {/* Modal for Withdrawal */}
-        <div className="modal flex-modal fade" id="withdrawal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div
+          className="modal flex-modal fade"
+          id="withdrawal"
+          tabIndex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
           <div className="modal-dialog right-dialog">
             <div className="modal-content right-content">
               <div className="modal-header">
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
               </div>
               <div className="row px-5">
                 <div className="col">
-                  <Link data-bs-toggle="modal" data-bs-target="#review-dib" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                  <Link
+                    data-bs-toggle="modal"
+                    data-bs-target="#review-dib"
+                    type="button"
+                  >
+                    <i className="bi bi-chevron-left"></i> Back
+                  </Link>
                 </div>
               </div>
               <div className="modal-body flex-modal-body">
@@ -547,21 +732,36 @@ function DashboardFlex() {
                   <div className="c-tar px-5 py-4">
                     <div className="history-title">
                       <h3 className="rec-act">Withdraw</h3>
-                      <span className="sub-head">Withdraw to your plans or source</span>
+                      <span className="sub-head">
+                        Withdraw to your plans or source
+                      </span>
                     </div>
                     <div className="row">
                       <div className="col">
                         <form className="mt-4">
                           <div className="mb-3">
-                            <label className="form-label label-target">Choose withdrawal</label>
+                            <label className="form-label label-target">
+                              Choose withdrawal
+                            </label>
                             <select className="form-select p-select tar-select">
-                              <option selected>Select withdrawal destination</option>
+                              <option selected>
+                                Select withdrawal destination
+                              </option>
                               <option value="2">Dilla</option>
                               <option value="3">SAN</option>
                             </select>
                           </div>
                           <div>
-                            <Link data-bs-toggle="modal" data-bs-target="#withdrawal-2" type="button" to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3" style={{width: "100%"}}>Continue</Link>
+                            <Link
+                              data-bs-toggle="modal"
+                              data-bs-target="#withdrawal-2"
+                              type="button"
+                              to="#"
+                              className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
+                              style={{ width: "100%" }}
+                            >
+                              Continue
+                            </Link>
                           </div>
                         </form>
                       </div>
@@ -574,15 +774,32 @@ function DashboardFlex() {
         </div>
 
         {/* Modal for Withdrawal - 2 */}
-        <div className="modal flex-modal fade" id="withdrawal-2" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div
+          className="modal flex-modal fade"
+          id="withdrawal-2"
+          tabIndex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
           <div className="modal-dialog right-dialog">
             <div className="modal-content right-content">
               <div className="modal-header">
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
               </div>
               <div className="row px-5">
                 <div className="col">
-                  <Link data-bs-toggle="modal" data-bs-target="#review-dib" type="button" ><i className="bi bi-chevron-left"></i> Back</Link>
+                  <Link
+                    data-bs-toggle="modal"
+                    data-bs-target="#review-dib"
+                    type="button"
+                  >
+                    <i className="bi bi-chevron-left"></i> Back
+                  </Link>
                 </div>
               </div>
               <div className="modal-body flex-modal-body">
@@ -590,29 +807,54 @@ function DashboardFlex() {
                   <div className="c-tar px-5 py-4">
                     <div className="history-title">
                       <h3 className="rec-act">Withdraw</h3>
-                      <span className="sub-head">Withdraw to your plans or source</span>
+                      <span className="sub-head">
+                        Withdraw to your plans or source
+                      </span>
                     </div>
                     <div className="row">
                       <div className="col">
                         <form className="mt-4">
                           <div className="mb-3">
-                            <label className="form-label label-target">Choose withdrawal</label>
+                            <label className="form-label label-target">
+                              Choose withdrawal
+                            </label>
                             <select className="form-select p-select tar-select">
-                              <option selected>Select withdrawal destination</option>
+                              <option selected>
+                                Select withdrawal destination
+                              </option>
                               <option value="2">Dilla</option>
                               <option value="3">SAN</option>
                             </select>
                           </div>
                           <div className="mb-3">
-                            <label className="form-label label-target">What is your mother’s maiden name?</label>
-                            <input type="text" className="form-control target-form tar-form" id="" placeholder="Enter Answer"/>
+                            <label className="form-label label-target">
+                              What is your mother’s maiden name?
+                            </label>
+                            <input
+                              type="text"
+                              className="form-control target-form tar-form"
+                              id=""
+                              placeholder="Enter Answer"
+                            />
                           </div>
                           <div className="mb-3">
-                            <label className="form-label label-target">Pin</label>
-                            <input type="password" className="form-control target-form tar-form" id="" placeholder="Enter Pin"/>
+                            <label className="form-label label-target">
+                              Pin
+                            </label>
+                            <input
+                              type="password"
+                              className="form-control target-form tar-form"
+                              id=""
+                              placeholder="Enter Pin"
+                            />
                           </div>
                           <div>
-                            <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3" style={{width: "100%"}}>Withdraw</button>
+                            <button
+                              className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
+                              style={{ width: "100%" }}
+                            >
+                              Withdraw
+                            </button>
                           </div>
                         </form>
                       </div>
