@@ -355,6 +355,7 @@ function FlexPlanOverviewCard() {
                           className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
                           to=""
                           style={{ width: "100%" }}
+                          onClick={() => initializePayment(onSuccess, onClose)}
                         >
                           Continue
                         </Link>
