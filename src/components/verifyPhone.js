@@ -134,7 +134,7 @@ function VerifyPhone() {
 
       const code = data.user.mobilePinId;
 
-      console.log(code);
+      console.log("rtfewtfjwdf", code);
 
       const { termii } = await axios.post(
         "https://api.ng.termii.com/api/sms/otp/verify",
