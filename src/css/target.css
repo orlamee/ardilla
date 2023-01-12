@@ -115,7 +115,7 @@
   border-radius: 20px;
 }
 
-.bg-cade3t h2 {
+.bg-cadeet h2 {
   color: #3D0072;
   font-weight: 500;
   font-size: 30px;
@@ -127,4 +127,36 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 19px;
+}
+
+.rankone {
+  background-image: url("../img/dashboard/back-.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 45px 40px;
+  border-radius: 10px;
+}
+
+.rankone h1 {
+  color: #3D0072;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 28px;
+}
+
+.rankone h6 {
+  color: #3D0072;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 13px;
+}
+
+.rankimg {
+  margin-bottom: -88px;
+  margin-left: 24px;
+}
+
+.ranktops {
+  margin-top: 50px;
 }
