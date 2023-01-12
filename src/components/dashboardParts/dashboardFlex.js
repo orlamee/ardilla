@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../css/target.css";
 import home from "../../img/dashboard/home.svg";
@@ -18,11 +18,15 @@ import colo from "../../img/dashboard/col.svg";
 import visacard from "../../img/dashboard/visa-card.svg";
 import dib from "../../img/dashboard/dib.png";
 import axios from "axios";
+import { usePaystackPayment } from "react-paystack";
 
 function DashboardFlex() {
   let user = JSON.parse(sessionStorage.getItem("user"));
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
+  const [flexAcct, setFlexAcct] = useState();
+  const [amount, setAmount] = useState();
 
   useEffect(() => {
     const getFlexPlan = async () => {
@@ -31,6 +35,7 @@ function DashboardFlex() {
           `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
         );
         console.log(data);
+        setFlexAcct(data.flexPlan);
       } catch (error) {
         console.log(error);
       }
@@ -51,6 +56,53 @@ function DashboardFlex() {
     getFlexPlan();
     getFlexPlan2();
   }, [user._id, BACKEND_URL]);
+
+  const getFlexPlan = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
+      );
+      console.log(data);
+      setFlexAcct(data.flexPlan);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const topUp = async () => {
+    try {
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/top-up-flex/${user._id}`,
+        { amount }
+      );
+
+      console.log(data);
+      getFlexPlan();
+      setAmount(0);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const config = {
+    reference: new Date().getTime().toString(),
+    email: user.email,
+    amount: amount * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    publicKey: "pk_test_bdeef845da401d49681c94007d802d6c68ac2ef8",
+  };
+
+  const onSuccess = (reference) => {
+    // Implementation for whatever you want to do with reference and after success call.
+    console.log(reference);
+    topUp();
+  };
+
+  const onClose = () => {
+    // implementation for  whatever you want to do when the Paystack dialog closed.
+    console.log("closed");
+  };
+
+  const initializePayment = usePaystackPayment(config);
 
   return (
     <section className="main-dash">
@@ -147,10 +199,16 @@ function DashboardFlex() {
             <div className="row mt-4">
               <div className="col-md-6">
                 <span>Total Balance</span>
-                <h5>₦40,000.00 </h5>
+                <h5>
+                  ₦{" "}
+                  {Intl.NumberFormat("en-US").format(flexAcct?.accountBalance)}
+                </h5>
               </div>
               <div className="col-md-6">
-                <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">
+                <button
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
+                  onClick={() => initializePayment(onSuccess, onClose)}
+                >
                   Top up
                 </button>
               </div>
@@ -197,7 +255,22 @@ function DashboardFlex() {
                     <h6>How much you save</h6>
                   </div>
                   <div className="col-md-6 text-end">
-                    <h5>₦60,000 (Monthly)</h5>
+                    {/* <h5>₦60,000 (Monthly)</h5> */}
+                    {flexAcct && flexAcct?.type === "custom" ? (
+                      <h5>
+                        ₦{" "}
+                        {Intl.NumberFormat("en-US").format(
+                          flexAcct?.customSavingTarget
+                        )}
+                      </h5>
+                    ) : (
+                      <h5>
+                        ₦{" "}
+                        {Intl.NumberFormat("en-US").format(
+                          flexAcct?.autoSavingTarget
+                        )}
+                      </h5>
+                    )}
                   </div>
                 </div>
                 <div className="row inner-current mt-3">
@@ -205,7 +278,22 @@ function DashboardFlex() {
                     <h6>Total DIB Savings</h6>
                   </div>
                   <div className="col-md-6 text-end">
-                    <h5>₦60,000 (Monthly)</h5>
+                    {flexAcct && flexAcct?.type === "custom" ? (
+                      <h5>
+                        ₦{" "}
+                        {Intl.NumberFormat("en-US").format(
+                          flexAcct?.customSavingRate
+                        )}
+                      </h5>
+                    ) : (
+                      <h5>
+                        ₦{" "}
+                        {Intl.NumberFormat("en-US").format(
+                          flexAcct?.autoSavingRate
+                        )}
+                      </h5>
+                    )}
+                    {/* <h5>₦60,000 (Monthly)</h5> */}
                   </div>
                 </div>
                 <div className="row inner-current mt-3 mb-4">
@@ -213,7 +301,15 @@ function DashboardFlex() {
                     <h6>Interest</h6>
                   </div>
                   <div className="col-md-6 text-end">
-                    <h5>₦60,000 (Monthly)</h5>
+                    {flexAcct && (
+                      <h5>
+                        ₦{" "}
+                        {Intl.NumberFormat("en-US").format(
+                          flexAcct?.intrestPerMonth[0]
+                        )}
+                      </h5>
+                    )}
+                    {/* <h5>₦60,000 (Monthly)</h5> */}
                   </div>
                 </div>
                 <img src={dib} alt="range" className="img-fluid" />
