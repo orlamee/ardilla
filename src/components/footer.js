@@ -36,9 +36,9 @@ function Footer() {
                     <li><Link to="/dilla-wallet">Dilla</Link></li>
                     <li><Link to="">Financial Coach</Link></li>
                     <li><Link to="">Halal</Link></li>
-                    <li><Link to="">Budgettings</Link></li>
-                    <li><Link to="">Investment</Link></li>
-                    <li><Link to="">Insurance</Link></li>
+                    <li><Link to="">Budgetting</Link> <span className="foot-bg border border-white">Coming Soon</span></li>
+                    <li><Link to="">Investment</Link> <span className="foot-bg border border-white">Coming Soon</span></li>
+                    <li><Link to="">Insurance</Link> <span className="foot-bg border border-white">Coming Soon</span></li>
                   </ul>
                 </div>
                 <div className="col-sm mb-3">
@@ -62,7 +62,7 @@ function Footer() {
                 <div className="col-sm mb-3">
                   <h4>Developer</h4>
                   <ul className="list-unstyled links">
-                    <li>Connect API</li>
+                    <li>Connect API <span className="foot-bg border border-white">Coming Soon</span></li>
                   </ul>
                 </div>
                 <div className="col-sm mb-3">
