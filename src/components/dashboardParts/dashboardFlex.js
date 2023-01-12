@@ -277,7 +277,7 @@ function DashboardFlex() {
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
                           flexAcct?.customSavingRate
-                        )}
+                        )}{" "}
                         {flexAcct?.savingPeriod}
                       </h5>
                     ) : (
@@ -285,7 +285,7 @@ function DashboardFlex() {
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
                           flexAcct?.autoSavingRate
-                        )}
+                        )}{" "}
                         {flexAcct?.savingPeriod}
                       </h5>
                     )}
@@ -301,7 +301,7 @@ function DashboardFlex() {
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
                           flexAcct?.customSavingTarget
-                        )}
+                        )}{" "}
                         {flexAcct?.savingPeriod}
                       </h5>
                     ) : (
@@ -309,7 +309,7 @@ function DashboardFlex() {
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
                           flexAcct?.autoSavingTarget
-                        )}
+                        )}{" "}
                         {flexAcct?.savingPeriod}
                       </h5>
                     )}
@@ -326,7 +326,7 @@ function DashboardFlex() {
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
                           flexAcct?.intrestPerMonth[0]
-                        )}
+                        )}{" "}
                         {flexAcct?.savingPeriod}
                       </h5>
                     )}
