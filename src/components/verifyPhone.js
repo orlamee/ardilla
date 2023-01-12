@@ -302,8 +302,8 @@ function VerifyPhone() {
             <h3 className="my-2">Verify Phone Number</h3>
             <h6>
               Enter the OTP Verification code sent to{" "}
-              {userCheck.contact.slice(0, 4)} XXX XX
-              {userCheck.contact.slice(9, 11)}
+              {userCheck?.contact.slice(0, 4)} XXX XX
+              {userCheck?.contact.slice(9, 11)}
               <br />
               <Link
                 style={{ color: "#E6356D" }}
