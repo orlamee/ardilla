@@ -22,7 +22,11 @@ import axios from "axios";
 function DashboardFlex() {
   let user = JSON.parse(sessionStorage.getItem("user"));
 
-  const BACKEND_URL = process.env.BACKEND_URL;
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  const BACKEND_URL2 = process.env.BACKEND_URL;
+
+  console.log("1st url", BACKEND_URL);
+  console.log("2nd url", BACKEND_URL2);
 
   useEffect(() => {
     const getFlexPlan = async () => {
@@ -39,14 +43,15 @@ function DashboardFlex() {
     const getFlexPlan2 = async () => {
       try {
         const { data } = await axios.get(
-          `${BACKEND_URL}/api/flex-plan/get-flex-account`,
+          `${BACKEND_URL}/api/flex/get-flex-account`,
           { withCredentials: true }
         );
-        console.log("2", data);
+        // console.log("2", data);
       } catch (error) {
         console.log(error);
       }
     };
+
     getFlexPlan();
     getFlexPlan2();
   }, [user._id, BACKEND_URL]);
