@@ -385,7 +385,7 @@ function FlexPlanOverview() {
                               id="quantity"
                               name="quantity"
                               className="form-control input-number"
-                              defaultValue="30000"
+                              defaultValue="30000 rex"
                               min="1"
                               max="100"
                             />
