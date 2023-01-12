@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -18,9 +18,63 @@ import d from "../../img/dashboard/d.svg";
 import c from "../../img/dashboard/c.svg";
 import s from "../../img/dashboard/s.svg";
 import blur from "../../img/dashboard/exterek.svg";
+import axios from "axios";
 
+import { usePaystackPayment } from "react-paystack";
 
 function FlexPlanOverviewCard() {
+  let user = JSON.parse(sessionStorage.getItem("user"));
+
+  const [amount, setAmount] = useState();
+
+  const getFlexPlan = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
+      );
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  getFlexPlan();
+
+  const topUp = async () => {
+    try {
+      const { data } = await axios.put(
+        `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/top-up-account/${user._id}`,
+        { amount }
+      );
+
+      console.log(data);
+      getFlexPlan();
+      setAmount(0);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const config = {
+    reference: new Date().getTime().toString(),
+    email: user.email,
+    amount: amount * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    publicKey: "pk_test_bdeef845da401d49681c94007d802d6c68ac2ef8",
+  };
+
+  const onSuccess = (reference) => {
+    // Implementation for whatever you want to do with reference and after success call.
+    console.log(reference);
+    topUp();
+  };
+
+  const onClose = () => {
+    // implementation for  whatever you want to do when the Paystack dialog closed.
+    console.log("closed");
+  };
+
+  const initializePayment = usePaystackPayment(config);
+
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -37,7 +91,7 @@ function FlexPlanOverviewCard() {
           </div>
         </Link>
         <Link to="/savings" className="active">
-          <div className="d-flex flex-row" >
+          <div className="d-flex flex-row">
             <img src={saving} alt="" className="img-fluid me-2 icons" />
             Savings
           </div>
@@ -97,7 +151,11 @@ function FlexPlanOverviewCard() {
         <div className="row earning justify-content-center">
           <div className="col-md-5 overview">
             <h2>Overview</h2>
-            <h4>Lorem ipsum dolor sit amet consectetur. Ipsum<br/>dolor consequat nulla proin sapien proin. </h4>
+            <h4>
+              Lorem ipsum dolor sit amet consectetur. Ipsum
+              <br />
+              dolor consequat nulla proin sapien proin.{" "}
+            </h4>
           </div>
           <div className="col-md-5 overview-left">
             <div className="row ">
@@ -108,7 +166,6 @@ function FlexPlanOverviewCard() {
                 <h3 className="mt-5">Maturity Date</h3>
                 <h3 className="mt-5">Interest Rate</h3>
                 <h3 className="mt-5">Choose Payment Method</h3>
-                
               </div>
               <div className="col-md-6 text-end">
                 <p className="mt-5">Emergency</p>
@@ -116,35 +173,74 @@ function FlexPlanOverviewCard() {
                 <p className="mt-5">29-11-2022</p>
                 <p className="mt-5">29-11-2022</p>
                 <p className="mt-5 overview-perc">11%</p>
-                <p className="mt-5">Card - <span style={{color: "#E8356D"}}>₦30,000.00</span><span className="dropdown"><Link className="ms-2 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color: "#8807F7"}}>Switch <i className="bi bi-chevron-right"></i></Link>
-                  <ul className="dropdown-menu">
-                    <div className="row m-3">
-                      <div className="col">
-                        <Link to="/flex-overview" className="d-flex flex-row">
-                          <img src={d} alt="" className="img-fluid me-2"/>
-                          <p className="mt-3">Dilla</p>
-                        </Link>
-                        <Link to="/flex-overview/san" className="d-flex flex-row my-3">
-                          <img src={s} alt="" className="img-fluid me-2"/>
-                          <p className="mt-3">SAN</p>
-                        </Link>
-                        <Link to="/flex-overview/card" className="d-flex flex-row">
-                          <img src={c} alt="" className="img-fluid me-2"/>
-                          <p className="mt-3">Card</p>
-                        </Link>
+                <p className="mt-5">
+                  Card - <span style={{ color: "#E8356D" }}>₦30,000.00</span>
+                  <span className="dropdown">
+                    <Link
+                      className="ms-2 dropdown-toggle"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      style={{ color: "#8807F7" }}
+                    >
+                      Switch <i className="bi bi-chevron-right"></i>
+                    </Link>
+                    <ul className="dropdown-menu">
+                      <div className="row m-3">
+                        <div className="col">
+                          <Link to="/flex-overview" className="d-flex flex-row">
+                            <img src={d} alt="" className="img-fluid me-2" />
+                            <p className="mt-3">Dilla</p>
+                          </Link>
+                          <Link
+                            to="/flex-overview/san"
+                            className="d-flex flex-row my-3"
+                          >
+                            <img src={s} alt="" className="img-fluid me-2" />
+                            <p className="mt-3">SAN</p>
+                          </Link>
+                          <Link
+                            to="/flex-overview/card"
+                            className="d-flex flex-row"
+                          >
+                            <img src={c} alt="" className="img-fluid me-2" />
+                            <p className="mt-3">Card</p>
+                          </Link>
+                        </div>
                       </div>
-                    </div>
-                  </ul></span>
+                    </ul>
+                  </span>
                 </p>
-                <p className="mt-5"><Link data-bs-toggle="modal" data-bs-target="#topup" type="button" style={{color: "#8807F7"}}>Pay with Card</Link></p>
+                <p className="mt-5">
+                  <Link
+                    data-bs-toggle="modal"
+                    data-bs-target="#topup"
+                    type="button"
+                    style={{ color: "#8807F7" }}
+                  >
+                    Pay with Card
+                  </Link>
+                </p>
               </div>
             </div>
-            <div className="modal flex-modal fade" id="topup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div
+              className="modal flex-modal fade"
+              id="topup"
+              tabIndex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
               <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                   <div className="modal-header">
                     {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
                   </div>
                   <div className="modal-body flex-modal-body">
                     <div className="container">
@@ -152,7 +248,11 @@ function FlexPlanOverviewCard() {
                         <div className="col">
                           <div className="row t-card p-4 bg-white">
                             <div className="col-md-6">
-                              <img src={dillalogo} alt="" className="img-fluid" />
+                              <img
+                                src={dillalogo}
+                                alt=""
+                                className="img-fluid"
+                              />
                             </div>
                             <div className="col-md-6 text-end">
                               <img src={blur} alt="" className="img-fluid" />
@@ -169,36 +269,70 @@ function FlexPlanOverviewCard() {
                         <div className="col text-center">
                           <div className="input-group cart-group my-3">
                             <span className="input-group-btn">
-                              <button type="button" className="quantity-left-minus minus-bg btn btn-number me-3"  data-type="minus" data-field="">
+                              <button
+                                type="button"
+                                className="quantity-left-minus minus-bg btn btn-number me-3"
+                                data-type="minus"
+                                data-field=""
+                              >
                                 <i className="bi bi-dash"></i>
                               </button>
                             </span>
-                            <input type="text" id="quantity" name="quantity" className="form-control input-number" defaultValue="30000" min="1" max="100"/>
+                            <input
+                              type="text"
+                              id="quantity"
+                              name="quantity"
+                              className="form-control input-number"
+                              defaultValue="30000"
+                              min="1"
+                              max="100"
+                            />
                             <span className="input-group-btn">
-                              <button type="button" className="quantity-right-plus btn minus-bg btn-number ms-3" data-type="plus" data-field="">
+                              <button
+                                type="button"
+                                className="quantity-right-plus btn minus-bg btn-number ms-3"
+                                data-type="plus"
+                                data-field=""
+                              >
                                 <i className="bi bi-plus"></i>
                               </button>
                             </span>
                           </div>
-                          <span className="charges">₦250.00 (1.5% fee caped at ₦250) </span>
+                          <span className="charges">
+                            ₦250.00 (1.5% fee caped at ₦250){" "}
+                          </span>
                         </div>
                       </div>
-                      
+
                       <div className="row mx-3">
-                        <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="" style={{width: "100%"}}>Continue</Link>
+                        <Link
+                          className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                          to=""
+                          style={{ width: "100%" }}
+                        >
+                          Continue
+                        </Link>
                       </div>
                     </div>
                   </div>
-                  
                 </div>
               </div>
             </div>
-            <div className="modal flex-modal fade" id="banktransfer" data-backdrop="static">
+            <div
+              className="modal flex-modal fade"
+              id="banktransfer"
+              data-backdrop="static"
+            >
               <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                   <div className="modal-header">
                     {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
                   </div>
                   <div className="modal-body flex-modal-body">
                     <div className="container">
@@ -206,7 +340,11 @@ function FlexPlanOverviewCard() {
                         <div className="col">
                           <div className="row t-card p-4 bg-white">
                             <div className="col-md-6">
-                              <img src={dillalogo} alt="" className="img-fluid" />
+                              <img
+                                src={dillalogo}
+                                alt=""
+                                className="img-fluid"
+                              />
                             </div>
                             <div className="col-md-6 text-end">
                               <h4>₦30,000.00</h4>
@@ -229,7 +367,9 @@ function FlexPlanOverviewCard() {
                         </div>
                         <div className="col-md-6 text-end">
                           <h5 className="mt-4">NGN 20,250</h5>
-                          <h5 className="mt-4">2004434887 <i className="ms-2 bi bi-files"></i></h5>
+                          <h5 className="mt-4">
+                            2004434887 <i className="ms-2 bi bi-files"></i>
+                          </h5>
                           <h5 className="mt-4">Wema Bank</h5>
                           <h5 className="mt-4">Oshodi Mathew</h5>
                           <h5 className="mt-4">Falcon</h5>
@@ -237,8 +377,26 @@ function FlexPlanOverviewCard() {
                       </div>
                       <div className="row mx-3">
                         <div className="d-flex flex-row">
-                          <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#success" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5 me-3" style={{width: "100%"}}>I’ve Paid</Link>
-                          <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#ussd" className="btn btn-outline-primary px-5 py-3 ardilla-btn-outline fs-6 mt-5" style={{width: "100%"}}>USSD</Link>
+                          <Link
+                            type="button"
+                            to="#"
+                            data-bs-toggle="modal"
+                            data-bs-target="#success"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5 me-3"
+                            style={{ width: "100%" }}
+                          >
+                            I’ve Paid
+                          </Link>
+                          <Link
+                            type="button"
+                            to="#"
+                            data-bs-toggle="modal"
+                            data-bs-target="#ussd"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn-outline fs-6 mt-5"
+                            style={{ width: "100%" }}
+                          >
+                            USSD
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -246,12 +404,21 @@ function FlexPlanOverviewCard() {
                 </div>
               </div>
             </div>
-            <div className="modal flex-modal fade" id="success" data-backdrop="static">
+            <div
+              className="modal flex-modal fade"
+              id="success"
+              data-backdrop="static"
+            >
               <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                   <div className="modal-header">
                     {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
                   </div>
                   <div className="modal-body flex-modal-body">
                     <div className="container">
@@ -259,8 +426,12 @@ function FlexPlanOverviewCard() {
                         <div className="col-md-8 text-center payment-success">
                           <img src={success} alt="" className="img-fluid" />
                           <h2 className="my-5">Payment Received</h2>
-                          <p className="mb-5">Lorem ipsum dolor sit amet consectetur. Sapien vel netus eget orci semper parturient. Ut nec pellentesque consequat vitae massa nisi.</p>
-                          <a href="" >Back to Overview</a>
+                          <p className="mb-5">
+                            Lorem ipsum dolor sit amet consectetur. Sapien vel
+                            netus eget orci semper parturient. Ut nec
+                            pellentesque consequat vitae massa nisi.
+                          </p>
+                          <a href="">Back to Overview</a>
                         </div>
                       </div>
                     </div>
@@ -268,11 +439,20 @@ function FlexPlanOverviewCard() {
                 </div>
               </div>
             </div>
-            <div className="modal flex-modal fade" id="ussd" data-backdrop="static">
+            <div
+              className="modal flex-modal fade"
+              id="ussd"
+              data-backdrop="static"
+            >
               <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                   <div className="modal-header">
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
                   </div>
                   <div className="modal-body flex-modal-body">
                     <div className="container">
@@ -280,7 +460,11 @@ function FlexPlanOverviewCard() {
                         <div className="col">
                           <div className="row t-card p-4 bg-white">
                             <div className="col-md-6">
-                              <img src={dillalogo} alt="" className="img-fluid" />
+                              <img
+                                src={dillalogo}
+                                alt=""
+                                className="img-fluid"
+                              />
                             </div>
                             <div className="col-md-6 text-end">
                               <h4>₦30,000.00</h4>
@@ -303,7 +487,9 @@ function FlexPlanOverviewCard() {
                         </div>
                         <div className="col-md-6 text-end">
                           <h5 className="mt-4">NGN 20,250</h5>
-                          <h5 className="mt-4">2004434887 <i className="ms-2 bi bi-files"></i></h5>
+                          <h5 className="mt-4">
+                            2004434887 <i className="ms-2 bi bi-files"></i>
+                          </h5>
                           <h5 className="mt-4">Wema Bank</h5>
                           <h5 className="mt-4">Oshodi Mathew</h5>
                           <h5 className="mt-4">*949*2004434887*20250#</h5>
@@ -311,8 +497,26 @@ function FlexPlanOverviewCard() {
                       </div>
                       <div className="row mx-3">
                         <div className="d-flex flex-row">
-                          <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#success" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5 me-3" style={{width: "100%"}}>I’ve Paid</Link>
-                          <Link type="button" to="#" data-bs-toggle="modal" data-bs-target="#banktransfer" className="btn btn-outline-primary px-5 py-3 ardilla-btn-outline fs-6 mt-5" style={{width: "100%"}}>Bank Transfer</Link>
+                          <Link
+                            type="button"
+                            to="#"
+                            data-bs-toggle="modal"
+                            data-bs-target="#success"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5 me-3"
+                            style={{ width: "100%" }}
+                          >
+                            I’ve Paid
+                          </Link>
+                          <Link
+                            type="button"
+                            to="#"
+                            data-bs-toggle="modal"
+                            data-bs-target="#banktransfer"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn-outline fs-6 mt-5"
+                            style={{ width: "100%" }}
+                          >
+                            Bank Transfer
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -321,19 +525,30 @@ function FlexPlanOverviewCard() {
               </div>
             </div>
             <div className="form-check mt-5 ">
-              <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked"/>
+              <input
+                className="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckChecked"
+              />
               <label className="form-check-label" htmlFor="flexCheckChecked">
                 Four withdrawal limit only lorem ipsum monteren renemdem
               </label>
             </div>
-            <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4" to="" style={{width: "100%"}}>Create Plan</Link></div>
+            <div>
+              <Link
+                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
+                to=""
+                style={{ width: "100%" }}
+              >
+                Create Plan
+              </Link>
+            </div>
           </div>
         </div>
-        
       </div>
     </section>
   );
 }
 
 export default FlexPlanOverviewCard;
- 
