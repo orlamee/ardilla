@@ -2185,3 +2185,25 @@ i.fas.fa-search {
   font-weight: 400;
   font-size: 14px;
 }
+
+.bg-auth {
+  color: #22C55E;
+  background-color: #EEFCF3;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.btn-bene {
+  font-size: 15px;
+  background-color: #F3F4F6;
+  border-color: #F3F4F6;
+  color: #3D0072!important;
+} 
+
+.btn-bene:hover {
+  font-size: 15px;
+  background-color: #F3F4F6;
+  border-color: #F3F4F6;
+  color: #3D0072!important;
+} 

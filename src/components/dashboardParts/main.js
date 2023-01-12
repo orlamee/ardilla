@@ -481,7 +481,7 @@ function Sidebar() {
           </div>
         </div>
         <div className="row goals">
-          <div className="col-md-4 mb-3">
+          <Link to="/ranks" className="col-md-4 mb-3">
             <h2 className="mb-4">Rank</h2>
             <div className="goal-card px-4">
               <div className="row">
@@ -499,7 +499,7 @@ function Sidebar() {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
           <div className="col-md-4 mb-3">
             <h2 className="mb-4">Badges</h2>
             <div className="goal-card beginner-card px-4">

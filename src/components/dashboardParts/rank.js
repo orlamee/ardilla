@@ -12,6 +12,7 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
+import cadet from "../../img/dashboard/Cadet.svg";
 
 
 
@@ -91,9 +92,22 @@ function Rank() {
           </Link>
         </div>
       </div>
-      <div className="content pt-5 spacing">
-        <div className="row-fluid">
-          <div className="col ranks-bg"></div>
+      <div className="content pt-0">
+        <div className="row ranks-bg justify-content-center">
+          <div className="col-md-3 text-end p-0">
+            <img src={cadet} alt="cadet" className="img-fluid" />
+          </div>
+          <div className="col-md-6 top-product bg-cadeet">
+            <div className="bg-white p-4">
+              <h2>Hi Annie,</h2>
+              <p>Welcome to Ardilla, where you can have more...
+              If you are reading this, you have begun your journey toward becoming a top-ranked saver on Ardilla. Exciting times ahead, Annie!!<br/>
+
+              Ardilla has a seven-tier ranking system, and just like the military, you have to work to grow in rank.
+
+              So what are the ranks?</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
