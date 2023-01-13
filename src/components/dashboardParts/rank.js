@@ -15,6 +15,14 @@ import chat from "../../img/dashboard/chat.svg";
 import cadet from "../../img/dashboard/Cadet.svg";
 import cadett from "../../img/dashboard/cadet-1.svg";
 import list from "../../img/dashboard/circlelist.svg";
+import pri from "../../img/dashboard/pri.svg";
+import cor from "../../img/dashboard/cor.svg";
+import ser from "../../img/dashboard/ser.svg";
+import liu from "../../img/dashboard/liu.svg";
+import cap from "../../img/dashboard/cap.svg";
+import colo from "../../img/dashboard/colo.svg";
+import dotlist from "../../img/dashboard/dotlist.svg";
+import sct from "../../img/dashboard/sct.svg";
 
 
 
@@ -74,7 +82,7 @@ function Rank() {
           </div>
         </Link>
         <div className="second-nav">
-          <Link>
+          <Link to="/payment">
             <div className="d-flex flex-row">
               <img src={contact} alt="" className="img-fluid me-2 icons" />
               Payment
@@ -100,7 +108,7 @@ function Rank() {
             <img src={cadet} alt="cadet" className="img-fluid" />
           </div>
           <div className="col-md-6 top-product bg-cadeet">
-            <div className="bg-white p-4">
+            <div className="bg-white p-4 rank-message">
               <h2>Hi Annie,</h2>
               <p>Welcome to Ardilla, where you can have more...
               If you are reading this, you have begun your journey toward becoming a top-ranked saver on Ardilla. Exciting times ahead, Annie!!<br/>
@@ -121,17 +129,44 @@ function Rank() {
               </div>
             </div>
             <div className="col-md-4 mb-3">
-              <img src={cadett} alt="" className="img-fluid rankimg"/>
-              <div className="rankone">
-                <h1 className="text-end mb-5">Cadet</h1>
+              <img src={pri} alt="" className="img-fluid rankimg"/>
+              <div className="rankone r-1">
+                <h1 className="text-end mb-5">Private</h1>
+                <h6><img src={list} alt=""className="img-fluid me-3" />Transactions above N500,000</h6>
+                <h6><img src={list} alt=""className="img-fluid me-3" />At least three months on Ardilla</h6>
+                <h6><img src={list} alt=""className="img-fluid me-3" />A positive appraisal from a financial advisor</h6>
+              </div>
+            </div>
+            <div className="col-md-4 mb-3">
+              <img src={cor} alt="" className="img-fluid rankimg"/>
+              <div className="rankone r-2">
+                <h1 className="text-end mb-5">Corporal</h1>
+                <h6><img src={list} alt=""className="img-fluid me-3" />At least six months on Ardilla</h6>
+                <h6><img src={list} alt=""className="img-fluid me-3" />Completed KYC</h6>
+              </div>
+            </div>
+          </div>
+          <div className="row ranktops">
+            <div className="col-md-4 mb-3">
+              <img src={ser} alt="" className="img-fluid rankimg"/>
+              <div className="rankone r-3">
+                <h1 className="text-end mb-5">Sergent</h1>
                 <h6><img src={list} alt=""className="img-fluid me-3" />The first level as a new user or account holder</h6>
                 <h6><img src={list} alt=""className="img-fluid me-3" />Completed KYC</h6>
               </div>
             </div>
             <div className="col-md-4 mb-3">
-              <img src={cadett} alt="" className="img-fluid rankimg"/>
-              <div className="rankone">
-                <h1 className="text-end mb-5">Cadet</h1>
+              <img src={liu} alt="" className="img-fluid rankimg"/>
+              <div className="rankone r-4">
+                <h1 className="text-end mb-5">Lieutenant</h1>
+                <h6><img src={list} alt=""className="img-fluid me-3" />The first level as a new user or account holder</h6>
+                <h6><img src={list} alt=""className="img-fluid me-3" />Completed KYC</h6>
+              </div>
+            </div>
+            <div className="col-md-4 mb-3">
+              <img src={cap} alt="" className="img-fluid rankimg"/>
+              <div className="rankone r-5">
+                <h1 className="text-end mb-5">Captain</h1>
                 <h6><img src={list} alt=""className="img-fluid me-3" />The first level as a new user or account holder</h6>
                 <h6><img src={list} alt=""className="img-fluid me-3" />Completed KYC</h6>
               </div>
@@ -139,27 +174,28 @@ function Rank() {
           </div>
           <div className="row ranktops">
             <div className="col-md-4 mb-3">
-              <img src={cadett} alt="" className="img-fluid rankimg"/>
-              <div className="rankone">
-                <h1 className="text-end mb-5">Cadet</h1>
+              <img src={colo} alt="" className="img-fluid rankimg"/>
+              <div className="rankone r-6">
+                <h1 className="text-end mb-5">Colonel</h1>
                 <h6><img src={list} alt=""className="img-fluid me-3" />The first level as a new user or account holder</h6>
                 <h6><img src={list} alt=""className="img-fluid me-3" />Completed KYC</h6>
               </div>
             </div>
-            <div className="col-md-4 mb-3">
-              <img src={cadett} alt="" className="img-fluid rankimg"/>
-              <div className="rankone">
-                <h1 className="text-end mb-5">Cadet</h1>
-                <h6><img src={list} alt=""className="img-fluid me-3" />The first level as a new user or account holder</h6>
-                <h6><img src={list} alt=""className="img-fluid me-3" />Completed KYC</h6>
-              </div>
-            </div>
-            <div className="col-md-4 mb-3">
-              <img src={cadett} alt="" className="img-fluid rankimg"/>
-              <div className="rankone">
-                <h1 className="text-end mb-5">Cadet</h1>
-                <h6><img src={list} alt=""className="img-fluid me-3" />The first level as a new user or account holder</h6>
-                <h6><img src={list} alt=""className="img-fluid me-3" />Completed KYC</h6>
+            <div className="col-md-8 mb-3">
+              <div className="tips">
+                <div className="row">
+                  <div className="col-md-8">
+                    <div className="">
+                      <h2>Tip to improve transactions</h2>
+                      <h6 className="mt-4"><img src={dotlist} alt="check" className="img-fluid me-2"/>Take advantage of Ardilla's daily, weekly, or monthly auto top-ups.</h6>
+                      <h6 className="mt-3"><img src={dotlist} alt="check" className="img-fluid me-2"/>Take advantage of Ardilla's daily, weekly, or monthly auto top-ups.</h6>
+                      <h6 className="mt-3"><img src={dotlist} alt="check" className="img-fluid me-2"/>Take advantage of Ardilla's daily, weekly, or monthly auto top-ups.</h6>
+                    </div>
+                  </div>
+                  <div className="col-md-4">
+                    <img src={sct} alt="" className="img-fluid" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
