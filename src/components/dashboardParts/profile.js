@@ -346,9 +346,9 @@ function ProfileMain() {
               <form onSubmit={handleSubmit}>
                 <input type="file" onChange={handleFileInput} />
 
-                {userDetails?.profilePic && (
+                {userDetails?.photo && (
                   <img
-                    src={userDetails?.profilePic}
+                    src={userDetails?.photo}
                     alt=""
                     className="img-fluid rounded-circle"
                     on
@@ -357,7 +357,7 @@ function ProfileMain() {
 
                 {img && (
                   <img
-                    src={userDetails?.profilePic}
+                    src={userDetails?.photo}
                     alt=""
                     className="img-fluid rounded-circle"
                     on

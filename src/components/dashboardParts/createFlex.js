@@ -18,13 +18,15 @@ import artisan from "../../img/dashboard/artisan.svg";
 import axios from "axios";
 
 function CreateFlex() {
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
-  const userID = user._id;
+  // let user = JSON.parse(sessionStorage.getItem("user"));
+  // const userID = user._id;
 
   //init useNav
   const navigate = useNavigate();
@@ -36,19 +38,24 @@ function CreateFlex() {
     setLoading(true);
     setErr(false);
     try {
-      const { data } = await axios.post(
-        "https://ardilla.herokuapp.com/ardilla/api/flex-plan/create-account",
-        { userID }
-      );
+      await axios.get(`${BACKEND_URL}/api/flex/create-account`, {
+        withCredentials: true,
+      });
 
-      console.log(data);
       setLoading(false);
       navigate("/create-flex");
     } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
       setLoading(false);
       setOnSuccess(false);
       setErr(true);
-      setMsg(`${error.response.data.msg} ` || "Network error");
+      setMsg(message);
     }
   };
 
@@ -145,7 +152,7 @@ function CreateFlex() {
         <Link to="/learn">
           <div className="d-flex flex-row">
             <img src={learn} alt="" className="img-fluid me-2 icons" />
-            Learn 
+            Learn
           </div>
         </Link>
         <div className="second-nav">
