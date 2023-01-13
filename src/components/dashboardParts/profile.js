@@ -45,7 +45,9 @@ function ProfileMain() {
         });
 
         setUserDetails(data.user);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     getUserById();

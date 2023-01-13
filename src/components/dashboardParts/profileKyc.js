@@ -23,6 +23,8 @@ import check from "../../img/dashboard/Check.svg";
 function ProfileKYC() {
   let user = JSON.parse(sessionStorage.getItem("user"));
 
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
   const [idFront, setIdFront] = useState(null);
   const [idBack, setIdBack] = useState(null);
   const [utility, setUtility] = useState(null);
@@ -35,9 +37,9 @@ function ProfileKYC() {
   useEffect(() => {
     const getUserById = async () => {
       try {
-        const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-        );
+        const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
+          withCredentials: true,
+        });
 
         setUserDetails(data.user);
       } catch (error) {
@@ -46,7 +48,7 @@ function ProfileKYC() {
     };
 
     getUserById();
-  }, [user._id]);
+  }, [BACKEND_URL]);
 
   const getUserById = async () => {
     try {
