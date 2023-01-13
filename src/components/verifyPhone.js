@@ -38,6 +38,8 @@ function VerifyPhone() {
 
         setUserCheck(data.user);
 
+        pinRef.current = data.user.mobilePinId;
+
         console.log("user1", data);
 
         // if (data?.user?.verified === "bvn") {
@@ -121,44 +123,54 @@ function VerifyPhone() {
     }
   };
 
+  const getUserById = async () => {
+    const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
+      withCredentials: true,
+    });
+
+    setUserCheck(data.user);
+
+    pinRef.current = data.user.mobilePinId;
+
+    console.log("user1", data);
+
+    // if (data?.user?.verified === "bvn") {
+    //   return;
+    // } else if (data?.user?.verified === "mv") {
+    //   return navigate("/set-pin");
+    // } else {
+    //   return navigate("/404");
+    // }
+  };
+
   const checkOut = async (e) => {
     e.preventDefault();
     setErr(false);
     setLoading(true);
-    // getUserById();
+    getUserById();
 
     console.log("fullpin", fullpin);
+    console.log(pinRef.current);
 
     try {
-      const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
-        withCredentials: true,
-      });
-
-      const code = data.user.mobilePinId;
-
-      console.log("code", code);
-      console.log("user", data);
-
-      const { termii } = await axios.post(
+      const { data } = await axios.post(
         "https://api.ng.termii.com/api/sms/otp/verify",
         {
           api_key:
             "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
-          pin_id: code,
+          pin_id: pinRef,
           pin: fullpin,
         }
       );
 
-      console.log("termii", termii);
+      console.log("termii", data);
 
       setLoading(false);
       setOnSuccess(true);
       // updateProcess();
       setMsg("Mobile verifcation successful");
 
-      console.log(termii);
-
-      if (!termii.verified) {
+      if (!data.verified) {
         setErr(false);
         setOnSuccess(false);
         setMsg("Wrong pin");
