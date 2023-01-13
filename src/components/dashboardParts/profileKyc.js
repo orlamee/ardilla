@@ -488,7 +488,7 @@ function ProfileKYC() {
                 </div>
               )}
 
-              {userDetails?.idFrontStatus === "approve" && (
+              {userDetails?.idFrontStatus === "approved" && (
                 <div className="row mt-5">
                   <h5>
                     Upload Your valid ID{" "}
@@ -497,7 +497,7 @@ function ProfileKYC() {
                 </div>
               )}
 
-              {userDetails?.idBackStatus === "approve" && (
+              {userDetails?.idBackStatus === "approved" && (
                 <div className="row mt-5">
                   <h5>
                     Upload Your valid ID{" "}
@@ -583,7 +583,7 @@ function ProfileKYC() {
               </div>
             )}
 
-            {userDetails?.utilityBillStatus === "approve" && (
+            {userDetails?.utilityBillStatus === "approved" && (
               <h5>
                 Upload Your valid ID{" "}
                 <img src={pass} alt="success" className="img-fluid ms-2" />
