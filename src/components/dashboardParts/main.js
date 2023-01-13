@@ -93,29 +93,21 @@ function Sidebar() {
       } catch (error) {}
     };
 
+    const generateAccount = async () => {
+      try {
+        await axios.get(`${BACKEND_URL}/api/san/create-account`, {
+          withCredentials: true,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     getUserById();
     getDillaWallet();
     getSanAcct();
-  }, [BACKEND_URL]);
-
-  const generateAccount = async () => {
-    try {
-      const { data } = await axios.put(`${BACKEND_URL}/api/user/generate-san`);
-
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  if (
-    userDetails?.idFrontStatus === "approve" &&
-    userDetails?.idBackStatus === "approve" &&
-    userDetails?.idBackStatus === "approve"
-  ) {
-    console.log("nothing is immpossible");
     generateAccount();
-  }
+  }, [BACKEND_URL]);
 
   // onClick={handleLogOut}
 

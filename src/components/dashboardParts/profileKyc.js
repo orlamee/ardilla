@@ -45,7 +45,18 @@ function ProfileKYC() {
       }
     };
 
+    const generateAccount = async () => {
+      try {
+        await axios.get(`${BACKEND_URL}/api/san/create-account`, {
+          withCredentials: true,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     getUserById();
+    generateAccount();
   }, [BACKEND_URL]);
 
   const getUserById = async () => {
