@@ -21,8 +21,6 @@ import check from "../../img/dashboard/Check.svg";
 // import pass from "../../img/dashboard/pass.svg";
 
 function ProfileKYC() {
-  let user = JSON.parse(sessionStorage.getItem("user"));
-
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   const [idFront, setIdFront] = useState(null);
@@ -52,38 +50,36 @@ function ProfileKYC() {
 
   const getUserById = async () => {
     try {
-      const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-      );
+      const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
+        withCredentials: true,
+      });
 
       setUserDetails(data.user);
-
-      console.log(data.user);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const generateAccount = async () => {
-    try {
-      const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/user/generate-san/${user._id}`
-      );
+  // const generateAccount = async () => {
+  //   try {
+  //     const { data } = await axios.put(
+  //       `https://ardilla.herokuapp.com/ardilla/api/user/generate-san/${user._id}`
+  //     );
 
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  if (
-    userDetails?.idFrontStatus === "approve" &&
-    userDetails?.idBackStatus === "approve" &&
-    userDetails?.idBackStatus === "approve"
-  ) {
-    console.log("nothing is immpossible");
-    generateAccount();
-  }
+  // if (
+  //   userDetails?.idFrontStatus === "approve" &&
+  //   userDetails?.idBackStatus === "approve" &&
+  //   userDetails?.idBackStatus === "approve"
+  // ) {
+  //   console.log("nothing is immpossible");
+  //   generateAccount();
+  // }
 
   const handleIdFront = (e) => {
     e.preventDefault();
@@ -112,8 +108,9 @@ function ProfileKYC() {
       formData.append("image", idFront);
 
       const { data } = await axios.post(
-        `https://ardilla.herokuapp.com/ardilla/api/user/id-front/${user._id}`,
-        formData
+        `${BACKEND_URL}/api/user/id-front`,
+        formData,
+        { withCredentials: true }
       );
 
       setLoading1(false);
@@ -133,8 +130,9 @@ function ProfileKYC() {
       formData.append("image", idBack);
 
       const { data } = await axios.post(
-        `https://ardilla.herokuapp.com/ardilla/api/user/id-back/${user._id}`,
-        formData
+        `${BACKEND_URL}/api/user/id-back`,
+        formData,
+        { withCredentials: true }
       );
 
       setLoading2(false);
@@ -154,8 +152,11 @@ function ProfileKYC() {
       formData.append("image", utility);
 
       const { data } = await axios.post(
-        `https://ardilla.herokuapp.com/ardilla/api/user/utility-bill/${user._id}`,
-        formData
+        `${BACKEND_URL}/api/user/utility-bill`,
+        formData,
+        {
+          withCredentials: true,
+        }
       );
 
       setLoading3(false);
