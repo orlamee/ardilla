@@ -1200,3 +1200,27 @@ h5 a {
 .payment-pills a {
   font-size: 24px!important;
 }
+
+.breadcrumbfaq {
+  padding: 250px 10px;
+  background-color: #F3F4F6;
+}
+
+.breadcrumbfaq h2 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 68px;
+  color: #3D0072;
+}
+
+.breadcrumbfaq h6 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #3D0072;
+}
+
+.faqcontent {
+  margin-top: 90px;
+  margin-bottom: 90px;
+}
