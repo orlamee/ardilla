@@ -38,7 +38,7 @@ function VerifyPhone() {
 
         setUserCheck(data.user);
 
-        console.log("bcg", data);
+        console.log("user1", data);
 
         // if (data?.user?.verified === "bvn") {
         //   return;
@@ -136,8 +136,8 @@ function VerifyPhone() {
 
       const code = data.user.mobilePinId;
 
-      console.log("rtfewtfjwdf", code);
-      console.log("rdt", data);
+      console.log("code", code);
+      console.log("user", data);
 
       const { termii } = await axios.post(
         "https://api.ng.termii.com/api/sms/otp/verify",
