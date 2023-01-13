@@ -67,15 +67,15 @@ function VerifyPhone() {
 
   const fullpin = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
 
-  const updateProcess = async () => {
-    try {
-      await axios.get(`${BACKEND_URL}/api/auth/mobile-otp-2`, {
-        withCredentials: true,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const updateProcess = async () => {
+  //   try {
+  //     await axios.get(`${BACKEND_URL}/api/auth/mobile-otp-2`, {
+  //       withCredentials: true,
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const resend = async () => {
     try {
