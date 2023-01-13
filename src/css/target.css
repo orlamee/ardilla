@@ -136,6 +136,7 @@
   background-position: center;
   padding: 45px 40px;
   border-radius: 10px;
+  min-height: 235px;
 }
 
 .rankone h1 {
@@ -208,4 +209,56 @@
   font-size: 11px;
   font-weight: 500;
   line-height: 20px;
+}
+
+.rank-message {
+  box-shadow: 0px 4px 24px rgba(195, 193, 193, 0.45);
+  border-radius: 20px;
+}
+
+.r-1 {
+  background-image: url("../img/dashboard/private.svg")!important;
+}
+
+.r-2 {
+  background-image: url("../img/dashboard/corporal.svg")!important;
+}
+
+.r-3 {
+  background-image: url("../img/dashboard/sergent.svg")!important;
+}
+
+.r-4 {
+  background-image: url("../img/dashboard/lieutenant.svg")!important;
+}
+
+.r-5 {
+  background-image: url("../img/dashboard/captain.svg")!important;
+}
+
+.r-6 {
+  background-image: url("../img/dashboard/colone.svg")!important;
+}
+
+.tips {
+  padding: 40px 40px;
+  margin-top: 132px;
+  border-radius: 10px;
+  min-height: 230px;
+  background-color: #fff;
+  box-shadow: 0px 12px 24px rgb(10 7 12 / 10%);
+}
+
+.tips h6 {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 13px;
+  color: #3D0072;
+}
+
+.tips h2 {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 34px;
+  color: #3D0072;
 }
