@@ -106,6 +106,7 @@ import PaymentASuccess from "./dashboard/accountPaymentSuccess";
 import PaymentC from "./dashboard/cardPayment";
 import PaymentCSuccess from "./dashboard/cardPaymentSuccess";
 import PaymentT from "./dashboard/transactionPayment";
+import FAQ from "./pages/faq";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -129,6 +130,7 @@ root.render(
       <Route path="/payment-card" element={<PaymentC/>}></Route>
       <Route path="/payment-card-success" element={<PaymentCSuccess/>}></Route>
       <Route path="/payment-transaction" element={<PaymentT/>}></Route>
+      <Route path="/faq" element={<FAQ/>}></Route>
 
 
 

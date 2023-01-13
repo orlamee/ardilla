@@ -262,3 +262,26 @@
   line-height: 34px;
   color: #3D0072;
 }
+
+.over:before {
+  content: url("../img/dashboard/front.svg");
+  display: block;
+  position: absolute;
+  opacity: 0.75;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #250144;
+  border-radius: 16px;
+  text-align: center!important;
+  margin: 0;
+}
+
+.over {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
