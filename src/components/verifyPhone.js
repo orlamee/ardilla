@@ -127,7 +127,7 @@ function VerifyPhone() {
     setLoading(true);
     // getUserById();
 
-    console.log(fullpin);
+    console.log("fullpin", fullpin);
 
     try {
       const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
