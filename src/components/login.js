@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import logo from "../img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import platform from "platform";
-import date from "date-and-time";
+// import platform from "platform";
+// import date from "date-and-time";
 
 function Login() {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -15,68 +15,68 @@ function Login() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
-  const [ip, setIp] = useState("");
-  const [city, setCity] = useState("");
-  const [countryCode, setCountryCode] = useState("");
+  // const [ip, setIp] = useState("");
+  // const [city, setCity] = useState("");
+  // const [countryCode, setCountryCode] = useState("");
 
-  const now = new Date();
+  // const now = new Date();
 
-  const today = date.format(now, "ddd, MMM DD YYYY");
-  const time = date.format(new Date(), "hh:mm A [GMT]Z");
+  // const today = date.format(now, "ddd, MMM DD YYYY");
+  // const time = date.format(new Date(), "hh:mm A [GMT]Z");
 
-  let platName = platform.name;
-  let userOs = platform.os.family;
-  let userOsVersion = platform.os.version;
+  // let platName = platform.name;
+  // let userOs = platform.os.family;
+  // let userOsVersion = platform.os.version;
 
-  let currentTimestamp = new Date().getTime();
+  // let currentTimestamp = new Date().getTime();
 
   const navigate = useNavigate();
 
-  let logDetails;
+  // let logDetails;
 
-  let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
+  // let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
 
-  async function getIP(url) {
-    try {
-      const { data } = await axios.get(url);
+  // async function getIP(url) {
+  //   try {
+  //     const { data } = await axios.get(url);
 
-      setIp(data.ip);
-      setCity(data.city);
-      setCountryCode(data.country_name);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     // setIp(data.ip);
+  //     // setCity(data.city);
+  //     // setCountryCode(data.country_name);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  useEffect(() => {
-    getIP(`https://api.ipdata.co?api-key=${apiKey}`);
-  }, [apiKey]);
+  // useEffect(() => {
+  //   getIP(`https://api.ipdata.co?api-key=${apiKey}`);
+  // }, [apiKey]);
 
   const sendRequest = async () => {
     try {
       setLoading(true);
 
-      logDetails = {
-        ip,
-        city,
-        countryCode,
-        platName,
-        userOs,
-        userOsVersion,
-      };
+      // logDetails = {
+      //   ip,
+      //   city,
+      //   countryCode,
+      //   platName,
+      //   userOs,
+      //   userOsVersion,
+      // };
 
       const { data } = await axios.post(
         `${BACKEND_URL}/api/auth/login`,
         {
           email,
           password,
-          ip,
-          platName,
-          userOs,
-          logDetails,
-          currentTimestamp,
-          time,
-          today,
+          // ip,
+          // platName,
+          // userOs,
+          // logDetails,
+          // currentTimestamp,
+          // time,
+          // today,
         },
         { withCredentials: true }
       );
