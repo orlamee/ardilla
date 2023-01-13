@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -14,16 +14,39 @@ import chat from "../../img/dashboard/chat.svg";
 import axios from "axios";
 
 function FlexPlanCreate() {
-  // const [ern, setErn] = useState();
-  // const [loading, setLoading] = useState(false);
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
-
   const [loading, setLoading] = useState(false);
   const [ern, setErn] = useState();
+  const [user, setUser] = useState();
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  useEffect(() => {
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
+          withCredentials: true,
+        });
+
+        setUser(data.user);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setOnSuccess(false);
+        setMsg(message);
+      }
+    };
+
+    getUserById();
+  }, [BACKEND_URL]);
 
   const navigate = useNavigate();
 
@@ -32,22 +55,30 @@ function FlexPlanCreate() {
     if (ern) {
       try {
         const { data } = await axios.put(
-          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/set-earning/${user._id}`,
-          { ern }
+          `${BACKEND_URL}/api/flex/set-earning`,
+          { ern },
+          { withCredentials: true }
         );
 
         console.log(data);
         setLoading(false);
         navigate("/flex-spend");
       } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
         setLoading(false);
         setErr(true);
-        setMsg(`${error.response.data.msg} ` || "Network error");
+        setMsg(message);
       }
     } else {
       setLoading(false);
       setErr(true);
-      setMsg("Please enter an the amount you earn");
+      setMsg("Please enter the amount you earn");
     }
   };
 
@@ -55,7 +86,6 @@ function FlexPlanCreate() {
     setOnSuccess(false);
   };
 
-  console.log(ern);
   return (
     <section className="main-dash">
       {err && (
