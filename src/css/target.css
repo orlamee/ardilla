@@ -160,3 +160,52 @@
 .ranktops {
   margin-top: 50px;
 }
+
+.bg-payments {
+  background: #f3f4f6;
+  padding: 15px 44px 0px 44px;
+  text-align: center;
+  border-radius: 16px;
+}
+
+.bg-payments a {
+  color: #9CA3AF;
+  font-size: 13px;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+.bg-payments a.active {
+  border-bottom: 2px solid #8807F7;
+  padding-bottom: 15px;
+  color: #8807F7;
+}
+
+.addaccount-bg {
+  border: 1px solid #9CA3AF;
+  padding: 90px 10px;
+  border-radius: 20px;
+}
+
+.addedaccount {
+  background: linear-gradient(180.57deg, #1E0037 29.95%, rgba(30, 0, 55, 0) 317.48%);
+  opacity: 0.95;
+  padding: 80px 40px;
+  border-radius: 20px;
+}
+
+.addedcards {
+  margin-top: 60px;
+}
+
+.addedaccount h5 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.addedaccount h6 {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 20px;
+}

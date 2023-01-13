@@ -109,6 +109,15 @@ function PaymentSAN() {
       <div className="content py-5 px-5 profile-main">
         <div className="row">
           <div className="col-md-5 dilla-right">
+            <div className="bg-payments d-inline-flex">
+              <div className="d-flex flex-row">
+                <Link to="/payment" className="me-5 active">SAN</Link>
+                <Link to="/payment-accounts" className="me-5">Account</Link>
+                <Link to="/payment-card" className="me-5">Card</Link>
+                <Link to="/payment-transaction" className="me-5">Transactions</Link>
+              </div>
+            </div>
+            
             <h5 className="mt-5">Amount Balance</h5>
             <h4 className="amt-left">NGN 500,000</h4>
             <div className="d-flex flex-row">

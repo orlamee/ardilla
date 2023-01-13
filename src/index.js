@@ -101,6 +101,11 @@ import RankPage from "./dashboard/rankPage";
 import TermsCondition from "./pages/termsCondition";
 import InformationSecurity from "./pages/informationSecurity";
 import PrivacyPolicy from "./pages/privacyPolicy";
+import PaymentA from "./dashboard/accountPayment";
+import PaymentASuccess from "./dashboard/accountPaymentSuccess";
+import PaymentC from "./dashboard/cardPayment";
+import PaymentCSuccess from "./dashboard/cardPaymentSuccess";
+import PaymentT from "./dashboard/transactionPayment";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -119,6 +124,14 @@ root.render(
       <Route path="/download-ardilla" element={<DownloadApp />}></Route>
       <Route path="/ranks" element={<RankPage />}></Route>
       <Route path="/terms-conditions" element={<TermsCondition />}></Route>
+      <Route path="/payment-accounts" element={<PaymentA/>}></Route>
+      <Route path="/payment-accounts-success" element={<PaymentASuccess/>}></Route>
+      <Route path="/payment-card" element={<PaymentC/>}></Route>
+      <Route path="/payment-card-success" element={<PaymentCSuccess/>}></Route>
+      <Route path="/payment-transaction" element={<PaymentT/>}></Route>
+
+
+
       <Route
         path="/information-security"
         element={<InformationSecurity />}
