@@ -25,6 +25,8 @@ function Kyc() {
 
         setUserCheck(data.user);
 
+        console.log(data);
+
         console.log(data.user.verified);
 
         if (data?.user?.verified === "sq") {
