@@ -85,6 +85,7 @@ function Kyc() {
 
   setTimeout(() => {
     if (onSuccess) {
+      sendMsg();
       navigate("/verify-mobile");
     }
   }, 2000);
@@ -112,7 +113,7 @@ function Kyc() {
         { withCredentials: true }
       );
       setMsg(data.msg);
-      sendMsg();
+
       setErr(false);
       setOnSuccess(true);
       setLoading(false);
