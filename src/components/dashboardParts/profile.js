@@ -17,8 +17,10 @@ import badge from "../../img/dashboard/profile-bdg.svg";
 import axios from "axios";
 
 function ProfileMain() {
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  // let user = JSON.parse(sessionStorage.getItem("user"));
   let nextOfKin;
+
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
@@ -38,32 +40,29 @@ function ProfileMain() {
   useEffect(() => {
     const getUserById = async () => {
       try {
-        const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-        );
+        const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
+          withCredentials: true,
+        });
 
         setUserDetails(data.user);
-        // setNok(data.user.nextOfKin);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
 
     getUserById();
-  }, [user._id]);
+  }, [BACKEND_URL]);
 
-  const getUserById = async () => {
-    try {
-      const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-      );
+  // const getUserById = async () => {
+  //   try {
+  //     const { data } = await axios.get(
+  //       `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
+  //     );
 
-      setUserDetails(data.user);
-      // setNok(data.user.nextOfKin);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     setUserDetails(data.user);
+  //     // setNok(data.user.nextOfKin);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   // const [profileImg, setProfileImg] = useState({});
   // const [image, setImage] = useState({ preview: "", data: "" });
@@ -98,13 +97,14 @@ function ProfileMain() {
       console.log(selectedFile);
 
       const { data } = await axios.post(
-        `https://ardilla.herokuapp.com/ardilla/api/user/profile-pic/${user._id}`,
-        formData
+        `${BACKEND_URL}/api/user/profile-pic`,
+        formData,
+        { withCredentials: true }
       );
 
       console.log(data);
       setImg(false);
-      getUserById();
+      // getUserById();
     } catch (error) {
       console.log(error);
     }
@@ -124,8 +124,9 @@ function ProfileMain() {
 
     try {
       const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/user/next-of-kin/${user._id}`,
-        { nextOfKin }
+        `${BACKEND_URL}/api/user/next-of-kin`,
+        { nextOfKin },
+        { withCredentials: true }
       );
 
       setErr(false);
