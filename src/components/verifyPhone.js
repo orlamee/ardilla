@@ -38,13 +38,15 @@ function VerifyPhone() {
 
         setUserCheck(data.user);
 
-        if (data?.user?.verified === "bvn") {
-          return;
-        } else if (data?.user?.verified === "mv") {
-          return navigate("/set-pin");
-        } else {
-          return navigate("/404");
-        }
+        console.log("bcg", data);
+
+        // if (data?.user?.verified === "bvn") {
+        //   return;
+        // } else if (data?.user?.verified === "mv") {
+        //   return navigate("/set-pin");
+        // } else {
+        //   return navigate("/404");
+        // }
       };
 
       getUserById();
@@ -148,7 +150,7 @@ function VerifyPhone() {
 
       setLoading(false);
       setOnSuccess(true);
-      updateProcess();
+      // updateProcess();
       setMsg("Mobile verifcation successful");
 
       console.log(termii);
