@@ -32,7 +32,7 @@ function Kyc() {
         if (data?.user?.verified === "sq") {
           return;
         } else if (data?.user?.verified === "bvn") {
-          return navigate("/verify-mobile");
+          return navigate("/set-pin");
         } else {
           return navigate("/404");
         }
