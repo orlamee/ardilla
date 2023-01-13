@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -14,9 +14,9 @@ import badge from "../../img/dashboard/b-cadet.svg";
 import chat from "../../img/dashboard/chat.svg";
 import pie from "../../img/dashboard/piechart.svg";
 import medal from "../../img/dashboard/medal.svg";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import axios from "axios";
-import { useIdleTimer } from "react-idle-timer";
+// import { useIdleTimer } from "react-idle-timer";
 import chart from "../../img/dashboard/new-graph.png";
 // import coins from "../../img/dashboard/coinss/s.svg";
 import ceo from "../../img/dashboard/ceo.svg";
@@ -37,9 +37,11 @@ function Sidebar() {
   const [sanBalance, setSanBalance] = useState({});
   const [userDetails, setUserDetails] = useState();
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
-  const navigate = useNavigate();
+  // let user = JSON.parse(sessionStorage.getItem("user"));
+
+  // const navigate = useNavigate();
 
   // const refreshToken = async () => {
   //   try {
@@ -58,7 +60,8 @@ function Sidebar() {
     const getDillaWallet = async () => {
       try {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/get-dilla-wallet/${user._id}`
+          `${BACKEND_URL}/api/dilla-wallet/get-dilla-wallet`,
+          { withCredentials: true }
         );
 
         setDillaWallet(data.dillaWallet);
@@ -70,7 +73,8 @@ function Sidebar() {
     const getSanAcct = async () => {
       try {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/san-account/get-san-account/${user._id}`
+          `${BACKEND_URL}/api/san/get-san-account`,
+          { withCredentials: true }
         );
 
         setSanBalance(data.sanAccount);
@@ -81,26 +85,22 @@ function Sidebar() {
 
     const getUserById = async () => {
       try {
-        const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-        );
+        const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
+          withCredentials: true,
+        });
 
         setUserDetails(data.user);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
 
     getUserById();
     getDillaWallet();
     getSanAcct();
-  }, [user]);
+  }, [BACKEND_URL]);
 
   const generateAccount = async () => {
     try {
-      const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/user/generate-san/${user._id}`
-      );
+      const { data } = await axios.put(`${BACKEND_URL}/api/user/generate-san`);
 
       console.log(data);
     } catch (error) {
@@ -117,47 +117,41 @@ function Sidebar() {
     generateAccount();
   }
 
-  // useEffect(() => {
-  //   let interval = setInterval(() => {
-  //     refreshToken();
-  //   }, 6000);
+  // onClick={handleLogOut}
 
-  //   return () => clearInterval(interval);
-  // }, []);
+  // const handleOnIdle = () => {
+  //   sessionStorage.clear();
+  //   Cookies.remove("user");
+  //   navigate("/login");
+  //   console.log("last active", getLastActiveTime());
+  // };
 
-  const handleOnIdle = () => {
-    sessionStorage.clear();
-    Cookies.remove("user");
-    navigate("/login");
-    console.log("last active", getLastActiveTime());
-  };
-
-  const { getLastActiveTime } = useIdleTimer({
-    timeout: 1000 * 60 * 2,
-    onIdle: handleOnIdle,
-    events: [
-      "mousemove",
-      "keydown",
-      "wheel",
-      "DOMMouseScroll",
-      "mousewheel",
-      "mousedown",
-      "touchstart",
-      "touchmove",
-      "MSPointerDown",
-      "MSPointerMove",
-      "visibilitychange",
-    ],
-    debounce: 500,
-  });
+  // const { getLastActiveTime } = useIdleTimer({
+  //   timeout: 1000 * 60 * 2,
+  //   onIdle: handleOnIdle,
+  //   events: [
+  //     "mousemove",
+  //     "keydown",
+  //     "wheel",
+  //     "DOMMouseScroll",
+  //     "mousewheel",
+  //     "mousedown",
+  //     "touchstart",
+  //     "touchmove",
+  //     "MSPointerDown",
+  //     "MSPointerMove",
+  //     "visibilitychange",
+  //   ],
+  //   debounce: 500,
+  // });
 
   //form log out btn
-  const handleLogOut = () => {
-    Cookies.remove("user");
-    sessionStorage.clear();
-    navigate("/login");
-    window.location.reload();
-  };
+  // const handleLogOut = () => {
+  //   Cookies.remove("user");
+  //   sessionStorage.clear();
+  //   navigate("/login");
+  //   window.location.reload();
+  // };
 
   return (
     <section className="main-dash">
@@ -223,7 +217,7 @@ function Sidebar() {
               Chat Support
             </div>
           </Link>
-          <Link onClick={handleLogOut}>
+          <Link>
             <div className="d-flex flex-row">
               <img src={logout} alt="" className="img-fluid me-2 icons" />
               Log Out
