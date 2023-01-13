@@ -90,7 +90,7 @@ function Kyc() {
   setTimeout(() => {
     if (onSuccess) {
       sendMsg();
-      navigate("/verify-mobile");
+      navigate("/set-pin");
     }
   }, 2000);
 

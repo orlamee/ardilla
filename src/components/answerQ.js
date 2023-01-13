@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../img/logo.svg";
 import home from "../img/home-login.svg";
-
-import Cookies from "js-cookie";
 import axios from "axios";
 
 function AQ() {
-  const token = Cookies.get("user");
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   const [userDetail, setUserDetail] = useState({});
   const [loading, setLoading] = useState(false);
@@ -19,42 +17,62 @@ function AQ() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getUser = async () => {
-      try {
-        const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/user/getUser/${token}`
-        );
+    try {
+      const getUserById = async () => {
+        const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
+          withCredentials: true,
+        });
 
         setUserDetail(data.user);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+      };
 
-    getUser();
-  }, [token]);
+      getUserById();
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setMsg(message);
+      setErr(true);
+    }
+  }, [navigate, BACKEND_URL]);
 
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
+      setLoading(true);
 
-      await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/answer-security-question/${token}`
+      await axios.post(
+        `${BACKEND_URL}/api/auth/answer-question`,
+        { ans },
+        { withCredentials: true }
       );
 
-      if (userDetail?.securityQusetion?.answer === ans) {
-        setMsg(`Hey ,${userDetail?.kodeHex} welcome `);
-        setOnSuccess(true);
-        setLoading(false);
-        //check me out
-        navigate("/dashboard");
-      } else {
-        setLoading(false);
-        setErr(true);
-        setMsg("Wrong answer");
-      }
+      // if (userDetail?.securityQusetion?.answer === ans) {
+      //   setMsg(`Hey ,${userDetail?.kodeHex} welcome `);
+      //   setOnSuccess(true);
+      setLoading(false);
+      //   //check me out
+      navigate("/dashboard");
+      // } else {
+      //   setLoading(false);
+      //   setErr(true);
+      //   setMsg("Wrong answer");
+      // }
     } catch (error) {
-      console.log(error);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setMsg(message);
+      setErr(true);
+      setLoading(false);
     }
   };
 

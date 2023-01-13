@@ -34,13 +34,15 @@ function CreatePin() {
           withCredentials: true,
         });
 
-        if (data?.user?.verified === "mv") {
-          return;
-        } else if (data?.user?.verified === "complete") {
-          return navigate("/login");
-        } else {
-          return navigate("/404");
-        }
+        console.log(data);
+
+        // if (data?.user?.verified === "mv") {
+        //   return;
+        // } else if (data?.user?.verified === "complete") {
+        //   return navigate("/login");
+        // } else {
+        //   return navigate("/404");
+        // }
       };
 
       getUserById();
