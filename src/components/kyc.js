@@ -73,6 +73,8 @@ function Kyc() {
       );
       const pin = data.pinId;
 
+      console.log(userCheck.contact);
+
       await axios.put(
         `${BACKEND_URL}/api/auth/mobile-otp`,
         {
