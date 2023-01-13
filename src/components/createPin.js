@@ -72,7 +72,7 @@ function CreatePin() {
         return;
       }
 
-      const { data } = await axios.post(
+      const { data } = await axios.put(
         `${BACKEND_URL}/api/auth/set-pin`,
         {
           code,
