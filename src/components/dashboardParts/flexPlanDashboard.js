@@ -18,10 +18,8 @@ import axios from "axios";
 
 function FlexPlanDashboard() {
   const [flexAcct, setFlexAcct] = useState();
-
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
-
   const [user, setUser] = useState();
 
   useEffect(() => {
