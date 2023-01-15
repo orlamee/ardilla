@@ -21,82 +21,129 @@ import axios from "axios";
 import { usePaystackPayment } from "react-paystack";
 
 function DashboardFlex() {
-  let user = JSON.parse(sessionStorage.getItem("user"));
-
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-
   const [flexAcct, setFlexAcct] = useState();
   const [amount, setAmount] = useState(100);
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
   const [flexHistory, setFlexHistory] = useState();
+  const [user, setUser] = useState();
+  const [onSuccessModal, setOnSuccessModal] = useState(false);
 
   useEffect(() => {
-    const getFlexPlan = async () => {
+    const getFlexAccount = async () => {
       try {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
-        );
-        console.log(data);
-        setFlexAcct(data.flexPlan);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    const getFlexPlan2 = async () => {
-      try {
-        const { data } = await axios.get(
-          `${BACKEND_URL}/api/flex/get-flex-account`,
+          `${process.env.BACKEND_URL}/api/flex/get-flex-account`,
           { withCredentials: true }
         );
-        console.log("2", data);
+
+        setFlexAcct(data.flexPlan);
       } catch (error) {
-        console.log(error);
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
       }
     };
 
     const getFlexHistory = async () => {
       try {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/flex-history/${user._id}`
+          `${process.env.BACKEND_URL}/api/flex/flex-history`
         );
-
-        console.log(data);
 
         setFlexHistory(data.th);
       } catch (error) {
-        console.log(error);
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
       }
     };
 
-    getFlexPlan();
-    getFlexPlan2();
-    getFlexHistory();
-  }, [user._id, BACKEND_URL]);
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
 
-  const getFlexPlan = async () => {
+        setUser(data.user);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+      }
+    };
+
+    getFlexAccount();
+    getFlexHistory();
+    getUserById();
+  }, []);
+
+  const getFlexAccount = async () => {
     try {
       const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
+        `${process.env.BACKEND_URL}/api/flex/get-flex-account`,
+        { withCredentials: true }
       );
-      console.log(data);
+
       setFlexAcct(data.flexPlan);
     } catch (error) {
-      console.log(error);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setMsg(message);
     }
   };
 
   const topUp = async () => {
     try {
       const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/top-up-flex/${user._id}`,
-        { amount }
+        `${process.env.BACKEND_URL}/api/flex/flex-top-up}`,
+        { amount },
+        { withCredentials: true }
       );
 
-      console.log(data);
-      getFlexPlan();
+      setMsg(data.msg);
+      setOnSuccessModal(true);
+
+      getFlexAccount();
       setAmount(0);
     } catch (error) {
-      console.log(error);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setMsg(message);
+      setOnSuccessModal(false);
     }
   };
 
@@ -120,8 +167,59 @@ function DashboardFlex() {
 
   const initializePayment = usePaystackPayment(config);
 
+  const handleClickSuccess = () => {
+    setOnSuccessModal(false);
+  };
+
+  setTimeout(() => {
+    if (onSuccess) {
+      setOnSuccessModal(false);
+    }
+  }, 3000);
+
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccessModal && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">

@@ -20,7 +20,7 @@ function FlexPlanSuccess() {
   const [onSuccess, setOnSuccess] = useState(false);
   const [loading, setLoading] = useState();
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  // let user = JSON.parse(sessionStorage.getItem("user"));
 
   const navigate = useNavigate();
 
@@ -31,20 +31,25 @@ function FlexPlanSuccess() {
   const handleClick = async () => {
     if (period) {
       setLoading(true);
-      console.log(period);
-      try {
-        const { data } = await axios.put(
-          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/saving-period/${user._id}`,
-          { period }
-        );
 
-        console.log(data);
+      try {
+        await axios.put(`${process.env.BACKEND_URL}/api/flex/saving-period/`, {
+          period,
+        });
+
         setLoading(false);
         navigate("/flex-overview");
       } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
         setLoading(false);
         setErr(true);
-        setMsg(`${error.response.data.msg} ` || "Network error");
+        setMsg(message);
       }
     } else {
       setLoading(false);
