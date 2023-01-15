@@ -26,6 +26,9 @@ function FlexPlanSpend() {
 
   const navigate = useNavigate();
 
+  console.log(process.env.BACKEND_URL);
+  console.log("this page");
+
   const handleClickSuccess = () => {
     setOnSuccess(false);
   };
@@ -41,6 +44,7 @@ function FlexPlanSpend() {
         );
 
         setUser(data.user);
+        console.log(data);
       } catch (error) {
         const message =
           (error.response &&
@@ -62,6 +66,7 @@ function FlexPlanSpend() {
         );
 
         setFlexAcct(data.flexPlan);
+        console.log(data);
       } catch (error) {
         const message =
           (error.response &&
