@@ -37,7 +37,7 @@ function FlexPlanOverview() {
       setLoading(true);
 
       const { data } = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/flex-plan/activate-plan`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/activate-plan`,
         { withCredentials: true }
       );
 
