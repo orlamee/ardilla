@@ -34,7 +34,7 @@ function FlexPlanSuccess() {
 
       try {
         await axios.put(
-          `${process.env.BACKEND_URL}/api/flex/saving-period/`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/flex/saving-period/`,
           {
             period,
           },

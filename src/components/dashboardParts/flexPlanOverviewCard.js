@@ -33,7 +33,7 @@ function FlexPlanOverviewCard() {
     const getUserById = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.BACKEND_URL}/api/user/get-user`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
           {
             withCredentials: true,
           }
@@ -55,7 +55,7 @@ function FlexPlanOverviewCard() {
     const getFlexAccount = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.BACKEND_URL}/api/flex/get-flex-account`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/flex/get-flex-account`,
           { withCredentials: true }
         );
 
@@ -80,7 +80,7 @@ function FlexPlanOverviewCard() {
   const getFlexAccount = async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.BACKEND_URL}/api/flex/get-flex-account`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/get-flex-account`,
         { withCredentials: true }
       );
 
@@ -101,7 +101,7 @@ function FlexPlanOverviewCard() {
   const topUp = async () => {
     try {
       await axios.put(
-        `${process.env.BACKEND_URL}/api/flex/flex-top-up}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-top-up}`,
         {
           amount,
         },

@@ -37,7 +37,7 @@ function FlexPlanOverview() {
       setLoading(true);
 
       const { data } = await axios.get(
-        `${process.env.BACKEND_URL}/api/flex-plan/activate-plan`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex-plan/activate-plan`,
         { withCredentials: true }
       );
 
@@ -68,7 +68,7 @@ function FlexPlanOverview() {
     const getFlexAccount = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.BACKEND_URL}/api/flex/get-flex-account`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/flex/get-flex-account`,
           { withCredentials: true }
         );
 

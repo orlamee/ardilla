@@ -27,7 +27,7 @@ function FlexPlanSetDuration() {
     const getUserById = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.BACKEND_URL}/api/user/get-user`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
           {
             withCredentials: true,
           }
@@ -54,9 +54,12 @@ function FlexPlanSetDuration() {
     try {
       setLoading(true);
 
-      await axios.get(`${process.env.BACKEND_URL}/api/flex/calculate-intrest`, {
-        withCredentials: true,
-      });
+      await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/calculate-intrest`,
+        {
+          withCredentials: true,
+        }
+      );
 
       // console.log(data);
     } catch (error) {
@@ -84,7 +87,7 @@ function FlexPlanSetDuration() {
 
     try {
       const { data } = await axios.put(
-        `${process.env.BACKEND_URL}/api/flex/custom-duration`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/custom-duration`,
         { duration },
         { withCredentials: true }
       );

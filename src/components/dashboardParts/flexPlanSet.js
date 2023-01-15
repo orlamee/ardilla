@@ -27,7 +27,7 @@ function FlexPlanSet() {
     const getUserById = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.BACKEND_URL}/api/user/get-user`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
           {
             withCredentials: true,
           }
@@ -60,7 +60,7 @@ function FlexPlanSet() {
 
     try {
       await axios.put(
-        `${process.env.BACKEND_URL}/api/flex/custom-saving-target`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/custom-saving-target`,
         { savingTarget },
         { withCredentials: true }
       );

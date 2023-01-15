@@ -26,7 +26,7 @@ function FlexPlanSpend() {
 
   const navigate = useNavigate();
 
-  console.log(process.env.BACKEND_URL);
+  console.log(process.env.REACT_APP_BACKEND_URL);
   console.log("this page");
 
   const handleClickSuccess = () => {
@@ -37,7 +37,7 @@ function FlexPlanSpend() {
     const getUserById = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.BACKEND_URL}/api/user/get-user`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
           {
             withCredentials: true,
           }
@@ -61,7 +61,7 @@ function FlexPlanSpend() {
     const getFlexAccount = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.BACKEND_URL}/api/flex/get-flex-account`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/flex/get-flex-account`,
           { withCredentials: true }
         );
 
@@ -89,7 +89,7 @@ function FlexPlanSpend() {
       setLoading(true);
       try {
         await axios.put(
-          `${process.env.BACKEND_URL}/api/flex/set-expenditure`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/flex/set-expenditure`,
           { value },
           { withCredentials: true }
         );

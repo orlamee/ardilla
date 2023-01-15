@@ -26,7 +26,7 @@ function FlexPlanDashboard() {
     const getUserById = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.BACKEND_URL}/api/user/get-user`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
           {
             withCredentials: true,
           }
@@ -49,7 +49,7 @@ function FlexPlanDashboard() {
     const getFlexAccount = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.BACKEND_URL}/api/flex/get-flex-account`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/flex/get-flex-account`,
           { withCredentials: true }
         );
 
