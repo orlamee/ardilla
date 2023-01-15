@@ -33,9 +33,13 @@ function FlexPlanSuccess() {
       setLoading(true);
 
       try {
-        await axios.put(`${process.env.BACKEND_URL}/api/flex/saving-period/`, {
-          period,
-        });
+        await axios.put(
+          `${process.env.BACKEND_URL}/api/flex/saving-period/`,
+          {
+            period,
+          },
+          { withCredentials: true }
+        );
 
         setLoading(false);
         navigate("/flex-overview");
