@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -19,24 +19,58 @@ function FlexPlanSetDuration() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
+  const [user, setUser] = useState();
 
   const navigate = useNavigate();
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  useEffect(() => {
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUser(data.user);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+      }
+    };
+
+    getUserById();
+  }, []);
 
   const calculateIntrest = async () => {
     try {
-      // setLoading(true);
+      setLoading(true);
 
-      const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/calculate-intrest/${user._id}`
-      );
+      await axios.get(`${process.env.BACKEND_URL}/api/flex/calculate-intrest`, {
+        withCredentials: true,
+      });
 
-      // setLoading(false);
-      // navigate("/target-dashboard");
-      console.log(data);
+      // console.log(data);
     } catch (error) {
-      console.log(error);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setMsg(message);
+      setLoading(false);
+      setOnSuccess(true);
     }
   };
 
@@ -50,8 +84,9 @@ function FlexPlanSetDuration() {
 
     try {
       const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/custom-duration/${user._id}`,
-        { duration }
+        `${process.env.BACKEND_URL}/api/flex/custom-duration`,
+        { duration },
+        { withCredentials: true }
       );
 
       console.log(data);
@@ -59,10 +94,16 @@ function FlexPlanSetDuration() {
       calculateIntrest();
       navigate("/flex-dashboard");
     } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
       setLoading(false);
 
       setErr(true);
-      setMsg(`${error.response.data.msg} ` || "Network error");
+      setMsg(message);
       console.log(error);
     }
   };
@@ -183,7 +224,7 @@ function FlexPlanSetDuration() {
           <div className="col-md-6">
             <h2>
               Cadet {"<"}
-              {user.kodeHex}
+              {user?.kodeHex}
               {"/>"},
             </h2>
           </div>
