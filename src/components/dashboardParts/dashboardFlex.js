@@ -54,7 +54,8 @@ function DashboardFlex() {
     const getFlexHistory = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.BACKEND_URL}/api/flex/flex-history`
+          `${process.env.BACKEND_URL}/api/flex/flex-history`,
+          { withCredentials: true }
         );
 
         setFlexHistory(data.th);
