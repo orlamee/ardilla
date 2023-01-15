@@ -20,8 +20,9 @@ function FlexPlanSpend() {
   const [flexAcct, setFlexAcct] = useState();
   const [loading, setLoading] = useState();
   const [value, setValue] = useState();
+  const [user, setUser] = useState();
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  // let user = JSON.parse(sessionStorage.getItem("user"));
 
   const navigate = useNavigate();
 
@@ -30,40 +31,78 @@ function FlexPlanSpend() {
   };
 
   useEffect(() => {
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUser(data.user);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setOnSuccess(false);
+        setMsg(message);
+      }
+    };
     const getFlexAccount = async () => {
       try {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
+          `${process.env.BACKEND_URL}/api/flex/get-flex-account`,
+          { withCredentials: true }
         );
 
-        console.log(data);
         setFlexAcct(data.flexPlan);
       } catch (error) {
-        console.log(error);
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
       }
     };
 
     getFlexAccount();
-  }, [user._id]);
+    getUserById();
+  }, []);
 
   const handleSpend = async () => {
     if (value) {
-      console.log(value);
       setLoading(true);
       try {
-        const { data } = await axios.put(
-          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/set-expenditure/${user._id}`,
-          { value }
+        await axios.put(
+          `${process.env.BACKEND_URL}/api/flex/set-expenditure`,
+          { value },
+          { withCredentials: true }
         );
 
-        console.log(data);
+        // console.log(data);
         setLoading(false);
         navigate("/flex-type");
       } catch (error) {
-        console.log(error);
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
         setLoading(false);
         setErr(true);
-        setMsg(`${error.response.data.msg} ` || "Network error");
+        setMsg(message);
       }
     } else {
       setLoading(false);
@@ -188,7 +227,7 @@ function FlexPlanSpend() {
           <div className="col-md-6">
             <h2>
               Cadet {"<"}
-              {user.kodeHex}
+              {user?.kodeHex}
               {"/>"},
             </h2>
           </div>

@@ -26,8 +26,6 @@ function FlexPlanOverview() {
   const [onSuccess, setOnSuccess] = useState(false);
   const [loading, setLoading] = useState();
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
-
   const day = new Date().getDate();
 
   const handleClickSuccess = () => {
@@ -38,53 +36,27 @@ function FlexPlanOverview() {
     try {
       setLoading(true);
 
-      const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/activate-plan/${user._id}`
+      const { data } = await axios.get(
+        `${process.env.BACKEND_URL}/api/flex-plan/activate-plan`,
+        { withCredentials: true }
       );
 
-      console.log(data);
       setLoading(false);
       setOnSuccess(true);
       setMsg(data.msg);
     } catch (error) {
-      console.log(error);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
       setLoading(false);
       setErr(true);
-      setMsg(`${error.response.data.msg} ` || "Network error");
+      setMsg(message);
     }
   };
-
-  // const config = {
-  //   public_key: "FLWPUBK_TEST-992ecad07f109c391d1ba645e5782842-X",
-  //   tx_ref: Date.now(),
-  //   amount: flexAcct?.autoSavingRate,
-  //   currency: "NGN",
-  //   payment_options: "mobilemoney",
-  //   customer: {
-  //     email: "rexatuzie@gmail.com",
-  //     phone_number: "08160853127",
-  //     name: "atuzie rex",
-  //   },
-  //   customizations: {
-  //     title: "Ardilla",
-  //     description: "Top up your dilla wallet.",
-  //     logo: "https://i.postimg.cc/GpczCJRb/Ardilla-Logo.png",
-  //   },
-  // };
-
-  // const fwConfig = {
-  //   ...config,
-  //   text: "Pay with Flutterwave!",
-  //   callback: (response) => {
-  //     console.log(response);
-  //     closePaymentModal(); // this will close the modal programmatically
-  //   },
-  //   onClose: () => {
-  //     console.log("you closed me");
-  //   },
-  // };
-
-  // <FlutterWaveButton {...fwConfig} />
 
   setTimeout(() => {
     if (onSuccess) {
@@ -93,20 +65,29 @@ function FlexPlanOverview() {
   }, 5000);
 
   useEffect(() => {
-    const getTargetAccount = async () => {
+    const getFlexAccount = async () => {
       try {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
+          `${process.env.BACKEND_URL}/api/flex/get-flex-account`,
+          { withCredentials: true }
         );
 
         setFlexAcct(data.flexPlan);
       } catch (error) {
-        console.log(error);
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
       }
     };
 
-    getTargetAccount();
-  }, [user._id]);
+    getFlexAccount();
+  }, []);
 
   const breakdown = flexAcct?.breakdown;
 

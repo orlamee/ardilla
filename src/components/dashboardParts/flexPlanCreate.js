@@ -203,7 +203,7 @@ function FlexPlanCreate() {
           <div className="col-md-6">
             <h2>
               Cadet {"<"}
-              {user.kodeHex}
+              {user?.kodeHex}
               {"/>"},
             </h2>
           </div>

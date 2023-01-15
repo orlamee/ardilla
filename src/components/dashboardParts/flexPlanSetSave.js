@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -15,40 +15,41 @@ import axios from "axios";
 
 function FlexPlanSetSave() {
   const [loading, setLoading] = useState(false);
-
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
-
   const [savingRate, setSavingRate] = useState();
-
   const navigate = useNavigate();
+  const [user, setUser] = useState();
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  // let user = JSON.parse(sessionStorage.getItem("user"));
 
-  // const handleEarn = async (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
+  useEffect(() => {
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
 
-  //   try {
-  //     const { data } = await axios.put(
-  //       `https://ardilla.herokuapp.com/ardilla/api/account/custom-flex-plan/monthly-saving/${user._id}`,
-  //       { customMonthlySavingTarget }
-  //     );
+        setUser(data.user);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
 
-  //     // const ernInfo = data.plan;
+        setErr(true);
+        setMsg(message);
+      }
+    };
 
-  //     setLoading(false);
-  //     console.log(data);
-
-  //     sessionStorage.setItem("acct", JSON.stringify(data.plan));
-  //     navigate("/flex-set-duration");
-  //   } catch (error) {
-  //     setLoading(false);
-  //     setErr(true);
-  //     setMsg(`${error.response.data.msg} ` || "Network error");
-  //   }
-  // };
+    getUserById();
+  }, []);
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
@@ -59,19 +60,26 @@ function FlexPlanSetSave() {
     e.preventDefault();
 
     try {
-      const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/custom-saving-rate/${user._id}`,
-        { savingRate }
+      await axios.put(
+        `${process.env.BACKEND_URL}/api/flex/custom-saving-rate`,
+        { savingRate },
+        { withCredentials: true }
       );
 
-      console.log(data);
       setLoading(false);
       navigate("/flex-set-duration");
     } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setLoading(false);
       setLoading(false);
       setErr(true);
-      setMsg(`${error.response.data.msg} ` || "Network error");
-      console.log(error);
+      setMsg(message);
     }
   };
   return (
@@ -191,7 +199,7 @@ function FlexPlanSetSave() {
           <div className="col-md-6">
             <h2>
               Cadet {"<"}
-              {user.kodeHex}
+              {user?.kodeHex}
               {"/>"},
             </h2>
           </div>

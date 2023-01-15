@@ -19,28 +19,82 @@ import axios from "axios";
 function FlexPlanDashboard() {
   const [flexAcct, setFlexAcct] = useState();
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+
+  const [user, setUser] = useState();
 
   useEffect(() => {
-    const getTargetAccount = async () => {
+    const getUserById = async () => {
       try {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
+          `${process.env.BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
         );
 
-        console.log(data);
+        setUser(data.user);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+
+        setMsg(message);
+      }
+    };
+    const getFlexAccount = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.BACKEND_URL}/api/flex/get-flex-account`,
+          { withCredentials: true }
+        );
+
         setFlexAcct(data.flexPlan);
       } catch (error) {
-        // setLoading(false);
-        console.log(error);
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
       }
     };
 
-    getTargetAccount();
-  }, [user._id]);
+    getFlexAccount();
+    getUserById();
+  }, []);
 
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
@@ -124,7 +178,7 @@ function FlexPlanDashboard() {
             {/* <img src={verticalthree} alt="" className="img-fluid"/> */}
             <h2>
               Cadet {"<"}
-              {user.kodeHex}
+              {user?.kodeHex}
               {"/>"},
             </h2>
             <p>

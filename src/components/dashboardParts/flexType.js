@@ -16,7 +16,12 @@ import axios from "axios";
 function TypeFlex() {
   const [flexAcct, setFlexAcct] = useState();
   const [loading, setLoading] = useState();
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
+  const [user, setUser] = useState();
+
+  // let user = JSON.parse(sessionStorage.getItem("user"));
 
   const navigate = useNavigate();
 
@@ -24,15 +29,25 @@ function TypeFlex() {
     try {
       setLoading(true);
 
-      const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/calculate-intrest/${user._id}`
-      );
+      await axios.get(`${process.env.BACKEND_URL}/api/flex/calculate-intrest`, {
+        withCredentials: true,
+      });
 
       setLoading(false);
       navigate("/flex-dashboard");
-      console.log(data);
+      // console.log(data);
     } catch (error) {
-      console.log(error);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setMsg(message);
+      setLoading(false);
+      setOnSuccess(true);
     }
   };
 
@@ -40,20 +55,96 @@ function TypeFlex() {
     const getFlexAccount = async () => {
       try {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/flex-plan/get-flex-account/${user._id}`
+          `${process.env.BACKEND_URL}/api/flex/get-flex-account`,
+          { withCredentials: true }
         );
 
         setFlexAcct(data.flexPlan);
       } catch (error) {
-        console.log(error);
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
       }
     };
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
 
+        setUser(data.user);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setOnSuccess(false);
+        setMsg(message);
+      }
+    };
     getFlexAccount();
-  }, [user._id]);
+    getUserById();
+  }, []);
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+  };
 
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
@@ -100,7 +191,7 @@ function TypeFlex() {
         <Link to="/learn">
           <div className="d-flex flex-row">
             <img src={learn} alt="" className="img-fluid me-2 icons" />
-            Learn 
+            Learn
           </div>
         </Link>
         <div className="second-nav">

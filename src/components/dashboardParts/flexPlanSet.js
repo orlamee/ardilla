@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -17,13 +17,38 @@ function FlexPlanSet() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
-
+  const [user, setUser] = useState();
   const [loading, setLoading] = useState();
   const [savingTarget, setSavingTarget] = useState();
 
   const navigate = useNavigate();
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  useEffect(() => {
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUser(data.user);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+      }
+    };
+
+    getUserById();
+  }, []);
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
@@ -34,19 +59,28 @@ function FlexPlanSet() {
     e.preventDefault();
 
     try {
-      const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/flex-plan/custom-saving-target/${user._id}`,
-        { savingTarget }
+      await axios.put(
+        `${process.env.BACKEND_URL}/api/flex/custom-saving-target`,
+        { savingTarget },
+        { withCredentials: true }
       );
 
-      console.log(data);
+      // console.log(data);
       setLoading(false);
       navigate("/flex-savings");
     } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setMsg(message);
       setLoading(false);
       setErr(true);
-      setMsg(`${error.response.data.msg} ` || "Network error");
-      console.log(error);
+      setMsg(message);
     }
   };
 
@@ -167,7 +201,7 @@ function FlexPlanSet() {
           <div className="col-md-6">
             <h2>
               Cadet {"<"}
-              {user.kodeHex}
+              {user?.kodeHex}
               {"/>"},
             </h2>
           </div>
