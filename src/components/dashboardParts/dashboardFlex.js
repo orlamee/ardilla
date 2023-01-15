@@ -33,7 +33,7 @@ function DashboardFlex() {
     const getFlexAccount = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.BACKEND_URL}/api/flex/get-flex-account`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/flex/get-flex-account`,
           { withCredentials: true }
         );
 
@@ -54,7 +54,7 @@ function DashboardFlex() {
     const getFlexHistory = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.BACKEND_URL}/api/flex/flex-history`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-history`,
           { withCredentials: true }
         );
 
@@ -75,7 +75,7 @@ function DashboardFlex() {
     const getUserById = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.BACKEND_URL}/api/user/get-user`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
           {
             withCredentials: true,
           }
@@ -103,7 +103,7 @@ function DashboardFlex() {
   const getFlexAccount = async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.BACKEND_URL}/api/flex/get-flex-account`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/get-flex-account`,
         { withCredentials: true }
       );
 
@@ -124,7 +124,7 @@ function DashboardFlex() {
   const topUp = async () => {
     try {
       const { data } = await axios.put(
-        `${process.env.BACKEND_URL}/api/flex/flex-top-up}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-top-up}`,
         { amount },
         { withCredentials: true }
       );
