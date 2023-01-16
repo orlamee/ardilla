@@ -792,7 +792,10 @@ function DashboardFlex() {
                     </div>
                     <div className="col-md-6 text-end">
                       {/* <p>₦250k - ₦500k</p> */}
-                      <p>{flexAcct?.earn}</p>
+                      <p>
+                        {" "}
+                        ₦ {Intl.NumberFormat("en-US").format(flexAcct?.earn)}
+                      </p>
                     </div>
                     <hr />
                   </div>
