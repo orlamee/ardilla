@@ -59,6 +59,7 @@ function DashboardFlex() {
         );
 
         setFlexHistory(data.th);
+        console.log(data);
       } catch (error) {
         const message =
           (error.response &&
