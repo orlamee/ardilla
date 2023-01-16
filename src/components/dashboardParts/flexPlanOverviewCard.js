@@ -108,12 +108,13 @@ function FlexPlanOverviewCard() {
 
   console.log(amount);
 
-  const topUp = async () => {
+  const topUp = async (reference) => {
     try {
       await axios.put(
         `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-top-up`,
         {
           amount,
+          reference,
         },
         { withCredentials: true }
       );
@@ -153,7 +154,7 @@ function FlexPlanOverviewCard() {
   const onSuccess = (reference) => {
     // Implementation for whatever you want to do with reference and after success call.
     console.log(reference);
-    topUp();
+    topUp(reference);
   };
 
   const onClose = () => {
