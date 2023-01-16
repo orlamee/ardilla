@@ -58,7 +58,8 @@ function DashboardFlex() {
           { withCredentials: true }
         );
 
-        setFlexHistory(data.th);
+        setFlexHistory(data.transactionHistory);
+        console.log(data);
       } catch (error) {
         const message =
           (error.response &&
@@ -124,7 +125,7 @@ function DashboardFlex() {
   const topUp = async () => {
     try {
       const { data } = await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-top-up}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-top-up`,
         { amount },
         { withCredentials: true }
       );
@@ -150,7 +151,7 @@ function DashboardFlex() {
 
   const config = {
     reference: new Date().getTime().toString(),
-    email: user.email,
+    email: user?.email,
     amount: amount * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
     publicKey: "pk_test_bdeef845da401d49681c94007d802d6c68ac2ef8",
   };
