@@ -64,9 +64,9 @@ function FlexPlanOverviewCard() {
         setFlexAcct(data.flexPlan);
 
         if (data.flexPlan.customSavingRate) {
-          setAmount(flexAcct?.customSavingRate);
+          setAmount(data.flexPlan.customSavingRate);
         } else {
-          setAmount(flexAcct?.autoSavingRate);
+          setAmount(data.flexPlan.autoSavingRate);
         }
       } catch (error) {
         const message =
@@ -83,7 +83,7 @@ function FlexPlanOverviewCard() {
 
     getFlexAccount();
     getUserById();
-  }, [flexAcct]);
+  }, []);
 
   const getFlexAccount = async () => {
     try {
