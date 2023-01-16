@@ -73,8 +73,6 @@ function OtpPage() {
       setMsg(data.msg);
       setOnSuccess(true);
       setIsLoading(false);
-
-      setIsLoading(false);
     } catch (error) {
       const message =
         (error.response &&
