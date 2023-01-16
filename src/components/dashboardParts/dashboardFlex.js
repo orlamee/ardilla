@@ -540,7 +540,12 @@ function DashboardFlex() {
                       <h6>{data.transactionDate}</h6>
                     </div>
                     <div className="col-md-3">
-                      <h6>₦ {data.transactionAmount} </h6>
+                      <h6>
+                        ₦
+                        {Intl.NumberFormat("en-US").format(
+                          data.transactionAmount
+                        )}
+                      </h6>
                     </div>
                     <div className="col-md-2">
                       <h6> </h6>
@@ -946,7 +951,12 @@ function DashboardFlex() {
                             <h6>{data.transactionDate}</h6>
                           </div>
                           <div className="col-md-3">
-                            <h6>₦ {data.transactionAmount} </h6>
+                            <h6>
+                              ₦{" "}
+                              {Intl.NumberFormat("en-US").format(
+                                data.transactionAmount
+                              )}{" "}
+                            </h6>
                           </div>
                           <div className="col-md-2">
                             <h6> </h6>
