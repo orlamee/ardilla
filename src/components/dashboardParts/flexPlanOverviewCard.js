@@ -29,6 +29,8 @@ function FlexPlanOverviewCard() {
   const [user, setUser] = useState();
   const [amount, setAmount] = useState();
 
+  console.log("card");
+
   useEffect(() => {
     const getUserById = async () => {
       try {
