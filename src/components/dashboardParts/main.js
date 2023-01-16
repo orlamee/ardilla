@@ -37,10 +37,6 @@ function Sidebar() {
   const [sanBalance, setSanBalance] = useState({});
   const [userDetails, setUserDetails] = useState();
 
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-
-  console.log(BACKEND_URL);
-
   // let user = JSON.parse(sessionStorage.getItem("user"));
 
   // const navigate = useNavigate();
@@ -154,6 +150,20 @@ function Sidebar() {
   //   window.location.reload();
   // };
 
+  const time = new Date().getHours();
+
+  let greeting;
+
+  if (time < 12) {
+    greeting = "Good morning, ";
+  } else if (time <= 18) {
+    greeting = "Good Afternoon, ";
+  } else {
+    greeting = "Good evening, ";
+  }
+
+  console.log(greeting);
+
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -236,7 +246,8 @@ function Sidebar() {
               {"/>"}
             </h2> */}
             <h6 className="mt-4">
-              Good Morning.
+              {/* Good Morning. */}
+              {greeting}
               {/* {dayjs(`${date} ${time}`).greet()}.{" "} */}
               <img src={daylight} alt="day" className="img-fluid ms-3" />
             </h6>
