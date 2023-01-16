@@ -63,7 +63,8 @@ function VerifyPhone() {
     const getMobilePin = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/api/auth/mobile-otp-3`
+          `${process.env.REACT_APP_BACKEND_URL}/api/auth/mobile-otp-3`,
+          { withCredentials: true }
         );
 
         console.log(data);
