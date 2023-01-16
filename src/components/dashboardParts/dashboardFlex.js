@@ -17,6 +17,7 @@ import lieu from "../../img/dashboard/lieu.svg";
 import colo from "../../img/dashboard/col.svg";
 import visacard from "../../img/dashboard/visa-card.svg";
 import dib from "../../img/dashboard/dib.png";
+import transfer from "../../img/dashboard/received-icon.svg";
 import axios from "axios";
 import { usePaystackPayment } from "react-paystack";
 
@@ -517,7 +518,20 @@ function DashboardFlex() {
                   <div className="row mt-2 border-bottom py-3">
                     <div className="col-md-4">
                       <div className="d-flex flex-row">
-                        <img src={withdraw} alt="" className="img-fluid me-3" />
+                        {data.transactionType === "Top Up" ? (
+                          <img
+                            src={transfer}
+                            alt=""
+                            className="img-fluid me-3"
+                          />
+                        ) : (
+                          <img
+                            src={withdraw}
+                            alt=""
+                            className="img-fluid me-3"
+                          />
+                        )}
+
                         {/* <h6>Transportation</h6> */}
                         <h6>{data.transactionType}</h6>
                       </div>
@@ -905,11 +919,25 @@ function DashboardFlex() {
                         <div className="row mt-2 border-bottom py-3">
                           <div className="col-md-4">
                             <div className="d-flex flex-row">
-                              <img
+                              {/* <img
                                 src={withdraw}
                                 alt=""
                                 className="img-fluid me-3"
-                              />
+                              /> */}
+
+                              {data.transactionType === "Top Up" ? (
+                                <img
+                                  src={transfer}
+                                  alt=""
+                                  className="img-fluid me-3"
+                                />
+                              ) : (
+                                <img
+                                  src={withdraw}
+                                  alt=""
+                                  className="img-fluid me-3"
+                                />
+                              )}
                               {/* <h6>Transportation</h6> */}
                               <h6>{data.transactionType}</h6>
                             </div>
