@@ -18,43 +18,81 @@ import axios from "axios";
 
 function TargetPlanDashboard() {
   const [targetAcct, setTargetAcct] = useState();
-  let user = JSON.parse(sessionStorage.getItem("user"));
-
-  const calculateIntrest = async () => {
-    console.log("test");
-    // try {
-    //   // setLoading(true);
-
-    //   const { data } = await axios.get(
-    //     `https://ardilla.herokuapp.com/ardilla/api/target-plan/calculate-intrest/${user._id}`
-    //   );
-
-    //   // setLoading(false);
-    //   // navigate("/target-dashboard");
-    //   console.log(data);
-    // } catch (error) {
-    //   console.log(error);
-    // }
-  };
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [user, setUser] = useState();
 
   useEffect(() => {
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUser(data.user);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+
+        setMsg(message);
+      }
+    };
     const getTargetAccount = async () => {
       try {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/target-plan/get-target-account/${user._id}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account`,
+          { withCredentials: true }
         );
 
         setTargetAcct(data.targetPlan);
       } catch (error) {
-        console.log(error);
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
       }
     };
 
     getTargetAccount();
-    // calculateIntrest();
-  }, [user._id]);
+    getUserById();
+  }, []);
+
   return (
     <section className="main-dash">
+       {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
@@ -138,7 +176,7 @@ function TargetPlanDashboard() {
             {/* <img src={verticalthree} alt="" className="img-fluid"/> */}
             <h2>
               Cadet {"<"}
-              {user.kodeHex}
+              {user?.kodeHex}
               {"/>"},
             </h2>
             <p>
@@ -155,7 +193,7 @@ function TargetPlanDashboard() {
                   <div className="d-flex flex-row">
                     <img src={interest} alt="" className="img-fluid" />
                     <div className="ms-3">
-                      <p onClick={calculateIntrest}>Badge</p>
+                      <p>Badge</p>
                       <h3 className="mt-3">{targetAcct?.badge}</h3>
                     </div>
                   </div>

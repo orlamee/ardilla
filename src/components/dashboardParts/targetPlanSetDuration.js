@@ -17,22 +17,72 @@ import axios from "axios";
 function TargetPlanSetDuration() {
   const [loading, setLoading] = useState();
   const [duration, setDuration] = useState();
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  // let user = JSON.parse(sessionStorage.getItem("user"));
 
   const navigate = useNavigate();
 
+  // const calculateIntrest = async () => {
+  //   try {
+  //     const { data } = await axios.get(
+  //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/calculate-intrest/${user._id}`
+  //     );
+
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   const calculateIntrest = async () => {
     try {
-      const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/target-plan/calculate-intrest/${user._id}`
+      setLoading(true);
+
+      await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/calculate-intrest`,
+        {
+          withCredentials: true,
+        }
       );
 
-      console.log(data);
+      // console.log(data);
     } catch (error) {
-      console.log(error);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setMsg(message);
+      setLoading(false);
+      setOnSuccess(true);
     }
   };
+
+  // const handleSubmit = async (e) => {
+  //   setLoading(true);
+  //   e.preventDefault();
+
+  //   try {
+  //     const { data } = await axios.put(
+  //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/custom-duration/${user._id}`,
+  //       { duration }
+  //     );
+
+  //     calculateIntrest();
+  //     console.log(data);
+  //     setLoading(false);
+  //     navigate("/target-dashboard");
+  //   } catch (error) {
+  //     setLoading(false);
+  //     console.log(error);
+  //   }
+  // };
 
   const handleSubmit = async (e) => {
     setLoading(true);
@@ -40,21 +90,75 @@ function TargetPlanSetDuration() {
 
     try {
       const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/target-plan/custom-duration/${user._id}`,
-        { duration }
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/custom-duration`,
+        { duration },
+        { withCredentials: true }
       );
 
-      calculateIntrest();
       console.log(data);
       setLoading(false);
+      calculateIntrest();
       navigate("/target-dashboard");
     } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
       setLoading(false);
+
+      setErr(true);
+      setMsg(message);
       console.log(error);
     }
   };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+  };
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">

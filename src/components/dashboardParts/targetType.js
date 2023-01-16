@@ -16,44 +16,118 @@ import axios from "axios";
 function TypeTarget() {
   const [targetAcct, setTargetAcct] = useState();
   const [loading, setLoading] = useState();
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  // let user = JSON.parse(sessionStorage.getItem("user"));
 
   const navigate = useNavigate();
+
+  // const calculateIntrest = async () => {
+  //   try {
+  //     setLoading(true);
+
+  //     const { data } = await axios.get(
+  //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/calculate-intrest/${user._id}`
+  //     );
+
+  //     setLoading(false);
+  //     navigate("/target-dashboard");
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const calculateIntrest = async () => {
     try {
       setLoading(true);
 
-      const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/target-plan/calculate-intrest/${user._id}`
+      await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/calculate-intrest`,
+        {
+          withCredentials: true,
+        }
       );
 
+      // console.log(data);
       setLoading(false);
       navigate("/target-dashboard");
-      console.log(data);
     } catch (error) {
-      console.log(error);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setMsg(message);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
+    // const getTargetAccount = async () => {
+    //   try {
+    //     const { data } = await axios.get(
+    //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/get-target-account/${user._id}`
+    //     );
+
+    //     // console.log(data);
+    //     setTargetAcct(data.targetPlan);
+    //   } catch (error) {
+    //     // setLoading(false);
+    //     console.log(error);
+    //   }
+    // };
+
     const getTargetAccount = async () => {
       try {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/target-plan/get-target-account/${user._id}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account`,
+          { withCredentials: true }
         );
 
         setTargetAcct(data.targetPlan);
       } catch (error) {
-        console.log(error);
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
       }
     };
 
     getTargetAccount();
-  }, [user._id]);
+  }, []);
+
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">

@@ -17,31 +17,106 @@ import axios from "axios";
 function TargetPlanSetSave() {
   const [loading, setLoading] = useState();
   const [savingRate, setSavingRate] = useState();
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  // let user = JSON.parse(sessionStorage.getItem("user"));
 
   const navigate = useNavigate();
+
+  // const handleSubmit = async (e) => {
+  //   setLoading(true);
+  //   e.preventDefault();
+
+  //   try {
+  //     const { data } = await axios.put(
+  //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/custom-saving-rate/${user._id}`,
+  //       { savingRate }
+  //     );
+
+  //     console.log(data);
+  //     setLoading(false);
+  //     navigate("/target-set-duration");
+  //   } catch (error) {
+  //     setLoading(false);
+  //     console.log(error);
+  //   }
+  // };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+  };
 
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
 
     try {
-      const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/target-plan/custom-saving-rate/${user._id}`,
-        { savingRate }
+      await axios.put(
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/custom-saving-rate`,
+        { savingRate },
+        { withCredentials: true }
       );
 
-      console.log(data);
       setLoading(false);
       navigate("/target-set-duration");
     } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
       setLoading(false);
-      console.log(error);
+      setLoading(false);
+      setErr(true);
+      setMsg(message);
     }
   };
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">

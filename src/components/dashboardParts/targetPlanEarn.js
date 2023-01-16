@@ -17,31 +17,108 @@ import axios from "axios";
 function TargetPlanEarn() {
   const [loading, setLoading] = useState(false);
   const [ern, setErn] = useState();
-
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
 
   const navigate = useNavigate();
 
+  // const handleClick = async () => {
+  //   setLoading(true);
+
+  //   try {
+  //     const { data } = await axios.put(
+  //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/set-earning/${user._id}`,
+  //       { ern }
+  //     );
+
+  //     console.log(data);
+  //     setLoading(false);
+  //     navigate("/target-spend");
+  //   } catch (error) {
+  //     setLoading(false);
+  //     console.log(error);
+  //   }
+  // };
+
   const handleClick = async () => {
     setLoading(true);
+    if (ern) {
+      try {
+        const { data } = await axios.put(
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/set-earning`,
+          { ern },
+          { withCredentials: true }
+        );
 
-    try {
-      const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/target-plan/set-earning/${user._id}`,
-        { ern }
-      );
+        console.log(data);
+        setLoading(false);
+        navigate("/target-spend");
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
 
-      console.log(data);
+        setLoading(false);
+        setErr(true);
+        setMsg(message);
+      }
+    } else {
       setLoading(false);
-      navigate("/target-spend");
-    } catch (error) {
-      setLoading(false);
-      console.log(error);
+      setErr(true);
+      setMsg("Please enter the amount you earn");
     }
+  };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
   };
 
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">

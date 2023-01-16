@@ -17,31 +17,108 @@ import axios from "axios";
 function TargetPlanSet() {
   const [loading, setLoading] = useState();
   const [savingTarget, setSavingTarget] = useState();
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  // let user = JSON.parse(sessionStorage.getItem("user"));
 
   const navigate = useNavigate();
+
+  // const handleSubmit = async (e) => {
+  //   setLoading(true);
+  //   e.preventDefault();
+
+  //   try {
+  //     const { data } = await axios.put(
+  //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/custom-saving-target/${user._id}`,
+  //       { savingTarget }
+  //     );
+
+  //     console.log(data);
+  //     setLoading(false);
+  //     navigate("/target-set-save");
+  //   } catch (error) {
+  //     setLoading(false);
+  //     console.log(error);
+  //   }
+  // };
 
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
 
     try {
-      const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/target-plan/custom-saving-target/${user._id}`,
-        { savingTarget }
+      await axios.put(
+        `${process.env.REACT_APP_BACKEND_URL}/api/targets/custom-saving-target`,
+        { savingTarget },
+        { withCredentials: true }
       );
 
-      console.log(data);
       setLoading(false);
       navigate("/target-set-save");
     } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setMsg(message);
       setLoading(false);
-      console.log(error);
+      setErr(true);
+      setMsg(message);
     }
   };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+  };
+
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">

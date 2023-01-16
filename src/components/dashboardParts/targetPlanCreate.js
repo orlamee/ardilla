@@ -17,8 +17,10 @@ import axios from "axios";
 function TargetPlanCreate() {
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
 
-  let user = JSON.parse(sessionStorage.getItem("user"));
+  // let user = JSON.parse(sessionStorage.getItem("user"));
 
   const navigate = useNavigate();
 
@@ -28,21 +30,51 @@ function TargetPlanCreate() {
 
     try {
       const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/target-plan/Target-plan-name/${user._id}`,
-        { name }
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/Target-plan-name`,
+        { name },
+        { withCredentials: true }
       );
 
       console.log(data);
       setLoading(false);
       navigate("/target-earn");
     } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
       setLoading(false);
-      console.log(error);
+
+      setErr(true);
+      setMsg(message);
     }
   };
 
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
