@@ -98,12 +98,120 @@ function FinancialCoach() {
             <h2 className="text-white">Olamilekan Akindele</h2>
             <p className="text-white">Savings | Investments | Loans</p>
             <div className="d-flex flex-row">
-              <Link to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 me-3">Fix a meeting</Link>
-              <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 mt-4">Chat now</Link>
+              <Link to="#" className="btn btn-outline-primary px-5 py-3 ardilla-btn support-btn- fs-6 mt-4 me-3">Fix a meeting</Link>
+              <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn support-btn fs-6 mt-4">Chat now</Link>
             </div>
           </div>
         </div>
-        
+        <div className="row mt-5">
+          <div className="col sess">
+            <h4>Your sessions</h4>
+          </div>
+        </div>
+        <div className="bg-session mt-5 p-4">
+          <div className="row">
+            <div className="col-md-3">
+              <h4>Date</h4>
+            </div>
+            <div className="col-md-2">
+              <h4>Date</h4>
+            </div>
+            <div className="col-md-3">
+              <h4>Date</h4>
+            </div>
+            <div className="col-md-2">
+              <h4>Date</h4>
+            </div>
+            <div className="col-md-2">
+              <h4>Date</h4>
+            </div>
+          </div>
+          <div className="row mt-4">
+            <div className="col-md-3">
+              <h6>November 15, 20222</h6>
+            </div>
+            <div className="col-md-2">
+              <h6>Opara Michael</h6>
+            </div>
+            <div className="col-md-3">
+              <h6>1hr : 20mins</h6>
+            </div>
+            <div className="col-md-2">
+              <h6 style={{color: "#8807F7"}}>Download</h6>
+            </div>
+            <div className="col-md-2">
+              <h6 style={{color: "#EAB308"}}>Pending</h6>
+            </div>
+          </div>
+          <div className="row mt-4">
+            <div className="col-md-3">
+              <h6>November 15, 20222</h6>
+            </div>
+            <div className="col-md-2">
+              <h6>Opara Michael</h6>
+            </div>
+            <div className="col-md-3">
+              <h6>1hr : 20mins</h6>
+            </div>
+            <div className="col-md-2">
+              <h6 style={{color: "#8807F7"}}>Download</h6>
+            </div>
+            <div className="col-md-2">
+              <h6 style={{color: "#EAB308"}}>Pending</h6>
+            </div>
+          </div>
+          <div className="row mt-4">
+            <div className="col-md-3">
+              <h6>November 15, 20222</h6>
+            </div>
+            <div className="col-md-2">
+              <h6>Opara Michael</h6>
+            </div>
+            <div className="col-md-3">
+              <h6>1hr : 20mins</h6>
+            </div>
+            <div className="col-md-2">
+              <h6 style={{color: "#8807F7"}}>Download</h6>
+            </div>
+            <div className="col-md-2">
+              <h6 style={{color: "#EAB308"}}>Pending</h6>
+            </div>
+          </div>
+          <div className="row mt-4">
+            <div className="col-md-3">
+              <h6>November 15, 20222</h6>
+            </div>
+            <div className="col-md-2">
+              <h6>Opara Michael</h6>
+            </div>
+            <div className="col-md-3">
+              <h6>1hr : 20mins</h6>
+            </div>
+            <div className="col-md-2">
+              <h6 style={{color: "#8807F7"}}>Download</h6>
+            </div>
+            <div className="col-md-2">
+              <h6 style={{color: "#EAB308"}}>Pending</h6>
+            </div>
+          </div>
+          <div className="row mt-4">
+            <div className="col-md-3">
+              <h6>November 15, 20222</h6>
+            </div>
+            <div className="col-md-2">
+              <h6>Opara Michael</h6>
+            </div>
+            <div className="col-md-3">
+              <h6>1hr : 20mins</h6>
+            </div>
+            <div className="col-md-2">
+              <h6 style={{color: "#8807F7"}}>Download</h6>
+            </div>
+            <div className="col-md-2">
+              <h6 style={{color: "#0D9488"}}>Done</h6>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
