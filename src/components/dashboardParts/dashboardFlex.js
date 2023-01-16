@@ -29,6 +29,7 @@ function DashboardFlex() {
   const [flexHistory, setFlexHistory] = useState();
   const [user, setUser] = useState();
   const [onSuccessModal, setOnSuccessModal] = useState(false);
+  const [source, setSource] = useState("");
 
   useEffect(() => {
     const getFlexAccount = async () => {
@@ -1147,12 +1148,15 @@ function DashboardFlex() {
                             <label className="form-label label-target">
                               Choose withdrawal
                             </label>
-                            <select className="form-select p-select tar-select">
+                            <select
+                              className="form-select p-select tar-select"
+                              onChange={(e) => setSource(e.target.value)}
+                            >
                               <option selected>
                                 Select withdrawal destination
                               </option>
-                              <option value="2">Dilla</option>
-                              <option value="3">SAN</option>
+                              <option value="dilla">Dilla</option>
+                              <option value="SAN">SAN</option>
                             </select>
                           </div>
                           <div>
@@ -1223,16 +1227,16 @@ function DashboardFlex() {
                               Choose withdrawal
                             </label>
                             <select className="form-select p-select tar-select">
-                              <option selected>
-                                Select withdrawal destination
+                              <option value={source} selected>
+                                {source}
                               </option>
-                              <option value="2">Dilla</option>
-                              <option value="3">SAN</option>
+                              {/* <option value="2">Dilla</option>
+                              <option value="3">SAN</option> */}
                             </select>
                           </div>
                           <div className="mb-3">
                             <label className="form-label label-target">
-                              What is your mother’s maiden name?
+                              {user?.securityQusetion?.question}
                             </label>
                             <input
                               type="text"
