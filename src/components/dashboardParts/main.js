@@ -39,6 +39,8 @@ function Sidebar() {
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
+  console.log(BACKEND_URL);
+
   // let user = JSON.parse(sessionStorage.getItem("user"));
 
   // const navigate = useNavigate();
@@ -60,11 +62,13 @@ function Sidebar() {
     const getDillaWallet = async () => {
       try {
         const { data } = await axios.get(
-          `${BACKEND_URL}/api/dilla-wallet/get-dilla-wallet`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/get-dilla-wallet`,
           { withCredentials: true }
         );
 
         setDillaWallet(data.dillaWallet);
+
+        console.log("dillaWallet", data);
       } catch (error) {
         console.log(error);
       }
@@ -73,12 +77,12 @@ function Sidebar() {
     const getSanAcct = async () => {
       try {
         const { data } = await axios.get(
-          `${BACKEND_URL}/api/san/get-san-account`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/san/get-san-account`,
           { withCredentials: true }
         );
 
         setSanBalance(data.sanAccount);
-        console.log(data);
+        console.log("san", data);
       } catch (error) {
         console.log(error);
       }
@@ -86,29 +90,33 @@ function Sidebar() {
 
     const getUserById = async () => {
       try {
-        const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
-          withCredentials: true,
-        });
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
 
         setUserDetails(data.user);
+        console.log("user", data);
       } catch (error) {}
     };
 
-    const generateAccount = async () => {
-      try {
-        await axios.get(`${BACKEND_URL}/api/san/create-account`, {
-          withCredentials: true,
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    // const generateAccount = async () => {
+    //   try {
+    //     await axios.get(`${BACKEND_URL}/api/san/create-account`, {
+    //       withCredentials: true,
+    //     });
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
 
     getUserById();
     getDillaWallet();
     getSanAcct();
-    generateAccount();
-  }, [BACKEND_URL]);
+    // generateAccount();
+  }, []);
 
   // onClick={handleLogOut}
 
