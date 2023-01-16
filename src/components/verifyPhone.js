@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "../img/verify-icon.svg";
 import logo from "../img/logo.svg";
@@ -10,7 +10,7 @@ function VerifyPhone() {
 
   const navigate = useNavigate();
 
-  const pinRef = useRef();
+  // const pinRef = useRef();
 
   const [otp1, setOtp1] = useState("");
   const [otp2, setOtp2] = useState("");
@@ -28,19 +28,17 @@ function VerifyPhone() {
   const [wrongContactMsg, setWrongContactMsg] = useState("");
   const [wrongContactSuc, setWrongContactSuc] = useState("");
   const [userCheck, setUserCheck] = useState();
+  const [code, setCode] = useState();
 
   useEffect(() => {
-    try {
-      const getUserById = async () => {
+    const getUserById = async () => {
+      try {
         const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
           withCredentials: true,
         });
 
         setUserCheck(data.user);
-
-        pinRef.current = data.user.mobilePinId;
-
-        console.log("user1", data);
+        console.log(data);
 
         // if (data?.user?.verified === "bvn") {
         //   return;
@@ -49,20 +47,42 @@ function VerifyPhone() {
         // } else {
         //   return navigate("/404");
         // }
-      };
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
 
-      getUserById();
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
+        setMsg(message);
+        setErr(true);
+      }
+    };
 
-      setMsg(message);
-      setErr(true);
-    }
+    const getMobilePin = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/auth/mobile-otp-3`
+        );
+
+        console.log(data);
+        setCode(data.pin);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setMsg(message);
+        setErr(true);
+      }
+    };
+
+    getUserById();
+    getMobilePin();
   }, [navigate, BACKEND_URL]);
 
   const fullpin = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
@@ -98,6 +118,7 @@ function VerifyPhone() {
       );
 
       const pin = data.pinId;
+      setCode(pin);
       // pinRef.current = data.pinId;
       // setCode(data.pinId);
 
@@ -123,34 +144,14 @@ function VerifyPhone() {
     }
   };
 
-  const getUserById = async () => {
-    const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
-      withCredentials: true,
-    });
-
-    setUserCheck(data.user);
-
-    pinRef.current = data.user.mobilePinId;
-
-    console.log("user1", data);
-
-    // if (data?.user?.verified === "bvn") {
-    //   return;
-    // } else if (data?.user?.verified === "mv") {
-    //   return navigate("/set-pin");
-    // } else {
-    //   return navigate("/404");
-    // }
-  };
-
   const checkOut = async (e) => {
     e.preventDefault();
     setErr(false);
     setLoading(true);
-    getUserById();
 
     console.log("fullpin", fullpin);
-    console.log(pinRef.current);
+    console.log("code", code);
+    // console.log(pinRef.current);
 
     try {
       const { data } = await axios.post(
@@ -158,7 +159,7 @@ function VerifyPhone() {
         {
           api_key:
             "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
-          pin_id: pinRef,
+          pin_id: code,
           pin: fullpin,
         }
       );
@@ -222,7 +223,7 @@ function VerifyPhone() {
       );
 
       const pin = otpData.data.pinId;
-      pinRef.current = otpData.data.pinId;
+      setCode(pin);
 
       //update pin
       await axios.put(
