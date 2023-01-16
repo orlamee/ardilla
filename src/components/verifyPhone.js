@@ -40,13 +40,13 @@ function VerifyPhone() {
         setUserCheck(data.user);
         console.log(data);
 
-        // if (data?.user?.verified === "bvn") {
-        //   return;
-        // } else if (data?.user?.verified === "mv") {
-        //   return navigate("/set-pin");
-        // } else {
-        //   return navigate("/404");
-        // }
+        if (data?.user?.verified === "bvn") {
+          return;
+        } else if (data?.user?.verified === "mv") {
+          return navigate("/set-pin");
+        } else {
+          return navigate("/404");
+        }
       } catch (error) {
         const message =
           (error.response &&
@@ -88,15 +88,23 @@ function VerifyPhone() {
 
   const fullpin = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
 
-  // const updateProcess = async () => {
-  //   try {
-  //     await axios.get(`${BACKEND_URL}/api/auth/mobile-otp-2`, {
-  //       withCredentials: true,
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const updateProcess = async () => {
+    try {
+      await axios.get(`${BACKEND_URL}/api/auth/mobile-otp-2`, {
+        withCredentials: true,
+      });
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setMsg(message);
+      setErr(true);
+    }
+  };
 
   const resend = async () => {
     try {
@@ -167,22 +175,22 @@ function VerifyPhone() {
 
       console.log("termii", data);
 
-      setLoading(false);
-      setOnSuccess(true);
-      // updateProcess();
-      setMsg("Mobile verifcation successful");
-
       if (!data.verified) {
         setErr(false);
         setOnSuccess(false);
         setMsg("Wrong pin");
         setLoading(false);
         setErr(true);
+      } else {
+        setLoading(false);
+        setOnSuccess(true);
+        updateProcess();
+        setMsg("Mobile verifcation successful");
       }
     } catch (error) {
       setLoading(false);
       setOnSuccess(false);
-      setMsg("Oops something went wrong, Please try again");
+      setMsg("Verication failed , Please try again");
       setLoading(false);
       setErr(true);
     }

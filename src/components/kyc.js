@@ -31,7 +31,7 @@ function Kyc() {
         if (data?.user?.verified === "sq") {
           return;
         } else if (data?.user?.verified === "bvn") {
-          return navigate("/set-pin");
+          return navigate("/verify-mobile");
         } else {
           return navigate("/404");
         }
@@ -89,7 +89,7 @@ function Kyc() {
   setTimeout(() => {
     if (onSuccess) {
       sendMsg();
-      navigate("/set-pin");
+      navigate("/verify-mobile");
     }
   }, 2000);
 
