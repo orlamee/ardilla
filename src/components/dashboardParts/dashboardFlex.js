@@ -122,11 +122,32 @@ function DashboardFlex() {
     }
   };
 
-  const topUp = async () => {
+  const getFlexHistory = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-history`,
+        { withCredentials: true }
+      );
+
+      setFlexHistory(data.transactionHistory);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setMsg(message);
+    }
+  };
+
+  const topUp = async (reference) => {
     try {
       const { data } = await axios.put(
         `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-top-up`,
-        { amount },
+        { amount, reference },
         { withCredentials: true }
       );
 
@@ -134,6 +155,7 @@ function DashboardFlex() {
       setOnSuccessModal(true);
 
       getFlexAccount();
+      getFlexHistory();
       setAmount(0);
     } catch (error) {
       const message =
@@ -159,7 +181,7 @@ function DashboardFlex() {
   const onSuccess = (reference) => {
     // Implementation for whatever you want to do with reference and after success call.
     console.log(reference);
-    topUp();
+    topUp(reference);
   };
 
   const onClose = () => {
@@ -497,6 +519,7 @@ function DashboardFlex() {
                       <div className="d-flex flex-row">
                         <img src={withdraw} alt="" className="img-fluid me-3" />
                         <h6>Transportation</h6>
+                        <h6>{data.transactionType}</h6>
                       </div>
                     </div>
                     <div className="col-md-3">
