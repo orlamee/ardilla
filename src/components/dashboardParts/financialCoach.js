@@ -191,7 +191,7 @@ function FinancialCoach() {
               <h6 style={{color: "#8807F7"}}>Download</h6>
             </div>
             <div className="col-md-2">
-              <h6 style={{color: "#EAB308"}}>Pending</h6>
+              <h6 style={{color: "#E8356D"}}>Postponed</h6>
             </div>
           </div>
           <div className="row mt-4">

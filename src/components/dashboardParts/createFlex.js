@@ -162,10 +162,10 @@ function CreateFlex() {
               Payment
             </div>
           </Link>
-          <Link>
+          <Link to="/financial-coach">
             <div className="d-flex flex-row">
               <img src={chat} alt="" className="img-fluid me-2 icons" />
-              Chat Support
+              Financial Coach
             </div>
           </Link>
           <Link>
@@ -183,7 +183,7 @@ function CreateFlex() {
             <h2 className="my-5">
               Create your{" "}
               <span style={{ color: "#E8356D" }}>
-                flex{" "}
+                dib{" "}
                 <Link
                   data-bs-toggle="modal"
                   data-bs-target="#flex"
@@ -245,7 +245,7 @@ function CreateFlex() {
                                 <img src={flex} alt="" className="img-fluid" />
                                 <h6 className="my-3">
                                   What is a{" "}
-                                  <span style={{ color: "#E8356D" }}>Flex</span>
+                                  <span style={{ color: "#E8356D" }}>Dib</span>
                                   <br />
                                   plan?
                                 </h6>
@@ -257,7 +257,7 @@ function CreateFlex() {
                                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2"
                                   href="/create-flex"
                                 >
-                                  Create a Flex Plan
+                                  Create a Dib Plan
                                 </a>
                               </div>
                             </div>
@@ -283,7 +283,7 @@ function CreateFlex() {
                                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2"
                                   href="/create-flex"
                                 >
-                                  Create a Flex Plan
+                                  Create a Dib Plan
                                 </a>
                               </div>
                             </div>
@@ -294,7 +294,7 @@ function CreateFlex() {
                                 <img src={play} alt="" className="img-fluid" />
                                 <h6 className="my-3">
                                   Learn more about{" "}
-                                  <span style={{ color: "#E8356D" }}>Flex</span>{" "}
+                                  <span style={{ color: "#E8356D" }}>Dib</span>{" "}
                                   plan?
                                 </h6>
                                 <p>
@@ -305,7 +305,7 @@ function CreateFlex() {
                                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2"
                                   href="/create-flex"
                                 >
-                                  Create a Flex Plan
+                                  Create a Dib Plan
                                 </a>
                               </div>
                             </div>

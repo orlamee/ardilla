@@ -235,7 +235,7 @@ function FlexPlanSetDuration() {
         <div className="row justify-content-center earns saving-top">
           <div className="col-md-8 text-center">
             <h3>
-              Set <span style={{ color: "#E8356D" }}>Flex </span>
+              Set <span style={{ color: "#E8356D" }}>Dib </span>
               <br />
               duration
             </h3>

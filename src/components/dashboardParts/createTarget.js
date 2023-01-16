@@ -195,7 +195,7 @@ function CreateTarget() {
             <h2 className="my-5">
               Create your <br />
               <span style={{ color: "#E8356D" }}>
-                Target{" "}
+                Dreams{" "}
                 <Link
                   data-bs-toggle="modal"
                   data-bs-target="#flex"
@@ -220,7 +220,7 @@ function CreateTarget() {
                 // to="/create-target"
                 onClick={handleClick}
               >
-                Create a Target
+                Create a Dream
               </Link>
             )}
 
@@ -262,7 +262,7 @@ function CreateTarget() {
                                 <h6 className="my-3">
                                   Create your{" "}
                                   <span style={{ color: "#E8356D" }}>
-                                    Target
+                                    dreams
                                   </span>{" "}
                                   plan?
                                 </h6>
@@ -275,7 +275,7 @@ function CreateTarget() {
                                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2"
                                   href="/create-target"
                                 >
-                                  Create a Target
+                                  Create a Dream
                                 </a>
                               </div>
                             </div>
@@ -291,7 +291,7 @@ function CreateTarget() {
                                 <h6 className="my-3">
                                   Create your{" "}
                                   <span style={{ color: "#E8356D" }}>
-                                    Target
+                                    Dream
                                   </span>{" "}
                                   plan?
                                 </h6>
@@ -304,7 +304,7 @@ function CreateTarget() {
                                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2"
                                   href="/create-target"
                                 >
-                                  Create a Target
+                                  Create a Dream
                                 </a>
                               </div>
                             </div>
@@ -320,7 +320,7 @@ function CreateTarget() {
                                 <h6 className="my-3">
                                   Create your{" "}
                                   <span style={{ color: "#E8356D" }}>
-                                    Target
+                                    Dreams
                                   </span>{" "}
                                   plan?
                                 </h6>
@@ -333,7 +333,7 @@ function CreateTarget() {
                                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2"
                                   href="/create-target"
                                 >
-                                  Create a Target
+                                  Create a Dreams
                                 </a>
                               </div>
                             </div>
