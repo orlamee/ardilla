@@ -706,7 +706,12 @@ function DashboardFlex() {
                       <h6>Amount</h6>
                     </div>
                     <div className="col-md-6 text-end">
-                      <p>₦200,000.00</p>
+                      <p>
+                        ₦{" "}
+                        {Intl.NumberFormat("en-US").format(
+                          flexAcct?.accountBalance
+                        )}
+                      </p>
                     </div>
                     <hr />
                   </div>
@@ -715,7 +720,23 @@ function DashboardFlex() {
                       <h6>Dreams</h6>
                     </div>
                     <div className="col-md-6 text-end">
-                      <p>₦500,000.00</p>
+                      {/* <p>₦500,000.00</p> */}
+
+                      {flexAcct && flexAcct?.type === "custom" ? (
+                        <p>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.customSavingTarget
+                          )}{" "}
+                        </p>
+                      ) : (
+                        <p>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.autoSavingTarget
+                          )}{" "}
+                        </p>
+                      )}
                     </div>
                     <hr />
                   </div>
@@ -724,7 +745,17 @@ function DashboardFlex() {
                       <h6>Interest</h6>
                     </div>
                     <div className="col-md-6 text-end">
-                      <p>₦15000 (11%/p.a)</p>
+                      {/* <p>₦15000 (11%/p.a)</p> */}
+
+                      {flexAcct && (
+                        <p>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.intrestPerMonth[0]
+                          )}{" "}
+                          (11%/p.a)
+                        </p>
+                      )}
                     </div>
                     <hr />
                   </div>
@@ -733,7 +764,25 @@ function DashboardFlex() {
                       <h6>How much you save</h6>
                     </div>
                     <div className="col-md-6 text-end">
-                      <p>₦40,000(Monthly)</p>
+                      {/* <p>₦40,000(Monthly)</p> */}
+
+                      {flexAcct && flexAcct?.type === "custom" ? (
+                        <p>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.customSavingRate
+                          )}{" "}
+                          {flexAcct?.savingPeriod}
+                        </p>
+                      ) : (
+                        <p>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.autoSavingRate
+                          )}{" "}
+                          {flexAcct?.savingPeriod}
+                        </p>
+                      )}
                     </div>
                     <hr />
                   </div>
@@ -742,7 +791,8 @@ function DashboardFlex() {
                       <h6>How you earn</h6>
                     </div>
                     <div className="col-md-6 text-end">
-                      <p>₦250k - ₦500k</p>
+                      {/* <p>₦250k - ₦500k</p> */}
+                      <p>{flexAcct?.earn}</p>
                     </div>
                     <hr />
                   </div>
@@ -751,7 +801,8 @@ function DashboardFlex() {
                       <h6>How much you spend</h6>
                     </div>
                     <div className="col-md-6 text-end">
-                      <p>₦250k - ₦500k</p>
+                      {/* <p>₦250k - ₦500k</p> */}
+                      <p>₦{flexAcct?.expRange}</p>
                     </div>
                     <hr />
                   </div>
