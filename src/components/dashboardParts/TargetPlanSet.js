@@ -50,7 +50,7 @@ function TargetPlanSet() {
 
     try {
       await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/api/targets/custom-saving-target`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/custom-saving-target`,
         { savingTarget },
         { withCredentials: true }
       );
