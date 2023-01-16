@@ -111,7 +111,7 @@ function FlexPlanOverviewCard() {
   const topUp = async () => {
     try {
       await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-top-up}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-top-up`,
         {
           amount,
         },
