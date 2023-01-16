@@ -60,6 +60,12 @@ function FlexPlanOverviewCard() {
         );
 
         setFlexAcct(data.flexPlan);
+
+        if (data.flexPlan.customSavingRate) {
+          setAmount(flexAcct?.customSavingRate);
+        } else {
+          setAmount(flexAcct?.autoSavingRate);
+        }
       } catch (error) {
         const message =
           (error.response &&
@@ -75,7 +81,7 @@ function FlexPlanOverviewCard() {
 
     getFlexAccount();
     getUserById();
-  }, []);
+  }, [flexAcct]);
 
   const getFlexAccount = async () => {
     try {
@@ -97,6 +103,8 @@ function FlexPlanOverviewCard() {
       setMsg(message);
     }
   };
+
+  console.log(amount);
 
   const topUp = async () => {
     try {
@@ -289,7 +297,23 @@ function FlexPlanOverviewCard() {
                 <p className="mt-5">29-11-2022</p> */}
                 <p className="mt-5 overview-perc">11%</p>
                 <p className="mt-5">
-                  Card - <span style={{ color: "#E8356D" }}>₦30,000.00</span>
+                  {/* Card - <span style={{ color: "#E8356D" }}>₦30,000.00</span> */}
+                  Card -
+                  {flexAcct && flexAcct?.type === "custom" ? (
+                    <span style={{ color: "#E8356D" }}>
+                      ₦{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        flexAcct?.customSavingRate
+                      )}
+                    </span>
+                  ) : (
+                    <span style={{ color: "#E8356D" }}>
+                      ₦{" "}
+                      {Intl.NumberFormat("en-US").format(
+                        flexAcct?.autoSavingRate
+                      )}
+                    </span>
+                  )}
                   <span className="dropdown">
                     <Link
                       className="ms-2 dropdown-toggle"
@@ -398,11 +422,11 @@ function FlexPlanOverviewCard() {
                               id="quantity"
                               name="quantity"
                               className="form-control input-number"
-                              // defaultValue="30000 x c"
+                              defaultValue={amount}
                               min="1"
                               max="100"
-                              value={amount}
-                              onChange={(e) => setAmount(~~e.target.value)}
+                              // value={amount}
+                              // onChange={(e) => setAmount(~~e.target.value)}
                             />
                             <span className="input-group-btn">
                               <button
