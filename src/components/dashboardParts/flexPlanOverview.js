@@ -306,25 +306,23 @@ function FlexPlanOverview() {
                     </ul>
                   </span>
                 </p>
-                {flexAcct &&
-                  flexAcct?.accountBalance <=
-                    0(
-                      <p className="mt-5">
-                        <span style={{ color: "#E8356D" }}>
-                          <i className="bi bi-exclamation-circle me-2"></i>{" "}
-                          Insufficient funds
-                        </span>{" "}
-                        -{" "}
-                        <Link
-                          data-bs-toggle="modal"
-                          data-bs-target="#topup"
-                          type="button"
-                          style={{ color: "#8807F7" }}
-                        >
-                          Top Up
-                        </Link>
-                      </p>
-                    )}
+                {flexAcct && flexAcct?.accountBalance <= 0 && (
+                  <p className="mt-5">
+                    <span style={{ color: "#E8356D" }}>
+                      <i className="bi bi-exclamation-circle me-2"></i>{" "}
+                      Insufficient funds
+                    </span>{" "}
+                    -{" "}
+                    <Link
+                      data-bs-toggle="modal"
+                      data-bs-target="#topup"
+                      type="button"
+                      style={{ color: "#8807F7" }}
+                    >
+                      Top Up
+                    </Link>
+                  </p>
+                )}
               </div>
             </div>
             <div
