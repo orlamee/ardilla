@@ -114,16 +114,16 @@ function FinancialCoach() {
               <h4>Date</h4>
             </div>
             <div className="col-md-2">
-              <h4>Date</h4>
+              <h4>Coach</h4>
             </div>
             <div className="col-md-3">
-              <h4>Date</h4>
+              <h4>Duration</h4>
             </div>
             <div className="col-md-2">
-              <h4>Date</h4>
+              <h4>Recordings</h4>
             </div>
             <div className="col-md-2">
-              <h4>Date</h4>
+              <h4>Status</h4>
             </div>
           </div>
           <div className="row mt-4">
