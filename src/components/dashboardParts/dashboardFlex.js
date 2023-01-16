@@ -125,7 +125,7 @@ function DashboardFlex() {
   const topUp = async () => {
     try {
       const { data } = await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-top-up}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-top-up`,
         { amount },
         { withCredentials: true }
       );
