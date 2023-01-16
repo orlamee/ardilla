@@ -58,7 +58,7 @@ function DashboardFlex() {
           { withCredentials: true }
         );
 
-        setFlexHistory(data.th);
+        setFlexHistory(data.transactionHistory);
         console.log(data);
       } catch (error) {
         const message =
