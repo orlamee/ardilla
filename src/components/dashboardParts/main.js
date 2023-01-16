@@ -243,7 +243,10 @@ function Sidebar() {
               <div className="p-2 mt-3">
                 {sanBalance ? (
                   <span className="amount">
-                    NGN {Intl.NumberFormat("en-US").format(sanBalance)}
+                    NGN{" "}
+                    {Intl.NumberFormat("en-US").format(
+                      sanBalance?.accountBalance
+                    )}
                   </span>
                 ) : (
                   <span className="amount">0</span>

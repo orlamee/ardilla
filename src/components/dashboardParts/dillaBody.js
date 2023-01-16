@@ -58,69 +58,116 @@ function DillaBody() {
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
-  const [onTransferSuccess, setOnTransferSuccess] = useState(false);
+  // const [onTransferSuccess, setOnTransferSuccess] = useState(false);
 
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
+  const [userDetails, setUserDetails] = useState();
 
-  let user1 = JSON.parse(sessionStorage.getItem("user"));
-
-  const email = user1.email;
-
-  const userID = "639998243d3d6769fbe39642";
+  const { email } = userDetails;
 
   useEffect(() => {
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUserDetails(data.user);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+
+        setMsg(message);
+      }
+    };
+
     const getDillaWallet = async () => {
       try {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/get-dilla-wallet/${user1._id}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/get-dilla-wallet`,
+          { withCredentials: true }
         );
 
-        // console.log(data);
+        setLoading(false);
         setDillaWallet(data.dillaWallet);
       } catch (error) {
-        console.log(error);
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+
+        setMsg(message);
       }
     };
 
     const getSanAcct = async () => {
       try {
         const { data } = await axios.get(
-          `https://ardilla.herokuapp.com/ardilla/api/san-account/get-san-account/${user1._id}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/san-account/get-san-account`,
+          { withCredentials: true }
         );
 
         setSan(data.sanAccount);
-        // console.log(data);
       } catch (error) {
-        console.log(error);
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+
+        setMsg(message);
       }
     };
 
     getDillaWallet();
+    getUserById();
     getSanAcct();
-
-    getDillaWallet();
-  }, [user1._id]);
-
-  // console.log(san);
+  }, []);
 
   const getDillaWallet = async () => {
     try {
       const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/get-dilla-wallet/${user1._id}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/get-dilla-wallet`,
+        { withCredentials: true }
       );
 
-      // console.log(data);
+      setLoading(false);
       setDillaWallet(data.dillaWallet);
     } catch (error) {
-      console.log(error);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+
+      setMsg(message);
     }
   };
 
   const topUp = async () => {
     try {
       const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/top-up-account/${user1._id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/top-up-account`,
         { email, amount }
       );
 
@@ -138,7 +185,7 @@ function DillaBody() {
 
   const config = {
     reference: new Date().getTime().toString(),
-    email: user1.email,
+    email: userDetails?.email,
     amount: amount * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
     publicKey: "pk_test_bdeef845da401d49681c94007d802d6c68ac2ef8",
   };
@@ -157,18 +204,19 @@ function DillaBody() {
   };
 
   const initializePayment = usePaystackPayment(config);
-  const getSanAcct = async () => {
-    try {
-      const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/san-account/get-san-account/${user1._id}`
-      );
 
-      setSan(data.sanAccount);
-      // console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getSanAcct = async () => {
+  //   try {
+  //     const { data } = await axios.get(
+  //       `https://ardilla.herokuapp.com/ardilla/api/san-account/get-san-account/${user1._id}`
+  //     );
+
+  //     setSan(data.sanAccount);
+  //     // console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   // const transferToSan = async () => {
   //   try {
@@ -194,37 +242,39 @@ function DillaBody() {
 
   // const requestMoney = () => {};
 
-  let ots;
+  // let ots;
 
-  const tranfertoDilla = async () => {
-    ots = {
-      question,
-      answer,
-    };
-    // e.preventDefault();
-    // setLoading(true);
-    // setErr(false);
+  // const tranfertoDilla = async () => {
+  //   ots = {
+  //     question,
+  //     answer,
+  //   };
+  //   // e.preventDefault();
+  //   // setLoading(true);
+  //   // setErr(false);
 
-    try {
-      setLoading(true);
-      setErr(false);
-      const { data } = await axios.put(
-        `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/transfer/${user1._id}`,
-        { amount, pin, ots, userID }
-      );
+  //   try {
+  //     setLoading(true);
+  //     setErr(false);
+  //     const { data } = await axios.put(
+  //       `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/transfer/${user1._id}`,
+  //       { amount, pin, ots, userID }
+  //     );
 
-      setLoading(false);
-      getSanAcct();
-      getDillaWallet();
-      setOnTransferSuccess(true);
-      console.log(data);
-    } catch (error) {
-      setOnTransferSuccess(false);
-      setMsg(`${error.response.data.msg} `);
-      setLoading(false);
-      setErr(true);
-    }
-  };
+  //     setLoading(false);
+  //     // getSanAcct();
+  //     getDillaWallet();
+  //     setOnTransferSuccess(true);
+  //     console.log(data);
+  //   } catch (error) {
+  //     setOnTransferSuccess(false);
+  //     setMsg(`${error.response.data.msg} `);
+  //     setLoading(false);
+  //     setErr(true);
+  //   }
+  // }
+
+  console.log(userDetails);
 
   return (
     <section className="main-dash">
@@ -1171,7 +1221,7 @@ function DillaBody() {
                             <img src={cadet} alt="" className="img-fluid" />
                             <h2 className="mt-3">
                               {"<"}
-                              {user1?.kodeHex}
+                              {userDetails?.kodeHex}
                               {"/>"}
                             </h2>
                           </div>
@@ -1433,7 +1483,7 @@ function DillaBody() {
                             <img src={cadet} alt="" className="img-fluid" />
                             <h2 className="mt-3">
                               {"<"}
-                              {user1?.kodeHex}
+                              {userDetails?.kodeHex}
                               {"/>"}
                             </h2>
                           </div>
@@ -1478,7 +1528,7 @@ function DillaBody() {
                                 />
                               </div>
                               <div className="col-md-6 text-end">
-                                <h4>₦ {san?.accountBalance}</h4>
+                                {/* <h4>₦ {san?.accountBalance}</h4> */}
                               </div>
                             </div>
                           </div>
@@ -1545,60 +1595,60 @@ function DillaBody() {
                 </div>
               </div>
               {/* Dilla To San Success */}
-              {onTransferSuccess && (
-                <div
-                  className="modal flex-modal fade"
-                  id="dillatosan"
-                  tabIndex="-1"
-                  aria-labelledby="exampleModalLabel"
-                  // aria-hidden="true"
-                >
-                  <div className="modal-dialog right-dialog">
-                    <div className="modal-content right-content">
-                      <div className="modal-header">
-                        <button
-                          type="button"
-                          className="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div className="modal-body flex-modal-body">
-                        <div className="container initiate-modal p-5">
-                          <div className="row justify-content-center">
-                            <div className="col-md-6 text-center ">
-                              <img
-                                src={successful}
-                                alt=""
-                                className="img-fluid"
-                              />
-                              <h2 className="mt-4 mb-2">
-                                {"<"}
-                                {user1.kodeHex}
-                                {"/>"}
-                              </h2>
-                              <p className="mb-3">{user1.contact}</p>
-                            </div>
+              {/* {onTransferSuccess && ( */}
+              <div
+                className="modal flex-modal fade"
+                id="dillatosan"
+                tabIndex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div className="modal-dialog right-dialog">
+                  <div className="modal-content right-content">
+                    <div className="modal-header">
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div className="modal-body flex-modal-body">
+                      <div className="container initiate-modal p-5">
+                        <div className="row justify-content-center">
+                          <div className="col-md-6 text-center ">
+                            <img
+                              src={successful}
+                              alt=""
+                              className="img-fluid"
+                            />
+                            <h2 className="mt-4 mb-2">
+                              {"<"}
+                              {userDetails?.kodeHex}
+                              {"/>"}
+                            </h2>
+                            <p className="mb-3">{userDetails?.contact}</p>
                           </div>
-                          <div className="row my-3 sent-details">
-                            <div className="col text-center">
-                              <img src={sent} alt="" className="img-fluid" />
-                              <h3 className="my-3">Money Transfered</h3>
-                              <p>
-                                You have successfully sent{" "}
-                                <span style={{ color: "#3D0072" }}>
-                                  NGN {amount} to <br />
-                                  SAN
-                                </span>
-                              </p>
-                            </div>
+                        </div>
+                        <div className="row my-3 sent-details">
+                          <div className="col text-center">
+                            <img src={sent} alt="" className="img-fluid" />
+                            <h3 className="my-3">Money Transfered</h3>
+                            <p>
+                              You have successfully sent{" "}
+                              <span style={{ color: "#3D0072" }}>
+                                NGN {amount} to <br />
+                                SAN
+                              </span>
+                            </p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
+              {/* )} */}
 
               {/* Send Money to User */}
               <div
@@ -2476,7 +2526,7 @@ function DillaBody() {
                               type="button"
                               to="#"
                               className="btn btn-outline-primary px-5 py-3 ardilla-btn btn-f6 mt-4 me-3"
-                              onClick={tranfertoDilla}
+                              // onClick={tranfertoDilla}
                             >
                               Send Money
                             </Link>
