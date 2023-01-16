@@ -29,7 +29,7 @@ function FlexPlanOverviewCard() {
   const [user, setUser] = useState();
   const [amount, setAmount] = useState();
 
-  console.log("card page");
+  console.log("card page new");
 
   useEffect(() => {
     const getUserById = async () => {
@@ -106,8 +106,6 @@ function FlexPlanOverviewCard() {
     }
   };
 
-  console.log(amount);
-
   const topUp = async (reference) => {
     try {
       await axios.put(
@@ -120,7 +118,6 @@ function FlexPlanOverviewCard() {
       );
 
       getFlexAccount();
-      setAmount(0);
     } catch (error) {
       const message =
         (error.response &&
