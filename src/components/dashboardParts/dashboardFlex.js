@@ -518,7 +518,7 @@ function DashboardFlex() {
                     <div className="col-md-4">
                       <div className="d-flex flex-row">
                         <img src={withdraw} alt="" className="img-fluid me-3" />
-                        <h6>Transportation</h6>
+                        {/* <h6>Transportation</h6> */}
                         <h6>{data.transactionType}</h6>
                       </div>
                     </div>
@@ -857,7 +857,7 @@ function DashboardFlex() {
                         <h5>Reason</h5>
                       </div>
                     </div>
-                    <div className="row mt-2 border-bottom py-3">
+                    {/* <div className="row mt-2 border-bottom py-3">
                       <div className="col-md-4">
                         <div className="d-flex flex-row">
                           <img
@@ -898,7 +898,34 @@ function DashboardFlex() {
                       <div className="col-md-2">
                         <h6>Emergency</h6>
                       </div>
-                    </div>
+                    </div> */}
+                    {flexHistory?.map((data) => {
+                      return (
+                        // <div>
+                        <div className="row mt-2 border-bottom py-3">
+                          <div className="col-md-4">
+                            <div className="d-flex flex-row">
+                              <img
+                                src={withdraw}
+                                alt=""
+                                className="img-fluid me-3"
+                              />
+                              {/* <h6>Transportation</h6> */}
+                              <h6>{data.transactionType}</h6>
+                            </div>
+                          </div>
+                          <div className="col-md-3">
+                            <h6>{data.transactionDate}</h6>
+                          </div>
+                          <div className="col-md-3">
+                            <h6>₦ {data.transactionAmount} </h6>
+                          </div>
+                          <div className="col-md-2">
+                            <h6> </h6>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
