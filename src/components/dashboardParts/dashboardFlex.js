@@ -208,34 +208,35 @@ function DashboardFlex() {
 
   const handleTransfer = async (e) => {
     e.preventDefault();
-    try {
-      console.log(answer, amount, source, pin);
-      setLoading(true);
-      const { data } = await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-to-dilla`,
-        { answer, pin, amount },
-        { withCredentials: true }
-      );
 
-      console.log(data);
-      onSuccessModal(true);
-      setMsg(data.msg);
-      setLoading(false);
-      getFlexAccount();
-      getFlexHistory();
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
+    // try {
+    console.log(answer, amount, source, pin);
+    setLoading(true);
+    //   const { data } = await axios.put(
+    //     `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-to-dilla`,
+    //     { answer, pin, amount },
+    //     { withCredentials: true }
+    //   );
 
-      setErr(true);
-      setMsg(message);
-      setLoading(false);
-      console.log(error);
-    }
+    //   console.log(data);
+    //   onSuccessModal(true);
+    //   setMsg(data.msg);
+    //   setLoading(false);
+    //   getFlexAccount();
+    //   getFlexHistory();
+    // } catch (error) {
+    //   const message =
+    //     (error.response &&
+    //       error.response.data &&
+    //       error.response.data.message) ||
+    //     error.message ||
+    //     error.toString();
+
+    //   setErr(true);
+    //   setMsg(message);
+    //   setLoading(false);
+    //   console.log(error);
+    // }
   };
 
   return (
