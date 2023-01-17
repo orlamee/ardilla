@@ -24,7 +24,7 @@ function FlexPlanOverview() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
-  const [loading, setLoading] = useState();
+  // const [loading, setLoading] = useState();
 
   const day = new Date().getDate();
 
@@ -32,31 +32,31 @@ function FlexPlanOverview() {
     setOnSuccess(false);
   };
 
-  const handleCreate = async () => {
-    try {
-      setLoading(true);
+  // const handleCreate = async () => {
+  //   try {
+  //     setLoading(true);
 
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/flex/activate-plan`,
-        { withCredentials: true }
-      );
+  //     const { data } = await axios.get(
+  //       `${process.env.REACT_APP_BACKEND_URL}/api/flex/activate-plan`,
+  //       { withCredentials: true }
+  //     );
 
-      setLoading(false);
-      setOnSuccess(true);
-      setMsg(data.msg);
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
+  //     setLoading(false);
+  //     setOnSuccess(true);
+  //     setMsg(data.msg);
+  //   } catch (error) {
+  //     const message =
+  //       (error.response &&
+  //         error.response.data &&
+  //         error.response.data.message) ||
+  //       error.message ||
+  //       error.toString();
 
-      setLoading(false);
-      setErr(true);
-      setMsg(message);
-    }
-  };
+  //     setLoading(false);
+  //     setErr(true);
+  //     setMsg(message);
+  //   }
+  // };
 
   setTimeout(() => {
     if (onSuccess) {
@@ -667,7 +667,7 @@ function FlexPlanOverview() {
               </label>
             </div>
             <div>
-              {loading ? (
+              {/* {loading ? (
                 <Link
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
                   to=""
@@ -675,16 +675,16 @@ function FlexPlanOverview() {
                 >
                   Loading
                 </Link>
-              ) : (
-                <Link
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
-                  to=""
-                  onClick={handleCreate}
-                  style={{ width: "100%" }}
-                >
-                  Create Plan
-                </Link>
-              )}
+              ) : ( */}
+              <Link
+                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
+                to="#"
+                // onClick={handleCreate}
+                style={{ width: "100%" }}
+              >
+                Create Plan
+              </Link>
+              {/* )} */}
             </div>
           </div>
         </div>
