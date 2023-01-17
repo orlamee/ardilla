@@ -234,6 +234,7 @@ function DashboardFlex() {
       setErr(true);
       setMsg(message);
       setLoading(false);
+      console.log(error);
     }
   };
 
