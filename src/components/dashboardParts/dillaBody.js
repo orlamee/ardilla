@@ -58,13 +58,14 @@ function DillaBody() {
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
+  const [email, setEmail] = useState();
   // const [onTransferSuccess, setOnTransferSuccess] = useState(false);
 
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [userDetails, setUserDetails] = useState();
 
-  const { email } = userDetails;
+  // const { email } = userDetails;
 
   useEffect(() => {
     const getUserById = async () => {
@@ -77,6 +78,7 @@ function DillaBody() {
         );
 
         setUserDetails(data.user);
+        setEmail(data.user.email);
       } catch (error) {
         const message =
           (error.response &&
