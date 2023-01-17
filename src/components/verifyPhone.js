@@ -20,6 +20,8 @@ function VerifyPhone() {
   const [otp6, setOtp6] = useState("");
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
+  const [msgResend, setMsgResend] = useState("");
+  const [resendSuc, setResendSuc] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
   const [newPhoneNumber, setNewPhoneNumber] = useState("");
@@ -128,6 +130,8 @@ function VerifyPhone() {
 
       const pin = data.pinId;
       setCode(pin);
+      setMsgResend("New OTP has been sent");
+      setResendSuc(true);
       // pinRef.current = data.pinId;
       // setCode(data.pinId);
 
@@ -206,6 +210,12 @@ function VerifyPhone() {
       navigate("/set-pin");
     }
   }, 2000);
+
+  setTimeout(() => {
+    if (resendSuc) {
+      setResendSuc(false);
+    }
+  }, 3000);
 
   const wrongContact = async (e) => {
     try {
@@ -303,6 +313,26 @@ function VerifyPhone() {
             >
               <i className="bi bi-patch-check-fill me-3"></i>
               {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {resendSuc && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msgResend}
               <button
                 type="button"
                 className="btn-close"
