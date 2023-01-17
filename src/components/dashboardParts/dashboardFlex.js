@@ -32,6 +32,7 @@ function DashboardFlex() {
   const [source, setSource] = useState("");
   const [pin, setPin] = useState("");
   const [answer, setAnswer] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const getFlexAccount = async () => {
@@ -209,6 +210,7 @@ function DashboardFlex() {
     e.preventDefault();
     try {
       console.log(answer, amount, source, pin);
+      setLoading(true);
       const { data } = await axios.put(
         `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-to-dilla`,
         { answer, pin, amount },
@@ -218,7 +220,7 @@ function DashboardFlex() {
       console.log(data);
       onSuccessModal(true);
       setMsg(data.msg);
-
+      setLoading(false);
       getFlexAccount();
       getFlexHistory();
     } catch (error) {
@@ -231,6 +233,7 @@ function DashboardFlex() {
 
       setErr(true);
       setMsg(message);
+      setLoading(false);
     }
   };
 
@@ -1275,7 +1278,7 @@ function DashboardFlex() {
                               id=""
                               placeholder="Enter Answer"
                               required
-                              onChange={(e) => setAnswer}
+                              onChange={(e) => setAnswer(e.target.value)}
                             />
                           </div>
                           <div className="mb-3">
@@ -1288,18 +1291,30 @@ function DashboardFlex() {
                               id=""
                               placeholder="Enter Pin"
                               required
-                              onChange={(e) => setPin}
+                              onChange={(e) => setPin(e.target.value)}
                             />
                           </div>
-                          <div>
-                            <button
-                              className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
-                              style={{ width: "100%" }}
-                              type="submit"
-                            >
-                              Withdraw
-                            </button>
-                          </div>
+                          {loading ? (
+                            <div>
+                              <button
+                                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
+                                style={{ width: "100%" }}
+                                type="button"
+                              >
+                                Sending
+                              </button>
+                            </div>
+                          ) : (
+                            <div>
+                              <button
+                                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
+                                style={{ width: "100%" }}
+                                type="submit"
+                              >
+                                Withdraw
+                              </button>
+                            </div>
+                          )}
                         </form>
                       </div>
                     </div>
