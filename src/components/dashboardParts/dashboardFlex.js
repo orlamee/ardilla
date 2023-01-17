@@ -30,6 +30,8 @@ function DashboardFlex() {
   const [user, setUser] = useState();
   const [onSuccessModal, setOnSuccessModal] = useState(false);
   const [source, setSource] = useState("");
+  const [pin, setPin] = useState("");
+  const [answer, setAnswer] = useState("");
 
   useEffect(() => {
     const getFlexAccount = async () => {
@@ -158,7 +160,7 @@ function DashboardFlex() {
 
       getFlexAccount();
       getFlexHistory();
-      setAmount(0);
+      // setAmount(0);
     } catch (error) {
       const message =
         (error.response &&
@@ -202,6 +204,34 @@ function DashboardFlex() {
       setOnSuccessModal(false);
     }
   }, 3000);
+
+  const handleTransfer = async () => {
+    try {
+      console.log(answer, amount, source, pin);
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-to-dilla`,
+        { answer, pin, amount },
+        { withCredentials: true }
+      );
+
+      console.log(data);
+      onSuccessModal(true);
+      setMsg(data.msg);
+
+      getFlexAccount();
+      getFlexHistory();
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setMsg(message);
+    }
+  };
 
   return (
     <section className="main-dash">
@@ -1243,6 +1273,8 @@ function DashboardFlex() {
                               className="form-control target-form tar-form"
                               id=""
                               placeholder="Enter Answer"
+                              required
+                              onChange={(e) => setAnswer}
                             />
                           </div>
                           <div className="mb-3">
@@ -1254,12 +1286,15 @@ function DashboardFlex() {
                               className="form-control target-form tar-form"
                               id=""
                               placeholder="Enter Pin"
+                              required
+                              onChange={(e) => setPin}
                             />
                           </div>
                           <div>
                             <button
                               className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
                               style={{ width: "100%" }}
+                              onClick={handleTransfer}
                             >
                               Withdraw
                             </button>
