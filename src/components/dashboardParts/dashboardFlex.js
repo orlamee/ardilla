@@ -221,7 +221,8 @@ function DashboardFlex() {
     console.log(data);
     console.log("1");
     console.log("3");
-    // onSuccessModal(true);
+    console.log("5");
+    onSuccessModal(true);
     setMsg(data.msg);
     // setLoading(false);
     getFlexAccount();
