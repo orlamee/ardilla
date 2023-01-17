@@ -212,18 +212,18 @@ function DashboardFlex() {
     // try {
     console.log(answer, amount, source, pin);
     setLoading(true);
-    //   const { data } = await axios.put(
-    //     `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-to-dilla`,
-    //     { answer, pin, amount },
-    //     { withCredentials: true }
-    //   );
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-to-dilla`,
+      { answer, pin, amount },
+      { withCredentials: true }
+    );
 
-    //   console.log(data);
+    console.log(data);
     //   onSuccessModal(true);
     //   setMsg(data.msg);
     //   setLoading(false);
-    //   getFlexAccount();
-    //   getFlexHistory();
+    getFlexAccount();
+    getFlexHistory();
     // } catch (error) {
     //   const message =
     //     (error.response &&
