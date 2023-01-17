@@ -1382,3 +1382,81 @@ h5 a {
   color: #3D0072;
   font-weight: 700;
 }
+
+.coachboxes {
+  background-color: #ECFDFC;
+  background-image: url(../img/home.svg);
+  background-repeat: no-repeat;
+  background-attachment: cover;
+  background-position: center bottom;
+  min-height: 350px;
+  border-radius: 16px 0px 0px 0px;
+}
+
+.bus {
+  background-color: #FDEDF2!important;
+  background-image: url(../img/buses.svg);
+
+}
+
+.set {
+  background-color: #ECFDFC!important;
+  background-image: url(../img/nai.svg)!important;
+
+}
+
+.cc {
+  background-color: #ECF1FE!important;
+  background-image: url(../img/credit-card.svg)!important;
+}
+
+.arr {
+  background-color: #FEFAEB!important;
+  background-image: url(../img/arr.svg)!important;
+}
+
+.bar {
+  background-color: #F6EBFE!important;
+  background-image: url(../img/bchart.svg)!important;
+}
+
+.coachboxes h4 {
+  color: #005951;
+  font-size: 36px;
+  line-height: 41px;
+  font-weight: 700;
+}
+
+.answers {
+  background-color: #F9FAFB;
+  padding: 150px 20px;
+  margin-bottom: 150px;
+}
+
+.answers h2 {
+  font-size: 55px;
+  line-height: 74px;
+  color: #3D0072;
+  font-weight: 700;
+}
+
+.answers h6 {
+  font-size: 16px;
+  line-height: 28px;
+  color: #9CA3AF;
+  font-weight: 400;
+}
+
+.answers p {
+  font-size: 17px;
+  line-height: 19px;
+  color: #3D0072;
+  font-weight: 500;
+}
+
+.new-footer {
+  background-image: url("../img/newfooter.svg")!important;
+  /* background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
+}

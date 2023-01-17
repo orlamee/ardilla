@@ -1,8 +1,9 @@
 
-import Footer from "../components/footer";
 import Wonder from "../components/landingpage/aFinancialCoach";
 import Coach from "../components/landingpage/coach";
+import DidYouKnow from "../components/landingpage/didYouKnow";
 import FinancialCoaching from "../components/landingpage/financialCoaching";
+import FooterFinancial from "../components/footerFinancial";
 import NavbarSave from "../components/landingpage/saveNavbar";
 import "../css/App.css";
 import "../css/home.css";
@@ -14,7 +15,8 @@ function FincancialPage() {
       <Coach/>
       <FinancialCoaching/>
       <Wonder/>
-      <Footer/>
+      <DidYouKnow/>
+      <FooterFinancial/>
     </div>
   );
 }
