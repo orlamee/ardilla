@@ -28,6 +28,7 @@ function FlexPlanOverviewCard() {
   const [err, setErr] = useState(false);
   const [user, setUser] = useState();
   const [amount, setAmount] = useState();
+  const [agree, setAgree] = useState(false);
 
   console.log("card page new");
 
@@ -152,6 +153,7 @@ function FlexPlanOverviewCard() {
     // Implementation for whatever you want to do with reference and after success call.
     console.log(reference);
     topUp(reference);
+    getFlexAccount();
   };
 
   const onClose = () => {
@@ -298,22 +300,48 @@ function FlexPlanOverviewCard() {
                 <p className="mt-5 overview-perc">11%</p>
                 <p className="mt-5">
                   {/* Card - <span style={{ color: "#E8356D" }}>₦30,000.00</span> */}
-                  Card -
-                  {flexAcct && flexAcct?.type === "custom" ? (
-                    <span style={{ color: "#E8356D" }}>
-                      ₦{" "}
-                      {Intl.NumberFormat("en-US").format(
-                        flexAcct?.customSavingRate
+                  {flexAcct?.accountBalance ? (
+                    <div>
+                      {" "}
+                      Card -
+                      {flexAcct && flexAcct?.type === "custom" ? (
+                        <span style={{ color: "#069669" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.customSavingRate
+                          )}
+                        </span>
+                      ) : (
+                        <span style={{ color: "#069669" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.autoSavingRate
+                          )}
+                        </span>
                       )}
-                    </span>
+                    </div>
                   ) : (
-                    <span style={{ color: "#E8356D" }}>
-                      ₦{" "}
-                      {Intl.NumberFormat("en-US").format(
-                        flexAcct?.autoSavingRate
+                    <div>
+                      {" "}
+                      Card -
+                      {flexAcct && flexAcct?.type === "custom" ? (
+                        <span style={{ color: "#E8356D" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.customSavingRate
+                          )}
+                        </span>
+                      ) : (
+                        <span style={{ color: "#E8356D" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.autoSavingRate
+                          )}
+                        </span>
                       )}
-                    </span>
+                    </div>
                   )}
+
                   <span className="dropdown">
                     <Link
                       className="ms-2 dropdown-toggle"
@@ -672,20 +700,34 @@ function FlexPlanOverviewCard() {
                 type="checkbox"
                 value=""
                 id="flexCheckChecked"
+                required
+                onChange={() => setAgree(!agree)}
               />
               <label className="form-check-label" htmlFor="flexCheckChecked">
                 Four withdrawal limit only lorem ipsum monteren renemdem
               </label>
             </div>
-            <div>
-              <Link
-                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
-                to=""
-                style={{ width: "100%" }}
-              >
-                Create Plan
-              </Link>
-            </div>
+            {agree ? (
+              <div>
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 disabled"
+                  to="#"
+                  style={{ width: "100%" }}
+                >
+                  Create Plan
+                </Link>
+              </div>
+            ) : (
+              <div>
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 disabled"
+                  to="/flexplan-dashboard"
+                  style={{ width: "100%" }}
+                >
+                  Create Plan
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
