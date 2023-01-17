@@ -205,7 +205,8 @@ function DashboardFlex() {
     }
   }, 3000);
 
-  const handleTransfer = async () => {
+  const handleTransfer = async (e) => {
+    e.preventDefault();
     try {
       console.log(answer, amount, source, pin);
       const { data } = await axios.put(
@@ -1251,7 +1252,7 @@ function DashboardFlex() {
                     </div>
                     <div className="row">
                       <div className="col">
-                        <form className="mt-4">
+                        <form className="mt-4" onSubmit={handleTransfer}>
                           <div className="mb-3">
                             <label className="form-label label-target">
                               Choose withdrawal
@@ -1294,7 +1295,7 @@ function DashboardFlex() {
                             <button
                               className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
                               style={{ width: "100%" }}
-                              onClick={handleTransfer}
+                              type="submit"
                             >
                               Withdraw
                             </button>
