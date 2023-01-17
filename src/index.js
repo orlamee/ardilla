@@ -110,6 +110,7 @@ import FAQ from "./pages/faq";
 import CoachFinancial from "./dashboard/coachFinancial";
 import Testimonies from "./pages/learnTestimonies";
 import FincancialPage from "./pages/financialPage";
+import CreatedSavings from "./dashboard/createdSavings";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -137,6 +138,7 @@ root.render(
       <Route path="/financial-coach" element={<CoachFinancial/>}></Route>
       <Route path="/testimonies" element={<Testimonies/>}></Route>
       <Route path="/coach" element={<FincancialPage/>}></Route>
+      <Route path="/savings-created" element={<CreatedSavings/>}></Route>
 
 
 

@@ -17,11 +17,13 @@ import drims from "../../img/dashboard/drims.svg";
 import grit from "../../img/dashboard/gritt.svg";
 import clan from "../../img/dashboard/clann.svg";
 import vlt from "../../img/dashboard/vlt.svg";
+import graphy from "../../img/dashboard/dibgraph.svg";
+import sta from "../../img/dashboard/statis.svg";
 import { useIdleTimer } from "react-idle-timer";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-function SavingsBody() {
+function SavingsCreated() {
   const navigate = useNavigate();
 
   // let user = JSON.parse(sessionStorage.getItem("user"));
@@ -224,7 +226,7 @@ function SavingsBody() {
         </div>
         <div className="row my-5 title-save">
           <div className="col">
-            <h4>Create a new savings plan</h4>
+            <h4>My Savings Plan</h4>
           </div>
         </div>
         <div className="row">
@@ -234,74 +236,67 @@ function SavingsBody() {
                 <div className="col-md-2 text-end">
                   <img src={psan} alt="" className="img-fluid" />
                 </div>
-                <div className="col-md-8">
-                   <div className="dibb">
+                <div className="col-md-6">
+                  <div className="dibb">
                     <div className="d-flex flex-row mb-2">
                       <h3>DIB</h3>
                       <span className="dibbg">12% p.a</span>
                     </div>
-                    <p>Everyone needs an emergency fund. We make it DIBible and<br/>automatic.</p>
-                    <Link to="/flex-plan" className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#FBBF24", borderColor: "#FBBF24"}}>Create a DIB Plan</Link>
+                    <p><span className="text-muted">Recent Top up:</span> <span>20th December, 2022</span></p>
+                    <Link to="/flex-plan" className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#FBBF24", borderColor: "#FBBF24"}}>View Dib</Link>
                   </div>
+                </div>
+                <div className="col-md-3">
+                  <img src={graphy} alt="dib" className="img-fluid w-100" />
                 </div>
               </div>
             </div>
           </div>
+          <div className="col-md-6 mb-3">
+            <img src={sta} alt="" className="img-fluid w-100" />
+          </div>
+        </div>
+        <div className="row mt-4">
           <div className="col-md-6 mb-3">
             <div className="new-pp" style={{background:"#FDF1F5"}}>
               <div className="row">
                 <div className="col-md-2 text-end">
                   <img src={drims} alt="" className="img-fluid" />
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-6">
                    <div className="dibb">
                     <div className="d-flex flex-row mb-2">
                       <h3>DREAMS</h3>
                       <span className="dibbg" style={{background: "#F8BFD1"}}>12% p.a</span>
                     </div>
-                    <p>Dreams do come through. Save up for that dream phone, car, house, or any other goal you have.</p>
-                    <Link to="/target-plan" className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#E8356D", borderColor: "#E8356D"}}>Create a Dream</Link>
+                    <p><span className="text-muted">Recent Top up:</span> <span>20th December, 2022</span></p>
+                    <Link to="/target-plan" className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#E8356D", borderColor: "#E8356D"}}>View Dreams</Link>
                   </div>
+                </div>
+                <div className="col-md-3">
+                  <img src={graphy} alt="dib" className="img-fluid w-100" />
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="row mt-4">
           <div className="col-md-6 mb-3">
             <div className="new-pp" style={{background: "#F0FEFA"}}>
               <div className="row">
                 <div className="col-md-2 text-end">
                   <img src={vlt} alt="" className="img-fluid" />
                 </div>
-                <div className="col-md-8">
-                   <div className="dibb">
+                <div className="col-md-6">
+                  <div className="dibb">
                     <div className="d-flex flex-row mb-2">
                       <h3>VAULT</h3>
                       <span className="dibbg" style={{background: "#BAFCE8"}}>12% p.a</span>
                     </div>
-                    <p>Make your money, make more money. Lock up your extra cash and make a profit,<br/>rather than spending it all and wondering what happened.</p>
-                    <Link to="/vault" className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#069669", borderColor: "#069669"}}>Create a Vault</Link>
+                    <p><span className="text-muted">Recent Top up:</span> <span>20th December, 2022</span></p>
+                    <Link to="/vault" className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#069669", borderColor: "#069669"}}>View Vault</Link>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6 mb-3">
-            <div className="new-pp overlay">
-              <div className="row">
-                <div className="col-md-2 text-end">
-                  <img src={grit} alt="" className="img-fluid" />
-                </div>
-                <div className="col-md-8">
-                   <div className="dibb">
-                    <div className="d-flex flex-row mb-2">
-                      <h3>GRIT</h3>
-                      <span className="dibbg" style={{background: "#F6EBFE"}}>12% p.a</span>
-                    </div>
-                    <p>For the big-time savers. Save more and get more<br/>interest.</p>
-                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#8807F7", borderColor: "#8807F7"}}>Create a Grit</button>
-                  </div>
+                <div className="col-md-3">
+                  <img src={graphy} alt="dib" className="img-fluid w-100" />
                 </div>
               </div>
             </div>
@@ -327,12 +322,31 @@ function SavingsBody() {
               </div>
             </div>
           </div>
+          <div className="col-md-6">
+            <div className="new-pp overlay">
+              <div className="row">
+                <div className="col-md-2 text-end">
+                  <img src={grit} alt="" className="img-fluid" />
+                </div>
+                <div className="col-md-8">
+                   <div className="dibb">
+                    <div className="d-flex flex-row mb-2">
+                      <h3>GRIT</h3>
+                      <span className="dibbg" style={{background: "#F6EBFE"}}>12% p.a</span>
+                    </div>
+                    <p>For the big-time savers. Save more and get more<br/>interest.</p>
+                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#8807F7", borderColor: "#8807F7"}}>Create a Grit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-export default SavingsBody;
+export default SavingsCreated;
 
 
