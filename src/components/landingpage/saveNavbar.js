@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../../img/ardilla.svg";
 import save from "../../img/save.svg";
 import wallet from "../../img/wallet.svg";
-import learn from "../../img/learn.svg";
+// import learn from "../../img/learn.svg";
 import claim from "../../img/claim.svg";
 import invest from "../../img/invest.svg";
 import about from "../../img/about-us.svg";
@@ -43,7 +43,7 @@ function NavbarSave() {
             <ul className="navbar-nav">
               <li className="nav-item dropdown">
                 <Link
-                  className="nav-link active dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
@@ -109,7 +109,7 @@ function NavbarSave() {
                           </div>
                         </div>
                       </Link>
-                      <Link>
+                      {/* <Link>
                         <div className="d-flex flex-row">
                           <img src={learn} alt="" className="img-fluid" />
                           <div className="mt-3">
@@ -117,7 +117,7 @@ function NavbarSave() {
                             <h6>Learn and get paid</h6>
                           </div>
                         </div>
-                      </Link>
+                      </Link> */}
                     </div>
                     <div className="col-md-6 px-5 pt-3 bg-savers">
                       

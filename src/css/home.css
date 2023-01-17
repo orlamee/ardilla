@@ -1292,3 +1292,93 @@ h5 a {
 .auth-date {
   margin-top: -30px;
 }
+
+.coach-hero {
+  padding: 250px 10px;
+  background-image: url("../img/dashboard/levelbg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 767.98px){
+  .coach-hero h2 {
+    font-size: 72px;
+    line-height: 88px;
+    color: #3D0072;
+    font-weight: 700;
+}
+}
+
+@media (min-width: 992px){
+  .coach-hero h2 {
+    font-size: 90px;
+    line-height: 100px;
+    color: #3D0072;
+    font-weight: 700;
+  }
+}
+
+.coach-hero h6 {
+  font-size: 16px;
+  line-height: 30px;
+  color: #3D0072;
+  font-weight: 500;
+}
+
+.f-c h3 {
+  color: #F59E0B;
+  font-size: 60px;
+  line-height: 70px;
+  font-weight: 700;
+}
+
+.f-c h6 {
+  font-size: 16px;
+  line-height: 32px;
+  /* color: #3D0072; */
+  font-weight: 400;
+}
+
+.f-c {
+  padding: 150px 10px;
+  background-image: url("../img/bg-finc.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.numbers {
+  padding: 80px 0px;
+}
+
+.numbers h5 {
+  color: #EAB308;
+  font-size: 35px;
+  line-height: 50px;
+  font-weight: 700;
+}
+
+.numbers h3 {
+  font-size: 35px;
+  line-height: 50px;
+  font-weight: 700;
+}
+
+.numbers p {
+  font-size: 14px;
+  line-height: 32px;
+  font-weight: 400;
+}
+
+.acoach {
+  padding: 150px 20px;
+  background-color: #fff;
+}
+
+.acoach h2 {
+  font-size: 75px;
+  line-height: 90px;
+  color: #3D0072;
+  font-weight: 700;
+}
