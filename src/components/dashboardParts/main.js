@@ -266,7 +266,7 @@ function Sidebar() {
               <div className="p-2 mt-3">
                 {sanBalance ? (
                   <span className="amount">
-                    NGN {" "}
+                    NGN{" "}
                     {Intl.NumberFormat("en-US").format(
                       sanBalance?.accountBalance
                     )}
@@ -326,7 +326,7 @@ function Sidebar() {
                 {/* <span className="amount">
                   USD {Intl.NumberFormat("en-US").format(dillaWallet)}
                 </span> */}
-                {dillaWallet ? (
+                {dillaWallet.accountBalance ? (
                   <span className="amount">
                     USD {Intl.NumberFormat("en-US").format(dillaWallet)}
                   </span>
@@ -341,9 +341,12 @@ function Sidebar() {
                     <input type="checkbox" placeholder="USD" />
                     <span className="slider round"></span>
                   </label>
-                  <span className="text-white ms-2 mt-2 dollar-rate">₦740 /$1</span>
+                  <span className="text-white ms-2 mt-2 dollar-rate">
+                    ₦740 /$1
+                  </span>
                 </div>
-                <Link style={{marginTop: "-34px"}}
+                <Link
+                  style={{ marginTop: "-34px" }}
                   className="float-end btn btn-outline-primary px-4 py-2 ardilla-btn-inverted fs-6"
                   to=""
                 >
@@ -380,7 +383,12 @@ function Sidebar() {
                     <input type="checkbox" placeholder="USD" />
                     <span className="slider round"></span>
                   </label>
-                  <span className="ms-2 mt-2 dollar-rate" style={{color: "#B69FC9"}}>₦740 /$1</span>
+                  <span
+                    className="ms-2 mt-2 dollar-rate"
+                    style={{ color: "#B69FC9" }}
+                  >
+                    ₦740 /$1
+                  </span>
                 </div>
               </div>
             </div>
