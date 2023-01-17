@@ -219,9 +219,10 @@ function DashboardFlex() {
     );
 
     console.log(data);
+    console.log("1");
     onSuccessModal(true);
     setMsg(data.msg);
-    setLoading(false);
+    // setLoading(false);
     getFlexAccount();
     getFlexHistory();
     // } catch (error) {
