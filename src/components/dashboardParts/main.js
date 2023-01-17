@@ -328,7 +328,10 @@ function Sidebar() {
                 </span> */}
                 {dillaWallet?.accountBalance ? (
                   <span className="amount">
-                    USD {Intl.NumberFormat("en-US").format(dillaWallet)}
+                    USD{" "}
+                    {Intl.NumberFormat("en-US").format(
+                      dillaWallet.accountBalance
+                    )}
                   </span>
                 ) : (
                   <span className="amount">0</span>
