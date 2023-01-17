@@ -163,10 +163,10 @@ function TargetPlanCreate() {
           <div className="col-md-8 text-center">
             <h3>
               Give your <br />
-              <span style={{ color: "#E8356D" }}>target</span> a name
+              <span style={{ color: "#E8356D" }}>dream</span> a name
             </h3>
             <p className="my-5">
-              Enter a name you want to give your target plan
+              Enter a name you want to give your dream plan
             </p>
             <div className="row justify-content-center">
               <div className="col-md-5">

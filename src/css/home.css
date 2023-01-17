@@ -1224,3 +1224,71 @@ h5 a {
   margin-top: 90px;
   margin-bottom: 90px;
 }
+
+.bg-learn {
+  background-color: #3D0072!important;
+}
+
+.bg-learn .nav-link {
+  color: #fff!important;
+}
+
+.save-white {
+  background-color: #fff!important;
+  border-color: #fff!important;
+  color: #3D0072!important;
+}
+
+.testimonials {
+  background-color: #3D0072;
+  padding: 250px 20px;
+}
+
+.testimonials h6 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.testimonials h2 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 68px;
+}
+
+.testimonial-content h6 {
+  color: #9CA3AF;
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.testimonial-content h2 {
+  color: #8807F7;
+  line-height: 36px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.testimonial-content p {
+  color: #9CA3AF;
+  line-height: 16px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.testimonial-content {
+  padding: 100px 10px;
+}
+
+.bg-test {
+  background-color: #FDEDF2;
+  color: #E8356D;
+  padding: 5px 23px 8px;
+  border-radius: 20px;
+  margin: 0;
+}
+
+.auth-date {
+  margin-top: -30px;
+}

@@ -10,7 +10,7 @@ function LearnEarn() {
           <div className="col mb-3 text-center dilla-text" >
             <h2 className="text-white">Learn and Earn</h2>
             <h6 className="my-4 text-white">Start learning, take quizzes and start earning</h6>
-            <Link className='btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 text-dark bg-white' to="/">Start Learning Now</Link>
+            <Link className='btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 text-dark save-white' to="/">Start Learning Now</Link>
           </div>
         </div>
         <div className="row mt-5">

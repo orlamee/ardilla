@@ -211,7 +211,7 @@ function TargetPlanEarn() {
               <span style={{ color: "#E8356D" }}>earn</span> monthly
             </h3>
             <p className="my-5">
-              Enter a name you want to give your target plan
+              Enter a name you want to give your dreams plan
             </p>
 
             {/* <div className="mb-3">

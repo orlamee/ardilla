@@ -209,11 +209,11 @@ function FlexPlanSet() {
         <div className="row justify-content-center earns saving-top">
           <div className="col-md-8 text-center">
             <h3>
-              Set <span style={{ color: "#E8356D" }}>Flex</span>
+              Set <span style={{ color: "#E8356D" }}>Dib</span>
               <br />
               amount
             </h3>
-            <p className="my-5">Choose how often you want to save......</p>
+            <p className="my-5">Choose how often you want to save</p>
             <div className="row justify-content-center">
               <div className="col-md-5">
                 <form onSubmit={handleSubmit}>

@@ -108,6 +108,7 @@ import PaymentCSuccess from "./dashboard/cardPaymentSuccess";
 import PaymentT from "./dashboard/transactionPayment";
 import FAQ from "./pages/faq";
 import CoachFinancial from "./dashboard/coachFinancial";
+import Testimonies from "./pages/learnTestimonies";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -133,6 +134,7 @@ root.render(
       <Route path="/payment-transaction" element={<PaymentT/>}></Route>
       <Route path="/faq" element={<FAQ/>}></Route>
       <Route path="/financial-coach" element={<CoachFinancial/>}></Route>
+      <Route path="/testimonies" element={<Testimonies/>}></Route>
 
 
 

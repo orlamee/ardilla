@@ -246,7 +246,7 @@ function TargetPlanSetDuration() {
         <div className="row justify-content-center earns">
           <div className="col-md-8 text-center">
             <h3>
-              Set <span style={{ color: "#E8356D" }}>Target</span>
+              Set <span style={{ color: "#E8356D" }}>Dreams</span>
               <br />
               duration
             </h3>

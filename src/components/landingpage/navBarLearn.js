@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../img/ardilla.svg";
+import logo from "../../img/logo-white.svg";
 // import globe from "../../img/globe.svg";
 import save from "../../img/save.svg";
 import invest from "../../img/invest.svg";
@@ -15,7 +15,7 @@ import zim from "../../img/zimba.svg";
 
 function LearnHeader() {
   return(
-    <nav className="navbar fixed-top navbar-expand-lg navbar-light py-4 px-1 bg-save">
+    <nav className="navbar fixed-top navbar-expand-lg navbar-light py-4 px-1 bg-learn">
       <div className='container header'>
         <a className='navbar-brand' href="/learn-more">
           <img src={logo} alt="" className='img-fluid' style={{marginTop: "-8px"}} />
@@ -72,7 +72,7 @@ function LearnHeader() {
                 </div>
               </li>
               <li className="nav-item">
-                <Link className="nav-link">Testimonies</Link>
+                <Link to="/testimonies" className="nav-link">Testimonies</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link">Updates</Link>
@@ -82,10 +82,10 @@ function LearnHeader() {
           <div className='ms-auto'>
             <ul className="navbar-nav">
               <li className='nav-item mt-2 desktop'>
-                <i className="bi bi-search"></i>
+                <i className="bi bi-search text-white"></i>
               </li>
               <li className='nav-item'>
-                <Link className='btn btn-outline-primary px-4 py-2 ardilla-btn fs-6' to="/sign-up">Create Account</Link>
+                <Link className='btn btn-outline-primary px-4 py-2 ardilla-btn fs-6 save-white' to="/sign-up">Sign Up For Free</Link>
               </li>
             
               <li className="nav-item dropdown">
