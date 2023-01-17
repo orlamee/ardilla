@@ -710,8 +710,8 @@ function FlexPlanOverviewCard() {
             {agree ? (
               <div>
                 <Link
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 disabled"
-                  to="#"
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
+                  to="/flexplan-dashboard"
                   style={{ width: "100%" }}
                 >
                   Create Plan
@@ -721,7 +721,7 @@ function FlexPlanOverviewCard() {
               <div>
                 <Link
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 disabled"
-                  to="/flexplan-dashboard"
+                  to="#"
                   style={{ width: "100%" }}
                 >
                   Create Plan
