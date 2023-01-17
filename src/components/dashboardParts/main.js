@@ -326,11 +326,11 @@ function Sidebar() {
                 {/* <span className="amount">
                   USD {Intl.NumberFormat("en-US").format(dillaWallet)}
                 </span> */}
-                {dillaWallet?.accountBalance ? (
+                {dillaWallet ? (
                   <span className="amount">
                     USD{" "}
                     {Intl.NumberFormat("en-US").format(
-                      dillaWallet.accountBalance
+                      dillaWallet?.accountBalance
                     )}
                   </span>
                 ) : (
