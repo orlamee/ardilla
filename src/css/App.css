@@ -653,3 +653,20 @@ h6 a {
 .faq-button {
   border-radius: 0px 40px 40px 0px!important;
 }
+
+.vault-btns {
+  color: #069669!important;
+  border-radius: 60px;
+  font-size: 11px!important;
+  font-weight: 500;
+  line-height: 17px;
+  
+}
+
+.drimz-btn {
+  color: #E8356D!important;
+  border-radius: 60px;
+  font-size: 11px!important;
+  font-weight: 500;
+  line-height: 17px;
+}
