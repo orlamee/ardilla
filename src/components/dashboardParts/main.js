@@ -368,7 +368,7 @@ function Sidebar() {
                   <span className="amount">
                     NGN{" "}
                     {Intl.NumberFormat("en-US").format(
-                      dillaWallet + sanBalance
+                      dillaWallet.accountBalance + sanBalance.accountBalance
                     )}{" "}
                   </span>
                 ) : (
