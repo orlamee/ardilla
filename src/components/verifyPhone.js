@@ -184,7 +184,7 @@ function VerifyPhone() {
 
       console.log("termii", termi.data);
 
-      if (!data.verified) {
+      if (!termi.data.verified) {
         setErr(false);
         setOnSuccess(false);
         setMsg("Wrong pin");
