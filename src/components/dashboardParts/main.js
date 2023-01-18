@@ -415,45 +415,86 @@ function Sidebar() {
                 </div>
                 <div className="col-md-6 mt-4">
                   <div className="form-check mb-2">
-                    <input
-                      className="form-check-input red"
-                      type="checkbox"
-                      defaultChecked
-                      disabled
-                    />
+                    {userDetails?.contact ? (
+                      <input
+                        className="form-check-input red"
+                        type="checkbox"
+                        defaultChecked
+                        disabled
+                      />
+                    ) : (
+                      <input
+                        className="form-check-input red"
+                        type="checkbox"
+                        // defaultChecked
+                        disabled
+                      />
+                    )}
+
                     <label className="form-check-label custom-check ">
                       Add Phone Number
                     </label>
                   </div>
                   <div className="form-check mb-2">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      defaultChecked
-                      disabled
-                    />
+                    {userDetails?.bvn ? (
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        defaultChecked
+                        disabled
+                      />
+                    ) : (
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        // defaultChecked
+                        disabled
+                      />
+                    )}
+
                     <label className="form-check-label custom-check">
                       Add Your BVN
                     </label>
                   </div>
                   <div className="form-check mb-2">
-                    <input
-                      className="form-check-input red"
-                      type="checkbox"
-                      defaultChecked
-                      disabled
-                    />
+                    {userDetails?.utilityBillStatus ? (
+                      <input
+                        className="form-check-input red"
+                        type="checkbox"
+                        defaultChecked
+                        disabled
+                      />
+                    ) : (
+                      <input
+                        className="form-check-input red"
+                        type="checkbox"
+                        // defaultChecked
+                        disabled
+                      />
+                    )}
+
                     <label className="form-check-label custom-check">
                       Upload your Utility bill
                     </label>
                   </div>
                   <div className="form-check mb-2">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      disabled
-                      defaultChecked
-                    />
+                    {userDetails?.idFrontStatus &&
+                    userDetails?.idFrontStatus ? (
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        disabled
+                        defaultChecked
+                      />
+                    ) : (
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        disabled
+                        // defaultChecked
+                      />
+                    )}
+
                     <label className="form-check-label custom-check">
                       Upload Your Valid ID
                     </label>
