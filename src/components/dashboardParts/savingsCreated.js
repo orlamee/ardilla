@@ -242,7 +242,7 @@ function SavingsCreated() {
                       alt="withdraw"
                       className="img-fluid me-2"
                     />{" "}
-                    Savings Withdrawal rex
+                    Savings Withdrawal
                   </h6>
                 </div>
                 <div className="col-md-3 text-center">
@@ -258,7 +258,7 @@ function SavingsCreated() {
         </div>
         <div className="row my-5 title-save">
           <div className="col">
-            <h4>My Savings Plan rex</h4>
+            <h4>My Savings Plan</h4>
           </div>
         </div>
         <div className="row">
@@ -293,6 +293,7 @@ function SavingsCreated() {
               </div>
             </div>
           </div>
+          {/* start */}
           <div className="col-md-6 mb-3">
             <img src={sta} alt="" className="img-fluid w-100" />
           </div>

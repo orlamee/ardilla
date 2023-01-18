@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -17,70 +17,85 @@ import drims from "../../img/dashboard/drims.svg";
 import grit from "../../img/dashboard/gritt.svg";
 import clan from "../../img/dashboard/clann.svg";
 import vlt from "../../img/dashboard/vlt.svg";
-import { useIdleTimer } from "react-idle-timer";
 import axios from "axios";
-import Cookies from "js-cookie";
 
 function SavingsBody() {
-  const navigate = useNavigate();
-
-  // let user = JSON.parse(sessionStorage.getItem("user"));
-
-  const refreshToken = async () => {
-    try {
-      const { data } = await axios.get(
-        `https://ardilla.herokuapp.com/ardilla/api/auth/refresh-token/${Cookies.get(
-          "user"
-        )}`
-      );
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [flexAcct, setFlexAcct] = useState();
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
 
   useEffect(() => {
-    let interval = setInterval(() => {
-      refreshToken();
-    }, 6000);
+    // const getUserById = async () => {
+    //   try {
+    //     const { data } = await axios.get(
+    //       `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+    //       {
+    //         withCredentials: true,
+    //       }
+    //     );
 
-    return () => clearInterval(interval);
+    //     setUser(data.user);
+    //   } catch (error) {
+    //     const message =
+    //       (error.response &&
+    //         error.response.data &&
+    //         error.response.data.message) ||
+    //       error.message ||
+    //       error.toString();
+
+    //     setErr(true);
+    //     setMsg(message);
+    //   }
+    // };
+    const getFlexAccount = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/flex/get-flex-account`,
+          { withCredentials: true }
+        );
+
+        setFlexAcct(data.flexPlan);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+      }
+    };
+
+    getFlexAccount();
+    // getUserById();
   }, []);
 
-  const handleOnIdle = () => {
-    sessionStorage.clear();
-    Cookies.remove("user");
-    navigate("/login");
-    console.log("last active", getLastActiveTime());
-  };
+  console.log(flexAcct);
 
-  const { getLastActiveTime } = useIdleTimer({
-    timeout: 1000 * 60 * 2,
-    onIdle: handleOnIdle,
-    events: [
-      "mousemove",
-      "keydown",
-      "wheel",
-      "DOMMouseScroll",
-      "mousewheel",
-      "mousedown",
-      "touchstart",
-      "touchmove",
-      "MSPointerDown",
-      "MSPointerMove",
-      "visibilitychange",
-    ],
-    debounce: 500,
-  });
-
-  const handleLogOut = () => {
-    Cookies.remove("user");
-    sessionStorage.clear();
-    navigate("/login");
-    window.location.reload();
-  };
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
@@ -143,7 +158,7 @@ function SavingsBody() {
               Chat Support
             </div>
           </Link>
-          <Link onClick={handleLogOut}>
+          <Link>
             <div className="d-flex flex-row">
               <img src={logout} alt="" className="img-fluid me-2 icons" />
               Log Out
@@ -159,9 +174,7 @@ function SavingsBody() {
                 <span className="me-4 san">Total Funds</span>
               </div>
               <div className="p-2 mt-3">
-                <span className="amount">
-                  NGN 400,000.00
-                </span>
+                <span className="amount">NGN 400,000.00</span>
                 <i className="bi bi-eye-fill float-end"></i>
               </div>
               <div className="d-flex flex-row mt-3">
@@ -169,11 +182,18 @@ function SavingsBody() {
                   <input type="checkbox" placeholder="USD" />
                   <span className="slider round"></span>
                 </label>
-                <span className="ms-2 mt-2 dollar-rate" style={{color: "#B69FC9"}}>₦740 /$1</span>
+                <span
+                  className="ms-2 mt-2 dollar-rate"
+                  style={{ color: "#B69FC9" }}
+                >
+                  ₦740 /$1
+                </span>
               </div>
             </div>
             <div className="mt-4 saving-learn">
-              <Link>Learn More about savings <i className="bi bi-chevron-right"></i></Link>
+              <Link>
+                Learn More about savings <i className="bi bi-chevron-right"></i>
+              </Link>
             </div>
           </div>
           <div className="col-md-2"></div>
@@ -184,8 +204,15 @@ function SavingsBody() {
                 <h4 className="float-end">See all</h4>
               </div>
               <div className="row mt-5">
-                <div className="col-md-6" style={{marginTop: "-7px"}}>
-                  <h6><img src={withdraw} alt="withdraw" className="img-fluid me-2" /> Savings Withdrawal</h6>
+                <div className="col-md-6" style={{ marginTop: "-7px" }}>
+                  <h6>
+                    <img
+                      src={withdraw}
+                      alt="withdraw"
+                      className="img-fluid me-2"
+                    />{" "}
+                    Savings Withdrawal
+                  </h6>
                 </div>
                 <div className="col-md-3 text-center">
                   <h6>1 hr ago</h6>
@@ -194,10 +221,17 @@ function SavingsBody() {
                   <h6>₦4,000.00 </h6>
                 </div>
               </div>
-              <hr/>
+              <hr />
               <div className="row mt-2">
-                <div className="col-md-6" style={{marginTop: "-7px"}}>
-                  <h6><img src={withdraw} alt="withdraw" className="img-fluid me-2" /> Savings Withdrawal</h6>
+                <div className="col-md-6" style={{ marginTop: "-7px" }}>
+                  <h6>
+                    <img
+                      src={withdraw}
+                      alt="withdraw"
+                      className="img-fluid me-2"
+                    />{" "}
+                    Savings Withdrawal
+                  </h6>
                 </div>
                 <div className="col-md-3 text-center">
                   <h6>1 hr ago</h6>
@@ -206,10 +240,17 @@ function SavingsBody() {
                   <h6>₦4,000.00 </h6>
                 </div>
               </div>
-              <hr/>
+              <hr />
               <div className="row mt-2">
-                <div className="col-md-6" style={{marginTop: "-7px"}}>
-                  <h6><img src={withdraw} alt="withdraw" className="img-fluid me-2" /> Savings Withdrawal</h6>
+                <div className="col-md-6" style={{ marginTop: "-7px" }}>
+                  <h6>
+                    <img
+                      src={withdraw}
+                      alt="withdraw"
+                      className="img-fluid me-2"
+                    />{" "}
+                    Savings Withdrawal
+                  </h6>
                 </div>
                 <div className="col-md-3 text-center">
                   <h6>1 hr ago</h6>
@@ -218,7 +259,7 @@ function SavingsBody() {
                   <h6>₦4,000.00 </h6>
                 </div>
               </div>
-              <hr/>
+              <hr />
             </div>
           </div>
         </div>
@@ -235,32 +276,53 @@ function SavingsBody() {
                   <img src={psan} alt="" className="img-fluid" />
                 </div>
                 <div className="col-md-8">
-                   <div className="dibb">
+                  <div className="dibb">
                     <div className="d-flex flex-row mb-2">
                       <h3>DIB</h3>
                       <span className="dibbg">12% p.a</span>
                     </div>
-                    <p>Everyone needs an emergency fund. We make it DIBible and<br/>automatic.</p>
-                    <Link to="/flex-plan" className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#FBBF24", borderColor: "#FBBF24"}}>Create a DIB Plan</Link>
+                    <p>
+                      Everyone needs an emergency fund. We make it DIBible and
+                      <br />
+                      automatic.
+                    </p>
+                    <Link
+                      to="/flex-plan"
+                      className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
+                      style={{ background: "#FBBF24", borderColor: "#FBBF24" }}
+                    >
+                      Create a DIB Plan
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="col-md-6 mb-3">
-            <div className="new-pp" style={{background:"#FDF1F5"}}>
+            <div className="new-pp" style={{ background: "#FDF1F5" }}>
               <div className="row">
                 <div className="col-md-2 text-end">
                   <img src={drims} alt="" className="img-fluid" />
                 </div>
                 <div className="col-md-8">
-                   <div className="dibb">
+                  <div className="dibb">
                     <div className="d-flex flex-row mb-2">
                       <h3>DREAMS</h3>
-                      <span className="dibbg" style={{background: "#F8BFD1"}}>12% p.a</span>
+                      <span className="dibbg" style={{ background: "#F8BFD1" }}>
+                        12% p.a
+                      </span>
                     </div>
-                    <p>Dreams do come through. Save up for that dream phone, car, house, or any other goal you have.</p>
-                    <Link to="/target-plan" className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#E8356D", borderColor: "#E8356D"}}>Create a Dream</Link>
+                    <p>
+                      Dreams do come through. Save up for that dream phone, car,
+                      house, or any other goal you have.
+                    </p>
+                    <Link
+                      to="/target-plan"
+                      className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
+                      style={{ background: "#E8356D", borderColor: "#E8356D" }}
+                    >
+                      Create a Dream
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -269,19 +331,32 @@ function SavingsBody() {
         </div>
         <div className="row mt-4">
           <div className="col-md-6 mb-3">
-            <div className="new-pp" style={{background: "#F0FEFA"}}>
+            <div className="new-pp" style={{ background: "#F0FEFA" }}>
               <div className="row">
                 <div className="col-md-2 text-end">
                   <img src={vlt} alt="" className="img-fluid" />
                 </div>
                 <div className="col-md-8">
-                   <div className="dibb">
+                  <div className="dibb">
                     <div className="d-flex flex-row mb-2">
                       <h3>VAULT</h3>
-                      <span className="dibbg" style={{background: "#BAFCE8"}}>12% p.a</span>
+                      <span className="dibbg" style={{ background: "#BAFCE8" }}>
+                        12% p.a
+                      </span>
                     </div>
-                    <p>Make your money, make more money. Lock up your extra cash and make a profit,<br/>rather than spending it all and wondering what happened.</p>
-                    <Link to="/vault" className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#069669", borderColor: "#069669"}}>Create a Vault</Link>
+                    <p>
+                      Make your money, make more money. Lock up your extra cash
+                      and make a profit,
+                      <br />
+                      rather than spending it all and wondering what happened.
+                    </p>
+                    <Link
+                      to="/vault"
+                      className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
+                      style={{ background: "#069669", borderColor: "#069669" }}
+                    >
+                      Create a Vault
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -294,13 +369,24 @@ function SavingsBody() {
                   <img src={grit} alt="" className="img-fluid" />
                 </div>
                 <div className="col-md-8">
-                   <div className="dibb">
+                  <div className="dibb">
                     <div className="d-flex flex-row mb-2">
                       <h3>GRIT</h3>
-                      <span className="dibbg" style={{background: "#F6EBFE"}}>12% p.a</span>
+                      <span className="dibbg" style={{ background: "#F6EBFE" }}>
+                        12% p.a
+                      </span>
                     </div>
-                    <p>For the big-time savers. Save more and get more<br/>interest.</p>
-                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#8807F7", borderColor: "#8807F7"}}>Create a Grit</button>
+                    <p>
+                      For the big-time savers. Save more and get more
+                      <br />
+                      interest.
+                    </p>
+                    <button
+                      className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
+                      style={{ background: "#8807F7", borderColor: "#8807F7" }}
+                    >
+                      Create a Grit
+                    </button>
                   </div>
                 </div>
               </div>
@@ -318,10 +404,21 @@ function SavingsBody() {
                   <div className="dibb">
                     <div className="d-flex flex-row mb-2">
                       <h3>CLAN</h3>
-                      <span className="dibbg" style={{background: "#F6EBFE"}}>12% p.a</span>
+                      <span className="dibbg" style={{ background: "#F6EBFE" }}>
+                        12% p.a
+                      </span>
                     </div>
-                    <p>The family matters. Save collectively or individually for your <br/>family members.</p>
-                    <button className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3" style={{background: "#8807F7", borderColor: "#8807F7"}}>Create a Clan</button>
+                    <p>
+                      The family matters. Save collectively or individually for
+                      your <br />
+                      family members.
+                    </p>
+                    <button
+                      className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
+                      style={{ background: "#8807F7", borderColor: "#8807F7" }}
+                    >
+                      Create a Clan
+                    </button>
                   </div>
                 </div>
               </div>
@@ -334,5 +431,3 @@ function SavingsBody() {
 }
 
 export default SavingsBody;
-
-
