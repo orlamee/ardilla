@@ -43,6 +43,7 @@ import sanlogo from "../../img/dashboard/san-new.png";
 import becca from "../../img/dashboard/becca.svg";
 import axios from "axios";
 import Collapse from "react-bootstrap/Collapse";
+import transfer from "../../img/dashboard/received-icon.svg";
 // import Button from 'react-bootstrap/Button';
 
 // import PaystackPop from "@paystack/inline-js";
@@ -64,8 +65,8 @@ function DillaBody() {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [userDetails, setUserDetails] = useState();
-
-  // const { email } = userDetails;
+  const [dillaHistory, setDillaHistory] = useState();
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     const getUserById = async () => {
@@ -119,7 +120,7 @@ function DillaBody() {
     const getSanAcct = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/api/san-account/get-san-account`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/san/get-san-account`,
           { withCredentials: true }
         );
 
@@ -138,9 +139,32 @@ function DillaBody() {
       }
     };
 
+    const getDillaHistory = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/dilla-history`,
+          { withCredentials: true }
+        );
+
+        setDillaHistory(data.transactionHistory);
+        console.log(data);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+      }
+    };
+
     getDillaWallet();
     getUserById();
     getSanAcct();
+    getDillaHistory();
   }, []);
 
   const getDillaWallet = async () => {
@@ -166,18 +190,50 @@ function DillaBody() {
     }
   };
 
-  const topUp = async () => {
+  const getDillaHistory = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/dilla-history`,
+        { withCredentials: true }
+      );
+
+      setDillaHistory(data.transactionHistory);
+      console.log(data);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setMsg(message);
+    }
+  };
+
+  const topUp = async (reference) => {
     try {
       const { data } = await axios.put(
         `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/top-up-account`,
-        { email, amount }
+        { reference, amount }
       );
 
-      console.log(data);
+      setModal(true);
+      setMsg(data.msg);
       getDillaWallet();
+      getDillaHistory();
       setAmount(0);
     } catch (error) {
-      console.log(error);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setMsg(message);
     }
   };
 
@@ -187,7 +243,7 @@ function DillaBody() {
 
   const config = {
     reference: new Date().getTime().toString(),
-    email: userDetails?.email,
+    email: email,
     amount: amount * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
     publicKey: "pk_test_bdeef845da401d49681c94007d802d6c68ac2ef8",
   };
@@ -196,7 +252,7 @@ function DillaBody() {
   const onSuccess = (reference) => {
     // Implementation for whatever you want to do with reference and after success call.
     console.log(reference);
-    topUp();
+    topUp(reference);
   };
 
   // you can call this function anything
@@ -204,6 +260,18 @@ function DillaBody() {
     // implementation for  whatever you want to do when the Paystack dialog closed.
     console.log("closed");
   };
+
+  const handleClickSuccess = () => {
+    // setOnSuccessModal(false);
+    setModal(false);
+  };
+
+  setTimeout(() => {
+    if (modal) {
+      // setOnSuccessModal(false);
+      setModal(false);
+    }
+  }, 6000);
 
   const initializePayment = usePaystackPayment(config);
 
@@ -276,8 +344,6 @@ function DillaBody() {
   //   }
   // }
 
-  console.log(userDetails);
-
   return (
     <section className="main-dash">
       {err && (
@@ -300,6 +366,27 @@ function DillaBody() {
           </div>
         </div>
       )}
+      {modal && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
@@ -375,7 +462,7 @@ function DillaBody() {
           <div className="col">
             <h6>
               Cadet {"<"}
-              {user.kodeHex}
+              {userDetails?.kodeHex}
               {"/>"},
             </h6>
           </div>
@@ -2619,7 +2706,45 @@ function DillaBody() {
                   <h5>Amount</h5>
                 </div>
               </div>
-              <div className="row justify-content-center mt-2 border-bottom py-3">
+              {dillaHistory?.map((data) => {
+                return (
+                  <div className="row justify-content-center mt-2 border-bottom py-3">
+                    <div className="col-md-5">
+                      <div className="d-flex flex-row">
+                        {data.transactionType === "Top Up" ? (
+                          <img
+                            src={transfer}
+                            alt=""
+                            className="img-fluid me-3"
+                          />
+                        ) : (
+                          <img
+                            src={withdraw}
+                            alt=""
+                            className="img-fluid me-3"
+                          />
+                        )}
+
+                        {/* <h6>Transportation</h6> */}
+                        <h6>{data.transactionType}</h6>
+                      </div>
+                    </div>
+                    <div className="col-md-3">
+                      <h6>{data.transactionDate}</h6>
+                    </div>
+                    <div className="col-md-3">
+                      <h6>
+                        {" "}
+                        ₦
+                        {Intl.NumberFormat("en-US").format(
+                          data.transactionAmount
+                        )}
+                      </h6>
+                    </div>
+                  </div>
+                );
+              })}
+              {/* <div className="row justify-content-center mt-2 border-bottom py-3">
                 <div className="col-md-5">
                   <div className="d-flex flex-row">
                     <img src={withdraw} alt="" className="img-fluid me-3" />
@@ -2646,7 +2771,7 @@ function DillaBody() {
                 <div className="col-md-3">
                   <h6>₦4,000.00 </h6>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="row">
               <div className="col p-5">
