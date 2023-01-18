@@ -197,15 +197,6 @@ function VerifyPhone() {
         setMsg("Mobile verifcation successful");
       }
     } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-
-      setMsg(message);
-
       setOnSuccess(false);
       setMsg("Verication failed , Please try again");
       setLoading(false);
