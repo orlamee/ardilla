@@ -270,7 +270,7 @@ function SavingsBody() {
           </div>
         </div>
         <div className="row">
-          {flexAcct?.activatePlan ? (
+          {flexAcct && flexAcct?.activatePlan ? (
             <div className="col-md-6 mb-3">
               <div className="new-pp">
                 <div className="row">
