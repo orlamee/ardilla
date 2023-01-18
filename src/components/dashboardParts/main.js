@@ -98,23 +98,23 @@ function Sidebar() {
       } catch (error) {}
     };
 
-    // const generateAccount = async () => {
-    //   try {
-    //     await axios.get(
-    //       `${process.env.REACT_APP_BACKEND_URL}/api/san/create-account`,
-    //       {
-    //         withCredentials: true,
-    //       }
-    //     );
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // };
+    const generateAccount = async () => {
+      try {
+        await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/san/create-account`,
+          {
+            withCredentials: true,
+          }
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
     getUserById();
     getDillaWallet();
     getSanAcct();
-    // generateAccount();
+    generateAccount();
   }, []);
 
   // onClick={handleLogOut}
