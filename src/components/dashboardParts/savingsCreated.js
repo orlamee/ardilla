@@ -279,7 +279,7 @@ function SavingsCreated() {
                       <span>20th December, 2022</span>
                     </p>
                     <Link
-                      to="/flex-plan"
+                      to="/flexplan-dashboard"
                       className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
                       style={{ background: "#FBBF24", borderColor: "#FBBF24" }}
                     >
@@ -317,13 +317,22 @@ function SavingsCreated() {
                       <span className="text-muted">Recent Top up:</span>{" "}
                       <span>20th December, 2022</span>
                     </p>
-                    <Link
-                      to="/target-plan"
-                      className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
-                      style={{ background: "#E8356D", borderColor: "#E8356D" }}
-                    >
-                      View Dreams
-                    </Link>
+                    <div className="d-flex flex-row">
+                      <Link
+                        to="/target-plan"
+                        className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
+                        style={{ background: "#E8356D", borderColor: "#E8356D" }}
+                      >
+                        Create Dreams
+                      </Link>
+                      <Link
+                        to="/target-private"
+                        className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
+                        style={{ background: "#E8356D", borderColor: "#E8356D" }}
+                      >
+                        View Dreams
+                      </Link>
+                    </div>
                   </div>
                 </div>
                 <div className="col-md-3">
@@ -350,13 +359,22 @@ function SavingsCreated() {
                       <span className="text-muted">Recent Top up:</span>{" "}
                       <span>20th December, 2022</span>
                     </p>
-                    <Link
-                      to="/vault"
-                      className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
-                      style={{ background: "#069669", borderColor: "#069669" }}
-                    >
-                      View Vault
-                    </Link>
+                    <div className="d-flex flex-row">
+                      <Link
+                        to="/vault"
+                        className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
+                        style={{ background: "#069669", borderColor: "#069669" }}
+                      >
+                        Create Vault
+                      </Link>
+                      <Link
+                        to="/vaultplan-dashboard"
+                        className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
+                        style={{ background: "#069669", borderColor: "#069669" }}
+                      >
+                        View Vault
+                      </Link>
+                    </div>
                   </div>
                 </div>
                 <div className="col-md-3">
