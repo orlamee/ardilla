@@ -28,11 +28,11 @@ function DashboardFlex() {
   const [err, setErr] = useState(false);
   const [flexHistory, setFlexHistory] = useState();
   const [user, setUser] = useState();
-  const [onSuccessModal, setOnSuccessModal] = useState(false);
   const [source, setSource] = useState("");
   const [pin, setPin] = useState("");
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     const getFlexAccount = async () => {
@@ -157,7 +157,9 @@ function DashboardFlex() {
       );
 
       setMsg(data.msg);
-      setOnSuccessModal(true);
+      setModal(true);
+
+      // setOnSuccessModal(true);
 
       getFlexAccount();
       getFlexHistory();
@@ -172,7 +174,8 @@ function DashboardFlex() {
 
       setErr(true);
       setMsg(message);
-      setOnSuccessModal(false);
+      // setOnSuccessModal(false);
+      setModal(false);
     }
   };
 
@@ -197,12 +200,14 @@ function DashboardFlex() {
   const initializePayment = usePaystackPayment(config);
 
   const handleClickSuccess = () => {
-    setOnSuccessModal(false);
+    // setOnSuccessModal(false);
+    setModal(false);
   };
 
   setTimeout(() => {
     if (onSuccess) {
-      setOnSuccessModal(false);
+      // setOnSuccessModal(false);
+      setModal(false);
     }
   }, 3000);
 
@@ -219,8 +224,9 @@ function DashboardFlex() {
       );
 
       console.log(data);
-      console.log("God love me well");
+      console.log("God love me well well..");
       // onSuccessModal(true);
+      setModal(true);
       setMsg(data.msg);
       setLoading(false);
       getFlexAccount();
@@ -262,7 +268,7 @@ function DashboardFlex() {
           </div>
         </div>
       )}
-      {onSuccessModal && (
+      {modal && (
         <div className="row justify-content-center mt-5  ardilla-alert">
           <div className="col-md-6">
             <div
