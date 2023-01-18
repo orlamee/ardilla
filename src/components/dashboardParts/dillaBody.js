@@ -216,7 +216,8 @@ function DillaBody() {
     try {
       const { data } = await axios.put(
         `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/top-up-account`,
-        { reference, amount }
+        { reference, amount },
+        { withCredentials: true }
       );
 
       setModal(true);
