@@ -27,7 +27,7 @@ function LearnHeader() {
           <div className="me-auto">
             <ul className="navbar-nav">
               <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" to="/">Guide</Link>
+                <Link className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" to="/">Products</Link>
                 <div className="dropdown-menu dropdown-single">
                   <div className="row">
                     <div className="col-md-12">
@@ -72,10 +72,16 @@ function LearnHeader() {
                 </div>
               </li>
               <li className="nav-item">
-                <Link to="/testimonies" className="nav-link">Testimonies</Link>
+                <Link className="nav-link">Hazy & Gen</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link">Guide</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link">Updates</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/testimonies" className="nav-link">Testimonials</Link>
               </li>
             </ul>
           </div>
