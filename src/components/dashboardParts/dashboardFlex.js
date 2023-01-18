@@ -205,7 +205,7 @@ function DashboardFlex() {
   };
 
   setTimeout(() => {
-    if (onSuccess) {
+    if (modal) {
       // setOnSuccessModal(false);
       setModal(false);
     }
