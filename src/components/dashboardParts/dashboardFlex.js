@@ -219,16 +219,13 @@ function DashboardFlex() {
     );
 
     console.log(data);
-    console.log("1");
-    console.log("3");
-    console.log("5");
-    onSuccessModal(true);
+    console.log("God love me");
+    // onSuccessModal(true);
     setMsg(data.msg);
     // setLoading(false);
     getFlexAccount();
     getFlexHistory();
-    console.log("2");
-    console.log("4");
+
     // } catch (error) {
     //   const message =
     //     (error.response &&
