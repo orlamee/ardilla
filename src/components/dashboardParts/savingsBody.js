@@ -18,6 +18,7 @@ import grit from "../../img/dashboard/gritt.svg";
 import clan from "../../img/dashboard/clann.svg";
 import vlt from "../../img/dashboard/vlt.svg";
 import axios from "axios";
+import graphy from "../../img/dashboard/dibgraph.svg";
 
 function SavingsBody() {
   const [flexAcct, setFlexAcct] = useState();
@@ -269,35 +270,77 @@ function SavingsBody() {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-6 mb-3">
-            <div className="new-pp">
-              <div className="row">
-                <div className="col-md-2 text-end">
-                  <img src={psan} alt="" className="img-fluid" />
-                </div>
-                <div className="col-md-8">
-                  <div className="dibb">
-                    <div className="d-flex flex-row mb-2">
-                      <h3>DIB</h3>
-                      <span className="dibbg">12% p.a</span>
+          {flexAcct?.activatePlan ? (
+            <div className="col-md-6 mb-3">
+              <div className="new-pp">
+                <div className="row">
+                  <div className="col-md-2 text-end">
+                    <img src={psan} alt="" className="img-fluid" />
+                  </div>
+                  <div className="col-md-6">
+                    <div className="dibb">
+                      <div className="d-flex flex-row mb-2">
+                        <h3>DIB</h3>
+                        <span className="dibbg">12% p.a</span>
+                      </div>
+                      <p>
+                        <span className="text-muted">Recent Top up:</span>{" "}
+                        <span>20th December, 2022</span>
+                      </p>
+                      <Link
+                        to="/flexplan-dashboard"
+                        className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
+                        style={{
+                          background: "#FBBF24",
+                          borderColor: "#FBBF24",
+                        }}
+                      >
+                        View Dib
+                      </Link>
                     </div>
-                    <p>
-                      Everyone needs an emergency fund. We make it DIBible and
-                      <br />
-                      automatic.
-                    </p>
-                    <Link
-                      to="/flex-plan"
-                      className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
-                      style={{ background: "#FBBF24", borderColor: "#FBBF24" }}
-                    >
-                      Create a DIB Plan
-                    </Link>
+                  </div>
+                  <div className="col-md-3">
+                    <img src={graphy} alt="dib" className="img-fluid w-100" />
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div className="col-md-6 mb-3">
+              <div className="new-pp">
+                <div className="row">
+                  <div className="col-md-2 text-end">
+                    <img src={psan} alt="" className="img-fluid" />
+                  </div>
+                  <div className="col-md-8">
+                    <div className="dibb">
+                      <div className="d-flex flex-row mb-2">
+                        <h3>DIB</h3>
+                        <span className="dibbg">12% p.a</span>
+                      </div>
+                      <p>
+                        Everyone needs an emergency fund. We make it DIBible and
+                        <br />
+                        automatic.
+                      </p>
+                      <Link
+                        to="/flex-plan"
+                        className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
+                        style={{
+                          background: "#FBBF24",
+                          borderColor: "#FBBF24",
+                        }}
+                      >
+                        Create a DIB Plan
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* land */}
           <div className="col-md-6 mb-3">
             <div className="new-pp" style={{ background: "#FDF1F5" }}>
               <div className="row">
