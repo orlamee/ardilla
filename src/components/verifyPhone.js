@@ -30,7 +30,7 @@ function VerifyPhone() {
   const [wrongContactMsg, setWrongContactMsg] = useState("");
   const [wrongContactSuc, setWrongContactSuc] = useState("");
   const [userCheck, setUserCheck] = useState();
-  const [code, setCode] = useState();
+  // const [code, setCode] = useState();
 
   useEffect(() => {
     const getUserById = async () => {
@@ -69,8 +69,8 @@ function VerifyPhone() {
           { withCredentials: true }
         );
 
-        console.log(data);
-        setCode(data.pin);
+        console.log("pin", data);
+        // setCode(data.pin);
       } catch (error) {
         const message =
           (error.response &&
@@ -129,7 +129,8 @@ function VerifyPhone() {
       );
 
       const pin = data.pinId;
-      setCode(pin);
+      // setCode(pin);
+      // console.log("resend", pin);
       setMsgResend("New OTP has been sent");
       setResendSuc(true);
       // pinRef.current = data.pinId;
@@ -157,28 +158,6 @@ function VerifyPhone() {
     }
   };
 
-  const getMobilePin = async () => {
-    try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/auth/mobile-otp-3`,
-        { withCredentials: true }
-      );
-
-      console.log(data);
-      setCode(data.pin);
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-
-      setMsg(message);
-      setErr(true);
-    }
-  };
-
   const checkOut = async (e) => {
     e.preventDefault();
 
@@ -188,8 +167,8 @@ function VerifyPhone() {
         { withCredentials: true }
       );
 
-      console.log(data);
-      setCode(data.pin);
+      console.log("handleSubmit", data);
+      // setCode(data.pin);
 
       const otp = data.pin;
 
@@ -199,6 +178,9 @@ function VerifyPhone() {
         pin_id: otp,
         pin: fullpin,
       });
+
+      console.log("update was called");
+      updateProcess();
     } catch (error) {
       const message =
         (error.response &&
@@ -308,7 +290,7 @@ function VerifyPhone() {
       );
 
       const pin = otpData.data.pinId;
-      setCode(pin);
+      // setCode(pin);
 
       //update pin
       await axios.put(
