@@ -440,7 +440,7 @@ function Sidebar() {
                     <input
                       className="form-check-input red"
                       type="checkbox"
-                      // defaultChecked
+                      defaultChecked
                       disabled
                     />
                     <label className="form-check-label custom-check">
@@ -452,6 +452,7 @@ function Sidebar() {
                       className="form-check-input"
                       type="checkbox"
                       disabled
+                      defaultChecked
                     />
                     <label className="form-check-label custom-check">
                       Upload Your Valid ID
