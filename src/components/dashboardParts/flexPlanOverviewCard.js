@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -29,8 +29,12 @@ function FlexPlanOverviewCard() {
   const [user, setUser] = useState();
   const [amount, setAmount] = useState();
   const [agree, setAgree] = useState(false);
+  // const [onSuccessModal, setOnSuccessModal] = useState(false);
+  const [loading, setLoading] = useState();
 
   console.log("card page new");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getUserById = async () => {
@@ -162,6 +166,33 @@ function FlexPlanOverviewCard() {
   };
 
   const initializePayment = usePaystackPayment(config);
+
+  const handleCreate = async () => {
+    try {
+      setLoading(true);
+
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/activate-plan`,
+        { withCredentials: true }
+      );
+
+      setLoading(false);
+      // setOnSuccessModal(true);
+      setMsg(data.msg);
+      navigate("/flexplan-dashboard");
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setLoading(false);
+      setErr(true);
+      setMsg(message);
+    }
+  };
 
   return (
     <section className="main-dash">
@@ -708,6 +739,66 @@ function FlexPlanOverviewCard() {
               </label>
             </div>
             {agree ? (
+              loading ? (
+                <div>
+                  <Link
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
+                    to="#"
+                    style={{ width: "100%" }}
+                  >
+                    Loading
+                  </Link>
+                </div>
+              ) : (
+                <div>
+                  <Link
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
+                    onClick={handleCreate}
+                    style={{ width: "100%" }}
+                  >
+                    Create Plan
+                  </Link>
+                </div>
+              )
+            ) : (
+              <div>
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
+                  to="#"
+                  style={{ width: "100%" }}
+                >
+                  Create Plan
+                </Link>
+              </div>
+            )}
+            {/* {agree ? (
+              loading? ( <div>
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
+                  to="#"
+                  style={{ width: "100%" }}
+                >
+                 Loading
+                </Link>
+              </div>):( <div>
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
+                 onClick={handleCreate}
+                  style={{ width: "100%" }}
+                >
+                  Create Plan
+                </Link>
+              </div>)
+            ):( <div>
+              <Link
+                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
+                to="/flexplan-dashboard"
+                style={{ width: "100%" }}
+              >
+                Create Plan
+              </Link>
+            </div>)} */}
+            {/* {agree ?  (
               <div>
                 <Link
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
@@ -727,7 +818,7 @@ function FlexPlanOverviewCard() {
                   Create Plan
                 </Link>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>
