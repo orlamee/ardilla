@@ -172,15 +172,30 @@ function VerifyPhone() {
 
       const otp = data.pin;
 
-      await axios.post("https://api.ng.termii.com/api/sms/otp/verify", {
-        api_key:
-          "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
-        pin_id: otp,
-        pin: fullpin,
-      });
+      const termi = await axios.post(
+        "https://api.ng.termii.com/api/sms/otp/verify",
+        {
+          api_key:
+            "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
+          pin_id: otp,
+          pin: fullpin,
+        }
+      );
 
-      console.log("update was called");
-      updateProcess();
+      console.log("termii", termi.data);
+
+      if (!data.verified) {
+        setErr(false);
+        setOnSuccess(false);
+        setMsg("Wrong pin");
+        setLoading(false);
+        setErr(true);
+      } else {
+        setLoading(false);
+        setOnSuccess(true);
+        updateProcess();
+        setMsg("Mobile verifcation successful");
+      }
     } catch (error) {
       const message =
         (error.response &&
