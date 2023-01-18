@@ -23,11 +23,14 @@ function CompleteProfile() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    try {
-      const getUserById = async () => {
-        const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
-          withCredentials: true,
-        });
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
 
         setEmail(data.user.email);
 
@@ -38,21 +41,21 @@ function CompleteProfile() {
         } else {
           return navigate("/404");
         }
-      };
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
 
-      getUserById();
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
+        setMsg(message);
+        setErr(true);
+      }
+    };
 
-      setMsg(message);
-      setErr(true);
-    }
-  }, [navigate, BACKEND_URL]);
+    getUserById();
+  }, [navigate]);
 
   let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
 
@@ -64,6 +67,25 @@ function CompleteProfile() {
   getIP(`https://api.ipdata.co?api-key=${apiKey}`).then((data) => {
     setIp(data.ip);
   });
+
+  const createDillaWalet = async () => {
+    try {
+      await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/create-account`,
+        { withCredentials: true }
+      );
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setMsg(message);
+      setErr(true);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,6 +101,7 @@ function CompleteProfile() {
       );
 
       setErr(false);
+      createDillaWalet();
       setMsg(data.msg);
       setOnSuccess(true);
       setIsLoading(false);
