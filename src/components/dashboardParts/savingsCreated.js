@@ -326,8 +326,8 @@ function SavingsCreated() {
                       </Link>
                       <Link
                         to="/target-private"
-                        className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
-                        style={{ background: "#E8356D", borderColor: "#E8356D" }}
+                        className="btn btn-outline-primary px-3 py-2 fs-6 mt-2 me-3 drimz-btn"
+                        style={{ background: "transparent", borderColor: "#E8356D" }}
                       >
                         View Dreams
                       </Link>
@@ -368,8 +368,8 @@ function SavingsCreated() {
                       </Link>
                       <Link
                         to="/vaultplan-dashboard"
-                        className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
-                        style={{ background: "#069669", borderColor: "#069669" }}
+                        className="btn btn-outline-primary px-3 py-2 fs-6 mt-2 me-3 vault-btns"
+                        style={{ background: "transparent", borderColor: "#069669" }}
                       >
                         View Vault
                       </Link>
