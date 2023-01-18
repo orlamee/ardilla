@@ -181,19 +181,52 @@ function VerifyPhone() {
 
   const checkOut = async (e) => {
     e.preventDefault();
-    setErr(false);
-    setLoading(true);
-    console.log("i was clicked");
 
-    console.log("you typed", fullpin);
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/auth/mobile-otp-3`,
+        { withCredentials: true }
+      );
 
-    getMobilePin();
+      console.log(data);
+      setCode(data.pin);
 
-    console.log("too soon");
+      const otp = data.pin;
 
-    updateProcess();
+      await axios.post("https://api.ng.termii.com/api/sms/otp/verify", {
+        api_key:
+          "TLs31L2aPiKCxLKuBgDfaXsEyQUCoe2jSixDuVV6NmnNgTdPUmHnZ2T4Odv2S5",
+        pin_id: otp,
+        pin: fullpin,
+      });
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
 
-    console.log("lastly", code);
+      setMsg(message);
+
+      setOnSuccess(false);
+      setMsg("Verication failed , Please try again");
+      setLoading(false);
+      setErr(true);
+    }
+    // setErr(false);
+    // setLoading(true);
+    // console.log("i was clicked");
+
+    // console.log("you typed", fullpin);
+
+    // getMobilePin();
+
+    // console.log("too soon");
+
+    // updateProcess();
+
+    // console.log("lastly", code);
 
     // console.log("fullpin", fullpin);
     // console.log("code", code);
