@@ -163,7 +163,7 @@ function DashboardFlex() {
 
       getFlexAccount();
       getFlexHistory();
-      setAmount(0);
+      setAmount(300);
     } catch (error) {
       const message =
         (error.response &&
