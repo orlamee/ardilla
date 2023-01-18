@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -17,87 +17,62 @@ import psan from "../../img/dashboard/p-san.svg";
 import pinsurance from "../../img/dashboard/pinsurance.svg";
 import psaving from "../../img/dashboard/p-saving.svg";
 import pinvest from "../../img/dashboard/pinvest.svg";
-// import { useIdleTimer } from "react-idle-timer";
-// import Cookies from "js-cookie";
-// import axios from "axios";
+import axios from "axios";
 
 function PortfolioBody() {
   // const navigate = useNavigate();
-  // const [dillaWallet, setDillaWallet] = useState({});
+  const [dillaWallet, setDillaWallet] = useState({});
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
 
-  // let user = JSON.parse(sessionStorage.getItem("user"));
+  useEffect(() => {
+    const getDillaWallet = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/get-dilla-wallet`,
+          { withCredentials: true }
+        );
 
-  // const refreshToken = async () => {
-  //   try {
-  //     const { data } = await axios.get(
-  //       `https://ardilla.herokuapp.com/ardilla/api/auth/refresh-token/${Cookies.get(
-  //         "user"
-  //       )}`
-  //     );
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+        setDillaWallet(data.dillaWallet);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
 
-  // useEffect(() => {
-  //   const getDillaWallet = async () => {
-  //     try {
-  //       const { data } = await axios.get(
-  //         `https://ardilla.herokuapp.com/ardilla/api/dilla-wallet/get-dilla-wallet/${user._id}`
-  //       );
+        setErr(true);
 
-  //       setDillaWallet(data.dillaWallet.accountBalance);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
+        setMsg(message);
+      }
+    };
 
-  //   getDillaWallet();
-  // }, [user]);
+    getDillaWallet();
+  }, []);
 
-  // useEffect(() => {
-  //   let interval = setInterval(() => {
-  //     refreshToken();
-  //   }, 6000);
-
-  //   return () => clearInterval(interval);
-  // }, []);
-
-  // const handleOnIdle = () => {
-  //   sessionStorage.clear();
-  //   Cookies.remove("user");
-  //   navigate("/login");
-  //   console.log("last active", getLastActiveTime());
-  // };
-
-  // const { getLastActiveTime } = useIdleTimer({
-  //   timeout: 1000 * 60 * 2,
-  //   onIdle: handleOnIdle,
-  //   events: [
-  //     "mousemove",
-  //     "keydown",
-  //     "wheel",
-  //     "DOMMouseScroll",
-  //     "mousewheel",
-  //     "mousedown",
-  //     "touchstart",
-  //     "touchmove",
-  //     "MSPointerDown",
-  //     "MSPointerMove",
-  //     "visibilitychange",
-  //   ],
-  //   debounce: 500,
-  // });
-
-  // const handleLogOut = () => {
-  //   Cookies.remove("user");
-  //   sessionStorage.clear();
-  //   navigate("/login");
-  //   window.location.reload();
-  // };
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
@@ -176,8 +151,12 @@ function PortfolioBody() {
                 <span className="me-4 san">Dilla Wallet</span>
               </div>
               <div className="p-2 mt-3">
+                {/* <span className="amount">USD 10,000.00</span> */}
                 <span className="amount">
-                  USD 10,000.00
+                  ₦{" "}
+                  {Intl.NumberFormat("en-US").format(
+                    dillaWallet?.accountBalance
+                  )}
                 </span>
                 <i className="bi bi-eye-fill float-end text-white"></i>
               </div>
@@ -187,12 +166,15 @@ function PortfolioBody() {
                     <input type="checkbox" placeholder="USD" />
                     <span className="slider round"></span>
                   </label>
-                  <span className="text-white ms-2 mt-2 dollar-rate">₦740 /$1</span>
+                  <span className="text-white ms-2 mt-2 dollar-rate">
+                    ₦740 /$1
+                  </span>
                 </div>
-              
+
                 <Link
                   className="float-end btn btn-outline-primary px-4 py-2 ardilla-btn-inverted fs-6"
-                  to="" style={{marginTop: "-37px"}}
+                  to=""
+                  style={{ marginTop: "-37px" }}
                 >
                   Add Money
                 </Link>
@@ -229,7 +211,12 @@ function PortfolioBody() {
         </div>
         <div className="row my-5">
           <div className="col">
-            <img src={stats} alt="statistic" className="img-fluid" width="100%" />
+            <img
+              src={stats}
+              alt="statistic"
+              className="img-fluid"
+              width="100%"
+            />
           </div>
         </div>
         <div className="row">
@@ -237,33 +224,59 @@ function PortfolioBody() {
             <div className="new-p text-center">
               <img src={psan} alt="san" className="img-fluid" />
               <h3 className="my-3">Savings</h3>
-              <Link to="/savings-portfolio">View your savings portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
+              <Link to="/savings-portfolio">
+                View your savings portfolio{" "}
+                <i className="bi bi-arrow-right-circle-fill"></i>
+              </Link>
             </div>
           </div>
           <div className="col-md-6 mb-3">
             <div className="overlay">
-              <div className="new-p text-center" style={{background:"#FDF1F5"}}>
+              <div
+                className="new-p text-center"
+                style={{ background: "#FDF1F5" }}
+              >
                 <img src={psaving} alt="san" className="img-fluid" />
-                <h3 className="my-3" style={{color: "#E8356D"}}>Budgeting</h3>
-                <Link>View your SAN portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
+                <h3 className="my-3" style={{ color: "#E8356D" }}>
+                  Budgeting
+                </h3>
+                <Link>
+                  View your SAN portfolio{" "}
+                  <i className="bi bi-arrow-right-circle-fill"></i>
+                </Link>
               </div>
             </div>
-            
           </div>
         </div>
         <div className="row mt-2">
           <div className="col-md-6 mb-3">
-            <div className="new-p text-center overlay" style={{background: "#F0FEFA"}}>
+            <div
+              className="new-p text-center overlay"
+              style={{ background: "#F0FEFA" }}
+            >
               <img src={pinvest} alt="san" className="img-fluid" />
-              <h3 className="my-3" style={{color: "#069669"}}>Investment</h3>
-              <Link>View your investment portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
+              <h3 className="my-3" style={{ color: "#069669" }}>
+                Investment
+              </h3>
+              <Link>
+                View your investment portfolio{" "}
+                <i className="bi bi-arrow-right-circle-fill"></i>
+              </Link>
             </div>
           </div>
           <div className="col-md-6 mb-3">
-            <div className="new-p text-center overlay" style={{background: "#F8F0FF"}}>
+            <div
+              className="new-p text-center overlay"
+              style={{ background: "#F8F0FF" }}
+            >
               <img src={pinsurance} alt="san" className="img-fluid" />
-              <h3 className="my-3" style={{color: "#8807F7"}}>Insurance</h3>
-              <Link>View your insurance portfolio <i className="bi bi-arrow-right-circle-fill"></i></Link>
+              <h3 className="my-3" style={{ color: "#8807F7" }}>
+                Insurance
+              </h3>
+              <Link>
+                View your insurance portfolio{" "}
+                <i className="bi bi-arrow-right-circle-fill"></i>
+              </Link>
             </div>
           </div>
         </div>
