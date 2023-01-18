@@ -209,7 +209,7 @@ function DashboardFlex() {
       // setOnSuccessModal(false);
       setModal(false);
     }
-  }, 3000);
+  }, 6000);
 
   const handleTransfer = async (e) => {
     e.preventDefault();
