@@ -627,7 +627,7 @@ function ProfileMain() {
                       </select>
                     </div>
                   </div>
-                  {loading ? (
+                  {!nok && loading ? (
                     <Link
                       className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
                       to=""
