@@ -38,39 +38,28 @@ function ProfileMain() {
   useEffect(() => {
     const getUserById = async () => {
       try {
-        const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
-          withCredentials: true,
-        });
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
 
         setUserDetails(data.user);
+        setNok(data.user.nextOfKin);
       } catch (error) {
         console.log(error);
       }
     };
 
     getUserById();
-  }, [BACKEND_URL]);
-
-  // const getUserById = async () => {
-  //   try {
-  //     const { data } = await axios.get(
-  //       `https://ardilla.herokuapp.com/ardilla/api/user/find/${user._id}`
-  //     );
-
-  //     setUserDetails(data.user);
-  //     // setNok(data.user.nextOfKin);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  }, []);
 
   // const [profileImg, setProfileImg] = useState({});
   // const [image, setImage] = useState({ preview: "", data: "" });
   const [selectedFile, setSelectedFile] = useState(null);
 
   const file = useRef();
-
-  console.log(userDetails);
 
   // setNok(userDetails?.nextOfKin);
 
@@ -440,7 +429,7 @@ function ProfileMain() {
               </div>
             </div>
             <div>
-              {!setNok && (
+              {!nok && (
                 <form>
                   <div className="row mt-3">
                     <div className="col-md-4 mt-3">
@@ -546,7 +535,7 @@ function ProfileMain() {
                   )}
                 </form>
               )}
-              {setNok && (
+              {nok && (
                 <form>
                   <div className="row mt-3">
                     <div className="col-md-4 mt-3">
@@ -575,7 +564,7 @@ function ProfileMain() {
                       <input
                         type="text"
                         className="form-control target-form p-form"
-                        placeholder="Enter last name"
+                        // placeholder="Enter last name"
                         defaultValue={nok?.lastname}
                         // required
                         // value={lastname}
@@ -593,10 +582,11 @@ function ProfileMain() {
                       <input
                         type="text"
                         className="form-control target-form p-form"
-                        placeholder="Enter phone number"
-                        required
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
+                        defaultValue={nok?.phone}
+                        // placeholder="Enter phone number"
+                        // required
+                        // value={phone}
+                        // onChange={(e) => setPhone(e.target.value)}
                       />
                       {/* </form> */}
                     </div>
@@ -610,10 +600,11 @@ function ProfileMain() {
                       <input
                         type="email"
                         className="form-control target-form p-form"
-                        placeholder="Enter email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        defaultValue={nok?.email}
+                        // placeholder="Enter email"
+                        // required
+                        // value={email}
+                        // onChange={(e) => setEmail(e.target.value)}
                       />
                       {/* </form> */}
                     </div>
@@ -626,13 +617,13 @@ function ProfileMain() {
                       <select
                         className="form-select p-select"
                         aria-label="Default select example"
-                        onChange={(e) => setRelationship(e.target.value)}
+                        // onChange={(e) => setRelationship(e.target.value)}
                       >
-                        <option selected value={"cousin"}>
-                          {"Cousin"}
+                        <option selected value={nok?.relationship}>
+                          {nok?.relationship}
                         </option>
-                        <option value="wife">Wife</option>
-                        <option value="uncle">Uncle</option>
+                        {/* <option value="wife">Wife</option>
+                        <option value="uncle">Uncle</option> */}
                       </select>
                     </div>
                   </div>
