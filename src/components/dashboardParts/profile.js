@@ -27,11 +27,9 @@ function ProfileMain() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [relationship, setRelationship] = useState("");
-
   const [userDetails, setUserDetails] = useState();
-  // const [nok, setNok] = useState();
+  const [nok, setNok] = useState();
   const [img, setImg] = useState();
-
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
@@ -442,110 +440,220 @@ function ProfileMain() {
               </div>
             </div>
             <div>
-              <form>
-                <div className="row mt-3">
-                  <div className="col-md-4 mt-3">
-                    <h5>First Name</h5>
+              {!setNok && (
+                <form>
+                  <div className="row mt-3">
+                    <div className="col-md-4 mt-3">
+                      <h5>First Name</h5>
+                    </div>
+                    <div className="col-md-4">
+                      {/* <form> */}
+                      <input
+                        type="text"
+                        className="form-control target-form p-form"
+                        placeholder="Enter first name"
+                        required
+                        value={firstname}
+                        onChange={(e) => setFirstName(e.target.value)}
+                      />
+                      {/* </form> */}
+                    </div>
                   </div>
-                  <div className="col-md-4">
-                    {/* <form> */}
-                    <input
-                      type="text"
-                      className="form-control target-form p-form"
-                      placeholder="Enter first name"
-                      required
-                      value={firstname}
-                      onChange={(e) => setFirstName(e.target.value)}
-                    />
-                    {/* </form> */}
+                  <div className="row mt-3">
+                    <div className="col-md-4 mt-3">
+                      <h5>Last Name</h5>
+                    </div>
+                    <div className="col-md-4">
+                      {/* <form> */}
+                      <input
+                        type="text"
+                        className="form-control target-form p-form"
+                        placeholder="Enter last name"
+                        required
+                        value={lastname}
+                        onChange={(e) => setLastName(e.target.value)}
+                      />
+                      {/* </form> */}
+                    </div>
                   </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-4 mt-3">
-                    <h5>Last Name</h5>
+                  <div className="row mt-3">
+                    <div className="col-md-4 mt-3">
+                      <h5>Phone Number</h5>
+                    </div>
+                    <div className="col-md-4">
+                      {/* <form> */}
+                      <input
+                        type="text"
+                        className="form-control target-form p-form"
+                        placeholder="Enter phone number"
+                        required
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                      />
+                      {/* </form> */}
+                    </div>
                   </div>
-                  <div className="col-md-4">
-                    {/* <form> */}
-                    <input
-                      type="text"
-                      className="form-control target-form p-form"
-                      placeholder="Enter last name"
-                      required
-                      value={lastname}
-                      onChange={(e) => setLastName(e.target.value)}
-                    />
-                    {/* </form> */}
+                  <div className="row mt-3">
+                    <div className="col-md-4 mt-3">
+                      <h5>Email</h5>
+                    </div>
+                    <div className="col-md-4">
+                      {/* <form> */}
+                      <input
+                        type="email"
+                        className="form-control target-form p-form"
+                        placeholder="Enter email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                      {/* </form> */}
+                    </div>
                   </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-4 mt-3">
-                    <h5>Phone Number</h5>
+                  <div className="row mt-3">
+                    <div className="col-md-4 mt-3">
+                      <h5>Relationship</h5>
+                    </div>
+                    <div className="col-md-4">
+                      <select
+                        className="form-select p-select"
+                        aria-label="Default select example"
+                        onChange={(e) => setRelationship(e.target.value)}
+                      >
+                        <option selected value={"cousin"}>
+                          {"Cousin"}
+                        </option>
+                        <option value="wife">Wife</option>
+                        <option value="uncle">Uncle</option>
+                      </select>
+                    </div>
                   </div>
-                  <div className="col-md-4">
-                    {/* <form> */}
-                    <input
-                      type="text"
-                      className="form-control target-form p-form"
-                      placeholder="Enter phone number"
-                      required
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                    />
-                    {/* </form> */}
-                  </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-4 mt-3">
-                    <h5>Email</h5>
-                  </div>
-                  <div className="col-md-4">
-                    {/* <form> */}
-                    <input
-                      type="email"
-                      className="form-control target-form p-form"
-                      placeholder="Enter email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                    {/* </form> */}
-                  </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-4 mt-3">
-                    <h5>Relationship</h5>
-                  </div>
-                  <div className="col-md-4">
-                    <select
-                      className="form-select p-select"
-                      aria-label="Default select example"
-                      onChange={(e) => setRelationship(e.target.value)}
+                  {loading ? (
+                    <Link
+                      className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                      to=""
                     >
-                      <option selected value={"cousin"}>
-                        {"Cousin"}
-                      </option>
-                      <option value="wife">Wife</option>
-                      <option value="uncle">Uncle</option>
-                    </select>
+                      Loading
+                    </Link>
+                  ) : (
+                    <Link
+                      className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                      to=""
+                      onClick={handleNOK}
+                    >
+                      Save Changes
+                    </Link>
+                  )}
+                </form>
+              )}
+              {setNok && (
+                <form>
+                  <div className="row mt-3">
+                    <div className="col-md-4 mt-3">
+                      <h5>First Name</h5>
+                    </div>
+                    <div className="col-md-4">
+                      {/* <form> */}
+                      <input
+                        type="text"
+                        className="form-control target-form p-form"
+                        // placeholder="Enter first name"
+                        defaultValue={nok?.firstname}
+                        // required
+                        // value={firstname}
+                        // onChange={(e) => setFirstName(e.target.value)}
+                      />
+                      {/* </form> */}
+                    </div>
                   </div>
-                </div>
-                {loading ? (
-                  <Link
-                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
-                    to=""
-                  >
-                    Loading
-                  </Link>
-                ) : (
-                  <Link
-                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
-                    to=""
-                    onClick={handleNOK}
-                  >
-                    Save Changes
-                  </Link>
-                )}
-              </form>
+                  <div className="row mt-3">
+                    <div className="col-md-4 mt-3">
+                      <h5>Last Name</h5>
+                    </div>
+                    <div className="col-md-4">
+                      {/* <form> */}
+                      <input
+                        type="text"
+                        className="form-control target-form p-form"
+                        placeholder="Enter last name"
+                        defaultValue={nok?.lastname}
+                        // required
+                        // value={lastname}
+                        // onChange={(e) => setLastName(e.target.value)}
+                      />
+                      {/* </form> */}
+                    </div>
+                  </div>
+                  <div className="row mt-3">
+                    <div className="col-md-4 mt-3">
+                      <h5>Phone Number</h5>
+                    </div>
+                    <div className="col-md-4">
+                      {/* <form> */}
+                      <input
+                        type="text"
+                        className="form-control target-form p-form"
+                        placeholder="Enter phone number"
+                        required
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                      />
+                      {/* </form> */}
+                    </div>
+                  </div>
+                  <div className="row mt-3">
+                    <div className="col-md-4 mt-3">
+                      <h5>Email</h5>
+                    </div>
+                    <div className="col-md-4">
+                      {/* <form> */}
+                      <input
+                        type="email"
+                        className="form-control target-form p-form"
+                        placeholder="Enter email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                      {/* </form> */}
+                    </div>
+                  </div>
+                  <div className="row mt-3">
+                    <div className="col-md-4 mt-3">
+                      <h5>Relationship</h5>
+                    </div>
+                    <div className="col-md-4">
+                      <select
+                        className="form-select p-select"
+                        aria-label="Default select example"
+                        onChange={(e) => setRelationship(e.target.value)}
+                      >
+                        <option selected value={"cousin"}>
+                          {"Cousin"}
+                        </option>
+                        <option value="wife">Wife</option>
+                        <option value="uncle">Uncle</option>
+                      </select>
+                    </div>
+                  </div>
+                  {loading ? (
+                    <Link
+                      className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                      to=""
+                    >
+                      Loading
+                    </Link>
+                  ) : (
+                    <Link
+                      className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                      to=""
+                      onClick={handleNOK}
+                    >
+                      Save Changes
+                    </Link>
+                  )}
+                </form>
+              )}
             </div>
           </div>
         </div>
