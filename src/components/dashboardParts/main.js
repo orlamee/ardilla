@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { CircularProgressbar } from 'react-circular-progressbar';
+import '../../../node_modules/react-circular-progressbar/dist/styles.css';
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -12,7 +14,7 @@ import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import badge from "../../img/dashboard/b-cadet.svg";
 import chat from "../../img/dashboard/chat.svg";
-import pie from "../../img/dashboard/piechart.svg";
+// import pie from "../../img/dashboard/piechart.svg";
 import medal from "../../img/dashboard/medal.svg";
 // import Cookies from "js-cookie";
 import axios from "axios";
@@ -36,6 +38,7 @@ function Sidebar() {
   const [dillaWallet, setDillaWallet] = useState({});
   const [sanBalance, setSanBalance] = useState({});
   const [userDetails, setUserDetails] = useState();
+  const value = 0.25;
 
   // let user = JSON.parse(sessionStorage.getItem("user"));
 
@@ -408,7 +411,8 @@ function Sidebar() {
               <div className="row">
                 <div className="col-md-6 text-center color-link">
                   {/* Add pie chart. */}
-                  <img src={pie} alt="" className="img-fluid" />
+                  <CircularProgressbar value={value} maxValue={1} text={`${value * 100}%`} />
+                  {/* <img src={pie} alt="" className="img-fluid" /> */}
                   <Link to="/profile/kyc">
                     Complete your KYC <i className="bi bi-arrow-right"></i>
                   </Link>

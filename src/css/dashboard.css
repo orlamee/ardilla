@@ -2208,3 +2208,14 @@ i.fas.fa-search {
   border-color: #F3F4F6;
   color: #3D0072!important;
 } 
+
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #e6356d;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #8807f7;
+  font-size: 20px;
+}
