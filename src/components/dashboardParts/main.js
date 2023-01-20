@@ -39,7 +39,7 @@ function Sidebar() {
   const [sanBalance, setSanBalance] = useState({});
   const [userDetails, setUserDetails] = useState();
   const [totalBalance, setTotalBalance] = useState("");
-  const value = 0.25;
+  const [value, setValue] = useState("");
 
   // let user = JSON.parse(sessionStorage.getItem("user"));
 
@@ -98,6 +98,8 @@ function Sidebar() {
         );
 
         setUserDetails(data.user);
+        const calculateKycProgress = data.user.kycPoints / 100;
+        setValue(calculateKycProgress);
         console.log("user", data);
       } catch (error) {
         console.log(error);
