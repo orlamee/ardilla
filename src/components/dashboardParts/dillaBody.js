@@ -2174,7 +2174,7 @@ function DillaBody() {
               </div>
             </div>
             <div className="recent-transaction mt-5">
-              <h3>Friends boobs</h3>
+              <h3>Friends</h3>
             </div>
             <div className="row mt-5 friends">
               <div className="col-md-2 text-center">

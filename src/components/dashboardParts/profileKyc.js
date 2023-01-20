@@ -31,6 +31,7 @@ function ProfileKYC() {
   const [loading2, setLoading2] = useState(null);
   const [loading3, setLoading3] = useState(null);
   const [userDetails, setUserDetails] = useState();
+  const [point, setPoint] = useState();
 
   useEffect(() => {
     const getUserById = async () => {
@@ -40,6 +41,16 @@ function ProfileKYC() {
         });
 
         setUserDetails(data.user);
+
+        if (data.user.kycPoints === 25) {
+          setPoint(1);
+        } else if (data.user.kycPoints === 50) {
+          setPoint(2);
+        } else if (data.user.kycPoints === 75) {
+          setPoint(3);
+        } else {
+          setPoint(4);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -378,7 +389,7 @@ function ProfileKYC() {
           <div className="col-md-6 right-profile">
             <div className="d-flex flex-row kyc-profile">
               <img src={pie} alt="" className="img-fluid" />
-              <h5 className="mt-5 ms-4">2 of 4 Completed</h5>
+              <h5 className="mt-5 ms-4">{point} of 4 Completed</h5>
             </div>
             {/* <form onSubmit={handleSubmit}> */}
             <div className="row mt-3">
@@ -390,7 +401,7 @@ function ProfileKYC() {
                   <input
                     type="number"
                     className="form-control target-form p-form"
-                    placeholder="234*********12"
+                    placeholder={userDetails?.bvn}
                     required
                   />
                   <img src={pass} alt="success" className="img-fluid ms-2" />
@@ -406,7 +417,7 @@ function ProfileKYC() {
                   <input
                     type="tel"
                     className="form-control target-form p-form"
-                    placeholder="+234 902 123 4567"
+                    placeholder={userDetails?.contact}
                     required
                   />
                   <img src={pass} alt="success" className="img-fluid ms-2" />

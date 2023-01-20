@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../../css/profile.css"
+import "../../css/profile.css";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -14,13 +14,62 @@ import contact from "../../img/dashboard/contact.svg";
 import chat from "../../img/dashboard/chat.svg";
 import refer from "../../img/dashboard/refer.svg";
 import pb from "../../img/dashboard/pb.svg";
-
-
-
+import axios from "axios";
 
 function ProfileReferral() {
-    return (
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [userDetails, setUserDetails] = useState();
+
+  useEffect(() => {
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUserDetails(data.user);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+
+        setMsg(message);
+      }
+    };
+
+    getUserById();
+  }, []);
+  return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
@@ -101,36 +150,88 @@ function ProfileReferral() {
         <div className="row mt-5">
           <div className="col-md-6">
             <div className="mb-4">
-              <Link to="/profile" type="button" className="btn me-3 btn-profile"> <i className="bi bi-person-fill me-2"></i> Personal Information</Link>
+              <Link
+                to="/profile"
+                type="button"
+                className="btn me-3 btn-profile"
+              >
+                {" "}
+                <i className="bi bi-person-fill me-2"></i> Personal Information
+              </Link>
             </div>
             <div className="mb-4">
-              <Link to="/profile/security" type="button" className="btn me-3 btn-profile"> <i className="bi bi-shield-lock me-2"></i> Security</Link>
+              <Link
+                to="/profile/security"
+                type="button"
+                className="btn me-3 btn-profile"
+              >
+                {" "}
+                <i className="bi bi-shield-lock me-2"></i> Security
+              </Link>
             </div>
             <div className="mb-4">
-              <Link to="/profile/get-help" type="button" className="btn me-3 btn-profile"> <i className="bi bi-patch-question-fill me-2"></i> Get Help</Link>
+              <Link
+                to="/profile/get-help"
+                type="button"
+                className="btn me-3 btn-profile"
+              >
+                {" "}
+                <i className="bi bi-patch-question-fill me-2"></i> Get Help
+              </Link>
             </div>
             <div className="mb-4">
-              <Link to="/profile/account" type="button" className="btn me-3 btn-profile"> <i className="bi bi-person-square me-2"></i> Account</Link>
+              <Link
+                to="/profile/account"
+                type="button"
+                className="btn me-3 btn-profile"
+              >
+                {" "}
+                <i className="bi bi-person-square me-2"></i> Account
+              </Link>
             </div>
             <div className="mb-4">
-              <Link to="/profile/referral" type="button" className="btn me-3 btn-profile active"> <i className="bi bi-share-fill me-2"></i> Referral</Link>
+              <Link
+                to="/profile/referral"
+                type="button"
+                className="btn me-3 btn-profile active"
+              >
+                {" "}
+                <i className="bi bi-share-fill me-2"></i> Referral
+              </Link>
             </div>
             <div className="mb-4">
-              <Link to="/profile/kyc" type="button" className="btn me-3 btn-profile"> <i className="bi bi-person-check-fill me-2"></i> KYC</Link>
+              <Link
+                to="/profile/kyc"
+                type="button"
+                className="btn me-3 btn-profile"
+              >
+                {" "}
+                <i className="bi bi-person-check-fill me-2"></i> KYC
+              </Link>
             </div>
-            
           </div>
           <div className="col-md-6 right-profile">
             <img src={refer} alt="" className="img-fluid" />
             <div className="refer mt-4">
-              <h6>Become an Affiliate and earn up to 4% commission<br/>when you tell someone about Ardilla and they save<br/>& invest with us.</h6>
-              <h3 className="mt-5">Hi Annie, this is your referral code:</h3>
-              <span>ANI342JK</span>
+              <h6>
+                Become an Affiliate and earn up to 4% commission
+                <br />
+                when you tell someone about Ardilla and they save
+                <br />& invest with us.
+              </h6>
+              <h3 className="mt-5">
+                Hi {userDetails?.firstname}, this is your referral code:
+              </h3>
+              <span>{userDetails?.referral}</span>
               <div className="d-flex flex-row my-5">
                 <div className="card-refer p-3">
-                  <p><i className="bi bi-link-45deg"></i> Copy Referral Link</p>
+                  <p>
+                    <i className="bi bi-link-45deg"></i> Copy Referral Link
+                  </p>
                 </div>
-                <p className="mt-3"><i className="bi bi-share-fill ms-3"></i></p>
+                <p className="mt-3">
+                  <i className="bi bi-share-fill ms-3"></i>
+                </p>
               </div>
               <img src={pb} alt="" className="img-fluid" />
               <div className="cardy p-4 mt-5">
@@ -153,7 +254,6 @@ function ProfileReferral() {
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
