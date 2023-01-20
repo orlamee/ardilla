@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { CircularProgressbar } from 'react-circular-progressbar';
-import '../../../node_modules/react-circular-progressbar/dist/styles.css';
+import { CircularProgressbar } from "react-circular-progressbar";
+import "../../../node_modules/react-circular-progressbar/dist/styles.css";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -38,6 +38,7 @@ function Sidebar() {
   const [dillaWallet, setDillaWallet] = useState({});
   const [sanBalance, setSanBalance] = useState({});
   const [userDetails, setUserDetails] = useState();
+  const [totalBalance, setTotalBalance] = useState("");
   const value = 0.25;
 
   // let user = JSON.parse(sessionStorage.getItem("user"));
@@ -98,7 +99,9 @@ function Sidebar() {
 
         setUserDetails(data.user);
         console.log("user", data);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     const generateAccount = async () => {
@@ -114,9 +117,26 @@ function Sidebar() {
       }
     };
 
+    const calculateTotal = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/total-Balance`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setTotalBalance(data.totalBalance);
+        console.log("Total Balance", data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     getUserById();
     getDillaWallet();
     getSanAcct();
+    calculateTotal();
     generateAccount();
   }, []);
 
@@ -367,12 +387,9 @@ function Sidebar() {
                 <span className="me-4 san">Total Funds</span>
               </div>
               <div className="p-2 mt-3">
-                {sanBalance && dillaWallet ? (
+                {totalBalance ? (
                   <span className="amount">
-                    NGN{" "}
-                    {Intl.NumberFormat("en-US").format(
-                      dillaWallet.accountBalance + sanBalance.accountBalance
-                    )}{" "}
+                    NGN {Intl.NumberFormat("en-US").format(totalBalance)}{" "}
                   </span>
                 ) : (
                   <span className="amount">0</span>
@@ -411,7 +428,11 @@ function Sidebar() {
               <div className="row">
                 <div className="col-md-6 text-center color-link">
                   {/* Add pie chart. */}
-                  <CircularProgressbar value={value} maxValue={1} text={`${value * 100}%`} />
+                  <CircularProgressbar
+                    value={value}
+                    maxValue={1}
+                    text={`${value * 100}%`}
+                  />
                   {/* <img src={pie} alt="" className="img-fluid" /> */}
                   <Link to="/profile/kyc">
                     Complete your KYC <i className="bi bi-arrow-right"></i>
