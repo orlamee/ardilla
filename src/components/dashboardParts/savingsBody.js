@@ -24,6 +24,7 @@ function SavingsBody() {
   const [flexAcct, setFlexAcct] = useState();
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
+  const [totalBalance, setTotalBalance] = useState("");
 
   useEffect(() => {
     // const getUserById = async () => {
@@ -69,8 +70,24 @@ function SavingsBody() {
       }
     };
 
-    getFlexAccount();
+    const calculateTotal = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/total-Balance`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setTotalBalance(data.totalBalance);
+        console.log("Total Balance", data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     // getUserById();
+    getFlexAccount();
+    calculateTotal();
   }, []);
 
   console.log(flexAcct);
@@ -175,7 +192,11 @@ function SavingsBody() {
                 <span className="me-4 san">Total Funds</span>
               </div>
               <div className="p-2 mt-3">
-                <span className="amount">NGN 400,000.00</span>
+                <span className="amount">
+                  NGN{" "}
+                  {totalBalance &&
+                    Intl.NumberFormat("en-US").format(totalBalance)}
+                </span>
                 <i className="bi bi-eye-fill float-end"></i>
               </div>
               <div className="d-flex flex-row mt-3">
