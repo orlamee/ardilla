@@ -260,8 +260,8 @@ function ProfileReferral() {
                 Hi {userDetails?.firstname}, this is your referral code:
               </h3>
               <span>{userDetails?.referral}</span>
-              <div className="d-flex flex-row my-5">
-                <div className="card-refer p-3" onClick={handleCopy}>
+              <div className="d-flex flex-row my-5" onClick={handleCopy}>
+                <div className="card-refer p-3">
                   <p>
                     <i className="bi bi-link-45deg"></i> Copy Referral Link
                   </p>
