@@ -20,6 +20,7 @@ function ProfileReferral() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [userDetails, setUserDetails] = useState();
+  const [onSuccess, setOnSuccess] = useState(false);
 
   useEffect(() => {
     const getUserById = async () => {
@@ -48,6 +49,22 @@ function ProfileReferral() {
 
     getUserById();
   }, []);
+
+  const handleCopy = () => {
+    navigator.clipboard(userDetails?.referral);
+    setOnSuccess(true);
+    setMsg("Copied");
+  };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+  };
+
+  setTimeout(() => {
+    if (onSuccess) {
+      setOnSuccess(false);
+    }
+  }, 3000);
   return (
     <section className="main-dash">
       {err && (
@@ -64,6 +81,26 @@ function ProfileReferral() {
                 className="btn-close"
                 // data-bs-dismiss="alert"
                 onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
                 aria-label="Close"
               ></button>
             </div>
@@ -225,7 +262,7 @@ function ProfileReferral() {
               <span>{userDetails?.referral}</span>
               <div className="d-flex flex-row my-5">
                 <div className="card-refer p-3">
-                  <p>
+                  <p onClick={handleCopy}>
                     <i className="bi bi-link-45deg"></i> Copy Referral Link
                   </p>
                 </div>
