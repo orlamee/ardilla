@@ -1648,3 +1648,15 @@ h5 a {
 .adv {
   background-image: url("../img/adv.svg")!important;
 }
+
+.hire h5 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #3D0072;
+}
+
+.footer-career {
+  padding: 100px 20px;
+  background-color: #fff;
+}
