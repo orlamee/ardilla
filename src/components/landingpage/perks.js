@@ -16,7 +16,6 @@ function Perks() {
       <div className="container career-top">
         <div className="row">
           <div className="col text-center">
-            {/* <h3 className="text-center">Perks</h3> */}
             <img src={perks} alt="perks" className="img-fluid" />
           </div>
         </div>
