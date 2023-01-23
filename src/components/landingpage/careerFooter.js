@@ -10,6 +10,7 @@ function CareerFooter() {
           <div className="col">
             <img src={photos} alt="three" className="img-fluid w-100" />
           </div>
+          
         </div>
       </div>
     </section>
