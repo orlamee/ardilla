@@ -34,7 +34,7 @@ function ProfileSecurity() {
 
   const changePassword = async (e) => {
     e.preventDefault();
-    if (newPassword === oldPassword) {
+    if (newPassword === confirmpassword) {
       setLoading(true);
       try {
         const { data } = await axios.put(
