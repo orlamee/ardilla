@@ -1,5 +1,5 @@
 import React from "react";
-import photos from "../../img/groupy.svg";
+import photos from "../../img/groupy.png";
 
 function Culture() {
   return (
