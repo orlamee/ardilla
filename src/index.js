@@ -113,6 +113,7 @@ import FincancialPage from "./pages/financialPage";
 import CreatedSavings from "./dashboard/createdSavings";
 import Guides from "./pages/guide";
 import Updates from "./pages/updates";
+import Careers from "./pages/careers";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -143,6 +144,7 @@ root.render(
       <Route path="/savings-created" element={<CreatedSavings/>}></Route>
       <Route path="/guides" element={<Guides/>}></Route>
       <Route path="/updates" element={<Updates/>}></Route>
+      <Route path="/careers" element={<Careers/>}></Route>
 
 
 
