@@ -1,7 +1,6 @@
 import React from "react";
 import photos from "../../img/fotos.svg";
 
-
 function CareerFooter() {
   return (
     <section className="footer-career">
