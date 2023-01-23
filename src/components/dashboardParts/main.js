@@ -102,18 +102,18 @@ function Sidebar() {
       }
     };
 
-    const generateAccount = async () => {
-      try {
-        await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/api/san/create-account`,
-          {
-            withCredentials: true,
-          }
-        );
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    // const generateAccount = async () => {
+    //   try {
+    //     await axios.get(
+    //       `${process.env.REACT_APP_BACKEND_URL}/api/san/create-account`,
+    //       {
+    //         withCredentials: true,
+    //       }
+    //     );
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
 
     const calculateTotal = async () => {
       try {
@@ -135,7 +135,7 @@ function Sidebar() {
     getDillaWallet();
     getSanAcct();
     calculateTotal();
-    generateAccount();
+    // generateAccount();
   }, []);
 
   // onClick={handleLogOut}
