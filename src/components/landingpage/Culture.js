@@ -1,5 +1,5 @@
 import React from "react";
-// import photos from "../../img/groupy.svg";
+import photos from "../../img/groupy.svg";
 
 function Culture() {
   return (
@@ -15,7 +15,7 @@ function Culture() {
       <div className="container-fluid p-0">
         <div className="row">
           <div className="col">
-            {/* <img src={photos} alt="group" className="img-fluid w-100" /> */}
+            <img src={photos} alt="group" className="img-fluid w-100" />
           </div>
         </div>
       </div>
