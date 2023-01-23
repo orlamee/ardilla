@@ -17,6 +17,7 @@ import password from "../../img/dashboard/c-pass.svg";
 import pin from "../../img/dashboard/c-pin.svg";
 import question from "../../img/dashboard/c-question.svg";
 import number from "../../img/dashboard/c-number.svg";
+import axios from "axios";
 
 function ProfileSecurity() {
   const [oldPassword, setOldPassword] = useState("");
@@ -31,13 +32,33 @@ function ProfileSecurity() {
     setOnSuccess(false);
   };
 
-  const changePassword = () => {
+  const changePassword = async (e) => {
+    e.preventDefault();
     if (newPassword === oldPassword) {
-      console.log({
-        oldPassword,
-        newPassword,
-        confirmpassword,
-      });
+      setLoading(true);
+      try {
+        const { data } = await axios.put(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/change-password`,
+          { oldPassword, newPassword },
+          { withCredentials: true }
+        );
+
+        setMsg(data.msg);
+        setOnSuccess(true);
+        setLoading(false);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+
+        setMsg(message);
+        setLoading(false);
+      }
     } else {
       setErr(true);
       setLoading(false);
