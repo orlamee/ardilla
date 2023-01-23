@@ -780,7 +780,7 @@ function ProfileSecurity() {
                               </div>
                               <Link
                                 data-bs-toggle="modal"
-                                data-bs-target="#change-number-pin"
+                                // data-bs-target="#change-number-pin"
                                 type="button"
                                 className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
                                 to=""
