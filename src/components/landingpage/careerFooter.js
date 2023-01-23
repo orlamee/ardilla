@@ -12,7 +12,7 @@ function CareerFooter() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export default CareerFooter;
