@@ -21,8 +21,6 @@ import check from "../../img/dashboard/Check.svg";
 // import pass from "../../img/dashboard/pass.svg";
 
 function ProfileKYC() {
-  // const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-
   const [idFront, setIdFront] = useState(null);
   const [idBack, setIdBack] = useState(null);
   const [utility, setUtility] = useState(null);
