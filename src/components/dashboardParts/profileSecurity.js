@@ -36,6 +36,7 @@ function ProfileSecurity() {
     e.preventDefault();
     if (newPassword === confirmpassword) {
       setLoading(true);
+      setErr(false);
       try {
         const { data } = await axios.put(
           `${process.env.REACT_APP_BACKEND_URL}/api/user/change-password`,
