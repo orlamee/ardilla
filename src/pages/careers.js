@@ -4,6 +4,7 @@ import CareersBreadcrumb from "../components/landingpage/careersBreadcrumb";
 import CareersHeader from "../components/landingpage/careersHeader";
 import Culture from "../components/landingpage/Culture";
 import OurValue from "../components/landingpage/ourValues";
+import People from "../components/landingpage/people";
 
 function Careers() {
   return (
@@ -12,6 +13,7 @@ function Careers() {
       <CareersBreadcrumb/>
       <Culture/>
       <OurValue/>
+      <People/>
       
       
       <Footer/>
