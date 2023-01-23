@@ -30,10 +30,6 @@ import shield from "../../img/dashboard/new-shield.svg";
 import daylight from "../../img/dashboard/daylight.svg";
 import op from "../../img/dashboard/op.svg";
 
-import dayjs from "dayjs";
-import greetPlugin from "dayjs-greet";
-dayjs.extend(greetPlugin);
-
 function Sidebar() {
   const [dillaWallet, setDillaWallet] = useState({});
   const [sanBalance, setSanBalance] = useState({});
