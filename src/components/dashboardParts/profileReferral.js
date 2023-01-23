@@ -52,7 +52,7 @@ function ProfileReferral() {
 
   const handleCopy = () => {
     setOnSuccess(true);
-    // navigator.clipboard(userDetails?.referral);
+    navigator.clipboard(userDetails?.referral);
     setMsg("Copied");
     console.log("i was clicked");
   };
