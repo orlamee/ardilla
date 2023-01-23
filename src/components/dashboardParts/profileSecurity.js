@@ -838,6 +838,7 @@ function ProfileSecurity() {
 
                               {loading && (
                                 <button
+                                  data-bs-toggle="modal"
                                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
                                   style={{ width: "100%" }}
                                 >
@@ -846,6 +847,7 @@ function ProfileSecurity() {
                               )}
                               {!loading && (
                                 <button
+                                  data-bs-toggle="modal"
                                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
                                   type="submit"
                                   style={{ width: "100%" }}
