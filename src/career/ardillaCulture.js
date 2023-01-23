@@ -1,7 +1,7 @@
 import React from "react";
 import photos from "../../img/photos.svg";
 
-function Culture() {
+function ArdillaCulture() {
   return (
     <section className="culture culture-text">
       <div className="container mb-5">
@@ -35,4 +35,4 @@ function Culture() {
     </section>
   );
 }
-export default Culture;
+export default ArdillaCulture;
