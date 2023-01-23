@@ -21,7 +21,7 @@ import check from "../../img/dashboard/Check.svg";
 // import pass from "../../img/dashboard/pass.svg";
 
 function ProfileKYC() {
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  // const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   const [idFront, setIdFront] = useState(null);
   const [idBack, setIdBack] = useState(null);
@@ -36,9 +36,12 @@ function ProfileKYC() {
   useEffect(() => {
     const getUserById = async () => {
       try {
-        const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
-          withCredentials: true,
-        });
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
 
         setUserDetails(data.user);
 
@@ -56,57 +59,39 @@ function ProfileKYC() {
       }
     };
 
-    const generateAccount = async () => {
-      try {
-        const { data } = await axios.get(
-          `${BACKEND_URL}/api/san/create-account`,
-          {
-            withCredentials: true,
-          }
-        );
+    // const generateAccount = async () => {
+    //   try {
+    //     const { data } = await axios.get(
+    //       `${BACKEND_URL}/api/san/create-account`,
+    //       {
+    //         withCredentials: true,
+    //       }
+    //     );
 
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    //     console.log(data);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
 
     getUserById();
-    generateAccount();
-  }, [BACKEND_URL]);
+    // generateAccount();
+  }, []);
 
   const getUserById = async () => {
     try {
-      const { data } = await axios.get(`${BACKEND_URL}/api/user/get-user`, {
-        withCredentials: true,
-      });
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+        {
+          withCredentials: true,
+        }
+      );
 
       setUserDetails(data.user);
     } catch (error) {
       console.log(error);
     }
   };
-
-  // const generateAccount = async () => {
-  //   try {
-  //     const { data } = await axios.put(
-  //       `https://ardilla.herokuapp.com/ardilla/api/user/generate-san/${user._id}`
-  //     );
-
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // if (
-  //   userDetails?.idFrontStatus === "approve" &&
-  //   userDetails?.idBackStatus === "approve" &&
-  //   userDetails?.idBackStatus === "approve"
-  // ) {
-  //   console.log("nothing is immpossible");
-  //   generateAccount();
-  // }
 
   const handleIdFront = (e) => {
     e.preventDefault();
@@ -135,7 +120,7 @@ function ProfileKYC() {
       formData.append("image", idFront);
 
       const { data } = await axios.post(
-        `${BACKEND_URL}/api/user/id-front`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/id-front`,
         formData,
         { withCredentials: true }
       );
@@ -157,7 +142,7 @@ function ProfileKYC() {
       formData.append("image", idBack);
 
       const { data } = await axios.post(
-        `${BACKEND_URL}/api/user/id-back`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/id-back`,
         formData,
         { withCredentials: true }
       );
@@ -179,7 +164,7 @@ function ProfileKYC() {
       formData.append("image", utility);
 
       const { data } = await axios.post(
-        `${BACKEND_URL}/api/user/utility-bill`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/utility-bill`,
         formData,
         {
           withCredentials: true,
