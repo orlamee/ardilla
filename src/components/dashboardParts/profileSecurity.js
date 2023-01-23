@@ -27,6 +27,7 @@ function ProfileSecurity() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [newPhoneNumber, setNewPhoneNumber] = useState("");
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
@@ -66,6 +67,11 @@ function ProfileSecurity() {
       setOnSuccess(false);
       setMsg("Your new and Old password do not match");
     }
+  };
+
+  const changePhoneNumber = async () => {
+    try {
+    } catch (error) {}
   };
 
   return (
@@ -771,15 +777,20 @@ function ProfileSecurity() {
                             <span>
                               Change or Update your Phone Number on Ardilla{" "}
                             </span>
-                            <form className="mt-5">
+                            <form className="mt-5" onSubmit={changePhoneNumber}>
                               <div className="mb-3">
                                 <input
                                   type="tel"
                                   className="form-control p-form"
                                   placeholder="0802 123 4567"
+                                  required
+                                  value={newPhoneNumber}
+                                  onChange={(e) =>
+                                    setNewPhoneNumber(e.target.value)
+                                  }
                                 />
                               </div>
-                              <Link
+                              {/* <Link
                                 data-bs-toggle="modal"
                                 // data-bs-target="#change-number-pin"
                                 type="button"
@@ -788,7 +799,25 @@ function ProfileSecurity() {
                                 style={{ width: "100%" }}
                               >
                                 Continue
-                              </Link>
+                              </Link> */}
+
+                              {loading && (
+                                <button
+                                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                                  style={{ width: "100%" }}
+                                >
+                                  Loading
+                                </button>
+                              )}
+                              {!loading && (
+                                <button
+                                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                                  type="submit"
+                                  style={{ width: "100%" }}
+                                >
+                                  Continue
+                                </button>
+                              )}
                             </form>
                           </div>
                         </div>
