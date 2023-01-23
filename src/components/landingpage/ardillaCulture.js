@@ -35,5 +35,4 @@ function Culture() {
     </section>
   );
 }
-
 export default Culture;
