@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "../components/footer";
-// import Culture from "../components/landingpage/ardillaCulture";
+import ArdillaCulture from "../components/landingpage/ardillaCulture";
 // import CareerFooter from "../components/landingpage/careerFooter";
 import CareersBreadcrumb from "../components/landingpage/careersBreadcrumb";
 import CareersHeader from "../components/landingpage/careersHeader";
@@ -16,6 +16,7 @@ function Careers() {
       <CareersHeader/>
       <CareersBreadcrumb/>
       {/* <Culture/> */}
+      <ArdillaCulture/>
       <OurValue/>
       {/* <People/> */}
       {/* <Perks/> */}
