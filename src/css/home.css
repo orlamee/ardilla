@@ -1585,7 +1585,7 @@ h5 a {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: 120px 20px;
+  padding: 110px 20px;
 }
 
 .slant h5 {
@@ -1600,4 +1600,51 @@ h5 a {
   font-weight: 400;
   line-height: 24px;
   color: #3D0072;
+}
+
+.bg-op {
+  background-image: url("../img/design.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 50px 40px;
+  border-radius: 16px;
+  margin: 21px;
+}
+
+.openings {
+  padding: 100px 10px;
+}
+
+.openings p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #000;
+}
+
+.openings h4 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #000;
+}
+
+.openings h6 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #000;
+}
+
+.eng {
+  background-image: url("../img/engine.svg")!important;
+}
+
+.writer {
+  background-image: url("../img/writer.svg")!important;
+}
+
+.adv {
+  background-image: url("../img/adv.svg")!important;
 }
