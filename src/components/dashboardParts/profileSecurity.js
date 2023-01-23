@@ -33,6 +33,18 @@ function ProfileSecurity() {
     setOnSuccess(false);
   };
 
+  setTimeout(() => {
+    if (onSuccess) {
+      setOnSuccess(false);
+    }
+  }, 3000);
+
+  setTimeout(() => {
+    if (err) {
+      setErr(false);
+    }
+  }, 3000);
+
   const changePassword = async (e) => {
     e.preventDefault();
     if (newPassword === confirmpassword) {
