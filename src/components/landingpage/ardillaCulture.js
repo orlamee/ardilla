@@ -1,7 +1,6 @@
 import React from "react";
 import photos from "../../img/photos.svg";
 
-
 function Culture() {
   return (
     <section className="culture culture-text">
