@@ -75,10 +75,10 @@ function LearnHeader() {
                 <Link className="nav-link">Hazy & Gen</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link">Guide</Link>
+                <Link to="/guides" className="nav-link">Guide</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link">Updates</Link>
+                <Link to="/updates" className="nav-link">Updates</Link>
               </li>
               <li className="nav-item">
                 <Link to="/testimonies" className="nav-link">Testimonials</Link>
