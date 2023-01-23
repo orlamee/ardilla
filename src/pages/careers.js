@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../components/footer";
+// import Footer from "../components/footer";
 import Culture from "../components/landingpage/ardillaCulture";
 // import CareerFooter from "../components/landingpage/careerFooter";
 import CareersBreadcrumb from "../components/landingpage/careersBreadcrumb";
@@ -22,7 +22,7 @@ function Careers() {
       {/* <Openings/> */}
       {/* <Hire/> */}
       {/* <CareerFooter/> */}
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }
