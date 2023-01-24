@@ -15,7 +15,7 @@ import chat from "../../img/dashboard/chat.svg";
 import big from "../../img/dashboard/big-graph.png";
 import withdraw from "../../img/dashboard/w-icon.svg";
 import transfer from "../../img/dashboard/received-icon.svg";
-import dillatop from "../../img/dashboard/dil.svg";
+// import dillatop from "../../img/dashboard/dil.svg";
 import sanlogo from "../../img/dashboard/san-logo.svg";
 import dillalogo from "../../img/dashboard/dilla-new.png";
 import successful from "../../img/dashboard/cadet-success.svg";
@@ -31,7 +31,10 @@ import benef from "../../img/dashboard/benef.svg";
 import axios from "axios";
 
 function PaymentSAN() {
-  const [san, setSan] = useState({});
+  const [san, setSan] = useState();
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [sanHistory, setSanHistory] = useState();
 
   useEffect(() => {
     const getSanAcct = async () => {
@@ -42,17 +45,67 @@ function PaymentSAN() {
         );
 
         setSan(data.sanAccount);
-        console.log("san", data);
       } catch (error) {
-        console.log(error);
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+      }
+    };
+
+    const getSanHistory = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/san/san-history`,
+          { withCredentials: true }
+        );
+
+        setSanHistory(data.transactionHistory);
+        console.log(data);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
       }
     };
 
     getSanAcct();
+    getSanHistory();
   }, []);
 
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
@@ -987,7 +1040,55 @@ function PaymentSAN() {
               <div className="history-title">
                 <h3>Transaction history</h3>
               </div>
-              <div className="row justify-content-center mt-4 border-bottom py-3">
+
+              {sanHistory?.map((data) => {
+                return (
+                  <div className="row justify-content-center mt-4 border-bottom py-3">
+                    <div className="col-md-2">
+                      <div className="d-flex flex-row">
+                        {data.transactionType === "Top Up" ? (
+                          <img
+                            src={transfer}
+                            alt=""
+                            className="img-fluid me-3"
+                          />
+                        ) : (
+                          <img
+                            src={withdraw}
+                            alt=""
+                            className="img-fluid me-3"
+                          />
+                        )}
+                        <h6>{data.transactionType}</h6>
+                      </div>
+                    </div>
+                    <div className="col-md-2">
+                      <h6>{data.accountNumber}</h6>
+                    </div>
+                    <div className="col-md-2">
+                      <h6>{data.name}</h6>
+                    </div>
+                    <div className="col-md-2">
+                      <h6>₦ {data.transactionAmount} </h6>
+                    </div>
+                    <div className="col-md-2">
+                      <h6>{data.transactionDate}</h6>
+                    </div>
+                    <div className="col-md-2">
+                      <button
+                        type="button"
+                        to="#"
+                        class="btn btn-primary dilla-pending btn-sm mt-2 px-3"
+                        disabled
+                      >
+                        Pending
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+
+              {/* <div className="row justify-content-center mt-4 border-bottom py-3">
                 <div className="col-md-2">
                   <div className="d-flex flex-row">
                     <img src={withdraw} alt="" className="img-fluid me-3" />
@@ -1016,8 +1117,8 @@ function PaymentSAN() {
                     Pending
                   </button>
                 </div>
-              </div>
-              <div className="row justify-content-center mt-2 border-bottom py-3">
+              </div> */}
+              {/* <div className="row justify-content-center mt-2 border-bottom py-3">
                 <div className="col-md-2">
                   <div className="d-flex flex-row">
                     <img src={transfer} alt="" className="img-fluid me-3" />
@@ -1046,8 +1147,8 @@ function PaymentSAN() {
                     Successful
                   </button>
                 </div>
-              </div>
-              <div className="row justify-content-center mt-2 border-bottom py-3">
+              </div> */}
+              {/* <div className="row justify-content-center mt-2 border-bottom py-3">
                 <div className="col-md-2">
                   <div className="d-flex flex-row">
                     <img src={withdraw} alt="" className="img-fluid me-3" />
@@ -1076,16 +1177,17 @@ function PaymentSAN() {
                     Failed
                   </button>
                 </div>
-              </div>
-              <div className="row justify-content-center mt-2 border-bottom py-3">
+              </div> */}
+
+              {/* <div className="row justify-content-center mt-2 border-bottom py-3">
                 <div className="col-md-2">
                   <div className="d-flex flex-row">
                     <img src={dillatop} alt="" className="img-fluid me-3" />
                     <h6>Dilla Top up</h6>
                   </div>
                 </div>
-                <div className="col-md-2">{/* <h6>2347896413</h6> */}</div>
-                <div className="col-md-2">{/* <h6>Rolat Olaide</h6> */}</div>
+                <div className="col-md-2"><h6>2347896413</h6></div>
+                <div className="col-md-2"><h6>Rolat Olaide</h6></div>
                 <div className="col-md-2">
                   <h6>₦4,000.00 </h6>
                 </div>
@@ -1102,7 +1204,7 @@ function PaymentSAN() {
                     Successful
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
