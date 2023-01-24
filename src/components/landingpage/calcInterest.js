@@ -1,5 +1,5 @@
 import React from "react";
-import line from "../../img/linegraph.png";
+import line from "../../img/linegraph.svg";
 import { Link } from "react-router-dom";
 
 
