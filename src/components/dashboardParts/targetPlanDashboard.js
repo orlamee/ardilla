@@ -22,6 +22,9 @@ function TargetPlanDashboard() {
   const [err, setErr] = useState(false);
   const [user, setUser] = useState();
 
+  const [agree, setAgree] = useState(false);
+  const [agree2, setAgree2] = useState(false);
+
   useEffect(() => {
     const getUserById = async () => {
       try {
@@ -71,9 +74,20 @@ function TargetPlanDashboard() {
     getUserById();
   }, []);
 
+  const handleAgree = () => {
+    setMsg("Agree term and condition , first");
+    setErr(true);
+  };
+
+  setTimeout(() => {
+    if (err) {
+      setErr(false);
+    }
+  }, 3000);
+
   return (
     <section className="main-dash">
-       {err && (
+      {err && (
         <div className="row justify-content-center  ardilla-alert">
           <div className="col-md-6">
             <div
@@ -462,7 +476,9 @@ function TargetPlanDashboard() {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
+                value={agree}
+                required
+                nChange={() => setAgree(!agree)}
                 id="flexCheckDefault"
               />
               <label className="form-check-label" for="flexCheckDefault">
@@ -473,21 +489,34 @@ function TargetPlanDashboard() {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
+                value={agree2}
                 id="flexCheckChecked"
+                onChange={() => setAgree2(!agree2)}
               />
               <label className="form-check-label" for="flexCheckChecked">
                 lorem ipsum in adrem eff antares encrypt infer inde
               </label>
             </div>
             <div>
-              <Link
-                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
-                to="/target-save"
-                style={{ width: "100%" }}
-              >
-                Continue
-              </Link>
+              {!agree && !agree2 && (
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
+                  to="#"
+                  onClick={handleAgree}
+                  style={{ width: "100%" }}
+                >
+                  Continue
+                </Link>
+              )}
+              {agree && agree2 && (
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
+                  to="/target-save"
+                  style={{ width: "100%" }}
+                >
+                  Continue
+                </Link>
+              )}
             </div>
           </div>
         </div>
