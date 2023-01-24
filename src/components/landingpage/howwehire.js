@@ -1,5 +1,5 @@
 import React from "react";
-import e from "../../img/e.svg";
+import e from "../../img/e.png";
 
 
 

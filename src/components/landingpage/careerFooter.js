@@ -1,5 +1,5 @@
 import React from "react";
-import photos from "../../img/fotos.svg";
+import photos from "../../img/fotos.png";
 
 function CareerFooter() {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import ui from "../../img/uiux.svg";
+import ui from "../../img/uiux.png";
 
 
 function People() {
