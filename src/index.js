@@ -114,6 +114,7 @@ import CreatedSavings from "./dashboard/createdSavings";
 import Guides from "./pages/guide";
 import Updates from "./pages/updates";
 import Careers from "./pages/careers";
+import Calculator from "./pages/calculator";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -145,6 +146,7 @@ root.render(
       <Route path="/guides" element={<Guides/>}></Route>
       <Route path="/updates" element={<Updates/>}></Route>
       <Route path="/careers" element={<Careers/>}></Route>
+      <Route path="/interest" element={<Calculator/>}></Route>
 
 
 

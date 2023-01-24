@@ -1660,3 +1660,100 @@ h5 a {
   padding: 100px 20px;
   background-color: #fff;
 }
+
+.bg-int {
+  background-color: #130120!important;
+}
+
+.bg-int .nav-link {
+  color: #fff!important;
+}
+
+.int-tool h2 {
+  font-size: 40px!important;
+  line-height: 45px!important;
+  font-weight: 500!important;
+}
+
+.int-tool {
+  padding: 200px 20px 0px 20px!important;
+}
+
+.int-values {
+  border-radius: 16px 16px 0px 0px;
+}
+
+.int-values h4 {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 13px;
+  color: #9CA3AF;
+}
+
+.int-values h5 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #3D0072;
+}
+
+.instant h2 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 70px;
+  color: #3D0072;
+}
+
+.instant {
+  padding: 100px 20px;
+}
+
+.steps {
+  padding: 90px 20px;
+  background-color: #f9f9f9;
+}
+
+@media (min-width: 992px){
+  .steppings {
+    padding-right: 100px;
+  }
+}
+
+.stepper p {
+  font-size: 14px;
+  line-height: 32px;
+  font-weight: 400;
+  color: #3D0072;
+}
+
+.stepper h5 {
+  font-size: 22px;
+  line-height: 35px;
+  color: #3D0072;
+  font-weight: 700;
+}
+
+.line {
+  width: 2px;
+  background-color: #8807F7 !important;
+}
+.lead {
+  font-size: 1.1rem;
+}
+
+.get-goal {
+  background-color: #FDEDF2;
+  padding: 50px 50px 0px 50px;
+  border-radius: 16px;
+}
+
+.get-goal h6 {
+  font-size: 14px;
+  color: #000;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.interest-top {
+  margin-top: 100px;
+}
