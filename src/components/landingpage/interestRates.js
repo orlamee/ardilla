@@ -9,8 +9,6 @@ import blue from "../../img/blue.svg";
 import Accordion from 'react-bootstrap/Accordion';
 
 
-
-
 function InterestRates() {
   return (
     <section className="instant">
