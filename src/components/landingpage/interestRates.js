@@ -1,5 +1,5 @@
 import React from "react";
-import stepper from "../../img/stepper.svg";
+import stepper from "../../img/stepper.png";
 import one from "../../img/11.svg";
 import two from "../../img/22.svg";
 import three from "../../img/33.svg";
