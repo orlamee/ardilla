@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -12,11 +12,97 @@ import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
 import verticalfour from "../../img/dashboard/vertical-four.svg";
-
+import axios from "axios";
 
 function TargetPlanSave() {
+  const [period, setPeriod] = useState("");
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
+  const [loading, setLoading] = useState();
+
+  const navigate = useNavigate();
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+  };
+
+  const handleClick = async () => {
+    if (period) {
+      setLoading(true);
+
+      try {
+        await axios.put(
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/saving-period/`,
+          {
+            period,
+          },
+          { withCredentials: true }
+        );
+
+        setLoading(false);
+        navigate("/target-prefer");
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setLoading(false);
+        setErr(true);
+        setMsg(message);
+      }
+    } else {
+      setLoading(false);
+      setErr(true);
+      setMsg(" Please select how often you would like to save");
+    }
+  };
+
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
@@ -89,37 +175,98 @@ function TargetPlanSave() {
       </div>
       <div className="content py-5 px-5 earning-section">
         <div className="row backto">
-          <Link to="/target-earn"><span><i className="bi bi-chevron-left me-3"></i>Back</span></Link>
+          <Link to="/target-earn">
+            <span>
+              <i className="bi bi-chevron-left me-3"></i>Back
+            </span>
+          </Link>
         </div>
         <div className="row earning">
           <div className="col-md-12 text-center">
-            <img src={verticalfour} alt="" className="img-fluid"/>
+            <img src={verticalfour} alt="" className="img-fluid" />
             {/* <h2>Cadet {"<"}Starboy{"/>"},</h2> */}
           </div>
         </div>
         <div className="row justify-content-center earns saving-top">
           <div className="col-md-8 text-center">
-            <h3>How often do you want to <br/><span style={{color: "#E8356D"}}>save?</span></h3>
+            <h3>
+              How often do you want to <br />
+              <span style={{ color: "#E8356D" }}>save?</span>
+            </h3>
             <p className="my-5">Choose how often you want to save</p>
 
             <div className="mb-3">
-              <div className="btn-group me-3" role="group" aria-label="First group">
-                <button type="button" className="btn btn-flex">Daily</button>
-                
+              <div
+                className="btn-group me-3"
+                role="group"
+                aria-label="First group"
+              >
+                <button
+                  type="button"
+                  className="btn btn-flex"
+                  onClick={(e) => setPeriod(e.target.value)}
+                  value={"daily"}
+                >
+                  Daily
+                </button>
               </div>
-              <div className="btn-group me-3" role="group" aria-label="Second group">
-                <button type="button" className="btn btn-flex">Weekly</button>
-                
+              <div
+                className="btn-group me-3"
+                role="group"
+                aria-label="Second group"
+              >
+                <button
+                  type="button"
+                  className="btn btn-flex"
+                  onClick={(e) => setPeriod(e.target.value)}
+                  value={"weekly"}
+                >
+                  Weekly
+                </button>
               </div>
               <div className="btn-group" role="group" aria-label="Third group">
-                <button type="button" className="btn btn-flex">Monthly</button>
+                <button
+                  type="button"
+                  onClick={(e) => setPeriod(e.target.value)}
+                  value={"monthly"}
+                  className="btn btn-flex"
+                >
+                  Monthly
+                </button>
               </div>
               <div className="btn-group" role="group" aria-label="Third group">
-                <button type="button" className="btn btn-flex">Anytime/Manual</button>
+                <button
+                  type="button"
+                  value={"manual"}
+                  onClick={(e) => setPeriod(e.target.value)}
+                  className="btn btn-flex"
+                >
+                  Anytime/Manual
+                </button>
               </div>
             </div>
-            
-            <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/target-prefer" style={{width: "50%"}}>Continue</Link></div>
+
+            {/* <div><Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5" to="/target-prefer" style={{width: "50%"}}>Continue</Link></div> */}
+
+            <div>
+              {loading ? (
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                  style={{ width: "50%" }}
+                >
+                  Loading
+                </Link>
+              ) : (
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                  // to="/flex-overview"
+                  onClick={handleClick}
+                  style={{ width: "50%" }}
+                >
+                  Continue
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -128,4 +275,3 @@ function TargetPlanSave() {
 }
 
 export default TargetPlanSave;
- 
