@@ -1083,10 +1083,10 @@ function PaymentSAN() {
                       <button
                         type="button"
                         to="#"
-                        class="btn btn-primary dilla-pending btn-sm mt-2 px-3"
+                        className="btn btn-primary dilla-success btn-sm mt-2 px-3"
                         disabled
                       >
-                        Pending
+                        Successful
                       </button>
                     </div>
                   </div>
