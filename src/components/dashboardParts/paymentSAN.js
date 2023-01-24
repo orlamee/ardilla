@@ -1069,7 +1069,12 @@ function PaymentSAN() {
                       <h6>{data.name}</h6>
                     </div>
                     <div className="col-md-2">
-                      <h6>₦ {data.transactionAmount} </h6>
+                      <h6>
+                        ₦
+                        {Intl.NumberFormat("en-US").format(
+                          data.transactionAmount
+                        )}
+                      </h6>
                     </div>
                     <div className="col-md-2">
                       <h6>{data.transactionDate}</h6>
