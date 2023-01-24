@@ -12,12 +12,14 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
-import pie from "../../img/dashboard/50.svg";
+// import pie from "../../img/dashboard/50.svg";
 import cloud from "../../img/dashboard/cloud.svg";
 import up from "../../img/dashboard/up.svg";
 import pass from "../../img/dashboard/pass.svg";
 import axios from "axios";
 import check from "../../img/dashboard/Check.svg";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "../../../node_modules/react-circular-progressbar/dist/styles.css";
 // import pass from "../../img/dashboard/pass.svg";
 
 function ProfileKYC() {
@@ -30,6 +32,7 @@ function ProfileKYC() {
   const [loading3, setLoading3] = useState(null);
   const [userDetails, setUserDetails] = useState();
   const [point, setPoint] = useState();
+  const value = 0.5;
 
   useEffect(() => {
     const getUserById = async () => {
@@ -371,7 +374,7 @@ function ProfileKYC() {
           </div>
           <div className="col-md-6 right-profile">
             <div className="d-flex flex-row kyc-profile">
-              <img src={pie} alt="" className="img-fluid" />
+              <div style={{ width: 120, height: 120 }}> <CircularProgressbar value={value} maxValue={1} text={`${value * 100}%`} /></div>
               <h5 className="mt-5 ms-4">{point} of 4 Completed</h5>
             </div>
             {/* <form onSubmit={handleSubmit}> */}
@@ -385,7 +388,7 @@ function ProfileKYC() {
                     type="number"
                     className="form-control target-form p-form"
                     placeholder={userDetails?.bvn}
-                    required
+                    disabled
                   />
                   <img src={pass} alt="success" className="img-fluid ms-2" />
                 </div>
@@ -401,7 +404,7 @@ function ProfileKYC() {
                     type="tel"
                     className="form-control target-form p-form"
                     placeholder={userDetails?.contact}
-                    required
+                    disabled
                   />
                   <img src={pass} alt="success" className="img-fluid ms-2" />
                 </div>
