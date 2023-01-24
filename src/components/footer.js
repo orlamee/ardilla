@@ -56,7 +56,7 @@ function Footer() {
                     <li><Link to="/terms-conditions">Terms & conditions</Link></li>
                     <li><Link to="/information-security">Information security policy</Link></li>
                     <li><Link to="/privacy-policy">Privacy policy</Link></li>
-                    <li><Link to="">Interest Tool</Link></li>
+                    <li><Link to="/interest">Interest Tool</Link></li>
                   </ul>
                 </div>
                 <div className="col-sm mb-3">
@@ -82,6 +82,7 @@ function Footer() {
           <div className="row copyright">
             <div className="col-md-10 mb-3">
               <h6>© 2023 Ardilla. All right reserved</h6>
+              <h6 className="mt-3">Ardilla operates under the coorperative license of Ardilla Multipurpose Cooperative Society, LSC 18245, We provide Savings and Fixed deposit services to our users</h6>
             </div>
             <div className="col-md-2">
               <div className="d-flex flex-row">

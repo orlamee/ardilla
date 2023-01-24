@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+// import { PureComponent } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -11,13 +13,47 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
-import linear from "../../img/dashboard/linear.svg";
+// import linear from "../../img/dashboard/linear.svg";
 import stats from "../../img/dashboard/stats.svg";
 import psan from "../../img/dashboard/p-san.svg";
 import pinsurance from "../../img/dashboard/pinsurance.svg";
 import psaving from "../../img/dashboard/p-saving.svg";
 import pinvest from "../../img/dashboard/pinvest.svg";
 import axios from "axios";
+
+const data = [
+  {
+    name: '1M',
+    // uv: 4000,
+    pv: 2000,
+    amt: 5000,
+  },
+  {
+    name: '3M',
+    // uv: 3000,
+    pv: 7000,
+    amt: 2210,
+  },
+  {
+    name: '6M',
+    // uv: 2000,
+    pv: 4000,
+    amt: 2290,
+  },
+  {
+    name: '1Y',
+    // uv: 2780,
+    pv: 7000,
+    amt: 2000,
+  },
+  {
+    name: 'ALL',
+    // uv: 1890,
+    pv: 10000,
+    amt: 2181,
+  },
+];
+
 
 function PortfolioBody() {
   // const navigate = useNavigate();
@@ -181,8 +217,29 @@ function PortfolioBody() {
               </div>
             </div>
           </div>
-          <div className="col-md-7 text-end">
-            <img src={linear} alt="chart" className="img-fluid" />
+          <div className="col-md-2"></div>
+          <div className="col-md-6">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart
+                width={500}
+                height={300}
+                data={data}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+                <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
         </div>
         <div className="row mt-5">
