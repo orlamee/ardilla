@@ -214,35 +214,58 @@ function DashboardFlex() {
   const handleTransfer = async (e) => {
     e.preventDefault();
 
-    try {
-      console.log(answer, amount, source, pin);
-      setLoading(true);
-      const { data } = await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-to-dilla`,
-        { answer, pin, amount },
-        { withCredentials: true }
-      );
+    if (source === "dilla") {
+      try {
+        setLoading(true);
+        const { data } = await axios.put(
+          `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-to-dilla`,
+          { answer, pin, amount },
+          { withCredentials: true }
+        );
 
-      console.log(data);
-      console.log("God love me well well..");
-      // onSuccessModal(true);
-      setModal(true);
-      setMsg(data.msg);
-      setLoading(false);
-      getFlexAccount();
-      getFlexHistory();
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
+        setModal(true);
+        setMsg(data.msg);
+        setLoading(false);
+        getFlexAccount();
+        getFlexHistory();
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
 
-      setErr(true);
-      setMsg(message);
-      setLoading(false);
-      console.log(error);
+        setErr(true);
+        setMsg(message);
+        setLoading(false);
+      }
+    } else {
+      try {
+        setLoading(true);
+        const { data } = await axios.put(
+          `${process.env.REACT_APP_BACKEND_URL}/api/flex/flex-to-san`,
+          { answer, pin, amount },
+          { withCredentials: true }
+        );
+
+        setModal(true);
+        setMsg(data.msg);
+        setLoading(false);
+        getFlexAccount();
+        getFlexHistory();
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+        setLoading(false);
+      }
     }
   };
 
