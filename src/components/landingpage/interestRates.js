@@ -3,9 +3,9 @@ import stepper from "../../img/stepper.svg";
 import one from "../../img/11.svg";
 import two from "../../img/22.svg";
 import three from "../../img/33.svg";
-import red from "../../img/red.svg";
-import green from "../../img/green.svg";
-import blue from "../../img/blue.svg";
+import red from "../../img/red.png";
+import green from "../../img/green.png";
+import blue from "../../img/blue.png";
 import Accordion from 'react-bootstrap/Accordion';
 
 
