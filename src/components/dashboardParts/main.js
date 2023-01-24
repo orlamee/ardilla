@@ -415,12 +415,128 @@ function Sidebar() {
             </div>
           </div>
         </div>
-        <div className="row kyc new-kyc">
+
+        {userDetails?.kycPoints < 100 && (
+          <div className="row kyc new-kyc">
+            <div className="col-md-6">
+              <h3>Complete KYC</h3>
+            </div>
+          </div>
+        )}
+        {/* <div className="row kyc new-kyc">
           <div className="col-md-6">
             <h3>Complete KYC</h3>
           </div>
-        </div>
+        </div> */}
+
         <div className="row mt-4">
+          {userDetails?.kycPoints < 100 && (
+            <div className="col-md-4 mb-3">
+              <div className="card py-5 px-3 kyc-card border border-0 inner-card">
+                <div className="row">
+                  <div className="col-md-6 text-center color-link">
+                    {/* Add pie chart. */}
+                    <CircularProgressbar
+                      value={value}
+                      maxValue={1}
+                      text={`${value * 100}%`}
+                    />
+                    {/* <img src={pie} alt="" className="img-fluid" /> */}
+                    <Link to="/profile/kyc">
+                      Complete your KYC <i className="bi bi-arrow-right"></i>
+                    </Link>
+                  </div>
+                  <div className="col-md-6 mt-4">
+                    <div className="form-check mb-2">
+                      {userDetails?.contact ? (
+                        <input
+                          className="form-check-input red"
+                          type="checkbox"
+                          defaultChecked
+                          disabled
+                        />
+                      ) : (
+                        <input
+                          className="form-check-input red"
+                          type="checkbox"
+                          // defaultChecked
+                          disabled
+                        />
+                      )}
+
+                      <label className="form-check-label custom-check ">
+                        Add Phone Number
+                      </label>
+                    </div>
+                    <div className="form-check mb-2">
+                      {userDetails?.bvn ? (
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          defaultChecked
+                          disabled
+                        />
+                      ) : (
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          // defaultChecked
+                          disabled
+                        />
+                      )}
+
+                      <label className="form-check-label custom-check">
+                        Add Your BVN
+                      </label>
+                    </div>
+                    <div className="form-check mb-2">
+                      {userDetails?.utilityBillStatus ? (
+                        <input
+                          className="form-check-input red"
+                          type="checkbox"
+                          defaultChecked
+                          disabled
+                        />
+                      ) : (
+                        <input
+                          className="form-check-input red"
+                          type="checkbox"
+                          // defaultChecked
+                          disabled
+                        />
+                      )}
+
+                      <label className="form-check-label custom-check">
+                        Upload your Utility bill
+                      </label>
+                    </div>
+                    <div className="form-check mb-2">
+                      {userDetails?.idFrontStatus &&
+                      userDetails?.idFrontStatus ? (
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          disabled
+                          defaultChecked
+                        />
+                      ) : (
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          disabled
+                          // defaultChecked
+                        />
+                      )}
+
+                      <label className="form-check-label custom-check">
+                        Upload Your Valid ID
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
           <div className="col-md-4 mb-3">
             <div className="card py-5 px-3 kyc-card border border-0 inner-card">
               <div className="row">
