@@ -31,8 +31,8 @@ import daylight from "../../img/dashboard/daylight.svg";
 import op from "../../img/dashboard/op.svg";
 
 function Sidebar() {
-  const [dillaWallet, setDillaWallet] = useState({});
-  const [sanBalance, setSanBalance] = useState({});
+  const [dillaWallet, setDillaWallet] = useState();
+  const [sanBalance, setSanBalance] = useState();
   const [userDetails, setUserDetails] = useState();
   const [totalBalance, setTotalBalance] = useState("");
   const [value, setValue] = useState("");
