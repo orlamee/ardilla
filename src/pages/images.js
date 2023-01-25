@@ -1,17 +1,17 @@
 import Footer from "../components/footer";
 import BreadcrumbPress from "../components/landingpage/breadcrumbPress";
-import LogosContent from "../components/landingpage/logosContent";
 import PressHeader from "../components/landingpage/navbarPress";
+import ProductImages from "../components/landingpage/productImages";
 
 
-function Logos() {
+function Images() {
   return (
     <div className="bg-white">
       <PressHeader/>
       <BreadcrumbPress/>
-      <LogosContent/>
+      <ProductImages/>
       <Footer/>
     </div>
   );
 }
-export default Logos;
+export default Images;

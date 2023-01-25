@@ -1811,6 +1811,14 @@ h5 a {
   color: #3D0072;
 }
 
+.newspress h4 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+  color: #3D0072;
+}
+
+
 .bg-newspress {
   background: #FFFFFF;
   box-shadow: 0px 12px 24px rgba(128, 128, 128, 0.11);
@@ -1847,5 +1855,26 @@ h5 a {
   border-radius: 4px;
   font-size: 13px;
   line-height: 14px;
+  color: #3D0072;
+}
+
+.ardlogo span {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #3D0072;
+}
+
+.ardlogo h4 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+  color: #3D0072;
+}
+
+.ardlogo p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
   color: #3D0072;
 }
