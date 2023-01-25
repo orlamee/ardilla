@@ -3,7 +3,6 @@ import line from "../../img/linegraph.svg";
 import { Link } from "react-router-dom";
 
 
-
 function CalcInterest() {
   return (
     <section className="calc int-tool">
