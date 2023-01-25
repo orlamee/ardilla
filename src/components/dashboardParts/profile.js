@@ -509,9 +509,7 @@ function ProfileMain() {
                         aria-label="Default select example"
                         onChange={(e) => setRelationship(e.target.value)}
                       >
-                        <option selected value="cousin">
-                          Cousin
-                        </option>
+                        <option value="cousin">Cousin</option>
                         <option value="wife">Wife</option>
                         <option value="uncle">Uncle</option>
                       </select>
