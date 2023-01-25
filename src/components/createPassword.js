@@ -23,22 +23,27 @@ function CreatePassword() {
     if (password === confirmPassword) {
       try {
         const { data } = await axios.put(
-          `https://ardilla.herokuapp.com/ardilla/api/auth/user/reset-password/${id}`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/auth/reset-password/${id}`,
           {
             password,
           }
         );
 
-        if (data.success === true) {
-          setMsg(data.msg);
-          setOnSuccess(true);
-          setLoading(false);
-        }
+        setMsg(data.msg);
+        setOnSuccess(true);
+        setLoading(false);
 
         setLoading(false);
       } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
         setOnSuccess(false);
-        setMsg(`${error.response.data.msg}` || "Network error");
+        setMsg(message);
         setErr(true);
         setLoading(false);
       }

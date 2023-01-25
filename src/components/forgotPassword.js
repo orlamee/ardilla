@@ -17,17 +17,22 @@ function Forgot() {
     setErr(false);
     try {
       const { data } = await axios.post(
-        "https://ardilla.herokuapp.com/ardilla/api/auth/forgot-password",
+        `${process.env.REACT_APP_BACKEND_URL}/api/auth/forgot-password`,
         { email }
       );
 
-      if (data.success === true) {
-        setMsg(data.msg);
-        setOnSuccess(true);
-        setLoading(false);
-      }
+      setMsg(data.msg);
+      setOnSuccess(true);
+      setLoading(false);
     } catch (error) {
-      setMsg(`${error.response.data.msg || "Network error"} `);
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setMsg(message);
       setErr(true);
       setOnSuccess(false);
       setLoading(false);
