@@ -47,7 +47,7 @@ function Footer() {
                     <li><Link to="/about-us">About us</Link></li>
                     <li><Link to="/careers">Careers</Link></li>
                     <li><Link to="/faq">FAQ</Link></li>
-                    <li><Link to="">Press</Link></li>
+                    <li><Link to="/press">Press</Link></li>
                   </ul>
                 </div>
                 <div className="col-sm mb-3">

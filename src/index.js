@@ -115,6 +115,8 @@ import Guides from "./pages/guide";
 import Updates from "./pages/updates";
 import Careers from "./pages/careers";
 import Calculator from "./pages/calculator";
+import Press from "./pages/press";
+import Logos from "./pages/logos";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -147,6 +149,8 @@ root.render(
       <Route path="/updates" element={<Updates/>}></Route>
       <Route path="/careers" element={<Careers/>}></Route>
       <Route path="/interest" element={<Calculator/>}></Route>
+      <Route path="/press" element={<Press/>}></Route>
+      <Route path="/press/logos" element={<Logos/>}></Route>
 
 
 
