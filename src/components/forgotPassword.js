@@ -38,6 +38,7 @@ function Forgot() {
       setLoading(false);
     }
   };
+
   return (
     <section className="login-section">
       {err && (

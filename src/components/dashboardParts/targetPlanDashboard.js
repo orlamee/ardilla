@@ -478,7 +478,7 @@ function TargetPlanDashboard() {
                 type="checkbox"
                 value={agree}
                 required
-                nChange={() => setAgree(!agree)}
+                onChange={() => setAgree(!agree)}
                 id="flexCheckDefault"
               />
               <label className="form-check-label" for="flexCheckDefault">
