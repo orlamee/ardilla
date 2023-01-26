@@ -35,7 +35,7 @@ function Footer() {
                     <li><Link to="/save">Savings</Link></li>
                     <li><Link to="/dilla-wallet">Dilla</Link></li>
                     <li><Link to="/coach">Financial Coach</Link></li>
-                    <li><Link to="">Halal</Link></li>
+                    <li><Link to="/halal">Halal</Link></li>
                     <li><Link to="">Budgetting</Link> <span className="foot-bg border border-white">Coming Soon</span></li>
                     <li><Link to="">Investment</Link> <span className="foot-bg border border-white">Coming Soon</span></li>
                     <li><Link to="">Insurance</Link> <span className="foot-bg border border-white">Coming Soon</span></li>
@@ -47,7 +47,7 @@ function Footer() {
                     <li><Link to="/about-us">About us</Link></li>
                     <li><Link to="/careers">Careers</Link></li>
                     <li><Link to="/faq">FAQ</Link></li>
-                    <li><Link to="">Press</Link></li>
+                    <li><Link to="/press">Press</Link></li>
                   </ul>
                 </div>
                 <div className="col-sm mb-3">

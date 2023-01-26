@@ -1757,3 +1757,192 @@ h5 a {
 .interest-top {
   margin-top: 100px;
 }
+
+.breadcrumbpress {
+  padding: 200px 10px 80px 10px;
+  background-image: url("../img/pressheader.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.breadcrumbpress h2 {
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 91px;
+  color: #151000;
+}
+
+.pressheader {
+  background-color: #FEF4D8!important;
+}
+
+.btn-press {
+  border-color: #736B52;
+  color: #736B52;
+  border-radius: 28px;
+  padding: 11px 35px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.btn-press:hover {
+  color: #fff;
+  border-color: #151000;
+  background: #151000;
+  border-radius: 28px;
+  padding: 11px 35px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.btns-press {
+  margin-top: 90px;
+}
+
+.newspress {
+  padding: 100px 10px;
+}
+
+.newspress h3 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 27px;
+  color: #3D0072;
+}
+
+.newspress h4 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+  color: #3D0072;
+}
+
+
+.bg-newspress {
+  background: #FFFFFF;
+  box-shadow: 0px 12px 24px rgba(128, 128, 128, 0.11);
+  border-radius: 16px;
+}
+
+.bg-newspress span {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #3D0072;
+}
+
+.bg-newspress h6 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #3D0072;
+}
+
+.bg-newspress p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #3D0072;
+}
+
+.reels {
+  border-radius: 16px 16px 0px 0px;
+}
+
+.media-news {
+  background: #F3F4F6;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 14px;
+  color: #3D0072;
+}
+
+.ardlogo span {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #3D0072;
+}
+
+.ardlogo h4 {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 30px;
+  color: #3D0072;
+}
+
+.ardlogo p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #3D0072;
+}
+
+.halalheader {
+  background: #d9f8e5!important;
+}
+
+.halal-sec {
+  padding: 200px 0px 0px 0px;
+  background: linear-gradient(180deg, #D4F7E1 0%, rgba(238, 252, 243, 0) 119.24%);
+}
+
+.halal-sec h2 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 50px;
+  color: #3D0072;
+}
+
+.halal-sec h6 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+  color: #3D0072;
+}
+
+.islamicfinance {
+  background-color: #F9FAFB;
+  padding: 100px 10px;
+}
+
+.islamicfinance h3 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 80px;
+  color: #3D0072;
+}
+
+.islamicfinance h6 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 34px;
+  color: #3D0072;
+}
+
+.learnhalal {
+  background-image: url("../img/learnhal.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 200px 10px;
+}
+
+.learnhalal h2 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 80px;
+  color: #3D0072;
+}
+
+.halasaver {
+  background-image: url("../img/halasaver.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-steppers {
+  background-color: #F9FAFB!important;
+}
