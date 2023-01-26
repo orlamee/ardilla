@@ -54,9 +54,9 @@ function LogosContent() {
           <div className="col">
             <h4 className="mb-4">Don’ts</h4>
             <p>Our logo represents our brand and it's important that it's well presented consistently everywhere.</p>
-            <p>No squashing or pulling<br/>
+            <p className="text-muted">No squashing or pulling<br/>
             No drop shadows</p>
-            <p>No gradients<br/>
+            <p className="text-muted">No gradients<br/>
             No tracing or recreation</p>
           </div>
         </div>
