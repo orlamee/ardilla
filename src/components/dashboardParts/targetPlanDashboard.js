@@ -498,7 +498,17 @@ function TargetPlanDashboard() {
               </label>
             </div>
             <div>
-              {!agree && !agree2 && (
+              {!agree && (
+                <Link
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
+                  to="#"
+                  onClick={handleAgree}
+                  style={{ width: "100%" }}
+                >
+                  Continue
+                </Link>
+              )}
+              {!agree2 && (
                 <Link
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
                   to="#"
