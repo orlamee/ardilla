@@ -102,6 +102,7 @@ function TargetPreference() {
       handlePrivate();
     }
   };
+
   return (
     <section className="main-dash">
       {err && (
