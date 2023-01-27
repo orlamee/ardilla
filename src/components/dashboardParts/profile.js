@@ -35,6 +35,7 @@ function ProfileMain() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [upload, setUpload] = useState(false);
 
   useEffect(() => {
     const getUserById = async () => {
@@ -94,6 +95,7 @@ function ProfileMain() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setUpload(true);
 
     try {
       let formData = new FormData();
@@ -106,8 +108,10 @@ function ProfileMain() {
       );
 
       console.log(data);
+      setUpload(false);
       setImg();
       getUserById();
+      setSelectedFile(null);
     } catch (error) {
       console.log(error);
     }
@@ -347,16 +351,16 @@ function ProfileMain() {
               <form onSubmit={handleSubmit}>
                 <input type="file" onChange={handleFileInput} />
 
-                {userDetails?.photo ? (
+                {img ? (
                   <img
-                    src={userDetails?.photo}
+                    src={img}
                     alt=""
                     className="img-fluid rounded-circle"
                     on
                   />
                 ) : (
                   <img
-                    src={img}
+                    src={userDetails?.photo}
                     alt=""
                     className="img-fluid rounded-circle"
                     on
@@ -373,7 +377,11 @@ function ProfileMain() {
 
                 <img src={badge} alt="" className="img-fluid" />
 
-                <button type="submit">Submit</button>
+                {upload ? (
+                  <button type="submit">Submit</button>
+                ) : (
+                  <button>uploading</button>
+                )}
               </form>
             </div>
             <form>
