@@ -87,41 +87,42 @@ function CompleteProfile() {
     }
   };
 
+  const handleAgree = () => {
+    if (!agree) {
+      setErr(true);
+      setMsg("Please accept terms and conditions first");
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setOnSuccess(false);
     setErr(false);
 
-    if (!agree) {
-      setErr(true);
-      setMsg("Please accept terms and conditions first");
+    try {
+      const { data } = await axios.put(
+        `${BACKEND_URL}/api/auth/complete-profile`,
+        { email, firstname, lastname, contact, password, kodeHex, ip },
+        { withCredentials: true }
+      );
+
+      setErr(false);
+      createDillaWalet();
+      setMsg(data.msg);
+      setOnSuccess(true);
       setIsLoading(false);
-    } else {
-      try {
-        const { data } = await axios.put(
-          `${BACKEND_URL}/api/auth/complete-profile`,
-          { email, firstname, lastname, contact, password, kodeHex, ip },
-          { withCredentials: true }
-        );
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
 
-        setErr(false);
-        createDillaWalet();
-        setMsg(data.msg);
-        setOnSuccess(true);
-        setIsLoading(false);
-      } catch (error) {
-        const message =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-
-        setMsg(message);
-        setErr(true);
-        setIsLoading(false);
-      }
+      setMsg(message);
+      setErr(true);
+      setIsLoading(false);
     }
   };
 
@@ -136,6 +137,12 @@ function CompleteProfile() {
       navigate("/security-question");
     }
   }, 2000);
+
+  setTimeout(() => {
+    if (err) {
+      setErr(false);
+    }
+  }, 3000);
 
   return (
     <section className="login-section">
@@ -324,6 +331,7 @@ function CompleteProfile() {
                         type="button"
                         className="btn btn-outline-primary px-5 py-3 ardilla-btn disabled"
                         style={{ width: "100%" }}
+                        onClick={handleAgree}
                       >
                         Continue
                       </button>
