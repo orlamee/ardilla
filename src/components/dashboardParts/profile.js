@@ -34,6 +34,7 @@ function ProfileMain() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
     const getUserById = async () => {
@@ -57,9 +58,24 @@ function ProfileMain() {
 
   // const [profileImg, setProfileImg] = useState({});
   // const [image, setImage] = useState({ preview: "", data: "" });
-  const [selectedFile, setSelectedFile] = useState(null);
 
   const file = useRef();
+
+  const getUserById = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+        {
+          withCredentials: true,
+        }
+      );
+
+      setUserDetails(data.user);
+      setNok(data.user.nextOfKin);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // setNok(userDetails?.nextOfKin);
 
@@ -83,8 +99,6 @@ function ProfileMain() {
       let formData = new FormData();
       formData.append("image", selectedFile);
 
-      console.log(selectedFile);
-
       const { data } = await axios.post(
         `${BACKEND_URL}/api/user/profile-pic`,
         formData,
@@ -92,8 +106,8 @@ function ProfileMain() {
       );
 
       console.log(data);
-      setImg(false);
-      // getUserById();
+      setImg();
+      getUserById();
     } catch (error) {
       console.log(error);
     }
@@ -333,18 +347,14 @@ function ProfileMain() {
               <form onSubmit={handleSubmit}>
                 <input type="file" onChange={handleFileInput} />
 
-                {/* {userDetails?.photo && (
+                {userDetails?.photo ? (
                   <img
                     src={userDetails?.photo}
                     alt=""
                     className="img-fluid rounded-circle"
                     on
                   />
-                )} */}
-
-                {/* <img src={img} alt="" className="img-fluid rounded-circle" on /> */}
-
-                {img && (
+                ) : (
                   <img
                     src={img}
                     alt=""
