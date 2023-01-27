@@ -329,7 +329,7 @@ function CompleteProfile() {
                     <div className="my-3">
                       <button
                         type="button"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn disabled"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
                         style={{ width: "100%" }}
                         onClick={handleAgree}
                       >
