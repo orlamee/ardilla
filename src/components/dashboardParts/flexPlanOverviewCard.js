@@ -771,54 +771,6 @@ function FlexPlanOverviewCard() {
                 </Link>
               </div>
             )}
-            {/* {agree ? (
-              loading? ( <div>
-                <Link
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
-                  to="#"
-                  style={{ width: "100%" }}
-                >
-                 Loading
-                </Link>
-              </div>):( <div>
-                <Link
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
-                 onClick={handleCreate}
-                  style={{ width: "100%" }}
-                >
-                  Create Plan
-                </Link>
-              </div>)
-            ):( <div>
-              <Link
-                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
-                to="/flexplan-dashboard"
-                style={{ width: "100%" }}
-              >
-                Create Plan
-              </Link>
-            </div>)} */}
-            {/* {agree ?  (
-              <div>
-                <Link
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
-                  to="/flexplan-dashboard"
-                  style={{ width: "100%" }}
-                >
-                  Create Plan
-                </Link>
-              </div>
-            ) : (
-              <div>
-                <Link
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 disabled"
-                  to="#"
-                  style={{ width: "100%" }}
-                >
-                  Create Plan
-                </Link>
-              </div>
-            )} */}
           </div>
         </div>
       </div>
