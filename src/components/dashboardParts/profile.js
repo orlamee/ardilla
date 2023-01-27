@@ -378,9 +378,9 @@ function ProfileMain() {
                 <img src={badge} alt="" className="img-fluid" />
 
                 {upload ? (
-                  <button type="submit">Submit</button>
-                ) : (
                   <button>uploading</button>
+                ) : (
+                  <button type="submit">Submit</button>
                 )}
               </form>
             </div>
