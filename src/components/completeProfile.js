@@ -93,29 +93,35 @@ function CompleteProfile() {
     setOnSuccess(false);
     setErr(false);
 
-    try {
-      const { data } = await axios.put(
-        `${BACKEND_URL}/api/auth/complete-profile`,
-        { email, firstname, lastname, contact, password, kodeHex, ip },
-        { withCredentials: true }
-      );
-
-      setErr(false);
-      createDillaWalet();
-      setMsg(data.msg);
-      setOnSuccess(true);
-      setIsLoading(false);
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-
-      setMsg(message);
+    if (!agree) {
       setErr(true);
+      setMsg("Please accept terms and conditions first");
       setIsLoading(false);
+    } else {
+      try {
+        const { data } = await axios.put(
+          `${BACKEND_URL}/api/auth/complete-profile`,
+          { email, firstname, lastname, contact, password, kodeHex, ip },
+          { withCredentials: true }
+        );
+
+        setErr(false);
+        createDillaWalet();
+        setMsg(data.msg);
+        setOnSuccess(true);
+        setIsLoading(false);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setMsg(message);
+        setErr(true);
+        setIsLoading(false);
+      }
     }
   };
 
