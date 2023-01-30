@@ -218,6 +218,7 @@ function TargetPlanOverviewCard() {
           </div>
         </div>
       )}
+
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
