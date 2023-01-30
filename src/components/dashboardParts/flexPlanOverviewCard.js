@@ -29,7 +29,6 @@ function FlexPlanOverviewCard() {
   const [user, setUser] = useState();
   const [amount, setAmount] = useState();
   const [agree, setAgree] = useState(false);
-  // const [onSuccessModal, setOnSuccessModal] = useState(false);
   const [loading, setLoading] = useState();
 
   console.log("card page new");

@@ -77,6 +77,26 @@ function TargetPlanOverview() {
     getTargetAccount();
   }, []);
 
+  const handleCreate = async () => {
+    try {
+      await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/activate-plan`,
+        { withCredentials: true }
+      );
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setLoading(false);
+      setErr(true);
+      setMsg(message);
+    }
+  };
+
   const dillaToTarget = async () => {
     try {
       setLoading(true);
@@ -89,6 +109,7 @@ function TargetPlanOverview() {
 
       setLoading(false);
       setMsg(data.msg);
+      handleCreate();
       navigate("/target-private");
     } catch (error) {
       const message =
