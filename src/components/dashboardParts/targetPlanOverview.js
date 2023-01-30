@@ -257,7 +257,46 @@ function TargetPlanOverview() {
                 <p className="mt-5">{`${day}-${endDate?.date.month}-${endDate?.date.year}`}</p>
                 <p className="mt-5 overview-perc">11%</p>
                 <p className="mt-5">
-                  Dilla - <span style={{ color: "#E8356D" }}>₦30,000.00</span>
+                  {/* Dilla - <span style={{ color: "#E8356D" }}>₦30,000.00</span> */}
+                  {targetAcct?.accountBalance ? (
+                    <div>
+                      Dilla -{" "}
+                      {targetAcct && targetAcct?.type === "custom" ? (
+                        <span style={{ color: "#069669" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            targetAcct?.customSavingRate
+                          )}
+                        </span>
+                      ) : (
+                        <span style={{ color: "#069669" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            targetAcct?.autoSavingRate
+                          )}
+                        </span>
+                      )}
+                    </div>
+                  ) : (
+                    <div>
+                      Dilla -
+                      {targetAcct && targetAcct?.type === "custom" ? (
+                        <span style={{ color: "#E8356D" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            targetAcct?.customSavingRate
+                          )}
+                        </span>
+                      ) : (
+                        <span style={{ color: "#E8356D" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            targetAcct?.autoSavingRate
+                          )}
+                        </span>
+                      )}
+                    </div>
+                  )}
                   <span className="dropdown">
                     <Link
                       className="ms-2 dropdown-toggle"
