@@ -54,6 +54,8 @@ function TargetPlanOverview() {
 
         setTargetAcct(data.targetPlan);
 
+        console.log("target", data.targetPlan);
+
         if (data.targetPlan.customSavingRate) {
           setAmount(data.targetPlan.customSavingRate);
         } else {
