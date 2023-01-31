@@ -389,7 +389,7 @@ function TargetPlanOverviewSan() {
                 </p>
 
                 {san?.accountBalance <= targetAcct?.customSavingRate ||
-                targetAcct?.autoSavingRate ? (
+                san?.accountBalance <= targetAcct?.autoSavingRate ? (
                   <p className="mt-5">
                     <span style={{ color: "#E8356D" }}>
                       <i className="bi bi-exclamation-circle me-2"></i>{" "}
