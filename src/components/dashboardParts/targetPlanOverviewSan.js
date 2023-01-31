@@ -307,7 +307,7 @@ function TargetPlanOverviewSan() {
                 <p className="mt-5">
                   {/* SAN - <span style={{ color: "#E8356D" }}>₦30,000.00</span> */}
                   {san?.accountBalance >= targetAcct?.customSavingRate ||
-                  targetAcct?.autoSavingRate ? (
+                  san?.accountBalance >= targetAcct?.autoSavingRate ? (
                     <div>
                       SAN -{" "}
                       {targetAcct && targetAcct?.type === "custom" ? (
