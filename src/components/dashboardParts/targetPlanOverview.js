@@ -387,7 +387,8 @@ function TargetPlanOverview() {
                     </ul>
                   </span>
                 </p>
-                {dillaWallet && dillaWallet?.accountBalance <= 0 && (
+                {dillaWallet?.accountBalance <= targetAcct?.customSavingRate ||
+                targetAcct?.autoSavingRate ? (
                   <p className="mt-5">
                     <span style={{ color: "#E8356D" }}>
                       <i className="bi bi-exclamation-circle me-2"></i>{" "}
@@ -403,6 +404,8 @@ function TargetPlanOverview() {
                       Top Up
                     </Link>
                   </p>
+                ) : (
+                  <p></p>
                 )}
               </div>
             </div>

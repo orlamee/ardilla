@@ -27,6 +27,7 @@ function TargetPlanOverviewSan() {
   const [agree, setAgree] = useState(false);
   const [loading, setLoading] = useState();
   const [amount, setAmount] = useState();
+  const [san, setSan] = useState();
 
   const navigate = useNavigate();
 
@@ -62,7 +63,29 @@ function TargetPlanOverviewSan() {
       }
     };
 
+    const getSanAcct = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/san/get-san-account`,
+          { withCredentials: true }
+        );
+
+        setSan(data.sanAccount);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+      }
+    };
+
     getTargetAccount();
+    getSanAcct();
   }, []);
 
   const handleClickSuccess = () => {
@@ -283,7 +306,8 @@ function TargetPlanOverviewSan() {
                 <p className="mt-5 overview-perc">11%</p>
                 <p className="mt-5">
                   {/* SAN - <span style={{ color: "#E8356D" }}>₦30,000.00</span> */}
-                  {targetAcct?.accountBalance ? (
+                  {san?.accountBalance <= targetAcct?.customSavingRate ||
+                  targetAcct?.autoSavingRate ? (
                     <div>
                       SAN -{" "}
                       {targetAcct && targetAcct?.type === "custom" ? (
@@ -364,7 +388,8 @@ function TargetPlanOverviewSan() {
                   </span>
                 </p>
 
-                {targetAcct && targetAcct?.accountBalance <= 0 && (
+                {san?.accountBalance <= targetAcct?.customSavingRate ||
+                targetAcct?.autoSavingRate ? (
                   <p className="mt-5">
                     <span style={{ color: "#E8356D" }}>
                       <i className="bi bi-exclamation-circle me-2"></i>{" "}
@@ -380,6 +405,8 @@ function TargetPlanOverviewSan() {
                       Top Up
                     </Link>
                   </p>
+                ) : (
+                  <p></p>
                 )}
               </div>
             </div>
