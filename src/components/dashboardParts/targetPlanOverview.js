@@ -82,7 +82,6 @@ function TargetPlanOverview() {
           { withCredentials: true }
         );
 
-        setLoading(false);
         setDillaWallet(data.dillaWallet);
       } catch (error) {
         const message =
@@ -387,12 +386,12 @@ function TargetPlanOverview() {
                     </ul>
                   </span>
                 </p>
-                {dillaWallet?.accountBalance <= targetAcct?.customSavingRate ||
+                {dillaWallet?.accountBalance < targetAcct?.customSavingRate ||
                 targetAcct?.autoSavingRate ? (
                   <p className="mt-5">
                     <span style={{ color: "#E8356D" }}>
                       <i className="bi bi-exclamation-circle me-2"></i>{" "}
-                      Insufficient funds
+                      Insufficient funds....
                     </span>{" "}
                     -{" "}
                     <Link
