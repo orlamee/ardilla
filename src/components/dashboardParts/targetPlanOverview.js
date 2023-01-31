@@ -306,7 +306,9 @@ function TargetPlanOverview() {
                 <p className="mt-5 overview-perc">11%</p>
                 <p className="mt-5">
                   {/* Dilla - <span style={{ color: "#E8356D" }}>₦30,000.00</span> */}
-                  {dillaWallet?.accountBalance ? (
+                  {dillaWallet?.accountBalance <=
+                    targetAcct?.customSavingRate ||
+                  targetAcct?.autoSavingRate ? (
                     <div>
                       Dilla -{" "}
                       {targetAcct && targetAcct?.type === "custom" ? (
