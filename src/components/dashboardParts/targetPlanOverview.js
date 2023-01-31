@@ -27,6 +27,7 @@ function TargetPlanOverview() {
   const [agree, setAgree] = useState(false);
   const [loading, setLoading] = useState();
   const [amount, setAmount] = useState();
+  const [dillaWallet, setDillaWallet] = useState({});
 
   const navigate = useNavigate();
 
@@ -74,6 +75,30 @@ function TargetPlanOverview() {
       }
     };
 
+    const getDillaWallet = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/get-dilla-wallet`,
+          { withCredentials: true }
+        );
+
+        setLoading(false);
+        setDillaWallet(data.dillaWallet);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+
+        setMsg(message);
+      }
+    };
+
+    getDillaWallet();
     getTargetAccount();
   }, []);
 
@@ -281,7 +306,7 @@ function TargetPlanOverview() {
                 <p className="mt-5 overview-perc">11%</p>
                 <p className="mt-5">
                   {/* Dilla - <span style={{ color: "#E8356D" }}>₦30,000.00</span> */}
-                  {targetAcct?.accountBalance ? (
+                  {dillaWallet?.accountBalance ? (
                     <div>
                       Dilla -{" "}
                       {targetAcct && targetAcct?.type === "custom" ? (
@@ -360,7 +385,7 @@ function TargetPlanOverview() {
                     </ul>
                   </span>
                 </p>
-                {targetAcct && targetAcct?.accountBalance <= 0 && (
+                {dillaWallet && dillaWallet?.accountBalance <= 0 && (
                   <p className="mt-5">
                     <span style={{ color: "#E8356D" }}>
                       <i className="bi bi-exclamation-circle me-2"></i>{" "}
