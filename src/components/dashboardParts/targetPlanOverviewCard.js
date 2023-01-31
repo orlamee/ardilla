@@ -310,7 +310,7 @@ function TargetPlanOverviewCard() {
                 <h3 className="mt-5">Choose Payment Method</h3>
               </div>
               <div className="col-md-6 text-end">
-                <p className="mt-5">Target</p>
+                <p className="mt-5">{targetAcct?.name}</p>
                 {targetAcct && targetAcct?.type === "custom" ? (
                   <p className="mt-5">
                     ₦{" "}
