@@ -309,7 +309,7 @@ function TargetPlanOverview() {
                   {/* Dilla - <span style={{ color: "#E8356D" }}>₦30,000.00</span> */}
                   {dillaWallet?.accountBalance >=
                     targetAcct?.customSavingRate ||
-                  targetAcct?.autoSavingRate ? (
+                  dillaWallet?.accountBalance >= targetAcct?.autoSavingRate ? (
                     <div>
                       Dilla -{" "}
                       {targetAcct && targetAcct?.type === "custom" ? (
@@ -393,10 +393,7 @@ function TargetPlanOverview() {
                   <p className="mt-5">
                     <span style={{ color: "#E8356D" }}>
                       <i className="bi bi-exclamation-circle me-2"></i>{" "}
-                      Insufficient funds....
-                      <h4>{dillaWallet?.accountBalance}</h4>
-                      <h4>{targetAcct?.customSavingRate}</h4>
-                      <h4>{targetAcct?.autoSavingRate}</h4>
+                      Insufficient funds
                     </span>{" "}
                     -{" "}
                     <Link
