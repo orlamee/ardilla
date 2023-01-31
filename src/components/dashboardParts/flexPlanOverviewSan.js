@@ -302,7 +302,7 @@ function FlexPlanOverviewSan() {
                 <p className="mt-5">{`${day}-${endDate?.date.month}-${endDate?.date.year}`}</p>
                 <p className="mt-5 overview-perc">11%</p>
                 <p className="mt-5">
-                  {san?.accountBalance <= flexAcct?.customSavingRate ||
+                  {san?.accountBalance >= flexAcct?.customSavingRate ||
                   flexAcct?.autoSavingRate ? (
                     <div>
                       SAN -{" "}

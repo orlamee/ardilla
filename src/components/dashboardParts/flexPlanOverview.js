@@ -306,10 +306,13 @@ function FlexPlanOverview() {
                 )}
 
                 <p className="mt-5">{`${day}-${startDate?.date.month}-${startDate?.date.year}`}</p>
+
                 <p className="mt-5">{`${day}-${endDate?.date.month}-${endDate?.date.year}`}</p>
+
                 <p className="mt-5 overview-perc">11%</p>
+
                 <p className="mt-5">
-                  {dillaWallet?.accountBalance <= flexAcct?.customSavingRate ||
+                  {dillaWallet?.accountBalance >= flexAcct?.customSavingRate ||
                   flexAcct?.autoSavingRate ? (
                     <div>
                       Dilla -{" "}
