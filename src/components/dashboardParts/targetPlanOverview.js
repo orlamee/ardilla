@@ -83,6 +83,8 @@ function TargetPlanOverview() {
         );
 
         setDillaWallet(data.dillaWallet);
+
+        console.log("dilla", data.dillaToTarget);
       } catch (error) {
         const message =
           (error.response &&
@@ -392,6 +394,9 @@ function TargetPlanOverview() {
                     <span style={{ color: "#E8356D" }}>
                       <i className="bi bi-exclamation-circle me-2"></i>{" "}
                       Insufficient funds....
+                      {dillaWallet?.accountBalance}
+                      {targetAcct?.customSavingRate}
+                      {targetAcct?.autoSavingRate}
                     </span>{" "}
                     -{" "}
                     <Link
