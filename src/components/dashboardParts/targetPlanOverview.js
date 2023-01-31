@@ -84,7 +84,7 @@ function TargetPlanOverview() {
 
         setDillaWallet(data.dillaWallet);
 
-        console.log("dilla", data.dillaToTarget);
+        console.log("dilla", data.dillaWallet);
       } catch (error) {
         const message =
           (error.response &&
@@ -389,14 +389,14 @@ function TargetPlanOverview() {
                   </span>
                 </p>
                 {dillaWallet?.accountBalance < targetAcct?.customSavingRate ||
-                targetAcct?.autoSavingRate ? (
+                dillaWallet?.accountBalance < targetAcct?.autoSavingRate ? (
                   <p className="mt-5">
                     <span style={{ color: "#E8356D" }}>
                       <i className="bi bi-exclamation-circle me-2"></i>{" "}
                       Insufficient funds....
-                      {dillaWallet?.accountBalance}
-                      {targetAcct?.customSavingRate}
-                      {targetAcct?.autoSavingRate}
+                      <h4>{dillaWallet?.accountBalance}</h4>
+                      <h4>{targetAcct?.customSavingRate}</h4>
+                      <h4>{targetAcct?.autoSavingRate}</h4>
                     </span>{" "}
                     -{" "}
                     <Link
