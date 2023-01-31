@@ -312,8 +312,8 @@ function FlexPlanOverview() {
                 <p className="mt-5 overview-perc">11%</p>
 
                 <p className="mt-5">
-                  {dillaWallet?.accountBalance >= flexAcct?.customSavingRate ||
-                  flexAcct?.autoSavingRate ? (
+                  {dillaWallet?.accountBalance >
+                  (flexAcct?.customSavingRate || flexAcct?.autoSavingRate) ? (
                     <div>
                       Dilla -{" "}
                       {flexAcct && flexAcct?.type === "custom" ? (
@@ -391,8 +391,8 @@ function FlexPlanOverview() {
                   </span>
                 </p>
 
-                {dillaWallet?.accountBalance <= flexAcct?.customSavingRate ||
-                flexAcct?.autoSavingRate ? (
+                {dillaWallet?.accountBalance < flexAcct?.customSavingRate ||
+                dillaWallet?.accountBalance < flexAcct?.autoSavingRate ? (
                   <p className="mt-5">
                     <span style={{ color: "#E8356D" }}>
                       <i className="bi bi-exclamation-circle me-2"></i>{" "}
