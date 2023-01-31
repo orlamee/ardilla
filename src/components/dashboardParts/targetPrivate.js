@@ -22,15 +22,61 @@ import completed from "../../img/dashboard/top-completed.png";
 import publictarget from "../../img/dashboard/public.png";
 import members from "../../img/dashboard/members.svg";
 import global from "../../img/dashboard/globe.png";
+import axios from "axios";
 
 function TargetPrivate() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
+  const [targetHistory, setTargetHistory] = useState();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const getFlexHistory = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/target-history`,
+          { withCredentials: true }
+        );
+
+        setTargetHistory(data.transactionHistory);
+        console.log("target history", data);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+      }
+    };
+
+    getFlexHistory();
+  }, []);
 
   return (
     <section className="main-dash">
+      {err && (
+        <div className="row justify-content-center  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-danger alert-dismissible fade show text-center text-danger"
+              role="alert"
+            >
+              <i className="bi bi-exclamation-circle me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="sidebar">
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
