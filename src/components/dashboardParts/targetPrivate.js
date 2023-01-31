@@ -22,6 +22,7 @@ import completed from "../../img/dashboard/top-completed.png";
 import publictarget from "../../img/dashboard/public.png";
 import members from "../../img/dashboard/members.svg";
 import global from "../../img/dashboard/globe.png";
+import transfer from "../../img/dashboard/received-icon.svg";
 import axios from "axios";
 
 function TargetPrivate() {
@@ -802,7 +803,42 @@ function TargetPrivate() {
                   <h5>Amount</h5>
                 </div>
               </div>
-              <div className="row justify-content-center mt-2 border-bottom py-3">
+              {targetHistory?.map((data) => {
+                return (
+                  <div className="row justify-content-center mt-2 border-bottom py-3">
+                    <div className="col-md-5">
+                      <div className="d-flex flex-row">
+                        {data.transactionType === "Top Up" ? (
+                          <img
+                            src={transfer}
+                            alt=""
+                            className="img-fluid me-3"
+                          />
+                        ) : (
+                          <img
+                            src={withdraw}
+                            alt=""
+                            className="img-fluid me-3"
+                          />
+                        )}
+                        <h6>{data.transactionType}</h6>
+                      </div>
+                    </div>
+                    <div className="col-md-3">
+                      <h6>{data.transactionDate}</h6>
+                    </div>
+                    <div className="col-md-3">
+                      <h6>
+                        ₦{" "}
+                        {Intl.NumberFormat("en-US").format(
+                          data.transactionAmount
+                        )}{" "}
+                      </h6>
+                    </div>
+                  </div>
+                );
+              })}
+              {/* <div className="row justify-content-center mt-2 border-bottom py-3">
                 <div className="col-md-5">
                   <div className="d-flex flex-row">
                     <img src={withdraw} alt="" className="img-fluid me-3" />
@@ -815,8 +851,8 @@ function TargetPrivate() {
                 <div className="col-md-3">
                   <h6>₦4,000.00 </h6>
                 </div>
-              </div>
-              <div className="row justify-content-center mt-2 py-3">
+              </div> */}
+              {/* <div className="row justify-content-center mt-2 py-3">
                 <div className="col-md-5">
                   <div className="d-flex flex-row">
                     <img src={withdraw} alt="" className="img-fluid me-3" />
@@ -829,7 +865,7 @@ function TargetPrivate() {
                 <div className="col-md-3">
                   <h6>₦4,000.00 </h6>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="private-card px-5 py-4 mt-3">
               <div className="history-title">
