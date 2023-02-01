@@ -30,7 +30,7 @@ function TargetPlanSpend() {
     const getTargetAccount = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account/${id}`,
           { withCredentials: true }
         );
 
@@ -49,7 +49,7 @@ function TargetPlanSpend() {
     };
 
     getTargetAccount();
-  }, []);
+  }, [id]);
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
