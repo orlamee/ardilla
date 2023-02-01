@@ -310,7 +310,7 @@ function TargetPrivate() {
                               <div className="bg-white bg-private p-4">
                                 <div className="d-flex flex-row">
                                   <h4>
-                                    Travel{" "}
+                                    {data.name}{" "}
                                     <span className="badge-private">
                                       ongoing
                                     </span>
@@ -322,7 +322,8 @@ function TargetPrivate() {
                                       data.paymentDate,
                                       data.breakdown[data.breakdown.length - 1]
                                         .date?.year
-                                    )}
+                                    )}{" "}
+                                    days left
                                   </p>
                                 </div>
                                 <div className="row mt-3">
