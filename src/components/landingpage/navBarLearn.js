@@ -72,7 +72,7 @@ function LearnHeader() {
                 </div>
               </li>
               <li className="nav-item">
-                <Link className="nav-link">Hazy & Gen</Link>
+                <Link to="/hazy" className="nav-link">Hazy & Gen</Link>
               </li>
               <li className="nav-item">
                 <Link to="/guides" className="nav-link">Guide</Link>
