@@ -79,6 +79,17 @@ function TargetPrivate() {
     getTargetAccount();
   }, []);
 
+  const daysLeft = (month, day, year) => {
+    let date_1 = new Date(`${month}-${day}-${year}`);
+    let date_2 = new Date();
+
+    let difference = date_1.getTime() - date_2.getTime();
+
+    let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
+
+    return TotalDays;
+  };
+
   return (
     <section className="main-dash">
       {err && (
@@ -305,7 +316,13 @@ function TargetPrivate() {
                                     </span>
                                   </h4>
                                   <p style={{ marginLeft: "90px" }}>
-                                    200 days left
+                                    {daysLeft(
+                                      data.breakdown[data.breakdown.length - 1]
+                                        .date?.month,
+                                      data.paymentDate,
+                                      data.breakdown[data.breakdown.length - 1]
+                                        .date?.year
+                                    )}
                                   </p>
                                 </div>
                                 <div className="row mt-3">
@@ -320,7 +337,7 @@ function TargetPrivate() {
                                     ) : (
                                       <h3>
                                         {Intl.NumberFormat("en-US").format(
-                                          data?.customSavingRate
+                                          data?.autoSavingRate
                                         )}
                                       </h3>
                                     )}
@@ -340,6 +357,7 @@ function TargetPrivate() {
                                   <div className="col-md-6">
                                     <p>Maturity date</p>
                                     <h3>
+                                      {data.paymentDate}-
                                       {
                                         data.breakdown[
                                           data.breakdown.length - 1
@@ -355,7 +373,7 @@ function TargetPrivate() {
                                   </div>
                                   <div className="col-md-6 text-end">
                                     <p>Frequency</p>
-                                    <h3>15000 (11%/p.a)</h3>
+                                    <h3>{data.savingPeriod}</h3>
                                   </div>
                                 </div>
                               </div>
