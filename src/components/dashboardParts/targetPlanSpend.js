@@ -67,7 +67,7 @@ function TargetPlanSpend() {
 
         // console.log(data);
         setLoading(false);
-        navigate("/target-type");
+        navigate(`/target-type/${id}`);
       } catch (error) {
         const message =
           (error.response &&

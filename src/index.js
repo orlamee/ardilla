@@ -195,8 +195,8 @@ root.render(
       <Route path="/create-flex" element={<CreateFlexPlan />}></Route>
       <Route path="/flex-spend" element={<FlexSpend />}></Route>
       <Route path="/flex-type" element={<FlexType />}></Route>
-      <Route path="/target-type" element={<TargetType />}></Route>
-      <Route path="/target-dashboard" element={<TargetDashboard />}></Route>
+      <Route path="/target-type/:id" element={<TargetType />}></Route>
+      <Route path="/target-dashboard/:id" element={<TargetDashboard />}></Route>
       <Route path="/flex-dashboard" element={<FlexDashboard />}></Route>
       <Route path="/flex-success" element={<FlexSuccess />}></Route>
       <Route path="/flex-set-amount" element={<FlexSetAmount />}></Route>
