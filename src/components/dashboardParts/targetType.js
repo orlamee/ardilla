@@ -76,6 +76,10 @@ function TypeTarget() {
     getTargetAccount();
   }, [id]);
 
+  const handleCustom = () => {
+    navigate(`/target-set-amount/${id}`);
+  };
+
   return (
     <section className="main-dash">
       {err && (
@@ -257,7 +261,7 @@ function TypeTarget() {
               <div className="text-center">
                 <Link
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5"
-                  to="/target-set-amount"
+                  onClick={handleCustom}
                   style={{ width: "70%" }}
                 >
                   Go Custom
