@@ -341,13 +341,15 @@ function TargetPrivate() {
                                     <p>Maturity date</p>
                                     <h3>
                                       {
-                                        data.breakdown[data.breakdown - 1].date
-                                          ?.month
+                                        data.breakdown[
+                                          data.breakdown.length - 1
+                                        ].date?.month
                                       }
                                       -
                                       {
-                                        data.breakdown[data.breakdown - 1].date
-                                          ?.year
+                                        data.breakdown[
+                                          data.breakdown.length - 1
+                                        ].date?.year
                                       }
                                     </h3>
                                   </div>
