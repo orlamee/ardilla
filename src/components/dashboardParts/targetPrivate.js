@@ -342,12 +342,12 @@ function TargetPrivate() {
                                     <h3>
                                       {
                                         data.breakdown[data.breakdown - 1].date
-                                          .month
+                                          ?.month
                                       }
                                       -
                                       {
                                         data.breakdown[data.breakdown - 1].date
-                                          .year
+                                          ?.year
                                       }
                                     </h3>
                                   </div>
