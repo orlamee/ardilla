@@ -311,17 +311,45 @@ function TargetPrivate() {
                                 <div className="row mt-3">
                                   <div className="col-md-6">
                                     <p>Target</p>
-                                    <h3>₦100,000.00</h3>
+                                    {data.type === "custom" ? (
+                                      <h3>
+                                        {Intl.NumberFormat("en-US").format(
+                                          data?.customSavingRate
+                                        )}
+                                      </h3>
+                                    ) : (
+                                      <h3>
+                                        {Intl.NumberFormat("en-US").format(
+                                          data?.customSavingRate
+                                        )}
+                                      </h3>
+                                    )}
                                   </div>
                                   <div className="col-md-6 text-end">
                                     <p>Interest</p>
-                                    <h3>15000 (11%/p.a)</h3>
+                                    <h3>
+                                      {" "}
+                                      {Intl.NumberFormat("en-US").format(
+                                        data.totalIntrest
+                                      )}{" "}
+                                      (11%/p.a)
+                                    </h3>
                                   </div>
                                 </div>
                                 <div className="row mt-3 mb-4">
                                   <div className="col-md-6">
                                     <p>Maturity date</p>
-                                    <h3>29-11-2023</h3>
+                                    <h3>
+                                      {
+                                        data.breakdown[data.breakdown - 1].date
+                                          .month
+                                      }
+                                      -
+                                      {
+                                        data.breakdown[data.breakdown - 1].date
+                                          .year
+                                      }
+                                    </h3>
                                   </div>
                                   <div className="col-md-6 text-end">
                                     <p>Frequency</p>
