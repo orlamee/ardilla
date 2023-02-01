@@ -24,7 +24,7 @@ function TargetPlanSpend() {
 
   const navigate = useNavigate();
 
-  const { id } = useParams;
+  const { id } = useParams();
 
   useEffect(() => {
     const getTargetAccount = async () => {

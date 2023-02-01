@@ -22,7 +22,7 @@ function TargetPlanCreate() {
 
   // let user = JSON.parse(sessionStorage.getItem("user"));
 
-  const { id } = useParams;
+  const { id } = useParams();
 
   const navigate = useNavigate();
 
