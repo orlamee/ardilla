@@ -57,7 +57,7 @@ function TargetPrivate() {
     const getTargetAccount = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-plans`,
           { withCredentials: true }
         );
 
