@@ -21,28 +21,7 @@ function TargetPlanSet() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
 
-  // let user = JSON.parse(sessionStorage.getItem("user"));
-
   const navigate = useNavigate();
-
-  // const handleSubmit = async (e) => {
-  //   setLoading(true);
-  //   e.preventDefault();
-
-  //   try {
-  //     const { data } = await axios.put(
-  //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/custom-saving-target/${user._id}`,
-  //       { savingTarget }
-  //     );
-
-  //     console.log(data);
-  //     setLoading(false);
-  //     navigate("/target-set-save");
-  //   } catch (error) {
-  //     setLoading(false);
-  //     console.log(error);
-  //   }
-  // };
 
   const handleSubmit = async (e) => {
     setLoading(true);

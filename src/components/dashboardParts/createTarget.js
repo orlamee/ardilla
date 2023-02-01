@@ -27,28 +27,11 @@ function CreateTarget() {
   //init useNav
   const navigate = useNavigate();
 
-  // const handleClick = async () => {
-  //   setLoading(true);
-  //   try {
-  //     const { data } = await axios.post(
-  //       "https://ardilla.herokuapp.com/ardilla/api/target-plan/create-account",
-  //       { userID }
-  //     );
-
-  //     console.log(data);
-  //     setLoading(false);
-  //     navigate("/create-target");
-  //   } catch (error) {
-  //     setLoading(false);
-  //     console.log(error);
-  //   }
-  // };
-
   const handleClick = async () => {
     setLoading(true);
     setErr(false);
     try {
-      await axios.get(
+      const { data } = await axios.get(
         `${process.env.REACT_APP_BACKEND_URL}/api/target/create-account`,
         {
           withCredentials: true,
@@ -56,7 +39,7 @@ function CreateTarget() {
       );
 
       setLoading(false);
-      navigate("/create-target");
+      navigate(`/create-target/${data.targetPlan._id}`);
     } catch (error) {
       const message =
         (error.response &&

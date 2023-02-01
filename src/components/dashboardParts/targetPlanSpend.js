@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -22,25 +22,11 @@ function TargetPlanSpend() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
 
-  // let user = JSON.parse(sessionStorage.getItem("user"));
-
   const navigate = useNavigate();
 
+  const { id } = useParams;
+
   useEffect(() => {
-    // const getTargetAccount = async () => {
-    //   try {
-    //     const { data } = await axios.get(
-    //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/get-target-account/${user._id}`
-    //     );
-
-    //     // console.log(data);
-    //     setTargetAcct(data.targetPlan);
-    //   } catch (error) {
-    //     // setLoading(false);
-    //     console.log(error);
-    //   }
-    // };
-
     const getTargetAccount = async () => {
       try {
         const { data } = await axios.get(
@@ -69,37 +55,12 @@ function TargetPlanSpend() {
     setOnSuccess(false);
   };
 
-  // const handleSpend = async () => {
-  //   if (value) {
-  //     console.log(value);
-  //     setLoading(true);
-  //     try {
-  //       const { data } = await axios.put(
-  //         `https://ardilla.herokuapp.com/ardilla/api/target-plan/set-expenditure/${user._id}`,
-  //         { value }
-  //       );
-
-  //       console.log(data);
-  //       setLoading(false);
-  //       navigate("/target-type");
-  //     } catch (error) {
-  //       setErr(true);
-  //       setLoading(false);
-  //       console.log(error);
-  //     }
-  //   } else {
-  //     setLoading(false);
-  //     setErr(true);
-  //     setMsg(" Pick a range that best describe your expenditure");
-  //   }
-  // };
-
   const handleSpend = async () => {
     if (value) {
       setLoading(true);
       try {
         await axios.put(
-          `${process.env.REACT_APP_BACKEND_URL}/api/target/set-expenditure`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/set-expenditure/${id}`,
           { value },
           { withCredentials: true }
         );

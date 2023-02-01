@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -23,37 +23,21 @@ function TargetPlanEarn() {
 
   const navigate = useNavigate();
 
-  // const handleClick = async () => {
-  //   setLoading(true);
-
-  //   try {
-  //     const { data } = await axios.put(
-  //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/set-earning/${user._id}`,
-  //       { ern }
-  //     );
-
-  //     console.log(data);
-  //     setLoading(false);
-  //     navigate("/target-spend");
-  //   } catch (error) {
-  //     setLoading(false);
-  //     console.log(error);
-  //   }
-  // };
+  const { id } = useParams;
 
   const handleClick = async () => {
     setLoading(true);
     if (ern) {
       try {
         const { data } = await axios.put(
-          `${process.env.REACT_APP_BACKEND_URL}/api/target/set-earning`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/set-earning/${id}`,
           { ern },
           { withCredentials: true }
         );
 
         console.log(data);
         setLoading(false);
-        navigate("/target-spend");
+        navigate(`/target-spend/${id}`);
       } catch (error) {
         const message =
           (error.response &&
