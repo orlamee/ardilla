@@ -34,6 +34,8 @@ function ProfileMain() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [upload, setUpload] = useState(false);
 
   useEffect(() => {
     const getUserById = async () => {
@@ -57,9 +59,24 @@ function ProfileMain() {
 
   // const [profileImg, setProfileImg] = useState({});
   // const [image, setImage] = useState({ preview: "", data: "" });
-  const [selectedFile, setSelectedFile] = useState(null);
 
   const file = useRef();
+
+  const getUserById = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+        {
+          withCredentials: true,
+        }
+      );
+
+      setUserDetails(data.user);
+      setNok(data.user.nextOfKin);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // setNok(userDetails?.nextOfKin);
 
@@ -78,12 +95,11 @@ function ProfileMain() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setUpload(true);
 
     try {
       let formData = new FormData();
       formData.append("image", selectedFile);
-
-      console.log(selectedFile);
 
       const { data } = await axios.post(
         `${BACKEND_URL}/api/user/profile-pic`,
@@ -92,8 +108,10 @@ function ProfileMain() {
       );
 
       console.log(data);
-      setImg(false);
-      // getUserById();
+      setUpload(false);
+      setImg();
+      getUserById();
+      setSelectedFile(null);
     } catch (error) {
       console.log(error);
     }
@@ -333,16 +351,14 @@ function ProfileMain() {
               <form onSubmit={handleSubmit}>
                 <input type="file" onChange={handleFileInput} />
 
-                {userDetails?.photo && (
+                {img ? (
                   <img
-                    src={userDetails?.photo}
+                    src={img}
                     alt=""
                     className="img-fluid rounded-circle"
                     on
                   />
-                )}
-
-                {img && (
+                ) : (
                   <img
                     src={userDetails?.photo}
                     alt=""
@@ -361,7 +377,11 @@ function ProfileMain() {
 
                 <img src={badge} alt="" className="img-fluid" />
 
-                <button type="submit">Submit</button>
+                {upload ? (
+                  <button>uploading</button>
+                ) : (
+                  <button type="submit">Submit</button>
+                )}
               </form>
             </div>
             <form>

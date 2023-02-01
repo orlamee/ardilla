@@ -87,6 +87,13 @@ function CompleteProfile() {
     }
   };
 
+  const handleAgree = () => {
+    if (!agree) {
+      setErr(true);
+      setMsg("Please accept terms and conditions first");
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -130,6 +137,12 @@ function CompleteProfile() {
       navigate("/security-question");
     }
   }, 2000);
+
+  setTimeout(() => {
+    if (err) {
+      setErr(false);
+    }
+  }, 3000);
 
   return (
     <section className="login-section">
@@ -316,8 +329,9 @@ function CompleteProfile() {
                     <div className="my-3">
                       <button
                         type="button"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn disabled"
+                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
                         style={{ width: "100%" }}
+                        onClick={handleAgree}
                       >
                         Continue
                       </button>

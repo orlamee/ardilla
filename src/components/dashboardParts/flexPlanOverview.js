@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -24,45 +24,12 @@ function FlexPlanOverview() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
-  // const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState();
+  const [amount, setAmount] = useState();
+  const [agree, setAgree] = useState(false);
+  const [dillaWallet, setDillaWallet] = useState({});
 
-  const day = new Date().getDate();
-
-  const handleClickSuccess = () => {
-    setOnSuccess(false);
-  };
-
-  // const handleCreate = async () => {
-  //   try {
-  //     setLoading(true);
-
-  //     const { data } = await axios.get(
-  //       `${process.env.REACT_APP_BACKEND_URL}/api/flex/activate-plan`,
-  //       { withCredentials: true }
-  //     );
-
-  //     setLoading(false);
-  //     setOnSuccess(true);
-  //     setMsg(data.msg);
-  //   } catch (error) {
-  //     const message =
-  //       (error.response &&
-  //         error.response.data &&
-  //         error.response.data.message) ||
-  //       error.message ||
-  //       error.toString();
-
-  //     setLoading(false);
-  //     setErr(true);
-  //     setMsg(message);
-  //   }
-  // };
-
-  setTimeout(() => {
-    if (onSuccess) {
-      setOnSuccess(false);
-    }
-  }, 5000);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getFlexAccount = async () => {
@@ -73,6 +40,14 @@ function FlexPlanOverview() {
         );
 
         setFlexAcct(data.flexPlan);
+
+        console.log("flex", data.flexPlan);
+
+        if (data.flexPlan.customSavingRate) {
+          setAmount(data.flexPlan.customSavingRate);
+        } else {
+          setAmount(data.flexPlan.autoSavingRate);
+        }
       } catch (error) {
         const message =
           (error.response &&
@@ -86,8 +61,33 @@ function FlexPlanOverview() {
       }
     };
 
+    const getDillaWallet = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/get-dilla-wallet`,
+          { withCredentials: true }
+        );
+
+        setDillaWallet(data.dillaWallet);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+
+        setMsg(message);
+      }
+    };
+
     getFlexAccount();
+    getDillaWallet();
   }, []);
+
+  const day = new Date().getDate();
 
   const breakdown = flexAcct?.breakdown;
 
@@ -96,6 +96,64 @@ function FlexPlanOverview() {
   const endDate = flexAcct?.breakdown[findLength - 1];
 
   const startDate = flexAcct?.breakdown[0];
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+  };
+
+  const handleCreate = async () => {
+    try {
+      await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/activate-plan`,
+        { withCredentials: true }
+      );
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setLoading(false);
+      setErr(true);
+      setMsg(message);
+    }
+  };
+
+  // setTimeout(() => {
+  //   if (onSuccess) {
+  //     setOnSuccess(false);
+  //   }
+  // }, 5000);
+
+  const dillaToDIB = async () => {
+    try {
+      setLoading(true);
+
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/dilla-to-dib`,
+        { amount },
+        { withCredentials: true }
+      );
+
+      setLoading(false);
+      setMsg(data.msg);
+      handleCreate();
+      navigate("/flexplan-dashboard");
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setMsg(message);
+      setLoading(false);
+    }
+  };
 
   return (
     <section className="main-dash">
@@ -246,29 +304,55 @@ function FlexPlanOverview() {
                     )}
                   </p>
                 )}
-                {/* <p className="mt-5">₦50,000.00</p> */}
-                {/* <p className="mt-5">29-11-2022</p> */}
+
                 <p className="mt-5">{`${day}-${startDate?.date.month}-${startDate?.date.year}`}</p>
+
                 <p className="mt-5">{`${day}-${endDate?.date.month}-${endDate?.date.year}`}</p>
+
                 <p className="mt-5 overview-perc">11%</p>
+
                 <p className="mt-5">
-                  {/* Dilla - <span>₦{}</span> */}
-                  Dilla -
-                  {flexAcct && flexAcct?.type === "custom" ? (
-                    <span style={{ color: "#E8356D" }}>
-                      ₦{" "}
-                      {Intl.NumberFormat("en-US").format(
-                        flexAcct?.customSavingRate
+                  {dillaWallet?.accountBalance >
+                  (flexAcct?.customSavingRate || flexAcct?.autoSavingRate) ? (
+                    <div>
+                      Dilla -{" "}
+                      {flexAcct && flexAcct?.type === "custom" ? (
+                        <span style={{ color: "#069669" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.customSavingRate
+                          )}
+                        </span>
+                      ) : (
+                        <span style={{ color: "#069669" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.autoSavingRate
+                          )}
+                        </span>
                       )}
-                    </span>
+                    </div>
                   ) : (
-                    <span style={{ color: "#E8356D" }}>
-                      ₦{" "}
-                      {Intl.NumberFormat("en-US").format(
-                        flexAcct?.autoSavingRate
+                    <div>
+                      Dilla -
+                      {flexAcct && flexAcct?.type === "custom" ? (
+                        <span style={{ color: "#E8356D" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.customSavingRate
+                          )}
+                        </span>
+                      ) : (
+                        <span style={{ color: "#E8356D" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            flexAcct?.autoSavingRate
+                          )}
+                        </span>
                       )}
-                    </span>
+                    </div>
                   )}
+
                   <span className="dropdown">
                     <Link
                       className="ms-2 dropdown-toggle"
@@ -306,23 +390,27 @@ function FlexPlanOverview() {
                     </ul>
                   </span>
                 </p>
-                {/* {flexAcct && flexAcct?.accountBalance <= 0 && ( */}
-                <p className="mt-5">
-                  <span style={{ color: "#E8356D" }}>
-                    <i className="bi bi-exclamation-circle me-2"></i>{" "}
-                    Insufficient funds
-                  </span>{" "}
-                  -{" "}
-                  <Link
-                    data-bs-toggle="modal"
-                    data-bs-target="#topup"
-                    type="button"
-                    style={{ color: "#8807F7" }}
-                  >
-                    Top Up
-                  </Link>
-                </p>
-                {/* )} */}
+
+                {dillaWallet?.accountBalance < flexAcct?.customSavingRate ||
+                dillaWallet?.accountBalance < flexAcct?.autoSavingRate ? (
+                  <p className="mt-5">
+                    <span style={{ color: "#E8356D" }}>
+                      <i className="bi bi-exclamation-circle me-2"></i>{" "}
+                      Insufficient funds
+                    </span>{" "}
+                    -{" "}
+                    <Link
+                      data-bs-toggle="modal"
+                      data-bs-target="#topup"
+                      type="button"
+                      style={{ color: "#8807F7" }}
+                    >
+                      Top Up
+                    </Link>
+                  </p>
+                ) : (
+                  <p></p>
+                )}
               </div>
             </div>
             <div
@@ -661,31 +749,46 @@ function FlexPlanOverview() {
                 type="checkbox"
                 value=""
                 id="flexCheckChecked"
+                required
+                onChange={() => setAgree(!agree)}
               />
               <label className="form-check-label" htmlFor="flexCheckChecked">
                 Four withdrawal limit only lorem ipsum monteren renemdem
               </label>
             </div>
-            <div>
-              {/* {loading ? (
+            {agree ? (
+              loading ? (
+                <div>
+                  <Link
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
+                    to="#"
+                    style={{ width: "100%" }}
+                  >
+                    Loading
+                  </Link>
+                </div>
+              ) : (
+                <div>
+                  <Link
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
+                    onClick={dillaToDIB}
+                    style={{ width: "100%" }}
+                  >
+                    Create Plan
+                  </Link>
+                </div>
+              )
+            ) : (
+              <div>
                 <Link
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
-                  to=""
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4 "
+                  to="#"
                   style={{ width: "100%" }}
                 >
-                  Loading
+                  Create Plan
                 </Link>
-              ) : ( */}
-              <Link
-                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
-                to="#"
-                // onClick={handleCreate}
-                style={{ width: "100%" }}
-              >
-                Create Plan
-              </Link>
-              {/* )} */}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

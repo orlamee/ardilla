@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -25,6 +25,10 @@ function TargetPlanDashboard() {
   const [agree, setAgree] = useState(false);
   const [agree2, setAgree2] = useState(false);
 
+  const { id } = useParams();
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     const getUserById = async () => {
       try {
@@ -49,10 +53,11 @@ function TargetPlanDashboard() {
         setMsg(message);
       }
     };
+
     const getTargetAccount = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account/${id}`,
           { withCredentials: true }
         );
 
@@ -72,7 +77,7 @@ function TargetPlanDashboard() {
 
     getTargetAccount();
     getUserById();
-  }, []);
+  }, [id]);
 
   const handleAgree = () => {
     setMsg("Agree term and condition , first");
@@ -84,6 +89,10 @@ function TargetPlanDashboard() {
       setErr(false);
     }
   }, 3000);
+
+  const handleNext = () => {
+    navigate(`/target-save/${id}`);
+  };
 
   return (
     <section className="main-dash">
@@ -534,7 +543,8 @@ function TargetPlanDashboard() {
               {agree && agree2 && (
                 <Link
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
-                  to="/target-save"
+                  to="#"
+                  onClick={handleNext}
                   style={{ width: "100%" }}
                 >
                   Continue

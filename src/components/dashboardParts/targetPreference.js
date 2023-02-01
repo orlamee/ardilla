@@ -97,8 +97,10 @@ function TargetPreference() {
 
   const handleSubmit = () => {
     if (type === "public") {
+      console.log(type);
       handlePublic();
     } else {
+      console.log(type);
       handlePrivate();
     }
   };
@@ -246,7 +248,8 @@ function TargetPreference() {
                 <button
                   type="button"
                   className="btn btn-flex"
-                  onClick={(e) => setType("public")}
+                  value={"public"}
+                  onClick={(e) => setType(e.target.value)}
                 >
                   Public
                 </button>
@@ -259,7 +262,8 @@ function TargetPreference() {
                 <button
                   type="button"
                   className="btn btn-flex"
-                  onClick={(e) => setType("private")}
+                  value={"private"}
+                  onClick={(e) => setType(e.target.value)}
                 >
                   Private
                 </button>

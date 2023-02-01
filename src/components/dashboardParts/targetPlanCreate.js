@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -22,6 +22,8 @@ function TargetPlanCreate() {
 
   // let user = JSON.parse(sessionStorage.getItem("user"));
 
+  const { id } = useParams();
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -30,14 +32,14 @@ function TargetPlanCreate() {
 
     try {
       const { data } = await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/api/target/Target-plan-name`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/Target-plan-name/${id}`,
         { name },
         { withCredentials: true }
       );
 
       console.log(data);
       setLoading(false);
-      navigate("/target-earn");
+      navigate(`/target-earn/${id}`);
     } catch (error) {
       const message =
         (error.response &&

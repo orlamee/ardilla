@@ -124,7 +124,7 @@ import Hazy from "./pages/hazy";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <ScrollToTop/>
+    <ScrollToTop />
     <Routes>
       <Route path="/" element={<App />}></Route>
       <Route path="/alerts" element={<Alerts />}></Route>
@@ -156,7 +156,6 @@ root.render(
       <Route path="/press/logos" element={<Logos/>}></Route>
       <Route path="/press/images" element={<Images/>}></Route>
       <Route path="/halal" element={<HalalPage/>}></Route>
-      <Route path="/hazy" element={<Hazy/>}></Route>
 
 
 
@@ -197,8 +196,8 @@ root.render(
       <Route path="/create-flex" element={<CreateFlexPlan />}></Route>
       <Route path="/flex-spend" element={<FlexSpend />}></Route>
       <Route path="/flex-type" element={<FlexType />}></Route>
-      <Route path="/target-type" element={<TargetType />}></Route>
-      <Route path="/target-dashboard" element={<TargetDashboard />}></Route>
+      <Route path="/target-type/:id" element={<TargetType />}></Route>
+      <Route path="/target-dashboard/:id" element={<TargetDashboard />}></Route>
       <Route path="/flex-dashboard" element={<FlexDashboard />}></Route>
       <Route path="/flex-success" element={<FlexSuccess />}></Route>
       <Route path="/flex-set-amount" element={<FlexSetAmount />}></Route>
@@ -208,9 +207,9 @@ root.render(
       <Route path="/target-save" element={<TargetSave />}></Route>
       <Route path="/flex-plan" element={<FlexPlan />}></Route>
       <Route path="/target-plan" element={<TargetPlan />}></Route>
-      <Route path="/create-target" element={<CreateTargetPlan />}></Route>
-      <Route path="/target-earn" element={<TargetEarn />}></Route>
-      <Route path="/target-spend" element={<TargetSpend />}></Route>
+      <Route path="/create-target/:id" element={<CreateTargetPlan />}></Route>
+      <Route path="/target-earn/:id" element={<TargetEarn />}></Route>
+      <Route path="/target-spend/:id" element={<TargetSpend />}></Route>
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
 

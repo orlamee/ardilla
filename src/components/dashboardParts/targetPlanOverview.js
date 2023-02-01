@@ -27,6 +27,7 @@ function TargetPlanOverview() {
   const [agree, setAgree] = useState(false);
   const [loading, setLoading] = useState();
   const [amount, setAmount] = useState();
+  const [dillaWallet, setDillaWallet] = useState({});
 
   const navigate = useNavigate();
 
@@ -54,6 +55,8 @@ function TargetPlanOverview() {
 
         setTargetAcct(data.targetPlan);
 
+        console.log("target", data.targetPlan);
+
         if (data.targetPlan.customSavingRate) {
           setAmount(data.targetPlan.customSavingRate);
         } else {
@@ -72,8 +75,53 @@ function TargetPlanOverview() {
       }
     };
 
+    const getDillaWallet = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/get-dilla-wallet`,
+          { withCredentials: true }
+        );
+
+        setDillaWallet(data.dillaWallet);
+
+        console.log("dilla", data.dillaWallet);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+
+        setMsg(message);
+      }
+    };
+
+    getDillaWallet();
     getTargetAccount();
   }, []);
+
+  const handleCreate = async () => {
+    try {
+      await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/activate-plan`,
+        { withCredentials: true }
+      );
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setLoading(false);
+      setErr(true);
+      setMsg(message);
+    }
+  };
 
   const dillaToTarget = async () => {
     try {
@@ -87,6 +135,7 @@ function TargetPlanOverview() {
 
       setLoading(false);
       setMsg(data.msg);
+      handleCreate();
       navigate("/target-private");
     } catch (error) {
       const message =
@@ -235,7 +284,7 @@ function TargetPlanOverview() {
                 <h3 className="mt-5">Choose Payment Method</h3>
               </div>
               <div className="col-md-6 text-end">
-                <p className="mt-5">Target</p>
+                <p className="mt-5">{targetAcct?.name}</p>
                 {targetAcct && targetAcct?.type === "custom" ? (
                   <p className="mt-5">
                     ₦{" "}
@@ -257,7 +306,48 @@ function TargetPlanOverview() {
                 <p className="mt-5">{`${day}-${endDate?.date.month}-${endDate?.date.year}`}</p>
                 <p className="mt-5 overview-perc">11%</p>
                 <p className="mt-5">
-                  Dilla - <span style={{ color: "#E8356D" }}>₦30,000.00</span>
+                  {/* Dilla - <span style={{ color: "#E8356D" }}>₦30,000.00</span> */}
+                  {dillaWallet?.accountBalance >
+                  (targetAcct?.customSavingRate ||
+                    targetAcct?.autoSavingRate) ? (
+                    <div>
+                      Dilla -{" "}
+                      {targetAcct && targetAcct?.type === "custom" ? (
+                        <span style={{ color: "#069669" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            targetAcct?.customSavingRate
+                          )}
+                        </span>
+                      ) : (
+                        <span style={{ color: "#069669" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            targetAcct?.autoSavingRate
+                          )}
+                        </span>
+                      )}
+                    </div>
+                  ) : (
+                    <div>
+                      Dilla -
+                      {targetAcct && targetAcct?.type === "custom" ? (
+                        <span style={{ color: "#E8356D" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            targetAcct?.customSavingRate
+                          )}
+                        </span>
+                      ) : (
+                        <span style={{ color: "#E8356D" }}>
+                          ₦{" "}
+                          {Intl.NumberFormat("en-US").format(
+                            targetAcct?.autoSavingRate
+                          )}
+                        </span>
+                      )}
+                    </div>
+                  )}
                   <span className="dropdown">
                     <Link
                       className="ms-2 dropdown-toggle"
@@ -298,21 +388,26 @@ function TargetPlanOverview() {
                     </ul>
                   </span>
                 </p>
-                <p className="mt-5">
-                  <span style={{ color: "#E8356D" }}>
-                    <i className="bi bi-exclamation-circle me-2"></i>{" "}
-                    Insufficient funds
-                  </span>{" "}
-                  -{" "}
-                  <Link
-                    data-bs-toggle="modal"
-                    data-bs-target="#topup"
-                    type="button"
-                    style={{ color: "#8807F7" }}
-                  >
-                    Top Up
-                  </Link>
-                </p>
+                {dillaWallet?.accountBalance < targetAcct?.customSavingRate ||
+                dillaWallet?.accountBalance < targetAcct?.autoSavingRate ? (
+                  <p className="mt-5">
+                    <span style={{ color: "#E8356D" }}>
+                      <i className="bi bi-exclamation-circle me-2"></i>{" "}
+                      Insufficient funds
+                    </span>{" "}
+                    -{" "}
+                    <Link
+                      data-bs-toggle="modal"
+                      data-bs-target="#topup"
+                      type="button"
+                      style={{ color: "#8807F7" }}
+                    >
+                      Top Up
+                    </Link>
+                  </p>
+                ) : (
+                  <p></p>
+                )}
               </div>
             </div>
             <div

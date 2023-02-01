@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -19,32 +19,16 @@ function TypeTarget() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
 
-  // let user = JSON.parse(sessionStorage.getItem("user"));
-
   const navigate = useNavigate();
 
-  // const calculateIntrest = async () => {
-  //   try {
-  //     setLoading(true);
-
-  //     const { data } = await axios.get(
-  //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/calculate-intrest/${user._id}`
-  //     );
-
-  //     setLoading(false);
-  //     navigate("/target-dashboard");
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const { id } = useParams();
 
   const calculateIntrest = async () => {
     try {
       setLoading(true);
 
       await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/target/calculate-intrest`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/calculate-intrest/${id}`,
         {
           withCredentials: true,
         }
@@ -52,7 +36,7 @@ function TypeTarget() {
 
       // console.log(data);
       setLoading(false);
-      navigate("/target-dashboard");
+      navigate(`/target-dashboard/${id}`);
     } catch (error) {
       const message =
         (error.response &&
@@ -68,24 +52,10 @@ function TypeTarget() {
   };
 
   useEffect(() => {
-    // const getTargetAccount = async () => {
-    //   try {
-    //     const { data } = await axios.get(
-    //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/get-target-account/${user._id}`
-    //     );
-
-    //     // console.log(data);
-    //     setTargetAcct(data.targetPlan);
-    //   } catch (error) {
-    //     // setLoading(false);
-    //     console.log(error);
-    //   }
-    // };
-
     const getTargetAccount = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account/${id}`,
           { withCredentials: true }
         );
 
@@ -104,7 +74,7 @@ function TypeTarget() {
     };
 
     getTargetAccount();
-  }, []);
+  }, [id]);
 
   return (
     <section className="main-dash">
