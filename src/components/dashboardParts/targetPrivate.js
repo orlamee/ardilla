@@ -29,9 +29,10 @@ function TargetPrivate() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [targetHistory, setTargetHistory] = useState();
+  const [targetPlans, setTargetPlans] = useState();
 
   useEffect(() => {
-    const getFlexHistory = async () => {
+    const getTargetHistory = async () => {
       try {
         const { data } = await axios.get(
           `${process.env.REACT_APP_BACKEND_URL}/api/target/target-history`,
@@ -53,7 +54,29 @@ function TargetPrivate() {
       }
     };
 
-    getFlexHistory();
+    const getTargetAccount = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account`,
+          { withCredentials: true }
+        );
+
+        setTargetPlans(data.targetPlan);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+      }
+    };
+
+    getTargetHistory();
+    getTargetAccount();
   }, []);
 
   return (
@@ -229,7 +252,7 @@ function TargetPrivate() {
                   <div className="tab-content clearfix">
                     <div className="tab-pane active" id="1a">
                       <div className="row mt-5">
-                        <Link
+                        {/* <Link
                           data-bs-toggle="modal"
                           data-bs-target="#targetplan"
                           type="button"
@@ -268,8 +291,48 @@ function TargetPrivate() {
                               </div>
                             </div>
                           </div>
-                        </Link>
-                        <div className="col-md-6 mb-3">
+                        </Link> */}
+                        {targetPlans?.map((data) => {
+                          return (
+                            <div className="col-md-6 mb-3">
+                              <img src={top} alt="" className="img-fluid" />
+                              <div className="bg-white bg-private p-4">
+                                <div className="d-flex flex-row">
+                                  <h4>
+                                    Travel{" "}
+                                    <span className="badge-private">
+                                      ongoing
+                                    </span>
+                                  </h4>
+                                  <p style={{ marginLeft: "90px" }}>
+                                    200 days left
+                                  </p>
+                                </div>
+                                <div className="row mt-3">
+                                  <div className="col-md-6">
+                                    <p>Target</p>
+                                    <h3>₦100,000.00</h3>
+                                  </div>
+                                  <div className="col-md-6 text-end">
+                                    <p>Interest</p>
+                                    <h3>15000 (11%/p.a)</h3>
+                                  </div>
+                                </div>
+                                <div className="row mt-3 mb-4">
+                                  <div className="col-md-6">
+                                    <p>Maturity date</p>
+                                    <h3>29-11-2023</h3>
+                                  </div>
+                                  <div className="col-md-6 text-end">
+                                    <p>Frequency</p>
+                                    <h3>15000 (11%/p.a)</h3>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                        {/* <div className="col-md-6 mb-3">
                           <img src={top} alt="" className="img-fluid" />
                           <div className="bg-white bg-private p-4">
                             <div className="d-flex flex-row">
@@ -302,9 +365,9 @@ function TargetPrivate() {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </div> */}
                       </div>
-                      <div className="row mt-5">
+                      {/* <div className="row mt-5">
                         <div className="col-md-6 mb-3">
                           <img src={top} alt="" className="img-fluid" />
                           <div className="bg-white bg-private p-4">
@@ -373,8 +436,9 @@ function TargetPrivate() {
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
+
                     <div className="tab-pane quiz-pane" id="2a">
                       <div className="row mt-5">
                         <Link
