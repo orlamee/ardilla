@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../css/target.css";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -79,6 +79,8 @@ function TargetPrivate() {
     getTargetAccount();
   }, []);
 
+  const navigate = useNavigate();
+
   const daysLeft = (month, day, year) => {
     let date_1 = new Date(`${month}-${day}-${year}`);
     let date_2 = new Date();
@@ -88,6 +90,10 @@ function TargetPrivate() {
     let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
 
     return TotalDays;
+  };
+
+  const handleClick = () => {
+    navigate("/target-plan");
   };
 
   return (
@@ -207,7 +213,7 @@ function TargetPrivate() {
                 <span>Total Balance</span>
                 <h5>₦40,000.00 </h5>
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6" onClick={handleClick}>
                 <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">
                   Create new target
                 </button>
