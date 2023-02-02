@@ -508,47 +508,51 @@ function TargetPlanDashboard() {
             </div>
             <div>
               {!agree && !agree2 && (
-                <Link
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
-                  to="#"
-                  onClick={handleAgree}
-                  style={{ width: "100%" }}
-                >
-                  Continue
-                </Link>
+                <div onClick={handleAgree}>
+                  <Link
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
+                    to="#"
+                    style={{ width: "100%" }}
+                  >
+                    Continue
+                  </Link>
+                </div>
               )}
 
               {agree && !agree2 && (
-                <Link
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
-                  to="#"
-                  onClick={handleAgree}
-                  style={{ width: "100%" }}
-                >
-                  Continue
-                </Link>
+                <div onClick={handleAgree}>
+                  <Link
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
+                    to="#"
+                    style={{ width: "100%" }}
+                  >
+                    Continue
+                  </Link>
+                </div>
               )}
 
               {!agree && agree2 && (
-                <Link
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
-                  to="#"
-                  onClick={handleAgree}
-                  style={{ width: "100%" }}
-                >
-                  Continue
-                </Link>
+                <div onClick={handleAgree}>
+                  <Link
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
+                    to="#"
+                    style={{ width: "100%" }}
+                  >
+                    Continue
+                  </Link>
+                </div>
               )}
 
               {agree && agree2 && (
-                <Link
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
-                  to="#"
-                  onClick={handleNext}
-                  style={{ width: "100%" }}
-                >
-                  Continue
-                </Link>
+                <div onClick={handleNext}>
+                  <Link
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-4"
+                    to="#"
+                    style={{ width: "100%" }}
+                  >
+                    Continue
+                  </Link>
+                </div>
               )}
             </div>
           </div>
