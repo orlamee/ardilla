@@ -77,6 +77,8 @@ function TypeTarget() {
   }, [id]);
 
   const handleCustom = () => {
+    calculateIntrest();
+    console.log("true that");
     navigate(`/target-set-amount/${id}`);
   };
 
@@ -238,7 +240,7 @@ function TypeTarget() {
           </div>
           <div className="col-md-4 mx-3">
             <div className="automated p-5 customed">
-              <h4>Go Custom </h4>
+              <h4>Go Custom rex </h4>
               <div className="text-center my-5 border-bottom">
                 <span>Recommended Amount</span>
                 <h6>NGN {targetAcct?.customSavingRate === 0 && "0.00"}</h6>

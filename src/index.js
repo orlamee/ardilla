@@ -138,27 +138,27 @@ root.render(
       <Route path="/download-ardilla" element={<DownloadApp />}></Route>
       <Route path="/ranks" element={<RankPage />}></Route>
       <Route path="/terms-conditions" element={<TermsCondition />}></Route>
-      <Route path="/payment-accounts" element={<PaymentA/>}></Route>
-      <Route path="/payment-accounts-success" element={<PaymentASuccess/>}></Route>
-      <Route path="/payment-card" element={<PaymentC/>}></Route>
-      <Route path="/payment-card-success" element={<PaymentCSuccess/>}></Route>
-      <Route path="/payment-transaction" element={<PaymentT/>}></Route>
-      <Route path="/faq" element={<FAQ/>}></Route>
-      <Route path="/financial-coach" element={<CoachFinancial/>}></Route>
-      <Route path="/testimonies" element={<Testimonies/>}></Route>
-      <Route path="/coach" element={<FincancialPage/>}></Route>
-      <Route path="/savings-created" element={<CreatedSavings/>}></Route>
-      <Route path="/guides" element={<Guides/>}></Route>
-      <Route path="/updates" element={<Updates/>}></Route>
-      <Route path="/careers" element={<Careers/>}></Route>
-      <Route path="/interest" element={<Calculator/>}></Route>
-      <Route path="/press" element={<Press/>}></Route>
-      <Route path="/press/logos" element={<Logos/>}></Route>
-      <Route path="/press/images" element={<Images/>}></Route>
-      <Route path="/halal" element={<HalalPage/>}></Route>
-
-
-
+      <Route path="/payment-accounts" element={<PaymentA />}></Route>
+      <Route
+        path="/payment-accounts-success"
+        element={<PaymentASuccess />}
+      ></Route>
+      <Route path="/payment-card" element={<PaymentC />}></Route>
+      <Route path="/payment-card-success" element={<PaymentCSuccess />}></Route>
+      <Route path="/payment-transaction" element={<PaymentT />}></Route>
+      <Route path="/faq" element={<FAQ />}></Route>
+      <Route path="/financial-coach" element={<CoachFinancial />}></Route>
+      <Route path="/testimonies" element={<Testimonies />}></Route>
+      <Route path="/coach" element={<FincancialPage />}></Route>
+      <Route path="/savings-created" element={<CreatedSavings />}></Route>
+      <Route path="/guides" element={<Guides />}></Route>
+      <Route path="/updates" element={<Updates />}></Route>
+      <Route path="/careers" element={<Careers />}></Route>
+      <Route path="/interest" element={<Calculator />}></Route>
+      <Route path="/press" element={<Press />}></Route>
+      <Route path="/press/logos" element={<Logos />}></Route>
+      <Route path="/press/images" element={<Images />}></Route>
+      <Route path="/halal" element={<HalalPage />}></Route>
 
       <Route
         path="/information-security"
