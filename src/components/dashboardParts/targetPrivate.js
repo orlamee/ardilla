@@ -213,8 +213,11 @@ function TargetPrivate() {
                 <span>Total Balance</span>
                 <h5>₦40,000.00 </h5>
               </div>
-              <div className="col-md-6" onClick={handleClick}>
-                <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">
+              <div className="col-md-6">
+                <button
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
+                  onClick={handleClick}
+                >
                   Create new target
                 </button>
               </div>
