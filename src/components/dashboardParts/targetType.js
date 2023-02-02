@@ -18,6 +18,7 @@ function TypeTarget() {
   const [loading, setLoading] = useState();
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
+  const [userDetails, setUserDetails] = useState();
 
   const navigate = useNavigate();
 
@@ -72,6 +73,31 @@ function TypeTarget() {
         setMsg(message);
       }
     };
+
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUserDetails(data.user);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+      }
+    };
+
+    getUserById();
 
     getTargetAccount();
   }, [id]);
@@ -184,7 +210,9 @@ function TypeTarget() {
         <div className="row cadet mt-4">
           <div className="col-md-6 ms-5">
             <h3>
-              Cadet {"<"}Starboy{"/>"},
+              Cadet {"<"}
+              {userDetails?.kodeHex}
+              {"/>"},
             </h3>
           </div>
         </div>
