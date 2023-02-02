@@ -66,7 +66,7 @@ function TargetPlanSetDuration() {
       console.log(data);
       setLoading(false);
       calculateIntrest();
-      navigate("/target-dashboard");
+      navigate(`/target-dashboard/${id}`);
     } catch (error) {
       const message =
         (error.response &&
