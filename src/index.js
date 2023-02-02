@@ -120,6 +120,7 @@ import Logos from "./pages/logos";
 import Images from "./pages/images";
 import HalalPage from "./pages/halalPage";
 import Hazy from "./pages/hazy";
+import General from "./pages/general";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -157,6 +158,7 @@ root.render(
       <Route path="/press/images" element={<Images/>}></Route>
       <Route path="/halal" element={<HalalPage/>}></Route>
       <Route path="/hazy" element={<Hazy/>}></Route>
+      <Route path="/general" element={<General/>}></Route>
 
 
 
