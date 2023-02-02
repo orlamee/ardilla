@@ -30,6 +30,7 @@ function TargetPrivate() {
   const [err, setErr] = useState(false);
   const [targetHistory, setTargetHistory] = useState();
   const [targetPlans, setTargetPlans] = useState();
+  const [tb, setTb] = useState();
 
   useEffect(() => {
     const getTargetHistory = async () => {
@@ -41,6 +42,27 @@ function TargetPrivate() {
 
         setTargetHistory(data.transactionHistory);
         console.log("target history", data);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+      }
+    };
+
+    const getTargetBalance = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/target-total`,
+          { withCredentials: true }
+        );
+
+        setTb(data.tb);
       } catch (error) {
         const message =
           (error.response &&
@@ -77,6 +99,7 @@ function TargetPrivate() {
 
     getTargetHistory();
     getTargetAccount();
+    getTargetBalance();
   }, []);
 
   const navigate = useNavigate();
@@ -211,7 +234,9 @@ function TargetPrivate() {
             <div className="row mt-4">
               <div className="col-md-6">
                 <span>Total Balance</span>
-                <h5>₦40,000.00 </h5>
+                <h5>
+                  ₦ {Intl.NumberFormat("en-US").format(tb)}{" "}
+                </h5>
               </div>
               <div className="col-md-6">
                 <button
