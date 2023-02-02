@@ -24,6 +24,7 @@ function TypeTarget() {
   const navigate = useNavigate();
 
   const { id } = useParams();
+  console.log("true taht", id);
 
   const calculateIntrest = async () => {
     try {
@@ -103,7 +104,8 @@ function TypeTarget() {
     getTargetAccount();
   }, [id]);
 
-  const handleCustom = async () => {
+  const handleCustom = () => {
+    console.log(id);
     navigate(`/target-set-amount/${id}`);
   };
 
@@ -271,7 +273,7 @@ function TypeTarget() {
               <div className="text-center my-5 border-bottom">
                 <span>Recommended Amount</span>
                 <h6>NGN {targetAcct?.customSavingRate === 0 && "0.00"}</h6>
-                {/* {!targetAcct?.customSavingRate && <p>Set custom plan</p>} */}
+                {!targetAcct?.customSavingRate < 0 && <p>Create custom plan</p>}
                 {targetAcct?.customSavingRate > 0 && (
                   <p>
                     Every month for {targetAcct?.customDuration}
@@ -297,10 +299,9 @@ function TypeTarget() {
                 </div>
               </div>
 
-              <div className="text-center">
+              <div className="text-center" onClick={handleCustom}>
                 <Link
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5"
-                  onClick={handleCustom}
                   style={{ width: "70%" }}
                 >
                   Go Custom
