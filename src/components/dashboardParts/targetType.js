@@ -271,17 +271,13 @@ function TypeTarget() {
               <div className="text-center my-5 border-bottom">
                 <span>Recommended Amount</span>
                 <h6>NGN {targetAcct?.customSavingRate === 0 && "0.00"}</h6>
-                {/* {!targetAcct?.customSavingRate === 0 && ( */}
-                <p>
-                  Every month for{" "}
-                  {targetAcct?.autoDuration ? (
-                    <span>{targetAcct?.autoDuration}</span>
-                  ) : (
-                    <span>{"0"}</span>
-                  )}{" "}
-                  months
-                </p>
-                {/* )} */}
+                {/* {!targetAcct?.customSavingRate && <p>Set custom plan</p>} */}
+                {targetAcct?.customSavingRate && (
+                  <p>
+                    Every month for {targetAcct?.customDuration}
+                    months
+                  </p>
+                )}
               </div>
               <div className="row values">
                 <div className="col-md-6 border-end">
