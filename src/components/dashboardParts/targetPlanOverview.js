@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -33,6 +33,8 @@ function TargetPlanOverview() {
 
   const day = new Date().getDate();
 
+  const { id } = useParams();
+
   const handleClickSuccess = () => {
     setOnSuccess(false);
   };
@@ -49,7 +51,7 @@ function TargetPlanOverview() {
     const getTargetAccount = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account/${id}`,
           { withCredentials: true }
         );
 
@@ -101,12 +103,12 @@ function TargetPlanOverview() {
 
     getDillaWallet();
     getTargetAccount();
-  }, []);
+  }, [id]);
 
   const handleCreate = async () => {
     try {
       await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/target/activate-plan`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/activate-plan/${id}`,
         { withCredentials: true }
       );
     } catch (error) {
@@ -128,7 +130,7 @@ function TargetPlanOverview() {
       setLoading(true);
 
       const { data } = await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/dilla-to-dream`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/dilla-wallet/dilla-to-dream/${id}`,
         { amount },
         { withCredentials: true }
       );

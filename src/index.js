@@ -211,7 +211,7 @@ root.render(
       <Route path="/flex-set-duration" element={<FlexSetDuration />}></Route>
       <Route path="/flex-overview" element={<FlexOverview />}></Route>
       <Route path="/flex-savings" element={<FlexSetSave />}></Route>
-      <Route path="/target-save" element={<TargetSave />}></Route>
+      <Route path="/target-save/:id" element={<TargetSave />}></Route>
       <Route path="/flex-plan" element={<FlexPlan />}></Route>
       <Route path="/target-plan" element={<TargetPlan />}></Route>
       <Route path="/create-target/:id" element={<CreateTargetPlan />}></Route>
@@ -220,9 +220,9 @@ root.render(
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
 
-      <Route path="/target-prefer" element={<TargetPrefer />}></Route>
+      <Route path="/target-prefer/:id" element={<TargetPrefer />}></Route>
       <Route
-        path="/target-public-selection"
+        path="/target-public-selection/:id"
         element={<TargetPublicSelection />}
       ></Route>
       <Route path="/target-public-desc" element={<TargetDesc />}></Route>
@@ -240,7 +240,7 @@ root.render(
       <Route path="/flex/top-up" element={<FlexOverviewTopped />}></Route>
       <Route path="/flex-overview/san" element={<FlexOverviewSan />}></Route>
       <Route path="/flex-overview/card" element={<FlexOverviewCard />}></Route>
-      <Route path="/target-overview" element={<TargetOverview />}></Route>
+      <Route path="/target-overview/:id" element={<TargetOverview />}></Route>
       <Route
         path="/target-overview/san"
         element={<TargetOverviewSan />}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -23,6 +23,8 @@ function TargetPreference() {
 
   const navigate = useNavigate();
 
+  const { id } = useParams();
+
   const handleClickSuccess = () => {
     setOnSuccess(false);
   };
@@ -33,7 +35,7 @@ function TargetPreference() {
 
       try {
         await axios.put(
-          `${process.env.REACT_APP_BACKEND_URL}/api/target/set-type`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/set-type/${id}`,
           {
             type,
           },
@@ -41,7 +43,7 @@ function TargetPreference() {
         );
 
         setLoading(false);
-        navigate("/target-overview");
+        navigate(`/target-overview/${id}`);
       } catch (error) {
         const message =
           (error.response &&
@@ -67,7 +69,7 @@ function TargetPreference() {
 
       try {
         await axios.put(
-          `${process.env.REACT_APP_BACKEND_URL}/api/target/set-type`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/set-type/${id}`,
           {
             type,
           },
@@ -75,7 +77,7 @@ function TargetPreference() {
         );
 
         setLoading(false);
-        navigate("/target-public-selection");
+        navigate(`/target-public-selection/${id}`);
       } catch (error) {
         const message =
           (error.response &&
