@@ -16,8 +16,10 @@ import axios from "axios";
 function TypeTarget() {
   const [targetAcct, setTargetAcct] = useState();
   const [loading, setLoading] = useState();
+  // const [customLoader, setCustomerLoading] = useState();
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
+  const [userDetails, setUserDetails] = useState();
 
   const navigate = useNavigate();
 
@@ -73,8 +75,37 @@ function TypeTarget() {
       }
     };
 
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUserDetails(data.user);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+      }
+    };
+
+    getUserById();
+
     getTargetAccount();
   }, [id]);
+
+  const handleCustom = async () => {
+    navigate(`/target-set-amount/${id}`);
+  };
 
   return (
     <section className="main-dash">
@@ -178,7 +209,9 @@ function TypeTarget() {
         <div className="row cadet mt-4">
           <div className="col-md-6 ms-5">
             <h3>
-              Cadet {"<"}Starboy{"/>"},
+              Cadet {"<"}
+              {userDetails?.kodeHex}
+              {"/>"},
             </h3>
           </div>
         </div>
@@ -254,10 +287,11 @@ function TypeTarget() {
                   <h5>-</h5>
                 </div>
               </div>
+
               <div className="text-center">
                 <Link
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5"
-                  to="/target-set-amount"
+                  onClick={handleCustom}
                   style={{ width: "70%" }}
                 >
                   Go Custom

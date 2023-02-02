@@ -156,7 +156,6 @@ root.render(
       <Route path="/press/logos" element={<Logos/>}></Route>
       <Route path="/press/images" element={<Images/>}></Route>
       <Route path="/halal" element={<HalalPage/>}></Route>
-      <Route path="/hazy" element={<Hazy/>}></Route>
 
 
 
@@ -221,10 +220,13 @@ root.render(
       ></Route>
       <Route path="/target-public-desc" element={<TargetDesc />}></Route>
       <Route path="/target-share-link" element={<TargetPlanShare />}></Route>
-      <Route path="/target-set-amount" element={<TargetSetAmount />}></Route>
-      <Route path="/target-set-save" element={<TargetSetSave />}></Route>
       <Route
-        path="/target-set-duration"
+        path="/target-set-amount/:id"
+        element={<TargetSetAmount />}
+      ></Route>
+      <Route path="/target-set-save/:id" element={<TargetSetSave />}></Route>
+      <Route
+        path="/target-set-duration/:id"
         element={<TargetSetDuration />}
       ></Route>
       <Route path="/target-custom-save" element={<TargetCustomSave />}></Route>

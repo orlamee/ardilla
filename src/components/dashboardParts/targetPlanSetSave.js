@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -21,28 +21,9 @@ function TargetPlanSetSave() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
 
-  // let user = JSON.parse(sessionStorage.getItem("user"));
+  const { id } = useParams();
 
   const navigate = useNavigate();
-
-  // const handleSubmit = async (e) => {
-  //   setLoading(true);
-  //   e.preventDefault();
-
-  //   try {
-  //     const { data } = await axios.put(
-  //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/custom-saving-rate/${user._id}`,
-  //       { savingRate }
-  //     );
-
-  //     console.log(data);
-  //     setLoading(false);
-  //     navigate("/target-set-duration");
-  //   } catch (error) {
-  //     setLoading(false);
-  //     console.log(error);
-  //   }
-  // };
 
   const handleClickSuccess = () => {
     setOnSuccess(false);
@@ -54,13 +35,13 @@ function TargetPlanSetSave() {
 
     try {
       await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/api/target/custom-saving-rate`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/custom-saving-rate/${id}`,
         { savingRate },
         { withCredentials: true }
       );
 
       setLoading(false);
-      navigate("/target-set-duration");
+      navigate(`/target-set-duration/${id}`);
     } catch (error) {
       const message =
         (error.response &&

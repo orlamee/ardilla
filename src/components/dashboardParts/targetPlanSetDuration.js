@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -21,28 +21,16 @@ function TargetPlanSetDuration() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
 
-  // let user = JSON.parse(sessionStorage.getItem("user"));
-
   const navigate = useNavigate();
 
-  // const calculateIntrest = async () => {
-  //   try {
-  //     const { data } = await axios.get(
-  //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/calculate-intrest/${user._id}`
-  //     );
-
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const { id } = useParams();
 
   const calculateIntrest = async () => {
     try {
       setLoading(true);
 
       await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/target/calculate-intrest`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/calculate-intrest/${id}`,
         {
           withCredentials: true,
         }
@@ -64,33 +52,13 @@ function TargetPlanSetDuration() {
     }
   };
 
-  // const handleSubmit = async (e) => {
-  //   setLoading(true);
-  //   e.preventDefault();
-
-  //   try {
-  //     const { data } = await axios.put(
-  //       `https://ardilla.herokuapp.com/ardilla/api/target-plan/custom-duration/${user._id}`,
-  //       { duration }
-  //     );
-
-  //     calculateIntrest();
-  //     console.log(data);
-  //     setLoading(false);
-  //     navigate("/target-dashboard");
-  //   } catch (error) {
-  //     setLoading(false);
-  //     console.log(error);
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
 
     try {
       const { data } = await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/api/target/custom-duration`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/custom-duration/${id}`,
         { duration },
         { withCredentials: true }
       );
