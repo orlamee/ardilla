@@ -242,7 +242,7 @@ function TypeTarget() {
                     )}
                   </h5>
                   <h5>11%</h5>
-                  <h5>Cadet</h5>
+                  <h5>{userDetails?.badge}</h5>
                 </div>
               </div>
               <div className="text-center">
@@ -272,7 +272,15 @@ function TypeTarget() {
                 <span>Recommended Amount</span>
                 <h6>NGN {targetAcct?.customSavingRate === 0 && "0.00"}</h6>
                 {/* {!targetAcct?.customSavingRate === 0 && ( */}
-                <p>Every month for 13 months</p>
+                <p>
+                  Every month for{" "}
+                  {targetAcct?.autoDuration ? (
+                    <span>{targetAcct?.autoDuration}</span>
+                  ) : (
+                    <span>{"0"}</span>
+                  )}{" "}
+                  months
+                </p>
                 {/* )} */}
               </div>
               <div className="row values">
@@ -282,9 +290,14 @@ function TypeTarget() {
                   <h5>Badge:</h5>
                 </div>
                 <div className="col-md-6 text-end">
-                  <h5>2,160,000</h5>
+                  <h5>
+                    {" "}
+                    {Intl.NumberFormat("en-US").format(
+                      targetAcct?.customSavingTarget
+                    )}
+                  </h5>
                   <h5>11%</h5>
-                  <h5>-</h5>
+                  <h5>{userDetails?.badge}</h5>
                 </div>
               </div>
 
