@@ -1,19 +1,19 @@
 import React from "react";
 import Footer from "../components/footer";
-import GuidesContent from "../components/landingpage/guidesContent";
+import GeneralContent from "../components/landingpage/generalContent";
 import HazyBreadcrumb from "../components/landingpage/hazyBreadcrumb";
 import LearnHeader from "../components/landingpage/navBarLearn";
 
 
-function Hazy() {
+function General() {
   return (
     <div className="bg-white">
       <LearnHeader/>
       <HazyBreadcrumb/>
-      <GuidesContent/>
+      <GeneralContent/>
       <Footer/>
     </div>
   );
 }
 
-export default Hazy;
+export default General;
