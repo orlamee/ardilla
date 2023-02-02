@@ -121,6 +121,8 @@ import Images from "./pages/images";
 import HalalPage from "./pages/halalPage";
 import Hazy from "./pages/hazy";
 import General from "./pages/general";
+import LoginSAN from "./pages/loginSAN";
+import CodeSAN from "./pages/codeSAN";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -162,6 +164,8 @@ root.render(
       <Route path="/halal" element={<HalalPage />}></Route>
       <Route path="/hazy" element={<Hazy />}></Route>
       <Route path="/general" element={<General />}></Route>
+      <Route path="/login-san" element={<LoginSAN/>}></Route>
+      <Route path="/san-code" element={<CodeSAN/>}></Route>
 
       <Route
         path="/information-security"

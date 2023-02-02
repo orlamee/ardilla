@@ -247,7 +247,7 @@ input [type=email] {
   align-items: center;
 }
 
-.separator .line {
+.separator .lines {
   height: 1px;
   flex: 1;
   background-color: #E6E6E6;
@@ -669,4 +669,24 @@ h6 a {
   font-size: 11px!important;
   font-weight: 500;
   line-height: 17px;
+}
+
+.notices {
+  color: #9CA3AF;
+  font-size: 13px;
+  line-height: 22px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.sender {
+  color: #3D0072;
+  font-weight: 700;
+}
+
+.wrong-email {
+  color: #8807F7;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
 }

@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import logo from "../img/logo.svg";
+import logo from "../../img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 // import platform from "platform";
 // import date from "date-and-time";
 
-function Login() {
+function SANCode() {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password] = useState("");
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
@@ -180,14 +180,16 @@ function Login() {
                     <h6 className="mt-4">
                       Here’s how to Log in to access your account
                     </h6>
+                    <p className="notices mt-3">Enter code sent to your email <span className="sender">Fullname@gmail.com</span> </p>
+                    <h5 className="wrong-email">Wrong Email?</h5>
                     <form className="mt-5" onSubmit={handleSubmit}>
-                      <div className="mb-3">
+                      <div className="mb-5">
                         <label className="form-label">
-                          <i className="bi bi-envelope-fill me-2"></i> Email
-                          address
+                          <i className="bi bi-key-fill me-2"></i> 
+                          Code
                         </label>
                         <input
-                          type="email"
+                          type="text"
                           className="form-control custom-login"
                           required
                           value={email}
@@ -195,50 +197,12 @@ function Login() {
                             setEmail(e.target.value.toLowerCase())
                           }
                         />
-                      </div>
-                      <div className="">
-                        <label className="form-label">
-                          <i className="bi bi-shield-lock-fill me-2"></i>{" "}
-                          Password
-                        </label>
-                        <input
-                          type="password"
-                          name="pass"
-                          className="form-control custom-login"
-                          id="pass"
-                          required
-                          value={password}
-                          onChange={(e) => setPassword(e.target.value)}
-                        />
+                        
                         <span
                           toggle="#password-field"
                           className="fa fa-fw fa-eye field_icon toggle-pass"
                         ></span>
-                      </div>
-                      <div className="mobile">
-                        <div className="mb-2">
-                          <label className="form-check-label remember">
-                            <input
-                              type="checkbox"
-                              className="form-check-input"
-                            />{" "}
-                            Remember me
-                          </label>
-                        </div>
-                        <div>
-                          <Link className="fg" to="/recover-password">
-                            Forgot Password?
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="form-group desktop">
-                        <label className="form-check-label remember">
-                          <input type="checkbox" className="form-check-input" />{" "}
-                          Remember me
-                        </label>
-                        <Link className="float-end fg" to="/recover-password">
-                          Forgot Password?
-                        </Link>
+                        
                       </div>
                       {loading ? (
                         <div className="mt-4 mb-5">
@@ -257,31 +221,11 @@ function Login() {
                             className="btn btn-outline-primary px-5 py-3 ardilla-btn"
                             style={{ width: "100%" }}
                           >
-                            Log In
+                            Login
                           </button>
                         </div>
                       )}
                     </form>
-                    <div className="separator">
-                      <div className="lines"></div>
-                      <h6>or</h6>
-                      <div className="lines"></div>
-                    </div>
-                    <Link to="/login-san"
-                      type="button"
-                      className="mt-5 btn btn-outline-primary py-3 ardilla-btn-outline"
-                    >
-                      <i className="bi bi-box-arrow-in-right me-3"></i> Sign in
-                      with SAN ID
-                    </Link>
-                    <div className="mt-3 new-sign">
-                      <h5>
-                        New user?{" "}
-                        <Link to="/sign-up" style={{ color: "#8807F7" }}>
-                          Create account
-                        </Link>
-                      </h5>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -293,4 +237,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SANCode;
