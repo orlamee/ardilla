@@ -22,33 +22,12 @@ import graphy from "../../img/dashboard/dibgraph.svg";
 
 function SavingsBody() {
   const [flexAcct, setFlexAcct] = useState();
+  const [tb, setTb] = useState();
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [totalBalance, setTotalBalance] = useState("");
 
   useEffect(() => {
-    // const getUserById = async () => {
-    //   try {
-    //     const { data } = await axios.get(
-    //       `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
-    //       {
-    //         withCredentials: true,
-    //       }
-    //     );
-
-    //     setUser(data.user);
-    //   } catch (error) {
-    //     const message =
-    //       (error.response &&
-    //         error.response.data &&
-    //         error.response.data.message) ||
-    //       error.message ||
-    //       error.toString();
-
-    //     setErr(true);
-    //     setMsg(message);
-    //   }
-    // };
     const getFlexAccount = async () => {
       try {
         const { data } = await axios.get(
@@ -85,9 +64,31 @@ function SavingsBody() {
         console.log(error);
       }
     };
+
+    const getTargetBalance = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/target-total`,
+          { withCredentials: true }
+        );
+
+        setTb(data.tb);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+      }
+    };
     // getUserById();
     getFlexAccount();
     calculateTotal();
+    getTargetBalance();
   }, []);
 
   console.log(flexAcct);
@@ -387,6 +388,18 @@ function SavingsBody() {
                     >
                       Create a Dream
                     </Link>
+                    {tb > 0 && (
+                      <Link
+                        to="/target-private"
+                        className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
+                        style={{
+                          background: "#E8356D",
+                          borderColor: "#E8356D",
+                        }}
+                      >
+                        View Dream Plans
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>
