@@ -216,9 +216,9 @@ root.render(
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
       <Route path="/set-password/:id" element={<SetPassword />}></Route>
 
-      <Route path="/target-prefer" element={<TargetPrefer />}></Route>
+      <Route path="/target-prefer/:id" element={<TargetPrefer />}></Route>
       <Route
-        path="/target-public-selection"
+        path="/target-public-selection/:id"
         element={<TargetPublicSelection />}
       ></Route>
       <Route path="/target-public-desc" element={<TargetDesc />}></Route>
