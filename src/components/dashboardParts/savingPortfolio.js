@@ -11,7 +11,7 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
-import linechart from "../../img/dashboard/linechart.svg";
+// import linechart from "../../img/dashboard/linechart.svg";
 
 import Cookies from "js-cookie";
 
@@ -85,7 +85,7 @@ function SavingPortfolio() {
           <Link>
             <div className="d-flex flex-row">
               <img src={chat} alt="" className="img-fluid me-2 icons" />
-              Chat Support
+              Financial Coach
             </div>
           </Link>
           <Link onClick={handleLogOut}>
@@ -101,100 +101,9 @@ function SavingPortfolio() {
           <div className="col-md-8 mb-3 saveportfolio">
             <Link to="/portfolio" className="saveport"><i className="bi bi-chevron-left"></i> Back</Link>
             <h2>Saving Portfolio</h2>
-            <img src={linechart} alt="chart" className="img-fluid my-5"/>
-            <div className="save-hist">
-              <div className="">
-                <h3>Total Savings</h3>
-              </div>
-              <div className="row mt-5 title-p">
-                <div className="col-md-4">
-                  <p>Savings Plan</p>
-                </div>
-                <div className="col-md-2">
-                  <p>Amount</p>
-                </div>
-                <div className="col-md-2">
-                  <p>Current Returns</p>
-                </div>
-                <div className="col-md-2">
-                  <p>Life time Returns</p>
-                </div>
-                <div className="col-md-2">
-                  <p>Progress</p>
-                </div>
-              </div>
-              <div className="row mt-2">
-                <div className="col-md-4">
-                  <h6>Transport </h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>₦5,000.00</h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>₦4,000.00 </h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>₦4,000.00 </h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>5% saved</h6>
-                </div>
-              </div>
-              <hr/>
-              <div className="row mt-2">
-                <div className="col-md-4">
-                  <h6>Transport </h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>₦5,000.00</h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>₦4,000.00 </h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>₦4,000.00 </h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>5% saved</h6>
-                </div>
-              </div>
-              <hr/>
-              <div className="row mt-2">
-                <div className="col-md-4">
-                  <h6>Transport </h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>₦5,000.00</h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>₦4,000.00 </h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>₦4,000.00 </h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>5% saved</h6>
-                </div>
-              </div>
-              <hr/>
-              <div className="row mt-2">
-                <div className="col-md-4">
-                  <h6>Transport </h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>₦5,000.00</h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>₦4,000.00 </h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>₦4,000.00 </h6>
-                </div>
-                <div className="col-md-2">
-                  <h6>5% saved</h6>
-                </div>
-              </div>
-              <hr/>
+            <div className="mt-5">
+              <h3>SAVINGS BALANCE</h3>
+              <h6>NGN 100,000.00</h6>
             </div>
           </div>
         </div>
