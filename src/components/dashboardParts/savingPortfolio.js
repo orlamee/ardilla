@@ -11,6 +11,9 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
+import left from "../../img/dashboard/leftie.svg";
+import right from "../../img/dashboard/rightie.svg";
+import below from "../../img/dashboard/below.svg";
 // import linechart from "../../img/dashboard/linechart.svg";
 
 import Cookies from "js-cookie";
@@ -105,6 +108,19 @@ function SavingPortfolio() {
               <h3>SAVINGS BALANCE</h3>
               <h6>NGN 100,000.00</h6>
             </div>
+          </div>
+        </div>
+        <div className="mt-5 row">
+          <div className="col-md-6 mb-3">
+            <img src={left} alt="left" className="img-fluid w-100" />
+          </div>
+          <div className="col-md-6 text-center">
+            <img src={right} alt="left" className="img-fluid" />
+          </div>
+        </div>
+        <div className="mt-5 row">
+          <div className="col mb-3">
+            <img src={below} alt="left" className="img-fluid w-100" />
           </div>
         </div>
         
