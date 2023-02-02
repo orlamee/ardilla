@@ -624,7 +624,7 @@ function Sidebar() {
               </div>
             </div>
           </div>
-          <div className="col-md-4 mb-3">
+          <Link to="/profile/referral" className="col-md-4 mb-3">
             <h2 className="mb-4">Referrals</h2>
             <div className="goal-card refer-bg px-4">
               <h1 style={{ color: "#3C0071" }}>Earn</h1>
@@ -633,7 +633,7 @@ function Sidebar() {
                 Click here <i className="bi bi-arrow-right"></i>
               </h6>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="row goals">
           <h2 className="mb-4">Money Wise</h2>
