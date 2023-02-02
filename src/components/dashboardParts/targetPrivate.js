@@ -234,9 +234,7 @@ function TargetPrivate() {
             <div className="row mt-4">
               <div className="col-md-6">
                 <span>Total Balance</span>
-                <h5>
-                  ₦ {Intl.NumberFormat("en-US").format(tb)}{" "}
-                </h5>
+                <h5>₦ {Intl.NumberFormat("en-US").format(tb)} </h5>
               </div>
               <div className="col-md-6">
                 <button
