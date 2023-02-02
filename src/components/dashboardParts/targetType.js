@@ -16,6 +16,7 @@ import axios from "axios";
 function TypeTarget() {
   const [targetAcct, setTargetAcct] = useState();
   const [loading, setLoading] = useState();
+  const [customLoader, setCustomerLoading] = useState();
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [userDetails, setUserDetails] = useState();
@@ -102,9 +103,8 @@ function TypeTarget() {
     getTargetAccount();
   }, [id]);
 
-  const handleCustom = () => {
-    calculateIntrest();
-    console.log("true that");
+  const handleCustom = async () => {
+    setCustomerLoading(true);
     navigate(`/target-set-amount/${id}`);
   };
 
@@ -288,15 +288,26 @@ function TypeTarget() {
                   <h5>-</h5>
                 </div>
               </div>
-              <div className="text-center">
-                <Link
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5"
-                  onClick={handleCustom}
-                  style={{ width: "70%" }}
-                >
-                  Go Custom
-                </Link>
-              </div>
+              {customLoader ? (
+                <div className="text-center">
+                  <Link
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5"
+                    style={{ width: "70%" }}
+                  >
+                    Loading
+                  </Link>
+                </div>
+              ) : (
+                <div className="text-center">
+                  <Link
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn custom-btn  mt-5"
+                    onClick={handleCustom}
+                    style={{ width: "70%" }}
+                  >
+                    Go Custom
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
           {/* <div className="col-md-4">
