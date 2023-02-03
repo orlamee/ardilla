@@ -123,6 +123,7 @@ import Hazy from "./pages/hazy";
 import General from "./pages/general";
 import LoginSAN from "./pages/loginSAN";
 import CodeSAN from "./pages/codeSAN";
+import RecoverSAN from "./pages/recoverSAN";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -166,6 +167,7 @@ root.render(
       <Route path="/general" element={<General />}></Route>
       <Route path="/login-san" element={<LoginSAN/>}></Route>
       <Route path="/san-code" element={<CodeSAN/>}></Route>
+      <Route path="/recover-san" element={<RecoverSAN/>}></Route>
 
       <Route
         path="/information-security"
