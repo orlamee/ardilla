@@ -165,9 +165,11 @@ root.render(
       <Route path="/halal" element={<HalalPage />}></Route>
       <Route path="/hazy" element={<Hazy />}></Route>
       <Route path="/general" element={<General />}></Route>
-      <Route path="/login-san" element={<LoginSAN/>}></Route>
-      <Route path="/san-code" element={<CodeSAN/>}></Route>
-      <Route path="/recover-san" element={<RecoverSAN/>}></Route>
+      <Route path="/login-san" element={<LoginSAN />}></Route>
+      <Route path="/san-code" element={<CodeSAN />}></Route>
+      <Route path="/login-san" element={<LoginSAN />}></Route>
+      <Route path="/san-code" element={<CodeSAN />}></Route>
+      <Route path="/recover-san" element={<RecoverSAN />}></Route>
 
       <Route
         path="/information-security"
@@ -244,11 +246,11 @@ root.render(
       <Route path="/flex-overview/card" element={<FlexOverviewCard />}></Route>
       <Route path="/target-overview/:id" element={<TargetOverview />}></Route>
       <Route
-        path="/target-overview/san"
+        path="/target-overview/san/:id"
         element={<TargetOverviewSan />}
       ></Route>
       <Route
-        path="/target-overview/card"
+        path="/target-overview/card/:id"
         element={<TargetOverviewCard />}
       ></Route>
       <Route path="/target-private" element={<TargetPlanPrivate />}></Route>
