@@ -167,7 +167,7 @@ function TargetPlanOverviewCard() {
       setLoading(true);
 
       const { data } = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/target/activate-plan`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/activate-plan/${id}`,
         { withCredentials: true }
       );
 
