@@ -129,6 +129,10 @@ function TargetPlanOverview() {
     navigate(`/target-overview/san/${id}`);
   };
 
+  const handleCard = () => {
+    navigate(`/target-overview/card/${id}`);
+  };
+
   const dillaToTarget = async () => {
     try {
       setLoading(true);
@@ -383,11 +387,8 @@ function TargetPlanOverview() {
                             </Link>
                           </div>
 
-                          <div>
-                            <Link
-                              to="/target-overview/card"
-                              className="d-flex flex-row"
-                            >
+                          <div onClick={handleCard}>
+                            <Link to="#" className="d-flex flex-row">
                               <img src={c} alt="" className="img-fluid me-2" />
                               <p className="mt-3">Card</p>
                             </Link>

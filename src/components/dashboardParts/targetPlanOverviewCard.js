@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -32,11 +32,13 @@ function TargetPlanOverviewCard() {
 
   const navigate = useNavigate();
 
+  const { id } = useParams();
+
   useEffect(() => {
     const getTargetAccount = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account/${id}`,
           { withCredentials: true }
         );
 
@@ -85,12 +87,12 @@ function TargetPlanOverviewCard() {
 
     getTargetAccount();
     getUserById();
-  }, []);
+  }, [id]);
 
   const getTargetAccount = async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-account/${id}`,
         { withCredentials: true }
       );
 
@@ -117,7 +119,7 @@ function TargetPlanOverviewCard() {
   const topUp = async (reference) => {
     try {
       await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/api/target/target-top-up`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/target/target-top-up/${id}`,
         {
           amount,
           reference,
