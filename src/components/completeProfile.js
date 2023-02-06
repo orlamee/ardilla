@@ -135,8 +135,7 @@ function CompleteProfile() {
   const checkKodeHex = async (e) => {
     setKodeHex(e.target.value);
 
-    console.log("fact");
-
+    console.log(kodeHex);
     // try {
     //   await axios.get(
     //     `${BACKEND_URL}/api/auth/check-kodeHex`,
