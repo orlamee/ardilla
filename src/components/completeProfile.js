@@ -165,6 +165,7 @@ function CompleteProfile() {
   if (isvalid) {
     checkKodeHex();
     console.log("try");
+    console.log(kodeHex);
   }
 
   setTimeout(() => {
