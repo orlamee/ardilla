@@ -135,13 +135,15 @@ function CompleteProfile() {
   const checkKodeHex = async (e) => {
     setKodeHex(e.target.value);
 
-    console.log("rex is good");
+    console.log("rex is good 2");
     try {
-      await axios.get(
+      const { data } = await axios.get(
         `${BACKEND_URL}/api/auth/check-kodeHex`,
         { kodeHex },
         { withCredentials: true }
       );
+
+      console.log(data);
     } catch (error) {
       const message =
         (error.response &&
