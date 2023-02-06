@@ -137,7 +137,7 @@ function CompleteProfile() {
 
     try {
       await axios.get(
-        `${BACKEND_URL}/api/auth/complete-profile`,
+        `${BACKEND_URL}/api/auth/check-kodeHex`,
         { kodeHex },
         { withCredentials: true }
       );
