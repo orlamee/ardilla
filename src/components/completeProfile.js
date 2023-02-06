@@ -132,9 +132,11 @@ function CompleteProfile() {
     navigate("/security-question");
   };
 
-  const checkKodeHex = async (e) => {
+  const handleChange = (e) => {
     setKodeHex(e.target.value);
+  };
 
+  const checkKodeHex = async (e) => {
     console.log("rex is good 2");
     try {
       const { data } = await axios.get(
@@ -157,6 +159,13 @@ function CompleteProfile() {
       setIsLoading(false);
     }
   };
+
+  const isvalid = kodeHex !== "";
+
+  if (isvalid) {
+    checkKodeHex();
+    console.log("try");
+  }
 
   setTimeout(() => {
     if (onSuccess) {
@@ -245,7 +254,7 @@ function CompleteProfile() {
                       className="form-control custom-login"
                       required
                       value={kodeHex}
-                      onChange={(e) => checkKodeHex(e)}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="mb-3">
