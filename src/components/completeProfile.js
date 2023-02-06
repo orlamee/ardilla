@@ -132,6 +132,29 @@ function CompleteProfile() {
     navigate("/security-question");
   };
 
+  const checkKodeHex = async (e) => {
+    setKodeHex(e.target.value);
+
+    try {
+      await axios.get(
+        `${BACKEND_URL}/api/auth/complete-profile`,
+        { kodeHex },
+        { withCredentials: true }
+      );
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setMsg(message);
+      setErr(true);
+      setIsLoading(false);
+    }
+  };
+
   setTimeout(() => {
     if (onSuccess) {
       navigate("/security-question");
@@ -208,7 +231,7 @@ function CompleteProfile() {
           <div className="col-md-5">
             <div className="right">
               <div className="login-form">
-                <form className="" onChange={handleSubmit}>
+                <form className="" onSubmit={handleSubmit}>
                   <div className="mb-3">
                     <label className="form-label">
                       <i className="bi bi-code-slash me-2"></i> Kode Hex
@@ -219,7 +242,7 @@ function CompleteProfile() {
                       className="form-control custom-login"
                       required
                       value={kodeHex}
-                      onChange={(e) => setKodeHex(e.target.value.toLowerCase())}
+                      onChange={(e) => checkKodeHex(e)}
                     />
                   </div>
                   <div className="mb-3">
