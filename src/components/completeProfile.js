@@ -208,10 +208,11 @@ function CompleteProfile() {
           <div className="col-md-5">
             <div className="right">
               <div className="login-form">
-                <form className="" onSubmit={handleSubmit}>
+                <form className="" onChange={handleSubmit}>
                   <div className="mb-3">
                     <label className="form-label">
-                      <i className="bi bi-code-slash me-2"></i> Kode Hex (Nickname)
+                      <i className="bi bi-code-slash me-2"></i> Kode Hex
+                      (Nickname)
                     </label>
                     <input
                       type="text"
@@ -300,7 +301,9 @@ function CompleteProfile() {
                         value={agree}
                         onChange={() => setAgree(!agree)}
                       />{" "}
-                      I agree to our <Link to="/terms-conditions">Terms and Conditions</Link> and <Link to="/terms-conditions">Privacy Policy</Link>.
+                      I agree to our{" "}
+                      <Link to="/terms-conditions">Terms and Conditions</Link>{" "}
+                      and <Link to="/terms-conditions">Privacy Policy</Link>.
                     </label>
                   </div>
                   {agree ? (
