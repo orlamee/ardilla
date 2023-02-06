@@ -135,25 +135,25 @@ function CompleteProfile() {
   const checkKodeHex = async (e) => {
     setKodeHex(e.target.value);
 
-    console.log(kodeHex);
-    // try {
-    //   await axios.get(
-    //     `${BACKEND_URL}/api/auth/check-kodeHex`,
-    //     { kodeHex },
-    //     { withCredentials: true }
-    //   );
-    // } catch (error) {
-    //   const message =
-    //     (error.response &&
-    //       error.response.data &&
-    //       error.response.data.message) ||
-    //     error.message ||
-    //     error.toString();
+    console.log("rex");
+    try {
+      await axios.get(
+        `${BACKEND_URL}/api/auth/check-kodeHex`,
+        { kodeHex },
+        { withCredentials: true }
+      );
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
 
-    //   setMsg(message);
-    //   setErr(true);
-    //   setIsLoading(false);
-    // }
+      setMsg(message);
+      setErr(true);
+      setIsLoading(false);
+    }
   };
 
   setTimeout(() => {
@@ -243,7 +243,7 @@ function CompleteProfile() {
                       className="form-control custom-login"
                       required
                       value={kodeHex}
-                      onChange={(e) => checkKodeHex(e)}
+                      onKeyUp={(e) => checkKodeHex(e)}
                     />
                   </div>
                   <div className="mb-3">
