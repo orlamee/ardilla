@@ -135,24 +135,26 @@ function CompleteProfile() {
   const checkKodeHex = async (e) => {
     setKodeHex(e.target.value);
 
-    try {
-      await axios.get(
-        `${BACKEND_URL}/api/auth/check-kodeHex`,
-        { kodeHex },
-        { withCredentials: true }
-      );
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
+    console.log("fact");
 
-      setMsg(message);
-      setErr(true);
-      setIsLoading(false);
-    }
+    // try {
+    //   await axios.get(
+    //     `${BACKEND_URL}/api/auth/check-kodeHex`,
+    //     { kodeHex },
+    //     { withCredentials: true }
+    //   );
+    // } catch (error) {
+    //   const message =
+    //     (error.response &&
+    //       error.response.data &&
+    //       error.response.data.message) ||
+    //     error.message ||
+    //     error.toString();
+
+    //   setMsg(message);
+    //   setErr(true);
+    //   setIsLoading(false);
+    // }
   };
 
   setTimeout(() => {
