@@ -135,7 +135,7 @@ function CompleteProfile() {
   const checkKodeHex = async (e) => {
     setKodeHex(e.target.value);
 
-    console.log("rex");
+    console.log("rex is good");
     try {
       await axios.get(
         `${BACKEND_URL}/api/auth/check-kodeHex`,
@@ -243,7 +243,7 @@ function CompleteProfile() {
                       className="form-control custom-login"
                       required
                       value={kodeHex}
-                      onKeyUp={(e) => checkKodeHex(e)}
+                      onChange={(e) => checkKodeHex(e)}
                     />
                   </div>
                   <div className="mb-3">
