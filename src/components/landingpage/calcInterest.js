@@ -11,16 +11,14 @@ function CalcInterest() {
   const [amount, setAmout] = useState((rate * months).toFixed(2));
 
   const calenderLength = months;
-
   const currentMonth = new Date().getMonth();
-
-  const intrestCalender = calender.splice(currentMonth, calenderLength);
-
   const R = 0.11;
   const perAnnum = 365;
   const cb = amount;
 
   let int = [];
+
+  const intrestCalender = calender.splice(currentMonth, calenderLength);
 
   const intrestPerPeriod = intrestCalender.reduce((p, c, i) => {
     const f1 = (i + 1) * cb;
