@@ -6,36 +6,62 @@ function CalcInterest() {
   const [amount, setAmout] = useState(0);
   const [months, setMonths] = useState(3);
   const [rate, setRate] = useState(60000);
-  const [period, setPeriod] = useState("daily");
 
   const weekly = (amt, mt) => {
     const calc = amt * 4.34524 * mt;
 
-    return Intl.NumberFormat("en-US").format(calc);
+    setAmout(calc);
+
+    return Intl.NumberFormat("en-US").format(setAmout);
   };
 
   const monthly = (amt, mt) => {
     const calc = amt * mt;
+    setAmout(calc);
 
-    return Intl.NumberFormat("en-US").format(calc);
+    return Intl.NumberFormat("en-US").format(setAmout);
   };
 
   const daily = (amt, mt) => {
     const calc = amt * 30.4167 * mt;
 
-    return Intl.NumberFormat("en-US").format(calc);
+    setAmout(calc);
+
+    return Intl.NumberFormat("en-US").format(setAmout);
   };
 
   const yearly = (amt, mt) => {
     const calc = amt * mt;
 
-    return Intl.NumberFormat("en-US").format(calc);
+    setAmout(calc);
+
+    return Intl.NumberFormat("en-US").format(setAmout);
   };
 
   const handleChange = (e) => {
     const value = e.target.value;
 
-    console.log(value);
+    if (value === "daily") {
+      daily(rate, months);
+    } else if (value === "weekly") {
+      weekly(rate, months);
+    } else if (value === "monthly") {
+      monthly(rate, months);
+    } else {
+      yearly(rate, months);
+    }
+  };
+
+  const handleRate = (e) => {
+    const value = e.target.value;
+
+    daily(value, months);
+  };
+
+  const handleMonth = (e) => {
+    const value = e.target.value;
+
+    daily(rate, value);
   };
 
   return (
@@ -81,6 +107,7 @@ function CalcInterest() {
                   id="exampleFormControlInput1"
                   placeholder="2,000"
                   value={rate}
+                  onChange={handleRate}
                 />
               </div>
               <div className="mb-5">
@@ -96,6 +123,7 @@ function CalcInterest() {
                   id="exampleFormControlInput1"
                   placeholder="3"
                   value={months}
+                  onChange={handleMonth}
                 />
               </div>
             </form>
