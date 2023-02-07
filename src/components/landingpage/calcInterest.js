@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function CalcInterest() {
   const [months, setMonths] = useState(3);
   const [rate, setRate] = useState(60000);
-  const [amount, setAmout] = useState((rate * 30.4167 * months).toFixed(2));
+  const [amount, setAmout] = useState((rate * months).toFixed(2));
 
   const weekly = (amt, mt) => {
     const calc = amt * 4.34524 * mt;
