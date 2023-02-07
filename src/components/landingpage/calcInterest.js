@@ -42,7 +42,7 @@ function CalcInterest() {
 
     console.log(interestSum);
 
-    setIntrest(interestSum);
+    setIntrest(interestSum.toFixed(2));
   };
 
   const weekly = (amt, mt) => {
@@ -201,7 +201,9 @@ function CalcInterest() {
             <div className="int-values bg-white p-5">
               <div>
                 <h4>Total Balance</h4>
-                <h5 className="mt-2 mb-4">N {amount + intrest} </h5>
+                <h5 className="mt-2 mb-4">
+                  N {Intl.NumberFormat("en-US").format(intrest + amount)}
+                </h5>
                 <h4>
                   Saving ₦2,000 monthly for 3 months will result in a balance of
                   ₦6,600
@@ -209,7 +211,9 @@ function CalcInterest() {
               </div>
               <div className="mt-4">
                 <h4>Interest</h4>
-                <h5 className="mt-2">N {intrest}( 2%) </h5>
+                <h5 className="mt-2">
+                  N {Intl.NumberFormat("en-US").format(intrest)}( 2%){" "}
+                </h5>
               </div>
               <div className="mt-4">
                 <h4>Total Savings</h4>
