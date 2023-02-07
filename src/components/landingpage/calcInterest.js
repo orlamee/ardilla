@@ -10,6 +10,8 @@ function CalcInterest() {
   const [period, setPeriod] = useState("monthly");
   const [amount, setAmout] = useState((rate * months).toFixed(2));
 
+  console.log(calender);
+
   const calenderLength = months;
   const currentMonth = new Date().getMonth();
   const R = 0.11;
