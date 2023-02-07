@@ -10,45 +10,42 @@ function CalcInterest() {
   const [period, setPeriod] = useState("monthly");
   const [amount, setAmout] = useState((rate * months).toFixed(2));
 
-  // const calenderLength = months;
-  // const currentMonth = new Date().getMonth();
-  // const R = 0.11;
-  // const perAnnum = 365;
-  // const cb = amount;
-  console.log("rex is king and more and more");
+  const calIntrest = () => {
+    let int = [];
 
-  const calenderLength = months;
-  const currentMonth = new Date().getMonth();
-  const R = 0.11;
-  const perAnnum = 365;
-  const cb = amount;
+    const calenderLength = months;
+    const currentMonth = new Date().getMonth();
+    const R = 0.11;
+    const perAnnum = 365;
+    const cb = amount;
 
-  let int = [];
+    const intrestCalender = calender.splice(currentMonth, calenderLength);
 
-  const intrestCalender = calender.splice(currentMonth, calenderLength);
+    const intrestPerPeriod = intrestCalender.reduce((p, c, i) => {
+      const f1 = (i + 1) * cb;
+      const f2 = R * c.day;
 
-  const intrestPerPeriod = intrestCalender.reduce((p, c, i) => {
-    const f1 = (i + 1) * cb;
-    const f2 = R * c.day;
+      const ipp = (f1 * f2) / perAnnum;
 
-    const ipp = (f1 * f2) / perAnnum;
+      int.push(ipp);
 
-    int.push(ipp);
+      return int;
+    }, cb);
 
-    return int;
-  }, cb);
+    const interestSum = intrestPerPeriod.reduce((p, c) => {
+      return p + c;
+    }, 0);
 
-  const interestSum = intrestPerPeriod.reduce((p, c) => {
-    return p + c;
-  }, 0);
+    console.log(intrestCalender);
 
-  console.log(intrestCalender);
+    console.log(intrestPerPeriod);
 
-  console.log(intrestPerPeriod);
+    console.log(interestSum);
 
-  console.log(interestSum);
+    setIntrest(interestSum);
+  };
 
-  // setIntrest(interestSum);
+  calIntrest();
 
   const weekly = (amt, mt) => {
     const calc = amt * 4.34524 * mt;
@@ -107,6 +104,8 @@ function CalcInterest() {
 
     console.log(period);
 
+    calIntrest();
+
     if (period === "daily") {
       daily(value, months);
     } else if (period === "weekly") {
@@ -121,32 +120,9 @@ function CalcInterest() {
   const handleMonth = (e) => {
     const value = e.target.value;
 
-    const calenderLength = value;
-    const currentMonth = new Date().getMonth();
-    const R = 0.11;
-    const perAnnum = 365;
-    const cb = 60000;
-
     setMonths(value);
 
-    const intrestCalender = calender.splice(currentMonth, calenderLength);
-
-    const intrestPerPeriod = intrestCalender.reduce((p, c, i) => {
-      const f1 = (i + 1) * cb;
-      const f2 = R * c.day;
-
-      const ipp = (f1 * f2) / perAnnum;
-
-      int.push(ipp);
-
-      return int;
-    }, cb);
-
-    const interestSum = intrestPerPeriod.reduce((p, c) => {
-      return p + c;
-    }, 0);
-
-    setIntrest(interestSum);
+    calIntrest();
 
     if (period === "daily") {
       daily(rate, value);
@@ -227,9 +203,7 @@ function CalcInterest() {
             <div className="int-values bg-white p-5">
               <div>
                 <h4>Total Balance</h4>
-                <h5 className="mt-2 mb-4">
-                  N {Intl.NumberFormat("en-US").format(amount + intrest)}{" "}
-                </h5>
+                <h5 className="mt-2 mb-4">N {amount + intrest} </h5>
                 <h4>
                   Saving ₦2,000 monthly for 3 months will result in a balance of
                   ₦6,600
