@@ -102,7 +102,7 @@ function CalcInterest() {
 
     console.log(period);
 
-    // calIntrest();
+    calIntrest();
 
     if (period === "daily") {
       daily(value, months);
@@ -120,7 +120,7 @@ function CalcInterest() {
 
     setMonths(value);
 
-    // calIntrest();
+    calIntrest();
 
     if (period === "daily") {
       daily(rate, value);
