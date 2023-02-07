@@ -43,6 +43,8 @@ function CalcInterest() {
   const handleChange = (e) => {
     const value = e.target.value;
 
+    console.log(value);
+
     setPeriod(value);
 
     if (value === "daily") {
