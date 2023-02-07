@@ -15,13 +15,13 @@ function CalcInterest() {
   // const R = 0.11;
   // const perAnnum = 365;
   // const cb = amount;
-  console.log("rex is king and more");
+  console.log("rex is king and more and more");
 
   const calenderLength = months;
   const currentMonth = new Date().getMonth();
   const R = 0.11;
   const perAnnum = 365;
-  const cb = 60000;
+  const cb = amount;
 
   let int = [];
 
@@ -121,7 +121,32 @@ function CalcInterest() {
   const handleMonth = (e) => {
     const value = e.target.value;
 
+    const calenderLength = value;
+    const currentMonth = new Date().getMonth();
+    const R = 0.11;
+    const perAnnum = 365;
+    const cb = 60000;
+
     setMonths(value);
+
+    const intrestCalender = calender.splice(currentMonth, calenderLength);
+
+    const intrestPerPeriod = intrestCalender.reduce((p, c, i) => {
+      const f1 = (i + 1) * cb;
+      const f2 = R * c.day;
+
+      const ipp = (f1 * f2) / perAnnum;
+
+      int.push(ipp);
+
+      return int;
+    }, cb);
+
+    const interestSum = intrestPerPeriod.reduce((p, c) => {
+      return p + c;
+    }, 0);
+
+    setIntrest(interestSum);
 
     if (period === "daily") {
       daily(rate, value);
