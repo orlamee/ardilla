@@ -78,6 +78,7 @@
   font-weight: 600;
   line-height: 13px;
   margin-top: 10px;
+  word-wrap: break-word;
 }
 
 .inner-current h6 {

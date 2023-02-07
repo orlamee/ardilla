@@ -528,7 +528,7 @@ function DashboardFlex() {
             </div>
           </div>
           <div className="col-md-6 private-right">
-            <div className="private-card px-5 py-4">
+            <div className="private-card px-5 py-4 savings-feed">
               <div className="history-title">
                 <h3>History</h3>
                 <Link
