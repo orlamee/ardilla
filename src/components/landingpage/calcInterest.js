@@ -31,33 +31,18 @@ function CalcInterest() {
     return int;
   }, cb);
 
-  const interestSum = intrestPerPeriod.reduce((p, c) => {
-    return p + c;
-  }, 0);
+  console.log(intrestPerPeriod);
 
-  setIntrest(interestSum);
+  // const interestSum = intrestPerPeriod.reduce((p, c) => {
+  //   return p + c;
+  // }, 0);
+
+  // setIntrest(interestSum);
 
   const weekly = (amt, mt) => {
     const calc = amt * 4.34524 * mt;
 
     setAmout(calc.toFixed(2));
-
-    // const intrestPerPeriod = intrestCalender.reduce((p, c, i) => {
-    //   const f1 = (i + 1) * cb;
-    //   const f2 = R * c.day;
-
-    //   const ipp = (f1 * f2) / perAnnum;
-
-    //   int.push(ipp);
-
-    //   return int;
-    // }, cb);
-
-    // const interestSum = intrestPerPeriod.reduce((p, c) => {
-    //   return p + c;
-    // }, 0);
-
-    // setIntrest(interestSum);
 
     return Intl.NumberFormat("en-US").format(setAmout);
   };
@@ -126,23 +111,6 @@ function CalcInterest() {
     const value = e.target.value;
 
     setMonths(value);
-
-    const intrestPerPeriod = intrestCalender.reduce((p, c, i) => {
-      const f1 = (i + 1) * cb;
-      const f2 = R * c.day;
-
-      const ipp = (f1 * f2) / perAnnum;
-
-      int.push(ipp);
-
-      return int;
-    }, cb);
-
-    const interestSum = intrestPerPeriod.reduce((p, c) => {
-      return p + c;
-    }, 0);
-
-    setIntrest(interestSum);
 
     if (period === "daily") {
       daily(rate, value);
