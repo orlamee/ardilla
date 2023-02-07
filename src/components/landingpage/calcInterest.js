@@ -33,9 +33,11 @@ function CalcInterest() {
 
   console.log(intrestPerPeriod);
 
-  // const interestSum = intrestPerPeriod.reduce((p, c) => {
-  //   return p + c;
-  // }, 0);
+  const interestSum = intrestPerPeriod.reduce((p, c) => {
+    return p + c;
+  }, 0);
+
+  console.log(interestSum);
 
   // setIntrest(interestSum);
 
