@@ -2691,7 +2691,7 @@ function DillaBody() {
             </Collapse>
           </div>
           <div className="col-md-6 px-5">
-            <div className="dilla-transaction p-5">
+            <div className="dilla-transaction p-5 savings-feed">
               <div className="history-title">
                 <h3>Transaction history</h3>
                 <h4 className="float-end">view all</h4>
