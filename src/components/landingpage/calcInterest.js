@@ -17,7 +17,7 @@ function CalcInterest() {
     const currentMonth = new Date().getMonth();
     const R = 0.11;
     const perAnnum = 365;
-    const cb = amount;
+    const cb = rate;
 
     const intrestCalender = calender.splice(currentMonth, calenderLength);
 
@@ -45,7 +45,7 @@ function CalcInterest() {
     setIntrest(interestSum);
   };
 
-  calIntrest();
+  // calIntrest();
 
   const weekly = (amt, mt) => {
     const calc = amt * 4.34524 * mt;
@@ -104,7 +104,7 @@ function CalcInterest() {
 
     console.log(period);
 
-    calIntrest();
+    // calIntrest();
 
     if (period === "daily") {
       daily(value, months);
@@ -122,7 +122,7 @@ function CalcInterest() {
 
     setMonths(value);
 
-    calIntrest();
+    // calIntrest();
 
     if (period === "daily") {
       daily(rate, value);
