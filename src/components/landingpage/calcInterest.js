@@ -201,9 +201,7 @@ function CalcInterest() {
             <div className="int-values bg-white p-5">
               <div>
                 <h4>Total Balance</h4>
-                <h5 className="mt-2 mb-4">
-                  N {Intl.NumberFormat("en-US").format(intrest + amount)}
-                </h5>
+                <h5 className="mt-2 mb-4">N {intrest + amount}</h5>
                 <h4>
                   Saving ₦2,000 monthly for 3 months will result in a balance of
                   ₦6,600
@@ -212,7 +210,7 @@ function CalcInterest() {
               <div className="mt-4">
                 <h4>Interest</h4>
                 <h5 className="mt-2">
-                  N {Intl.NumberFormat("en-US").format(intrest)}( 2%){" "}
+                  N {Intl.NumberFormat("en-US").format(intrest)}( 11%){" "}
                 </h5>
               </div>
               <div className="mt-4">
