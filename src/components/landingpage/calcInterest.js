@@ -3,9 +3,9 @@ import line from "../../img/linegraph.svg";
 import { Link } from "react-router-dom";
 
 function CalcInterest() {
-  const [amount, setAmout] = useState(0);
   const [months, setMonths] = useState(3);
   const [rate, setRate] = useState(60000);
+  const [amount, setAmout] = useState(rate * 30.4167 * months);
 
   const weekly = (amt, mt) => {
     const calc = amt * 4.34524 * mt;
@@ -55,11 +55,15 @@ function CalcInterest() {
   const handleRate = (e) => {
     const value = e.target.value;
 
+    setRate(value);
+
     daily(value, months);
   };
 
   const handleMonth = (e) => {
     const value = e.target.value;
+
+    setMonths(value);
 
     daily(rate, value);
   };
