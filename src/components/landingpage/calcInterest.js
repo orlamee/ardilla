@@ -116,9 +116,11 @@ function CalcInterest() {
                   className="form-select int-select"
                   onChange={handleChange}
                 >
-                  <option value="daily">Daily</option>
+                  <option value="monthly" selected>
+                    Monthly
+                  </option>
                   <option value="weekly">Weekly</option>
-                  <option value="monthly">Monthly</option>
+                  <option value="daily">Daily</option>
                   <option value="yearly">Yearly</option>
                 </select>
               </div>
