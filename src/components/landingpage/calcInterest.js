@@ -201,7 +201,7 @@ function CalcInterest() {
             <div className="int-values bg-white p-5">
               <div>
                 <h4>Total Balance</h4>
-                <h5 className="mt-2 mb-4">N {intrest + amount}</h5>
+                <h5 className="mt-2 mb-4">N {amount + intrest}</h5>
                 <h4>
                   Saving ₦2,000 monthly for 3 months will result in a balance of
                   ₦6,600
