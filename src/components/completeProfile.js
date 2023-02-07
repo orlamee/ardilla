@@ -132,42 +132,6 @@ function CompleteProfile() {
     navigate("/security-question");
   };
 
-  const handleChange = (e) => {
-    setKodeHex(e.target.value);
-  };
-
-  const checkKodeHex = async (e) => {
-    console.log("rex is good 2");
-    try {
-      const { data } = await axios.get(
-        `${BACKEND_URL}/api/auth/check-kodeHex`,
-        { kodeHex },
-        { withCredentials: true }
-      );
-
-      console.log(data);
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
-
-      setMsg(message);
-      setErr(true);
-      setIsLoading(false);
-    }
-  };
-
-  const isvalid = kodeHex !== "";
-
-  if (isvalid) {
-    checkKodeHex();
-    console.log("try");
-    console.log(kodeHex);
-  }
-
   setTimeout(() => {
     if (onSuccess) {
       navigate("/security-question");
@@ -255,7 +219,7 @@ function CompleteProfile() {
                       className="form-control custom-login"
                       required
                       value={kodeHex}
-                      onChange={handleChange}
+                      onChange={(e) => setKodeHex(e.target.value)}
                     />
                   </div>
                   <div className="mb-3">
