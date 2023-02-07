@@ -283,6 +283,44 @@ function SavingsBody() {
                 </div>
               </div>
               <hr />
+              <div className="row mt-2">
+                <div className="col-md-6" style={{ marginTop: "-7px" }}>
+                  <h6>
+                    <img
+                      src={withdraw}
+                      alt="withdraw"
+                      className="img-fluid me-2"
+                    />{" "}
+                    Savings Withdrawal
+                  </h6>
+                </div>
+                <div className="col-md-3 text-center">
+                  <h6>1 hr ago</h6>
+                </div>
+                <div className="col-md-3 text-end">
+                  <h6>₦4,000.00 </h6>
+                </div>
+              </div>
+              <hr />
+              <div className="row mt-2">
+                <div className="col-md-6" style={{ marginTop: "-7px" }}>
+                  <h6>
+                    <img
+                      src={withdraw}
+                      alt="withdraw"
+                      className="img-fluid me-2"
+                    />{" "}
+                    Savings Withdrawal
+                  </h6>
+                </div>
+                <div className="col-md-3 text-center">
+                  <h6>1 hr ago</h6>
+                </div>
+                <div className="col-md-3 text-end">
+                  <h6>₦4,000.00 </h6>
+                </div>
+              </div>
+              <hr />
             </div>
           </div>
         </div>
