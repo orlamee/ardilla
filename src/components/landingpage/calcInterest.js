@@ -148,7 +148,9 @@ function CalcInterest() {
               </div>
               <div className="mt-4">
                 <h4>Total Savings</h4>
-                <h5 className="mt-2">N{amount} </h5>
+                <h5 className="mt-2">
+                  N {Intl.NumberFormat("en-US").format(amount)}
+                </h5>
               </div>
               <img
                 src={line}
