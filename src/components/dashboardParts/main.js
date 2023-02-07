@@ -191,6 +191,15 @@ function Sidebar() {
   return (
     <section className="main-dash">
       <div className="sidebar">
+        <div className="row">
+          <div className="col cadet-name">
+            <h2>
+              Cadet {"<"}
+              Starboy
+              {"/>"}
+            </h2>
+          </div>
+        </div>
         <Link to="/dashboard" className="active">
           <div className="d-flex flex-row">
             <img src={home} alt="" className="img-fluid me-2 icons" />

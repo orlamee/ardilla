@@ -292,6 +292,15 @@ function CompleteProfile() {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
+                  <div className="mb-3">
+                    <label className="form-label">
+                      <i className="bi bi-people me-2"></i> Invite code (optional)
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control custom-login"
+                    />
+                  </div>
                   <div>
                     <label className="form-check-label remember">
                       <input
