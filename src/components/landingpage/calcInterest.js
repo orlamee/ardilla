@@ -5,19 +5,20 @@ import { Link } from "react-router-dom";
 function CalcInterest() {
   const [months, setMonths] = useState(3);
   const [rate, setRate] = useState(60000);
-  const [amount, setAmout] = useState(rate * 30.4167 * months);
+  const [amount, setAmout] = useState((rate * 30.4167 * months).toFixed(2));
 
   const weekly = (amt, mt) => {
     const calc = amt * 4.34524 * mt;
 
-    setAmout(calc);
+    setAmout(calc.toFixed(2));
 
     return Intl.NumberFormat("en-US").format(setAmout);
   };
 
   const monthly = (amt, mt) => {
     const calc = amt * mt;
-    setAmout(calc);
+
+    setAmout(calc.toFixed(2));
 
     return Intl.NumberFormat("en-US").format(setAmout);
   };
@@ -25,7 +26,7 @@ function CalcInterest() {
   const daily = (amt, mt) => {
     const calc = amt * 30.4167 * mt;
 
-    setAmout(calc);
+    setAmout(calc.toFixed(2));
 
     return Intl.NumberFormat("en-US").format(setAmout);
   };
@@ -33,7 +34,7 @@ function CalcInterest() {
   const yearly = (amt, mt) => {
     const calc = amt * mt;
 
-    setAmout(calc);
+    setAmout(calc.toFixed(2));
 
     return Intl.NumberFormat("en-US").format(setAmout);
   };
