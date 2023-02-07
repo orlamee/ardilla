@@ -221,7 +221,7 @@ function SavingsBody() {
           </div>
           <div className="col-md-2"></div>
           <div className="col-md-6">
-            <div className="save-hist">
+            <div className="save-hist savings-feed">
               <div className="">
                 <h3>History</h3>
                 <h4 className="float-end">See all</h4>
