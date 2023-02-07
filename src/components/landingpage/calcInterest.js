@@ -15,9 +15,9 @@ function CalcInterest() {
   // const R = 0.11;
   // const perAnnum = 365;
   // const cb = amount;
-  console.log("rex is king");
+  console.log("rex is king and more");
 
-  const calenderLength = 3;
+  const calenderLength = months;
   const currentMonth = new Date().getMonth();
   const R = 0.11;
   const perAnnum = 365;
