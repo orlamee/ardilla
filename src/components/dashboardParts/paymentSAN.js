@@ -1036,7 +1036,7 @@ function PaymentSAN() {
         </div>
         <div className="row">
           <div className="col mt-5">
-            <div className="san-transaction p-5">
+            <div className="san-transaction p-5 savings-feed">
               <div className="history-title">
                 <h3>Transaction history</h3>
               </div>
