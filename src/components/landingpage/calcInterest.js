@@ -45,8 +45,6 @@ function CalcInterest() {
     setIntrest(interestSum);
   };
 
-  calIntrest();
-
   const weekly = (amt, mt) => {
     const calc = amt * 4.34524 * mt;
 
