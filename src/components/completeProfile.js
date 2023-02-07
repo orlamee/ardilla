@@ -303,7 +303,7 @@ function CompleteProfile() {
                       />{" "}
                       I agree to our{" "}
                       <Link to="/terms-conditions">Terms and Conditions</Link>{" "}
-                      and <Link to="/terms-conditions">Privacy Policy</Link>.
+                      and <Link to="/privacy-policy">Privacy Policy</Link>.
                     </label>
                   </div>
                   {agree ? (
