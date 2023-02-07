@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 function CalcInterest() {
   const [months, setMonths] = useState(3);
   const [rate, setRate] = useState(60000);
+  const [period, setPeriod] = useState("monthly");
   const [amount, setAmout] = useState((rate * months).toFixed(2));
 
   const weekly = (amt, mt) => {
@@ -42,6 +43,8 @@ function CalcInterest() {
   const handleChange = (e) => {
     const value = e.target.value;
 
+    setPeriod(value);
+
     if (value === "daily") {
       daily(rate, months);
     } else if (value === "weekly") {
@@ -58,7 +61,17 @@ function CalcInterest() {
 
     setRate(value);
 
-    daily(value, months);
+    console.log(period);
+
+    if (period === "daily") {
+      daily(value, months);
+    } else if (period === "weekly") {
+      weekly(value, months);
+    } else if (period === "monthly") {
+      monthly(value, months);
+    } else {
+      yearly(value, months);
+    }
   };
 
   const handleMonth = (e) => {
@@ -66,7 +79,17 @@ function CalcInterest() {
 
     setMonths(value);
 
-    daily(rate, value);
+    console.log(period);
+
+    if (period === "daily") {
+      daily(rate, value);
+    } else if (period === "weekly") {
+      weekly(rate, value);
+    } else if (period === "monthly") {
+      monthly(rate, value);
+    } else {
+      yearly(rate, value);
+    }
   };
 
   return (
