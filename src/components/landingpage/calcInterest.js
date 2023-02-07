@@ -1,17 +1,65 @@
 import React, { useState } from "react";
 import line from "../../img/linegraph.svg";
 import { Link } from "react-router-dom";
+import { calender } from "../../utils/data";
 
 function CalcInterest() {
   const [months, setMonths] = useState(3);
   const [rate, setRate] = useState(60000);
+  const [intrest, setIntrest] = useState();
   const [period, setPeriod] = useState("monthly");
   const [amount, setAmout] = useState((rate * months).toFixed(2));
+
+  const calenderLength = months;
+
+  const currentMonth = new Date().getMonth();
+
+  const intrestCalender = calender.splice(currentMonth, calenderLength);
+
+  const R = 0.11;
+  const perAnnum = 365;
+  const cb = amount;
+
+  let int = [];
+
+  const intrestPerPeriod = intrestCalender.reduce((p, c, i) => {
+    const f1 = (i + 1) * cb;
+    const f2 = R * c.day;
+
+    const ipp = (f1 * f2) / perAnnum;
+
+    int.push(ipp);
+
+    return int;
+  }, cb);
+
+  const interestSum = intrestPerPeriod.reduce((p, c) => {
+    return p + c;
+  }, 0);
+
+  setIntrest(interestSum);
 
   const weekly = (amt, mt) => {
     const calc = amt * 4.34524 * mt;
 
     setAmout(calc.toFixed(2));
+
+    // const intrestPerPeriod = intrestCalender.reduce((p, c, i) => {
+    //   const f1 = (i + 1) * cb;
+    //   const f2 = R * c.day;
+
+    //   const ipp = (f1 * f2) / perAnnum;
+
+    //   int.push(ipp);
+
+    //   return int;
+    // }, cb);
+
+    // const interestSum = intrestPerPeriod.reduce((p, c) => {
+    //   return p + c;
+    // }, 0);
+
+    // setIntrest(interestSum);
 
     return Intl.NumberFormat("en-US").format(setAmout);
   };
@@ -81,7 +129,22 @@ function CalcInterest() {
 
     setMonths(value);
 
-    console.log(period);
+    const intrestPerPeriod = intrestCalender.reduce((p, c, i) => {
+      const f1 = (i + 1) * cb;
+      const f2 = R * c.day;
+
+      const ipp = (f1 * f2) / perAnnum;
+
+      int.push(ipp);
+
+      return int;
+    }, cb);
+
+    const interestSum = intrestPerPeriod.reduce((p, c) => {
+      return p + c;
+    }, 0);
+
+    setIntrest(interestSum);
 
     if (period === "daily") {
       daily(rate, value);
@@ -162,7 +225,9 @@ function CalcInterest() {
             <div className="int-values bg-white p-5">
               <div>
                 <h4>Total Balance</h4>
-                <h5 className="mt-2 mb-4">N6,600 </h5>
+                <h5 className="mt-2 mb-4">
+                  N {Intl.NumberFormat("en-US").format(amount + intrest)}{" "}
+                </h5>
                 <h4>
                   Saving ₦2,000 monthly for 3 months will result in a balance of
                   ₦6,600
@@ -170,7 +235,7 @@ function CalcInterest() {
               </div>
               <div className="mt-4">
                 <h4>Interest</h4>
-                <h5 className="mt-2">N600 ( 2%) </h5>
+                <h5 className="mt-2">N {intrest}( 2%) </h5>
               </div>
               <div className="mt-4">
                 <h4>Total Savings</h4>
