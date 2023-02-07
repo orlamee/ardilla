@@ -6,7 +6,7 @@ import { calender } from "../../utils/data";
 function CalcInterest() {
   const [months, setMonths] = useState(3);
   const [rate, setRate] = useState(60000);
-  const [intrest, setIntrest] = useState();
+  const [intrest, setIntrest] = useState(0);
   const [period, setPeriod] = useState("monthly");
   const [amount, setAmout] = useState((rate * months).toFixed(2));
 
