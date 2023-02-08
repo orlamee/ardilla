@@ -181,14 +181,13 @@ function TargetShareLink() {
               user
             </h3>
             <div>
-              <Link
+              <button
                 className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2"
-                to="#"
                 onClick={handleNext}
                 style={{ width: "100%" }}
               >
                 Create
-              </Link>
+              </button>
             </div>
           </div>
         </div>
