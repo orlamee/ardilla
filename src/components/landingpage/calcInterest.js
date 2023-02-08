@@ -8,8 +8,8 @@ function CalcInterest() {
   const [rate, setRate] = useState(60000);
   const [intrest, setIntrest] = useState(0);
   const [period, setPeriod] = useState("monthly");
-  const [amount, setAmout] = useState((rate * months).toFixed(2));
-  const [total, setToatal] = useState(amount + intrest);
+  const [amount, setAmout] = useState(rate * months);
+  const [total, setTotal] = useState(amount + intrest);
 
   const calIntrest = () => {
     let int = [];
@@ -44,6 +44,7 @@ function CalcInterest() {
     console.log(interestSum);
 
     setIntrest(interestSum);
+    setTotal(interestSum + amount);
   };
 
   const weekly = (amt, mt) => {
@@ -210,7 +211,7 @@ function CalcInterest() {
             <div className="int-values bg-white p-5">
               <div>
                 <h4>Total Balance</h4>
-                <h5 className="mt-2 mb-4">N {amount + intrest}</h5>
+                <h5 className="mt-2 mb-4">N {total}</h5>
                 <h4>
                   Saving ₦2,000 monthly for 3 months will result in a balance of
                   ₦6,600
