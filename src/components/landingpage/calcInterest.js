@@ -47,10 +47,12 @@ function CalcInterest() {
     setTotal(interestSum + amount);
   };
 
+  calIntrest();
+
   const weekly = (amt, mt) => {
     const calc = amt * 4.34524 * mt;
 
-    setAmout(calc.toFixed(2));
+    setAmout(calc);
 
     calIntrest();
 
@@ -60,7 +62,7 @@ function CalcInterest() {
   const monthly = (amt, mt) => {
     const calc = amt * mt;
 
-    setAmout(calc.toFixed(2));
+    setAmout(calc);
 
     calIntrest();
 
@@ -70,7 +72,7 @@ function CalcInterest() {
   const daily = (amt, mt) => {
     const calc = amt * 30.4167 * mt;
 
-    setAmout(calc.toFixed(2));
+    setAmout(calc);
 
     calIntrest();
 
@@ -80,7 +82,7 @@ function CalcInterest() {
   const yearly = (amt, mt) => {
     const calc = amt * mt;
 
-    setAmout(calc.toFixed(2));
+    setAmout(calc);
 
     calIntrest();
 
@@ -89,8 +91,6 @@ function CalcInterest() {
 
   const handleChange = (e) => {
     const value = e.target.value;
-
-    console.log(value);
 
     setPeriod(value);
 
@@ -109,8 +109,6 @@ function CalcInterest() {
     const value = e.target.value;
 
     setRate(value);
-
-    console.log(period);
 
     calIntrest();
 
