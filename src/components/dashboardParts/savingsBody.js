@@ -96,6 +96,8 @@ function SavingsBody() {
 
   console.log(tb);
 
+  console.log("wednesday");
+
   return (
     <section className="main-dash">
       {err && (
