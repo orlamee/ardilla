@@ -29,7 +29,8 @@ function TargetPublicDesc() {
     setOnSuccess(false);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setLoading(true);
 
     try {
@@ -192,7 +193,7 @@ function TargetPublicDesc() {
             </h3>
             <div className="row justify-content-center mt-4">
               <div className="col-md-6">
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div className="mb-3">
                     <textarea
                       onChange={(e) => setDescription(e.target.value)}
@@ -215,9 +216,9 @@ function TargetPublicDesc() {
                   ) : (
                     <div className="mb-3">
                       <button
+                        type="submit"
                         className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
                         style={{ width: "100%" }}
-                        onClick={handleSubmit}
                       >
                         Continue
                       </button>
