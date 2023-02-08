@@ -395,7 +395,7 @@ function TargetPlanDashboard() {
         </div>
         <div className="row mt-4">
           <div className="col-md-10 right-table">
-            <div className="breakdown">
+            <div className="breakdown savings-feed">
               <h6 className="p-4">Breakdown</h6>
               <table className="table table-borderless">
                 <thead className="table-dark">

@@ -15,9 +15,18 @@ import chat from "../../img/dashboard/chat.svg";
 // import avi from "../../img/dashboard/avi-profilr.svg";
 import badge from "../../img/dashboard/profile-bdg.svg";
 import axios from "axios";
+import ImageUploader from 'react-image-upload'
+import 'react-image-upload/dist/index.css'
+import { border } from "@cloudinary/url-gen/qualifiers/background";
 
 function ProfileMain() {
   // let user = JSON.parse(sessionStorage.getItem("user"));
+  // function getImageFileObject(imageFile) {
+  //   console.log({ onAdd: imageFile });
+  // }
+  // function runAfterImageDelete(file) {
+  //   console.log({ onDele: file });
+  // }
   let nextOfKin;
 
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -348,41 +357,32 @@ function ProfileMain() {
           </div>
           <div className="col-md-6 right-profile">
             <div className="d-flex flex-row">
-              <form onSubmit={handleSubmit}>
-                <input type="file" onChange={handleFileInput} />
-
-                {img ? (
+              <ImageUploader
+                style={{ height: 200, width: 200, background: "transparent", border: "1px solid #8807f7", borderRadius: "50%" }} // style image to your preference
+                deleteIcon={
                   <img
-                    src={img}
+                    src="https://img.icons8.com/ios-glyphs/30/000000/delete-sign.png"
                     alt=""
-                    className="img-fluid rounded-circle"
-                    on
                   />
-                ) : (
-                  <img
-                    src={userDetails?.photo}
-                    alt=""
-                    className="img-fluid rounded-circle"
-                    on
-                  />
-                )}
-
-                {/* <img
-                  src={userDetails?.profilePic}
-                  alt=""
-                  className="img-fluid rounded-circle"
-                  on
-                /> */}
-                {/* <img src={img ? img : avi} alt="" className="img-fluid" on /> */}
-
-                <img src={badge} alt="" className="img-fluid" />
-
-                {upload ? (
-                  <button>uploading</button>
-                ) : (
-                  <button type="submit">Submit</button>
-                )}
-              </form>
+                }
+                uploadIcon={
+                  <svg
+                    className="svg-circleplus"
+                    viewBox="0 0 100 100"
+                    style={{ height: "40px", stroke: "#000" }}
+                  >
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      strokeWidth="7.5"
+                    ></circle>
+                    <line x1="32.5" y1="50" x2="67.5" y2="50" strokeWidth="5"></line>
+                    <line x1="50" y1="32.5" x2="50" y2="67.5" strokeWidth="5"></line>
+                  </svg>
+                }
+              />
             </div>
             <form>
               <div className="row mt-5">
