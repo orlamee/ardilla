@@ -16,7 +16,7 @@ import withdraw from "../../img/dashboard/w-icon.svg";
 import lieu from "../../img/dashboard/lieu.svg";
 import colo from "../../img/dashboard/col.svg";
 import visacard from "../../img/dashboard/visa-card.svg";
-import dib from "../../img/dashboard/dib.png";
+import dib from "../../img/dashboard/slid.svg";
 import transfer from "../../img/dashboard/received-icon.svg";
 import axios from "axios";
 import { usePaystackPayment } from "react-paystack";
@@ -445,12 +445,12 @@ function DashboardFlex() {
                 className="current-flex px-5 py-5"
               >
                 <div>
-                  <h2>
-                    Your Current <span style={{ color: "#E8356D" }}>DIB</span>{" "}
+                  <h2 className="text-white">
+                    Your Current DIB{" "}
                     Plan
                   </h2>
                   <p
-                    className="float-end review-dib"
+                    className="float-end text-white review-dib"
                     style={{ marginTop: "-30px" }}
                   >
                     Review DIB <i className="bi bi-chevron-right"></i>
@@ -458,12 +458,12 @@ function DashboardFlex() {
                 </div>
                 <div className="row inner-current mt-5">
                   <div className="col-md-6">
-                    <h6>How much you save</h6>
+                    <h6 className="text-white">Monthly Savings</h6>
                   </div>
                   <div className="col-md-6 text-end">
                     {/* <h5>₦60,000 (Monthly)</h5> */}
                     {flexAcct && flexAcct?.type === "custom" ? (
-                      <h5>
+                      <h5 className="text-white">
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
                           flexAcct?.customSavingRate
@@ -471,7 +471,7 @@ function DashboardFlex() {
                         {flexAcct?.savingPeriod}
                       </h5>
                     ) : (
-                      <h5>
+                      <h5 className="text-white">
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
                           flexAcct?.autoSavingRate
@@ -483,36 +483,37 @@ function DashboardFlex() {
                 </div>
                 <div className="row inner-current mt-3">
                   <div className="col-md-6">
-                    <h6>Total DIB Savings</h6>
+                    <h6 className="text-white">Total DIB Savings</h6>
                   </div>
                   <div className="col-md-6 text-end">
+                    {/* <h5>₦60,000 (Monthly)</h5> */}
                     {flexAcct && flexAcct?.type === "custom" ? (
-                      <h5>
+                      <h5 className="text-white">
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
-                          flexAcct?.customSavingTarget
+                          flexAcct?.customSavingRate
                         )}{" "}
                         {flexAcct?.savingPeriod}
                       </h5>
                     ) : (
-                      <h5>
+                      <h5 className="text-white">
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
-                          flexAcct?.autoSavingTarget
+                          flexAcct?.autoSavingRate
                         )}{" "}
                         {flexAcct?.savingPeriod}
                       </h5>
                     )}
-                    {/* <h5>₦60,000 (Monthly)</h5> */}
                   </div>
                 </div>
+                
                 <div className="row inner-current mt-3 mb-4">
                   <div className="col-md-6">
-                    <h6>Interest</h6>
+                    <h6 className="text-white">Interest</h6>
                   </div>
                   <div className="col-md-6 text-end">
                     {flexAcct && (
-                      <h5>
+                      <h5 className="text-white">
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
                           flexAcct?.intrestPerMonth[0]
@@ -523,7 +524,23 @@ function DashboardFlex() {
                     {/* <h5>₦60,000 (Monthly)</h5> */}
                   </div>
                 </div>
-                <img src={dib} alt="range" className="img-fluid" />
+                <div className="row inner-current mt-3 mb-4">
+                  <div className="col-md-6">
+                    <h6 className="text-white">Last Top Up </h6>
+                  </div>
+                  <div className="col-md-6 text-end">
+                    <h5 className="text-white">15th Of Nov</h5>
+                  </div>
+                </div>
+                <div className="row inner-current mt-3 mb-4">
+                  <div className="col-md-6">
+                    <h6 className="text-white">Next Top Up </h6>
+                  </div>
+                  <div className="col-md-6 text-end">
+                    <h5 className="text-white">15th Of Dec</h5>
+                  </div>
+                </div>
+                <img src={dib} alt="range" className="img-fluid w-100" />
               </Link>
             </div>
           </div>

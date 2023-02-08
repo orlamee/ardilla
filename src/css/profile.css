@@ -720,10 +720,13 @@ h3.topuptarget {
 .current-flex {
   background-color: #FAFAFA;
   border-radius: 10px;
+  background-image: url('../img/dashboard/dib-bg.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .current-flex h2 {
-  color: #3C0071!important;
+  color: #3C0071;
   font-size: 25px!important;
   line-height: 28px!important;
   font-weight: 500!important;
