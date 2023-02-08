@@ -19,6 +19,7 @@ function TargetShareLink() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [userDetails, setUserDetails] = useState();
+  const [onSuccess, setOnSuccess] = useState(false);
 
   const { id } = useParams();
 
@@ -51,11 +52,26 @@ function TargetShareLink() {
     getUserById();
   }, []);
 
-  console.log(userDetails);
-
   const handleNext = () => {
     navigate(`/target-overview/${id}`);
   };
+
+  const handleCopy = () => {
+    setOnSuccess(true);
+    setMsg("Copied");
+    navigator.clipboard.writeText(userDetails?.referral);
+    console.log("i was clicked 2");
+  };
+
+  const handleClickSuccess = () => {
+    setOnSuccess(false);
+  };
+
+  setTimeout(() => {
+    if (onSuccess) {
+      setOnSuccess(false);
+    }
+  }, 3000);
 
   return (
     <section className="main-dash">
@@ -73,6 +89,26 @@ function TargetShareLink() {
                 className="btn-close"
                 // data-bs-dismiss="alert"
                 onClick={() => setErr(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+      )}
+      {onSuccess && (
+        <div className="row justify-content-center mt-5  ardilla-alert">
+          <div className="col-md-6">
+            <div
+              className="alert alert-success alert-dismissible fade show text-center text-success"
+              role="alert"
+            >
+              <i className="bi bi-patch-check-fill me-3"></i>
+              {msg}
+              <button
+                type="button"
+                className="btn-close"
+                // data-bs-dismiss="alert"
+                onClick={handleClickSuccess}
                 aria-label="Close"
               ></button>
             </div>
@@ -198,7 +234,7 @@ function TargetShareLink() {
             </div>
           </div>
         </div>
-        <div className="row justify-content-center mt-3">
+        <div className="row justify-content-center mt-3" onClick={handleCopy}>
           <div className="col-md-4 text-center">
             <p>
               Copy Link <i className="bi bi-files me-3"></i>

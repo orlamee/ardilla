@@ -68,7 +68,7 @@ function SavingsBody() {
     const getTargetBalance = async () => {
       try {
         const { data } = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/api/target/target-total`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-plans`,
           { withCredentials: true }
         );
 
