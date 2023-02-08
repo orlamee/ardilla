@@ -9,6 +9,7 @@ function CalcInterest() {
   const [intrest, setIntrest] = useState(0);
   const [period, setPeriod] = useState("monthly");
   const [amount, setAmout] = useState((rate * months).toFixed(2));
+  const [total, setToatal] = useState(amount + intrest);
 
   const calIntrest = () => {
     let int = [];
@@ -42,13 +43,15 @@ function CalcInterest() {
 
     console.log(interestSum);
 
-    setIntrest(interestSum.toFixed(2));
+    setIntrest(interestSum);
   };
 
   const weekly = (amt, mt) => {
     const calc = amt * 4.34524 * mt;
 
     setAmout(calc.toFixed(2));
+
+    calIntrest();
 
     return Intl.NumberFormat("en-US").format(setAmout);
   };
@@ -58,6 +61,8 @@ function CalcInterest() {
 
     setAmout(calc.toFixed(2));
 
+    calIntrest();
+
     return Intl.NumberFormat("en-US").format(setAmout);
   };
 
@@ -66,6 +71,8 @@ function CalcInterest() {
 
     setAmout(calc.toFixed(2));
 
+    calIntrest();
+
     return Intl.NumberFormat("en-US").format(setAmout);
   };
 
@@ -73,6 +80,8 @@ function CalcInterest() {
     const calc = amt * mt;
 
     setAmout(calc.toFixed(2));
+
+    calIntrest();
 
     return Intl.NumberFormat("en-US").format(setAmout);
   };
