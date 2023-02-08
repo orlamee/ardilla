@@ -85,6 +85,7 @@ function SavingsBody() {
         setMsg(message);
       }
     };
+
     // getUserById();
     getFlexAccount();
     calculateTotal();
@@ -428,7 +429,7 @@ function SavingsBody() {
                     >
                       Create a Dream
                     </Link>
-                    {tb > 0 && (
+                    {tb?.length > 0 && (
                       <Link
                         to="/target-private"
                         className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
