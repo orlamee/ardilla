@@ -72,7 +72,7 @@ function SavingsBody() {
           { withCredentials: true }
         );
 
-        setTb(data.tb);
+        setTb(data.targetPlan);
       } catch (error) {
         const message =
           (error.response &&
@@ -92,6 +92,8 @@ function SavingsBody() {
   }, []);
 
   console.log(flexAcct);
+
+  console.log(tb);
 
   return (
     <section className="main-dash">
