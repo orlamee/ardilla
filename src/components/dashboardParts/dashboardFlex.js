@@ -543,6 +543,21 @@ function DashboardFlex() {
                 <img src={dib} alt="range" className="img-fluid w-100" />
               </Link>
             </div>
+            <div className="row mt-3">
+              <div className="col-md-5 p-0">
+                <div className="bg-white withdrawal-score p-4">
+                  <p>Withdrawal Score</p>
+                  <div className="d-flex flex-row">
+                    <div className="me-2 scoremark"><i className="bi bi-check-lg fs-5" style={{color: "#8807F7"}}></i></div>
+                    <div className="me-2 scoremark"><i className="bi bi-check-lg fs-5" style={{color: "#8807F7"}}></i></div>
+                    <div className="me-2 scoremark"><i className="bi bi-check-lg fs-5" style={{color: "#8807F7"}}></i></div>
+                    <div className="me-2 scoremark"><i className="bi bi-check-lg fs-5" style={{color: "#8807F7"}}></i></div>
+                    
+                  </div>
+                  <span>Your withdraw score would be reduced</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="col-md-6 private-right">
             <div className="private-card px-5 py-4 savings-feed">
