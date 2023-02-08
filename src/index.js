@@ -230,7 +230,10 @@ root.render(
         element={<TargetPublicSelection />}
       ></Route>
       <Route path="/target-public-desc" element={<TargetDesc />}></Route>
-      <Route path="/target-share-link" element={<TargetPlanShare />}></Route>
+      <Route
+        path="/target-share-link/:id"
+        element={<TargetPlanShare />}
+      ></Route>
       <Route
         path="/target-set-amount/:id"
         element={<TargetSetAmount />}
