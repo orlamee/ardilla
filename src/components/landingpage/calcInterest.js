@@ -94,6 +94,8 @@ function CalcInterest() {
 
     setPeriod(value);
 
+    console.log(value);
+
     if (value === "daily") {
       daily(rate, months);
     } else if (value === "weekly") {
@@ -109,6 +111,8 @@ function CalcInterest() {
     const value = e.target.value;
 
     setRate(value);
+
+    console.log(period);
 
     calIntrest();
 
@@ -127,6 +131,8 @@ function CalcInterest() {
     const value = e.target.value;
 
     setMonths(value);
+
+    console.log(period);
 
     calIntrest();
 
