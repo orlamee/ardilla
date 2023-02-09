@@ -393,7 +393,7 @@ function TargetPrivate() {
                                     <p>Maturity date</p>
                                     <h3>
                                       {data.paymentDate}-
-                                      {
+                                      {/* {
                                         data.breakdown?.[
                                           data.breakdown?.length - 1
                                         ].date?.month
@@ -403,7 +403,7 @@ function TargetPrivate() {
                                         data.breakdown?.[
                                           data.breakdown?.length - 1
                                         ].date?.year
-                                      }
+                                      } */}
                                     </h3>
                                   </div>
                                   <div className="col-md-6 text-end">
