@@ -104,16 +104,16 @@ function TargetPrivate() {
 
   const navigate = useNavigate();
 
-  const daysLeft = (month, day, year) => {
-    let date_1 = new Date(`${month}-${day}-${year}`);
-    let date_2 = new Date();
+  // const daysLeft = (month, day, year) => {
+  //   let date_1 = new Date(`${month}-${day}-${year}`);
+  //   let date_2 = new Date();
 
-    let difference = date_1.getTime() - date_2.getTime();
+  //   let difference = date_1.getTime() - date_2.getTime();
 
-    let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
+  //   let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
 
-    return TotalDays;
-  };
+  //   return TotalDays;
+  // };
 
   const handleClick = () => {
     navigate("/target-plan");
@@ -348,13 +348,15 @@ function TargetPrivate() {
                                     </span>
                                   </h4>
                                   <p style={{ marginLeft: "90px" }}>
-                                    {daysLeft(
-                                      data.breakdown[data.breakdown.length - 1]
-                                        .date?.month,
+                                    {/* {daysLeft(
+                                      data.breakdown?.[
+                                        data.breakdown?.length - 1
+                                      ].date?.month,
                                       data.paymentDate,
-                                      data.breakdown[data.breakdown.length - 1]
-                                        .date?.year
-                                    )}{" "}
+                                      data.breakdown?.[
+                                        data.breakdown?.length - 1
+                                      ].date?.year
+                                    )}{" "} */}
                                     days left
                                   </p>
                                 </div>
@@ -391,17 +393,17 @@ function TargetPrivate() {
                                     <p>Maturity date</p>
                                     <h3>
                                       {data.paymentDate}-
-                                      {
-                                        data.breakdown[
-                                          data.breakdown.length - 1
+                                      {/* {
+                                        data.breakdown?.[
+                                          data.breakdown?.length - 1
                                         ].date?.month
                                       }
                                       -
                                       {
-                                        data.breakdown[
-                                          data.breakdown.length - 1
+                                        data.breakdown?.[
+                                          data.breakdown?.length - 1
                                         ].date?.year
-                                      }
+                                      } */}
                                     </h3>
                                   </div>
                                   <div className="col-md-6 text-end">

@@ -526,8 +526,9 @@ function DashboardFlex() {
                   </div>
                   <div className="col-md-6 text-end">
                     <h5 className="text-white">
-                      {flexAcct?.paymentDate}-{flexAcct?.breakdown?.date?.month}
-                      -{flexAcct?.breakdown?.date?.year}
+                      {flexAcct?.paymentDate}-
+                      {flexAcct?.breakdown[0]?.date?.month}-
+                      {flexAcct?.breakdown[0]?.date?.year}
                     </h5>
                   </div>
                 </div>
@@ -539,8 +540,15 @@ function DashboardFlex() {
                     <h5 className="text-white">
                       {" "}
                       {flexAcct?.paymentDate}-
-                      {flexAcct?.breakdown[1]?.date?.month}-
-                      {flexAcct?.breakdown[1]?.date?.year}
+                      {
+                        flexAcct?.breakdown?.[flexAcct?.breakdown?.length - 1]
+                          .date?.month
+                      }
+                      -{" "}
+                      {
+                        flexAcct?.breakdown?.[flexAcct?.breakdown?.length - 1]
+                          .date?.year
+                      }
                     </h5>
                   </div>
                 </div>
