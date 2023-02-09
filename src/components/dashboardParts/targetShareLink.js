@@ -59,7 +59,9 @@ function TargetShareLink() {
   const handleCopy = () => {
     setOnSuccess(true);
     setMsg("Copied");
-    navigator.clipboard.writeText(userDetails?.referral);
+    navigator.clipboard.writeText(
+      `I save and invest safely on Ardilla, enjoying the best returns. Join me now! Click the invite link to get started: ${process.env.REACT_APP_BACKEND_URL}/api/target/join/${userDetails?.referral}/${id}`
+    );
     console.log("i was clicked 2");
   };
 

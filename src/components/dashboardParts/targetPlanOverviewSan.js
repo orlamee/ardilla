@@ -151,6 +151,14 @@ function TargetPlanOverviewSan() {
     }
   };
 
+  const handleSan = () => {
+    navigate(`/target-overview/san/${id}`);
+  };
+
+  const handleCard = () => {
+    navigate(`/target-overview/card/${id}`);
+  };
+
   return (
     <section className="main-dash">
       {err && (
@@ -371,20 +379,20 @@ function TargetPlanOverviewSan() {
                             <img src={d} alt="" className="img-fluid me-2" />
                             <p className="mt-3">Dilla</p>
                           </Link>
-                          <Link
-                            to="/target-overview/san"
-                            className="d-flex flex-row my-3"
-                          >
-                            <img src={s} alt="" className="img-fluid me-2" />
-                            <p className="mt-3">SAN</p>
-                          </Link>
-                          <Link
-                            to="/target-overview/card"
-                            className="d-flex flex-row"
-                          >
-                            <img src={c} alt="" className="img-fluid me-2" />
-                            <p className="mt-3">Card</p>
-                          </Link>
+
+                          <div onClick={handleSan}>
+                            <Link to="#" className="d-flex flex-row my-3">
+                              <img src={s} alt="" className="img-fluid me-2" />
+                              <p className="mt-3">SAN</p>
+                            </Link>
+                          </div>
+
+                          <div onClick={handleCard}>
+                            <Link to="#" className="d-flex flex-row">
+                              <img src={c} alt="" className="img-fluid me-2" />
+                              <p className="mt-3">Card</p>
+                            </Link>
+                          </div>
                         </div>
                       </div>
                     </ul>
