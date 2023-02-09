@@ -28,7 +28,6 @@ function ProfileMain() {
   //   console.log({ onDele: file });
   // }
   let nextOfKin;
-
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
   const [firstname, setFirstName] = useState("");
