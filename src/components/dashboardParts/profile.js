@@ -54,7 +54,6 @@ function ProfileMain() {
             withCredentials: true,
           }
         );
-
         setUserDetails(data.user);
         setNok(data.user.nextOfKin);
       } catch (error) {
