@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../css/profile.css";
 import home from "../../img/dashboard/home.svg";
@@ -37,13 +37,13 @@ function ProfileMain() {
   const [relationship, setRelationship] = useState("");
   const [userDetails, setUserDetails] = useState();
   const [nok, setNok] = useState();
-  const [img, setImg] = useState();
+  // const [setImg] = useState();
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [upload, setUpload] = useState(false);
+  // const [selectedFile, setSelectedFile] = useState(null);
+  // const [setUpload] = useState(false);
 
   useEffect(() => {
     const getUserById = async () => {
@@ -67,23 +67,23 @@ function ProfileMain() {
   // const [profileImg, setProfileImg] = useState({});
   // const [image, setImage] = useState({ preview: "", data: "" });
 
-  const file = useRef();
+  // const file = useRef();
 
-  const getUserById = async () => {
-    try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
-        {
-          withCredentials: true,
-        }
-      );
+  // const getUserById = async () => {
+  //   try {
+  //     const { data } = await axios.get(
+  //       `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+  //       {
+  //         withCredentials: true,
+  //       }
+  //     );
 
-      setUserDetails(data.user);
-      setNok(data.user.nextOfKin);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     setUserDetails(data.user);
+  //     setNok(data.user.nextOfKin);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   // setNok(userDetails?.nextOfKin);
 
@@ -91,38 +91,38 @@ function ProfileMain() {
 
   // console.log(nok);
 
-  const handleFileInput = async (e) => {
-    e.preventDefault();
+  // const handleFileInput = async (e) => {
+  //   e.preventDefault();
 
-    setImg(URL.createObjectURL(e.target.files[0]));
-    file.current = e.target.files[0];
+  //   setImg(URL.createObjectURL(e.target.files[0]));
+  //   file.current = e.target.files[0];
 
-    setSelectedFile(e.target.files[0]);
-  };
+  //   setSelectedFile(e.target.files[0]);
+  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setUpload(true);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setUpload(true);
 
-    try {
-      let formData = new FormData();
-      formData.append("image", selectedFile);
+  //   try {
+  //     let formData = new FormData();
+  //     formData.append("image", selectedFile);
 
-      const { data } = await axios.post(
-        `${BACKEND_URL}/api/user/profile-pic`,
-        formData,
-        { withCredentials: true }
-      );
+  //     const { data } = await axios.post(
+  //       `${BACKEND_URL}/api/user/profile-pic`,
+  //       formData,
+  //       { withCredentials: true }
+  //     );
 
-      console.log(data);
-      setUpload(false);
-      setImg();
-      getUserById();
-      setSelectedFile(null);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     console.log(data);
+  //     setUpload(false);
+  //     setImg();
+  //     getUserById();
+  //     setSelectedFile(null);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const handleNOK = async () => {
     setLoading(true);

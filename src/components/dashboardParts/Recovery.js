@@ -11,7 +11,7 @@ function Recovery() {
 
   const [email, setEmail] = useState("");
   const [password] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [setLoading] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
