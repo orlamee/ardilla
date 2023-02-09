@@ -1976,5 +1976,11 @@ h5 a {
 
 .h-dilla {
   background-image: url("../img/h-dilla.svg")!important;
-  padding: 200px 0px;
+  padding: 150px 0px;
 }
+
+.di-header {
+  background-color: #fdedf2!important;
+  position: sticky!important;
+}
+
