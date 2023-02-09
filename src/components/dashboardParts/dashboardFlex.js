@@ -33,6 +33,7 @@ function DashboardFlex() {
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     const getFlexAccount = async () => {
@@ -266,6 +267,36 @@ function DashboardFlex() {
         setMsg(message);
         setLoading(false);
       }
+    }
+  };
+
+  const handleSetting = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_BACKEND_URL}/api/flex/setting`,
+        { source, password },
+        { withCredentials: true }
+      );
+
+      setModal(true);
+      setMsg(data.msg);
+      setLoading(false);
+      getFlexAccount();
+      getFlexHistory();
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      setErr(true);
+      setMsg(message);
+      setLoading(false);
     }
   };
 
@@ -1209,15 +1240,18 @@ function DashboardFlex() {
                     </div>
                     <div className="row">
                       <div className="col">
-                        <form className="mt-4">
+                        <form className="mt-4" onSubmit={handleSetting}>
                           <div className="mb-3">
                             <label className="form-label label-target">
                               Edit primary source
                             </label>
-                            <select className="form-select p-select tar-select">
+                            <select
+                              className="form-select p-select tar-select"
+                              onChange={(e) => setSource(e.target.value)}
+                            >
                               <option selected>Edit primary source</option>
-                              <option value="2">Dilla</option>
-                              <option value="3">SAN</option>
+                              <option value="dilla">Dilla</option>
+                              <option value="SAN">SAN</option>
                             </select>
                           </div>
                           <div className="mb-3">
@@ -1226,15 +1260,28 @@ function DashboardFlex() {
                               className="form-control target-form tar-form"
                               id=""
                               placeholder="Enter Password"
+                              required
+                              value={password}
+                              onChange={(e) => setPassword(e.target.value)}
                             />
                           </div>
                           <div>
-                            <button
-                              className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
-                              style={{ width: "100%" }}
-                            >
-                              Submit
-                            </button>
+                            {loading ? (
+                              <button
+                                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
+                                style={{ width: "100%" }}
+                              >
+                                Loading
+                              </button>
+                            ) : (
+                              <button
+                                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
+                                style={{ width: "100%" }}
+                                type="submit"
+                              >
+                                Submit
+                              </button>
+                            )}
                           </div>
                         </form>
                       </div>
