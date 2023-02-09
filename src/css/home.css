@@ -1966,3 +1966,15 @@ h5 a {
   background: transparent;
   font-weight: 500;
 }
+
+.bg-gy {
+  background-color: #EEEFF2;
+  margin-top: 90px;
+  padding-top: 74px;
+  border-radius: 20px 20px 10px 10px;
+}
+
+.h-dilla {
+  background-image: url("../img/h-dilla.svg")!important;
+  padding: 200px 0px;
+}

@@ -10,7 +10,7 @@ import "../css/home.css";
 function DillaWallet() {
   return (
     <div className="bg-white">
-      <Header />
+      <Header  />
       <DillaHero/>
       <SendMoney/>
       <ReceiveMoney/>
