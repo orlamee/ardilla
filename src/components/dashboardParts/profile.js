@@ -13,11 +13,11 @@ import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
 // import avi from "../../img/dashboard/avi-profilr.svg";
-import badge from "../../img/dashboard/profile-bdg.svg";
+// import badge from "../../img/dashboard/profile-bdg.svg";
 import axios from "axios";
-import ImageUploader from 'react-image-upload'
-import 'react-image-upload/dist/index.css'
-import { border } from "@cloudinary/url-gen/qualifiers/background";
+// import ImageUploader from 'react-image-upload'
+// import 'react-image-upload/dist/index.css'
+// import { border } from "@cloudinary/url-gen/qualifiers/background";
 
 function ProfileMain() {
   // let user = JSON.parse(sessionStorage.getItem("user"));
@@ -356,7 +356,7 @@ function ProfileMain() {
           </div>
           <div className="col-md-6 right-profile">
             <div className="d-flex flex-row">
-              <ImageUploader
+              {/* <ImageUploader
                 style={{ height: 200, width: 200, background: "transparent", border: "1px solid #8807f7", borderRadius: "50%" }} // style image to your preference
                 deleteIcon={
                   <img
@@ -381,7 +381,7 @@ function ProfileMain() {
                     <line x1="50" y1="32.5" x2="50" y2="67.5" strokeWidth="5"></line>
                   </svg>
                 }
-              />
+              /> */}
             </div>
             <form>
               <div className="row mt-5">
