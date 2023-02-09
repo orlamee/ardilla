@@ -349,11 +349,13 @@ function TargetPrivate() {
                                   </h4>
                                   <p style={{ marginLeft: "90px" }}>
                                     {daysLeft(
-                                      data.breakdown[data.breakdown.length - 1]
-                                        .date?.month,
+                                      data.breakdown?.[
+                                        data.breakdown?.length - 1
+                                      ].date?.month,
                                       data.paymentDate,
-                                      data.breakdown[data.breakdown.length - 1]
-                                        .date?.year
+                                      data.breakdown?.[
+                                        data.breakdown?.length - 1
+                                      ].date?.year
                                     )}{" "}
                                     days left
                                   </p>
@@ -392,14 +394,14 @@ function TargetPrivate() {
                                     <h3>
                                       {data.paymentDate}-
                                       {
-                                        data.breakdown[
-                                          data.breakdown.length - 1
+                                        data.breakdown?.[
+                                          data.breakdown?.length - 1
                                         ].date?.month
                                       }
                                       -
                                       {
-                                        data.breakdown[
-                                          data.breakdown.length - 1
+                                        data.breakdown?.[
+                                          data.breakdown?.length - 1
                                         ].date?.year
                                       }
                                     </h3>
