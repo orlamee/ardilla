@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import calculate from "../../img/calculator.svg"
 
 
@@ -8,11 +7,15 @@ function Build() {
     <section className="build-saving">
       <div className="container">
         <div className="row" data-aos="slide-right" data-aos-duration="1000">
-          <div className="col">
+          <div className="col-md-6">
             <h2 className="mb-3">We’re keen on<br/><span style={{color: "#E8356D"}}>transparency.</span></h2>
+            <h6>Calculate your interests everytime you save on our platform</h6>
+          </div>
+          <div className="col-md-6">
+            <img src={calculate} alt="calculator" className="img-fluid w-100" />
           </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="col-md-6 top-products mb-3">
             <h6>Calculate your interests everytime you<br/>save on our platform</h6>
             <div className="mt-5">
@@ -22,7 +25,7 @@ function Build() {
           <div className="col-md-6 text-end">
             <img src={calculate} alt="calculator" className="img-fluid" />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )
