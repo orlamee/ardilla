@@ -515,22 +515,15 @@ function DashboardFlex() {
                   </div>
                   <div className="col-md-6 text-end">
                     {/* <h5>₦60,000 (Monthly)</h5> */}
-                    {flexAcct && flexAcct?.type === "custom" ? (
+                 
                       <h5 className="text-white">
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
-                          flexAcct?.customSavingTarget
+                          flexAcct?.totalSaving
                         )}{" "}
                         {flexAcct?.savingPeriod}
                       </h5>
-                    ) : (
-                      <h5 className="text-white">
-                        ₦{" "}
-                        {Intl.NumberFormat("en-US").format(
-                          flexAcct?.autoSavingTarget
-                        )}{" "}
-                      </h5>
-                    )}
+                   
                   </div>
                 </div>
 
