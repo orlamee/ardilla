@@ -104,7 +104,7 @@ function GritBody() {
               <img src={icon} alt="logo-grit" className="img-fluid"/>
               <h2 className="mt-4">Welcome<br/>to Grit</h2>
               <p className="my-4">Lorem ipsum dolor sit amet consectetur. Faucibus sit odio feugiat suspendisse felis morbi interdum. Eget sit ultricies facilisi elementum. </p>
-              <Link className='btn btn-outline-primary px-5 py-4 new-btn fs-6 w-75' to="/login">Set up a Grit Plan</Link>
+              <Link className='btn btn-outline-primary px-5 py-4 new-btn fs-6 w-75' to="">Set up a Grit Plan</Link>
             </div>
           </div>
           <div className="col-md-4">
