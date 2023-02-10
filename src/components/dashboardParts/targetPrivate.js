@@ -30,6 +30,7 @@ function TargetPrivate() {
   const [err, setErr] = useState(false);
   const [targetHistory, setTargetHistory] = useState();
   const [targetPlans, setTargetPlans] = useState();
+  const [targetPublic, setTargetPublic] = useState();
   const [tb, setTb] = useState();
 
   useEffect(() => {
@@ -97,23 +98,45 @@ function TargetPrivate() {
       }
     };
 
+    const getTargetPublic = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/target/get-target-public`,
+          { withCredentials: true }
+        );
+
+        setTargetPublic(data.targetPlan);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setErr(true);
+        setMsg(message);
+      }
+    };
+
     getTargetHistory();
     getTargetAccount();
     getTargetBalance();
+    getTargetPublic();
   }, []);
 
   const navigate = useNavigate();
 
-  // const daysLeft = (month, day, year) => {
-  //   let date_1 = new Date(`${month}-${day}-${year}`);
-  //   let date_2 = new Date();
+  const daysLeft = (month, day, year) => {
+    let date_1 = new Date(`${month}-${day}-${year}`);
+    let date_2 = new Date();
 
-  //   let difference = date_1.getTime() - date_2.getTime();
+    let difference = date_1.getTime() - date_2.getTime();
 
-  //   let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
+    let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
 
-  //   return TotalDays;
-  // };
+    return TotalDays;
+  };
 
   const handleClick = () => {
     navigate("/target-plan");
@@ -348,7 +371,7 @@ function TargetPrivate() {
                                     </span>
                                   </h4>
                                   <p style={{ marginLeft: "90px" }}>
-                                    {/* {daysLeft(
+                                    {daysLeft(
                                       data.breakdown?.[
                                         data.breakdown?.length - 1
                                       ].date?.month,
@@ -356,7 +379,7 @@ function TargetPrivate() {
                                       data.breakdown?.[
                                         data.breakdown?.length - 1
                                       ].date?.year
-                                    )}{" "} */}
+                                    )}{" "}
                                     days left
                                   </p>
                                 </div>
@@ -366,13 +389,13 @@ function TargetPrivate() {
                                     {data.type === "custom" ? (
                                       <h3>
                                         {Intl.NumberFormat("en-US").format(
-                                          data?.customSavingRate
+                                          data?.customSavingTarget
                                         )}
                                       </h3>
                                     ) : (
                                       <h3>
                                         {Intl.NumberFormat("en-US").format(
-                                          data?.autoSavingRate
+                                          data?.autoSavingTarget
                                         )}
                                       </h3>
                                     )}
@@ -393,7 +416,7 @@ function TargetPrivate() {
                                     <p>Maturity date</p>
                                     <h3>
                                       {data.paymentDate}-
-                                      {/* {
+                                      {
                                         data.breakdown?.[
                                           data.breakdown?.length - 1
                                         ].date?.month
@@ -403,7 +426,7 @@ function TargetPrivate() {
                                         data.breakdown?.[
                                           data.breakdown?.length - 1
                                         ].date?.year
-                                      } */}
+                                      }
                                     </h3>
                                   </div>
                                   <div className="col-md-6 text-end">
@@ -524,7 +547,7 @@ function TargetPrivate() {
 
                     <div className="tab-pane quiz-pane" id="2a">
                       <div className="row mt-5">
-                        <Link
+                        {/* <Link
                           data-bs-toggle="modal"
                           data-bs-target="#"
                           type="button"
@@ -641,9 +664,113 @@ function TargetPrivate() {
                               </div>
                             </div>
                           </div>
-                        </Link>
+                        </Link> */}
                       </div>
-                      <div className="row mt-5">
+                      {targetPublic?.map((data) => {
+                        return (
+                          <Link
+                            data-bs-toggle="modal"
+                            data-bs-target="#"
+                            type="button"
+                            to="#"
+                            className="col-md-6 mb-3"
+                          >
+                            <img
+                              src={publictarget}
+                              alt=""
+                              className="img-fluid"
+                            />
+                            <div className="bg-white bg-private p-4">
+                              <div className="d-flex flex-row">
+                                <h4>
+                                  {data.name}{" "}
+                                  <span className="badge-private">ongoing</span>
+                                </h4>
+                                <p style={{ marginLeft: "80px" }}>
+                                  {daysLeft(
+                                    data.breakdown?.[data.breakdown?.length - 1]
+                                      .date?.month,
+                                    data.paymentDate,
+                                    data.breakdown?.[data.breakdown?.length - 1]
+                                      .date?.year
+                                  )}{" "}
+                                  days left
+                                </p>
+                              </div>
+                              <div className="row mt-3">
+                                <div className="col-md-6">
+                                  <p>Target</p>
+                                  {data.type === "custom" ? (
+                                    <h3>
+                                      {Intl.NumberFormat("en-US").format(
+                                        data?.customSavingTarget
+                                      )}
+                                    </h3>
+                                  ) : (
+                                    <h3>
+                                      {Intl.NumberFormat("en-US").format(
+                                        data?.autoSavingTarget
+                                      )}
+                                    </h3>
+                                  )}
+                                </div>
+                                <div className="col-md-6 text-end">
+                                  <p>Interest</p>
+                                  <h3>
+                                    {" "}
+                                    {Intl.NumberFormat("en-US").format(
+                                      data.totalIntrest
+                                    )}{" "}
+                                    (11%/p.a)
+                                  </h3>
+                                </div>
+                              </div>
+                              <div className="row mt-3">
+                                <div className="col-md-6">
+                                  <p>Maturity date</p>
+                                  <h3>
+                                    {" "}
+                                    {data.paymentDate}-
+                                    {
+                                      data.breakdown?.[
+                                        data.breakdown?.length - 1
+                                      ].date?.month
+                                    }
+                                    -
+                                    {
+                                      data.breakdown?.[
+                                        data.breakdown?.length - 1
+                                      ].date?.year
+                                    }
+                                  </h3>
+                                </div>
+                                <div className="col-md-6 text-end">
+                                  <p>Frequency</p>
+                                  <h3>{data.savingPeriod} </h3>
+                                </div>
+                              </div>
+                              <div className="row mt-3 mb-4">
+                                <div className="col-md-6">
+                                  <p>Members</p>
+                                  <h3>
+                                    10+{" "}
+                                    <img
+                                      src={members}
+                                      alt="members"
+                                      className="img-fluid"
+                                    />
+                                  </h3>
+                                </div>
+                                <div className="col-md-6 text-end">
+                                  <p>Per Member</p>
+                                  <h3>₦100,000.00</h3>
+                                </div>
+                              </div>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                      {/* <div className="row mt-5">
                         <Link
                           data-bs-toggle="modal"
                           data-bs-target="#"
@@ -756,7 +883,7 @@ function TargetPrivate() {
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="tab-pane quiz-pane" id="3a">
                       <div className="row mt-5">
