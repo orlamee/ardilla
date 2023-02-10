@@ -2252,3 +2252,56 @@ i.fas.fa-search {
   border-radius: 8px;
   padding: 10px 19px;
 }
+
+.grit-bg {
+  background-image: url("../img/dashboard/bg-logo.svg")!important;
+  padding: 80px!important;
+}
+
+.bg-grt {
+  background-image: url('../img/dashboard/gritback.svg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;  
+  padding: 60px 40px;
+  border-radius: 10px;
+}
+
+.bg-grt h5 {
+  color: #134E4A;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.welcome-grit h2 {
+  color: #134E4A;
+  font-size: 70px;
+  font-weight: 800;
+  line-height: 86px;
+  font-family: Ubuntu-Bold;
+}
+
+.welcome-grit p {
+  color: #134E4A;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.new-btn {
+  background-color: #16A34A!important;
+  border-color: #16A34A!important;
+  border-radius: 60px;
+  color: #fff!important;
+  font-size: 17px!important;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+
+@media (min-width: 992px){
+  .top-grit {
+    margin-top: 100px;
+  }
+}

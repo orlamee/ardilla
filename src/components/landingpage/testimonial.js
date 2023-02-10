@@ -4,7 +4,7 @@ import testimonies from "../../img/testimonies.svg";
 
 function Testimonial() {
   return (
-    <section className="testimonies">
+    <section className="testimonies bg-white">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6 mb-3 text-end mb-3">

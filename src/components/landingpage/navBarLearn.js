@@ -31,7 +31,7 @@ function LearnHeader() {
                 <div className="dropdown-menu dropdown-single">
                   <div className="row">
                     <div className="col-md-12">
-                      <Link>
+                      <Link to="/learn-save">
                         <div className="d-flex flex-row">
                           <img src={save} alt="" className="img-fluid" />
                           <div className="mt-3">
