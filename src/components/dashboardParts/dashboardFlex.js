@@ -304,7 +304,7 @@ function DashboardFlex() {
   };
 
   const calculator = (cb) => {
-    return cb * 0.11 * calender[month];
+    return cb * 0.11 * calender[month].day;
   };
 
   return (
