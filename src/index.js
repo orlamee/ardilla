@@ -125,6 +125,7 @@ import LoginSAN from "./pages/loginSAN";
 import CodeSAN from "./pages/codeSAN";
 import RecoverSAN from "./pages/recoverSAN";
 import LearnSave from "./pages/learnSave";
+import Grit from "./dashboard/grit";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -145,6 +146,7 @@ root.render(
       <Route path="/ranks" element={<RankPage />}></Route>
       <Route path="/terms-conditions" element={<TermsCondition />}></Route>
       <Route path="/payment-accounts" element={<PaymentA />}></Route>
+      <Route path="/grit" element={<Grit/>}></Route>
       <Route
         path="/payment-accounts-success"
         element={<PaymentASuccess />}
