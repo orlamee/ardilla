@@ -124,6 +124,7 @@ import General from "./pages/general";
 import LoginSAN from "./pages/loginSAN";
 import CodeSAN from "./pages/codeSAN";
 import RecoverSAN from "./pages/recoverSAN";
+import LearnSave from "./pages/learnSave";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -131,6 +132,7 @@ root.render(
     <ScrollToTop />
     <Routes>
       <Route path="/" element={<App />}></Route>
+      <Route path="/learn-save" element={<LearnSave/>}></Route>
       <Route path="/alerts" element={<Alerts />}></Route>
       <Route path="/sign-up" element={<SignUp />}></Route>
       <Route path="/learn-more" element={<Learn />}></Route>

@@ -2035,3 +2035,13 @@ h5 a {
   font-weight: 500;
   line-height: 20px
 }
+
+.fine-scroll {
+  height: 1100px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.fine-scroll::-webkit-scrollbar{
+  display: none;
+}
