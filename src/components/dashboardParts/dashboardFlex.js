@@ -20,6 +20,7 @@ import dib from "../../img/dashboard/slid.svg";
 import transfer from "../../img/dashboard/received-icon.svg";
 import axios from "axios";
 import { usePaystackPayment } from "react-paystack";
+import { calender } from "../../utils/data";
 
 function DashboardFlex() {
   const [flexAcct, setFlexAcct] = useState();
@@ -34,6 +35,8 @@ function DashboardFlex() {
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
   const [password, setPassword] = useState("");
+
+  const month = new Date().getMonth();
 
   useEffect(() => {
     const getFlexAccount = async () => {
@@ -300,6 +303,10 @@ function DashboardFlex() {
     }
   };
 
+  const calculator = (cb) => {
+    return cb * 0.11 * calender[month];
+  };
+
   return (
     <section className="main-dash">
       {err && (
@@ -515,15 +522,12 @@ function DashboardFlex() {
                   </div>
                   <div className="col-md-6 text-end">
                     {/* <h5>₦60,000 (Monthly)</h5> */}
-                 
-                      <h5 className="text-white">
-                        ₦{" "}
-                        {Intl.NumberFormat("en-US").format(
-                          flexAcct?.totalSaving
-                        )}{" "}
-                        {flexAcct?.savingPeriod}
-                      </h5>
-                   
+
+                    <h5 className="text-white">
+                      ₦{" "}
+                      {Intl.NumberFormat("en-US").format(flexAcct?.totalSaving)}{" "}
+                      {flexAcct?.savingPeriod}
+                    </h5>
                   </div>
                 </div>
 
@@ -536,7 +540,8 @@ function DashboardFlex() {
                       <h5 className="text-white">
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
-                          flexAcct?.intrestPerMonth[0]
+                          // flexAcct?.intrestPerMonth[0]
+                          calculator(flexAcct?.totalSaving)
                         )}{" "}
                         {flexAcct?.savingPeriod}
                       </h5>
