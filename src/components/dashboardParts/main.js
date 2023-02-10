@@ -499,7 +499,7 @@ function Sidebar() {
                       </label>
                     </div>
                     <div className="form-check mb-2">
-                      {userDetails?.utilityBillStatus ? (
+                      {userDetails?.utilityBillStatus === "approved" ? (
                         <input
                           className="form-check-input red"
                           type="checkbox"
@@ -520,8 +520,8 @@ function Sidebar() {
                       </label>
                     </div>
                     <div className="form-check mb-2">
-                      {userDetails?.idFrontStatus &&
-                      userDetails?.idFrontStatus ? (
+                      {userDetails?.idFrontStatus === "approved" &&
+                      userDetails?.idFrontStatus === "approved" ? (
                         <input
                           className="form-check-input"
                           type="checkbox"
