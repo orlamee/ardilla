@@ -11,11 +11,11 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
-import grt from "../../img/dashboard/gritbdg.svg";
-import icon from "../../img/dashboard/ICON.svg";
+import stepone from "../../img/dashboard/grit-one.svg";
+// import icon from "../../img/dashboard/ICON.svg";
 
 
-function GritBody() {
+function SaveGrit() {
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -97,29 +97,24 @@ function GritBody() {
           </Link>
         </div>
       </div>
-      <div className="content py-5 px-5 grit-bg">
-        <div className="row justify-content-between">
-          <div className="col-md-5 welcome-grit">
-            <div className="top-grit">
-              <img src={icon} alt="logo-grit" className="img-fluid"/>
-              <h2 className="mt-4">Welcome<br/>to Grit</h2>
-              <p className="my-4">Lorem ipsum dolor sit amet consectetur. Faucibus sit odio feugiat suspendisse felis morbi interdum. Eget sit ultricies facilisi elementum. </p>
-              <Link className='btn btn-outline-primary px-5 py-4 new-btn fs-6 w-75' to="/grit/save">Set up a Grit Plan</Link>
-            </div>
+      <div className="content py-5 px-5 gritsave-bg">
+        <div className="row justify-content-around">
+          <div className="col-md-5">
+            <img src={stepone} alt="stepone" className="img-fluid w-100" />
           </div>
           <div className="col-md-4">
-            <div className="bg-grt mb-4">
-              <img src={grt} alt="badge" className="img-fluid" />
-              <h5 className="mt-4">You’re into this because you are<br/> a prized member</h5>
+            {/* <img src={stepone} alt="stepone" className="img-fluid w-100" /> */}
+          </div>
+        </div>
+        <div className="row justify-content-around mt-5 grit-saves">
+          <div className="col-md-5">
+            <h2>How much do you<br/>want to save?</h2>
+          </div>
+          <div className="col-md-4">
+            <div class="mb-3">
+              <input type="number" className="form-control form-grit" placeholder="Enter amount"/>
             </div>
-            <div className="bg-grt mb-4">
-              <img src={grt} alt="badge" className="img-fluid" />
-              <h5 className="mt-4">You’re into this because you are<br/> a prized member</h5>
-            </div>
-            <div className="bg-grt mb-4">
-              <img src={grt} alt="badge" className="img-fluid" />
-              <h5 className="mt-4">You’re into this because you are<br/> a prized member</h5>
-            </div>
+            <Link className='btn btn-outline-primary px-5 py-4 new-btn fs-6 w-100' to="/grit/save-duration">Continue</Link>
           </div>
         </div>
       </div>
@@ -127,4 +122,4 @@ function GritBody() {
   );
 }
 
-export default GritBody;
+export default SaveGrit;

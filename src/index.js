@@ -126,6 +126,8 @@ import CodeSAN from "./pages/codeSAN";
 import RecoverSAN from "./pages/recoverSAN";
 import LearnSave from "./pages/learnSave";
 import Grit from "./dashboard/grit";
+import GritSave from "./dashboard/gritSave";
+import GritDuration from "./dashboard/gritDuration";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -147,6 +149,8 @@ root.render(
       <Route path="/terms-conditions" element={<TermsCondition />}></Route>
       <Route path="/payment-accounts" element={<PaymentA />}></Route>
       <Route path="/grit" element={<Grit/>}></Route>
+      <Route path="/grit/save" element={<GritSave/>}></Route>
+      <Route path="/grit/save-duration" element={<GritDuration/>}></Route>
       <Route
         path="/payment-accounts-success"
         element={<PaymentASuccess />}

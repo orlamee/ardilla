@@ -2258,6 +2258,11 @@ i.fas.fa-search {
   padding: 80px!important;
 }
 
+.gritsave-bg {
+  background-image: url("../img/dashboard/gritsave.svg")!important;
+  padding: 100px!important;
+}
+
 .bg-grt {
   background-image: url('../img/dashboard/gritback.svg');
   background-position: 50%;
@@ -2304,4 +2309,31 @@ i.fas.fa-search {
   .top-grit {
     margin-top: 100px;
   }
+}
+
+.grit-saves h2 {
+  color: #134E4A;
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 62px;
+  font-family: Ubuntu-Bold;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.form-grit {
+  background: #F9F9F9;
+  border: #F9F9F9;
+  padding: 20px;
+  border-radius: 10px
 }
