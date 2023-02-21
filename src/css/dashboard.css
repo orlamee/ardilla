@@ -1425,6 +1425,7 @@ input:checked + .slider:before {
   font-weight: 700;
 }
 
+
 .detail-transfer p {
   color: #9CA3AF!important;
   font-size: 14px!important;
