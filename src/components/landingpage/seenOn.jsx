@@ -5,7 +5,7 @@ import onweb from "../../img/onweb.svg";
 
 function SeenOn() {
   return (
-    <section className="words-section bg-white">
+    <section className="words-section" style={{background: "#F8FAFC"}}>
       <div className="container">
         <div className="row">
           <div className="col text-center">
