@@ -1,16 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import fly from "../../img/fly.svg";
 
 
 function Videos() {
   return(
-    <section className="videos">
+    <section className="videos io-bg">
       <div className="container">
         <div className="row">
           <div className="col-md-9">
             <h2 className="mb-5"><span style={{color: "#3D0072"}}>Unlimited</span> Investment Opportunities </h2>
-            <h5 className="mb-5">Plan towards your future by investing with ardilla,  Grow your money confidently and securely with the available investment opportunities</h5>
-            <Link>Learn more about investments <i className="bi bi-chevron-right"></i></Link>
+            <h5 className="mb-5 w-75">Plan towards your future by investing with ardilla,  Grow your money confidently and securely with the available investment opportunities</h5>
+            <button type="button" class="btn btn-outline-primary new-line">Learn more about investments <img src={fly} alt="fly" className="img-fluid ms-3" /></button>
           </div>
         </div>
       </div>
