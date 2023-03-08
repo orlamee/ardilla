@@ -12,7 +12,7 @@ function Build() {
             <h6>Calculate your interests everytime you save on our platform</h6>
           </div>
           <div className="col-md-6">
-            <img src={calculate} alt="calculator" className="img-fluid w-100" />
+            <img src={calculate} alt="calculator" className="img-fluid w-100" style={{borderRadius: "25px"}} />
           </div>
         </div>
         {/* <div className="row">

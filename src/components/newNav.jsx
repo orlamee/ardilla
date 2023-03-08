@@ -36,7 +36,7 @@ function NewNav() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <div className="me-auto">
+          <div className="mx-auto">
             <ul className="navbar-nav">
               <li className="nav-item dropdown">
                 <Link

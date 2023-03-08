@@ -2056,7 +2056,7 @@ h5 a {
 }
 
 .nw-nav {
-  background-color: #0F206C!important;
+  background-color: #240053!important;
   position: sticky!important;
 }
 
@@ -2065,11 +2065,11 @@ h5 a {
 }
 
 .hero-new {
-  background-image: url("../img/newhero.svg");
-  background-position: 50%;
+  background-image: url("../img/newheroo.svg");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 150px 20px 0px 20px;
+  padding: 170px 20px 0px 20px;
 }
 
 .hero-new h6 {
@@ -2094,6 +2094,16 @@ h5 a {
   border-color: #fff!important;
   border-radius: 60px;
   color: #3D0072!important;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 20px
+}
+
+.white-btn:hover {
+  background-color: #8807F7!important;
+  border-color: #8807F7!important;
+  border-radius: 60px;
+  color: #fff!important;
   font-size: 17px;
   font-weight: 500;
   line-height: 20px
