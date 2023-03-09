@@ -1,5 +1,5 @@
 import React from "react";
-import video from "../../img/video.svg";
+import video from "../../img/videos.png";
 
 
 function Words() {
