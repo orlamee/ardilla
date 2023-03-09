@@ -12,7 +12,7 @@ function Build() {
             <h2 className="mb-5">We’re Keen On<br/><span style={{color: "#E8356D"}}>Transparency</span></h2>
             <h6 className="mb-5">Calculate your interests everytime you save on our platform</h6>
             <Link
-              className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6"
+              className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mb-3"
               to="/sign-up"
             >
               Get Started
