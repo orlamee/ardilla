@@ -89,14 +89,14 @@ h5 a {
   color: #3D0072;
   font-size: 15px;
   line-height: 17px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .features-product p {
   color: #9CA3AF;
   font-size: 15px;
   line-height: 30px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .check {
@@ -449,7 +449,7 @@ h5 a {
   font-size: 37px;
   line-height: 42px;
   font-weight: 700;
-  font-family: Ubuntu-Bold;
+  /* font-family: Ubuntu-Bold; */
 }
 
 .download {
@@ -483,7 +483,7 @@ h5 a {
 }
 
 .footer-bottom p {
-  color: #fff;
+  color: #ffffffd4;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -503,7 +503,7 @@ h5 a {
 
 .footer-bottom .links li {
   display: block;
-  color: #fff;
+  color: #ffffffd4;
   font-size: 13px;
   font-weight: 400;
   line-height: 32px;
@@ -523,8 +523,8 @@ h5 a {
   /* font-family: 'Sofia-Pro'; */
   font-weight: 300;
   font-size: 14px;
-  line-height: 14px;
-  color: #fff;
+  line-height: 32px;
+  color: #ffffffd4;
 }
 
 .download::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -1226,7 +1226,7 @@ h5 a {
 }
 
 .footer-bottom a {
-  color: #fff;
+  color: #ffffffd4;
   font-size: 13px;
   font-weight: 400;
   line-height: 32px;
