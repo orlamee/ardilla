@@ -2118,3 +2118,13 @@ h5 a {
 .fine-scroll::-webkit-scrollbar{
   display: none;
 }
+
+.ddv-cards {
+  padding: 20px;
+}
+
+.ddv-cards:hover {
+  background-color: #43027E;
+  padding: 20px;
+  border-radius: 20px;
+}
