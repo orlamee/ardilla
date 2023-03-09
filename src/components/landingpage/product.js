@@ -3,7 +3,8 @@ import "swiper/css";
 import "swiper/css/scrollbar";
 import checklist from "../../img/checklist.svg";
 import save from "../../img/dilla-proo.svg";
-import { Scrollbar } from "swiper";
+import saver from "../../img/pink.svg";
+import { Autoplay, Scrollbar } from "swiper";
 
 function Products() {
   return(
@@ -16,9 +17,13 @@ function Products() {
           scrollbar={{
             hide: false, draggable: true,
           }}
-          modules={[Scrollbar]}
+          modules={[Autoplay, Scrollbar]}
           className="mySwiper"
           navigation
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
         >
           <SwiperSlide className="mb-5">
             <div className="row justify-content-around" style={{marginTop: "40px"}}>
@@ -56,7 +61,7 @@ function Products() {
                 </div>
               </div>
               <div className="col-md-5">
-                <img src={save} alt="savings" className="img-fluid w-100" />
+                <img src={saver} alt="savings" className="img-fluid w-100" />
               </div>
             </div>
           </SwiperSlide>

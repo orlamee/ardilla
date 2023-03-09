@@ -709,3 +709,15 @@ h6 a {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+.swiper-scrollbar {
+  background: #F3F4F6;
+}
+
+.swiper-scrollbar-drag {
+  background: #8807F7;
+}
+
+.swiper-horizontal>.swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal {
+  height: 9px;
+}
