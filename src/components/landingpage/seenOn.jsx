@@ -1,6 +1,6 @@
 import React from "react";
 import press from "../../img/press.svg";
-import onweb from "../../img/onweb.svg";
+import onweb from "../../img/webappp.svg";
 
 
 function SeenOn() {
@@ -12,7 +12,7 @@ function SeenOn() {
             <img src={press} alt="press" className="img-fluid"/>
           </div>
         </div>
-        <div className="row top-product justify-content-center text-center">
+        <div className="row justify-content-center text-center" style={{marginTop: "120px"}}>
           <div className="col-md-10">
             <div className="webapp">
               <h4>Also Available on Web</h4>
