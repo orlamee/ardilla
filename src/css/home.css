@@ -289,10 +289,10 @@ h5 a {
 
 
 .new-light:hover {
-  color: #8807F7;
+  color: #fff;
   border-color: #fff;
   border-radius: 50px;
-  background-color: #fff;
+  background-color: #8807F72B;
   padding: 15px 25px;
   font-size: 16px;
   font-weight: 500;

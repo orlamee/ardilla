@@ -101,7 +101,7 @@ function Products() {
                 </div>
               </div>
               <div className="col-md-5">
-                <img src={learn} alt="savings" className="img-fluid w-100" />
+                <img src={saver} alt="savings" className="img-fluid w-100" />
               </div>
             </div>
           </SwiperSlide>
