@@ -2089,6 +2089,12 @@ h5 a {
   color: #fff!important;
 }
 
+.nav-link:hover {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg,#ffeb35 15%,#19fd82fc 90%)!important;
+  -webkit-background-clip: text!important;
+}
+
 .hero-new {
   background-image: url("../img/newheroo.svg");
   background-position: center;
