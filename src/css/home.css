@@ -96,7 +96,7 @@ h5 a {
   color: #9CA3AF;
   font-size: 15px;
   line-height: 30px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .check {
@@ -247,8 +247,9 @@ h5 a {
 
 .new-line {
   color: #8807F7;
-  border-color: #8807F7;
+  border: 1px solid #8807F7;
   border-radius: 50px;
+  background: transparent;
   padding: 15px 25px;
   font-size: 16px;
   font-weight: 500;
@@ -256,7 +257,7 @@ h5 a {
 
 .new-line:hover {
   color: #8807F7;
-  border-color: #8807F7;
+  border: 1px solid #8807F7;
   background: transparent;
   border-radius: 50px;
   padding: 15px 25px;

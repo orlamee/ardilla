@@ -1,11 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/scrollbar";
+import 'swiper/css/pagination';
 import checklist from "../../img/checklist.svg";
-import save from "../../img/dilla-proo.svg";
 import learn from "../../img/learn-home.svg";
 import saver from "../../img/pink.svg";
-import { Autoplay, Scrollbar } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 
 function Products() {
   return(
@@ -15,14 +14,14 @@ function Products() {
           <h2>Products</h2>
         </div>
         <Swiper
-          scrollbar={{
-            hide: false, draggable: true,
+          pagination={{
+            type: 'progressbar',
           }}
-          modules={[Autoplay, Scrollbar]}
+          modules={[Autoplay, Pagination]}
           className="mySwiper"
           navigation
           autoplay={{
-            delay: 2500,
+            delay: 3500,
             disableOnInteraction: false,
           }}
         >
