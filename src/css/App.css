@@ -728,4 +728,36 @@ h6 a {
   border-radius: 50px!important;
 }
 
+.interview {
+  transition: 0.3s;
+  cursor: pointer;
+}
 
+.interview:hover {
+  transform: scale(1.1);
+}
+
+.i-bg {
+  background: #FFFFFF;
+  box-shadow: 0px 4.86957px 12.1739px rgba(136, 7, 247, 0.07);
+  border-radius: 9.73913px;
+  padding: 10px 16px;
+  height: 50px;
+}
+
+.i-bg svg {
+  color: #3D0072!important;
+}
+
+.i-bg:hover svg {
+  color: #fff!important;
+}
+
+
+.i-bg:hover {
+  background-color: #e5336d;
+  box-shadow: 0px 4.86957px 12.1739px rgba(136, 7, 247, 0.07);
+  border-radius: 9.73913px;
+  padding: 10px 16px;
+  height: 50px;
+}
