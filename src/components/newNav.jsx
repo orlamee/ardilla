@@ -53,7 +53,7 @@ function NewNav() {
                 <div className="dropdown-menu dropdown-large">
                   <div className="row">
                     <div className="col-md-6 p-5">
-                      <Link to="/save">
+                      <Link to="/save" className="navigation-h">
                         <div className="d-flex flex-row mb-4">
                           <div className="i-bg me-3">
                             <Icon icon="material-symbols:energy-savings-leaf-outline" className="fs-3 icon-nav"/>
@@ -64,7 +64,7 @@ function NewNav() {
                           </div>
                         </div>
                       </Link>
-                      <Link>
+                      <Link className="navigation-h">
                         <div className="d-flex flex-row mb-4">
                           <div className="i-bg me-3">
                             <Icon icon="fluent:arrow-trending-lines-24-filled" className="fs-3 icon-nav"/>
@@ -78,7 +78,7 @@ function NewNav() {
                           </div>
                         </div>
                       </Link>
-                      <Link>
+                      <Link className="navigation-h">
                         <div className="d-flex flex-row mb-4">
                           <div className="i-bg me-3">
                             <Icon icon="ic:baseline-security" className="fs-3 icon-nav"/>
@@ -92,7 +92,7 @@ function NewNav() {
                           </div>
                         </div>
                       </Link>
-                      <Link>
+                      <Link className="navigation-h">
                         <div className="d-flex flex-row mb-4">
                           <div className="i-bg me-3">
                             <Icon icon="ic:outline-explore" className="fs-3 icon-nav"/>
@@ -106,7 +106,7 @@ function NewNav() {
                           </div>
                         </div>
                       </Link>                       
-                      <Link to="/dilla-wallet">
+                      <Link to="/dilla-wallet" className="navigation-h">
                         <div className="d-flex flex-row">
                           <div className="i-bg me-3">
                             <Icon icon="mingcute:wallet-4-line" className="fs-3 icon-nav"/>
@@ -153,34 +153,34 @@ function NewNav() {
                 <div className="dropdown-menu dropdown-single">
                   <div className="row">
                     <div className="col-md-12">
-                      <Link to="/about-us">
+                      <Link to="/about-us" className="navigation-h">
                         <div className="d-flex flex-row mb-4">
                           <div className="i-bg me-3">
                             <Icon icon="mdi:information-outline" className="fs-3 icon-nav"/>
                           </div>
-                          <div className="mt-3">
+                          <div className="mt-2">
                             <h2 className="active">About Us</h2>
                             <h6>Know us more</h6>
                           </div>
                         </div>
                       </Link>
-                      <Link to="/privacy-policy">
+                      <Link to="/privacy-policy" className="navigation-h">
                         <div className="d-flex flex-row mb-4">
                           <div className="i-bg me-3">
                             <Icon icon="ic:outline-privacy-tip" className="fs-3 icon-nav"/>
                           </div>
-                          <div className="mt-3">
+                          <div className="mt-2">
                             <h2>Privacy Policy</h2>
                             <h6>Security</h6>
                           </div>
                         </div>
                       </Link>
-                      <Link to="/terms-conditions">
+                      <Link to="/terms-conditions" className="navigation-h">
                         <div className="d-flex flex-row">
                           <div className="i-bg me-3">
                             <Icon icon="material-symbols:sticky-note-2-outline-rounded" className="fs-3 icon-nav"/>
                           </div>
-                          <div className="mt-3">
+                          <div className="mt-2">
                             <h2>Terms & Conditions</h2>
                             <h6>User Policies</h6>
                           </div>
