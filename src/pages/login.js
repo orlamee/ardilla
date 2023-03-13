@@ -5,7 +5,7 @@ import '../css/App.css';
 
 function LoginPage() {
   return (
-    <div className="App">
+    <div className="App bg-white">
       <Login/>
     </div>
   );
