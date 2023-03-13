@@ -589,9 +589,10 @@ h6 a {
 }
 
 .new-aside {
-  background-image: url('../img/Right.svg');
+  background-image: url('../img/newaside.svg');
   background-repeat: no-repeat!important;
   background-size: cover!important; 
+  background-position: center;
 }
 
 .half, .half .container > .row {

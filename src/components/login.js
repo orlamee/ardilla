@@ -16,56 +16,13 @@ function Login() {
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
 
-  // const [ip, setIp] = useState("");
-  // const [city, setCity] = useState("");
-  // const [countryCode, setCountryCode] = useState("");
-
-  // const now = new Date();
-
-  // const today = date.format(now, "ddd, MMM DD YYYY");
-  // const time = date.format(new Date(), "hh:mm A [GMT]Z");
-
-  // let platName = platform.name;
-  // let userOs = platform.os.family;
-  // let userOsVersion = platform.os.version;
-
-  // let currentTimestamp = new Date().getTime();
-
   const navigate = useNavigate();
-
-  // let logDetails;
-
-  // let apiKey = "e0a2d82b1adc8b0ca0969efcda0ab0e2fdbfd2338fdb1b9c5cea91fc";
-
-  // async function getIP(url) {
-  //   try {
-  //     const { data } = await axios.get(url);
-
-  //     // setIp(data.ip);
-  //     // setCity(data.city);
-  //     // setCountryCode(data.country_name);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getIP(`https://api.ipdata.co?api-key=${apiKey}`);
-  // }, [apiKey]);
 
   const sendRequest = async () => {
     try {
       setLoading(true);
 
-      // logDetails = {
-      //   ip,
-      //   city,
-      //   countryCode,
-      //   platName,
-      //   userOs,
-      //   userOsVersion,
-      // };
-
+    
       const { data } = await axios.post(
         `${BACKEND_URL}/api/auth/login`,
         {
@@ -274,7 +231,7 @@ function Login() {
                       <i className="bi bi-box-arrow-in-right me-3"></i> Sign in
                       with SAN ID
                     </Link>
-                    <div className="mt-3 new-sign">
+                    <div className="mt-3 new-sign text-center">
                       <h5>
                         New user?{" "}
                         <Link to="/sign-up" style={{ color: "#8807F7" }}>
