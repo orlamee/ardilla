@@ -755,6 +755,14 @@ h5 a {
     padding: 220px 300px 220px 200px;
   }
 
+  .bg-gri {
+    background-image: url("../img/gritbg.svg")!important;
+  }
+
+  .bg-vau {
+    background-image: url("../img/vaultbg.svg")!important;
+  }
+
   .bg-drims {
     background-image: url('../img/dreambg.svg');
     background-repeat: no-repeat;
@@ -769,6 +777,11 @@ h5 a {
     padding: 120px 200px 120px 100px;
 
   }
+}
+
+.prods {
+  background-color: #F5F5F5;
+  margin-bottom: 400px;
 }
 
 
