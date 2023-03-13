@@ -703,9 +703,9 @@ h5 a {
 }
 
 .hero-save h2 {
-  font-size: 85px;
-  line-height: 97px;
-  font-weight: 700;
+  font-size: 90px;
+  line-height: 110px;
+  font-weight: 800;
   color: #3D0072;
   font-family: Ubuntu-Bold;
 }
@@ -725,15 +725,16 @@ h5 a {
 }
 
 .our-save {
-  background-image: url('../img/bg-plan.svg');
+  background-image: url('../img/saveback.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 150px 0px;
+  background-position: center;
+  padding: 250px 0px;
 }
 
 .our-save h2 {
   font-size: 80px;
-  line-height: 91px;
+  line-height: 99px;
   font-weight: 700;
   color: #3D0072;
   font-family: Ubuntu-Bold;
@@ -751,15 +752,14 @@ h5 a {
     background-image: url('../img/bg-dib.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 120px 200px 120px 100px;
+    padding: 220px 300px 220px 200px;
   }
 
   .bg-drims {
-    background-image: url('../img/drims.svg');
+    background-image: url('../img/dreambg.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 120px 200px 120px 100px;
-
+    padding: 220px 300px 220px 200px;
   }
 
   .bg-vault {
@@ -781,7 +781,7 @@ h5 a {
   }
 
   .bg-drims {
-    background-image: url('../img/drims.svg');
+    background-image: url('../img/dreambg.svg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 100px;

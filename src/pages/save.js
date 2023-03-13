@@ -9,12 +9,14 @@ import "../css/App.css";
 import "../css/home.css";
 import Halal from "../components/landingpage/halal";
 import SaveMonth from "../components/landingpage/saveMonth";
+import NewSavePlan from "../components/landingpage/newSavePlan";
 
 function Save() {
   return (
     <div className="bg-white">
       <NavbarSave/>
       <HeroSave/>
+      <NewSavePlan/>
       <OurSavePlan/>
       <CalculateInterest/>
       <JoinCircle/>
