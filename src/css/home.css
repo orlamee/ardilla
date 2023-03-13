@@ -777,21 +777,21 @@ h5 a {
     background-image: url('../img/bg-dib.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 100px;
+    padding: 60px;
   }
 
   .bg-drims {
     background-image: url('../img/dreambg.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 100px;
+    padding: 60px;
   }
 
   .bg-vault {
     background-image: url('../img/vault-bg.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 100px;
+    padding: 60px;
   }
 }
 
