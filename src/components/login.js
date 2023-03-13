@@ -122,7 +122,7 @@ function Login() {
         <div className="bg order-1 order-md-2 new-aside"></div>
         <div className="contents order-2 order-md-1">
           <div className="container">
-            <div className="row align-items-center justify-content-center">
+            <div className="row align-items-center justify-content-center bg-white">
               <div className="col-md-7">
                 <div className="right ms-3">
                   <div className="row logo-new desktop">
