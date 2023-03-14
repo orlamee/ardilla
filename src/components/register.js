@@ -106,6 +106,17 @@ function Register() {
                     <SwiperSlide>
                       <div>
                         <p className="testimonial">
+                          "Downloading this app might have been the best decision<br/> this week - let goo!"
+                        </p>
+                        <div className="d-flex flex-row mb-3 mt-5 justify-content-center">
+                          <img src={dot} alt="" className="img-fluid" />
+                          <p className="author ms-3 mt-3">- Samson Godwin</p>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <div>
+                        <p className="testimonial">
                           "At this point it's make it or break it with my<br/>finances; I'll let you know how it goes"
                         </p>
                         <div className="d-flex flex-row mb-3 mt-5 justify-content-center">
