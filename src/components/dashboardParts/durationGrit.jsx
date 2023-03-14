@@ -98,7 +98,7 @@ function DurationGrit() {
         </div>
       </div>
       <div className="content py-5 px-5 gritsave-bg">
-        <div className="row justify-content-around">
+        <div className="row justify-content-between">
           <div className="col-md-5">
             <img src={stepone} alt="stepone" className="img-fluid w-100" />
           </div>
@@ -106,15 +106,21 @@ function DurationGrit() {
             {/* <img src={stepone} alt="stepone" className="img-fluid w-100" /> */}
           </div>
         </div>
-        <div className="row justify-content-around mt-5 grit-saves">
+        <div className="row justify-content-between mt-5 grit-saves">
           <div className="col-md-5">
             <h2>How long do you<br/>want to save?</h2>
           </div>
-          <div className="col-md-4">
-            <div class="mb-3">
-              <input type="number" className="form-control form-grit" placeholder="Enter amount"/>
+          <div className="col-md-5">
+            <div className="d-flex flex-row">
+              <button className="btn btn-outline-primary px-5 py-3 resend-btn fs-6 me-3" to="">1 Year</button>
+              <button className="btn btn-outline-primary px-5 py-3 resend-btn fs-6 me-3" to="">2 Years</button>
+              <button className="btn btn-outline-primary px-5 py-3 resend-btn fs-6 me-3" to="">5 Years</button>
             </div>
-            <Link className='btn btn-outline-primary px-5 py-4 new-btn fs-6 w-100' to="">Continue</Link>
+            <div className="d-flex flex-row mt-3 mb-5">
+              <button className="btn btn-outline-primary px-5 py-3 resend-btn fs-6 me-3" to="">7 Year</button>
+              <button className="btn btn-outline-primary px-5 py-3 resend-btn fs-6 me-3" to="">10 Years</button>
+            </div>
+            <Link className='btn btn-outline-primary px-5 py-4 new-btn fs-6 w-75' to="/grit/summary">Continue</Link>
           </div>
         </div>
       </div>

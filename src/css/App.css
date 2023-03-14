@@ -6,7 +6,7 @@ html,body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  /* background-image: url('../img/bg-login.png'); */
+  background-image: url('../img/bg-login.png');
   height: 100%;
   margin: 0;
   font-family: Ubuntu-Regular;
@@ -776,4 +776,14 @@ h6 a {
 
 .navigation-h:hover h2{
   color: #e5336d!important;
+}
+
+.gritd-btn {
+  background-color: #F9FAFB!important;
+  border-color: #F9FAFB!important;
+  border-radius: 60px;
+  color: #16A34A!important;
+  font-size: 12px!important;
+  font-weight: 500;
+  line-height: 20px;
 }

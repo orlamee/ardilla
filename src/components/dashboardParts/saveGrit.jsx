@@ -98,7 +98,7 @@ function SaveGrit() {
         </div>
       </div>
       <div className="content py-5 px-5 gritsave-bg">
-        <div className="row justify-content-around">
+        <div className="row justify-content-between">
           <div className="col-md-5">
             <img src={stepone} alt="stepone" className="img-fluid w-100" />
           </div>
@@ -106,7 +106,7 @@ function SaveGrit() {
             {/* <img src={stepone} alt="stepone" className="img-fluid w-100" /> */}
           </div>
         </div>
-        <div className="row justify-content-around mt-5 grit-saves">
+        <div className="row justify-content-between mt-5 grit-saves">
           <div className="col-md-5">
             <h2>How much do you<br/>want to save?</h2>
           </div>
