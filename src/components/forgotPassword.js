@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../img/logo.svg";
-import fp from "../img/fp.svg";
 import axios from "axios";
 
 function Forgot() {
@@ -40,7 +38,7 @@ function Forgot() {
   };
 
   return (
-    <section className="login-section">
+    <section className="">
       {err && (
         <div className="row justify-content-center  ardilla-alert">
           <div className="col-md-6">
@@ -81,7 +79,7 @@ function Forgot() {
           </div>
         </div>
       )}
-      <div className="container">
+      {/* <div className="container">
         <div className="row logo">
           <div className="col-md-6">
             <Link to="/">
@@ -140,6 +138,59 @@ function Forgot() {
                     </div>
                   )}
                 </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> */}
+      <div className="d-lg-flex half">
+        <Link to="/login" className="bg order-2 order-md-1 left-forgot"></Link>
+        <div className="contents order-1 order-md-2">
+          <div className="container">
+            <div className="row align-items-center justify-content-center bg-white">
+              <div className="col-md-6">
+                <div className="right">
+                  <div className="">
+                    <form className="" onSubmit={handleSubmit}>
+                      <div className="mb-5">
+                        <label className="form-label">
+                          <i className="bi bi-envelope-fill me-2"></i> Enter email address or kode hex
+                        </label>
+                        <input
+                          type="email"
+                          className="form-control custom-login"
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
+                      </div>
+                      {loading ? (
+                        <div className="">
+                          <button
+                            type="button"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                            style={{ width: "100%" }}
+                          >
+                            Loading
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="">
+                          <button
+                            type="submit"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                            style={{ width: "100%" }}
+                          >
+                            Reset Password
+                          </button>
+                        </div>
+                      )}
+                    </form>
+                    <div className="text-center mt-3">
+                      <Link to="/login" className="text-center">Back to Login</Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

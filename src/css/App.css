@@ -595,6 +595,13 @@ h6 a {
   background-position: center;
 }
 
+.left-forgot {
+  background-image: url('../img/left-forgot.svg');
+  background-repeat: no-repeat!important;
+  background-size: cover!important; 
+  /* background-position: center; */
+}
+
 .half, .half .container > .row {
   height: 100vh;
 }
@@ -611,7 +618,7 @@ h6 a {
 
 .half .bg {
   background-size: cover;
-  background-position: center; 
+  /* background-position: center;  */
 }
 
 @media (max-width: 767.98px){
