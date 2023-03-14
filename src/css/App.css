@@ -821,3 +821,42 @@ h6 a {
   background: #F9FAFB;
   border-radius: 10px;
 }
+
+.bg-table {
+  background: #F9FAFB;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.bg-table h3 {
+  color: #3D0072;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+}
+
+.bg-table td {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  padding: 19px;
+  font-size: 13px;
+  color: #3D0072;
+}
+
+.bg-table th {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  padding: 19px;
+  font-size: 12px;
+  color: #9CA3AF;
+}
+
+.bg-quo {
+  background-color: #FEF2F2;
+  padding: 5px 10px;
+  color: #E8356D;
+  border-radius: 46px;
+  font-size: 13px;
+}

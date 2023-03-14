@@ -16,6 +16,7 @@ import send from "../../img/gsend.svg";
 import sum from "../../img/sum.svg";
 import trend from "../../img/trend.svg";
 import time from "../../img/time.svg";
+import summary from "../../img/summary.svg";
 // import icon from "../../img/dashboard/ICON.svg";
 
 
@@ -108,7 +109,7 @@ function SummaryGrit() {
             <h6 className="mt-3">Here is your overview for Grit Plan</h6>
           </div>
         </div>
-        <div className="row mt-4">
+        <div className="row mt-4 justify-content-between">
           <div className="col-md-5">
             <div className="row">
               <div className="col-md-6 mb-3">
@@ -171,6 +172,79 @@ function SummaryGrit() {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="col-md-6">
+            <img src={summary} alt="" className="img-fluid w-100" />
+          </div>
+        </div>
+        <div className="row mt-5">
+          <div className="col-md-9">
+            <div className="bg-table">
+              <h3>Breakdown</h3>
+              <table className="mt-3" style={{width: "100%"}} id="example">
+                <thead className="">
+                  <tr>
+                    <th>DATE</th>
+                    <th>AMOUNT (₦)</th>
+                    <th>INTEREST - 20%P.A (₦)</th>
+                    <th>TOTAL BALANCE</th>
+                    <th>STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>29-11-2022</td>
+                    <td>180,000</td>
+                    <td>180</td>
+                    <td>180,000</td>
+                    <td><span className="bg-quo">Not-Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>29-11-2022</td>
+                    <td>180,000</td>
+                    <td>180</td>
+                    <td>180,000</td>
+                    <td><span className="bg-quo">Not-Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>29-11-2022</td>
+                    <td>180,000</td>
+                    <td>180</td>
+                    <td>180,000</td>
+                    <td><span className="bg-quo">Not-Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>29-11-2022</td>
+                    <td>180,000</td>
+                    <td>180</td>
+                    <td>180,000</td>
+                    <td><span className="bg-quo">Not-Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>29-11-2022</td>
+                    <td>180,000</td>
+                    <td>180</td>
+                    <td>180,000</td>
+                    <td><span className="bg-quo">Not-Active</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="col-md-3">
+            <div className="form-check mb-5">
+              <input className="form-check-input" type="checkbox" />
+              <label className="form-check-label" for="flexCheckDefault">
+                lorem ipsum lorem ipsum  lorem ipsum lorem ipsum  lorem ipsum lorem ipsum  lorem ipsum lorem ipsum 
+              </label>
+            </div>
+            <div className="form-check mb-5">
+              <input className="form-check-input" type="checkbox" />
+              <label className="form-check-label" for="flexCheckDefault">
+                lorem ipsum lorem ipsum  lorem ipsum lorem ipsum  lorem ipsum lorem ipsum  lorem ipsum lorem ipsum 
+              </label>
+            </div>
+            <Link className='btn btn-outline-primary px-5 py-3 new-btn fs-6 w-75' to="">Continue</Link>
           </div>
         </div>
       </div>
