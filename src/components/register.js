@@ -46,7 +46,7 @@ function Register() {
   };
 
   return (
-    <section className="login-section">
+    <section className="">
       {err && (
         <div className="row justify-content-center ardilla-alert">
           <div className="col-md-12">
@@ -67,7 +67,7 @@ function Register() {
           </div>
         </div>
       )}
-      <div className="container">
+      {/* <div className="container">
         <div className="row logo">
           <div className="col-md-6 ">
             <Link to="/" onClick={() => sessionStorage.clear()}>
@@ -96,50 +96,85 @@ function Register() {
               <img src={dot} alt="" className="img-fluid" />
             </div>
           </div>
-          <div className="col-md-5 aggregate">
-            <div className="right">
-              <div className="login-form">
-                <form className="" onSubmit={handleSubmit}>
-                  <div className="">
-                    <label className="form-label">
-                      <i className="bi bi-envelope-fill me-2"></i> Email address
-                    </label>
-                    <input
-                      type="email"
-                      className="form-control custom-login"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value.toLowerCase())}
-                    />
-                  </div>
-                  {isLoading ? (
-                    <div className="my-5">
-                      <button
-                        type="button"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                        style={{ width: "100%" }}
-                      >
-                        Loading
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="my-5">
-                      <button
-                        type="submit"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                        style={{ width: "100%" }}
-                      >
-                        Continue
-                      </button>
-                    </div>
-                  )}
 
-                  <div className="bottom">
-                    <p className="user">
-                      Already have an account? <Link to="/login">Sign in</Link>
-                    </p>
+        </div>
+      </div> */}
+      <div className="d-lg-flex half">
+        <Link to="/login" className="bg order-2 order-md-1 registerbg">
+          {/* <div className="container">
+            <div className="row align-items-center justify-content-center">
+              <div className="col-md-6 mb-3">
+                <div className="left text-left">
+                  <img src={register} alt="" className="img-fluid" />
+                  <h2 className="my-4">
+                    Its never to late to
+                    <br />
+                    start saving
+                  </h2>
+                  <p className="testimonial">
+                    The whole process was seamless and
+                    <br />
+                    very easy. Thats why i choosed ardilla
+                  </p>
+                  <div className="d-flex flex-row mb-3 mt-3">
+                    <img src={testimonial} alt="" className="img-fluid" />
+                    <p className="author ms-3 mt-3">- Olamilekan Akindele</p>
                   </div>
-                </form>
+                  <img src={dot} alt="" className="img-fluid" />
+                </div>
+              </div>
+            </div>
+          </div> */}
+        </Link>
+        <div className="contents order-1 order-md-2">
+          <div className="container">
+            <div className="row align-items-center justify-content-center bg-white">
+              <div className="col-md-6">
+                <div className="right">
+                  <div className="">
+                    <form className="" onSubmit={handleSubmit}>
+                      <div className="">
+                        <label className="form-label">
+                          <i className="bi bi-envelope-fill me-2"></i> Email address
+                        </label>
+                        <input
+                          type="email"
+                          className="form-control custom-login"
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value.toLowerCase())}
+                        />
+                      </div>
+                      {isLoading ? (
+                        <div className="my-5">
+                          <button
+                            type="button"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                            style={{ width: "100%" }}
+                          >
+                            Loading
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="my-5">
+                          <button
+                            type="submit"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                            style={{ width: "100%" }}
+                          >
+                            Continue
+                          </button>
+                        </div>
+                      )}
+
+                      <div className="bottom text-center">
+                        <p className="user">
+                          Already have an account? <Link to="/login">Sign in</Link>
+                        </p>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

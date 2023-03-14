@@ -187,7 +187,7 @@ function Forgot() {
                       )}
                     </form>
                     <div className="text-center mt-3">
-                      <Link to="/login" className="text-center">Back to Login</Link>
+                      <Link to="/login" className="text-center text-muted">Back to Login</Link>
                     </div>
                   </div>
                 </div>
