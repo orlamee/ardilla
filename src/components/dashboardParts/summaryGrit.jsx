@@ -11,11 +11,15 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
-import stepone from "../../img/dashboard/full-time.svg";
+import grit from "../../img/cadet-grit.svg";
+import send from "../../img/gsend.svg";
+import sum from "../../img/sum.svg";
+import trend from "../../img/trend.svg";
+import time from "../../img/time.svg";
 // import icon from "../../img/dashboard/ICON.svg";
 
 
-function DurationGrit() {
+function SummaryGrit() {
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -97,30 +101,76 @@ function DurationGrit() {
           </Link>
         </div>
       </div>
-      <div className="content py-5 px-5 gritsave-bg">
-        <div className="row justify-content-between">
-          <div className="col-md-5">
-            <img src={stepone} alt="stepone" className="img-fluid w-100" />
-          </div>
-          <div className="col-md-4">
-            {/* <img src={stepone} alt="stepone" className="img-fluid w-100" /> */}
+      <div className="content py-5 px-5 gritsave-bg summary-grit">
+        <div className="row">
+          <div className="col-md-6">
+            <h2>Summary</h2>
+            <h6 className="mt-3">Here is your overview for Grit Plan</h6>
           </div>
         </div>
-        <div className="row justify-content-between mt-5 grit-saves">
+        <div className="row mt-4">
           <div className="col-md-5">
-            <h2>How long do you<br/>want to save?</h2>
-          </div>
-          <div className="col-md-5">
-            <div className="d-flex flex-row">
-              <button className="btn btn-outline-primary px-5 py-3 gritd-btn fs-6 me-3" to="">1 Year</button>
-              <button className="btn btn-outline-primary px-5 py-3 gritd-btn fs-6 me-3" to="">2 Years</button>
-              <button className="btn btn-outline-primary px-5 py-3 gritd-btn fs-6 me-3" to="">5 Years</button>
+            <div className="row">
+              <div className="col-md-6 mb-3">
+                <div className="bg-sum p-4">
+                  <div className="d-flex flex-row">
+                    <img src={grit} alt="" className="img-fluid" />
+                    <div className="mt-2 ms-3">
+                      <h4>Rank</h4>
+                      <h5 className="mt-1">Colonel</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="bg-sum p-4" style={{background: "#FFFBEB"}}>
+                  <div className="d-flex flex-row">
+                    <img src={time} alt="" className="img-fluid" />
+                    <div className="mt-2 ms-3">
+                      <h4 style={{color: "#F59E0B"}}>Duration</h4>
+                      <h5 style={{color: "#F59E0B"}} className="mt-1">12 Months</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="d-flex flex-row mt-3 mb-5">
-              <button className="btn btn-outline-primary px-5 py-3 gritd-btn fs-6 me-3" to="">7 Year</button>
-              <button className="btn btn-outline-primary px-5 py-3 gritd-btn fs-6 me-3" to="">10 Years</button>
+            <div className="row mt-2">
+              <div className="col-md-6 mb-3">
+                <div className="bg-sum p-4" style={{background: "#F8F0FF"}}>
+                  <div className="d-flex flex-row">
+                    <img src={send} alt="" className="img-fluid" />
+                    <div className="mt-2 ms-3">
+                      <h4 style={{color: "#8807F7"}}>Save -  30%</h4>
+                      <h5 style={{color: "#8807F7"}} className="mt-1">NGN 180,000</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="bg-sum p-4" style={{background: "#FEF2F2"}}>
+                  <div className="d-flex flex-row">
+                    <img src={trend} alt="" className="img-fluid" />
+                    <div className="mt-2 ms-3">
+                      <h4 style={{color: "#E8356D"}}>Interest -  20%</h4>
+                      <h5 style={{color: "#E8356D"}} className="mt-1">NGN 2,164</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <Link className='btn btn-outline-primary px-5 py-4 new-btn fs-6 w-75' to="/grit/summary">Continue</Link>
+            <div className="row mt-2">
+              <div className="col-md-12">
+                <div className="bg-sum p-4" style={{background: "#F6FEF8"}}>
+                  <div className="d-flex flex-row">
+                    <img src={sum} alt="" className="img-fluid" />
+                    <div className="mt-2 ms-3">
+                      <h4 style={{color: "#16A34A"}}>Total</h4>
+                      <h5 style={{color: "#16A34A"}} className="mt-1">NGN 2,164,950,768</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -128,4 +178,4 @@ function DurationGrit() {
   );
 }
 
-export default DurationGrit;
+export default SummaryGrit;

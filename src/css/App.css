@@ -787,3 +787,37 @@ h6 a {
   font-weight: 500;
   line-height: 20px;
 }
+
+.summary-grit h2 {
+  color: #134E4A;
+  font-size: 50px;
+  line-height: 62px;
+  font-weight: 800;
+  font-family: Ubuntu-Bold;
+}
+
+.summary-grit h6 {
+  color: #9CA3AF;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 400;
+}
+
+.summary-grit h4 {
+  color: #16A34A;
+  font-size: 10px;
+  line-height: 13px;
+  font-weight: 400;
+}
+
+.summary-grit h5 {
+  color: #16A34A;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 700;
+}
+
+.bg-sum {
+  background: #F9FAFB;
+  border-radius: 10px;
+}
