@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import 'swiper/css/pagination';
 import checklist from "../../img/checklist.svg";
-import learn from "../../img/learn-home.svg";
+// import learn from "../../img/learn-home.svg";
 import saver from "../../img/pink.svg";
 import { Autoplay, Pagination } from "swiper";
 

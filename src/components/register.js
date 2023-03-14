@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import logo from "../img/logo.svg";
 import testimonial from "../img/testimonial.svg";
 import register from "../img/code.svg";
-import dot from "../img/dot.svg";
+import dot from "../img/dott.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Autoplay, Pagination } from "swiper";
 // import Cookies from "js-cookie";
 
 function Register() {
@@ -67,65 +70,57 @@ function Register() {
           </div>
         </div>
       )}
-      {/* <div className="container">
-        <div className="row logo">
-          <div className="col-md-6 ">
-            <Link to="/" onClick={() => sessionStorage.clear()}>
-              <img src={logo} alt="" className="img-fluid mb-5" />
-            </Link>
-          </div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-md-6 mb-3">
-            <div className="left text-left">
-              <img src={register} alt="" className="img-fluid" />
-              <h2 className="my-4">
-                Its never to late to
-                <br />
-                start saving
-              </h2>
-              <p className="testimonial">
-                The whole process was seamless and
-                <br />
-                very easy. Thats why i choosed ardilla
-              </p>
-              <div className="d-flex flex-row mb-3 mt-3">
-                <img src={testimonial} alt="" className="img-fluid" />
-                <p className="author ms-3 mt-3">- Olamilekan Akindele</p>
-              </div>
-              <img src={dot} alt="" className="img-fluid" />
-            </div>
-          </div>
-
-        </div>
-      </div> */}
       <div className="d-lg-flex half">
-        <Link to="/login" className="bg order-2 order-md-1 registerbg">
-          {/* <div className="container">
+        <div to="/login" className="bg order-2 order-md-1 registerbg">
+          <div className="container">
             <div className="row align-items-center justify-content-center">
               <div className="col-md-6 mb-3">
-                <div className="left text-left">
+                <div className="left text-center entry">
                   <img src={register} alt="" className="img-fluid" />
-                  <h2 className="my-4">
-                    Its never to late to
-                    <br />
-                    start saving
+                  <h2 className="my-5 text-white">
+                    Never too late, Never too little. Start saving now.
                   </h2>
-                  <p className="testimonial">
-                    The whole process was seamless and
-                    <br />
-                    very easy. Thats why i choosed ardilla
-                  </p>
-                  <div className="d-flex flex-row mb-3 mt-3">
-                    <img src={testimonial} alt="" className="img-fluid" />
-                    <p className="author ms-3 mt-3">- Olamilekan Akindele</p>
-                  </div>
-                  <img src={dot} alt="" className="img-fluid" />
+                  <Swiper
+                    pagination={{
+                      dynamicBullets: true,
+                      clickable: true,
+                    }}
+                    autoplay={{
+                      delay: 3500,
+                      disableOnInteraction: false,
+                    }}
+                    modules={[Autoplay, Pagination]}
+                    className="mySwiper"
+                  >
+                    <SwiperSlide>
+                      <div>
+                        <p className="testimonial">
+                          "I joined ardilla because I want a savings app that<br/>wasn't as complex as the ones I used before; going pretty great."
+                        </p>
+                        <div className="d-flex flex-row mb-3 mt-5 justify-content-center">
+                          <img src={testimonial} alt="" className="img-fluid" />
+                          <p className="author ms-3 mt-3">- Oyinkan Adeleke</p>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <div>
+                        <p className="testimonial">
+                          "At this point it's make it or break it with my<br/>finances; I'll let you know how it goes"
+                        </p>
+                        <div className="d-flex flex-row mb-3 mt-5 justify-content-center">
+                          <img src={dot} alt="" className="img-fluid" />
+                          <p className="author ms-3 mt-3">- Jane Babalola</p>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                    
+                  </Swiper>
                 </div>
               </div>
             </div>
-          </div> */}
-        </Link>
+          </div>
+        </div>
         <div className="contents order-1 order-md-2">
           <div className="container">
             <div className="row align-items-center justify-content-center bg-white">

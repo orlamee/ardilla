@@ -305,11 +305,10 @@ input [type=email] {
 }
 
 .testimonial {
-  font-family: 'Clash Display', sans-serif;
-  font-size: 14px;
-  line-height: 19px;
+  font-size: 12px;
+  line-height: 20px;
   font-weight: 400;
-  color: #4B5563;
+  color: #fff;
 }
 
 .code {
@@ -321,11 +320,10 @@ input [type=email] {
 }
 
 .author {
-  font-family: 'Clash Display', sans-serif;
-  font-size: 15px;
-  line-height: 19px;
-  font-weight: 600;
-  color: #3D0072;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  color: #fff;
 }
 
 .user {
@@ -603,7 +601,7 @@ h6 a {
 }
 
 .registerbg {
-  background-image: url('../img/registerbgg.svg');
+  background-image: url('../img/registerbg.svg');
   background-repeat: no-repeat!important;
   background-size: cover!important; 
 }

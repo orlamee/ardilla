@@ -6,6 +6,12 @@
   background-size: cover;
 }
 
+.entry h2 {
+  font-size: 30px;
+  line-height: 37px;
+  font-weight: 700;
+}
+
 .banner h2 {
   font-size: 85px;
   line-height: 97px;
@@ -1355,6 +1361,15 @@ h5 a {
   padding: 140px 20px;
 }
 
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+  bottom: 2px;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: var(--swiper-pagination-bullet-opacity, 1);
+  background: #fff;
+}
+
 .testimonials h6 {
   font-size: 16px;
   font-weight: 500;
@@ -2182,4 +2197,28 @@ h5 a {
 .swiper {
   width: 100%;
   height: 100%;
+}
+
+.send-code h2 {
+  color: #fff;
+  font-size: 30px;
+  line-height: 57px;
+  font-weight: 700;
+}
+
+.send-code p {
+  color: #fff;
+  font-size: 18px;
+  line-height: 34px;
+  font-weight: 400;
+}
+
+.resend-btn {
+  background-color: #fff!important;
+  border-color: #fff!important;
+  border-radius: 60px;
+  color: #E8356D!important;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 20px;
 }

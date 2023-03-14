@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import logo from "../img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import girlie from "../img/girlie.svg";
 import axios from "axios";
@@ -148,7 +147,7 @@ function OtpPage() {
   };
 
   return (
-    <section className="login-section">
+    <section className="">
       {err && (
         <div className="row justify-content-center  ardilla-alert">
           <div className="col-md-6">
@@ -207,90 +206,94 @@ function OtpPage() {
           </div>
         </div>
       )}
-      <div className="container">
-        <div className="row logo">
-          <div className="col-md-6">
-            <Link to="/sign-up">
-              <img src={logo} alt="" className="img-fluid mb-5" />
-            </Link>
-          </div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-md-6 mb-3">
-            <div className="left text-left">
-              <img src={girlie} alt="" className="img-fluid" />
-              <h2 className="my-4">
-                Enter Code sent to
-                <br />
-                your email
-              </h2>
-              <p className="code mb-5">{userCheck?.email}</p>
-              <h6>
-                <button className="resend" onClick={handleWrongEmail}>
-                  Wrong Email?
-                </button>
-              </h6>
+      <div className="d-lg-flex half">
+        <Link to="/login" className="bg order-2 order-md-1 registerbg">
+          <div className="container">
+            <div className="row align-items-center justify-content-center">
+              <div className="col-md-6 mb-3">
+                <div className="left text-center send-code">
+                  <img src={girlie} alt="" className="img-fluid" />
+                  <h2 className="mt-5 mb-3">
+                    Enter Verification code sent to 
+                  </h2>
+                  <p className="code mb-5">{userCheck?.email}</p>
+                  <h6>
+                    <Link
+                      className="btn btn-outline-primary px-5 py-3 resend-btn fs-6 mb-3"
+                      to=""
+                    >
+                      Wrong email?
+                    </Link>
+                  </h6>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="col-md-5 aggregate">
-            <div className="right">
-              <div className="login-form">
-                <form className="" onSubmit={handleSubmit}>
+        </Link>
+        <div className="contents order-1 order-md-2">
+          <div className="container">
+            <div className="row align-items-center justify-content-center bg-white">
+              <div className="col-md-6">
+                <div className="right">
                   <div className="">
-                    <label className="form-label">
-                      <i className="bi bi-key-fill me-2"></i> Code
-                    </label>
-                    <input
-                      type="number"
-                      className="form-control custom-login"
-                      required
-                      value={code}
-                      onChange={(e) => setCode(e.target.value)}
-                    />
-                  </div>
-                  {userCheck?.verified !== "activated" ? (
-                    <div className="my-5">
-                      <button
-                        type="button"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                        style={{ width: "100%" }}
-                      >
-                        done
-                      </button>
-                    </div>
-                  ) : isLoading ? (
-                    <div className="my-5">
-                      <button
-                        type="button"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                        style={{ width: "100%" }}
-                      >
-                        Loading
-                      </button>
-                    </div>
-                  ) : (
-                    !isLoading && (
-                      <div className="my-5">
-                        <button
-                          type="submit"
-                          className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                          style={{ width: "100%" }}
-                        >
-                          Continue
-                        </button>
+                    <form className="" onSubmit={handleSubmit}>
+                      <div className="">
+                        <label className="form-label">
+                          <i className="bi bi-key-fill me-2"></i> Enter Verification code
+                        </label>
+                        <input
+                          type="number"
+                          className="form-control custom-login"
+                          required
+                          value={code}
+                          onChange={(e) => setCode(e.target.value)}
+                        />
                       </div>
-                    )
-                  )}
+                      {userCheck?.verified !== "activated" ? (
+                        <div className="my-5">
+                          <button
+                            type="button"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                            style={{ width: "100%" }}
+                          >
+                            done
+                          </button>
+                        </div>
+                      ) : isLoading ? (
+                        <div className="my-5">
+                          <button
+                            type="button"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                            style={{ width: "100%" }}
+                          >
+                            Loading
+                          </button>
+                        </div>
+                      ) : (
+                        !isLoading && (
+                          <div className="my-5">
+                            <button
+                              type="submit"
+                              className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                              style={{ width: "100%" }}
+                            >
+                              Continue
+                            </button>
+                          </div>
+                        )
+                      )}
 
-                  <div className="bottom">
-                    <p className="user">
-                      Didn't get OTP?{" "}
-                      <button className="resend" onClick={handleResend}>
-                        Resend
-                      </button>
-                    </p>
+                      <div className="bottom text-center">
+                        <p className="user">
+                          Didn't get OTP?{" "}
+                          <Link className="" onClick={handleResend}>
+                            Resend
+                          </Link>
+                        </p>
+                      </div>
+                    </form>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>
