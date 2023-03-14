@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../img/logo.svg";
+// import logo from "../img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import complete from "../img/profilecomplete.svg";
 import axios from "axios";
@@ -145,7 +145,7 @@ function CompleteProfile() {
   }, 3000);
 
   return (
-    <section className="login-section">
+    <section className="">
       {err && (
         <div className="row justify-content-center  ardilla-alert">
           <div className="col-md-6">
@@ -186,7 +186,7 @@ function CompleteProfile() {
           </div>
         </div>
       )}
-      <div className="container">
+      {/* <div className="container">
         <div className="row logo">
           <div className="col-md-6">
             <Link to="/otp">
@@ -195,161 +195,176 @@ function CompleteProfile() {
           </div>
         </div>
         <div className="row justify-content-center">
-          <div className="col-md-6 mb-3">
-            <div className="left text-left">
-              <img src={complete} alt="" className="img-fluid" />
-              <h2 className="my-4">
-                Complete your <br />
-                profile
-              </h2>
-              <p className="code mb-5">Fill in the Required details</p>
+          
+          
+        </div>
+      </div> */}
+      <div className="d-lg-flex half">
+        <Link to="/login" className="bg order-2 order-md-1 registerbg">
+          <div className="container">
+            <div className="row align-items-center justify-content-center">
+              <div className="col-md-6 mb-3 send-code">
+                <div className="left text-center">
+                  <img src={complete} alt="" className="img-fluid" />
+                  <h2 className="my-4">
+                    Complete your profile
+                  </h2>
+                  <h6 className="code mb-5">Fill in the Required details</h6>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="col-md-5">
-            <div className="right">
-              <div className="login-form">
-                <form className="" onSubmit={handleSubmit}>
-                  <div className="mb-3">
-                    <label className="form-label">
-                      <i className="bi bi-code-slash me-2"></i> Kode Hex
-                      (Nickname)
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control custom-login"
-                      required
-                      value={kodeHex}
-                      onChange={(e) => setKodeHex(e.target.value)}
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">
-                      <i className="bi bi-person-fill me-2"></i> First Name
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control custom-login"
-                      required
-                      value={firstname}
-                      onChange={(e) => setFirstname(e.target.value)}
-                    />
-                    <div id="" class="form-text">
-                      Kindly use valid information
-                    </div>
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">
-                      <i className="bi bi-person-fill me-2"></i> Last Name
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control custom-login"
-                      required
-                      value={lastname}
-                      onChange={(e) => setLastname(e.target.value)}
-                    />
-                    <div id="" class="form-text">
-                      Kindly use valid information
-                    </div>
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">
-                      <i className="bi bi-phone-fill me-2"></i> Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      className="form-control custom-login"
-                      required
-                      value={contact}
-                      onChange={(e) => setContact(e.target.value)}
-                    />
-                    <div id="" class="form-text">
-                      Kindly use valid information
-                    </div>
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">
-                      <i className="bi bi-envelope-fill me-2"></i> Email Address
-                    </label>
-                    <input
-                      type="email"
-                      className="form-control custom-login"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      disabled
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">
-                      <i className="bi bi-shield-lock-fill me-2"></i> Password
-                    </label>
-                    <input
-                      type="password"
-                      className="form-control custom-login"
-                      required
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">
-                      <i className="bi bi-people me-2"></i> Invite code (optional)
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control custom-login"
-                    />
-                  </div>
-                  <div>
-                    <label className="form-check-label remember">
-                      <input
-                        type="checkbox"
-                        className="form-check-input"
-                        required
-                        value={agree}
-                        onChange={() => setAgree(!agree)}
-                      />{" "}
-                      I agree to our{" "}
-                      <Link to="/terms-conditions">Terms and Conditions</Link>{" "}
-                      and <Link to="/privacy-policy">Privacy Policy</Link>.
-                    </label>
-                  </div>
-                  {agree ? (
-                    isLoading ? (
-                      <div className="my-3">
-                        <button
-                          type="button"
-                          className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                          style={{ width: "100%" }}
-                        >
-                          Loading
-                        </button>
+        </Link>
+        <div className="contents order-1 order-md-2">
+          <div className="container">
+            <div className="row align-items-center justify-content-center bg-white">
+              <div className="col-md-7">
+                <div className="right">
+                  <div className="">
+                    <form className="" onSubmit={handleSubmit}>
+                      <div className="mb-3">
+                        <label className="form-label">
+                          <i className="bi bi-code-slash me-2"></i> Kode Hex
+                          (Nickname)
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control custom-login"
+                          required
+                          value={kodeHex}
+                          onChange={(e) => setKodeHex(e.target.value)}
+                        />
                       </div>
-                    ) : (
-                      <div className="my-3">
-                        <button
-                          type="submit"
-                          className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                          style={{ width: "100%" }}
-                        >
-                          Continue
-                        </button>
+                      <div className="mb-3">
+                        <label className="form-label">
+                          <i className="bi bi-person-fill me-2"></i> First Name
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control custom-login"
+                          required
+                          value={firstname}
+                          onChange={(e) => setFirstname(e.target.value)}
+                        />
+                        <div id="" class="form-text">
+                          Same as your Valid ID
+                        </div>
                       </div>
-                    )
-                  ) : (
-                    <div className="my-3">
-                      <button
-                        type="button"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                        style={{ width: "100%" }}
-                        onClick={handleAgree}
-                      >
-                        Continue
-                      </button>
-                    </div>
-                  )}
-                </form>
+                      <div className="mb-3">
+                        <label className="form-label">
+                          <i className="bi bi-person-fill me-2"></i> Last Name
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control custom-login"
+                          required
+                          value={lastname}
+                          onChange={(e) => setLastname(e.target.value)}
+                        />
+                        <div id="" class="form-text">
+                          Same as your Valid ID
+                        </div>
+                      </div>
+                      <div className="mb-3">
+                        <label className="form-label">
+                          <i className="bi bi-phone-fill me-2"></i> Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          className="form-control custom-login"
+                          required
+                          value={contact}
+                          onChange={(e) => setContact(e.target.value)}
+                        />
+                        <div id="" class="form-text">
+                          Enter a valid phone number
+                        </div>
+                      </div>
+                      <div className="mb-3">
+                        <label className="form-label">
+                          <i className="bi bi-envelope-fill me-2"></i> Email Address
+                        </label>
+                        <input
+                          type="email"
+                          className="form-control custom-login"
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          disabled
+                        />
+                      </div>
+                      <div className="mb-3">
+                        <label className="form-label">
+                          <i className="bi bi-shield-lock-fill me-2"></i> Password
+                        </label>
+                        <input
+                          type="password"
+                          className="form-control custom-login"
+                          required
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                        />
+                      </div>
+                      <div className="mb-3">
+                        <label className="form-label">
+                          <i className="bi bi-people me-2"></i> Invite code (optional)
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control custom-login"
+                        />
+                      </div>
+                      <div>
+                        <label className="form-check-label remember">
+                          <input
+                            type="checkbox"
+                            className="form-check-input"
+                            required
+                            value={agree}
+                            onChange={() => setAgree(!agree)}
+                          />{" "}
+                          I agree to our{" "}
+                          <Link to="/terms-conditions">Terms and Conditions</Link>{" "}
+                          and <Link to="/privacy-policy">Privacy Policy</Link>.
+                        </label>
+                      </div>
+                      {agree ? (
+                        isLoading ? (
+                          <div className="my-3">
+                            <button
+                              type="button"
+                              className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                              style={{ width: "100%" }}
+                            >
+                              Loading
+                            </button>
+                          </div>
+                        ) : (
+                          <div className="my-3">
+                            <button
+                              type="submit"
+                              className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                              style={{ width: "100%" }}
+                            >
+                              Continue
+                            </button>
+                          </div>
+                        )
+                      ) : (
+                        <div className="my-3">
+                          <button
+                            type="button"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                            style={{ width: "100%" }}
+                            onClick={handleAgree}
+                          >
+                            Continue
+                          </button>
+                        </div>
+                      )}
+                    </form>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

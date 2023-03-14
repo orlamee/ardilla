@@ -2213,6 +2213,13 @@ h5 a {
   font-weight: 400;
 }
 
+.send-code h6 {
+  color: #fff;
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: 400;
+}
+
 .resend-btn {
   background-color: #fff!important;
   border-color: #fff!important;
