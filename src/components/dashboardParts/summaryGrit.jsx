@@ -244,7 +244,7 @@ function SummaryGrit() {
                 lorem ipsum lorem ipsum  lorem ipsum lorem ipsum  lorem ipsum lorem ipsum  lorem ipsum lorem ipsum 
               </label>
             </div>
-            <Link className='btn btn-outline-primary px-5 py-3 new-btn fs-6 w-75' to="">Continue</Link>
+            <Link className='btn btn-outline-primary px-5 py-3 new-btn fs-6 w-75' to="/grit/overview">Continue</Link>
           </div>
         </div>
       </div>

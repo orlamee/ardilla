@@ -860,3 +860,35 @@ h6 a {
   border-radius: 46px;
   font-size: 13px;
 }
+
+.over-card {
+  background-image: url("../img/gritcard.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.over-card h4 {
+  color: #ffffffb8;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 400;
+}
+
+.over-card h5 {
+  color: #fff;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 500;
+}
+
+.over-grit .form-check-input:checked {
+  background-color: #15803D;
+  border-color: #15803D;
+}
+
+.over-grit .form-check-label {
+  color: #15803D;
+}

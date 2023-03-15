@@ -129,6 +129,7 @@ import Grit from "./dashboard/grit";
 import GritSave from "./dashboard/gritSave";
 import GritDuration from "./dashboard/gritDuration";
 import GritSummary from "./dashboard/gritSummary";
+import GritOverview from "./dashboard/gritOverview";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -153,6 +154,7 @@ root.render(
       <Route path="/grit/save" element={<GritSave/>}></Route>
       <Route path="/grit/save-duration" element={<GritDuration/>}></Route>
       <Route path="/grit/summary" element={<GritSummary/>}></Route>
+      <Route path="/grit/overview" element={<GritOverview/>}></Route>
       <Route
         path="/payment-accounts-success"
         element={<PaymentASuccess />}

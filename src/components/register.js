@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import testimonial from "../img/testimonial.svg";
 import register from "../img/code.svg";
+import samson from "../img/samson.svg";
 import dot from "../img/dott.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -109,7 +110,7 @@ function Register() {
                           "Downloading this app might have been the best decision<br/> this week - let goo!"
                         </p>
                         <div className="d-flex flex-row mb-3 mt-5 justify-content-center">
-                          <img src={dot} alt="" className="img-fluid" />
+                          <img src={samson} alt="" className="img-fluid" />
                           <p className="author ms-3 mt-3">- Samson Godwin</p>
                         </div>
                       </div>
