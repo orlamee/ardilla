@@ -114,7 +114,7 @@ function AmountGrit() {
             <div class="mb-3">
               <input type="text" className="form-control form-grit" placeholder="Enter name"/>
             </div>
-            <Link className='btn btn-outline-primary px-5 py-4 new-btn fs-6 w-100' to="/grit/save-duration">Continue</Link>
+            <Link className='btn btn-outline-primary px-5 py-4 new-btn fs-6 w-100' to="/grit/dashboard">Continue</Link>
           </div>
         </div>
       </div>
