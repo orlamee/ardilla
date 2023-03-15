@@ -892,3 +892,36 @@ h6 a {
 .over-grit .form-check-label {
   color: #15803D;
 }
+
+.withdrawal-grit .modal-body {
+  padding: 50px 20px!important;
+}
+
+.withdrawal-grit .modal-sm {
+  --bs-modal-width: 590px;
+  --bs-modal-border-radius: 10px;
+}
+
+.withdrawal-grit h4 {
+  color: #14532D;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.withdrawal-grit h6 {
+  color: #4B5563;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+}
+
+.later-btn {
+  background-color: transparent!important;
+  border-color: #16A34A!important;
+  border-radius: 60px;
+  color: #16a34a!important;
+  font-size: 17px!important;
+  font-weight: 700;
+  line-height: 20px;
+}

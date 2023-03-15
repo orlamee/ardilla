@@ -11,9 +11,35 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
+import Modal from 'react-bootstrap/Modal';
+
+function Withdrawal(props) {
+  return (
+    <Modal
+      {...props}
+      size="sm"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      className="withdrawal-grit"
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="text-center">
+        <h4 className="mb-4">Do you want your interest (₦40,000) up front ?</h4>
+        <Link className='btn btn-outline-primary px-5 py-3 new-btn fs-6 w-75 mb-3' to="/grit/amount">Yes, Withdraw to Dilla</Link>
+        <Link onClick={props.onHide} className='btn btn-outline-primary px-5 py-3 later-btn fs-6 w-75 mb-3' to="">No, Withdraw Later</Link>
+        <h6>If, No you can always withdraw your interest anytime</h6>
+      </Modal.Body>
+    </Modal>
+  );
+}
+
 
 
 function OverviewGrit() {
+  const [modalShow, setModalShow] = React.useState(false);
   return (
     <section className="main-dash">
       <div className="sidebar">
@@ -162,7 +188,29 @@ function OverviewGrit() {
                 Four withdrawal limit only lorem ipsum monteren renemdem
               </label>
             </div>
-            <Link className='btn btn-outline-primary px-5 py-3 new-btn fs-6 w-75' to="">Create Plan</Link>
+            <Link onClick={() => setModalShow(true)} className='btn btn-outline-primary px-5 py-3 new-btn fs-6 w-75' to="">Create Plan</Link>
+          </div>
+        </div>
+      </div>
+      <Withdrawal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+
+      <div className="modal-dialog modal-dialog-centered" id="success" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              ...
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" className="btn btn-primary">Understood</button>
+            </div>
           </div>
         </div>
       </div>
