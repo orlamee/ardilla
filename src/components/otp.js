@@ -219,7 +219,7 @@ function OtpPage() {
                   <p className="code mb-5">{userCheck?.email}</p>
                   <h6>
                     <Link
-                      className="btn btn-outline-primary px-5 py-3 gritd-btn fs-6 mb-3"
+                      className="btn btn-outline-primary px-5 py-3 resend-btn fs-6 mb-3"
                       to=""
                     >
                       Wrong email?
