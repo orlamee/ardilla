@@ -13,6 +13,8 @@ import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
 import bc from "../../img/bc.svg";
 import house from "../../img/house.svg";
+import deposit from "../../img/icon-deposit.svg";
+import withdraw from "../../img/icon-withdraw.svg";
 
 
 
@@ -118,6 +120,27 @@ function DashboardGrit() {
             <div className="bg-activity p-4 mb-4">
               <h6>Recent Activities</h6>
               <h3 className="float-end" style={{marginTop :"-19px"}}>View all</h3>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Grit</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><img src={deposit} alt="" className="img-fluid me-2" width={18} /> Transportation</td>
+                    <td>30 days</td>
+                    <td>₦4000.00 </td>
+                  </tr>
+                  <tr>
+                    <td><img src={withdraw} alt="" className="img-fluid me-2" width={18}/>Travel</td>
+                    <td>30 days</td>
+                    <td>₦4000.00 </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <div className="bg-activity p-4">
               <div className="row">
@@ -139,7 +162,7 @@ function DashboardGrit() {
         <div className="row mt-3">
           <div className="col-md-6 mb-3">
             <div className="bg-housing">
-              <div className="d-flex flex-row">
+              <Link to="/grit/housing" className="d-flex flex-row">
                 <img src={house} alt="housing" className="img-fluid me-5" />
                 <div className="details-grit mt-4">
                   <div className="mb-4">
@@ -160,7 +183,7 @@ function DashboardGrit() {
                     <h4><i className="bi bi-clock-history me-2"></i>360 days left</h4>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
           <div className="col-md-6">
