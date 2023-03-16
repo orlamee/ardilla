@@ -223,7 +223,6 @@ function HousingGrit() {
                       </Form.Group>
                       <Link className='btn btn-outline-primary px-5 py-3 new-btn fs-6 w-100' to="/grit/dashboard" style={{marginTop: "200px"}}>Submit</Link>
                     </Form>
-
                   </div>
                 </Tab>
                 <Tab eventKey="settings" title="Settings">

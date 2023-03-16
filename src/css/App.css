@@ -1068,7 +1068,9 @@ h6 a {
 }
 
 .bg-ext .form-control,
-.bg-ext .form-select {
+.bg-ext .form-select,
+.withgrit .form-control,
+.withgrit .form-select {
   background: #F3F4F6;
   border-radius: 10px;
   padding: 14px;
@@ -1087,4 +1089,55 @@ h6 a {
   font-size: 12px;
   line-height: 14px;
   font-weight: 500;
+}
+
+.complated-grit p {
+  color: #9CA3AF;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 500;
+}
+
+.complated-grit h2 {
+  color: #134E4A;
+  font-size: 79px;
+  line-height: 98px;
+  font-weight: 700;
+}
+
+.withgrit h2 {
+  color: #000;
+  font-size: 42px;
+  line-height: 52px;
+  font-weight: 700;
+}
+
+.withgrit h6 {
+  color: #6B7280;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+}
+
+.cp-a a {
+  text-decoration: underline!important;
+  color: #8807F7!important;
+}
+
+.form-floating > label {
+  color: #9CA3AF;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.form-text {
+  margin-top: 0.25rem;
+  font-size: 10px;
+  color: #6c757d;
 }

@@ -222,56 +222,55 @@ function CompleteProfile() {
                 <div className="right">
                   <div className="">
                     <form className="" onSubmit={handleSubmit}>
-                      <div className="mb-3">
-                        <label className="form-label">
-                          <i className="bi bi-code-slash me-2"></i> Kode Hex
-                          (Nickname)
-                        </label>
+                      <div className="mb-3 form-floating ">
                         <input
                           type="text"
-                          className="form-control custom-login"
+                          className="form-control custom-login" id="floatingInput" placeholder="name@example.com"
                           required
                           value={kodeHex}
                           onChange={(e) => setKodeHex(e.target.value)}
                         />
-                      </div>
-                      <div className="mb-3">
-                        <label className="form-label">
-                          <i className="bi bi-person-fill me-2"></i> First Name
+                        <label for="floatingInput">
+                          <i className="bi bi-code-slash me-2"></i> Kode Hex
+                          (Nickname)
                         </label>
+                      </div>
+                      <div className="mb-3 form-floating">
                         <input
                           type="text"
-                          className="form-control custom-login"
+                          className="form-control custom-login" id="floatingInput" placeholder="name@example.com"
                           required
                           value={firstname}
                           onChange={(e) => setFirstname(e.target.value)}
                         />
+                        <label for="floatingInput">
+                          <i className="bi bi-person-fill me-2"></i> First Name
+                        </label>
                         <div id="" class="form-text">
                           Same as your Valid ID
                         </div>
                       </div>
-                      <div className="mb-3">
-                        <label className="form-label">
-                          <i className="bi bi-person-fill me-2"></i> Last Name
-                        </label>
+                      <div className="mb-3 form-floating">
                         <input
                           type="text"
-                          className="form-control custom-login"
+                          className="form-control custom-login" id="floatingInput" placeholder="name@example.com"
                           required
                           value={lastname}
                           onChange={(e) => setLastname(e.target.value)}
                         />
+                        <label for="floatingInput">
+                          <i className="bi bi-person-fill me-2"></i> Last Name
+                        </label>
+                        
                         <div id="" class="form-text">
                           Same as your Valid ID
                         </div>
                       </div>
-                      <div className="mb-3">
-                        <label className="form-label">
-                          <i className="bi bi-phone-fill me-2"></i> Phone Number
-                        </label>
+                      <div className="mb-3 form-floating">
+                        
                         <input
                           type="tel"
-                          className="form-control custom-login"
+                          className="form-control custom-login" id="floatingInput" placeholder="name@example.com"
                           required
                           value={contact}
                           onChange={(e) => setContact(e.target.value)}
@@ -279,8 +278,11 @@ function CompleteProfile() {
                         <div id="" class="form-text">
                           Enter a valid phone number
                         </div>
+                        <label for="floatingInput">
+                          <i className="bi bi-telephone-fill me-2"></i>+234 | (000) 000 0000
+                        </label>
                       </div>
-                      <div className="mb-3">
+                      {/* <div className="mb-3">
                         <label className="form-label">
                           <i className="bi bi-envelope-fill me-2"></i> Email Address
                         </label>
@@ -292,29 +294,32 @@ function CompleteProfile() {
                           onChange={(e) => setEmail(e.target.value)}
                           disabled
                         />
-                      </div>
-                      <div className="mb-3">
-                        <label className="form-label">
-                          <i className="bi bi-shield-lock-fill me-2"></i> Password
+                      </div> */}
+                      <div className="mb-3 form-floating">
+                        <input
+                          type="text"
+                          className="form-control custom-login" id="floatingInput" placeholder="name@example.com"
+                        />
+                        <div id="" class="form-text">
+                          Optional
+                        </div>
+                        <label for="floatingInput">
+                          <i className="bi bi-people me-2"></i> Invite code
                         </label>
+                      </div>
+                      <div className="mb-5 form-floating">
                         <input
                           type="password"
-                          className="form-control custom-login"
+                          className="form-control custom-login" id="floatingInput" placeholder="name@example.com"
                           required
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
                         />
-                      </div>
-                      <div className="mb-3">
-                        <label className="form-label">
-                          <i className="bi bi-people me-2"></i> Invite code (optional)
+                        <label for="floatingInput">
+                          <i className="bi bi-shield-lock-fill me-2"></i> Password
                         </label>
-                        <input
-                          type="text"
-                          className="form-control custom-login"
-                        />
                       </div>
-                      <div>
+                      <div className="cp-a">
                         <label className="form-check-label remember">
                           <input
                             type="checkbox"
@@ -330,7 +335,7 @@ function CompleteProfile() {
                       </div>
                       {agree ? (
                         isLoading ? (
-                          <div className="my-3">
+                          <div className="my-5">
                             <button
                               type="button"
                               className="btn btn-outline-primary px-5 py-3 ardilla-btn"
@@ -340,7 +345,7 @@ function CompleteProfile() {
                             </button>
                           </div>
                         ) : (
-                          <div className="my-3">
+                          <div className="my-5">
                             <button
                               type="submit"
                               className="btn btn-outline-primary px-5 py-3 ardilla-btn"
@@ -351,7 +356,7 @@ function CompleteProfile() {
                           </div>
                         )
                       ) : (
-                        <div className="my-3">
+                        <div className="my-5">
                           <button
                             type="button"
                             className="btn btn-outline-primary px-5 py-3 ardilla-btn"
