@@ -133,6 +133,7 @@ import GritOverview from "./dashboard/gritOverview";
 import GritAmount from "./dashboard/gritAmount";
 import GritDashboard from "./dashboard/gritDashboard";
 import GritHousing from "./dashboard/gritHousing";
+import GritCompleted from "./dashboard/gritCompleted";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -158,9 +159,10 @@ root.render(
       <Route path="/grit/save-duration" element={<GritDuration/>}></Route>
       <Route path="/grit/summary" element={<GritSummary/>}></Route>
       <Route path="/grit/overview" element={<GritOverview/>}></Route>
-      <Route path="/grit/amount" element={<GritAmount/>}></Route>
+      <Route path="/grit/details" element={<GritAmount/>}></Route>
       <Route path="/grit/dashboard" element={<GritDashboard/>}></Route>
       <Route path="/grit/housing" element={<GritHousing/>}></Route>
+      <Route path="/grit/completed" element={<GritCompleted/>}></Route>
       <Route
         path="/payment-accounts-success"
         element={<PaymentASuccess />}

@@ -28,7 +28,7 @@ function Withdrawal(props) {
       </Modal.Header>
       <Modal.Body className="text-center">
         <h4 className="mb-4">Do you want your interest (₦40,000) up front ?</h4>
-        <Link className='btn btn-outline-primary px-5 py-3 new-btn fs-6 w-75 mb-3' to="/grit/amount">Yes, Withdraw to Dilla</Link>
+        <Link className='btn btn-outline-primary px-5 py-3 new-btn fs-6 w-75 mb-3' to="/grit/dashboard">Yes, Withdraw to Dilla</Link>
         <Link onClick={props.onHide} className='btn btn-outline-primary px-5 py-3 later-btn fs-6 w-75 mb-3' to="">No, Withdraw Later</Link>
         <h6>If, No you can always withdraw your interest anytime</h6>
       </Modal.Body>

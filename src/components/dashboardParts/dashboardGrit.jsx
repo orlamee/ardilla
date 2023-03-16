@@ -213,10 +213,15 @@ function DashboardGrit() {
             </div>
           </div>
         </div>
+        <div className="row mt-5">
+          <div className="col">
+            <span className="text-muted">Completed</span>
+          </div>
+        </div>
         <div className="row mt-3">
           <div className="col-md-6 mb-3">
             <div className="bg-housing">
-              <div className="d-flex flex-row">
+              <Link to="/grit/completed" className="d-flex flex-row">
                 <img src={house} alt="housing" className="img-fluid me-5" />
                 <div className="details-grit mt-4">
                   <div className="mb-4">
@@ -237,7 +242,7 @@ function DashboardGrit() {
                     <h4><i className="bi bi-clock-history me-2"></i>360 days left</h4>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
           <div className="col-md-6">
