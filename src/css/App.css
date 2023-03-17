@@ -1141,3 +1141,63 @@ h6 a {
   font-size: 10px;
   color: #6c757d;
 }
+
+.complete-your-kyc {
+  background-color: #F9F9F9;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.pro-kyc {
+  --bs-progress-bar-bg: #8807F7;
+  --bs-progress-bg: #fff;
+  border-radius: 20px;
+}
+
+.complete-your-kyc h5 {
+  color: #8807F7;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.home-grit {
+  background: #F9FAFB;
+  margin-left: -48px;
+  margin-right: -48px;
+  padding: 50px;
+  margin-top: 90px;
+}
+
+.bg-wii {
+  border: 1px solid #D1D5DB;
+  border-radius: 16px;
+  padding: 40px;
+}
+
+.home-grit h2 {
+  color: #2563EB;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 500;
+}
+
+.home-grit h3 {
+  color: #3D0072;
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
+.home-grit h6 {
+  color: #3D0072;
+  font-size: 12px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.home-grit p {
+  color: #3D0072;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 300;
+}

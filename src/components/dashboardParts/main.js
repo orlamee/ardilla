@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { CircularProgressbar } from "react-circular-progressbar";
+// import { CircularProgressbar } from "react-circular-progressbar";
 import "../../../node_modules/react-circular-progressbar/dist/styles.css";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -29,6 +29,10 @@ import jar from "../../img/dashboard/new-jar.svg";
 import shield from "../../img/dashboard/new-shield.svg";
 import daylight from "../../img/dashboard/daylight.svg";
 import op from "../../img/dashboard/op.svg";
+import dwdapp from "../../img/dwd-app.svg";
+import wii from "../../img/wii.svg";
+import ir from "../../img/ir.svg";
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 function Sidebar() {
   const [dillaWallet, setDillaWallet] = useState();
@@ -427,8 +431,25 @@ function Sidebar() {
 
         {userDetails?.kycPoints < 100 && (
           <div className="row kyc new-kyc">
-            <div className="col-md-6">
-              <h3>Complete KYC</h3>
+            <div className="col">
+              <div className="complete-your-kyc">
+                <div className="row">
+                  <div className="col-md-3 text-center mt-1">
+                    <Link
+                      className="btn btn-outline-primary px-4 py-2 ardilla-btn fs-6"
+                      to="/profile/kyc"
+                    >
+                      Complete Your KYC <i className="bi bi-chevron-right ms-2"></i>
+                    </Link>
+                  </div>
+                  <div className="col-md-8" style={{marginTop: "12px"}}>
+                    <ProgressBar className="pro-kyc" now={70} />
+                  </div>
+                  <div className="col-md-1 mt-2">
+                    <h5>75<span style={{fontSize: "12px"}}>%</span></h5>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )}
@@ -438,19 +459,17 @@ function Sidebar() {
           </div>
         </div> */}
 
-        <div className="row mt-4">
-          {userDetails?.kycPoints < 100 && (
+        <div className="row roi-cards">
+          {/* {userDetails?.kycPoints < 100 && (
             <div className="col-md-4 mb-3">
               <div className="card py-5 px-3 kyc-card border border-0 inner-card">
                 <div className="row">
                   <div className="col-md-6 text-center color-link">
-                    {/* Add pie chart. */}
                     <CircularProgressbar
                       value={value}
                       maxValue={1}
                       text={`${value * 100}%`}
                     />
-                    {/* <img src={pie} alt="" className="img-fluid" /> */}
                     <Link to="/profile/kyc">
                       Complete your KYC <i className="bi bi-arrow-right"></i>
                     </Link>
@@ -468,7 +487,6 @@ function Sidebar() {
                         <input
                           className="form-check-input red"
                           type="checkbox"
-                          // defaultChecked
                           disabled
                         />
                       )}
@@ -489,7 +507,6 @@ function Sidebar() {
                         <input
                           className="form-check-input"
                           type="checkbox"
-                          // defaultChecked
                           disabled
                         />
                       )}
@@ -510,7 +527,6 @@ function Sidebar() {
                         <input
                           className="form-check-input red"
                           type="checkbox"
-                          // defaultChecked
                           disabled
                         />
                       )}
@@ -533,7 +549,6 @@ function Sidebar() {
                           className="form-check-input"
                           type="checkbox"
                           disabled
-                          // defaultChecked
                         />
                       )}
 
@@ -545,7 +560,12 @@ function Sidebar() {
                 </div>
               </div>
             </div>
-          )}
+          )} */}
+          <div className="col-md-4">
+            <Link to="" className="dwd-app">
+              <img src={dwdapp} alt="download" className="img-fluid w-100" />
+            </Link>
+          </div>
           {/* old code goes here incase */}
           <div className="col-md-8 px-5">
             <img src={chart} alt="" className="img-fluid chartjs" />
@@ -644,17 +664,42 @@ function Sidebar() {
             </div>
           </Link>
         </div>
+        <div className="home-grit">
+          <div className="row">
+            <div className="col-md-7">
+              <h3>Grit</h3>
+              <h6 className="mt-4">Our coaches are available all day for your questions or consultations. Schedule a meeting or start a chat anytime. Get unfettered access to<br/>financial advice you can trust.</h6>
+            </div>
+            <div className="col-md-5 text-end" style={{marginTop: "70px"}}>
+              <Link to="/grit"><i className="bi bi-arrow-right fs-4"></i></Link>
+            </div>
+          </div>
+          <div className="row mt-5">
+            <div className="col-md-6">
+              <div className="bg-wii">
+                <img src={wii} alt="" className="img-fluid"/>
+                <h2 className="my-4">Withdraw Interest Immediately</h2>
+                <p>Our coaches are available all day for your questions or consultations. Schedule<br/>a meeting or start a chat anytime. Get </p>
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="bg-wii">
+                <img src={ir} alt="" className="img-fluid"/>
+                <h2 className="my-4" style={{color: "#E8356D"}}>20% Interest Rate</h2>
+                <p>Our coaches are available all day for your questions or consultations. Schedule<br/> a meeting or start a chat anytime. Get </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="row goals">
           <h2 className="mb-4">Money Wise</h2>
           <div className="m-wise">
             <div className="row">
               <div className="col-md-7">
-                <h1>Financial nuggets</h1>
+                <h1>Financial Boot Camp</h1>
                 <p className="mt-4">
-                  Take a step towards financial literacy with financial advice
-                  from the best
-                  <br />
-                  minds in the game.
+                  Don’t just save & invest, become a financial guru while at it.
                 </p>
                 <Link to="/learn" className="mt-5">
                   Click here <i className="bi bi-arrow-right"></i>
