@@ -483,7 +483,7 @@ function SavingsBody() {
             </div>
           </div>
           <div className="col-md-6 mb-3">
-            <div className="new-pp">
+            <div className="new-pp overlay">
               <div className="row">
                 <div className="col-md-2 text-end">
                   <img src={grit} alt="" className="img-fluid" />
