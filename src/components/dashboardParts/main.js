@@ -33,6 +33,10 @@ import dwdapp from "../../img/dwd-app.svg";
 import wii from "../../img/wii.svg";
 import ir from "../../img/ir.svg";
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Autoplay, Navigation } from "swiper";
 
 function Sidebar() {
   const [dillaWallet, setDillaWallet] = useState();
@@ -674,22 +678,52 @@ function Sidebar() {
               <Link to="/grit"><i className="bi bi-arrow-right fs-4"></i></Link>
             </div>
           </div>
-          <div className="row mt-5">
-            <div className="col-md-6">
-              <div className="bg-wii">
-                <img src={wii} alt="" className="img-fluid"/>
-                <h2 className="my-4">Withdraw Interest Immediately</h2>
-                <p>Our coaches are available all day for your questions or consultations. Schedule<br/>a meeting or start a chat anytime. Get </p>
+          <Swiper 
+            navigation={false}  
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+            }} 
+            modules={[Autoplay, Navigation]} 
+            className="mySwiper"
+            >
+            <SwiperSlide>
+              <div className="row mt-5">
+                <div className="col-md-6">
+                  <div className="bg-wii">
+                    <img src={wii} alt="" className="img-fluid"/>
+                    <h2 className="my-4">Withdraw Interest Immediately</h2>
+                    <p>Our coaches are available all day for your questions or consultations. Schedule<br/>a meeting or start a chat anytime. Get </p>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="bg-wii">
+                    <img src={ir} alt="" className="img-fluid"/>
+                    <h2 className="my-4" style={{color: "#E8356D"}}>20% Interest Rate</h2>
+                    <p>Our coaches are available all day for your questions or consultations. Schedule<br/> a meeting or start a chat anytime. Get </p>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="col-md-6">
-              <div className="bg-wii">
-                <img src={ir} alt="" className="img-fluid"/>
-                <h2 className="my-4" style={{color: "#E8356D"}}>20% Interest Rate</h2>
-                <p>Our coaches are available all day for your questions or consultations. Schedule<br/> a meeting or start a chat anytime. Get </p>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="row mt-5">
+                <div className="col-md-6">
+                  <div className="bg-wii">
+                    <img src={wii} alt="" className="img-fluid"/>
+                    <h2 className="my-4">Withdraw Interest Immediately</h2>
+                    <p>Our coaches are available all day for your questions or consultations. Schedule<br/>a meeting or start a chat anytime. Get </p>
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="bg-wii">
+                    <img src={ir} alt="" className="img-fluid"/>
+                    <h2 className="my-4" style={{color: "#E8356D"}}>20% Interest Rate</h2>
+                    <p>Our coaches are available all day for your questions or consultations. Schedule<br/> a meeting or start a chat anytime. Get </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
 
         <div className="row goals">
