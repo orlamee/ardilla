@@ -5,7 +5,6 @@ import checklist from "../../img/checklist.svg";
 // import learn from "../../img/learn-home.svg";
 import saver from "../../img/pink.svg";
 import { Autoplay, Pagination } from "swiper";
-
 function Products() {
   return(
     <section className="features-product">
@@ -19,7 +18,7 @@ function Products() {
           }}
           modules={[Autoplay, Pagination]}
           className="mySwiper"
-          navigation
+          navigation={false} 
           autoplay={{
             delay: 3500,
             disableOnInteraction: false,
