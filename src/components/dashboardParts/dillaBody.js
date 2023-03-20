@@ -1761,7 +1761,7 @@ function DillaBody() {
                     <div className="modal-body flex-modal-body">
                       <div className="container initiate-modal p-5">
                         <div className="">
-                          <h3 className="text-dark fw-bold">Friends</h3>
+                          <h3 className="text-dark fw-bold">Recently transacted with</h3>
                         </div>
                         <div className="row mt-5 friends">
                           <div className="col-md-2 text-center">
@@ -2174,9 +2174,9 @@ function DillaBody() {
               </div>
             </div>
             <div className="recent-transaction mt-5">
-              <h3>Friends</h3>
+              <h3>Recently transacted with</h3>
             </div>
-            <div className="row mt-5 friends">
+            <div className="row mt-4 friends">
               <div className="col-md-2 text-center">
                 <Link
                   onClick={() => setOpen(!open)}
