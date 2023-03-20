@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import logo from "../img/logo.svg";
+import { useNavigate } from "react-router-dom";
 import home from "../img/home-login.svg";
 import axios from "axios";
 
@@ -129,87 +128,87 @@ function SecurityPage() {
           </div>
         </div>
       )}
-      <div className="container">
-        <div className="row logo">
-          <div className="col-md-6">
-            <Link to="/complete-profile">
-              <img src={logo} alt="" className="img-fluid mb-5" />
-            </Link>
-          </div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-md-6 mb-3">
-            <div className="left text-left">
-              <img src={home} alt="" className="img-fluid" />
-              <h2 className="my-4">
-                Security
-                <br />
-                Question
-              </h2>
-              <p className="code mb-5">
-                Choose a security question &<br /> fill in your answer
-              </p>
+
+<div className="d-lg-flex half">
+        <div to="/login" className="bg order-2 order-md-1 registerbg">
+          <div className="container">
+            <div className="row align-items-center justify-content-center">
+              <div className="col-md-6 mb-3">
+                <div className="left text-center entry">
+                  <img src={home} alt="" className="img-fluid" />
+                  <h2 className="mb-3 mt-5 text-white">
+                    Set Security Question & answer
+                  </h2>
+                  <p>Prevents unauthorized access to your account</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="col-md-5 aggregate">
-            <div className="right">
-              <div className="login-form">
-                <form className="" onSubmit={handleSubmit}>
-                  <select
-                    className="form-select mb-3 custom-form"
-                    aria-label="Default select example"
-                    required
-                    onChange={(e) => setQuestion(e.target.value)}
-                  >
-                    <option value="">Select security question</option>
-                    {/* <option defaultValue>Open this select menu</option> */}
-                    <option value="What is the name of your favorite pet?">
-                      What is the name of your favorite pet?
-                    </option>
-                    <option value=" What is your mother's maiden name?">
-                      What is your mother's maiden name?
-                    </option>
-                    <option value="Where did you meet your spouse?">
-                      Where did you meet your spouse?
-                    </option>
-                    <option value="What is your first crush name?">
-                      What is your first crush name?
-                    </option>
-                  </select>
-                  <div className="mb-3">
-                    <input
-                      type="text"
-                      className="form-control custom-form"
-                      placeholder="Your Answer"
-                      required
-                      value={answer}
-                      onChange={(e) =>
-                        setAnswer(e.target.value.trim().toLowerCase())
-                      }
-                    />
+        </div>
+        <div className="contents order-1 order-md-2">
+          <div className="container">
+            <div className="row align-items-center justify-content-center bg-white">
+              <div className="col-md-6">
+                <div className="right">
+                  <div className="">
+                    <form className="" onSubmit={handleSubmit}>
+                      <select
+                        className="form-select mb-3 custom-form"
+                        aria-label="Default select example"
+                        required
+                        onChange={(e) => setQuestion(e.target.value)}
+                      >
+                        <option value="">Select security question</option>
+                        {/* <option defaultValue>Open this select menu</option> */}
+                        <option value="What is the name of your favorite pet?">
+                          What is the name of your favorite pet?
+                        </option>
+                        <option value=" What is your mother's maiden name?">
+                          What is your mother's maiden name?
+                        </option>
+                        <option value="Where did you meet your spouse?">
+                          Where did you meet your spouse?
+                        </option>
+                        <option value="What is your first crush name?">
+                          What is your first crush name?
+                        </option>
+                      </select>
+                      <div className="mb-3">
+                        <input
+                          type="text"
+                          className="form-control custom-form"
+                          placeholder="Your Answer"
+                          required
+                          value={answer}
+                          onChange={(e) =>
+                            setAnswer(e.target.value.trim().toLowerCase())
+                          }
+                        />
+                      </div>
+                      {loading ? (
+                        <div className="">
+                          <button
+                            type="button"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                            style={{ width: "100%" }}
+                          >
+                            Loading
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="">
+                          <button
+                            type="submit"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                            style={{ width: "100%" }}
+                          >
+                            Continue
+                          </button>
+                        </div>
+                      )}
+                    </form>
                   </div>
-                  {loading ? (
-                    <div className="">
-                      <button
-                        type="button"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                        style={{ width: "100%" }}
-                      >
-                        Loading
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="">
-                      <button
-                        type="submit"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                        style={{ width: "100%" }}
-                      >
-                        Continue
-                      </button>
-                    </div>
-                  )}
-                </form>
+                </div>
               </div>
             </div>
           </div>

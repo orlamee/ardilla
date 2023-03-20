@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import logo from "../img/logo.svg";
+import { useNavigate } from "react-router-dom";
 import home from "../img/home-login.svg";
 import axios from "axios";
 
@@ -81,7 +80,7 @@ function AQ() {
   };
 
   return (
-    <section className="login-section">
+    <section className="">
       {err && (
         <div className="row justify-content-center  ardilla-alert">
           <div className="col-md-6">
@@ -122,75 +121,73 @@ function AQ() {
           </div>
         </div>
       )}
-      <div className="container">
-        <div className="row logo">
-          <div className="col-md-6">
-            <Link to="/complete-profile">
-              <img src={logo} alt="" className="img-fluid mb-5" />
-            </Link>
-          </div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-md-6 mb-3">
-            <div className="left text-left">
-              <img src={home} alt="" className="img-fluid" />
-              <h2 className="my-4">
-                Security
-                <br />
-                Question
-              </h2>
-              <p className="code mb-5">
-                Answer your security question
-                <br />
-                by filling in your answer
-              </p>
+      <div className="d-lg-flex half">
+        <div to="/login" className="bg order-2 order-md-1 registerbg">
+          <div className="container">
+            <div className="row align-items-center justify-content-center">
+              <div className="col-md-6 mb-3">
+                <div className="left text-center entry">
+                  <img src={home} alt="" className="img-fluid" />
+                  <h2 className="mb-3 mt-5 text-white">
+                    Answer Security Question
+                  </h2>
+                  <p>Prevents unauthorized access to your account</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="col-md-5 aggregate">
-            <div className="right">
-              <div className="login-form">
-                <form onSubmit={handleSubmit}>
-                  <span className="q">
-                    {userDetail?.securityQusetion?.question}
-                  </span>
-                  <div class="my-4">
-                    <input
-                      type="text"
-                      class="form-control custom-form"
-                      required
-                      value={ans}
-                      onChange={(e) =>
-                        setAns(e.target.value.trim().toLowerCase())
-                      }
-                    />
+        </div>
+        <div className="contents order-1 order-md-2">
+          <div className="container">
+            <div className="row align-items-center justify-content-center bg-white">
+              <div className="col-md-6">
+                <div className="right">
+                  <div className="">
+                    <form onSubmit={handleSubmit}>
+                      <span className="q">
+                        {userDetail?.securityQusetion?.question}
+                      </span>
+                      <div class="my-4">
+                        <input
+                          type="text"
+                          class="form-control custom-form"
+                          required
+                          value={ans}
+                          onChange={(e) =>
+                            setAns(e.target.value.trim().toLowerCase())
+                          }
+                        />
+                      </div>
+                      {loading ? (
+                        <div className="">
+                          <button
+                            type="button"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                            style={{ width: "100%" }}
+                          >
+                            Loading
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="">
+                          <button
+                            type="submit"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                            style={{ width: "100%" }}
+                          >
+                            Continue
+                          </button>
+                        </div>
+                      )}
+                    </form>
                   </div>
-                  {loading ? (
-                    <div className="">
-                      <button
-                        type="button"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                        style={{ width: "100%" }}
-                      >
-                        Loading
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="">
-                      <button
-                        type="submit"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                        style={{ width: "100%" }}
-                      >
-                        Continue
-                      </button>
-                    </div>
-                  )}
-                </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
     </section>
   );
 }

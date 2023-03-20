@@ -12,6 +12,13 @@
   font-weight: 700;
 }
 
+.entry p {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 500;
+  color: #fff
+}
+
 .banner h2 {
   font-size: 85px;
   line-height: 97px;
