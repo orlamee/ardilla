@@ -380,6 +380,7 @@ h6 a {
   height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .custom-form {
