@@ -123,7 +123,6 @@ nav.navbar {
 @media (min-width: 992px){
   .login-form {
     background-color: transparent;
-    padding: 40px 50px;
     box-shadow: 0px 12px 24px rgba(10, 7, 12, 0.15);
     border-radius: 20px;
   }
@@ -132,7 +131,6 @@ nav.navbar {
 @media (max-width: 767.98px){
   .login-form {
     background-color: transparent;
-    padding: 50px 26px;
     box-shadow: 0px 12px 24px rgba(10, 7, 12, 0.15);
     border-radius: 20px;
   }
@@ -609,6 +607,13 @@ h6 a {
   background-repeat: no-repeat!important;
   background-size: cover!important; 
   background-position: center;
+}
+
+.loginwrapper {
+  background-image: url('../img/white-bg.svg');
+  background-repeat: no-repeat!important;
+  background-size: cover!important; 
+  /* background-position: center; */
 }
 
 .left-forgot {

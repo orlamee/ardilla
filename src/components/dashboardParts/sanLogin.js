@@ -168,13 +168,13 @@ function SANLogin() {
             <div className="row align-items-center justify-content-center">
               <div className="col-md-7">
                 <div className="right ms-3">
-                  <div className="row logo-new desktop">
+                  {/* <div className="row logo-new desktop">
                     <div className="col-md-6 ">
                       <Link to="/">
                         <img src={logo} alt="" className="img-fluid mb-5" />
                       </Link>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="login-form login-form-new">
                     <h3>Welcome!</h3>
                     <h6 className="mt-4">
