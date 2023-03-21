@@ -5,7 +5,7 @@ import Error from "../components/error404";
 
 function ErrorPage() {
   return (
-    <div>
+    <div className="bg-white vh-100">
       {/* <Header/> */}
       <Error/>
     </div>

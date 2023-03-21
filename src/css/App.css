@@ -355,14 +355,31 @@ h6 a {
 }
 
 .error h1 {
-  font-size: 180px;
-  line-height: 207px;
-  font-weight: 700;
-  color: #3D0072;
+  font-size: 104px;
+  line-height: 130px;
+  font-weight: 800;
+  color: #8807F7;
+  font-family: "Ubuntu-Bold";
+}
+
+.error h6 {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #8807F7;
+}
+
+.error h3 {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+  color: #8807F7;
 }
 
 .error {
-  padding: 100px 20px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .custom-form {

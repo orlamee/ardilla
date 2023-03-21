@@ -1427,7 +1427,7 @@ h5 a {
 }
 
 .coach-hero {
-  padding: 250px 10px;
+  padding: 100px 10px 150px 10px;
   background-image: url("../img/dashboard/levelbg.svg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -1449,6 +1449,7 @@ h5 a {
     line-height: 100px;
     color: #3D0072;
     font-weight: 700;
+    font-family: 'Ubuntu-Bold';
   }
 }
 
@@ -2236,3 +2237,10 @@ h5 a {
   font-weight: 500;
   line-height: 20px;
 }
+
+@media (min-width: 992px){
+  .oops {
+    margin-top: 259px
+  }
+}
+
