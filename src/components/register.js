@@ -140,17 +140,17 @@ function Register() {
                 <div className="right">
                   <div className="">
                     <form className="" onSubmit={handleSubmit}>
-                      <div className="">
-                        <label className="form-label">
-                          <i className="bi bi-envelope-fill me-2"></i> Email address
-                        </label>
+                      <div className="form-floating">
                         <input
                           type="email"
-                          className="form-control custom-login"
+                          className="form-control custom-login" id="floatingInput" placeholder="name@example.com"
                           required
                           value={email}
                           onChange={(e) => setEmail(e.target.value.toLowerCase())}
                         />
+                        <label for="floatingInput">
+                          <i className="bi bi-envelope-fill me-2"></i> Email address
+                        </label>
                       </div>
                       {isLoading ? (
                         <div className="my-5">
