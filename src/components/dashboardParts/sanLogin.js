@@ -168,7 +168,7 @@ function SANLogin() {
             <div className="row align-items-center justify-content-center">
               <div className="col-md-7">
                 <div className="right ms-3">
-                  {/* <div className="row logo-new desktop">
+                  {/* <div className="">
                     <div className="col-md-6 ">
                       <Link to="/">
                         <img src={logo} alt="" className="img-fluid mb-5" />
