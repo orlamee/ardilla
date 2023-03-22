@@ -6,6 +6,10 @@
   background-size: cover;
 }
 
+.text-grey {
+  color: #6B7280!important;
+}
+
 .entry h2 {
   font-size: 30px;
   line-height: 37px;
@@ -16,7 +20,7 @@
   font-size: 12px;
   line-height: 15px;
   font-weight: 500;
-  color: #fff
+  color: #ffffffa6
 }
 
 .banner h2 {
