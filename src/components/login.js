@@ -132,31 +132,26 @@ function Login() {
                       Here’s how to Log in to access your account
                     </h6>
                     <form className="mt-5" onSubmit={handleSubmit}>
-                      <div className="mb-3">
-                        <label className="form-label">
-                          <i className="bi bi-envelope-fill me-2"></i> Email
-                          address
-                        </label>
+                      <div className="mb-3 form-floating">
                         <input
                           type="email"
-                          className="form-control custom-login"
+                          className="form-control custom-login" id="floatingInput" placeholder="name@example.com"
                           required
                           value={email}
                           onChange={(e) =>
                             setEmail(e.target.value.toLowerCase())
                           }
                         />
-                      </div>
-                      <div className="">
-                        <label className="form-label">
-                          <i className="bi bi-shield-lock-fill me-2"></i>{" "}
-                          Password
+                        <label for="floatingInput">
+                          <i className="bi bi-envelope-fill me-2"></i> Email
+                          address
                         </label>
+                      </div>
+                      <div className="form-floating">
                         <input
                           type="password"
                           name="pass"
-                          className="form-control custom-login"
-                          id="pass"
+                          className="form-control custom-login" id="pass" placeholder="name@example.com"
                           required
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
@@ -165,6 +160,10 @@ function Login() {
                           toggle="#password-field"
                           className="fa fa-fw fa-eye field_icon toggle-pass"
                         ></span>
+                        <label for="floatingInput">
+                          <i className="bi bi-shield-lock-fill me-2"></i>{" "}
+                          Password
+                        </label>
                       </div>
                       <div className="mobile">
                         <div className="mb-2">
