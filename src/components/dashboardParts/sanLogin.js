@@ -181,25 +181,24 @@ function SANLogin() {
                       Here’s how to Log in to access your account
                     </h6>
                     <form className="mt-5" onSubmit={handleSubmit}>
-                      <div className="mb-5">
-                        <label className="form-label">
-                          <i className="bi bi-box-arrow-in-right me-2"></i> 
-                          Enter your SAN ID
-                        </label>
+                      <div className="mb-5 form-floating">
                         <input
                           type="email"
-                          className="form-control custom-login"
+                          className="form-control custom-login" id="pass" placeholder="name@example.com"
                           required
                           value={email}
                           onChange={(e) =>
                             setEmail(e.target.value.toLowerCase())
                           }
                         />
-                        
                         <span
                           toggle="#password-field"
                           className="fa fa-fw fa-eye field_icon toggle-pass"
                         ></span>
+                        <label for="floatingInput">
+                          <i className="bi bi-box-arrow-in-right me-2"></i> 
+                          Enter your SAN ID
+                        </label>
                         <Link className="float-end fg" to="/recover-san">
                           Forgot SAN ID?
                         </Link>
