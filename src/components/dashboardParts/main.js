@@ -195,16 +195,15 @@ function Sidebar() {
   }
 
   console.log(greeting);
-
   return (
     <section className="main-dash">
       <div className="sidebar">
         <div className="row">
           <div className="col cadet-name">
             <h2>
-              Cadet {"<"}
-              Starboy
-              {"/>"}
+               Cadet {"<"}
+              {userDetails?.kodeHex}
+              {"/>"},
             </h2>
           </div>
         </div>

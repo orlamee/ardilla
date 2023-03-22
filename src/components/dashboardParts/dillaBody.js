@@ -462,9 +462,9 @@ function DillaBody() {
         <div className="row dilla-right">
           <div className="col">
             <h6>
-              Cadet {"<"}
+              {/* Cadet {"<"}
               {userDetails?.kodeHex}
-              {"/>"},
+              {"/>"}, */}
             </h6>
           </div>
         </div>
