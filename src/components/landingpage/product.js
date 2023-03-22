@@ -3,7 +3,11 @@ import "swiper/css";
 import 'swiper/css/pagination';
 import checklist from "../../img/checklist.svg";
 // import learn from "../../img/learn-home.svg";
-import saver from "../../img/pink.svg";
+import saver from "../../img/product-save.svg";
+import learn from "../../img/product-learn.svg";
+import insure from "../../img/product-insurance.svg";
+import budget from "../../img/product-budget.svg";
+import invest from "../../img/product-invest.svg";
 import { Autoplay, Pagination } from "swiper";
 function Products() {
   return(
@@ -100,7 +104,7 @@ function Products() {
                 </div>
               </div>
               <div className="col-md-5">
-                <img src={saver} alt="savings" className="img-fluid w-100" />
+                <img src={learn} alt="savings" className="img-fluid w-100" />
               </div>
             </div>
           </SwiperSlide>
@@ -140,7 +144,7 @@ function Products() {
                 </div>
               </div>
               <div className="col-md-5">
-                <img src={saver} alt="savings" className="img-fluid w-100" />
+                <img src={invest} alt="savings" className="img-fluid w-100" />
               </div>
             </div>
           </SwiperSlide>
@@ -180,7 +184,7 @@ function Products() {
                 </div>
               </div>
               <div className="col-md-5">
-                <img src={saver} alt="savings" className="img-fluid w-100" />
+                <img src={budget} alt="savings" className="img-fluid w-100" />
               </div>
             </div>
           </SwiperSlide>
@@ -220,7 +224,7 @@ function Products() {
                 </div>
               </div>
               <div className="col-md-5">
-                <img src={saver} alt="savings" className="img-fluid w-100" />
+                <img src={insure} alt="savings" className="img-fluid w-100" />
               </div>
             </div>
           </SwiperSlide>

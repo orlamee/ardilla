@@ -53,7 +53,7 @@ function NewNav() {
                 <div className="dropdown-menu dropdown-large">
                   <div className="row">
                     <div className="col-md-6 p-5">
-                      <Link to="/save" className="navigation-h">
+                      <Link to="/save" role="button" className="navigation-h">
                         <div className="d-flex flex-row mb-4">
                           <div className="i-bg me-3">
                             <Icon icon="material-symbols:energy-savings-leaf-outline" className="fs-3 icon-nav"/>
