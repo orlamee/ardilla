@@ -1,6 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Player, BigPlayButton  } from 'video-react';
+import React, { useEffect, useState } from "react";
 
 import "../../css/learn.css"
 import home from "../../img/dashboard/home.svg";
@@ -18,12 +18,49 @@ import savenow from "../../img/dashboard/learn-ref.svg";
 import insurenow from "../../img/dashboard/insurenow.svg";
 import investnow from "../../img/dashboard/investnow.svg";
 import ardilla from "../../img/dashboard/ardilla.mp4";
+import axios from "axios";
+
 
 
 function LearnBody() {
-    return (
+  const [userDetails, setUserDetails] = useState();
+  const [setValue] = useState("");
+  
+
+  useEffect(() => {
+
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUserDetails(data.user);
+        const calculateKycProgress = data.user.kycPoints / 100;
+        setValue(calculateKycProgress);
+        console.log("user", data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getUserById();
+  },);
+  return (
     <section className="main-dash">
       <div className="sidebar">
+        <div className="row">
+          <div className="col cadet-name">
+            <h2>
+               Cadet {"<"}
+              {userDetails?.kodeHex}
+              {"/>"},
+            </h2>
+          </div>
+        </div>
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
             <img src={home} alt="" className="img-fluid me-2 icons" />
@@ -79,10 +116,10 @@ function LearnBody() {
               Payment
             </div>
           </Link>
-          <Link>
+          <Link to="/financial-coach">
             <div className="d-flex flex-row">
               <img src={chat} alt="" className="img-fluid me-2 icons" />
-              Chat Support
+              Financial Coach
             </div>
           </Link>
           <Link>

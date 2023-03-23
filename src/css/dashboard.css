@@ -1,7 +1,31 @@
 .dashboard-header {
   padding: 30px;
-  background-color: #fdf3fa;
+  background-image: url('../img/headdash.svg');
+  background-color: #550595;
 }
+
+.dark-mode {
+  /* background-color: #8807f7; */
+  background-image: url('../img/backdash.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.home .sidebar {
+  width: 380px!important;
+  background-image: url('../img/sidebardash.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.home .sidebar a {
+  color: #fff;
+
+}
+
 
 .sidebar {
   margin: 0;
@@ -35,7 +59,7 @@ div.content {
   background-repeat: no-repeat;
   background-size: cover;  
   border-radius: 30px;
-  margin-bottom: 90px;
+  /* margin-bottom: 90px; */
   padding-top: 100px;
   padding-bottom: 100px;
   min-height: 750px;
@@ -55,6 +79,21 @@ div.content {
 
 .icons {
   margin-top: -8px;
+}
+
+.home .sidebar a.active {
+  background-color: #fff;
+  color: #3D0072;
+  border-radius: 10px;
+  /* margin-bottom: 4px; */
+  /* margin-top: 4px; */
+}
+
+.home .sidebar a:hover:not(.active) {
+  background-color: #fff;
+  color: #3D0072;
+  border-radius: 10px;
+  /* margin-bottom: 5px; */
 }
 
  

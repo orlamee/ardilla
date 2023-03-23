@@ -4,7 +4,7 @@ import "../css/dashboard.css";
 
 function DashboardMain() {
   return (
-    <div>
+    <div className="dark-mode">
       <Header/>
       <Sidebar/>
     </div>

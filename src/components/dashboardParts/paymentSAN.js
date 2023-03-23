@@ -35,6 +35,8 @@ function PaymentSAN() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [sanHistory, setSanHistory] = useState();
+  const [userDetails, setUserDetails] = useState();
+  const [setValue] = useState("");
 
   useEffect(() => {
     const getSanAcct = async () => {
@@ -80,6 +82,25 @@ function PaymentSAN() {
       }
     };
 
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUserDetails(data.user);
+        const calculateKycProgress = data.user.kycPoints / 100;
+        setValue(calculateKycProgress);
+        console.log("user", data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getUserById();
     getSanAcct();
     getSanHistory();
   }, []);
@@ -107,6 +128,15 @@ function PaymentSAN() {
         </div>
       )}
       <div className="sidebar">
+        <div className="row">
+          <div className="col cadet-name">
+            <h2>
+               Cadet {"<"}
+              {userDetails?.kodeHex}
+              {"/>"},
+            </h2>
+          </div>
+        </div>
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
             <img src={home} alt="" className="img-fluid me-2 icons" />
@@ -149,23 +179,23 @@ function PaymentSAN() {
             Budgeting <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
-        <Link to="/learn" className="">
+        <Link to="/learn">
           <div className="d-flex flex-row">
             <img src={learn} alt="" className="img-fluid me-2 icons" />
             Learn
           </div>
         </Link>
         <div className="second-nav">
-          <Link to="/payment" className="active">
+          <Link to="/payment"  className="active">
             <div className="d-flex flex-row">
               <img src={contact} alt="" className="img-fluid me-2 icons" />
               Payment
             </div>
           </Link>
-          <Link>
+          <Link to="/financial-coach">
             <div className="d-flex flex-row">
               <img src={chat} alt="" className="img-fluid me-2 icons" />
-              Chat Support
+              Financial Coach
             </div>
           </Link>
           <Link>

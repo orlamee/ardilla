@@ -196,7 +196,7 @@ function Sidebar() {
 
   console.log(greeting);
   return (
-    <section className="main-dash">
+    <section className="home">
       <div className="sidebar">
         <div className="row">
           <div className="col cadet-name">

@@ -8,7 +8,7 @@ import c from "../../img/dashboard/account-icon.svg";
 
 function Header() {
   return (
-    <section className="dashboard-header fixed-top">
+    <section className="dashboard-header sticky-top">
       <div className="container-fluid">
         <div className="row justify-content-center">
           <div className="col-md-12 text-center">

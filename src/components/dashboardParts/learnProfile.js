@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../css/learn.css"
 import home from "../../img/dashboard/home.svg";
@@ -20,13 +20,50 @@ import blue from "../../img/dashboard/bluerec.svg";
 import streak from "../../img/dashboard/Streak.svg";
 import becca from "../../img/dashboard/leader.svg";
 import rank from "../../img/dashboard/Rank.png";
+import axios from "axios";
+
 
 
 
 function LearnProfile() {
-    return (
+  const [userDetails, setUserDetails] = useState();
+  const [setValue] = useState("");
+  
+
+  useEffect(() => {
+
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUserDetails(data.user);
+        const calculateKycProgress = data.user.kycPoints / 100;
+        setValue(calculateKycProgress);
+        console.log("user", data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getUserById();
+  },);
+  return (
     <section className="main-dash">
       <div className="sidebar">
+        <div className="row">
+          <div className="col cadet-name">
+            <h2>
+               Cadet {"<"}
+              {userDetails?.kodeHex}
+              {"/>"},
+            </h2>
+          </div>
+        </div>
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
             <img src={home} alt="" className="img-fluid me-2 icons" />
@@ -82,10 +119,10 @@ function LearnProfile() {
               Payment
             </div>
           </Link>
-          <Link>
+          <Link to="/financial-coach">
             <div className="d-flex flex-row">
               <img src={chat} alt="" className="img-fluid me-2 icons" />
-              Chat Support
+              Financial Coach
             </div>
           </Link>
           <Link>

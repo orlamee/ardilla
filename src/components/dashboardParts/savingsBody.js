@@ -26,6 +26,8 @@ function SavingsBody() {
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState(false);
   const [totalBalance, setTotalBalance] = useState("");
+  const [userDetails, setUserDetails] = useState();
+  const [setValue] = useState("");
 
   useEffect(() => {
     const getFlexAccount = async () => {
@@ -86,6 +88,26 @@ function SavingsBody() {
       }
     };
 
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUserDetails(data.user);
+        const calculateKycProgress = data.user.kycPoints / 100;
+        setValue(calculateKycProgress);
+        console.log("user", data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getUserById();
+
     // getUserById();
     getFlexAccount();
     calculateTotal();
@@ -121,13 +143,22 @@ function SavingsBody() {
         </div>
       )}
       <div className="sidebar">
+        <div className="row">
+          <div className="col cadet-name">
+            <h2>
+               Cadet {"<"}
+              {userDetails?.kodeHex}
+              {"/>"},
+            </h2>
+          </div>
+        </div>
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
             <img src={home} alt="" className="img-fluid me-2 icons" />
             Home
           </div>
         </Link>
-        <Link to="/portfolio" className="">
+        <Link to="/portfolio">
           <div className="d-flex flex-row">
             <img src={portfolio} alt="" className="img-fluid me-2 icons" />
             Portfolio
@@ -176,10 +207,10 @@ function SavingsBody() {
               Payment
             </div>
           </Link>
-          <Link>
+          <Link to="/financial-coach" className="active">
             <div className="d-flex flex-row">
               <img src={chat} alt="" className="img-fluid me-2 icons" />
-              Chat Support
+              Financial Coach
             </div>
           </Link>
           <Link>

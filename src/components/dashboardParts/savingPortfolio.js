@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
 import investment from "../../img/dashboard/growth.svg";
@@ -14,22 +14,51 @@ import chat from "../../img/dashboard/chat.svg";
 import left from "../../img/dashboard/leftie.svg";
 import right from "../../img/dashboard/rightie.svg";
 import below from "../../img/dashboard/below.svg";
+import axios from "axios";
+
 // import linechart from "../../img/dashboard/linechart.svg";
 
-import Cookies from "js-cookie";
 
 
 function SavingPortfolio() {
-  const navigate = useNavigate();
-  const handleLogOut = () => {
-    Cookies.remove("user");
-    sessionStorage.clear();
-    navigate("/login");
-    window.location.reload();
-  };
+  const [userDetails, setUserDetails] = useState();
+  const [setValue] = useState("");
+  
+
+  useEffect(() => {
+
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUserDetails(data.user);
+        const calculateKycProgress = data.user.kycPoints / 100;
+        setValue(calculateKycProgress);
+        console.log("user", data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getUserById();
+  },);
   return (
     <section className="main-dash">
       <div className="sidebar">
+        <div className="row">
+          <div className="col cadet-name">
+            <h2>
+               Cadet {"<"}
+              {userDetails?.kodeHex}
+              {"/>"},
+            </h2>
+          </div>
+        </div>
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
             <img src={home} alt="" className="img-fluid me-2 icons" />
@@ -42,7 +71,7 @@ function SavingPortfolio() {
             Portfolio
           </div>
         </Link>
-        <Link to="/savings" className="">
+        <Link to="/savings">
           <div className="d-flex flex-row">
             <img src={saving} alt="" className="img-fluid me-2 icons" />
             Savings
@@ -85,13 +114,13 @@ function SavingPortfolio() {
               Payment
             </div>
           </Link>
-          <Link>
+          <Link to="/financial-coach">
             <div className="d-flex flex-row">
               <img src={chat} alt="" className="img-fluid me-2 icons" />
               Financial Coach
             </div>
           </Link>
-          <Link onClick={handleLogOut}>
+          <Link>
             <div className="d-flex flex-row">
               <img src={logout} alt="" className="img-fluid me-2 icons" />
               Log Out

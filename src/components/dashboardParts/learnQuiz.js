@@ -1,6 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
-
+import React, { useEffect, useState } from "react";
 import "../../css/learn.css"
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -17,12 +16,49 @@ import savenow from "../../img/dashboard/learn-ref.svg";
 import insurenow from "../../img/dashboard/insurenow.svg";
 import investnow from "../../img/dashboard/investnow.svg";
 import quiz from "../../img/dashboard/quiz.svg";
+import axios from "axios";
+
 
 
 function LearnQuiz() {
-    return (
+  const [userDetails, setUserDetails] = useState();
+  const [setValue] = useState("");
+  
+
+  useEffect(() => {
+
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUserDetails(data.user);
+        const calculateKycProgress = data.user.kycPoints / 100;
+        setValue(calculateKycProgress);
+        console.log("user", data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getUserById();
+  },);
+  return (
     <section className="main-dash">
       <div className="sidebar">
+        <div className="row">
+          <div className="col cadet-name">
+            <h2>
+               Cadet {"<"}
+              {userDetails?.kodeHex}
+              {"/>"},
+            </h2>
+          </div>
+        </div>
         <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
             <img src={home} alt="" className="img-fluid me-2 icons" />
@@ -78,10 +114,10 @@ function LearnQuiz() {
               Payment
             </div>
           </Link>
-          <Link>
+          <Link to="/financial-coach">
             <div className="d-flex flex-row">
               <img src={chat} alt="" className="img-fluid me-2 icons" />
-              Chat Support
+              Financial Coach
             </div>
           </Link>
           <Link>

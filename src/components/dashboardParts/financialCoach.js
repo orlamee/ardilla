@@ -1,5 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import "../../css/profile.css"
 import home from "../../img/dashboard/home.svg";
 import portfolio from "../../img/dashboard/portfolio.svg";
@@ -12,18 +12,51 @@ import insurance from "../../img/dashboard/insurance.svg";
 import logout from "../../img/dashboard/logout.svg";
 import contact from "../../img/dashboard/pay.svg";
 import chat from "../../img/dashboard/chat.svg";
-
-
-
+import axios from "axios";
 
 
 
 
 function FinancialCoach() {
+  const [userDetails, setUserDetails] = useState();
+  const [setValue] = useState("");
+  
+
+  useEffect(() => {
+
+    const getUserById = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/get-user`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        setUserDetails(data.user);
+        const calculateKycProgress = data.user.kycPoints / 100;
+        setValue(calculateKycProgress);
+        console.log("user", data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getUserById();
+  },);
   return (
     <section className="main-dash">
       <div className="sidebar">
-        <Link to="/dashboard">
+        <div className="row">
+          <div className="col cadet-name">
+            <h2>
+               Cadet {"<"}
+              {userDetails?.kodeHex}
+              {"/>"},
+            </h2>
+          </div>
+        </div>
+        <Link to="/dashboard" className="">
           <div className="d-flex flex-row">
             <img src={home} alt="" className="img-fluid me-2 icons" />
             Home
@@ -65,7 +98,7 @@ function FinancialCoach() {
             Budgeting <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
-        <Link to="/learn" className="">
+        <Link to="/learn">
           <div className="d-flex flex-row">
             <img src={learn} alt="" className="img-fluid me-2 icons" />
             Learn
@@ -78,7 +111,7 @@ function FinancialCoach() {
               Payment
             </div>
           </Link>
-          <Link to="/financial-coach" className="active" >
+          <Link to="/financial-coach" className="active">
             <div className="d-flex flex-row">
               <img src={chat} alt="" className="img-fluid me-2 icons" />
               Financial Coach
