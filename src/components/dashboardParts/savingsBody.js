@@ -207,7 +207,7 @@ function SavingsBody() {
               Payment
             </div>
           </Link>
-          <Link to="/financial-coach" className="active">
+          <Link to="/financial-coach">
             <div className="d-flex flex-row">
               <img src={chat} alt="" className="img-fluid me-2 icons" />
               Financial Coach
