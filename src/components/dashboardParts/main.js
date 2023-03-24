@@ -332,7 +332,7 @@ function Sidebar() {
                   NGN{" "}
                   {Intl.NumberFormat("en-US").format(dillaWallet + sanBalance)}{" "}
                 </span> */}
-                <i className="bi bi-eye-fill float-end"></i>
+                <Icon icon="pajamas:eye" className="float-end" />
               </div>
               {/* <div className="mt-4 p-2">
                 <div className="d-flex flex-row">
