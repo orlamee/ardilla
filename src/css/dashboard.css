@@ -130,7 +130,7 @@ div.content {
 .roi {
   background: #e6356d;
   padding: 5px!important;
-  font-size: 8px;
+  font-size: 10px;
   color: #fff;
   padding: 6px 10px!important;
   border-radius: 20px;
@@ -148,6 +148,17 @@ div.content {
   color: #fff;
   font-size: 20px;
   font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.dilla-wallet-btn {
+  background-color: #fff!important;
+  border-color: #fff!important;
+  border-radius: 60px;
+  color: #E8356D!important;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 20px;
 }
 
 .details span {

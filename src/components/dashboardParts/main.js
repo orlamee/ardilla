@@ -296,7 +296,7 @@ function Sidebar() {
                 <i className="bi bi-eye-fill float-end text-white"></i>
               </div>
               <div className="mt-4 p-2">
-                <div className="d-flex flex-row">
+                {/* <div className="d-flex flex-row">
                   <label className="switch">
                     <input type="checkbox" placeholder="USD" />
                     <span className="slider round"></span>
@@ -304,10 +304,10 @@ function Sidebar() {
                   <span className="text-white ms-2 mt-2 dollar-rate">
                     ₦740 /$1
                   </span>
-                </div>
+                </div> */}
                 <Link
-                  style={{ marginTop: "-34px" }}
-                  className="float-end btn btn-outline-primary px-4 py-2 ardilla-btn-inverted fs-6"
+                  style={{ marginTop: "-7px" }}
+                  className=" btn btn-outline-primary px-4 py-2 dilla-wallet-btn fs-6"
                   to=""
                 >
                   Add Money
@@ -334,7 +334,7 @@ function Sidebar() {
                 </span> */}
                 <i className="bi bi-eye-fill float-end"></i>
               </div>
-              <div className="mt-4 p-2">
+              {/* <div className="mt-4 p-2">
                 <div className="d-flex flex-row">
                   <label className="switch">
                     <input type="checkbox" placeholder="USD" />
@@ -347,7 +347,7 @@ function Sidebar() {
                     ₦740 /$1
                   </span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -485,7 +485,7 @@ function Sidebar() {
             </div>
           )} */}
           <div className="col-md-4">
-            <Link to="" className="dwd-app">
+            <Link to="/downloadardilla" className="dwd-app">
               <img src={dwdapp} alt="download" className="img-fluid w-100" />
             </Link>
           </div>

@@ -797,7 +797,7 @@ h6 a {
   height: 50px;
 }
 
-.navigation-h:hover h2{
+.navigation-h :hover h2{
   color: #e5336d!important;
 }
 
