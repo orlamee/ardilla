@@ -14,7 +14,7 @@
 }
 
 .home .sidebar {
-  width: 380px!important;
+  width: 349px!important;
   background-image: url('../img/sidebardash.svg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -39,7 +39,7 @@
 .sidebar a {
   display: block;
   color: black;
-  padding: 15px;
+  padding: 16px;
   text-decoration: none;
   color: #3D0072;
   font-size: 14px;
@@ -49,7 +49,7 @@
 }
 
 div.content {
-  margin-left: 380px;
+  margin-left: 354px;
   padding-left: 28px;
   padding-right: 28px;
   background-color: #fff;
@@ -85,6 +85,7 @@ div.content {
   background-color: #fff;
   color: #3D0072;
   border-radius: 10px;
+  font-weight: 500;
   
 }
 
@@ -94,20 +95,22 @@ div.content {
   border-radius: 10px;
 }
 
+.home .sidebar a:hover .badg {
+  border-color: #3D0072;
+  color: #3D0072;
+}
+
  
 .sidebar a.active {
   background-color: #FFA7C2;
   color: #E7356C;
   border-radius: 10px;
-  /* margin-bottom: 4px; */
-  /* margin-top: 4px; */
 }
 
 .sidebar a:hover:not(.active) {
   background-color: #FFA7C2;
   color: #E7356C;
   border-radius: 10px;
-  /* margin-bottom: 5px; */
 }
 
 .kodename h2 {
@@ -532,13 +535,22 @@ input:checked + .slider:before {
   font-size: 10px
 }
 
+.home .badg {
+  border: 1px solid #fff;
+  padding: 3px 7px;
+  border-radius: 30px;
+  margin-top: -4px;
+  font-size: 9px;
+  color: #fff;
+}
+
 .badg {
   border: 1px solid #E6356D;
   padding: 3px 7px;
   border-radius: 30px;
   margin-top: -4px;
   font-size: 9px;
-  color: #E6356D!important;
+  color: #E6356D;
 }
 
 .value h6 {
