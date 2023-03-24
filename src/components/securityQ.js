@@ -87,7 +87,7 @@ function SecurityPage() {
   }, 2000);
 
   return (
-    <section className="login-section">
+    <section className="">
       {err && (
         <div className="row justify-content-center  ardilla-alert">
           <div className="col-md-6">

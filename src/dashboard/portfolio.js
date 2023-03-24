@@ -4,7 +4,7 @@ import PortfolioHeader from "../components/dashboardParts/portfolioHeader";
 
 function Portfolio() {
   return (
-    <div>
+    <div className="dark-mode">
       <PortfolioHeader/>
       <PortfolioBody/>
     </div>
