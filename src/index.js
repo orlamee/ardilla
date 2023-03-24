@@ -151,7 +151,7 @@ root.render(
       <Route path="/save" element={<Save />}></Route>
       <Route path="/dilla-wallet" element={<DillaWallet />}></Route>
       <Route path="/about-us" element={<AboutUsPage />}></Route>
-      <Route path="/download-ardilla" element={<DownloadApp />}></Route>
+      <Route path="/downloadardilla" element={<DownloadApp />}></Route>
       <Route path="/ranks" element={<RankPage />}></Route>
       <Route path="/terms-conditions" element={<TermsCondition />}></Route>
       <Route path="/payment-accounts" element={<PaymentA />}></Route>
