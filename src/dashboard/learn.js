@@ -5,7 +5,7 @@ import LearnHeader from "../components/dashboardParts/learnHeader";
 
 function LearnMain() {
   return (
-    <div>
+    <div className="dark-mode">
       <LearnHeader/>
       <LearnBody/>
     </div>

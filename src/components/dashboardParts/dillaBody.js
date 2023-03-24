@@ -3,17 +3,6 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import home from "../../img/dashboard/home.svg";
-import portfolio from "../../img/dashboard/portfolio.svg";
-import investment from "../../img/dashboard/growth.svg";
-import saving from "../../img/dashboard/investment.svg";
-import dilla from "../../img/dashboard/dilla.svg";
-import explore from "../../img/dashboard/explore.svg";
-import learn from "../../img/dashboard/learn.svg";
-import insurance from "../../img/dashboard/insurance.svg";
-import logout from "../../img/dashboard/logout.svg";
-import contact from "../../img/dashboard/pay.svg";
-import chat from "../../img/dashboard/chat.svg";
 import search from "../../img/dashboard/search.svg";
 import user from "../../img/dashboard/user.svg";
 import ola from "../../img/dashboard/ola.svg";
@@ -44,7 +33,7 @@ import becca from "../../img/dashboard/becca.svg";
 import axios from "axios";
 import Collapse from "react-bootstrap/Collapse";
 import transfer from "../../img/dashboard/received-icon.svg";
-// import Button from 'react-bootstrap/Button';
+import { Icon } from '@iconify/react';
 
 // import PaystackPop from "@paystack/inline-js";
 import { usePaystackPayment } from "react-paystack";
@@ -346,7 +335,7 @@ function DillaBody() {
   // }
 
   return (
-    <section className="main-dash">
+    <section className="home">
       {err && (
         <div className="row justify-content-center  ardilla-alert">
           <div className="col-md-6">
@@ -389,70 +378,79 @@ function DillaBody() {
       )}
 
       <div className="sidebar">
-        <Link to="/dashboard" className="">
-          <div className="d-flex flex-row">
-            <img src={home} alt="" className="img-fluid me-2 icons" />
-            Home
+        <div className="row">
+          <div className="col cadet-name">
+            <h2>
+               Cadet {"<"}
+              {userDetails?.kodeHex}
+              {"/>"},
+            </h2>
+          </div>
+        </div>
+        <Link to="/dashboard">
+          <div className="">
+            <Icon icon="mingcute:home-3-line" className="me-4 fs-4" />
+            <span className="mt-1">Home</span>
           </div>
         </Link>
-        <Link to="/portfolio" className="">
-          <div className="d-flex flex-row">
-            <img src={portfolio} alt="" className="img-fluid me-2 icons" />
+        <Link to="/portfolio">
+          <div className="">
+            <Icon icon="material-symbols:work-outline" className="me-4 fs-4" />
             Portfolio
           </div>
         </Link>
         <Link to="/savings">
-          <div className="d-flex flex-row">
-            <img src={saving} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="material-symbols:energy-savings-leaf-outline-rounded" className="me-4 fs-4" />
             Savings
           </div>
         </Link>
         <Link>
-          <div className="d-flex flex-row">
-            <img src={investment} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="fluent:arrow-growth-20-filled" className="me-4 fs-4" />
             Investments <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <Link>
-          <div className="d-flex flex-row">
-            <img src={insurance} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="ic:baseline-security" className="me-4 fs-4" />
             Insurance <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
-        <Link className="active" to="/dilla">
-          <div className="d-flex flex-row">
-            <img src={dilla} alt="" className="img-fluid me-2 icons" />
+        <a href="/dilla" className="active">
+          <div className="">
+            <Icon icon="ion:wallet-outline" className="me-4 fs-4" />
             Dilla
           </div>
-        </Link>
+        </a>
         <Link>
-          <div className="d-flex flex-row">
-            <img src={explore} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="ic:outline-explore" className="me-4 fs-4" />
             Budgeting <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <Link to="/learn">
-          <div className="d-flex flex-row">
-            <img src={learn} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="simple-icons:sololearn" className="me-4 fs-5" />
             Learn
           </div>
         </Link>
         <div className="second-nav">
           <Link to="/payment">
-            <div className="d-flex flex-row">
-              <img src={contact} alt="" className="img-fluid me-2 icons" />
+            <div className="">
+              <Icon icon="fluent:payment-32-regular" className="me-4 fs-4" />
               Payment
             </div>
           </Link>
-          <Link>
-            <div className="d-flex flex-row">
-              <img src={chat} alt="" className="img-fluid me-2 icons" />
-              Chat Support
+          <Link to="/financial-coach">
+            <div className="">
+              <Icon icon="bx:support" className="me-4 fs-4" />
+              Financial Coach
             </div>
           </Link>
           <Link>
-            <div className="d-flex flex-row">
-              <img src={logout} alt="" className="img-fluid me-2 icons" />
+            <div className="">
+              <Icon icon="bx:log-out-circle" className="me-4 fs-4" />
               Log Out
             </div>
           </Link>

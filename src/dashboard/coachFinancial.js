@@ -4,7 +4,7 @@ import FinancialHeader from "../components/dashboardParts/financialHeader";
 
 function CoachFinancial() {
   return (
-    <div>
+    <div className="dark-mode">
       <FinancialHeader/>
       <FinancialCoach/>
     </div>

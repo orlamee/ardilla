@@ -4,7 +4,7 @@ import SavingsHeader from "../components/dashboardParts/savingsHeader";
 
 function Savings() {
   return (
-    <div>
+    <div className="dark-mode">
       <SavingsHeader/>
       <SavingsBody/>
     </div>

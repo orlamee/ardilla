@@ -190,7 +190,7 @@ function PortfolioBody() {
             </div>
           </Link>
           <Link to="/financial-coach">
-            <div className="d-flex flex-row">
+            <div className="">
               <Icon icon="bx:support" className="me-4 fs-4" />
               Financial Coach
             </div>

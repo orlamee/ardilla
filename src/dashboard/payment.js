@@ -4,7 +4,7 @@ import PaymentSAN from "../components/dashboardParts/paymentSAN";
 
 function Payment() {
   return (
-    <div>
+    <div className="dark-mode">
       <PaymentHeader/>
       <PaymentSAN/>
     </div>

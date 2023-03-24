@@ -4,7 +4,7 @@ import DillaHeader from "../components/dashboardParts/dillaHeader";
 
 function DillaMain() {
   return (
-    <div>
+    <div className="dark-mode">
       <DillaHeader/>
       <DillaBody/>
     </div>

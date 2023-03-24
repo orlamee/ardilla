@@ -1,5 +1,5 @@
 import React from "react";
-import icon from "../../img/dashboard/page-icon.svg";
+import icon from "../../img/dashboard/logo.svg";
 import nots from "../../img/dashboard/nots.svg";
 import settings from "../../img/dashboard/settings.svg";
 import { Link } from "react-router-dom";
@@ -8,7 +8,7 @@ import c from "../../img/dashboard/account-icon.svg";
 
 function SavingsHeader() {
   return (
-    <section className="dashboard-header fixed-top">
+    <section className="dashboard-header sticky-top">
       <div className="container-fluid">
         <div className="row justify-content-center">
           <div className="col-md-12 text-center">

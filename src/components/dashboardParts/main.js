@@ -183,7 +183,7 @@ function Sidebar() {
             </div>
           </Link>
           <Link to="/financial-coach">
-            <div className="d-flex flex-row">
+            <div className="">
               <Icon icon="bx:support" className="me-4 fs-4" />
               Financial Coach
             </div>
@@ -234,7 +234,7 @@ function Sidebar() {
                 {/* <span className="amount">
                   NGN {Intl.NumberFormat("en-US").format(sanBalance)}
                 </span> */}
-                <i className="bi bi-eye-fill float-end text-white"></i>
+                <Icon icon="pajamas:eye" className="float-end text-white" />
               </div>
               <div className="mt-2 p-2">
                 {userDetails?.uid ? (
@@ -285,7 +285,7 @@ function Sidebar() {
                 </span> */}
                 {dillaWallet ? (
                   <span className="amount">
-                    USD{" "}
+                    NGN{" "}
                     {Intl.NumberFormat("en-US").format(
                       dillaWallet?.accountBalance
                     )}
@@ -293,7 +293,7 @@ function Sidebar() {
                 ) : (
                   <span className="amount">0</span>
                 )}
-                <i className="bi bi-eye-fill float-end text-white"></i>
+                <Icon icon="pajamas:eye" className="float-end text-white" />
               </div>
               <div className="mt-4 p-2">
                 {/* <div className="d-flex flex-row">
