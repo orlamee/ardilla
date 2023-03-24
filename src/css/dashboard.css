@@ -39,7 +39,7 @@
 .sidebar a {
   display: block;
   color: black;
-  padding: 19px;
+  padding: 15px;
   text-decoration: none;
   color: #3D0072;
   font-size: 14px;
@@ -85,15 +85,13 @@ div.content {
   background-color: #fff;
   color: #3D0072;
   border-radius: 10px;
-  /* margin-bottom: 4px; */
-  /* margin-top: 4px; */
+  
 }
 
 .home .sidebar a:hover:not(.active) {
   background-color: #fff;
   color: #3D0072;
   border-radius: 10px;
-  /* margin-bottom: 5px; */
 }
 
  

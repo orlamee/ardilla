@@ -22,9 +22,6 @@ import axios from "axios";
 import chart from "../../img/dashboard/new-graph.png";
 // import coins from "../../img/dashboard/coinss/s.svg";
 import ceo from "../../img/dashboard/ceo.svg";
-// import call from "../../img/dashboard/call.svg";
-// import mp from "../../img/dashboard/mp4.svg";
-// import chats from "../../img/dashboard/chat-support.svg";
 import jar from "../../img/dashboard/new-jar.svg";
 import shield from "../../img/dashboard/new-shield.svg";
 import daylight from "../../img/dashboard/daylight.svg";
@@ -37,7 +34,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper";
-
+import { Icon } from '@iconify/react';
 function Sidebar() {
   const [dillaWallet, setDillaWallet] = useState();
   const [sanBalance, setSanBalance] = useState();
@@ -45,22 +42,6 @@ function Sidebar() {
   const [totalBalance, setTotalBalance] = useState("");
   const [value, setValue] = useState("");
 
-  // let user = JSON.parse(sessionStorage.getItem("user"));
-
-  // const navigate = useNavigate();
-
-  // const refreshToken = async () => {
-  //   try {
-  //     const { data } = await axios.get(
-  //       `https://ardilla.herokuapp.com/ardilla/api/auth/refresh-token/${Cookies.get(
-  //         "user"
-  //       )}`
-  //     );
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   useEffect(() => {
     const getDillaWallet = async () => {
@@ -110,18 +91,7 @@ function Sidebar() {
       }
     };
 
-    // const generateAccount = async () => {
-    //   try {
-    //     await axios.get(
-    //       `${process.env.REACT_APP_BACKEND_URL}/api/san/create-account`,
-    //       {
-    //         withCredentials: true,
-    //       }
-    //     );
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // };
+   
 
     const calculateTotal = async () => {
       try {
@@ -145,42 +115,6 @@ function Sidebar() {
     calculateTotal();
     // generateAccount();
   }, []);
-
-  // onClick={handleLogOut}
-
-  // const handleOnIdle = () => {
-  //   sessionStorage.clear();
-  //   Cookies.remove("user");
-  //   navigate("/login");
-  //   console.log("last active", getLastActiveTime());
-  // };
-
-  // const { getLastActiveTime } = useIdleTimer({
-  //   timeout: 1000 * 60 * 2,
-  //   onIdle: handleOnIdle,
-  //   events: [
-  //     "mousemove",
-  //     "keydown",
-  //     "wheel",
-  //     "DOMMouseScroll",
-  //     "mousewheel",
-  //     "mousedown",
-  //     "touchstart",
-  //     "touchmove",
-  //     "MSPointerDown",
-  //     "MSPointerMove",
-  //     "visibilitychange",
-  //   ],
-  //   debounce: 500,
-  // });
-
-  //form log out btn
-  // const handleLogOut = () => {
-  //   Cookies.remove("user");
-  //   sessionStorage.clear();
-  //   navigate("/login");
-  //   window.location.reload();
-  // };
 
   const time = new Date().getHours();
 
@@ -208,69 +142,69 @@ function Sidebar() {
           </div>
         </div>
         <Link to="/dashboard" className="active">
-          <div className="d-flex flex-row">
-            <img src={home} alt="" className="img-fluid me-2 icons" />
-            Home
+          <div className="">
+            <Icon icon="mingcute:home-3-line" className="me-4 fs-4" />
+            <span className="mt-1">Home</span>
           </div>
         </Link>
         <Link to="/portfolio">
-          <div className="d-flex flex-row">
-            <img src={portfolio} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="material-symbols:work-outline" className="me-4 fs-4" />
             Portfolio
           </div>
         </Link>
         <Link to="/savings">
-          <div className="d-flex flex-row">
-            <img src={saving} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="material-symbols:energy-savings-leaf-outline-rounded" className="me-4 fs-4" />
             Savings
           </div>
         </Link>
         <Link>
-          <div className="d-flex flex-row">
-            <img src={investment} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="fluent:arrow-growth-20-filled" className="me-4 fs-4" />
             Investments <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <Link>
-          <div className="d-flex flex-row">
-            <img src={insurance} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="ic:baseline-security" className="me-4 fs-4" />
             Insurance <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <a href="/dilla">
-          <div className="d-flex flex-row">
-            <img src={dilla} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="ion:wallet-outline" className="me-4 fs-4" />
             Dilla
           </div>
         </a>
         <Link>
-          <div className="d-flex flex-row">
-            <img src={explore} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="ic:outline-explore" className="me-4 fs-4" />
             Budgeting <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <Link to="/learn">
-          <div className="d-flex flex-row">
-            <img src={learn} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="simple-icons:sololearn" className="me-4 fs-5" />
             Learn
           </div>
         </Link>
         <div className="second-nav">
           <Link to="/payment">
-            <div className="d-flex flex-row">
-              <img src={contact} alt="" className="img-fluid me-2 icons" />
+            <div className="">
+              <Icon icon="fluent:payment-32-regular" className="me-4 fs-4" />
               Payment
             </div>
           </Link>
           <Link to="/financial-coach">
             <div className="d-flex flex-row">
-              <img src={chat} alt="" className="img-fluid me-2 icons" />
+              <Icon icon="bx:support" className="me-4 fs-4" />
               Financial Coach
             </div>
           </Link>
           <Link>
-            <div className="d-flex flex-row">
-              <img src={logout} alt="" className="img-fluid me-2 icons" />
+            <div className="">
+              <Icon icon="bx:log-out-circle" className="me-4 fs-4" />
               Log Out
             </div>
           </Link>
