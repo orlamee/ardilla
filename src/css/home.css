@@ -718,7 +718,7 @@ h5 a {
 }
 
 .hero-save {
-  padding: 200px 10px 250px 10px;
+  padding: 100px 10px 150px 10px;
 }
 
 .hero-save h2 {
@@ -844,7 +844,7 @@ h5 a {
 .bg-dib p {
   color: #3D0072;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 32px;
 }
 
@@ -914,6 +914,7 @@ h5 a {
   padding: 20px;
   margin-top: 20px;
   color: #9CA3AF;
+  background-image: url("../img/gridicons_dropdown.svg");
 }
 
 .int-control {

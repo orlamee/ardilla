@@ -1,6 +1,6 @@
 import React from "react";
 import int from "../../img/int.svg";
-
+import { Link } from "react-router-dom";
 
 
 function CalculateInterest() {
@@ -35,7 +35,7 @@ function CalculateInterest() {
             </form>
           </div>
           <div className="col-md-6">
-            <img src={int} alt="" className="img-fluid" />
+            <Link to="/interest"><img src={int} alt="" className="img-fluid" /></Link>
           </div>
         </div>
       </div>
