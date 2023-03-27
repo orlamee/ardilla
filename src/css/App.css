@@ -26,6 +26,12 @@ html,body {
 
 
 @font-face {
+  font-family: Ubuntu-Semi;
+  src: url("../CabinetGrotesk-Medium.otf");
+}
+
+
+@font-face {
   font-family: Sofia-Pro;
   src: url("../sofiapro-light.otf");
 }

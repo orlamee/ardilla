@@ -15,7 +15,7 @@ function Footer() {
             <div className="row footer-top">
               <div className="col-md-6 mb-3">
                 <h2 className="mb-4">Download for free<br/>Start saving Today</h2>
-                <Link to="/download-ardilla" className="btn download-btn btn-lg">Download for free</Link>
+                <Link to="/downloadardilla" className="btn download-btn btn-lg">Download for free</Link>
               </div>
               <div className="col-md-6 text-center" >
                 <img src={fone} alt="" className="img-fluid w-100"/>
