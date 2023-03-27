@@ -13,9 +13,9 @@ function OurSavePlan() {
           <div className="col-md-6 p-0">
             <div className="bg-dib">
               <img src={dib} alt="dib" className="img-fluid" />
-              <h3 className="my-5 text-white">DIB</h3>
-              <h5 className="text-white">Never get stranded again</h5>
-              <p className="text-white top-products">Sadly no one can predict the future. However, we don't necessarily have to let unwanted situations get the best of us. With an emergency fund, you can take charge of any situation.</p>
+              <h3 className="my-5" style={{color: "#3D0072"}}>DIB</h3>
+              <h5 className=""  style={{color: "#3D0072"}}>Never get stranded again</h5>
+              <p className="top-products"  style={{color: "#3D0072"}}>Sadly no one can predict the future. However, we don't necessarily have to let unwanted situations get the best of us. With an emergency fund, you can take charge of any situation.</p>
             </div>
             <div className="bg-dib bg-gri">
               <img src={grit} alt="dib" className="img-fluid" />

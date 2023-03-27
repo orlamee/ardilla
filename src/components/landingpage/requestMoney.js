@@ -9,7 +9,7 @@ function RequestMoney() {
         <div className="row">
           <div className="col text-center dilla-text" >
            <h2 className="text-white">Request Money</h2>
-           <h6 className="mt-3 dilla-text text-white">Send money safely and conveniently to friends and families. Send to Dilla wallets or bank accounts.</h6>
+           <h6 className="mt-3 dilla-text text-white">Create unique links and request money from family and friends.</h6>
           </div>
          <div className="row justify-content-center mt-5">
           <div className="col-md-12 text-center">

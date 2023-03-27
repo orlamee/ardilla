@@ -7,7 +7,7 @@ function FinancialCoaching () {
         <div className="row">
           <div className="col-md-8">
             <h3>Financial coaching for your unique financial needs</h3>
-            <h6 className="text-white mt-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and protect your information, including any non-public, personal information (Personal Data).</h6>
+            <h6 className="text-white mt-5">Every financial journey has unique challenges, and we get it. Our pro-vetted financial analysts are always available to<br/> offer you tailored professional guidance on how to make your financial adventure with Ardilla more productive.</h6>
           </div>
         </div>
         <div className="row numbers">

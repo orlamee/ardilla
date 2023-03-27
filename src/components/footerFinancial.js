@@ -14,7 +14,7 @@ function FooterFinancial() {
             <div className="row footer-top new-footer">
               <div className="col-md-6">
                 <h2 className="mb-4">Get Started on your wealth building journey with Ardilla.</h2>
-                <Link to="/download-ardilla" className="btn download-btn btn-lg">Download the app</Link>
+                <Link to="/downloadardilla" className="btn download-btn btn-lg">Download the app</Link>
               </div>
               <div className="col-md-6 text-center" >
                 <img src={bald} alt="" className="img-fluid" style={{marginTop: "-62px"}} />
@@ -34,7 +34,7 @@ function FooterFinancial() {
                     <li><Link to="/save">Savings</Link></li>
                     <li><Link to="/dilla-wallet">Dilla</Link></li>
                     <li><Link to="/coach">Financial Coach</Link></li>
-                    <li><Link to="">Halal</Link></li>
+                    <li><Link to="/halal">Halal</Link></li>
                     <li><Link to="">Budgetting</Link> <span className="foot-bg border border-white">Coming Soon</span></li>
                     <li><Link to="">Investment</Link> <span className="foot-bg border border-white">Coming Soon</span></li>
                     <li><Link to="">Insurance</Link> <span className="foot-bg border border-white">Coming Soon</span></li>

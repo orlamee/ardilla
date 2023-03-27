@@ -10,7 +10,7 @@ function Steppers() {
     <section className="instant bg-steppers">
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-md-8 text-center" >
+          <div className="col-md-6 text-center" >
             <h2>You'll still get to enjoy all the amazing benefits we offer</h2>
           </div>
         </div>
@@ -23,8 +23,8 @@ function Steppers() {
                   <div className="line h-100"></div>
                 </div>
                 <div style={{marginLeft: "40px"}}>
-                  <h5>Start saving with interest</h5>
-                  <p className="lead pb-5">The Goal Of Islamic Finance Is To Make Life Easier And We Believe Everyone Should Have Access To Money At The Time They Need It Without Exorbitant Interest Rates That Makes It Hard To Return,</p>
+                  <h5>Transparency</h5>
+                  <p className="lead pb-5">With our Halal saver, you have complete transparency. You can enjoy saving and investing without impinging on your values and beliefs. You really can enjoy the best of both.</p>
                 </div>
               </div>
               <div className="d-flex mb-1">
@@ -32,8 +32,8 @@ function Steppers() {
                   <img src={stepper} alt="dot" className="img-fluid" width="100px" />
                 </div>
                 <div style={{marginLeft: "40px"}}>
-                  <h5>Automated savings and investments</h5>
-                  <p className="lead pb-5">The Goal Of Islamic Finance Is To Make Life Easier And We Believe Everyone Should Have Access To Money At The Time They Need It Without Exorbitant Interest Rates That Makes It Hard To Return,</p>
+                  <h5>Switchable</h5>
+                  <p className="lead pb-5">Use Halal at your discretion. You get it turn it on and off as you wish. You can also use the Halal saver as well as the Ardilla saving platform. <span  style={{color: "#F9FAFB"}}>Enjoy the same hhhhhhhhhhhhhh</span></p>
                 </div>
               </div>
             </div>
@@ -46,8 +46,8 @@ function Steppers() {
                   <div className="line h-100"></div>
                 </div>
                 <div style={{marginLeft: "40px"}}>
-                  <h5>Start saving with interest</h5>
-                  <p className="lead pb-5">The Goal Of Islamic Finance Is To Make Life Easier And We Believe Everyone Should Have Access To Money At The Time They Need It Without Exorbitant Interest Rates That Makes It Hard To Return,</p>
+                  <h5>Community</h5>
+                  <p className="lead pb-5">Save together and achieve together. Enjoy the perks of saving with other people. With Halal saver, you have your circle of savers who share common goals.</p>
                 </div>
               </div>
               <div className="d-flex mb-1">
@@ -55,8 +55,8 @@ function Steppers() {
                   <img src={stepper} alt="dot" className="img-fluid" width="100px" />
                 </div>
                 <div style={{marginLeft: "40px"}}>
-                  <h5>Automated savings and investments</h5>
-                  <p className="lead pb-5">The Goal Of Islamic Finance Is To Make Life Easier And We Believe Everyone Should Have Access To Money At The Time They Need It Without Exorbitant Interest Rates That Makes It Hard To Return,</p>
+                  <h5>Perks</h5>
+                  <p className="lead pb-5">Enjoy the same features with the main app. Same app, just different rules that sit well with your values. <span  style={{color: "#F9FAFB"}}>Enjoy the same features with the main app. Same app</span></p>
                 </div>
               </div>
             </div>

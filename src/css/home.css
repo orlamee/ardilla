@@ -1152,6 +1152,7 @@ h5 a {
   font-weight: 700;
   line-height: 55px;
   color: #3C0071;
+  font-family: 'Ubuntu-Bold';
 }
 
 .obj-bg p {
@@ -1211,7 +1212,7 @@ h5 a {
 
 @media (min-width: 992px){
   .learn-top{
-    padding-top: 150px;
+    padding-top: 110px;
   }
 }
 
@@ -1471,6 +1472,7 @@ h5 a {
   font-size: 60px;
   line-height: 70px;
   font-weight: 700;
+  font-family: 'Ubuntu-Bold';
 }
 
 .f-c h6 {
@@ -1503,6 +1505,7 @@ h5 a {
   font-size: 35px;
   line-height: 50px;
   font-weight: 700;
+  font-family: 'Ubuntu-Regular'
 }
 
 .numbers p {
@@ -1521,6 +1524,8 @@ h5 a {
   line-height: 90px;
   color: #3D0072;
   font-weight: 700;
+  font-family: 'Ubuntu-Bold';
+
 }
 
 .coachboxes {
@@ -1565,6 +1570,8 @@ h5 a {
   font-size: 36px;
   line-height: 41px;
   font-weight: 700;
+  font-family: 'Ubuntu-Bold';
+
 }
 
 .answers {
@@ -1578,6 +1585,8 @@ h5 a {
   line-height: 74px;
   color: #3D0072;
   font-weight: 700;
+  font-family: 'Ubuntu-Bold';
+
 }
 
 .answers h6 {
@@ -1842,6 +1851,7 @@ h5 a {
   font-weight: 700;
   line-height: 70px;
   color: #3D0072;
+  /* font-family: 'Ubuntu-Bold'; */
 }
 
 .instant {
@@ -2024,15 +2034,16 @@ h5 a {
 }
 
 .halal-sec {
-  padding: 200px 0px 0px 0px;
+  padding: 100px 0px 0px 0px;
   background: linear-gradient(180deg, #D4F7E1 0%, rgba(238, 252, 243, 0) 119.24%);
 }
 
 .halal-sec h2 {
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 700;
   line-height: 50px;
   color: #3D0072;
+  font-family: "Ubuntu-bold";
 }
 
 .halal-sec h6 {
@@ -2274,4 +2285,41 @@ h5 a {
   background-color: #8807F7;
   float: right;
 
+}
+
+.instant .accordion-item:not(:first-of-type) {
+  border-top: 0;
+  margin-top: 30px;
+}
+
+.instant .accordion-item:first-of-type .accordion-button {
+  border: 0px!important;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.instant .accordion-item {
+  border: 0px;
+}
+
+.instant .accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+
+.instant .accordion-item:last-of-type .accordion-button.collapsed {
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.instant .accordion-button::after {
+  background-image: url("../img/add.svg");
+}
+
+.instant .accordion-button {
+  color: #8807F7;
+  font-weight: 500;
+  line-height: 43px;
+  font-size: 16px;
+  background-color: #F9FAFB;
+  border-radius: 16px;
 }

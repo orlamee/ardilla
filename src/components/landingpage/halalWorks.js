@@ -23,23 +23,23 @@ function HalalWorks() {
                 <img src={one} alt="one" className="img-fluid" />
                 <h6 className="ms-3 mt-2">Download and sign up</h6>
               </div>
-              <img src={red} alt="red" className="img-fluid w-100 mt-4" />
-            </div>
-          </div>
-          <div className="col-md-4 mb-3">
-            <div className="get-goal">
-              <div className="d-flex flex-row">
-                <img src={two} alt="one" className="img-fluid" />
-                <h6 className="ms-3 mt-2">Download and sign up</h6>
-              </div>
               <img src={green} alt="red" className="img-fluid w-100 mt-4" />
             </div>
           </div>
           <div className="col-md-4 mb-3">
             <div className="get-goal">
               <div className="d-flex flex-row">
+                <img src={two} alt="one" className="img-fluid" />
+                <h6 className="ms-3 mt-2">Toggle Halal savings on or off</h6>
+              </div>
+              <img src={red} alt="red" className="img-fluid w-100 mt-4" />
+            </div>
+          </div>
+          <div className="col-md-4 mb-3">
+            <div className="get-goal">
+              <div className="d-flex flex-row">
                 <img src={three} alt="one" className="img-fluid" />
-                <h6 className="ms-3 mt-2">Download and sign up</h6>
+                <h6 className="ms-3 mt-2">Proceed to choosing a savings plan</h6>
               </div>
               <img src={blue} alt="red" className="img-fluid w-100 mt-4" />
             </div>

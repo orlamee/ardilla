@@ -12,21 +12,21 @@ function Insurance() {
         <div className="row">
           <div className="col-md-6 mb-3">
             <img src={save} alt="saving" className="img-fluid" />
-            <p className="text-white mt-5">We have designed several saving plans to enable you live<br/>life on your terms.</p>
+            <p className="text-white mt-5">Every journey has a beginning and every wealth building story<br/>starts with a saving philosophy. We have designed several<br/>saving plans to help you get started.</p>
           </div>
           <div className="col-md-6 mb-3">
             <img src={invest} alt="saving" className="img-fluid" />
-            <p className="text-white mt-5">We have designed several saving plans to enable you live life on your terms.<br/>We have curated carefully vetted investment tips and opportunities for you to build wealth.</p>
+            <p className="text-white mt-5">While saving is great, investment is how you build real wealth. <br/>We have curated carefully vetted investment tips and opportunities for<br/>you to build wealth.</p>
           </div>
         </div>
         <div className="row top-product">
           <div className="col-md-6 mb-3">
             <img src={insurance} alt="saving" className="img-fluid" />
-            <p className="text-white mt-5">We want you to live life with no risk or fear, so we <br/>Provided several insurance packages for you to choose from.</p>
+            <p className="text-white mt-5">We think everyone should live life on their terms. With our insurance<br/>packages, you can live without risk or fear. Live your best life now.</p>
           </div>
           <div className="col-md-6 mb-3">
             <img src={finance} alt="saving" className="img-fluid" />
-            <p className="text-white mt-5">We want you to live life with no risk or fear, so we<br/>Provided several insurance packages for you to choose from.</p>
+            <p className="text-white mt-5">We know wealth building, and financial freedom starts with an educated mind.<br/>We have provided insights from top financial minds with years of experience to make your wealth-building journey successful.</p>
           </div>
         </div>
         

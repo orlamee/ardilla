@@ -22,19 +22,20 @@ function DDV() {
           <div className="row mb-4 justify-content-around">
             <div className="col-md-4 mb-3">
               <div className="ddv-cards">
-                <img src={shield} alt="" className="img-fluid" style={{marginLeft: "-56px"}} />
-                <h1 style={{color: "#F0FDFA"}}>Dreams</h1>
-                <p className="my-4">Helping you make your dreams a reality is important to us. We have helped so many others. We can help you as well. </p>
-                <Link to="/save" className="text-white">Learn More</Link>
-              </div>
-            </div>
-            <div className="col-md-4 mb-3">
-              <div className="ddv-cards">
                 <img src={dib} alt="" className="img-fluid" style={{marginLeft: "-56px"}} />
                 <h1 style={{color: "#FEFCE8"}}>DIB</h1>
                 <p className="my-4">Nothing beats an emergency quite like an emergency fund. With Ardilla you can get started building that emergency fund.</p>
                 <Link to="/save" className="text-white">Learn More</Link>
               </div>
+            </div>
+            <div className="col-md-4 mb-3">
+              <div className="ddv-cards">
+                <img src={shield} alt="" className="img-fluid" style={{marginLeft: "-56px"}} />
+                <h1 style={{color: "#F0FDFA"}}>Dreams</h1>
+                <p className="my-4">Helping you make your dreams a reality is important to us. We have helped so many others. We can help you as well. </p>
+                <Link to="/save" className="text-white">Learn More</Link>
+              </div>
+              
             </div>
           </div>
           <div className="row top-products justify-content-around">

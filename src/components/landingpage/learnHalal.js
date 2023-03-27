@@ -9,7 +9,7 @@ function LearnHalal() {
     <section className="learnhalal">
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-md-7 text-center">
+          <div className="col-md-9 text-center">
             <h2 className="mb-5">Learn More about Halal</h2>
             <img src={ony} alt="learn" className="img-fluid" />
           </div>

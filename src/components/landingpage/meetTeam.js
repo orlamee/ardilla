@@ -17,20 +17,20 @@ function MeetTeam() {
         <div className="row top-products">
           <div className="col-md-6">
             <Link><img src={mo} alt="read" className="img-fluid"/></Link>
-            <h3 className="my-4">{"<"}Big Mo{"/>"}</h3>
-            <p>A businessman and visionary who has had a lot of success in the<br/> financial, marketing, and travel sector.</p>
+            <h3 className="my-4">{"<"}Big Mo{"/>"} (CO - Founder)</h3>
+            <p>{"<"}Big Mo{"/>"} is a well-established businessman who has worked in the financial,<br/>travel, and tour industries for over five years. His industry reputation is growing<br/>as clients admire his openness, work ethic, and exceptional service delivery.</p>
           </div>
           <div className="col-md-6">
             <Link><img src={lore} alt="read" className="img-fluid"/></Link>
-            <h3 className="my-4">{"<"}Mavrick{"/>"}</h3>
-            <p>A rising star in the business world who has had tremendous success with<br/>multiple start-ups..</p>
+            <h3 className="my-4">{"<"}Mavrick{"/>"} (CO - Founder)</h3>
+            <p>{"<"}Mavrick{"/>"} is a highly motivated individual with experience in engineering,<br/>business, and data mechanics. He has a bright future in the financial and<br/>information technology industries.</p>
           </div>
         </div>
-        <div className="row mt-4 justify-content-center">
+        <div className="row mt-5 justify-content-center">
           <div className="col-md-6">
             <Link><img src={mulan} alt="read" className="img-fluid"/></Link>
-            <h3 className="my-4">{"<"}Mulan{"/>"}</h3>
-            <p>A businessman and visionary who has had a lot of success in the<br/> financial, marketing, and travel sector.</p>
+            <h3 className="my-4">{"<"}Mulan{"/>"} (CO - Founder)</h3>
+            <p>{"<"}Mulan{"/>"} is a versatile professional with several years of experience and a<br/>diversified history in customer service, sales, marketing operations, and<br/> growing a company. All while maintaining solid relationships with current clients.</p>
           </div>
         </div>
       </div>
