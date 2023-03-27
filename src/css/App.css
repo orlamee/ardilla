@@ -756,6 +756,22 @@ h6 a {
   background: #F3F4F6;
 }
 
+.openings .swiper-scrollbar-drag {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: #8807F7;
+  border-radius: var(--swiper-scrollbar-border-radius,10px);
+  left: 0;
+  top: 0;
+}
+
+.openings .swiper-scrollbar {
+  border-radius: var(--swiper-scrollbar-border-radius,10px);
+  position: relative;
+  background: #F3F4F6;
+}
+
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
   background: #8807F7;
   border-radius: 50px!important;
