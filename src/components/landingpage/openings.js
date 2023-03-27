@@ -128,7 +128,7 @@ function Openings() {
             className="mySwiper"
             navigation={false} 
             autoplay={{
-              delay: 9500,
+              delay: 3500,
               disableOnInteraction: false,
             }}
           >
