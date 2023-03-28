@@ -3,7 +3,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
-import { Autoplay, Scrollbar } from "swiper";
+import { Autoplay, Scrollbar, Navigation } from "swiper";
 
 
 function Openings() {
@@ -124,7 +124,7 @@ function Openings() {
             scrollbar={{
               hide: false,
             }}
-            modules={[Autoplay, Scrollbar]}
+            modules={[Autoplay, Scrollbar, Navigation]}
             className="mySwiper"
             navigation={false} 
             autoplay={{
