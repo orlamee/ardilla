@@ -24,7 +24,7 @@ function LearnHeader() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <div className="me-auto">
+          <div className="mx-auto">
             <ul className="navbar-nav">
               <li className="nav-item dropdown">
                 <Link className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" to="/">Products</Link>

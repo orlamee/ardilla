@@ -53,7 +53,12 @@ function ProductImages() {
             <img src={reels} alt="reels" className="img-fluid w-100 reels" />
           </div>
         </div>
+        <div className="row mt-5 text-center">
+          <hr/>
+          <span className="text-center" style={{color: "#9CA3AF"}}>Last modified: March 28, 2023 at 12:00PM</span>
+        </div>
       </div>
+      
     </section>
   )
 }

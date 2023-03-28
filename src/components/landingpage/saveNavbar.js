@@ -1,15 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/ardilla.svg";
-// import save from "../../img/save.svg";
-// import wallet from "../../img/wallet.svg";
-// import learn from "../../img/learn.svg";
-// import claim from "../../img/claim.svg";
-// import invest from "../../img/invest.svg";
-// import about from "../../img/about-us.svg";
-// import team from "../../img/team.svg";
-// import privacy from "../../img/privacy.svg";
-// import terms from "../../img/terms.svg";
+
 import earth from "../../img/earth.svg";
 import naija from "../../img/9ja.svg";
 import uk from "../../img/uk.svg";

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function BreadcrumbPress() {
+function BreadcrumbLogo() {
   return (
     <section className="breadcrumbpress">
       <div className="container">
@@ -11,8 +11,8 @@ function BreadcrumbPress() {
           </div>
         </div>
         <div className="d-flex flex-row btns-press desktop">
-          <Link to="/press" type="button" className="btn me-3 btn-press-active">News</Link>
-          <Link to="/press/logos" type="button" className="btn me-3 btn-press">Logos and Badges</Link>
+          <Link to="/press" type="button" className="btn me-3 btn-press">News</Link>
+          <Link to="/press/logos" type="button" className="btn me-3 btn-press-active">Logos and Badges</Link>
           <Link to="/press/images" type="button" className="btn me-3 btn-press">Product Images</Link>
           <Link to="" type="button" className="btn me-3 btn-press">People and Offices</Link>
         </div>
@@ -21,4 +21,4 @@ function BreadcrumbPress() {
   )
 }
 
-export default BreadcrumbPress; 
+export default BreadcrumbLogo; 

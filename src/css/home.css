@@ -1726,6 +1726,12 @@ h5 a {
   -webkit-background-clip: text!important;
 }
 
+.bg-learn .nav-link:hover {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg,#ffeb35 15%,#19fd82fc 90%)!important;
+  -webkit-background-clip: text!important;
+}
+
 .perks {
   background-color: #21003D;
   padding: 100px 10px 0px 10px;
@@ -1917,7 +1923,7 @@ h5 a {
 }
 
 .breadcrumbpress {
-  padding: 200px 10px 80px 10px;
+  padding: 100px 10px 80px 10px;
   background-image: url("../img/pressheader.svg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -1929,7 +1935,20 @@ h5 a {
   font-weight: 700;
   line-height: 91px;
   color: #151000;
+  font-family: "Ubuntu-Bold";
 }
+
+.btn-press-active {
+  color: #fff!important;
+  border-color: #151000!important;
+  background: #151000!important;
+  border-radius: 28px!important;
+  padding: 11px 35px!important;
+  font-size: 16px!important;
+  font-weight: 500!important;
+}
+
+
 
 .pressheader {
   background-color: #FEF4D8!important;
@@ -1967,6 +1986,7 @@ h5 a {
   font-weight: 500;
   line-height: 27px;
   color: #3D0072;
+  font-family: "Ubuntu-Bold";
 }
 
 .newspress h4 {
@@ -1995,6 +2015,8 @@ h5 a {
   font-weight: 700;
   line-height: 32px;
   color: #3D0072;
+  font-family: "Ubuntu-Semi";
+
 }
 
 .bg-newspress p {
@@ -2028,6 +2050,7 @@ h5 a {
   font-weight: 500;
   line-height: 30px;
   color: #3D0072;
+  font-family: "Ubuntu-Bold";
 }
 
 .ardlogo p {
@@ -2158,7 +2181,8 @@ h5 a {
   -webkit-background-clip: text!important;
 }
 
-.bg-save .nav-link:hover {
+.bg-save .nav-link:hover, 
+.pressheader .nav-link:hover  {
   color: #e5336d;
 }
 

@@ -1,5 +1,7 @@
 import React from "react";
 import ardilla from "../../img/ard.svg";
+import left from "../../img/bottom-image.svg";
+import right from "../../img/bottom-image-1.svg";
 
 function LogosContent() {
   return (
@@ -54,10 +56,24 @@ function LogosContent() {
           <div className="col">
             <h4 className="mb-4">Don’ts</h4>
             <p>Our logo represents our brand and it's important that it's well presented consistently everywhere.</p>
-            <p className="text-muted">No squashing or pulling<br/>
+            <p className="" style={{color: "#9CA3AF"}}>No squashing or pulling<br/>
             No drop shadows</p>
-            <p className="text-muted">No gradients<br/>
+            <p className="" style={{color: "#9CA3AF"}}>No gradients<br/>
             No tracing or recreation</p>
+          </div>
+        </div>
+        <div>
+          <div className="row my-5">
+            <div className="col-md-6 mb-3">
+              <img src={left} alt="" className="img-fluid" />
+            </div>
+            <div className="col-md-6">
+              <img src={right} alt="" className="img-fluid" />
+            </div>
+          </div>
+          <div className="row mt-5 text-center">
+            <hr/>
+            <span className="text-center" style={{color: "#9CA3AF"}}>Last modified: March 28, 2023 at 12:00PM</span>
           </div>
         </div>
         

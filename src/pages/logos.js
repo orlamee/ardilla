@@ -1,5 +1,5 @@
 import Footer from "../components/footer";
-import BreadcrumbPress from "../components/landingpage/breadcrumbPress";
+import BreadcrumbLogo from "../components/landingpage/breadcrumbLogo";
 import LogosContent from "../components/landingpage/logosContent";
 import PressHeader from "../components/landingpage/navbarPress";
 
@@ -8,7 +8,7 @@ function Logos() {
   return (
     <div className="bg-white">
       <PressHeader/>
-      <BreadcrumbPress/>
+      <BreadcrumbLogo/>
       <LogosContent/>
       <Footer/>
     </div>

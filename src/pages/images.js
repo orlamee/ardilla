@@ -1,5 +1,5 @@
 import Footer from "../components/footer";
-import BreadcrumbPress from "../components/landingpage/breadcrumbPress";
+import BreadcrumbProduct from "../components/landingpage/breadcrumbProduct";
 import PressHeader from "../components/landingpage/navbarPress";
 import ProductImages from "../components/landingpage/productImages";
 
@@ -8,7 +8,7 @@ function Images() {
   return (
     <div className="bg-white">
       <PressHeader/>
-      <BreadcrumbPress/>
+      <BreadcrumbProduct/>
       <ProductImages/>
       <Footer/>
     </div>
