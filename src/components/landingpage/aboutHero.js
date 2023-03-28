@@ -34,7 +34,7 @@ function AboutHero() {
             </div>
           </div>
         </div>
-        <div className="row mt-3">
+        <div className="row mt-2">
           <div className="col-md-6 mb-3">
             <div className="obj-bg">
               <h2>Our Vision</h2>
