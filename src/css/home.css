@@ -1720,6 +1720,12 @@ h5 a {
   line-height: 32px;
 }
 
+.bg-careers .nav-link:hover {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg,#ffeb35 15%,#19fd82fc 90%)!important;
+  -webkit-background-clip: text!important;
+}
+
 .perks {
   background-color: #21003D;
   padding: 100px 10px 0px 10px;

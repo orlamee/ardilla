@@ -44,7 +44,7 @@ function FooterFinancial() {
                   <h4>Company</h4>
                   <ul className="list-unstyled links">
                     <li><Link to="/about-us">About us</Link></li>
-                    <li><Link to="">Careers</Link></li>
+                    <li><Link to="/careers">Careers</Link></li>
                     <li><Link to="/faq">FAQ</Link></li>
                     <li><Link to="">Press</Link></li>
                   </ul>
