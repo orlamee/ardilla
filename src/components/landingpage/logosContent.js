@@ -1,5 +1,10 @@
 import React from "react";
 import ardilla from "../../img/ard.svg";
+import inverted from "../../img/inverted-logo.svg";
+import flm from "../../img/flm.svg";
+import plm from "../../img/plm.svg";
+import ilm from "../../img/ilm.svg";
+import flat from "../../img/flat-logo.svg";
 import left from "../../img/bottom-image.svg";
 import right from "../../img/bottom-image-1.svg";
 
@@ -8,47 +13,41 @@ function LogosContent() {
     <section className="newspress">
       <div className="container">
         <div className="row">
-          <div className="col-md-5" >
-            <h4>The Ardilla name itself is just another name for Squirrel. The squirrel saves its nuts inside the ground for dry days</h4>
+          <div className="col" >
+            <h4>Ardilla is a financial platform that has derived its logo inspiration from the Tree squirrels. These animals are known for their diligent nature as they work hard to save nuts and small fruits to prepare for the winter and colder days ahead. Moreover, Tree squirrels are also admired for their sharp-wittedness, making them an ideal representation for a financial platform that values intelligence and resourcefulness. </h4>
           </div>
         </div>
         <div className="row btns-press ardlogo">
           <div className="col-md-4 mb-3">
             <div>
               <img src={ardilla} alt="logo" className="img-fluid w-100 mb-3" />
-              <span className="mt-4">Primary Logo</span>
             </div>
           </div>
           <div className="col-md-4 mb-3">
             <div>
-              <img src={ardilla} alt="logo" className="img-fluid w-100 mb-3" />
-              <span className="mt-4">Inverted Logo</span>
+              <img src={inverted} alt="logo" className="img-fluid w-100 mb-3" />
             </div>
           </div>
           <div className="col-md-4 mb-3">
             <div>
-              <img src={ardilla} alt="logo" className="img-fluid w-100 mb-3" />
-              <span className="mt-4">Flat Logo</span>
+              <img src={flat} alt="logo" className="img-fluid w-100 mb-3" />
             </div>
           </div>
         </div>
         <div className="row btns-press ardlogo">
           <div className="col-md-4 mb-3">
             <div>
-              <img src={ardilla} alt="logo" className="img-fluid w-100 mb-3" />
-              <span className="mt-4">Primary Logo Mark</span>
+              <img src={plm} alt="logo" className="img-fluid w-100 mb-3" />
             </div>
           </div>
           <div className="col-md-4 mb-3">
             <div>
-              <img src={ardilla} alt="logo" className="img-fluid w-100 mb-3" />
-              <span className="mt-4">Inverted Logo Mark</span>
+              <img src={ilm} alt="logo" className="img-fluid w-100 mb-3" />
             </div>
           </div>
           <div className="col-md-4 mb-3">
             <div>
-              <img src={ardilla} alt="logo" className="img-fluid w-100 mb-3" />
-              <span className="mt-4">Flat Logo Mark</span>
+              <img src={flm} alt="logo" className="img-fluid w-100 mb-3" />
             </div>
           </div>
         </div>

@@ -1,5 +1,13 @@
 import React from "react";
 import reels from "../../img/savedilla.svg";
+import savetwo from "../../img/save2.svg";
+import savethree from "../../img/save3.svg";
+import dillaone from "../../img/dilla1.svg";
+import dillatwo from "../../img/dilla2.svg";
+import dillathree from "../../img/dilla3.svg";
+import finone from "../../img/fin1.svg";
+import fintwo from "../../img/fin2.svg";
+import finthree from "../../img/fin3.svg";
 
 function ProductImages() {
   return (
@@ -15,10 +23,10 @@ function ProductImages() {
             <img src={reels} alt="reels" className="img-fluid w-100 reels" />
           </div>
           <div className="col-md-4 mb-3">
-            <img src={reels} alt="reels" className="img-fluid w-100 reels" />
+            <img src={savetwo} alt="reels" className="img-fluid w-100 reels" />
           </div>
           <div className="col-md-4 mb-3">
-            <img src={reels} alt="reels" className="img-fluid w-100 reels" />
+            <img src={savethree} alt="reels" className="img-fluid w-100 reels" />
           </div>
         </div>
         <div className="row btns-press">
@@ -28,13 +36,13 @@ function ProductImages() {
         </div>
         <div className="row mt-5">
           <div className="col-md-4 mb-3">
-            <img src={reels} alt="reels" className="img-fluid w-100 reels" />
+            <img src={dillaone} alt="reels" className="img-fluid w-100 reels" />
           </div>
           <div className="col-md-4 mb-3">
-            <img src={reels} alt="reels" className="img-fluid w-100 reels" />
+            <img src={dillatwo} alt="reels" className="img-fluid w-100 reels" />
           </div>
           <div className="col-md-4 mb-3">
-            <img src={reels} alt="reels" className="img-fluid w-100 reels" />
+            <img src={dillathree} alt="reels" className="img-fluid w-100 reels" />
           </div>
         </div>
         <div className="row btns-press">
@@ -44,13 +52,13 @@ function ProductImages() {
         </div>
         <div className="row mt-5">
           <div className="col-md-4 mb-3">
-            <img src={reels} alt="reels" className="img-fluid w-100 reels" />
+            <img src={finone} alt="reels" className="img-fluid w-100 reels" />
           </div>
           <div className="col-md-4 mb-3">
-            <img src={reels} alt="reels" className="img-fluid w-100 reels" />
+            <img src={fintwo} alt="reels" className="img-fluid w-100 reels" />
           </div>
           <div className="col-md-4 mb-3">
-            <img src={reels} alt="reels" className="img-fluid w-100 reels" />
+            <img src={finthree} alt="reels" className="img-fluid w-100 reels" />
           </div>
         </div>
         <div className="row mt-5 text-center">

@@ -1603,6 +1603,7 @@ h5 a {
   line-height: 19px;
   color: #3D0072;
   font-weight: 500;
+  font-family: 'Ubuntu-Semi';
 }
 
 .new-footer {
@@ -1994,6 +1995,7 @@ h5 a {
   font-weight: 500;
   line-height: 30px;
   color: #3D0072;
+  font-family: 'Ubuntu-Semi';
 }
 
 
@@ -2043,6 +2045,7 @@ h5 a {
   font-weight: 500;
   line-height: 20px;
   color: #3D0072;
+  font-family: 'Ubuntu-Semi';
 }
 
 .ardlogo h4 {

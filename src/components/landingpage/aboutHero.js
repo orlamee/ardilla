@@ -22,14 +22,14 @@ function AboutHero() {
           <div className="col-md-6 mb-3">
             <div className="obj-bg">
               <h2>Our Objective</h2>
-              <p>Make financial freedom and wealth-building<br/>desirable across the continent.</p>
+              <p>Make financial freedom and wealth-building desirable<br/>across the continent.</p>
               <img src={goal} alt="goal" className="img-fluid img-tops" />
             </div>
           </div>
           <div className="col-md-6 mb-3">
             <div className="obj-bg">
               <h2>Our Mission</h2>
-              <p>To get everyone across the continent financially<br/>free, one person at a time.</p>
+              <p>To get everyone across the continent financially free,<br/>one person at a time.</p>
               <img src={roc} alt="goal" className="img-fluid img-top" />
             </div>
           </div>
@@ -38,14 +38,14 @@ function AboutHero() {
           <div className="col-md-6 mb-3">
             <div className="obj-bg">
               <h2>Our Vision</h2>
-              <p>Make financial freedom and wealth-building<br/>desirable across the continent.</p>
+              <p>To become the foremost wealth-building platform on<br/>the continent.</p>
               <img src={bulb} alt="goal" className="img-fluid img-tops" />
             </div>
           </div>
           <div className="col-md-6 mb-3">
             <div className="obj-bg">
               <h2>Our Story</h2>
-              <p>To get everyone across the continent financially<br/>free, one person at a time.</p>
+              <p>Ardilla is leveraging technology to provide financial education and tools<br/>to ensure financial inclusion for everyone.</p>
               <img src={book} alt="goal" className="img-fluid img-to" />
             </div>
           </div>
