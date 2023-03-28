@@ -15,13 +15,13 @@ function People() {
           <div className="col-md-6 mb-3">
             <div className="d-flex flex-row">
               <img src={ui} alt="people" className="img-fluid me-4" />
-              <p className="mt-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and protect your information</p>
+              <p className="mt-5">Working with Ardilla has exposed me to innovative ideas and advanced technology.</p>
             </div>
           </div>
           <div className="col-md-6 mb-3">
             <div className="d-flex flex-row">
               <img src={ui} alt="people" className="img-fluid me-4" />
-              <p className="mt-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and protect your information</p>
+              <p className="mt-5">Ardilla places a premium on team work and collaboration which has helped me gain better insights and become better at my job</p>
             </div>
           </div>
         </div>
@@ -29,13 +29,13 @@ function People() {
           <div className="col-md-6 mb-3">
             <div className="d-flex flex-row">
               <img src={ui} alt="people" className="img-fluid me-4" />
-              <p className="mt-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and protect your information</p>
+              <p className="mt-5">At Ardilla, I get to work in an environment that is constantly pushing me to learn, develop, and be better.</p>
             </div>
           </div>
           <div className="col-md-6 mb-3">
             <div className="d-flex flex-row">
               <img src={ui} alt="people" className="img-fluid me-4" />
-              <p className="mt-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and protect your information</p>
+              <p className="mt-5">Although Ardilla is challenging, it is the type of challenge that gets you motivated.</p>
             </div>
           </div>
         </div>

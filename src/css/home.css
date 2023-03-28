@@ -1716,9 +1716,8 @@ h5 a {
 .people p {
   color: #9CA3AF;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 32px;
-  font-style: italic;
 }
 
 .perks {
@@ -1737,7 +1736,7 @@ h5 a {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: 82px 20px;
+  padding: 60px 20px;
 }
 
 .slant h5 {

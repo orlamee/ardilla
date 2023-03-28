@@ -24,7 +24,7 @@ function Culture() {
           <div className="col-md-6 mb-3">
             <h3 className="mb-3">Experienced professionals</h3>
             <h6>Experienced financial analysts and coaches. Who have been vetted and have a wealth of experience. They will guide you through your wealth-building journey.</h6>
-            <h6>Experienced financial analysts and coaches. Who have been vetted and have a wealth of experience. They will guide you through your wealth-building journey.</h6>
+            <h6>We have a great team of diverse and talented professionals who share the values of the company. Because of the size of our dream, we need more hands on deck and you are always welcome to apply.</h6>
           </div>
           <div className="col-md-6 mb-3">
             <h3 className="mb-3">We give the best</h3>

@@ -20,7 +20,7 @@ function Perks() {
           </div>
         </div>
         <div className="slant">
-          <div className="row justify-content-center">
+          <div className="row justify-content-center mt-5">
             <div className="col-md-3 mb-3">
               <img src={globe} alt="perks" className="img-fluid" />
               <h5 className="my-4">Its a vibe</h5>

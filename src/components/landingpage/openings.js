@@ -137,14 +137,14 @@ function Openings() {
                 <div className="col-md-6 mb-3">
                   <div className="bg-op">
                     <h4>Design</h4>
-                    <p className="my-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and </p>
+                    <p className="my-5">Oh no...Position currently filled, check back later! To make sure you don't miss any update subscribe to our newsletter. </p>
                     <h6>Position Closed</h6>
                   </div>
                 </div>
                 <div className="col-md-6 mb-3">
                   <div className="bg-op eng">
                     <h4>Engineering</h4>
-                    <p className="my-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and </p>
+                    <p className="my-5">Oh no...Position currently filled, check back later! To make sure you don't miss any update subscribe to our newsletter.</p>
                     <h6>Position Closed</h6>
                   </div>
                 </div>
@@ -153,14 +153,14 @@ function Openings() {
                 <div className="col-md-6 mb-3">
                   <div className="bg-op writer">
                     <h4>Content Writer</h4>
-                    <p className="my-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and </p>
+                    <p className="my-5">Oh no...Position currently filled, check back later! To make sure you don't miss any update subscribe to our newsletter.</p>
                     <h6>Position Closed</h6>
                   </div>
                 </div>
                 <div className="col-md-6 mb-3">
                   <div className="bg-op adv">
                     <h4>Financial Advisor</h4>
-                    <p className="my-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and </p>
+                    <p className="my-5">Oh no...Position currently filled, check back later! To make sure you don't miss any update subscribe to our newsletter. </p>
                     <h6>Position Closed</h6>
                   </div>
                 </div>
@@ -171,14 +171,14 @@ function Openings() {
                 <div className="col-md-6 mb-3">
                   <div className="bg-op">
                     <h4>Design</h4>
-                    <p className="my-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and </p>
+                    <p className="my-5">Oh no...Position currently filled, check back later! To make sure you don't miss any update subscribe to our newsletter. </p>
                     <h6>Position Closed</h6>
                   </div>
                 </div>
                 <div className="col-md-6 mb-3">
                   <div className="bg-op eng">
                     <h4>Engineering</h4>
-                    <p className="my-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and </p>
+                    <p className="my-5">Oh no...Position currently filled, check back later! To make sure you don't miss any update subscribe to our newsletter.</p>
                     <h6>Position Closed</h6>
                   </div>
                 </div>
@@ -187,14 +187,14 @@ function Openings() {
                 <div className="col-md-6 mb-3">
                   <div className="bg-op writer">
                     <h4>Content Writer</h4>
-                    <p className="my-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and </p>
+                    <p className="my-5">Oh no...Position currently filled, check back later! To make sure you don't miss any update subscribe to our newsletter.</p>
                     <h6>Position Closed</h6>
                   </div>
                 </div>
                 <div className="col-md-6 mb-3">
                   <div className="bg-op adv">
                     <h4>Financial Advisor</h4>
-                    <p className="my-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and </p>
+                    <p className="my-5">Oh no...Position currently filled, check back later! To make sure you don't miss any update subscribe to our newsletter. </p>
                     <h6>Position Closed</h6>
                   </div>
                 </div>
@@ -205,14 +205,14 @@ function Openings() {
                 <div className="col-md-6 mb-3">
                   <div className="bg-op">
                     <h4>Design</h4>
-                    <p className="my-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and </p>
+                    <p className="my-5">Oh no...Position currently filled, check back later! To make sure you don't miss any update subscribe to our newsletter. </p>
                     <h6>Position Closed</h6>
                   </div>
                 </div>
                 <div className="col-md-6 mb-3">
                   <div className="bg-op eng">
                     <h4>Engineering</h4>
-                    <p className="my-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and </p>
+                    <p className="my-5">Oh no...Position currently filled, check back later! To make sure you don't miss any update subscribe to our newsletter.</p>
                     <h6>Position Closed</h6>
                   </div>
                 </div>
@@ -221,19 +221,20 @@ function Openings() {
                 <div className="col-md-6 mb-3">
                   <div className="bg-op writer">
                     <h4>Content Writer</h4>
-                    <p className="my-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and </p>
+                    <p className="my-5">Oh no...Position currently filled, check back later! To make sure you don't miss any update subscribe to our newsletter.</p>
                     <h6>Position Closed</h6>
                   </div>
                 </div>
                 <div className="col-md-6 mb-3">
                   <div className="bg-op adv">
                     <h4>Financial Advisor</h4>
-                    <p className="my-5">Hello! This Privacy Policy (the “Policy”) has been created to describe your privacy rights regarding how we collect, use, process, disclose and </p>
+                    <p className="my-5">Oh no...Position currently filled, check back later! To make sure you don't miss any update subscribe to our newsletter. </p>
                     <h6>Position Closed</h6>
                   </div>
                 </div>
               </div>
             </SwiperSlide>
+            
             
           </Swiper>
         </div>
