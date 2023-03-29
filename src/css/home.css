@@ -1343,6 +1343,7 @@ h5 a {
   font-weight: 700;
   line-height: 68px;
   color: #3D0072;
+  font-family: "Ubuntu-Bold";
 }
 
 .breadcrumbfaq h6 {
@@ -2322,35 +2323,35 @@ h5 a {
 
 }
 
-.instant .accordion-item:not(:first-of-type) {
+.accordion-item:not(:first-of-type) {
   border-top: 0;
   margin-top: 30px;
 }
 
-.instant .accordion-item:first-of-type .accordion-button {
+.accordion-item:first-of-type .accordion-button {
   border: 0px!important;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
 
-.instant .accordion-item {
+.accordion-item {
   border: 0px;
 }
 
-.instant .accordion-button:not(.collapsed) {
+.accordion-button:not(.collapsed) {
   box-shadow: none;
 }
 
-.instant .accordion-item:last-of-type .accordion-button.collapsed {
+.accordion-item:last-of-type .accordion-button.collapsed {
   border-bottom-right-radius: 16px;
   border-bottom-left-radius: 16px;
 }
 
-.instant .accordion-button::after {
+.accordion-button::after {
   background-image: url("../img/add.svg");
 }
 
-.instant .accordion-button {
+.accordion-button {
   color: #8807F7;
   font-weight: 500;
   line-height: 43px;

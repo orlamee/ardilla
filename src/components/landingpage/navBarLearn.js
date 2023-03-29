@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo-white.svg";
-// import globe from "../../img/globe.svg";
-import save from "../../img/save.svg";
+import { Icon } from '@iconify/react';
 import invest from "../../img/invest.svg";
 import bonus from "../../img/bonus.svg";
 import insurance from "../../img/insurance.svg";
@@ -31,38 +30,66 @@ function LearnHeader() {
                 <div className="dropdown-menu dropdown-single">
                   <div className="row">
                     <div className="col-md-12">
-                      <Link to="/learn-save">
-                        <div className="d-flex flex-row">
-                          <img src={save} alt="" className="img-fluid" />
-                          <div className="mt-3">
-                            <h2 className="active">Savings</h2>
+                      <Link to="/learn-save" role="button" className="navigation-h">
+                        <div className="d-flex flex-row mb-4">
+                          <div className="i-bg me-3">
+                            <Icon icon="material-symbols:energy-savings-leaf-outline" className="fs-3 icon-nav"/>
+                          </div>
+                          <div className="mt-2">
+                            <h2 className="">Savings</h2>
                             <h6>Learn More About Savings</h6>
                           </div>
                         </div>
                       </Link>
-                      <Link>
-                        <div className="d-flex flex-row">
-                          <img src={invest} alt="" className="img-fluid" />
-                          <div className="mt-3">
-                            <h2>Investment</h2>
+                      <Link to="/" role="button" className="navigation-h">
+                        <div className="d-flex flex-row mb-4">
+                          <div className="i-bg me-3">
+                            <Icon icon="ph:coins" className="fs-3 icon-nav"/>
+                          </div>
+                          <div className="mt-2">
+                            <h2>Learning Bonus</h2>
+                            <h6>Earn while learning</h6>
+                          </div>
+                        </div>
+                      </Link>
+                      <Link to="" role="button" className="navigation-h">
+                        <div className="d-flex flex-row mb-4">
+                          <div className="i-bg me-3">
+                            <Icon icon="fluent:arrow-trending-lines-24-filled" className="fs-3 icon-nav"/>
+                          </div>
+                          <div className="mt-2">
+                            <div className="d-flex flex-row">
+                              <h2>Investment</h2>
+                              <span className="bg-list ms-2">Coming soon</span> 
+                            </div>
                             <h6>Learn More About Investment</h6>
                           </div>
                         </div>
                       </Link>
-                      <Link>
-                        <div className="d-flex flex-row">
-                          <img src={insurance} alt="" className="img-fluid" />
-                          <div className="mt-3">
-                            <h2>Insurance</h2>
+                      <Link to="" role="button" className="navigation-h">
+                        <div className="d-flex flex-row mb-4">
+                          <div className="i-bg me-3">
+                            <Icon icon="ic:baseline-security" className="fs-3 icon-nav"/>
+                          </div>
+                          <div className="mt-2">
+                            <div className="d-flex flex-row">
+                              <h2>Insurance</h2>
+                              <span className="bg-list ms-2">Coming soon</span> 
+                            </div>
                             <h6>Learn More About Insurance</h6>
                           </div>
                         </div>
                       </Link>
-                      <Link>
-                        <div className="d-flex flex-row">
-                          <img src={bonus} alt="" className="img-fluid" />
-                          <div className="mt-3">
-                            <h2>Learning Bonus</h2>
+                      <Link to="/" role="button" className="navigation-h">
+                        <div className="d-flex flex-row mb-4">
+                          <div className="i-bg me-3">
+                            <Icon icon="ic:outline-explore" className="fs-3 icon-nav"/>
+                          </div>
+                          <div className="mt-2">
+                            <div className="d-flex flex-row">
+                              <h2>Budgetting</h2>
+                              <span className="bg-list ms-2">Coming soon</span> 
+                            </div>
                             <h6>Learn & Earn</h6>
                           </div>
                         </div>
