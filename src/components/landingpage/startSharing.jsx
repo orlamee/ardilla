@@ -9,7 +9,7 @@ const videoTypes = ["MP4"];
 
 
 function StartSharing() {
-  const [file, setFile] = useState(null);
+  const [setFile] = useState(null);
   const handleChange = (file) => {
     setFile(file);
   };
@@ -18,7 +18,7 @@ function StartSharing() {
       <div className="container">
         <div className="row">
           <div className="col-md-6">
-            <FileUploader handleChange={handleChange} name="file" types={fileTypes} label="Upload a piiture not more than 5MB of you to feature on your story" />
+            <FileUploader handleChange={handleChange} name="file" types={fileTypes} label="Upload a picture not more than 5MB of you to feature on your story" />
           </div>
           <div className="col-md-6">
             <FileUploader handleChange={handleChange} name="file" types={videoTypes} label="Upload a 2minutes video of you speaking about your testimonial"/>

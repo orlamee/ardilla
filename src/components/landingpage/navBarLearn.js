@@ -23,7 +23,7 @@ function LearnHeader() {
           <div className="mx-auto">
             <ul className="navbar-nav">
               <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" to="/">Products</Link>
+                <Link className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" to="/">Learn About</Link>
                 <div className="dropdown-menu dropdown-single">
                   <div className="row">
                     <div className="col-md-12">
