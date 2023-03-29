@@ -26,11 +26,11 @@
 }
 
 .banner h2 {
-  font-size: 85px;
-  line-height: 97px;
+  font-size: 90px;
+  line-height: 100px;
   font-weight: 700;
   color: #3D0072;
-  font-family: Ubuntu-Bold;
+  font-family: "Ubuntu-Bold";
 }
 
 .banner h3 {
@@ -45,6 +45,7 @@
   line-height: 32px;
   font-weight: 400;
   color: #3D0072;
+  font-family: "Ubuntu-Semi";
 }
 
 .second-layer {
@@ -1077,7 +1078,7 @@ h5 a {
   background-image: url('../img/learnhero.svg')!important;
   background-repeat: no-repeat!important;
   background-size: cover!important;
-  padding: 200px 0px!important;
+  padding: 100px 0px!important;
 }
 
 .readblog{

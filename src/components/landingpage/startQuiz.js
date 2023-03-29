@@ -13,7 +13,7 @@ function StartQuiz() {
             <Link className='btn btn-outline-primary px-5 py-3 ardilla-btn fs-6' to="/">Start Quiz Now</Link>
           </div>
         </div>
-        <div className="row top-products">
+        <div className="row">
           <div className="col text-center">
             <Link><img src={startquiz} alt="read" className="img-fluid"/></Link>
           </div>
