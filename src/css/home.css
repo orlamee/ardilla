@@ -1406,6 +1406,7 @@ h5 a {
   line-height: 18px;
   font-size: 18px;
   font-weight: 500;
+  font-family: "Ubuntu-Semi";
 }
 
 .testimonial-content h2 {
@@ -2382,4 +2383,37 @@ h5 a {
   font-size: 16px;
   background-color: #F9FAFB;
   border-radius: 16px;
+}
+
+.startsharing {
+  padding: 100px 20px;
+}
+
+.startsharing h2 {
+  color: #3D0072;
+  font-weight: 700;
+  line-height: 80px;
+  font-size: 65px;
+  font-family: "Ubuntu-Bold";
+}
+
+.ewqTBN {
+  min-width: 322px!important;
+  max-width: 664px!important;
+  height: 48px!important;
+  border: 1px dashed #9CA3AF!important;
+  padding: 140px 16px 140px 8px!important;
+}
+
+.startsharing .form-label {
+  color: #3D0072;
+  font-weight: 400;
+  line-height: 40px;
+  font-size: 24px;
+  font-family: "Ubuntu-Semi";
+}
+
+.startsharing .form-control {
+  background-color: #F3F4F6;
+  border-color: #F3F4F6;
 }

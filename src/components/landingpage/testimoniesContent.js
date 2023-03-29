@@ -193,7 +193,7 @@ function TestimoniesContent() {
             <div className="bg-sharing">
               <h4 className="text-white">Have a Testimonial to share?</h4>
               <p className="text-white my-4">Start sharing your testimonial to show the world how<br/>Ardilla have helped you</p>
-              <Link className='btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 text-dark save-white' to="/">Start sharing</Link>
+              <Link className='btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 text-dark save-white' to="/start-sharing">Start sharing</Link>
             </div>
           </div> 
         </div>

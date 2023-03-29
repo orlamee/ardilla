@@ -135,6 +135,7 @@ import GritDashboard from "./dashboard/gritDashboard";
 import GritHousing from "./dashboard/gritHousing";
 import GritCompleted from "./dashboard/gritCompleted";
 import GritWithdraw from "./dashboard/gritWithdraw";
+import ShareTestimonies from "./pages/shareTestimonies";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -175,6 +176,7 @@ root.render(
       <Route path="/faq" element={<FAQ />}></Route>
       <Route path="/financial-coach" element={<CoachFinancial />}></Route>
       <Route path="/testimonies" element={<Testimonies />}></Route>
+      <Route path="/start-sharing" element={<ShareTestimonies/>}></Route>
       <Route path="/coach" element={<FincancialPage />}></Route>
       <Route path="/savings-created" element={<CreatedSavings />}></Route>
       <Route path="/guides" element={<Guides />}></Route>
