@@ -46,7 +46,7 @@ function HeaderDilla() {
                 <div className="dropdown-menu dropdown-large">
                   <div className="row">
                     <div className="col-md-6 p-5">
-                      <Link to="/save" role="button" className="navigation-h">
+                      <Link to="/save" className="navigation-h">
                         <div className="d-flex flex-row mb-4">
                           <div className="i-bg me-3">
                             <Icon icon="material-symbols:energy-savings-leaf-outline" className="fs-3 icon-nav"/>
@@ -54,6 +54,17 @@ function HeaderDilla() {
                           <div className="mt-2">
                             <h2 className="active">Save</h2>
                             <h6>Save at your pace</h6>
+                          </div>
+                        </div>
+                      </Link>
+                      <Link to="/dilla-wallet" className="navigation-h">
+                        <div className="d-flex flex-row mb-4">
+                          <div className="i-bg me-3">
+                            <Icon icon="mingcute:wallet-4-line" className="fs-3 icon-nav"/>
+                          </div>
+                          <div className="mt-2">
+                            <h2>Dilla</h2>
+                            <h6>Unlimited transactions</h6>
                           </div>
                         </div>
                       </Link>
@@ -86,7 +97,7 @@ function HeaderDilla() {
                         </div>
                       </Link>
                       <Link className="navigation-h">
-                        <div className="d-flex flex-row mb-4">
+                        <div className="d-flex flex-row">
                           <div className="i-bg me-3">
                             <Icon icon="ic:outline-explore" className="fs-3 icon-nav"/>
                           </div>
@@ -99,17 +110,7 @@ function HeaderDilla() {
                           </div>
                         </div>
                       </Link>                       
-                      <Link to="/dilla-wallet" className="navigation-h">
-                        <div className="d-flex flex-row">
-                          <div className="i-bg me-3">
-                            <Icon icon="mingcute:wallet-4-line" className="fs-3 icon-nav"/>
-                          </div>
-                          <div className="mt-2">
-                            <h2>Dilla</h2>
-                            <h6>Unlimited transactions</h6>
-                          </div>
-                        </div>
-                      </Link>
+                      
 
                       {/* <Link>
                         <div className="d-flex flex-row">
