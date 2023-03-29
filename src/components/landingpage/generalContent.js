@@ -10,7 +10,7 @@ function GeneralContent() {
     <section className="testimonial-content">
       <div className="container">
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-md-8 fine-scroll">
             <div className="row mt-4">
               <div className="col-md-6 mb-3">
                 <img src={one} alt="testimonial" className="img-fluid w-100 mb-3" />

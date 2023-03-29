@@ -1376,7 +1376,7 @@ h5 a {
 
 .testimonials {
   background-color: #3D0072;
-  padding: 140px 20px;
+  padding: 100px 20px;
 }
 
 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
@@ -1398,6 +1398,7 @@ h5 a {
   font-size: 60px;
   font-weight: 700;
   line-height: 68px;
+  font-family: "Ubuntu-Bold";
 }
 
 .testimonial-content h6 {
@@ -2135,8 +2136,8 @@ h5 a {
 }
 
 .btn-hazy {
-  border-color: #fff;
-  color: #3D0072;
+  border-color: #fff!important;
+  color: #3D0072!important;
   border-radius: 28px;
   padding: 11px 35px;
   font-size: 16px;
@@ -2144,13 +2145,34 @@ h5 a {
   font-weight: 500;
 }
 
-.btn-hazy:hover {
+.btn-hazy:hover,
+.btn-hazy:active {
+  border-color: #fff!important;
+  color: #fff!important;
+  border-radius: 28px;
+  padding: 11px 35px;
+  font-size: 16px;
+  background: transparent;
+  font-weight: 500;
+}
+
+.btn-hazy-inactive {
   border-color: #fff;
   color: #fff;
   border-radius: 28px;
   padding: 11px 35px;
   font-size: 16px;
   background: transparent;
+  font-weight: 500;
+}
+
+.btn-hazy-inactive:hover {
+  border-color: #fff;
+  color: #3D0072;
+  border-radius: 28px;
+  padding: 11px 35px;
+  font-size: 16px;
+  background: #fff;
   font-weight: 500;
 }
 
@@ -2237,7 +2259,7 @@ h5 a {
 }
 
 .fine-scroll {
-  height: 1100px;
+  height: 866px;
   overflow-x: hidden;
   overflow-y: auto;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../components/footer";
+import GeneralBreadcrumb from "../components/landingpage/generalBreadcrumb";
 import GeneralContent from "../components/landingpage/generalContent";
-import HazyBreadcrumb from "../components/landingpage/hazyBreadcrumb";
 import LearnHeader from "../components/landingpage/navBarLearn";
 
 
@@ -9,7 +9,7 @@ function General() {
   return (
     <div className="bg-white">
       <LearnHeader/>
-      <HazyBreadcrumb/>
+      <GeneralBreadcrumb/>
       <GeneralContent/>
       <Footer/>
     </div>

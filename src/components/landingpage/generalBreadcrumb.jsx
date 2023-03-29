@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function HazyBreadcrumb() {
+function GeneralBreadcrumb() {
   return (
     <section className="testimonials">
       <div className="container">
@@ -11,12 +11,12 @@ function HazyBreadcrumb() {
           </div>
         </div>
         <div className="d-flex flex-row mt-5 desktop">
-          <Link to="/hazy" type="button" className="btn me-3 btn-hazy">Hazy</Link>
-          <Link to="/general" type="button" className="btn me-3 btn-hazy-inactive">General</Link>
+          <Link to="/hazy" type="button" className="btn me-3 btn-hazy-inactive">Hazy</Link>
+          <Link to="/general" type="button" className="btn me-3 btn-hazy">General</Link>
         </div>
       </div>
     </section>
   );
 }
 
-export default HazyBreadcrumb;
+export default GeneralBreadcrumb;
