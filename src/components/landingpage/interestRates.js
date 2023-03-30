@@ -38,7 +38,7 @@ function InterestRates() {
                   <img src={stepper} alt="dot" className="img-fluid" width="50px" />
                 </div>
                 <div style={{marginLeft: "40px"}}>
-                  <h5>Transparency</h5>
+                  <h5>Values</h5>
                   <p className="lead pb-5">Your values matter to us and we are 100% committed to upholding those. Whether it is with Halal or the Ardilla saving plans.</p>
                 </div>
               </div>
@@ -52,7 +52,7 @@ function InterestRates() {
                   <div className="line h-100"></div>
                 </div>
                 <div style={{marginLeft: "40px"}}>
-                  <h5>Values</h5>
+                  <h5>Transparency</h5>
                   <p className="lead pb-5">No hidden charges and no vague deductions. Save with Ardilla and get your full interests. <span className="text-white">0000000000000000000000</span></p>
                 </div>
               </div>

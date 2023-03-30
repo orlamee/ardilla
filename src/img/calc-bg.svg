@@ -1,21 +1,21 @@
-<svg width="1440" height="1234" viewBox="0 0 1440 1234" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="1450" height="1301" fill="#10001F"/>
-<g opacity="0.6" filter="url(#filter0_f_4825_85219)">
-<circle cx="641.891" cy="674.956" r="159" transform="rotate(-34.2189 641.891 674.956)" fill="#8807F7"/>
+<svg width="1458" height="870" viewBox="0 0 1458 870" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1463" height="875" fill="#10001F"/>
+<g opacity="0.6" filter="url(#filter0_f_3_33061)">
+<circle cx="508.891" cy="629.956" r="159" transform="rotate(-34.2189 508.891 629.956)" fill="#8807F7"/>
 </g>
-<g opacity="0.6" filter="url(#filter1_f_4825_85219)">
-<circle cx="987.534" cy="439.891" r="159" transform="rotate(-34.2189 987.534 439.891)" fill="#E8356D"/>
+<g opacity="0.6" filter="url(#filter1_f_3_33061)">
+<circle cx="854.532" cy="394.892" r="159" transform="rotate(-34.2189 854.532 394.892)" fill="#E8356D"/>
 </g>
 <defs>
-<filter id="filter0_f_4825_85219" x="82.875" y="115.94" width="1118.03" height="1118.03" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_f_3_33061" x="-50.125" y="70.9414" width="1118.03" height="1118.03" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_4825_85219"/>
+<feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_3_33061"/>
 </filter>
-<filter id="filter1_f_4825_85219" x="428.518" y="-119.125" width="1118.03" height="1118.03" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter1_f_3_33061" x="295.516" y="-164.123" width="1118.03" height="1118.03" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_4825_85219"/>
+<feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_3_33061"/>
 </filter>
 </defs>
 </svg>

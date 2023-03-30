@@ -920,14 +920,15 @@ h5 a {
 
 .int-control {
   background-color: transparent;
-  padding: 20px;
+  padding: 20px 0px;
   margin-top: 20px;
-  color: #9CA3AF;
+  color: #fff;
   border-radius: 0px;
   border-bottom: 1px solid #fff;
   border-top: none;
   border-left: none;
   border-right: none;
+  font-size: 32px;
 }
 
 .int-label {

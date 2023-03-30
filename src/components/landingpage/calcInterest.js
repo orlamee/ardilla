@@ -153,7 +153,7 @@ function CalcInterest() {
             <h2>Calculate Your Interests</h2>
           </div>
         </div>
-        <div className="row mt-5">
+        <div className="row">
           <div className="col-md-6">
             <form className="mt-5 int-form">
               <div className="mb-5">
@@ -209,7 +209,7 @@ function CalcInterest() {
               </div>
             </form>
           </div>
-          <div className="col-md-6" style={{ marginTop: "50px" }}>
+          <div className="col-md-6" style={{ marginTop: "8px" }}>
             <div className="int-values bg-white p-5">
               <div>
                 <h4>Total Balance</h4>

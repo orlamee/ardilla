@@ -15,7 +15,7 @@ function DDV() {
           <div className="col">
             <h2 className="mb-3 text-white">Access More With Your Money</h2>
             <h6 className="mb-5 text-white">Plan towards your future by saving with ardilla,  Grow your money with pro-vetted savings plans just for you.</h6>
-            <button type="button" class="btn btn-outline-light new-light">Learn more about Savings <img src={fly} alt="fly" className="img-fluid ms-3" /></button>
+            <Link type="button" to="/save" class="btn btn-outline-light new-light">Learn more about Savings <img src={fly} alt="fly" className="img-fluid ms-3" /></Link>
           </div>
         </div>
         <div className="top-products graphbg">
