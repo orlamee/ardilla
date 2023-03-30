@@ -173,7 +173,7 @@ function FaqContent() {
               </Accordion>
             </div>
             <div className="mb-5">
-              <h2 className="mb-3">SAVINGS PLAN</h2>
+              <h2 className="mb-3">Savings Plan</h2>
               <Accordion>
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>What is a DIB plan?</Accordion.Header>
