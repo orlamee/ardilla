@@ -228,7 +228,7 @@ function CalcInterest() {
               <div className="mt-4">
                 <h4>Total Savings</h4>
                 <h5 className="mt-2">
-                  N {Intl.NumberFormat("en-US").format(amount)}
+                  N {Intl.NumberFormat("en-US").format(amount)} <span style={{fontSize: "12px", fontFamily: "Ubuntu-Regular"}}>( 11%)</span>
                 </h5>
               </div>
               <img
