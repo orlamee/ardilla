@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import shield from "../../img/newdreams.svg";
 import dib from "../../img/newdibb.svg";
 import vault from "../../img/newvault.svg";
-import grit from "../../img/grittttttt.svg";
+import grit from "../../img/greet.svg";
 import fly from "../../img/fly-fff.svg";
 
 

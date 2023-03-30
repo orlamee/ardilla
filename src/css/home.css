@@ -1842,10 +1842,11 @@ h5 a {
   font-size: 40px!important;
   line-height: 45px!important;
   font-weight: 500!important;
+  font-family: "Ubuntu-Semi";
 }
 
 .int-tool {
-  padding: 200px 20px 0px 20px!important;
+  padding: 100px 20px 0px 20px!important;
 }
 
 .int-values {
@@ -1864,6 +1865,8 @@ h5 a {
   font-weight: 700;
   line-height: 20px;
   color: #3D0072;
+  font-family: "Ubuntu-Semi";
+
 }
 
 .instant h2 {
@@ -2383,6 +2386,7 @@ h5 a {
   font-size: 16px;
   background-color: #F9FAFB;
   border-radius: 16px;
+  font-family: 'Ubuntu-Semi';
 }
 
 .startsharing {
@@ -2417,4 +2421,10 @@ h5 a {
 .startsharing .form-control {
   background-color: #F3F4F6;
   border-color: #F3F4F6;
+}
+
+.bg-int .nav-link:hover {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg,#ffeb35 15%,#19fd82fc 90%)!important;
+  -webkit-background-clip: text!important;
 }

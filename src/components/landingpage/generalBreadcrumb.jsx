@@ -11,7 +11,7 @@ function GeneralBreadcrumb() {
           </div>
         </div>
         <div className="d-flex flex-row mt-5 desktop">
-          <Link to="/hazy" type="button" className="btn me-3 btn-hazy-active">Hazy</Link>
+          <Link to="/hazy" type="button" className="btn me-3 btn-hazy-inactive">Hazy</Link>
           <Link to="/general" type="button" className="btn me-3 btn-hazy">General</Link>
         </div>
       </div>
