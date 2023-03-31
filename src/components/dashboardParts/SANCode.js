@@ -180,7 +180,7 @@ function SANCode() {
                     <h6 className="mt-4">
                       Here’s how to Log in to access your account
                     </h6>
-                    <p className="notices mt-3">Enter code sent to your email <span className="sender">Fullname@gmail.com</span> </p>
+                    <p className="notices mt-3">Enter code sent to your email <span className="sender">Fullname@example.com</span> </p>
                     <h5 className="wrong-email">Wrong Email?</h5>
                     <form className="mt-5" onSubmit={handleSubmit}>
                       <div className="mb-5">
