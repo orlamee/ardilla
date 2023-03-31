@@ -2429,3 +2429,40 @@ h5 a {
   background: linear-gradient(90deg,#ffeb35 15%,#19fd82fc 90%)!important;
   -webkit-background-clip: text!important;
 }
+
+.learn-bonus {
+  padding: 200px 0px 0px 0px;
+  background-image: url('../img/bonus-bg.svg');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.learn-bonus h6 {
+  color: #D1D5DB;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 400;
+}
+
+.improvefinance p {
+  color: #6B7280;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 400;
+  margin-left: 40px;
+}
+
+.improvefinance {
+  background-color: #fff;
+  padding: 140px 20px;
+}
+
+.rankbonus {
+  padding: 90px 20px;
+}
+
+.learnfooter {
+  background-color: #FFFDF2;
+  padding: 140px 20px;
+}
