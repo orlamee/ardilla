@@ -39,7 +39,7 @@ function LearnHeader() {
                           </div>
                         </div>
                       </Link>
-                      <Link to="/" role="button" className="navigation-h">
+                      <Link to="/learn-bonus" role="button" className="navigation-h">
                         <div className="d-flex flex-row mb-4">
                           <div className="i-bg me-3">
                             <Icon icon="ph:coins" className="fs-3 icon-nav"/>
@@ -79,7 +79,7 @@ function LearnHeader() {
                         </div>
                       </Link>
                       <Link to="/" role="button" className="navigation-h">
-                        <div className="d-flex flex-row mb-4">
+                        <div className="d-flex flex-row">
                           <div className="i-bg me-3">
                             <Icon icon="ic:outline-explore" className="fs-3 icon-nav"/>
                           </div>
