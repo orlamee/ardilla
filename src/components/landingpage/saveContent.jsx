@@ -13,7 +13,7 @@ function SaveContent() {
           <div className="col-md-8 fine-scroll">
             <div className="row mt-4">
               <div className="col-md-6 mb-3">
-                <img src={one} alt="testimonial" className="img-fluid w-100 mb-3" />
+                <Link to="/single-post"><img src={one} alt="testimonial" className="img-fluid w-100 mb-3" /></Link>
                 <span className="bg-test">Savings</span>
                 <h2 className="my-3">How to get people to invest in your company</h2>
                 <div className="">
@@ -129,12 +129,16 @@ function SaveContent() {
               </div>
             </div>
           </div>
-          <div className="row mt-5">
-            <div className="col-md-6">
-              <Link className="older">Older Post</Link>
-            </div>
-            <div className="col-md-6 text-end">
-              <Link className="older">Newer Posts</Link>
+          <div className="row mt-4">
+            <div className="col-md-8">
+              <div className="row">
+                <div className="col-md-6">
+                  <Link className="older">Older Post</Link>
+                </div>
+                <div className="col-md-6 text-end">
+                  <Link className="older">Newer Posts</Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>

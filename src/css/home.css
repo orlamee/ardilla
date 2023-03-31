@@ -2466,3 +2466,14 @@ h5 a {
   background-color: #FFFDF2;
   padding: 140px 20px;
 }
+
+.postheader {
+  padding: 90px 20px;
+}
+
+.postheader h2 {
+  color: #3D0072;
+  font-size: 65px;
+  line-height: 80px;
+  font-weight: 700;
+}

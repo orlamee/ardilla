@@ -137,6 +137,7 @@ import GritCompleted from "./dashboard/gritCompleted";
 import GritWithdraw from "./dashboard/gritWithdraw";
 import ShareTestimonies from "./pages/shareTestimonies";
 import LearnBonus from "./pages/learnBonus";
+import SinglePost from "./pages/singlePost";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -144,6 +145,7 @@ root.render(
     <ScrollToTop />
     <Routes>
       <Route path="/" element={<App />}></Route>
+      <Route path="/single-post" element={<SinglePost/>}></Route>
       <Route path="/learn-bonus" element={<LearnBonus/>}></Route>
       <Route path="/learn-save" element={<LearnSave/>}></Route>
       <Route path="/alerts" element={<Alerts />}></Route>
