@@ -28,17 +28,6 @@ function LearnHeader() {
                 <div className="dropdown-menu dropdown-single">
                   <div className="row">
                     <div className="col-md-12">
-                      <Link to="/learn-save" role="button" className="navigation-h">
-                        <div className="d-flex flex-row mb-4">
-                          <div className="i-bg me-3">
-                            <Icon icon="material-symbols:energy-savings-leaf-outline" className="fs-3 icon-nav"/>
-                          </div>
-                          <div className="mt-2">
-                            <h2 className="">Savings</h2>
-                            <h6>Learn More About Savings</h6>
-                          </div>
-                        </div>
-                      </Link>
                       <Link to="/learn-bonus" role="button" className="navigation-h">
                         <div className="d-flex flex-row mb-4">
                           <div className="i-bg me-3">
@@ -47,6 +36,17 @@ function LearnHeader() {
                           <div className="mt-2">
                             <h2>Learning Bonus</h2>
                             <h6>Earn while learning</h6>
+                          </div>
+                        </div>
+                      </Link>
+                      <Link to="/learn-save" role="button" className="navigation-h">
+                        <div className="d-flex flex-row mb-4">
+                          <div className="i-bg me-3">
+                            <Icon icon="material-symbols:energy-savings-leaf-outline" className="fs-3 icon-nav"/>
+                          </div>
+                          <div className="mt-2">
+                            <h2 className="">Savings</h2>
+                            <h6>Learn More About Savings</h6>
                           </div>
                         </div>
                       </Link>

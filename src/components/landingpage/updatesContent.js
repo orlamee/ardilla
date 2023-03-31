@@ -108,12 +108,16 @@ function UpdatesContent() {
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-md-6">
-              <Link className="older">Older Post</Link>
-            </div>
-            <div className="col-md-6 text-end">
-              <Link className="older">Newer Posts</Link>
+          <div className="row mt-4">
+            <div className="col-md-8">
+              <div className="row">
+                <div className="col-md-6">
+                  <Link className="older">Older Post</Link>
+                </div>
+                <div className="col-md-6 text-end">
+                  <Link className="older">Newer Posts</Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
