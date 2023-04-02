@@ -9,7 +9,7 @@ function BonusHero() {
           <div className="col-md-10 text-center">
             <img src={le} alt="" className="img-fluid mb-4" />
             <h6 className="mb-5">Learn & Earn lorem ipsum antares Learn & Earn lorem ipsum antares<br/>Learn & Earn lorem ipsum antares </h6>
-            <img src={learning} alt="" className="img-fluid w-100" style={{marginBottom: "-41px"}} />
+            <img src={learning} alt="" className="img-fluid w-100" style={{marginBottom: "-16px"}} />
           </div>
         </div>
       </div>

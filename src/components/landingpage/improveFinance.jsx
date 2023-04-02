@@ -9,7 +9,7 @@ function ImproveFinance() {
         <div className="row">
           <div className="col-md-5 top-products">
             <img src={improve} alt="" className="img-fluid" />
-            <p className="mt-4">Preparing for the future is about more than money. Real-world<br/>concepts like budgeting, starting a business, and co.</p>
+            <p className="mt-4">Financial freedom is so much more than just money. Learn real<br/>world concepts that help you become and stay financially free.</p>
           </div>
           <div className="col-md-7">
             <img src={right} alt="" className="img-fluid w-100" />
