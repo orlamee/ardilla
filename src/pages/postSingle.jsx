@@ -177,7 +177,7 @@ function PostSingle() {
             
           </div>
         </div>
-        <div className="mb-5">
+        <div style={{marginBottom: "120px"}}>
           <div className="row justify-content-center">
             <div className="col-md-8 text-center">
               <div className="bg-subscr">

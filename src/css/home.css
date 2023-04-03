@@ -2468,7 +2468,7 @@ h5 a {
 }
 
 .postheader {
-  padding: 90px 20px;
+  padding: 90px 20px 20px 20px;
 }
 
 .postheader h2 {
@@ -2605,4 +2605,50 @@ h5 a {
 #subscribe-button:hover{
   background: #2C3B5A;
   color: #fff;
+}
+
+.replies h3 {
+  color: #3D0072;
+  line-height: 18px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.replies span {
+  color: #9CA3AF;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.replies {
+  padding: 60px 20px;
+}
+
+.replies h6 {
+  color: #3D0072;
+  line-height: 18px;
+  font-size: 16px;
+  font-weight: 700
+}
+
+.replies p {
+  color: #3D0072;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: 500
+}
+
+.replies .form-control {
+  background: #F3F4F6;
+  border-color: #F3F4F6;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.replies .form-label {
+  color: #3C0071;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
 }

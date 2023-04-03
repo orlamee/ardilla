@@ -227,7 +227,7 @@ input [type=email] {
   font-size: 11px;
   line-height: 16px;
   font-weight: 400;
-  font-family: 'Poppins';
+  /* font-family: 'Poppins'; */
 }
 
 .bottom a {
