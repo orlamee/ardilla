@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import testimonial from "../img/testimonial.svg";
 import register from "../img/code.svg";
 import samson from "../img/samson.svg";
+import rev from "../img/review.svg";
+import rev2 from "../img/review2.svg";
+import rev3 from "../img/review3.svg";
 import dot from "../img/dott.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -79,7 +82,7 @@ function Register() {
                 <div className="left text-center entry">
                   <img src={register} alt="" className="img-fluid" />
                   <h2 className="my-5 text-white">
-                    Never too late, Never too little. Start saving now.
+                    Never too late, Never too little.<br/>Start saving now.
                   </h2>
                   <Swiper
                     pagination={{
@@ -96,33 +99,36 @@ function Register() {
                     <SwiperSlide>
                       <div>
                         <p className="testimonial">
-                          "I joined ardilla because I want a savings app that<br/>wasn't as complex as the ones I used before; going pretty great."
+                          {/* "I joined ardilla because I want a savings app that<br/>wasn't as complex as the ones I used before; going pretty great." */}
+                          <img src={rev} alt="" className="img-fluid" />
                         </p>
                         <div className="d-flex flex-row mb-3 mt-5 justify-content-center">
                           <img src={testimonial} alt="" className="img-fluid" />
-                          <p className="author ms-3 mt-3">- Oyinkan Adeleke</p>
+                          <span className="author ms-3 mt-3">- Oyinkan Adeleke</span>
                         </div>
                       </div>
                     </SwiperSlide>
                     <SwiperSlide>
                       <div>
                         <p className="testimonial">
-                          "Downloading this app might have been the best decision<br/> this week - let goo!"
+                          <img src={rev2} alt="" className="img-fluid" />
+                          {/* "Downloading this app might have been the best decision<br/> this week - let goo!" */}
                         </p>
                         <div className="d-flex flex-row mb-3 mt-5 justify-content-center">
                           <img src={samson} alt="" className="img-fluid" />
-                          <p className="author ms-3 mt-3">- Samson Godwin</p>
+                          <span className="author ms-3 mt-3">- Samson Godwin</span>
                         </div>
                       </div>
                     </SwiperSlide>
                     <SwiperSlide>
                       <div>
                         <p className="testimonial">
-                          "At this point it's make it or break it with my<br/>finances; I'll let you know how it goes"
+                          <img src={rev3} alt="" className="img-fluid" />
+                          {/* "At this point it's make it or break it with my<br/>finances; I'll let you know how it goes" */}
                         </p>
                         <div className="d-flex flex-row mb-3 mt-5 justify-content-center">
                           <img src={dot} alt="" className="img-fluid" />
-                          <p className="author ms-3 mt-3">- Jane Babalola</p>
+                          <span className="author ms-3 mt-3">- Jane Babalola</span>
                         </div>
                       </div>
                     </SwiperSlide>
@@ -153,7 +159,7 @@ function Register() {
                         </label>
                       </div>
                       {isLoading ? (
-                        <div className="my-5">
+                        <div className="mt-5 mb-4">
                           <button
                             type="button"
                             className="btn btn-outline-primary px-5 py-3 ardilla-btn"
@@ -163,7 +169,7 @@ function Register() {
                           </button>
                         </div>
                       ) : (
-                        <div className="my-5">
+                        <div className="mt-5 mb-4">
                           <button
                             type="submit"
                             className="btn btn-outline-primary px-5 py-3 ardilla-btn"
