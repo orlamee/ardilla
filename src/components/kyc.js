@@ -180,9 +180,16 @@ function Kyc() {
       <div className="container">
         <div className="row logo">
           <div className="col-md-6 ">
-            <Link to="/">
+            {/* <Link to="/">
               <img src={logo} alt="" className="img-fluid mb-5" />
-            </Link>
+            </Link> */}
+          </div>
+          <div className="col-md-6 ">
+            <div className="text-end">
+              <Link className="log-out" style={{color: "#E8356D"}}>
+                <i className="bi bi-power me-2"></i> Log Out
+              </Link>
+            </div>
           </div>
         </div>
         <div className="row justify-content-center">
@@ -198,7 +205,7 @@ function Kyc() {
                   <input
                     type="number"
                     class="form-control custom-form"
-                    placeholder="Enter BVN"
+                    placeholder="Enter 11-digit number"
                     required
                     value={bvn}
                     onChange={(e) => setBvn(e.target.value)}
@@ -226,11 +233,7 @@ function Kyc() {
                     </button>
                   </div>
                 )}
-                <div className="logout text-center">
-                  <Link className="log-out">
-                    <i className="bi bi-power me-2"></i> Log Out
-                  </Link>
-                </div>
+               
               </form>
             </div>
           </div>

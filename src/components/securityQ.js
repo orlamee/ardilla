@@ -137,7 +137,7 @@ function SecurityPage() {
                 <div className="left text-center entry">
                   <img src={home} alt="" className="img-fluid" />
                   <h2 className="mb-3 mt-5 text-white">
-                    Set Security Question & answer
+                    Set Security Question &<br/>answer
                   </h2>
                   <p>Prevents unauthorized access to your account</p>
                 </div>

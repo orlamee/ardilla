@@ -394,7 +394,8 @@ h6 a {
 
 .custom-form {
   padding: 14px 10px;
-  background-color: transparent;
+  background-color: #F9FAFB;
+  border-color: #F9FAFB;
 }
 
 /* Loader Styles start here */
@@ -563,19 +564,19 @@ h6 a {
 }
 
 .verify-section {
-  padding: 50px 20px 60px 20px;
+  padding: 60px 20px 160px 20px;
 }
 
 .verify-section h3 {
   color: #3D0072;
-  font-size: 32px;
-  line-height: 59px;
+  font-size: 22px;
+  line-height: 40px;
   font-weight: 500;
   font-family: Ubuntu-Bold;
 }
 
 .verify-section h6 {
-  color: #3D007280;
+  color: #9CA3AF;
   font-size: 17px;
   line-height: 30px;
   font-weight: 400;

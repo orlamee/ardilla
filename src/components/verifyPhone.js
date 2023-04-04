@@ -402,30 +402,42 @@ function VerifyPhone() {
       <div className="container">
         <div className="row logo">
           <div className="col-md-6 ">
-            <Link to="/">
+            {/* <Link to="/">
               <img src={logo} alt="" className="img-fluid mb-5" />
-            </Link>
+            </Link> */}
+          </div>
+          <div className="col-md-6 ">
+            <div className="text-end">
+              <Link className="log-out" style={{color: "#E8356D"}}>
+                <i className="bi bi-power me-2"></i> Log Out
+              </Link>
+            </div>
           </div>
         </div>
         <div className="row justify-content-center">
           <div className="col-md-7 text-center">
             <img src={icon} alt="" className="img-fluid" />
             <h3 className="my-2">Verify Phone Number</h3>
-            <h6>
-              Enter the OTP Verification code sent to{" "}
-              {userCheck?.contact.slice(0, 4)} XXX XX
-              {userCheck?.contact.slice(9, 11)}
-              <br />
-              <Link
-                style={{ color: "#E6356D" }}
-                data-bs-toggle="modal"
-                onClick={() => setModal(!modal)}
-                data-bs-target="#staticBackdrop"
-                type="button"
-              >
-                Wrong Number?
-              </Link>
-            </h6>
+            <div className="row justify-content-center">
+              <div className="col-md-7">
+                <h6>
+                  Enter the OTP Verification code sent to{" "}
+                  {userCheck?.contact.slice(0, 4)} XXX XX
+                  {userCheck?.contact.slice(9, 11)}
+                  <br />
+                  <Link
+                    style={{ color: "#E6356D" }}
+                    data-bs-toggle="modal"
+                    onClick={() => setModal(!modal)}
+                    data-bs-target="#staticBackdrop"
+                    type="button"
+                    className="float-end"
+                  >
+                    Wrong Number?
+                  </Link>
+                </h6>
+              </div>
+            </div>
 
             <div
               className="modal fade"
@@ -642,15 +654,11 @@ function VerifyPhone() {
 
                   <p>
                     Didn’t get code?{" "}
-                    <span onClick={resend} style={{ color: "#E6356D" }}>
+                    <span onClick={resend} style={{ color: "#E6356D" }} className="fw-bold">
                       Resend
                     </span>
                   </p>
-                  <div className="logout">
-                    <Link className="log-out">
-                      <i className="bi bi-power me-2"></i> Log Out
-                    </Link>
-                  </div>
+                  
                 </div>
               </div>
             </form>
