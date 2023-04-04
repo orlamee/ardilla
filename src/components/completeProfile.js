@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import complete from "../img/profilecomplete.svg";
 import axios from "axios";
+import { Icon } from '@iconify/react';
 
 function CompleteProfile() {
   const [email, setEmail] = useState();
@@ -222,7 +223,7 @@ function CompleteProfile() {
                 <div className="right">
                   <div className="">
                     <form className="" onSubmit={handleSubmit}>
-                      <div className="mb-3 form-floating ">
+                      <div className="mb-4 form-floating ">
                         <input
                           type="text"
                           className="form-control custom-login" id="floatingInput" placeholder="name@example.com"
@@ -231,11 +232,10 @@ function CompleteProfile() {
                           onChange={(e) => setKodeHex(e.target.value)}
                         />
                         <label for="floatingInput">
-                          <i className="bi bi-code-slash me-2"></i> Kode Hex
-                          (Nickname)
+                          <Icon icon="bi:code-slash" className="me-2 fs-6"/> Kode Hex ? 
                         </label>
                       </div>
-                      <div className="mb-3 form-floating">
+                      <div className="mb-4 form-floating">
                         <input
                           type="text"
                           className="form-control custom-login" id="floatingInput" placeholder="name@example.com"
@@ -244,13 +244,13 @@ function CompleteProfile() {
                           onChange={(e) => setFirstname(e.target.value)}
                         />
                         <label for="floatingInput">
-                          <i className="bi bi-person-fill me-2"></i> First Name
+                          <Icon icon="mdi:user" className="me-2 fs-6"/> First Name
                         </label>
-                        <div id="" class="form-text">
+                        <div id="" class="form-text float-end">
                           Same as your Valid ID
                         </div>
                       </div>
-                      <div className="mb-3 form-floating">
+                      <div className="mb-4 form-floating">
                         <input
                           type="text"
                           className="form-control custom-login" id="floatingInput" placeholder="name@example.com"
@@ -259,14 +259,14 @@ function CompleteProfile() {
                           onChange={(e) => setLastname(e.target.value)}
                         />
                         <label for="floatingInput">
-                          <i className="bi bi-person-fill me-2"></i> Last Name
+                          <Icon icon="mdi:user" className="me-2 fs-6"/> Last Name
                         </label>
                         
-                        <div id="" class="form-text">
+                        <div id="" class="form-text float-end">
                           Same as your Valid ID
                         </div>
                       </div>
-                      <div className="mb-3 form-floating">
+                      <div className="mb-4 form-floating">
                         
                         <input
                           type="tel"
@@ -275,11 +275,11 @@ function CompleteProfile() {
                           value={contact}
                           onChange={(e) => setContact(e.target.value)}
                         />
-                        <div id="" class="form-text">
+                        <div id="" class="form-text float-end">
                           Enter a valid phone number
                         </div>
                         <label for="floatingInput">
-                          <i className="bi bi-telephone-fill me-2"></i>+234 | (000) 000 0000
+                          <Icon icon="ic:baseline-local-phone" className="me-2 fs-6"/> Phone Number
                         </label>
                       </div>
                       {/* <div className="mb-3">
@@ -295,19 +295,19 @@ function CompleteProfile() {
                           disabled
                         />
                       </div> */}
-                      <div className="mb-3 form-floating">
+                      <div className="mb-4 form-floating">
                         <input
                           type="text"
                           className="form-control custom-login" id="floatingInput" placeholder="name@example.com"
                         />
-                        <div id="" class="form-text">
+                        <div id="" class="form-text float-end">
                           Optional
                         </div>
                         <label for="floatingInput">
-                          <i className="bi bi-people me-2"></i> Invite code
+                        <Icon icon="teenyicons:users-outline" className="me-2 fs-6"/> Invite code
                         </label>
                       </div>
-                      <div className="mb-5 form-floating">
+                      <div className="form-floating">
                         <input
                           type="password"
                           className="form-control custom-login" id="floatingInput" placeholder="name@example.com"
@@ -316,10 +316,10 @@ function CompleteProfile() {
                           onChange={(e) => setPassword(e.target.value)}
                         />
                         <label for="floatingInput">
-                          <i className="bi bi-shield-lock-fill me-2"></i> Password
+                           <Icon icon="teenyicons:password-solid" className="me-2 fs-6"/> Password
                         </label>
                       </div>
-                      <div className="cp-a">
+                      <div className="cp-a" style={{marginTop: "120px"}}>
                         <label className="form-check-label remember">
                           <input
                             type="checkbox"

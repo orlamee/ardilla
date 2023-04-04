@@ -13,6 +13,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper";
 // import Cookies from "js-cookie";
+import { Icon } from '@iconify/react';
+
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -155,7 +157,7 @@ function Register() {
                           onChange={(e) => setEmail(e.target.value.toLowerCase())}
                         />
                         <label for="floatingInput">
-                          <i className="bi bi-envelope-fill me-2"></i> Email address
+                          <Icon icon="mdi:email" className="me-2 fs-6"/> Email address
                         </label>
                       </div>
                       {isLoading ? (

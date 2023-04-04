@@ -217,12 +217,12 @@ input [type=email] {
   border-bottom: 1px solid #D1D5DB;
   border-top: none;
   border-left: none;
-  color: #8807f7;
+  color: #8807f7!important;
   border-right: none;
 }
 
-.custom-login:focus {
-  border-color: inherit;
+.custom-login .form-control:focus {
+  border-color: #8807f7;
   box-shadow: none;
 }
 
