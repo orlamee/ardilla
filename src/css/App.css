@@ -217,14 +217,10 @@ input [type=email] {
   border-bottom: 1px solid #D1D5DB;
   border-top: none;
   border-left: none;
-  color: #8807f7!important;
+  /* color: !important; */
   border-right: none;
 }
 
-.custom-login .form-control:focus {
-  border-color: #8807f7;
-  box-shadow: none;
-}
 
 .form-label {
   margin-bottom: 0;
@@ -1185,7 +1181,7 @@ h6 a {
 }
 
 .form-control:focus {
-  border-color: inherit;
+  border-color: #8807f7;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
