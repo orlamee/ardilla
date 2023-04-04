@@ -184,7 +184,7 @@ function Login() {
                       </div>
                       <div className="form-group desktop mt-2">
                         <label className="form-check-label remember">
-                          <input type="checkbox" className="form-check-input" />{" "}
+                          <input type="checkbox" className="form-check-input me-2" />{" "}
                           Remember me
                         </label>
                         <Link className="float-end fg" to="/recover-password">
