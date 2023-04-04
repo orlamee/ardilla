@@ -131,7 +131,7 @@ function Login() {
                   <div className="login-form login-form-new">
                     <h3>Welcome!</h3>
                     <h6 className="mt-4">
-                      Here’s how to Log in to access your account
+                      Here’s how to login to access your account
                     </h6>
                     <form className="mt-5" onSubmit={handleSubmit}>
                       <div className="mb-3 form-floating">
