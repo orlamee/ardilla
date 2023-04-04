@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import logo from "../img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Icon } from '@iconify/react';
+
 // import platform from "platform";
 // import date from "date-and-time";
 
@@ -143,8 +145,7 @@ function Login() {
                           }
                         />
                         <label for="floatingInput">
-                          <i className="bi bi-envelope-fill me-2"></i> Email
-                          address
+                          <Icon icon="mdi:email" className="me-2 fs-6"/>  Email address or Kode Hex
                         </label>
                       </div>
                       <div className="form-floating">
@@ -161,7 +162,7 @@ function Login() {
                           className="fa fa-fw fa-eye field_icon toggle-pass"
                         ></span>
                         <label for="floatingInput">
-                          <i className="bi bi-shield-lock-fill me-2"></i>{" "}
+                          <Icon icon="teenyicons:password-solid" className="me-2 fs-6"/> {" "}
                           Password
                         </label>
                       </div>
@@ -170,7 +171,7 @@ function Login() {
                           <label className="form-check-label remember">
                             <input
                               type="checkbox"
-                              className="form-check-input"
+                              className="form-check-input me-2"
                             />{" "}
                             Remember me
                           </label>
@@ -181,7 +182,7 @@ function Login() {
                           </Link>
                         </div>
                       </div>
-                      <div className="form-group desktop">
+                      <div className="form-group desktop mt-2">
                         <label className="form-check-label remember">
                           <input type="checkbox" className="form-check-input" />{" "}
                           Remember me
