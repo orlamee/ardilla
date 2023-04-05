@@ -131,7 +131,7 @@ function Forgot() {
                         <div className="">
                           <button
                             type="submit"
-                            className="btn btn-outline-primary px-5 py-4 fw-bold ardilla-btn"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
                             style={{ width: "100%" }}
                           >
                             Reset Password

@@ -250,7 +250,7 @@ root.render(
       <Route path="/target-earn/:id" element={<TargetEarn />}></Route>
       <Route path="/target-spend/:id" element={<TargetSpend />}></Route>
       <Route path="/recover-password" element={<ForgotPassword />}></Route>
-      <Route path="/set-password/" element={<SetPassword />}></Route>
+      <Route path="/set-password/:id" element={<SetPassword />}></Route>
 
       <Route path="/target-prefer/:id" element={<TargetPrefer />}></Route>
       <Route
