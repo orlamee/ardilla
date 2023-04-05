@@ -178,7 +178,7 @@ div.content {
 } */
 
 .add-money {
-  margin-top: -40px;
+  margin-top: -51px;
 }
 
 .main-dash {
@@ -419,7 +419,7 @@ input:checked + .slider:before {
 
 .goal-card p {
   color: #3D0072;
-  font-size: 14px;
+  font-size: 10px;
   line-height: 16px;
   font-weight: 400;
 }
@@ -2400,4 +2400,12 @@ input[type=number] {
   border: #F9F9F9;
   padding: 20px;
   border-radius: 10px
+}
+
+.cs-dash {
+  margin-left: 6px;
+  border: 1px solid #8807f7;
+  font-size: 7px;
+  border-radius: 19px;
+  padding: 2px 5px;
 }

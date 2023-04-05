@@ -14,6 +14,8 @@ import daylight from "../../img/dashboard/daylight.svg";
 import op from "../../img/dashboard/op.svg";
 import dwdapp from "../../img/dwd-app.svg";
 import wii from "../../img/wii.svg";
+import stand from "../../img/stand.svg";
+import put from "../../img/put.svg";
 import ir from "../../img/ir.svg";
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -260,7 +262,7 @@ function Sidebar() {
                 )}
 
                 <Link
-                  className="add-money float-end btn btn-outline-primary px-4 py-2 ardilla-btn-inverted fs-6 desktop"
+                  className="add-money float-end btn btn-outline-primary px-4 py-3 ardilla-btn-inverted fs-6 desktop"
                   to=""
                 >
                   Add Money
@@ -306,8 +308,8 @@ function Sidebar() {
                   </span>
                 </div> */}
                 <Link
-                  style={{ marginTop: "-7px" }}
-                  className=" btn btn-outline-primary px-4 py-2 dilla-wallet-btn fs-6"
+                  style={{ marginTop: "-14px" }}
+                  className=" btn btn-outline-primary px-4 py-3 dilla-wallet-btn fs-6"
                   to=""
                 >
                   Add Money
@@ -496,30 +498,26 @@ function Sidebar() {
         </div>
         <div className="row roi-cards">
           <div className="col-md-4 mb-3 text-center">
-            <div className="card-new-one carder-bottom">
-              <img src={op} alt="charts" className="img-fluid" />
+            <div className="card-new-one jar-bg">
+              <img src={jar} alt="charts" className="img-fluid" />
               <h6 className="my-3">
-                Unprecedented access to
-                <br />
-                investment opportunities
+                Build your savings, rise in<br/>the ranks
               </h6>
-              <p>20% Monthly ROI</p>
-              <Link>
-                Start Investing <i className="bi bi-arrow-right"></i>
+              <p>12% Monthly ROI</p>
+              <Link to="/savings">
+                Start Saving <i className="bi bi-arrow-right"></i>
               </Link>
             </div>
           </div>
           <div className="col-md-4 mb-3 text-center">
-            <div className="card-new-one jar-bg">
-              <img src={jar} alt="charts" className="img-fluid" />
+            <div className="card-new-one carder-bottom">
+              <img src={op} alt="charts" className="img-fluid" />
               <h6 className="my-3">
-                Build your savings the
-                <br />
-                right way
+                Become a top-ranked<br/>investor
               </h6>
               <p>20% Monthly ROI</p>
-              <Link to="/savings">
-                Start Saving <i className="bi bi-arrow-right"></i>
+              <Link>
+                Start Investing <span className="cs-dash">Coming Soon</span>
               </Link>
             </div>
           </div>
@@ -527,13 +525,11 @@ function Sidebar() {
             <div className="card-new-one shield-bg">
               <img src={shield} alt="charts" className="img-fluid" />
               <h6 className="my-3">
-                Insurance policies you
-                <br />
-                can trust
+                Safeguard your interests,<br/>get insured
               </h6>
-              <p>20% Monthly ROI</p>
+              <p>12% Monthly ROI</p>
               <Link>
-                Make your first claim <i className="bi bi-arrow-right"></i>
+                Make your first claim <span className="cs-dash">Coming Soon</span>
               </Link>
             </div>
           </div>
@@ -545,7 +541,7 @@ function Sidebar() {
               <div className="row">
                 <div className="col-md-5">
                   <h1>Cadet</h1>
-                  <p>Move up your Rank by completing transactions</p>
+                  <p>Move up your rank by engaging the various tools on the Ardilla platform.</p>
                 </div>
                 <div className="col-md-7 text-end">
                   <img
@@ -562,11 +558,11 @@ function Sidebar() {
             <h2 className="mb-4">Badges</h2>
             <div className="goal-card beginner-card px-4">
               <div className="row">
-                <div className="col-md-5">
+                <div className="col-md-7">
                   <h1 style={{ color: "#3C0071" }}>Beginner</h1>
-                  <p>Move up your Rank by completing transactions</p>
+                  <p>Earn more badges as you take courses and pass the Ardilla quiz on the learn more platform</p>
                 </div>
-                <div className="col-md-7 text-end">
+                <div className="col-md-5 text-end">
                   <img
                     src={medal}
                     alt="cadet"
@@ -580,7 +576,7 @@ function Sidebar() {
             <h2 className="mb-4">Referrals</h2>
             <div className="goal-card refer-bg px-4">
               <h1 style={{ color: "#3C0071" }}>Earn</h1>
-              <small>Invite using your Kode Hex.</small>
+              <p>Invite using your Kode Hex.</p>
               <h6 className="mt-5">
                 Click here <i className="bi bi-arrow-right"></i>
               </h6>
@@ -612,14 +608,14 @@ function Sidebar() {
                   <div className="bg-wii">
                     <img src={wii} alt="" className="img-fluid"/>
                     <h2 className="my-4">Withdraw Interest Immediately</h2>
-                    <p>Our coaches are available all day for your questions or consultations. Schedule<br/>a meeting or start a chat anytime. Get </p>
+                    <p>You can withdraw your interest immediately when you save with Grit. Click to get started now </p>
                   </div>
                 </div>
                 <div className="col-md-6">
                   <div className="bg-wii">
                     <img src={ir} alt="" className="img-fluid"/>
                     <h2 className="my-4" style={{color: "#E8356D"}}>20% Interest Rate</h2>
-                    <p>Our coaches are available all day for your questions or consultations. Schedule<br/> a meeting or start a chat anytime. Get </p>
+                    <p>Enjoy upto 20% interest when you save with Grit on Ardilla. </p>
                   </div>
                 </div>
               </div>
@@ -628,16 +624,16 @@ function Sidebar() {
               <div className="row mt-5">
                 <div className="col-md-6">
                   <div className="bg-wii">
-                    <img src={wii} alt="" className="img-fluid"/>
-                    <h2 className="my-4">Withdraw Interest Immediately</h2>
-                    <p>Our coaches are available all day for your questions or consultations. Schedule<br/>a meeting or start a chat anytime. Get </p>
+                    <img src={put} alt="" className="img-fluid"/>
+                    <h2 className="my-4" style={{color: "#F59E0B"}}>Put your money to work</h2>
+                    <p>Make your money work for you and earn passively when you save with Grit.</p>
                   </div>
                 </div>
                 <div className="col-md-6">
                   <div className="bg-wii">
-                    <img src={ir} alt="" className="img-fluid"/>
-                    <h2 className="my-4" style={{color: "#E8356D"}}>20% Interest Rate</h2>
-                    <p>Our coaches are available all day for your questions or consultations. Schedule<br/> a meeting or start a chat anytime. Get </p>
+                    <img src={stand} alt="" className="img-fluid"/>
+                    <h2 className="my-4" style={{color: "#8807F7"}}>Stand out in the Ardilla community</h2>
+                    <p>join the circle of high savers on Ardilla and get access to other amazing benefits</p>
                   </div>
                 </div>
               </div>
