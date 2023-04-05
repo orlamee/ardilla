@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import logo from "../img/logo.svg";
+// import logo from "../img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Icon } from '@iconify/react';

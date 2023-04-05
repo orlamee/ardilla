@@ -1,7 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import logo from "../img/logo.svg";
+import { Icon } from '@iconify/react';
+import cp from "../img/create-password.svg";
+
+
 
 function CreatePassword() {
   const [password, setPassword] = useState("");
@@ -60,7 +63,7 @@ function CreatePassword() {
   };
 
   return (
-    <section className="login-section">
+    <section className="">
       {err && (
         <div className="row justify-content-center  ardilla-alert">
           <div className="col-md-6">
@@ -101,7 +104,7 @@ function CreatePassword() {
           </div>
         </div>
       )}
-      <div className="container">
+      {/* <div className="container">
         <div className="row logo">
           <div className="col-md-6">
             <Link to="/">
@@ -177,6 +180,98 @@ function CreatePassword() {
                     </div>
                   )}
                 </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> */}
+      <div className="d-lg-flex half">
+        <Link to="/login" className="bg order-2 order-md-1 left-forgot">
+          <div className="container">
+            <div className="row align-items-center justify-content-center">
+              <div className="col-md-6 mb-3">
+                <div className="left text-center entry">
+                  <img src={cp} alt="" className="img-fluid" />
+                  <h2 className="my-5 text-white">
+                    Create a New Password
+                  </h2>
+                  <p>Enter your New set of password to your account</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Link>
+        <div className="contents order-1 order-md-2">
+          <div className="container">
+            <div className="row align-items-center justify-content-center bg-white">
+              <div className="col-md-6">
+                <div className="right">
+                  <div className="">
+                    <form className="" onSubmit={handleSubmit}>
+                        <div className="form-floating mb-3">
+                          <input
+                            type="password"
+                            name="pass"
+                            className="form-control custom-login" id="pass_log_id" placeholder="name@example.com"
+                            required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                          />
+                          <span
+                            toggle="#password-field"
+                            className="fa fa-fw fa-eye field_icon toggle-password"
+                          ></span>
+                          <label for="floatingInput">
+                            <Icon icon="teenyicons:password-solid" className="me-2 fs-6"/> {" "}
+                            Enter New Password
+                          </label>
+                        </div>
+                        <div className="form-floating">
+                          <input
+                            type="password"
+                            name="pass"
+                            className="form-control custom-login"  placeholder="name@example.com"
+                            id="pass"
+                            required
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                          />
+                          <span
+                            toggle="#password-field"
+                            className="fa fa-fw fa-eye field_icon toggle-pass"
+                          ></span>
+                          <label for="floatingInput">
+                            <Icon icon="teenyicons:password-solid" className="me-2 fs-6"/> {" "}
+                            Confirm New Password
+                          </label>
+                        </div>
+                        {loading ? (
+                        <div className="mt-5">
+                          <button
+                            type="button"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                            style={{ width: "100%" }}
+                          >
+                            Loading
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="mt-5">
+                          <button
+                            type="submit"
+                            className="btn btn-outline-primary px-5 py-3 ardilla-btn"
+                            style={{ width: "100%" }}
+                          >
+                            Done
+                          </button>
+                        </div>
+                      )}
+                    </form>
+                    {/* <div className="text-center mt-3">
+                      <Link to="/login" className="text-center text-grey">Back to login</Link>
+                    </div> */}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

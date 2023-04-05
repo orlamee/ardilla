@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import logo from "../../img/logo.svg";
+import { Icon } from '@iconify/react';
+// import logo from "../../img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 // import platform from "platform";
@@ -196,7 +197,7 @@ function SANLogin() {
                           className="fa fa-fw fa-eye field_icon toggle-pass"
                         ></span>
                         <label for="floatingInput">
-                          <i className="bi bi-box-arrow-in-right me-2"></i> 
+                          <Icon icon="mi:log-in" className="me-2 fs-6"/> 
                           Enter your SAN ID
                         </label>
                         <Link className="float-end fg" to="/recover-san">

@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Icon } from '@iconify/react';
 import axios from "axios";
+import { Link } from "react-router-dom";
 // import platform from "platform";
 // import date from "date-and-time";
 
@@ -180,28 +182,26 @@ function SANCode() {
                       Here’s how to Log in to access your account
                     </h6>
                     <p className="notices mt-3">Enter code sent to your email <span className="sender">Fullname@example.com</span> </p>
-                    <h5 className="wrong-email">Wrong Email?</h5>
+                    <Link to="/login-san" className="wrong-email">Wrong SANID?</Link>
                     <form className="mt-5" onSubmit={handleSubmit}>
-                      <div className="mb-5">
-                        <label className="form-label">
-                          <i className="bi bi-key-fill me-2"></i> 
-                          Code
-                        </label>
+                      <div className="mb-5 form-floating">
                         <input
-                          type="text"
-                          className="form-control custom-login"
+                          type="email"
+                          className="form-control custom-login" id="pass" placeholder="name@example.com"
                           required
                           value={email}
                           onChange={(e) =>
                             setEmail(e.target.value.toLowerCase())
                           }
                         />
-                        
                         <span
                           toggle="#password-field"
                           className="fa fa-fw fa-eye field_icon toggle-pass"
                         ></span>
-                        
+                        <label for="floatingInput">
+                          <Icon icon="ic:round-key" className="me-2 fs-6"/> 
+                          Enter Verification code
+                        </label>
                       </div>
                       {loading ? (
                         <div className="mt-4 mb-5">

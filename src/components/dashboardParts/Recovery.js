@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import logo from "../../img/logo.svg";
+import { Icon } from '@iconify/react';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 // import platform from "platform";
@@ -181,7 +181,19 @@ function Recovery() {
                       Enter your designated Email Address
                     </h6>
                     <form className="mt-5" onSubmit={handleSubmit}>
-                      <div className="mb-5">
+                      <div className="form-floating mb-5">
+                        <input
+                          type="email"
+                          className="form-control custom-login" id="floatingInput" placeholder="name@example.com"
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value.toLowerCase())}
+                        />
+                        <label for="floatingInput">
+                          <Icon icon="mdi:email" className="me-2 fs-6"/> Email address
+                        </label>
+                      </div>
+                      {/* <div className="mb-5">
                         <label className="form-label">
                           <i className="bi bi-envelope me-2"></i> 
                           Email Address
@@ -195,13 +207,7 @@ function Recovery() {
                             setEmail(e.target.value.toLowerCase())
                           }
                         />
-                        
-                        {/* <span
-                          toggle="#password-field"
-                          className="fa fa-fw fa-eye field_icon toggle-pass"
-                        ></span> */}
-                        
-                      </div>
+                      </div> */}
                       <div className="mt-4">
                         <button
                           type="submit"

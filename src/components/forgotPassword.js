@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import fgp from "../img/fgp.svg";
+import { Icon } from '@iconify/react';
 
 
 function Forgot() {
@@ -81,70 +82,6 @@ function Forgot() {
           </div>
         </div>
       )}
-      {/* <div className="container">
-        <div className="row logo">
-          <div className="col-md-6">
-            <Link to="/">
-              <img src={logo} alt="" className="img-fluid mb-5" />
-            </Link>
-          </div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-md-6 mb-3">
-            <div className="left text-left">
-              <img src={fp} alt="" className="img-fluid" />
-              <h2 className="my-4">
-                Forgot Your <br />
-                Password
-              </h2>
-              <p className="code mb-5 fs-6">
-                Enter your email to reset your password
-              </p>
-            </div>
-          </div>
-          <div className="col-md-5 aggregate">
-            <div className="right">
-              <div className="login-form">
-                <form className="" onSubmit={handleSubmit}>
-                  <div className="mb-5">
-                    <label className="form-label">
-                      <i className="bi bi-envelope-fill me-2"></i> Email address
-                    </label>
-                    <input
-                      type="email"
-                      className="form-control custom-login"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </div>
-                  {loading ? (
-                    <div className="">
-                      <button
-                        type="button"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                        style={{ width: "100%" }}
-                      >
-                        Loading
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="">
-                      <button
-                        type="submit"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn"
-                        style={{ width: "100%" }}
-                      >
-                        Reset Password
-                      </button>
-                    </div>
-                  )}
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
       <div className="d-lg-flex half">
         <Link to="/login" className="bg order-2 order-md-1 left-forgot">
           <div className="container">
@@ -177,7 +114,7 @@ function Forgot() {
                           onChange={(e) => setEmail(e.target.value)}
                         />
                         <label for="floatingInput">
-                          <i className="bi bi-envelope-fill me-2"></i> Enter email address or kode hex
+                          <Icon icon="mdi:email" className="me-2 fs-6"/> Enter email address or kode hex
                         </label>
                       </div>
                       {loading ? (
