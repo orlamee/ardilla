@@ -7,8 +7,10 @@ import drims from "../../img/dashboard/drims.svg";
 import grit from "../../img/dashboard/gritt.svg";
 import clan from "../../img/dashboard/clann.svg";
 import vlt from "../../img/dashboard/vlt.svg";
+import dollar from "../../img/dashboard/dollar.svg";
 import axios from "axios";
 import graphy from "../../img/dashboard/dibgraph.svg";
+
 
 function SavingsBody() {
   const [flexAcct, setFlexAcct] = useState();
@@ -224,7 +226,7 @@ function SavingsBody() {
                   {totalBalance &&
                     Intl.NumberFormat("en-US").format(totalBalance)}
                 </span>
-                <i className="bi bi-eye-fill float-end"></i>
+                <Icon icon="pajamas:eye" className="float-end" style={{color: "#3D007280"}} />
               </div>
               <div className="d-flex flex-row mt-3">
                 <label className="switch">
@@ -633,9 +635,7 @@ function SavingsBody() {
                         <span className="dibbg">12% p.a</span>
                       </div>
                       <p>
-                        Everyone needs an emergency fund. We make it DIBible and
-                        <br />
-                        automatic.
+                        Everyone needs an emergency fund. We make it Flexible<br/>and automatic.
                       </p>
                       <Link
                         to="/flex-plan"
@@ -670,8 +670,7 @@ function SavingsBody() {
                       </span>
                     </div>
                     <p>
-                      Dreams do come through. Save up for that dream phone, car,
-                      house, or any other goal you have.
+                      With Ardilla, your dreams become real. Save up for that car, house, phone, or any other dream you may have.
                     </p>
                     <Link
                       to="/target-plan"
@@ -700,7 +699,7 @@ function SavingsBody() {
         </div>
         <div className="row mt-4">
           <div className="col-md-6 mb-3">
-            <div className="new-pp" style={{ background: "#F0FEFA" }}>
+            <div className="new-pp" style={{ background: "#EFF6FF" }}>
               <div className="row">
                 <div className="col-md-2 text-end">
                   <img src={vlt} alt="" className="img-fluid" />
@@ -709,20 +708,17 @@ function SavingsBody() {
                   <div className="dibb">
                     <div className="d-flex flex-row mb-2">
                       <h3>VAULT</h3>
-                      <span className="dibbg" style={{ background: "#BAFCE8" }}>
+                      <span className="dibbg" style={{ background: "#93C5FD", color: "#000" }}>
                         12% p.a
                       </span>
                     </div>
                     <p>
-                      Make your money, make more money. Lock up your extra cash
-                      and make a profit,
-                      <br />
-                      rather than spending it all and wondering what happened.
+                      Make your money earn for you. Lock up any extra cash you have and make a profit. it beats spending it and wondering where it all went.
                     </p>
                     <Link
                       to="/vault"
                       className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
-                      style={{ background: "#069669", borderColor: "#069669" }}
+                      style={{ background: "#2563EB", borderColor: "#2563EB" }}
                     >
                       Create a Vault
                     </Link>
@@ -732,7 +728,7 @@ function SavingsBody() {
             </div>
           </div>
           <div className="col-md-6 mb-3">
-            <div className="new-pp overlay">
+            <div className="new-pp locked" style={{ background: "#F0FDF4" }}>
               <div className="row">
                 <div className="col-md-2 text-end">
                   <img src={grit} alt="" className="img-fluid" />
@@ -741,7 +737,7 @@ function SavingsBody() {
                   <div className="dibb">
                     <div className="d-flex flex-row mb-2">
                       <h3>GRIT</h3>
-                      <span className="dibbg" style={{ background: "#F6EBFE" }}>
+                      <span className="dibbg" style={{ background: "#86EFAC", color: "#3D0072" }}>
                         12% p.a
                       </span>
                     </div>
@@ -752,7 +748,7 @@ function SavingsBody() {
                     </p>
                     <Link to="/grit"
                       className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
-                      style={{ background: "#8807F7", borderColor: "#8807F7" }}
+                      style={{ background: "#16A34A", borderColor: "#16A34A" }}
                     >
                       Create a Grit
                     </Link>
@@ -787,6 +783,34 @@ function SavingsBody() {
                       style={{ background: "#8807F7", borderColor: "#8807F7" }}
                     >
                       Create a Clan
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6 mb-3">
+            <div className="new-pp overlay" style={{background: "#F9F9F9"}}>
+              <div className="row">
+                <div className="col-md-2 text-end">
+                  <img src={dollar} alt="" className="img-fluid" />
+                </div>
+                <div className="col-md-8">
+                  <div className="dibb">
+                    <div className="d-flex flex-row mb-2">
+                      <h3>Dollar</h3>
+                      <span className="dibbg" style={{ background: "#F6EBFE", color: "#8807F7" }}>
+                        12% p.a
+                      </span>
+                    </div>
+                    <p>
+                      Beat the market value, get ready to save and<br/>earn in dollar
+                    </p>
+                    <button
+                      className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
+                      style={{ background: "#8807F7", borderColor: "#8807F7" }}
+                    >
+                      Get a Dollar Plan
                     </button>
                   </div>
                 </div>

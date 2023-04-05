@@ -334,7 +334,7 @@ function Sidebar() {
                   NGN{" "}
                   {Intl.NumberFormat("en-US").format(dillaWallet + sanBalance)}{" "}
                 </span> */}
-                <Icon icon="pajamas:eye" className="float-end" />
+                <Icon icon="pajamas:eye" className="float-end" style={{color: "#3D007280"}} />
               </div>
               {/* <div className="mt-4 p-2">
                 <div className="d-flex flex-row">
@@ -692,7 +692,7 @@ function Sidebar() {
         </div>
         <div className="row footer-dashboard">
           <div className="col-md-3 text-center border-end mb-3">
-            <h2>My Family and I</h2>
+            <h2>Clan</h2>
             <p className="mt-2">A Family that stay together stays forever</p>
             <button type="button" className="btn btn-outline-light footer-btn">
               Coming Soon
@@ -713,8 +713,8 @@ function Sidebar() {
             </button>
           </div>
           <div className="col-md-3 text-center mb-3">
-            <h2>Tax Save</h2>
-            <p className="mt-2">Where you save while spending</p>
+            <h2>Budgetting</h2>
+            <p className="mt-2">Save while spending and watch your financial portfolio rise.</p>
             <button type="button" className="btn btn-outline-light footer-btn">
               Coming Soon
             </button>
