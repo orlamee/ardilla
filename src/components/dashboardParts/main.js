@@ -713,7 +713,7 @@ function Sidebar() {
             </button>
           </div>
           <div className="col-md-3 text-center mb-3">
-            <h2>Budgetting</h2>
+            <h2>Budgeting</h2>
             <p className="mt-2">Save while spending and watch your financial portfolio rise.</p>
             <button type="button" className="btn btn-outline-light footer-btn">
               Coming Soon
