@@ -1,6 +1,7 @@
 import React from "react";
 import icon from "../../img/dashboard/logo.svg";
 import nots from "../../img/dashboard/nots.svg";
+import ham from "../../img/ham.svg";
 import settings from "../../img/dashboard/settings.svg";
 import { Link } from "react-router-dom";
 import d from "../../img/dashboard/profile-icon.svg";
@@ -35,6 +36,9 @@ function Header() {
             </ul>
           </div>
           
+        </div>
+        <div className="d-flex flex-row  desktop cogs" style={{marginLeft: "60px", marginTop: "-44px"}}>
+          <Link to=""><img src={ham} alt="" className="img-fluid me-4 w-100" /></Link>
         </div>
       </div>
     </section>
