@@ -10,9 +10,42 @@ import vlt from "../../img/dashboard/vlt.svg";
 import dollar from "../../img/dashboard/dollar.svg";
 import axios from "axios";
 import graphy from "../../img/dashboard/dibgraph.svg";
+import Modal from 'react-bootstrap/Modal';
+import ProgressBar from 'react-bootstrap/ProgressBar';
+
+function GritPop(props) {
+  return (
+    <Modal
+      {...props}
+      size=""
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      className="flex-modal grit-pop"
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Grit Locked
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4 className="mb-5">Save up to NGN 2,000,000 to unlock grit</h4>
+        <p>Grit progress</p>
+        <p className="float-end" style={{color: "#3D0072", marginTop: "-14px"}}>0%</p>
+        <ProgressBar now={0} />
+        <Link to="/grit"
+          className="btn btn-outline-primary px-4 py-2 ardilla-btn-dib fs-6 mt-4 me-3"
+          style={{ background: "#8807F7", borderColor: "#8807F7" }}
+        >
+          Continue
+        </Link>
+      </Modal.Body>
+    </Modal>
+  );
+}
 
 
 function SavingsBody() {
+  const [modalShow, setModalShow] = React.useState(false);
   const [flexAcct, setFlexAcct] = useState();
   const [tb, setTb] = useState();
   const [msg, setMsg] = useState("");
@@ -603,7 +636,7 @@ function SavingsBody() {
                         <span className="text-muted">Recent Top up:</span>{" "}
                         <span>20th December, 2022</span>
                       </p>
-                      <Link
+                      <Link onClick={() => setModalShow(true)}
                         to="/flexplan-dashboard"
                         className="btn btn-outline-primary px-3 py-2 ardilla-btn-dib fs-6 mt-2 me-3"
                         style={{
@@ -727,7 +760,7 @@ function SavingsBody() {
               </div>
             </div>
           </div>
-          <div className="col-md-6 mb-3">
+          <Link to="" className="col-md-6 mb-3" onClick={() => setModalShow(true)}>
             <div className="new-pp locked" style={{ background: "#F0FDF4" }}>
               <div className="row">
                 <div className="col-md-2 text-end">
@@ -756,7 +789,7 @@ function SavingsBody() {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="row mt-4">
           <div className="col-md-6 mb-3">
@@ -819,6 +852,10 @@ function SavingsBody() {
           </div>
         </div>
       </div>
+      <GritPop
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </section>
   );
 }

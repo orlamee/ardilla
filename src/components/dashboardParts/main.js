@@ -15,6 +15,7 @@ import op from "../../img/dashboard/op.svg";
 import dwdapp from "../../img/dwd-app.svg";
 import wii from "../../img/wii.svg";
 import stand from "../../img/stand.svg";
+import dillalogo from "../../img/dillalogo.svg";
 import put from "../../img/put.svg";
 import ir from "../../img/ir.svg";
 import ProgressBar from 'react-bootstrap/ProgressBar';
@@ -23,7 +24,75 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper";
 import { Icon } from '@iconify/react';
+import Modal from 'react-bootstrap/Modal';
+import CurrencyInput from 'react-currency-input-field';
+
+
+function AddMoney(props) {
+  return (
+    <Modal
+      {...props}
+      size=""
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      className="add-modal"
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <div className="row t-card p-3 logo-modal">
+                <div className="col-md-6">
+                  <img
+                    src={dillalogo}
+                    alt=""
+                    className="img-fluid"
+                  />
+                </div>
+                <div className="col-md-6 text-end mt-2">
+                  <h4>
+                   Available Balance: <span className="text-white">₦ 0</span>
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="row mt-5 justify-content-center add-amount">
+            <div className="col-md-7 text-center">
+              <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Input Amount</label>
+                  <CurrencyInput
+                    prefix="₦"
+                    id="input-example"
+                    name="input-name"
+                    defaultValue={1000}
+                    className="form-control"
+                    decimalsLimit={2}
+                    onValueChange={(value, name) => console.log(value, name)}
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </Modal.Body>
+      <Modal.Footer className="text-center">
+        <button type="button" class="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 my-4 w-100" data-bs-toggle="modal" data-bs-target="#exampleodal">Continue</button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
+
+
 function Sidebar() {
+  const [modalShow, setModalShow] = React.useState(false);
   const [dillaWallet, setDillaWallet] = useState();
   const [sanBalance, setSanBalance] = useState();
   const [userDetails, setUserDetails] = useState();
@@ -261,7 +330,7 @@ function Sidebar() {
                   </div>
                 )}
 
-                <Link
+                <Link onClick={() => setModalShow(true)}
                   className="add-money float-end btn btn-outline-primary px-4 py-3 ardilla-btn-inverted fs-6 desktop"
                   to=""
                 >
@@ -273,6 +342,10 @@ function Sidebar() {
                 >
                   Add Money
                 </Link>
+                <AddMoney
+                  show={modalShow}
+                  onHide={() => setModalShow(false)}
+                />
               </div>
             </div>
           </div>
@@ -307,7 +380,7 @@ function Sidebar() {
                     ₦740 /$1
                   </span>
                 </div> */}
-                <Link
+                <Link onClick={() => setModalShow(true)}
                   style={{ marginTop: "-14px" }}
                   className=" btn btn-outline-primary px-4 py-3 dilla-wallet-btn fs-6"
                   to=""
