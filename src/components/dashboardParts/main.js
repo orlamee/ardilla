@@ -856,28 +856,28 @@ function Sidebar() {
           <div className="col-md-3 text-center border-end mb-3">
             <h2>Clan</h2>
             <p className="mt-2">A Family that stay together stays forever</p>
-            <button type="button" className="btn btn-outline-light footer-btn">
+            <button type="button" className="btn pe-none btn-outline-light footer-btn">
               Coming Soon
             </button>
           </div>
           <div className="col-md-3 text-center border-end mb-3">
             <h2>Invest With Hargon</h2>
             <p className="mt-2">Loan as an investment</p>
-            <button type="button" className="btn btn-outline-light footer-btn">
+            <button type="button" className="btn pe-none btn-outline-light footer-btn">
               Coming Soon
             </button>
           </div>
           <div className="col-md-3 text-center border-end mb-3">
             <h2>Business with Ardilla</h2>
             <p className="mt-2">A Partnership where you Earn!</p>
-            <button type="button" className="btn btn-outline-light footer-btn">
+            <button type="button" className="btn pe-none btn-outline-light footer-btn">
               Coming Soon
             </button>
           </div>
           <div className="col-md-3 text-center mb-3">
             <h2>Budgeting</h2>
             <p className="mt-2">Save while spending and watch your financial portfolio rise.</p>
-            <button type="button" className="btn btn-outline-light footer-btn">
+            <button type="button" className="btn pe-none btn-outline-light footer-btn">
               Coming Soon
             </button>
           </div>
