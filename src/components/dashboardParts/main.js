@@ -24,75 +24,162 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper";
 import { Icon } from '@iconify/react';
-import Modal from 'react-bootstrap/Modal';
+// import Modal from 'react-bootstrap/Modal';
 import CurrencyInput from 'react-currency-input-field';
 
 
-function AddMoney(props) {
-  return (
-    <Modal
-      {...props}
-      size=""
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-      className="add-modal"
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
+// function AddMoney(props) {
+//   const [dillaShow, setDillaShow] = React.useState(false);
+
+//   return (
+//     <Modal
+//       {...props}
+//       size=""
+//       aria-labelledby="contained-modal-title-vcenter"
+//       centered
+//       className="add-modal"
+//     >
+//       <Modal.Header closeButton>
+//         <Modal.Title id="contained-modal-title-vcenter">
           
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <div className="container">
-          <div className="row">
-            <div className="col">
-              <div className="row t-card p-3 logo-modal">
-                <div className="col-md-6">
-                  <img
-                    src={dillalogo}
-                    alt=""
-                    className="img-fluid"
-                  />
-                </div>
-                <div className="col-md-6 text-end mt-2">
-                  <h4>
-                   Available Balance: <span className="text-white">₦ 0</span>
-                  </h4>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row mt-5 justify-content-center add-amount">
-            <div className="col-md-7 text-center">
-              <form>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Input Amount</label>
-                  <CurrencyInput
-                    prefix="₦"
-                    id="input-example"
-                    name="input-name"
-                    defaultValue={1000}
-                    className="form-control"
-                    decimalsLimit={2}
-                    onValueChange={(value, name) => console.log(value, name)}
-                  />
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </Modal.Body>
-      <Modal.Footer className="text-center">
-        <button type="button" class="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 my-4 w-100" data-bs-toggle="modal" data-bs-target="#exampleodal">Continue</button>
-      </Modal.Footer>
-    </Modal>
-  );
-}
+//         </Modal.Title>
+//       </Modal.Header>
+//       <Modal.Body>
+//         <div className="container">
+//           <div className="row">
+//             <div className="col">
+//               <div className="row t-card p-3 logo-modal">
+//                 <div className="col-md-6">
+//                   <img
+//                     src={dillalogo}
+//                     alt=""
+//                     className="img-fluid"
+//                   />
+//                 </div>
+//                 <div className="col-md-6 text-end mt-2">
+//                   <h4>
+//                    Available Balance: <span className="text-white">₦ 0</span>
+//                   </h4>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="row mt-5 justify-content-center add-amount">
+//             <div className="col-md-7 text-center">
+//               <form>
+//                 <div class="mb-3">
+//                   <label for="exampleInputEmail1" class="form-label">Input Amount</label>
+//                   <CurrencyInput
+//                     prefix="₦"
+//                     id="input-example"
+//                     name="input-name"
+//                     defaultValue={1000}
+//                     className="form-control"
+//                     decimalsLimit={2}
+//                     onValueChange={(value, name) => console.log(value, name)}
+//                   />
+//                 </div>
+//               </form>
+//             </div>
+//           </div>
+//         </div>
+//       </Modal.Body>
+//       <Modal.Footer className="text-center">
+//         <button type="button" class="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 my-4 w-100" data-bs-toggle="modal" data-bs-target="#topup-dilla">Continue</button>
+//       </Modal.Footer>
+//       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+//         <div class="modal-dialog">
+//           <div class="modal-content">
+//             <div class="modal-header">
+//               <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+//               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+//             </div>
+//             <div class="modal-body">
+//               ...
+//             </div>
+//             <div class="modal-footer">
+//               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+//               <button type="button" class="btn btn-primary">Save changes</button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//       <DillaMoney
+//         show={dillaShow}
+//         onHide={() => setDillaShow(false)}
+//       />
+//     </Modal>
+    
+//   );
+// }
+
+
+
+
+// function DillaMoney(props) {
+//   return (
+//     <Modal
+//       {...props}
+//       size=""
+//       aria-labelledby="contained-modal-title-vcenter"
+//       centered
+//       className="add-modal"
+//     >
+//       <Modal.Header closeButton>
+//         <Modal.Title id="contained-modal-title-vcenter">
+          
+//         </Modal.Title>
+//       </Modal.Header>
+//       <Modal.Body>
+//         <div className="container">
+//           <div className="row">
+//             <div className="col">
+//               <div className="row t-card p-3 logo-modal">
+//                 <div className="col-md-6">
+//                   <img
+//                     src={dillalogo}
+//                     alt=""
+//                     className="img-fluid"
+//                   />
+//                 </div>
+//                 <div className="col-md-6 text-end mt-2">
+//                   <h4>
+//                    Available Balance: <span className="text-white">₦ 0</span>
+//                   </h4>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="row mt-5">
+//             <div className="col p-0">
+//               Choose a Payment Method 
+//               <div className="border p-3 mb-3">
+//                 Bank Transfer
+//                 <span className="float-end"><i className="bi bi-chevron-right"></i></span>
+//               </div>
+//               <div className="border p-3 mb-3">
+//                 Bank Transfer
+//                 <span className="float-end"><i className="bi bi-chevron-right"></i></span>
+//               </div>
+//               <div className="border p-3 mb-3">
+//                 Bank Transfer
+//                 <span className="float-end"><i className="bi bi-chevron-right"></i></span>
+//               </div>
+//               <div className="border p-3 mb-3">
+//                 Bank Transfer
+//                 <span className="float-end"><i className="bi bi-chevron-right"></i></span>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </Modal.Body>
+//     </Modal>
+//   );
 
 
 
 function Sidebar() {
-  const [modalShow, setModalShow] = React.useState(false);
+  // const [modalShow, setModalShow] = React.useState(false);
   const [dillaWallet, setDillaWallet] = useState();
   const [sanBalance, setSanBalance] = useState();
   const [userDetails, setUserDetails] = useState();
@@ -330,7 +417,7 @@ function Sidebar() {
                   </div>
                 )}
 
-                <Link onClick={() => setModalShow(true)}
+                <Link data-bs-toggle="modal" data-bs-target="#topup-dilla"
                   className="add-money float-end btn btn-outline-primary px-4 py-3 ardilla-btn-inverted fs-6 desktop"
                   to=""
                 >
@@ -342,10 +429,11 @@ function Sidebar() {
                 >
                   Add Money
                 </Link>
-                <AddMoney
+                {/* <AddMoney
                   show={modalShow}
                   onHide={() => setModalShow(false)}
-                />
+                /> */}
+                
               </div>
             </div>
           </div>
@@ -380,7 +468,7 @@ function Sidebar() {
                     ₦740 /$1
                   </span>
                 </div> */}
-                <Link onClick={() => setModalShow(true)}
+                <Link data-bs-toggle="modal" data-bs-target="#topup-dilla"
                   style={{ marginTop: "-14px" }}
                   className=" btn btn-outline-primary px-4 py-3 dilla-wallet-btn fs-6"
                   to=""
@@ -794,6 +882,132 @@ function Sidebar() {
           </div>
         </div>
         {/* </div> */}
+      </div>
+      {/* Top Up Modal */}
+      <div
+        className="modal add-modal fade"
+        id="topup-dilla"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <div className="container">
+                <div className="row">
+                  <div className="col">
+                    <div className="row t-card p-3 logo-modal">
+                      <div className="col-md-6">
+                        <img
+                          src={dillalogo}
+                          alt=""
+                          className="img-fluid"
+                        />
+                      </div>
+                      <div className="col-md-6 text-end mt-2">
+                        <h4>
+                         Available Balance: <span className="text-white">₦ 0</span>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-5 justify-content-center add-amount">
+                  <div className="col-md-7 text-center">
+                    <form>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Input Amount</label>
+                        <CurrencyInput
+                          prefix="₦"
+                          id="input-example"
+                          name="input-name"
+                          defaultValue={1000}
+                          className="form-control"
+                          decimalsLimit={2}
+                          onValueChange={(value, name) => console.log(value, name)}
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button type="button" class="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 my-4 w-100" data-bs-toggle="modal" data-bs-target="#selectpayment">Continue</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Select Payment */}
+      <div
+        className="modal add-modal fade"
+        id="selectpayment"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <div className="container">
+                <div className="row">
+                  <div className="col">
+                    <div className="row t-card p-3 logo-modal">
+                      <div className="col-md-6">
+                        <img
+                          src={dillalogo}
+                          alt=""
+                          className="img-fluid"
+                        />
+                      </div>
+                      <div className="col-md-6 text-end mt-2">
+                        <h4>
+                         Available Balance: <span className="text-white">₦ 0</span>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-5">
+                  <div className="col p-0">
+                    <span className="text-white">Choose a Payment Method </span>
+                    <div className="border p-3 mb-3 sel-pay">
+                      Bank Transfer
+                      <span className="float-end"><i className="bi bi-chevron-right"></i></span>
+                    </div>
+                    <div className="border p-3 mb-3 sel-pay">
+                      USSD
+                      <span className="float-end"><i className="bi bi-chevron-right"></i></span>
+                    </div>
+                    <div className="border p-3 mb-3 sel-pay">
+                      Card
+                      <span className="float-end"><i className="bi bi-chevron-right"></i></span>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

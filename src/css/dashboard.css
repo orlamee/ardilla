@@ -2487,9 +2487,10 @@ input[type=number] {
   position: relative;
   flex: 1 1 auto;
   padding: var(--bs-modal-padding);
-  background-image: url('../img/modal.svg');
+  /* background-image: url('../img/modal.svg'); */
   background-position: 50%;
   background-repeat: no-repeat;
+  background-color: #720ed5;
 }
 .add-modal .modal-header {
   background-image: url('../img/modal.svg');
@@ -2513,4 +2514,17 @@ input[type=number] {
 
 .add-modal .btn-close {
   background-image: url('../img/close-btn.svg');
+}
+
+.add-amount .form-label {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.sel-pay {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
 }
