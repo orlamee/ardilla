@@ -7,6 +7,7 @@ import medal from "../../img/dashboard/medal.svg";
 import axios from "axios";
 // import { useIdleTimer } from "react-idle-timer";
 import chart from "../../img/dashboard/new-graph.png";
+import donecheck from "../../img/dashboard/done-check.svg";
 import ceo from "../../img/dashboard/ceo.svg";
 import jar from "../../img/dashboard/new-jar.svg";
 import shield from "../../img/dashboard/new-shield.svg";
@@ -990,7 +991,7 @@ function Sidebar() {
                   <div className="col p-0">
                     <span className="text-white">Choose a Payment Method </span>
                     <div className="border p-3 mb-3 sel-pay">
-                      Bank Transfer
+                      <Link to="" data-bs-toggle="modal" data-bs-target="#banktransfer">Bank Transfer</Link>
                       <span className="float-end"><i className="bi bi-chevron-right"></i></span>
                     </div>
                     <div className="border p-3 mb-3 sel-pay">
@@ -1009,6 +1010,115 @@ function Sidebar() {
           </div>
         </div>
       </div>
+
+      {/* Bank Transfer */}
+      <div
+        className="modal add-modal fade"
+        id="banktransfer"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <div className="container">
+                <div className="row">
+                  <div className="col">
+                    <div className="row t-card p-3 logo-modal">
+                      <div className="col-md-6">
+                        <img
+                          src={dillalogo}
+                          alt=""
+                          className="img-fluid"
+                        />
+                      </div>
+                      <div className="col-md-6 text-end mt-2">
+                        <h4>
+                         Available Balance: <span className="text-white">₦ 0</span>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-5">
+                  <div className="col tran-details">
+                    <div mb-3>
+                      <h3>Amount to pay :</h3>
+                      <h3 className="float-end text-white" style={{fontWeight:"500", marginTop: "-25px"}}>NGN 30,250</h3>
+                    </div>
+                    <hr/>
+                    <div mb-3>
+                      <h3>Account Number :</h3>
+                      <h3 className="float-end text-white" style={{fontWeight:"500", marginTop: "-25px"}}>1234567678 <i className="bi bi-files ms-2"></i></h3>
+                    </div>
+                    <hr/>
+                    <div mb-3>
+                      <h3>Bank :</h3>
+                      <h3 className="float-end text-white" style={{fontWeight:"500", marginTop: "-25px"}}>Eyowo Bank</h3>
+                    </div>
+                    <hr/>
+                    <div mb-3>
+                      <h3>Name :</h3>
+                      <h3 className="float-end text-white" style={{fontWeight:"500", marginTop: "-25px"}}>John Doe</h3>
+                    </div>
+                    <hr/>
+                    <div mb-3>
+                      <h3>Narration :</h3>
+                      <h3 className="float-end text-white" style={{fontWeight:"500", marginTop: "-25px"}}>Billing</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button type="button" class="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 my-4 w-100" data-bs-toggle="modal" data-bs-target="#paid">I Have Paid</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Paid */}
+      <div
+        className="modal add-modal fade"
+        id="paid"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <div className="container">
+                <div className="row justify-content-center py-5 paid">
+                  <div className="col-md-9 text-center">
+                    <img src={donecheck} alt="" className="img-fluid" />
+                    <h3 className="text-white mt-5 mb-3">Deposit In-review</h3>
+                    <p>Your deposit has been processed and is being reviewed, your Dilla wallet will be credited accordingly. </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
   );
 }
