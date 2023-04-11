@@ -2586,3 +2586,45 @@ input[type=number] {
 .add-modal .form-select option {
   background-color: #720ed5;
 }
+
+@media (min-width: 992px){
+  .nots-menu {
+    min-width: 515px;
+    padding: 0;
+    background-color: #8807F7;
+  }
+}
+
+.nots-menu h3 {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 27px;
+}
+
+.togss {
+  background-color: #F9FAFB!important;
+  border: 1px solid #F9FAFB;
+  border-radius: 30px;
+}
+
+.nots-menu .nav-tabs .nav-link.active {
+  color: #fff;
+  background-color: #8807f7;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.nots-menu .nav-tabs .nav-link {
+  margin-bottom: 0;
+}
+
+.nots-menu li.nav-item {
+  padding-left: 0px;
+}
+
+.nots-menu .nav-tabs .nav-link:hover {
+  border-color: #fff;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 10px;
+}

@@ -55,8 +55,8 @@ html,body {
 }
 
 .cadet-name {
-  margin: 0px 30px 30px 30px;
-  text-align: center;
+  margin: 0px 30px 30px 25px;
+  text-align: left;
 }
 
 .cadet-name h2 {

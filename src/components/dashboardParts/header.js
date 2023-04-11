@@ -6,6 +6,8 @@ import settings from "../../img/dashboard/settings.svg";
 import { Link } from "react-router-dom";
 import d from "../../img/dashboard/profile-icon.svg";
 import c from "../../img/dashboard/account-icon.svg";
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 
 function Header() {
   return (
@@ -17,7 +19,27 @@ function Header() {
           </div>
         </div>
         <div className="d-flex flex-row float-end desktop cogs">
-          <Link to=""><img src={nots} alt="" className="img-fluid me-4" /></Link>
+          <div className="dropdown">
+            <Link to="#"  className="dropdown-toggle header-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src={nots} alt="" className="img-fluid me-4" /></Link>
+            <ul className="dropdown-menu nots-menu">
+              <div className="row m-5">
+                <div className="col">
+                  <h3 className="text-white mb-4">Notification</h3>
+                  <Tabs
+                    defaultActiveKey="profile"
+                    id="uncontrolled-tab-example"
+                    className="mb-3 togss"
+                    justify
+                  >
+                    <Tab eventKey="home" title="Notifications">
+                    </Tab>
+                    <Tab eventKey="profile" title="Messages">
+                    </Tab>
+                  </Tabs>
+                </div>
+              </div>
+            </ul>
+          </div>
           <div className="dropdown">
             <Link to="" className="dropdown-toggle header-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src={settings} alt="" className="img-fluid" /></Link>
             <ul className="dropdown-menu">
@@ -37,8 +59,8 @@ function Header() {
           </div>
           
         </div>
-        <div className="d-flex flex-row  desktop cogs" style={{marginLeft: "60px", marginTop: "-44px"}}>
-          <Link to=""><img src={ham} alt="" className="img-fluid me-4 w-100" /></Link>
+        <div className="d-flex flex-row  desktop cogs" style={{marginLeft: "36px", marginTop: "-44px"}}>
+          <Link to=""><img src={ham} alt="" className="img-fluid me-4 w-75" /></Link>
         </div>
       </div>
     </section>
