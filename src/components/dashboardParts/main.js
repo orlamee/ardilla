@@ -13,6 +13,8 @@ import jar from "../../img/dashboard/new-jar.svg";
 import shield from "../../img/dashboard/new-shield.svg";
 import daylight from "../../img/dashboard/daylight.svg";
 import op from "../../img/dashboard/op.svg";
+import paywithcard from "../../img/paywithcard.svg";
+import mc from "../../img/mc.svg";
 import dwdapp from "../../img/dwd-app.svg";
 import wii from "../../img/wii.svg";
 import stand from "../../img/stand.svg";
@@ -951,7 +953,7 @@ function Sidebar() {
 
       {/* Select Payment */}
       <div
-        className="modal add-modal fade"
+        className="modal add-modal curvy fade"
         id="selectpayment"
         tabIndex="-1"
         aria-labelledby="exampleModalLabel"
@@ -989,17 +991,17 @@ function Sidebar() {
                 </div>
                 <div className="row mt-5">
                   <div className="col p-0">
-                    <span className="text-white">Choose a Payment Method </span>
+                    <span className="text-white" style={{fontSize: "14px"}}>Choose a Payment Method </span>
                     <div className="border p-3 mb-3 sel-pay">
                       <Link to="" data-bs-toggle="modal" data-bs-target="#banktransfer">Bank Transfer</Link>
                       <span className="float-end"><i className="bi bi-chevron-right"></i></span>
                     </div>
                     <div className="border p-3 mb-3 sel-pay">
-                      USSD
+                      <Link to="" data-bs-toggle="modal" data-bs-target="#ussd">USSD</Link>
                       <span className="float-end"><i className="bi bi-chevron-right"></i></span>
                     </div>
-                    <div className="border p-3 mb-3 sel-pay">
-                      Card
+                    <div className="border p-3 mb-5 sel-pay">
+                      <Link to="" data-bs-toggle="modal" data-bs-target="#cardpayment">Card</Link>
                       <span className="float-end"><i className="bi bi-chevron-right"></i></span>
                     </div>
                     
@@ -1056,22 +1058,22 @@ function Sidebar() {
                       <h3 className="float-end text-white" style={{fontWeight:"500", marginTop: "-25px"}}>NGN 30,250</h3>
                     </div>
                     <hr/>
-                    <div mb-3>
+                    <div>
                       <h3>Account Number :</h3>
                       <h3 className="float-end text-white" style={{fontWeight:"500", marginTop: "-25px"}}>1234567678 <i className="bi bi-files ms-2"></i></h3>
                     </div>
                     <hr/>
-                    <div mb-3>
+                    <div>
                       <h3>Bank :</h3>
                       <h3 className="float-end text-white" style={{fontWeight:"500", marginTop: "-25px"}}>Eyowo Bank</h3>
                     </div>
                     <hr/>
-                    <div mb-3>
+                    <div>
                       <h3>Name :</h3>
                       <h3 className="float-end text-white" style={{fontWeight:"500", marginTop: "-25px"}}>John Doe</h3>
                     </div>
                     <hr/>
-                    <div mb-3>
+                    <div>
                       <h3>Narration :</h3>
                       <h3 className="float-end text-white" style={{fontWeight:"500", marginTop: "-25px"}}>Billing</h3>
                     </div>
@@ -1088,7 +1090,7 @@ function Sidebar() {
 
       {/* Paid */}
       <div
-        className="modal add-modal fade"
+        className="modal add-modal curvy fade"
         id="paid"
         tabIndex="-1"
         aria-labelledby="exampleModalLabel"
@@ -1114,6 +1116,309 @@ function Sidebar() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Card Payment  */}
+      <div
+        className="modal add-modal curvy fade"
+        id="cardpayment"
+        tabIndex="-1"
+        aria-labelledby=""
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <div className="container">
+                <div className="row">
+                  <div className="col">
+                    <div className="row t-card p-3 logo-modal">
+                      <div className="col-md-6">
+                        <img
+                          src={paywithcard}
+                          alt=""
+                          className="img-fluid"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-5">
+                  <div className="col p-0">
+                    <span className="text-white" style={{fontSize: "14px"}}>Select Card </span>
+                    <div className="border p-3 mb-3 sel-pay">
+                      <Link to="" data-bs-toggle="modal" data-bs-target="#cardoptions"><img src={mc} alt="" className="img-fluid" width="63" /></Link>
+                      <span className="float-end"><i className="bi bi-chevron-right"></i></span>
+                    </div>
+                    <div className="border p-3 mb-5 sel-pay">
+                      <Link to="" data-bs-toggle="modal" data-bs-target="#cardoptions"><img src={mc} alt="" className="img-fluid" width="63" /></Link>
+                      <span className="float-end"><i className="bi bi-chevron-right"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Card Options */}
+      <div
+        className="modal add-modal curvy fade"
+        id="cardoptions"
+        tabIndex="-1"
+        aria-labelledby=""
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <div className="container">
+                <div className="row">
+                  <div className="col">
+                    <div className="row t-card p-3 logo-modal">
+                      <div className="col-md-6">
+                        <img
+                          src={paywithcard}
+                          alt=""
+                          className="img-fluid"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-5">
+                  <div className="col p-0">
+                    <span className="text-white" style={{fontSize: "14px"}}>Select Card </span>
+                    <div className="border p-3 mb-3 sel-pay text-center">
+                      <Link to="" data-bs-toggle="modal" data-bs-target="#topup-card"><img src={mc} alt="" className="img-fluid" width="63" /></Link>
+                    </div>
+                    <div className="border p-3 mb-5 sel-pay text-center">
+                      <Link to="" data-bs-toggle="modal" data-bs-target="#topup-card"><img src={mc} alt="" className="img-fluid" width="63" /></Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Card Input  */}
+       <div
+        className="modal add-modal fade"
+        id="topup-card"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <div className="container">
+                <div className="row">
+                  <div className="col">
+                    <div className="row t-card p-3 logo-modal">
+                      <div className="col-md-6">
+                        <img
+                          src={dillalogo}
+                          alt=""
+                          className="img-fluid"
+                        />
+                      </div>
+                      <div className="col-md-6 text-end mt-2">
+                        <h4>
+                         <span className="text-white">**** **** 4574</span>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-5 justify-content-center add-amount">
+                  <div className="col-md-7 text-center">
+                    <form>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Input Amount</label>
+                        <CurrencyInput
+                          prefix="₦"
+                          id="input-example"
+                          name="input-name"
+                          defaultValue={1000}
+                          className="form-control"
+                          decimalsLimit={2}
+                          onValueChange={(value, name) => console.log(value, name)}
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="modal-footer text-center">
+              <div className="text-center mb-4">
+                <p>₦250.00 <span style={{color: "#9CA3AF" , fontWeight: "400"}}>(1.5% fee caped at ₦250) </span></p>
+              </div>
+              <button type="button" class="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 my-4 w-100" data-bs-toggle="modal" data-bs-target="#auth">Pay</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Auth */}
+      <div
+        className="modal add-modal curvy fade"
+        id="auth"
+        tabIndex="-1"
+        aria-labelledby=""
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <div className="container">
+                <div className="row">
+                  <div className="col">
+                    <div className="row t-card p-3 logo-modal">
+                      <div className="col-md-6">
+                        <img
+                          src={dillalogo}
+                          alt=""
+                          className="img-fluid"
+                        />
+                      </div>
+                      <div className="col-md-6 text-end mt-2">
+                        <h4>
+                         <span className="text-white">**** **** 4574</span>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-3">
+                  <div className="col text-center">
+                    <span className="text-white" style={{fontSize: "14px"}}>Authentification </span>
+                  </div>
+                </div>
+                <div className="row mt-3">
+                  <div className="col tran-details">
+                    <div className="mb-5">
+                      <h3>Amount :</h3>
+                      <h3 className="float-end text-white" style={{fontWeight:"500", marginTop: "-25px"}}>NGN 30,250</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* USSD */}
+      <div
+        className="modal add-modal fade"
+        id="ussd"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <div className="container">
+                <div className="row">
+                  <div className="col">
+                    <div className="row t-card p-3 logo-modal">
+                      <div className="col-md-6">
+                        <img
+                          src={dillalogo}
+                          alt=""
+                          className="img-fluid"
+                        />
+                      </div>
+                      <div className="col-md-6 text-end mt-2">
+                        <h4>
+                         Available Balance: <span className="text-white">₦ 0</span>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-5 justify-content-center add-amount">
+                  <div className="col-md-7 text-center">
+                    <form>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" className="form-label">Amount to pay</label>
+                        <h4 className="text-white fw-bold">₦30,250.00</h4>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <hr/>
+                <div className="row mt-4 justify-content-center">
+                  <div className="col text-center">
+                    <label className="form-label">Dial this code to complete the transaction</label>
+                    <h4 className="text-white fw-bold">*949*2004434887*30250#</h4>
+                  </div>
+                </div>
+                <div className="row justify-content-end mt-3">
+                  <div className="col-md-4">
+                    <form>
+                      <select className="form-select" aria-label="Default select example">
+                        <option selected>GTBank</option>
+                        <option value="1">Globus Bank</option>
+                        <option value="2">Access Bank</option>
+                        <option value="3">Sterling Bank</option>
+                      </select>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button type="button" class="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 my-4 w-100" data-bs-toggle="modal" data-bs-target="#paid">I Have Paid</button>
             </div>
           </div>
         </div>

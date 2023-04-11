@@ -2487,16 +2487,23 @@ input[type=number] {
   position: relative;
   flex: 1 1 auto;
   padding: var(--bs-modal-padding);
-  /* background-image: url('../img/modal.svg'); */
+  background-image: url('../img/modal.svg');
   background-position: 50%;
   background-repeat: no-repeat;
-  background-color: #720ed5;
 }
 .add-modal .modal-header {
   background-image: url('../img/modal.svg');
   background-position: 50%;
   background-repeat: no-repeat;
 }
+
+.curvy .modal-body {
+  border-bottom-left-radius: 14px!important;
+  border-bottom-right-radius: 14px!important;
+  background-color: #720ed5!important;
+
+}
+
 
 .logo-modal {
   background-color: #8807F7;
@@ -2552,4 +2559,30 @@ input[type=number] {
 
 .tran-details hr {
   border-top: 1px solid #fff;
+}
+
+.add-modal .modal-footer {
+  display: block;
+}
+
+.add-modal .modal-footer p {
+  color: #3C0071;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+}
+
+.add-modal hr {
+  color: #fff;
+}
+
+.add-modal .form-select {
+  background-color: transparent;
+  color: #fff;
+  border-radius: 40px;
+  font-size: 12px;
+}
+
+.add-modal .form-select option {
+  background-color: #720ed5;
 }
