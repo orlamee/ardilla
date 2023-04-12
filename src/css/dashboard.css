@@ -2202,6 +2202,7 @@ i.fas.fa-search {
   background: #FFFAF0;
   border-radius: 16px;
   padding: 50px 0px;
+  min-height: 259px;
 }
 
 .ardilla-btn-dib {

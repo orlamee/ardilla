@@ -928,7 +928,7 @@ function Sidebar() {
                   </div>
                 </div>
                 <div className="row mt-5 justify-content-center add-amount">
-                  <div className="col-md-7 text-center">
+                  <div className="col text-center">
                     <form>
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Input Amount</label>
