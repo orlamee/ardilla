@@ -1599,6 +1599,7 @@ input:checked + .slider:before {
 .outline-btn {
   background: transparent!important;
   color: #8807f7!important;
+  font-weight: 700!important;
 }
 
 .recent-transaction h3 {
@@ -2513,9 +2514,9 @@ input[type=number] {
 .add-amount .form-control {
   background-color: transparent;
   border: 0;
-  font-size: 25px;
+  font-size: 50px;
   color: #fff;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
 }
 
@@ -2589,9 +2590,11 @@ input[type=number] {
 
 @media (min-width: 992px){
   .nots-menu {
-    min-width: 515px;
+    min-width: 430px;
     padding: 0;
     background-color: #8807F7;
+    border-radius: 20px;
+    height: 600px;
   }
 }
 
@@ -2613,6 +2616,10 @@ input[type=number] {
   border-radius: 30px;
   padding: 10px;
 }
+.nots-menu .nav-tabs .nav-link{
+  border-radius: 30px;
+  padding: 10px;
+}
 
 .nots-menu .nav-tabs .nav-link {
   margin-bottom: 0;
@@ -2627,4 +2634,49 @@ input[type=number] {
   background-color: #fff;
   border-radius: 30px;
   padding: 10px;
+  color: #8807f7;
+}
+
+.nots-menu .nav-tabs .nav-link:focus {
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.nots-menu span {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 10px;
+  color: #fff;
+}
+
+.nots-menu p {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+}
+
+.nots-menu h4 {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 13px;
+}
+
+.not-btn {
+  background-color: #fff;
+  border-color: #fff;
+  border-radius: 60px;
+  color: #8807F7!important;
+  font-size: 11px!important;
+  font-weight: 500;
+  line-height: 17px;
+}
+
+.not-btn:hover{
+  background-color: transparent;
+  border-color: #fff;
+  border-radius: 60px;
+  color: #fff!important;
+  font-size: 11px!important;
+  font-weight: 500;
+  line-height: 17px;
 }

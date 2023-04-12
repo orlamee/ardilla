@@ -15,6 +15,9 @@ import daylight from "../../img/dashboard/daylight.svg";
 import op from "../../img/dashboard/op.svg";
 import paywithcard from "../../img/paywithcard.svg";
 import mc from "../../img/mc.svg";
+import addnew from "../../img/addnew.svg";
+import flutterwave from "../../img/flutterwave.svg";
+import paystack from "../../img/paystack.svg";
 import dwdapp from "../../img/dwd-app.svg";
 import wii from "../../img/wii.svg";
 import stand from "../../img/stand.svg";
@@ -1158,11 +1161,11 @@ function Sidebar() {
                   <div className="col p-0">
                     <span className="text-white" style={{fontSize: "14px"}}>Select Card </span>
                     <div className="border p-3 mb-3 sel-pay">
-                      <Link to="" data-bs-toggle="modal" data-bs-target="#cardoptions"><img src={mc} alt="" className="img-fluid" width="63" /></Link>
+                      <Link to="" data-bs-toggle="modal" data-bs-target="#cardoptions"><img src={mc} alt="" className="img-fluid" /></Link>
                       <span className="float-end"><i className="bi bi-chevron-right"></i></span>
                     </div>
                     <div className="border p-3 mb-5 sel-pay">
-                      <Link to="" data-bs-toggle="modal" data-bs-target="#cardoptions"><img src={mc} alt="" className="img-fluid" width="63" /></Link>
+                      <Link to="" data-bs-toggle="modal" data-bs-target="#cardoptions"><img src={addnew} alt="" className="img-fluid" width="101px" /></Link>
                       <span className="float-end"><i className="bi bi-chevron-right"></i></span>
                     </div>
                   </div>
@@ -1210,10 +1213,10 @@ function Sidebar() {
                   <div className="col p-0">
                     <span className="text-white" style={{fontSize: "14px"}}>Select Card </span>
                     <div className="border p-3 mb-3 sel-pay text-center">
-                      <Link to="" data-bs-toggle="modal" data-bs-target="#topup-card"><img src={mc} alt="" className="img-fluid" width="63" /></Link>
+                      <Link to="" data-bs-toggle="modal" data-bs-target="#topup-card"><img src={paystack} alt="" className="img-fluid" /></Link>
                     </div>
                     <div className="border p-3 mb-5 sel-pay text-center">
-                      <Link to="" data-bs-toggle="modal" data-bs-target="#topup-card"><img src={mc} alt="" className="img-fluid" width="63" /></Link>
+                      <Link to="" data-bs-toggle="modal" data-bs-target="#topup-card"><img src={flutterwave} alt="" className="img-fluid" /></Link>
                     </div>
                   </div>
                 </div>
