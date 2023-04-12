@@ -1,17 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../css/target.css";
-import home from "../../img/dashboard/home.svg";
-import portfolio from "../../img/dashboard/portfolio.svg";
-import investment from "../../img/dashboard/growth.svg";
-import saving from "../../img/dashboard/investment.svg";
-import dilla from "../../img/dashboard/dilla.svg";
-import explore from "../../img/dashboard/explore.svg";
-import learn from "../../img/dashboard/learn.svg";
-import insurance from "../../img/dashboard/insurance.svg";
-import logout from "../../img/dashboard/logout.svg";
-import contact from "../../img/dashboard/pay.svg";
-import chat from "../../img/dashboard/chat.svg";
 import withdraw from "../../img/dashboard/w-icon.svg";
 import lieu from "../../img/dashboard/lieu.svg";
 import colo from "../../img/dashboard/col.svg";
@@ -21,6 +10,8 @@ import transfer from "../../img/dashboard/received-icon.svg";
 import axios from "axios";
 import { usePaystackPayment } from "react-paystack";
 import { calender } from "../../utils/data";
+import { Icon } from '@iconify/react';
+
 
 function DashboardFlex() {
   const [flexAcct, setFlexAcct] = useState();
@@ -308,7 +299,7 @@ function DashboardFlex() {
   };
 
   return (
-    <section className="main-dash">
+    <section className="home">
       {err && (
         <div className="row justify-content-center  ardilla-alert">
           <div className="col-md-6">
@@ -351,77 +342,86 @@ function DashboardFlex() {
       )}
 
       <div className="sidebar">
-        <Link to="/dashboard" className="">
-          <div className="d-flex flex-row">
-            <img src={home} alt="" className="img-fluid me-2 icons" />
-            Home
+        <div className="row">
+          <div className="col cadet-name">
+            <h2>
+               Cadet {"<"}
+              {/* {userDetails?.kodeHex} */}
+              {"/>"},
+            </h2>
+          </div>
+        </div>
+        <Link to="/dashboard">
+          <div className="">
+            <Icon icon="mingcute:home-3-line" className="me-4 fs-4" />
+            <span className="mt-1">Home</span>
           </div>
         </Link>
         <Link to="/portfolio">
-          <div className="d-flex flex-row">
-            <img src={portfolio} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="material-symbols:work-outline" className="me-4 fs-4" />
             Portfolio
           </div>
         </Link>
         <Link to="/savings" className="active">
-          <div className="d-flex flex-row">
-            <img src={saving} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="material-symbols:energy-savings-leaf-outline-rounded" className="me-4 fs-4" />
             Savings
           </div>
         </Link>
         <Link>
-          <div className="d-flex flex-row">
-            <img src={investment} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="fluent:arrow-growth-20-filled" className="me-4 fs-4" />
             Investments <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <Link>
-          <div className="d-flex flex-row">
-            <img src={insurance} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="ic:baseline-security" className="me-4 fs-4" />
             Insurance <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <a href="/dilla">
-          <div className="d-flex flex-row">
-            <img src={dilla} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="ion:wallet-outline" className="me-4 fs-4" />
             Dilla
           </div>
         </a>
         <Link>
-          <div className="d-flex flex-row">
-            <img src={explore} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="ic:outline-explore" className="me-4 fs-4" />
             Budgeting <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <Link to="/learn">
-          <div className="d-flex flex-row">
-            <img src={learn} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="simple-icons:sololearn" className="me-4 fs-5" />
             Learn
           </div>
         </Link>
         <div className="second-nav">
           <Link to="/payment">
-            <div className="d-flex flex-row">
-              <img src={contact} alt="" className="img-fluid me-2 icons" />
+            <div className="">
+              <Icon icon="fluent:payment-32-regular" className="me-4 fs-4" />
               Payment
             </div>
           </Link>
-          <Link>
-            <div className="d-flex flex-row">
-              <img src={chat} alt="" className="img-fluid me-2 icons" />
-              Chat Support
+          <Link to="/financial-coach">
+            <div className="">
+              <Icon icon="bx:support" className="me-4 fs-4" />
+              Financial Coach
             </div>
           </Link>
           <Link>
-            <div className="d-flex flex-row">
-              <img src={logout} alt="" className="img-fluid me-2 icons" />
+            <div className="">
+              <Icon icon="bx:log-out-circle" className="me-4 fs-4" />
               Log Out
             </div>
           </Link>
         </div>
       </div>
       <div className="content py-5 px-5 t-private">
-        <div className="row">
+        {/* <div className="row">
           <div className="d-flex flex-row privatelinks">
             <Link className="me-5 target-active">DIB</Link>
             <Link className="me-5" to="/target-private">
@@ -431,7 +431,7 @@ function DashboardFlex() {
               Vault
             </Link>
           </div>
-        </div>
+        </div> */}
         <div className="row mt-5">
           <div className="col-md-6 t-savings">
             <div className="d-flex flex-row">
@@ -449,12 +449,20 @@ function DashboardFlex() {
                 </h5>
               </div>
               <div className="col-md-6">
-                <button
-                  className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
-                  onClick={() => initializePayment(onSuccess, onClose)}
-                >
-                  Top up
-                </button>
+                <div className="d-flex flex-row">
+                  <button
+                    className="btn btn-outline-primary px-5 py-3 interest-btn fs-6 mt-2 me-3"
+                  >
+                    Interest
+                  </button>
+                  <button
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
+                    onClick={() => initializePayment(onSuccess, onClose)}
+                  >
+                    Top up
+                  </button>
+                </div>
+                
               </div>
             </div>
             <div className="row mt-3">
@@ -483,9 +491,9 @@ function DashboardFlex() {
                 className="current-flex px-5 py-5"
               >
                 <div>
-                  <h2 className="text-white">Your Current DIB Plan</h2>
+                  <h2 className="">Your Current DIB Plan</h2>
                   <p
-                    className="float-end text-white review-dib"
+                    className="float-end review-dib"
                     style={{ marginTop: "-30px" }}
                   >
                     Review DIB <i className="bi bi-chevron-right"></i>
@@ -493,12 +501,12 @@ function DashboardFlex() {
                 </div>
                 <div className="row inner-current mt-5">
                   <div className="col-md-6">
-                    <h6 className="text-white">Monthly Savings</h6>
+                    <h6 className="">Monthly Savings</h6>
                   </div>
                   <div className="col-md-6 text-end">
                     {/* <h5>₦60,000 (Monthly)</h5> */}
                     {flexAcct && flexAcct?.type === "custom" ? (
-                      <h5 className="text-white">
+                      <h5 className="">
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
                           flexAcct?.customSavingRate
@@ -506,7 +514,7 @@ function DashboardFlex() {
                         {flexAcct?.savingPeriod}
                       </h5>
                     ) : (
-                      <h5 className="text-white">
+                      <h5 className="">
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
                           flexAcct?.autoSavingRate
@@ -518,12 +526,12 @@ function DashboardFlex() {
                 </div>
                 <div className="row inner-current mt-3">
                   <div className="col-md-6">
-                    <h6 className="text-white">Total DIB Savings</h6>
+                    <h6 className="">Total DIB Savings</h6>
                   </div>
                   <div className="col-md-6 text-end">
                     {/* <h5>₦60,000 (Monthly)</h5> */}
 
-                    <h5 className="text-white">
+                    <h5 className="">
                       ₦{" "}
                       {Intl.NumberFormat("en-US").format(flexAcct?.totalSaving)}{" "}
                       {flexAcct?.savingPeriod}
@@ -533,11 +541,11 @@ function DashboardFlex() {
 
                 <div className="row inner-current mt-3 mb-4">
                   <div className="col-md-6">
-                    <h6 className="text-white">Interest</h6>
+                    <h6 className="">Interest</h6>
                   </div>
                   <div className="col-md-6 text-end">
                     {flexAcct && (
-                      <h5 className="text-white">
+                      <h5 className="">
                         ₦{" "}
                         {Intl.NumberFormat("en-US").format(
                           // flexAcct?.intrestPerMonth[0]
@@ -551,10 +559,10 @@ function DashboardFlex() {
                 </div>
                 <div className="row inner-current mt-3 mb-4">
                   <div className="col-md-6">
-                    <h6 className="text-white">Last Top Up </h6>
+                    <h6 className="">Last Top Up </h6>
                   </div>
                   <div className="col-md-6 text-end">
-                    <h5 className="text-white">
+                    <h5 className="">
                       {flexAcct?.paymentDate}-
                       {flexAcct?.breakdown[0]?.date?.month}-
                       {flexAcct?.breakdown[0]?.date?.year}
@@ -563,10 +571,10 @@ function DashboardFlex() {
                 </div>
                 <div className="row inner-current mt-3 mb-4">
                   <div className="col-md-6">
-                    <h6 className="text-white">Next Top Up </h6>
+                    <h6 className="">Next Top Up </h6>
                   </div>
                   <div className="col-md-6 text-end">
-                    <h5 className="text-white">
+                    <h5 className="">
                       {flexAcct?.paymentDate}-
                       {flexAcct?.breakdown[1]?.date?.month}-
                       {flexAcct?.breakdown[1]?.date?.year}

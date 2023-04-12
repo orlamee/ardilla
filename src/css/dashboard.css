@@ -988,9 +988,9 @@ input:checked + .slider:before {
 }
 
 .flex-plan h6 {
-  color: #3D0072;
+  color: #9CA3AF;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 24px;
   font-weight: 400;
 }
 
@@ -1991,7 +1991,7 @@ i.fas.fa-search {
 }
 
 .review-dib {
-  color: #8807F7;
+  color: #3D0072;
   font-size: 13px!important;
   font-weight: 500!important;
   line-height: 14px!important;
@@ -2680,4 +2680,14 @@ input[type=number] {
   font-size: 11px!important;
   font-weight: 500;
   line-height: 17px;
+}
+
+.interest-btn {
+  background-color: #F9FAFB!important;
+  border-color: #F9FAFB!important;
+  border-radius: 60px;
+  color: #8807F7!important;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 20px;
 }

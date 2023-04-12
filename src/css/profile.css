@@ -718,11 +718,8 @@ h3.topuptarget {
 }
 
 .current-flex {
-  background-color: #FAFAFA;
+  background-color: #FEF5FC;
   border-radius: 10px;
-  background-image: url('../img/dashboard/dib-bg.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .current-flex h2 {
@@ -730,6 +727,7 @@ h3.topuptarget {
   font-size: 25px!important;
   line-height: 28px!important;
   font-weight: 500!important;
+  font-family: "Ubuntu-Semi";
 }
 
 .current-flex span {

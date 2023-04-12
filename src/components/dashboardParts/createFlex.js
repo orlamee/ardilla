@@ -1,20 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import home from "../../img/dashboard/home.svg";
-import portfolio from "../../img/dashboard/portfolio.svg";
-import investment from "../../img/dashboard/growth.svg";
-import saving from "../../img/dashboard/investment.svg";
-import dilla from "../../img/dashboard/dilla.svg";
-import explore from "../../img/dashboard/explore.svg";
-import learn from "../../img/dashboard/learn.svg";
-import insurance from "../../img/dashboard/insurance.svg";
-import logout from "../../img/dashboard/logout.svg";
-import contact from "../../img/dashboard/pay.svg";
-import chat from "../../img/dashboard/chat.svg";
 import flex from "../../img/dashboard/flex-icon.svg";
 import play from "../../img/dashboard/play.svg";
 import question from "../../img/dashboard/question.svg";
 import artisan from "../../img/dashboard/artisan.svg";
+import { Icon } from '@iconify/react';
 import axios from "axios";
 
 function CreateFlex() {
@@ -22,6 +12,7 @@ function CreateFlex() {
 
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
+  const [userDetails, setUserDetails] = useState();
   const [err, setErr] = useState(false);
   const [onSuccess, setOnSuccess] = useState(false);
 
@@ -33,6 +24,8 @@ function CreateFlex() {
   const handleClickSuccess = () => {
     setOnSuccess(false);
   };
+  
+
 
   const handleClick = async () => {
     setLoading(true);
@@ -65,7 +58,7 @@ function CreateFlex() {
     }
   }, 5000);
   return (
-    <section className="main-dash">
+    <section className="home">
       {err && (
         <div className="row justify-content-center  ardilla-alert">
           <div className="col-md-6">
@@ -107,70 +100,79 @@ function CreateFlex() {
         </div>
       )}
       <div className="sidebar">
-        <Link to="/dashboard" className="">
-          <div className="d-flex flex-row">
-            <img src={home} alt="" className="img-fluid me-2 icons" />
-            Home
+        <div className="row">
+          <div className="col cadet-name">
+            <h2>
+               Cadet {"<"}
+              {userDetails?.kodeHex}
+              {"/>"},
+            </h2>
+          </div>
+        </div>
+        <Link to="/dashboard">
+          <div className="">
+            <Icon icon="mingcute:home-3-line" className="me-4 fs-4" />
+            <span className="mt-1">Home</span>
           </div>
         </Link>
-        <Link to="/portfolio" className="">
-          <div className="d-flex flex-row">
-            <img src={portfolio} alt="" className="img-fluid me-2 icons" />
+        <Link to="/portfolio">
+          <div className="">
+            <Icon icon="material-symbols:work-outline" className="me-4 fs-4" />
             Portfolio
           </div>
         </Link>
         <Link to="/savings" className="active">
-          <div className="d-flex flex-row">
-            <img src={saving} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="material-symbols:energy-savings-leaf-outline-rounded" className="me-4 fs-4" />
             Savings
           </div>
         </Link>
         <Link>
-          <div className="d-flex flex-row">
-            <img src={investment} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="fluent:arrow-growth-20-filled" className="me-4 fs-4" />
             Investments <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <Link>
-          <div className="d-flex flex-row">
-            <img src={insurance} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="ic:baseline-security" className="me-4 fs-4" />
             Insurance <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
-        <Link to="/dilla">
-          <div className="d-flex flex-row">
-            <img src={dilla} alt="" className="img-fluid me-2 icons" />
+        <a href="/dilla">
+          <div className="">
+            <Icon icon="ion:wallet-outline" className="me-4 fs-4" />
             Dilla
           </div>
-        </Link>
-        <Link to="/">
-          <div className="d-flex flex-row">
-            <img src={explore} alt="" className="img-fluid me-2 icons" />
+        </a>
+        <Link>
+          <div className="">
+            <Icon icon="ic:outline-explore" className="me-4 fs-4" />
             Budgeting <span className="badg ms-3">Coming Soon</span>
           </div>
         </Link>
         <Link to="/learn">
-          <div className="d-flex flex-row">
-            <img src={learn} alt="" className="img-fluid me-2 icons" />
+          <div className="">
+            <Icon icon="simple-icons:sololearn" className="me-4 fs-5" />
             Learn
           </div>
         </Link>
         <div className="second-nav">
           <Link to="/payment">
-            <div className="d-flex flex-row">
-              <img src={contact} alt="" className="img-fluid me-2 icons" />
+            <div className="">
+              <Icon icon="fluent:payment-32-regular" className="me-4 fs-4" />
               Payment
             </div>
           </Link>
           <Link to="/financial-coach">
-            <div className="d-flex flex-row">
-              <img src={chat} alt="" className="img-fluid me-2 icons" />
+            <div className="">
+              <Icon icon="bx:support" className="me-4 fs-4" />
               Financial Coach
             </div>
           </Link>
           <Link>
-            <div className="d-flex flex-row">
-              <img src={logout} alt="" className="img-fluid me-2 icons" />
+            <div className="">
+              <Icon icon="bx:log-out-circle" className="me-4 fs-4" />
               Log Out
             </div>
           </Link>
@@ -178,12 +180,12 @@ function CreateFlex() {
       </div>
       <div className="content py-5 px-5">
         <div className="row justify-content-center flex-plan">
-          <div className="col-md-9 text-center">
+          <div className="col-md-6 text-center">
             <img src={flex} alt="" className="img-fluid" />
-            <h2 className="my-5">
+            <h2 className="mt-5 mb-3">
               Create your{" "}
               <span style={{ color: "#E8356D" }}>
-                dib{" "}
+                DIB{" "}
                 <Link
                   data-bs-toggle="modal"
                   data-bs-target="#flex"
@@ -193,23 +195,21 @@ function CreateFlex() {
                 </Link>
               </span>
               that
-              <br /> fits your lifestyle.
+              <br /> suits your style.
             </h2>
             <h6>
-              Lorem ipsum dolor sit amet consectetur. Faucibus sit odio feugiat
-              suspendisse felis
-              <br /> morbi interdum. Eget sit ultricies facilisi elementum.{" "}
+              A DIB for any emergency. Create and fund your DIB account for<br/>emergency situations.{" "}
             </h6>
             {loading ? (
-              <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5">
+              <Link className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-3 w-50">
                 loading
               </Link>
             ) : (
               <Link
-                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-5"
+                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-3 w-50"
                 onClick={handleClick}
               >
-                Create a Target
+                Create a DIB
               </Link>
             )}
             <div

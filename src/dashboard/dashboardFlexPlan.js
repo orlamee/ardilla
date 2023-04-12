@@ -1,11 +1,11 @@
 import React from "react";
 import DashboardFlex from "../components/dashboardParts/dashboardFlex";
-import SavingsHeader from "../components/dashboardParts/savingsHeader";
+import Header from "../components/dashboardParts/header";
 
 function DashboardFlexPlan() {
   return (
     <div>
-      <SavingsHeader/>
+      <Header/>
       <DashboardFlex/>
     </div>
   )
