@@ -712,9 +712,9 @@ input:checked + .slider:before {
 }
 
 .cogs {
-  margin-top: -27px;
+  margin-top: -34px;
   z-index: 0;
-  position: relative;
+  /* position: relative; */
 }
 
 .log-out {

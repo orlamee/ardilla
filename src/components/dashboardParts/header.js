@@ -11,6 +11,7 @@ import alla from "../../img/dashboard/arlla.svg";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
+
 function Header() {
   return (
     <section className="dashboard-header sticky-top">
@@ -22,7 +23,7 @@ function Header() {
         </div>
         <div className="d-flex flex-row float-end desktop cogs">
           <div className="dropdown">
-            <Link to="#" className="dropdown-toggle header-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src={nots} alt="" className="img-fluid me-4" /></Link>
+            <img src={nots} alt="" className="img-fluid me-4 dropdown-toggle header-toggle" role="button" data-bs-toggle="dropdown" />
             <ul className="dropdown-menu nots-menu">
               <div className="row m-5">
                 <div className="col">
