@@ -164,6 +164,16 @@ nav.navbar {
   color: #9CA3AF;
 }
 
+@media (max-width: 767.98px){
+  .circle h2, .halal h2 {
+    color: #3d0072;
+    font-family: Ubuntu-Bold;
+    font-size: 63px;
+    font-weight: 700;
+    line-height: 66px;
+  }
+}
+
 .users {
   font-size: 17px;
   font-weight: 400;
