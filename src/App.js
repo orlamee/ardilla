@@ -15,7 +15,6 @@ import SeenOn from "./components/landingpage/seenOn";
 function App() {
   return (
     <div className="App bg-white">
-      {/* <Header /> */}
       <NewNav/>
       <NewHero/>
       <Products />

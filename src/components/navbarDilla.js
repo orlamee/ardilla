@@ -43,9 +43,9 @@ function HeaderDilla() {
                 >
                   Products 
                 </Link>
-                <div className="dropdown-menu dropdown-large">
+                <div className="dropdown-menu dropdown-single">
                   <div className="row">
-                    <div className="col-md-6 p-5">
+                    <div className="col-md-12">
                       <Link to="/save" className="navigation-h">
                         <div className="d-flex flex-row mb-4">
                           <div className="i-bg me-3">
@@ -194,14 +194,14 @@ function HeaderDilla() {
           <div className="ms-auto">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link me-3" href="/login">
+                <a className="nav-link me-3" href="#!">
                   Sign in
                 </a>
               </li>
               <li className="nav-item">
                 <Link
                   className="btn btn-outline-primary px-4 py-2 ardilla-btn fs-6"
-                  to="/sign-up"
+                  to=""
                 >
                   Create Account
                 </Link>
@@ -224,7 +224,7 @@ function HeaderDilla() {
                         <div className="d-flex flex-row">
                           <img src={earth} alt="" className="img-fluid" />
                           <h2 className="mt-3">Global</h2>
-                          <div className="mt-2 ms-5">
+                          <div className="mt-3 ms-5">
                             <p className="d-inline-flex p-1 border text-muted soon">Coming Soon</p>
                           </div>
                         </div>
@@ -239,7 +239,7 @@ function HeaderDilla() {
                         <div className="d-flex flex-row">
                           <img src={us} alt="" className="img-fluid" />
                           <h2 className="mt-3 ">United States</h2>
-                          <div className="mt-2 ms-5">
+                          <div className="mt-3 ms-5">
                             <p className="d-inline-flex p-1 border text-muted soon">Coming Soon</p>
                           </div>
                         </div>
@@ -248,7 +248,7 @@ function HeaderDilla() {
                         <div className="d-flex flex-row">
                           <img src={uk} alt="" className="img-fluid" />
                           <h2 className="mt-3">United Kingdom</h2>
-                          <div className="mt-2 ms-5">
+                          <div className="mt-3 ms-5">
                             <p className="d-inline-flex p-1 border text-muted soon">Coming Soon</p>
                           </div>
                         </div>
@@ -257,7 +257,7 @@ function HeaderDilla() {
                         <div className="d-flex flex-row">
                           <img src={zim} alt="" className="img-fluid" />
                           <h2 className="mt-3">Zimbabwe</h2>
-                          <div className="mt-2 ms-5">
+                          <div className="mt-3 ms-5">
                             <p className="d-inline-flex p-1 border text-muted soon">Coming Soon</p>
                           </div>
                         </div>

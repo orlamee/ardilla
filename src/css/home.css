@@ -271,8 +271,9 @@ h5 a {
   border-radius: 50px;
   background: transparent;
   padding: 15px 25px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
+  pointer-events: none;
 }
 
 .new-line:hover {
@@ -281,9 +282,10 @@ h5 a {
   background: transparent;
   border-radius: 50px;
   padding: 15px 25px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   cursor: inherit;
+  pointer-events: none;
 }
 
 .new-light {
@@ -500,6 +502,7 @@ h5 a {
   font-weight: 700;
   padding: 14px 20px;
   border-color: #fff!important;
+  border-radius: 30px;
 }
 
 .download-btn:hover {
@@ -595,6 +598,22 @@ h5 a {
     padding: 20px 20px;
     margin-top: 15px!important;
 
+  }
+}
+
+@media (max-width: 767.98px){
+  .dropdown-single {
+    padding: 30px;
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+}
+
+@media (max-width: 767.98px){
+  .dropdown-globe {
+    padding: 30px;
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
 }
 
@@ -934,6 +953,7 @@ h5 a {
 .int-label {
   color: #9CA3AF;
   font-size: 18px;
+  line-height: 20px;
   font-weight: 500;
   font-family: Ubuntu-Regular;
 }
@@ -1233,7 +1253,7 @@ h5 a {
 }
 
 .breadcrumb {
-  padding: 250px 10px;
+  padding: 150px 10px;
   background-image: url("../img/breadcrumb.svg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -2251,7 +2271,8 @@ h5 a {
   color: #3D0072!important;
   font-size: 17px;
   font-weight: 500;
-  line-height: 20px
+  line-height: 20px;
+  pointer-events: none;
 }
 
 .white-btn:hover {
