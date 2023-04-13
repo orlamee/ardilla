@@ -730,11 +730,6 @@ h3.topuptarget {
   font-family: "Ubuntu-Semi";
 }
 
-.current-flex span {
-  font-size: 25px!important;
-  line-height: 28px!important;
-  font-weight: 500!important;
-}
 
 .right-profile small {
   margin-left: 20px;
@@ -744,4 +739,69 @@ h3.topuptarget {
 
 .review-bg {
   background-color: #FFF8E3!important;
+}
+
+.amt-card {
+  font-size: 25px!important;
+  font-weight: 700!important;
+}
+
+.int-card {
+  font-size: 8px!important;
+}
+
+.current-flex .progress-bar {
+  background-color: #3D0072;
+}
+
+.current-flex .progress {
+  background-color: #E7CDFE;
+}
+
+.right-content .modal-footer {
+  display: block;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.right-content .modal-header {
+  border-radius: 0;
+  background-image: url('../img/top.svg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.edit-btn {
+  background-color: transparent;
+  border-color: #fff;
+  border-radius: 60px;
+  color: #fff!important;
+  font-size: 11px!important;
+  font-weight: 500;
+  line-height: 17px;
+}
+
+.review-dib-plan h3 {
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 700;
+}
+
+.right-t {
+  text-align: end;
+  color: #fff!important;
+}
+
+.left-t {
+  color: #ffffff78!important;
+  font-weight: 400!important;
+}
+
+.right-content .table>:not(caption)>*>* {
+  padding: 1.2rem 0rem;
+}
+
+.right-content .table {
+  border-color: #ffffff78;
 }

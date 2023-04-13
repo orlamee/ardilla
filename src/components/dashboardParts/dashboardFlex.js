@@ -4,13 +4,14 @@ import "../../css/target.css";
 import withdraw from "../../img/dashboard/w-icon.svg";
 import lieu from "../../img/dashboard/lieu.svg";
 import colo from "../../img/dashboard/col.svg";
-import visacard from "../../img/dashboard/visa-card.svg";
+import visacard from "../../img/dashboard/visacard.svg";
 import dib from "../../img/dashboard/slid.svg";
 import transfer from "../../img/dashboard/received-icon.svg";
 import axios from "axios";
 import { usePaystackPayment } from "react-paystack";
 import { calender } from "../../utils/data";
 import { Icon } from '@iconify/react';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 
 function DashboardFlex() {
@@ -432,10 +433,10 @@ function DashboardFlex() {
             </Link>
           </div>
         </div> */}
-        <div className="row mt-5">
+        <div className="row mt-5 justify-content-between">
           <div className="col-md-6 t-savings">
             <div className="d-flex flex-row">
-              <h2 className="me-4">DIB Savings</h2>
+              <h2 className="me-4">DIB</h2>
               <Link to="/learn" className="mt-3">
                 Learn More
               </Link>
@@ -448,38 +449,21 @@ function DashboardFlex() {
                   {Intl.NumberFormat("en-US").format(flexAcct?.accountBalance)}
                 </h5>
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 text-end">
                 <div className="d-flex flex-row">
                   <button
-                    className="btn btn-outline-primary px-5 py-3 interest-btn fs-6 mt-2 me-3"
+                    className="btn btn-outline-primary px-5 py-3 interest-btn fs-6 mt-2 me-3 w-100"
                   >
                     Interest
                   </button>
                   <button
-                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 w-100"
                     onClick={() => initializePayment(onSuccess, onClose)}
                   >
                     Top up
                   </button>
                 </div>
                 
-              </div>
-            </div>
-            <div className="row mt-3">
-              <div className="col-md-6">
-                {/* <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3">Top Up</button> */}
-                {/* <div className="switches-container">
-                  <input type="radio" id="switchMonthly" name="switchPlan" value="Monthly" checked="checked" />
-                  <input type="radio" id="switchYearly" name="switchPlan" value="Yearly" />
-                  <label htmlFor="switchMonthly">My Targets</label>
-                  <label htmlFor="switchYearly">Explore Targets</label>
-                  <div className="switch-wrapper">
-                    <div className="switchies">
-                      <div>My Targets</div>
-                      <div>Explore Targets</div>
-                    </div>
-                  </div>
-                </div> */}
               </div>
             </div>
             <div className="row mt-5">
@@ -501,41 +485,18 @@ function DashboardFlex() {
                 </div>
                 <div className="row inner-current mt-5">
                   <div className="col-md-6">
-                    <h6 className="">Monthly Savings</h6>
+                    <h6 className="">Monthly</h6>
                   </div>
                   <div className="col-md-6 text-end">
-                    {/* <h5>₦60,000 (Monthly)</h5> */}
-                    {flexAcct && flexAcct?.type === "custom" ? (
-                      <h5 className="">
-                        ₦{" "}
-                        {Intl.NumberFormat("en-US").format(
-                          flexAcct?.customSavingRate
-                        )}{" "}
-                        {flexAcct?.savingPeriod}
-                      </h5>
-                    ) : (
-                      <h5 className="">
-                        ₦{" "}
-                        {Intl.NumberFormat("en-US").format(
-                          flexAcct?.autoSavingRate
-                        )}{" "}
-                        {flexAcct?.savingPeriod}
-                      </h5>
-                    )}
+                    <h5><span className="amt-card">₦60,000</span> (Monthly)</h5>
                   </div>
                 </div>
                 <div className="row inner-current mt-3">
                   <div className="col-md-6">
-                    <h6 className="">Total DIB Savings</h6>
+                    <h6 className="">Target</h6>
                   </div>
                   <div className="col-md-6 text-end">
-                    {/* <h5>₦60,000 (Monthly)</h5> */}
-
-                    <h5 className="">
-                      ₦{" "}
-                      {Intl.NumberFormat("en-US").format(flexAcct?.totalSaving)}{" "}
-                      {flexAcct?.savingPeriod}
-                    </h5>
+                    <h5>₦750k</h5>
                   </div>
                 </div>
 
@@ -544,17 +505,7 @@ function DashboardFlex() {
                     <h6 className="">Interest</h6>
                   </div>
                   <div className="col-md-6 text-end">
-                    {flexAcct && (
-                      <h5 className="">
-                        ₦{" "}
-                        {Intl.NumberFormat("en-US").format(
-                          // flexAcct?.intrestPerMonth[0]
-                          calculator(flexAcct?.totalSaving)
-                        )}{" "}
-                        {flexAcct?.savingPeriod}
-                      </h5>
-                    )}
-                    {/* <h5>₦60,000 (Monthly)</h5> */}
+                    <h5>₦15000 <span className="int-card">(11%/p.a)</span></h5>
                   </div>
                 </div>
                 <div className="row inner-current mt-3 mb-4">
@@ -563,9 +514,7 @@ function DashboardFlex() {
                   </div>
                   <div className="col-md-6 text-end">
                     <h5 className="">
-                      {flexAcct?.paymentDate}-
-                      {flexAcct?.breakdown[0]?.date?.month}-
-                      {flexAcct?.breakdown[0]?.date?.year}
+                      15th Of Nov
                     </h5>
                   </div>
                 </div>
@@ -575,13 +524,21 @@ function DashboardFlex() {
                   </div>
                   <div className="col-md-6 text-end">
                     <h5 className="">
-                      {flexAcct?.paymentDate}-
-                      {flexAcct?.breakdown[1]?.date?.month}-
-                      {flexAcct?.breakdown[1]?.date?.year}
+                      15th Of Dec
                     </h5>
                   </div>
                 </div>
-                <img src={dib} alt="range" className="img-fluid w-100" />
+                <div className="row inner-current mt-3 mb-4">
+                  <div className="col-md-6">
+                    <h6 className="">Automation</h6>
+                  </div>
+                  <div className="col-md-6 text-end">
+                    <h5 className="">
+                      ON
+                    </h5>
+                  </div>
+                </div>
+                <ProgressBar now={60} label="60%" />
               </Link>
             </div>
             <div className="row mt-3">
@@ -619,7 +576,7 @@ function DashboardFlex() {
               </div>
             </div>
           </div>
-          <div className="col-md-6 private-right">
+          <div className="col-md-5 private-right">
             <div className="private-card px-5 py-4 savings-feed">
               <div className="history-title">
                 <h3>History</h3>
@@ -661,14 +618,11 @@ function DashboardFlex() {
                 <div className="col-md-4">
                   <h5>Description </h5>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-4 text-center">
                   <h5>Date</h5>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-4 text-end">
                   <h5>Amount</h5>
-                </div>
-                <div className="col-md-2">
-                  <h5>Reason</h5>
                 </div>
               </div>
               {flexHistory?.map((data) => {
@@ -695,10 +649,10 @@ function DashboardFlex() {
                         <h6>{data.transactionType}</h6>
                       </div>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-4 text-center">
                       <h6>{data.transactionDate}</h6>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-4 text-end">
                       <h6>
                         ₦
                         {Intl.NumberFormat("en-US").format(
@@ -706,31 +660,7 @@ function DashboardFlex() {
                         )}
                       </h6>
                     </div>
-                    <div className="col-md-2">
-                      <h6>{data._id} </h6>
-                    </div>
-                    {/* </div> */}
-                    {/* <div className="row justify-content-center mt-2 py-3">
-                      <div className="col-md-4">
-                        <div className="d-flex flex-row">
-                          <img
-                            src={withdraw}
-                            alt=""
-                            className="img-fluid me-3"
-                          />
-                          <h6>Travel</h6>
-                        </div>
-                      </div>
-                      <div className="col-md-3">
-                        <h6>4hrs</h6>
-                      </div>
-                      <div className="col-md-3">
-                        <h6>400.00 </h6>
-                      </div>
-                      <div className="col-md-2">
-                        <h6>Emergency</h6>
-                      </div>
-                    </div> */}
+                    
                   </div>
                 );
               })}
@@ -853,160 +783,70 @@ function DashboardFlex() {
                 ></button>
               </div>
               <div className="modal-body flex-modal-body">
-                <div className="container initiate-modal px-4 py-2">
-                  <div className="mx-3 row">
-                    <div className="col text-center">
-                      <h3 className="topuptarget">Review DIB plan</h3>
-                      {/* <button className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2" style={{width:"100%"}}>Top Up</button> */}
+                <div className="container initiate-modal px-5">
+                  <div className="row">
+                    <div className="col text-center review-dib-plan">
+                      <h3 className="text-white">Review DIB plan</h3>
+                      <Link
+                        className="btn btn-outline-primary px-3 py-1 edit-btn me-3"
+                      >
+                        <i className="bi bi-pencil me-2"></i>Edit Plan
+                      </Link>
                     </div>
                   </div>
-                  <div className="row target-details px-5 mt-5">
-                    <div className="col-md-6">
-                      <h6>Amount</h6>
+                  <div className="row mt-4">
+                    <div className="col">
+                      <div className="table-responsive">
+                        <table class="table">
+                          <tbody>
+                            <tr>
+                              <td className="left-t">Amount</td>
+                              <td className="right-t">₦200,000.00</td>
+                            </tr>
+                            <tr>
+                              <td className="left-t">Target</td>
+                              <td className="right-t">₦200,000.00</td>
+                            </tr>
+                            <tr>
+                              <td className="left-t">Interest</td>
+                              <td className="right-t">₦15,000 (11%/p.a)</td>
+                            </tr>
+                            <tr>
+                              <td className="left-t">How you earn</td>
+                              <td className="right-t">₦500k</td>
+                            </tr>
+                            <tr>
+                              <td className="left-t">How much you spend</td>
+                              <td className="right-t">₦101k - ₦250k</td>
+                            </tr>
+                            <tr>
+                              <td className="left-t">How much you save</td>
+                              <td className="right-t">₦40,000 (Monthly)</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
-                    <div className="col-md-6 text-end">
-                      <p>
-                        ₦{" "}
-                        {Intl.NumberFormat("en-US").format(
-                          flexAcct?.accountBalance
-                        )}
-                      </p>
-                    </div>
-                    <hr />
                   </div>
-                  <div className="row target-details px-5">
-                    <div className="col-md-6">
-                      <h6>DIB</h6>
-                    </div>
-                    <div className="col-md-6 text-end">
-                      {/* <p>₦500,000.00</p> */}
-
-                      {flexAcct && flexAcct?.type === "custom" ? (
-                        <p>
-                          ₦{" "}
-                          {Intl.NumberFormat("en-US").format(
-                            flexAcct?.customSavingTarget
-                          )}{" "}
-                        </p>
-                      ) : (
-                        <p>
-                          ₦{" "}
-                          {Intl.NumberFormat("en-US").format(
-                            flexAcct?.autoSavingTarget
-                          )}{" "}
-                        </p>
-                      )}
-                    </div>
-                    <hr />
-                  </div>
-                  <div className="row target-details px-5">
-                    <div className="col-md-6">
-                      <h6>Interest</h6>
-                    </div>
-                    <div className="col-md-6 text-end">
-                      {/* <p>₦15000 (11%/p.a)</p> */}
-
-                      {flexAcct && (
-                        <p>
-                          ₦{" "}
-                          {Intl.NumberFormat("en-US").format(
-                            flexAcct?.intrestPerMonth[0]
-                          )}{" "}
-                          (11%/p.a)
-                        </p>
-                      )}
-                    </div>
-                    <hr />
-                  </div>
-                  <div className="row target-details px-5">
-                    <div className="col-md-6">
-                      <h6>How much you save</h6>
-                    </div>
-                    <div className="col-md-6 text-end">
-                      {/* <p>₦40,000(Monthly)</p> */}
-
-                      {flexAcct && flexAcct?.type === "custom" ? (
-                        <p>
-                          ₦{" "}
-                          {Intl.NumberFormat("en-US").format(
-                            flexAcct?.customSavingRate
-                          )}{" "}
-                          {flexAcct?.savingPeriod}
-                        </p>
-                      ) : (
-                        <p>
-                          ₦{" "}
-                          {Intl.NumberFormat("en-US").format(
-                            flexAcct?.autoSavingRate
-                          )}{" "}
-                          {flexAcct?.savingPeriod}
-                        </p>
-                      )}
-                    </div>
-                    <hr />
-                  </div>
-                  <div className="row target-details px-5">
-                    <div className="col-md-6">
-                      <h6>How you earn</h6>
-                    </div>
-                    <div className="col-md-6 text-end">
-                      {/* <p>₦250k - ₦500k</p> */}
-                      <p>
-                        {" "}
-                        ₦ {Intl.NumberFormat("en-US").format(flexAcct?.earn)}
-                      </p>
-                    </div>
-                    <hr />
-                  </div>
-                  <div className="row target-details px-5">
-                    <div className="col-md-6">
-                      <h6>How much you spend</h6>
-                    </div>
-                    <div className="col-md-6 text-end">
-                      {/* <p>₦250k - ₦500k</p> */}
-                      <p>₦{flexAcct?.expRange}</p>
-                    </div>
-                    <hr />
-                  </div>
-                  <div className="row my-5 justify-content-center px-5">
+                  <div className="row my-5 justify-content-center">
                     <div className="col-md-5 text-center">
-                      <h5>Automation</h5>
+                      <h5 className="text-white">Automation</h5>
                       <label className="switch mt-2">
                         <input type="checkbox" placeholder="USD" />
                         <span className="slider round"></span>
                       </label>
                     </div>
                   </div>
-                  <div className="row next-saving my-3 px-5">
+                  <div className="row next-saving my-3">
                     <div className="col-md-6">
-                      <h5>Next Saving Date</h5>
-                      <h6>
-                        {" "}
-                        {flexAcct?.paymentDate}-
-                        {flexAcct?.breakdown[1]?.date?.month}-
-                        {flexAcct?.breakdown[1]?.date?.year}
+                      <h5 className="text-white">Next Saving Date</h5>
+                      <h6 className="text-white">
+                        24-01-2022
                       </h6>
                     </div>
                     <div className="col-md-6 mt-3">
                       <div className="d-flex flex-row">
-                        {flexAcct && flexAcct?.type === "custom" ? (
-                          <h6>
-                            ₦{" "}
-                            {Intl.NumberFormat("en-US").format(
-                              flexAcct?.customSavingRate
-                            )}{" "}
-                            {flexAcct?.savingPeriod}
-                          </h6>
-                        ) : (
-                          <h6>
-                            ₦{" "}
-                            {Intl.NumberFormat("en-US").format(
-                              flexAcct?.autoSavingRate
-                            )}{" "}
-                            {flexAcct?.savingPeriod}
-                          </h6>
-                        )}
-                        {/* <h6>₦50,000.00</h6> */}
+                        <h6 className="text-white mt-1">₦50,000.00</h6>
                         <img
                           src={visacard}
                           alt="Visa Card"
@@ -1015,32 +855,28 @@ function DashboardFlex() {
                       </div>
                     </div>
                   </div>
-                  <div className="row px-5 btn-private">
-                    <div className="col-md-6">
-                      <Link
-                        data-bs-toggle="modal"
-                        data-bs-target="#withdrawal"
-                        type="button"
-                        to="#"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6"
-                        style={{ width: "100%" }}
-                      >
-                        Withdraw
-                      </Link>
-                    </div>
-                    <div className="col-md-6">
-                      <Link
-                        data-bs-toggle="modal"
-                        data-bs-target="#settings"
-                        type="button"
-                        to="#"
-                        className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6"
-                        style={{ width: "100%" }}
-                      >
-                        Settings
-                      </Link>
-                    </div>
-                  </div>
+                </div>
+              </div>
+              <div className="modal-footer px-5">
+                <div className="d-flex flex-row">
+                  <Link
+                    data-bs-toggle="modal"
+                    data-bs-target="#withdrawal"
+                    type="button"
+                    to="#"
+                    className="btn btn-outline-primary px-5 py-3 me-3 ardilla-btn outline-btn fs-6 w-100"
+                  >
+                    Withdraw
+                  </Link>
+                  <Link
+                    data-bs-toggle="modal"
+                    data-bs-target="#settings"
+                    type="button"
+                    to="#"
+                    className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 w-100"
+                  >
+                    Settings
+                  </Link>
                 </div>
               </div>
             </div>
