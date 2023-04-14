@@ -1443,7 +1443,7 @@ function DashboardFlex() {
                     <div className="col text-center">
                       <img src={green} alt="" className="img-fluid mb-3" />
                       <h2 className="rec-act">Interest Claimed Successfully</h2>
-                      <p className="sub-head mt-2">Hurray! you have successfully claimed your interest of ₦2,000.00</p>
+                      <p className="sub-head mt-2">Hurray! you have successfully claimed your<br/>interest of ₦2,000.00</p>
                     </div>
                   </div>
                 </div>
