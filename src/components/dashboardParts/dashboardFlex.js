@@ -14,6 +14,8 @@ import { usePaystackPayment } from "react-paystack";
 import { calender } from "../../utils/data";
 import { Icon } from '@iconify/react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import CurrencyInput from 'react-currency-input-field';
+
 
 
 function DashboardFlex() {
@@ -455,6 +457,10 @@ function DashboardFlex() {
                 <div className="d-flex flex-row">
                   <button
                     className="btn btn-outline-primary px-5 py-3 interest-btn fs-6 mt-2 me-3 w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#interest"
+                    type="button"
+                    to="#"
                   >
                     Interest
                   </button>
@@ -896,7 +902,7 @@ function DashboardFlex() {
 
         {/* Modal for Recent Activities */}
         <div
-          className="modal flex-modal slide"
+          className="modal flex-modal fade"
           id="recentactivities"
           tabIndex="-1"
           aria-labelledby="exampleModalLabel"
@@ -1083,9 +1089,6 @@ function DashboardFlex() {
               </div>
               <div className="modal-footer px-5">
                 <Link
-                  data-bs-toggle="modal"
-                  data-bs-target="#settings"
-                  type="button"
                   to="#"
                   className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 w-100"
                 >
@@ -1095,6 +1098,8 @@ function DashboardFlex() {
             </div>
           </div>
         </div>
+
+
 
         {/* Modal for Withdrawal */}
         <div
@@ -1114,19 +1119,8 @@ function DashboardFlex() {
                   aria-label="Close"
                 ></button>
               </div>
-              <div className="row px-5">
-                <div className="col">
-                  <Link
-                    data-bs-toggle="modal"
-                    data-bs-target="#review-dib"
-                    type="button"
-                  >
-                    <i className="bi bi-chevron-left"></i> Back
-                  </Link>
-                </div>
-              </div>
               <div className="modal-body flex-modal-body">
-                <div className="container initiate-modal px-4 py-2">
+                <div className="container initiate-modal">
                   <div className="c-tar px-5 py-4">
                     <div className="history-title">
                       <h3 className="rec-act">Withdraw</h3>
@@ -1138,37 +1132,94 @@ function DashboardFlex() {
                       <div className="col">
                         <form className="mt-4">
                           <div className="mb-3">
-                            <label className="form-label label-target">
+                            <label className="form-label">
                               Choose withdrawal
                             </label>
                             <select
-                              className="form-select p-select tar-select"
-                              onChange={(e) => setSource(e.target.value)}
+                              className="form-select"
                             >
-                              <option selected>
-                                Select withdrawal destination
-                              </option>
                               <option value="dilla">Dilla</option>
                               <option value="SAN">SAN</option>
                             </select>
-                          </div>
-                          <div>
-                            <Link
-                              data-bs-toggle="modal"
-                              data-bs-target="#withdrawal-2"
-                              type="button"
-                              to="#"
-                              className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
-                              style={{ width: "100%" }}
-                            >
-                              Continue
-                            </Link>
                           </div>
                         </form>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div className="modal-footer px-5">
+                <Link
+                  data-bs-toggle="modal"
+                  data-bs-target="#withdrawal-amount"
+                  type="button"
+                  to="#"
+                  className="btn btn-outline-primary px-5 py-3 w-100 ardilla-btn fs-6 mt-2 me-3"
+                >
+                  Continue
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Withdrawal Amount  */}
+        <div
+          className="modal flex-modal fade"
+          id="withdrawal-amount"
+          tabIndex="-1"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog right-dialog">
+            <div className="modal-content right-content">
+              <div className="modal-header">
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body flex-modal-body">
+                <div className="container initiate-modal">
+                  <div className="c-tar px-5 py-4">
+                    <div className="history-title">
+                      <h3 className="rec-act">Set Withdrawal Amount</h3>
+                      <span className="sub-head">
+                        How Much Would you like to Withdraw?
+                      </span>
+                    </div>
+                    <div className="row mt-5 justify-content-center add-amount">
+                      <div className="col text-center">
+                        <form>
+                          <div class="mb-3 no-b">
+                            <label for="exampleInputEmail1" class="form-label">Input Amount</label>
+                            <CurrencyInput
+                              prefix="₦"
+                              id="input-example"
+                              name="input-name"
+                              defaultValue={1000}
+                              className="form-control"
+                              decimalsLimit={2}
+                              onValueChange={(value, name) => console.log(value, name)}
+                            />
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="modal-footer px-5">
+                <Link
+                  data-bs-toggle="modal"
+                  data-bs-target="#withdrawal-2"
+                  type="button"
+                  to="#"
+                  className="btn btn-outline-primary px-5 py-3 w-100 ardilla-btn fs-6 mt-2 me-3"
+                >
+                  Continue
+                </Link>
               </div>
             </div>
           </div>
@@ -1192,19 +1243,8 @@ function DashboardFlex() {
                   aria-label="Close"
                 ></button>
               </div>
-              <div className="row px-5">
-                <div className="col">
-                  <Link
-                    data-bs-toggle="modal"
-                    data-bs-target="#review-dib"
-                    type="button"
-                  >
-                    <i className="bi bi-chevron-left"></i> Back
-                  </Link>
-                </div>
-              </div>
               <div className="modal-body flex-modal-body">
-                <div className="container initiate-modal px-4 py-2">
+                <div className="container initiate-modal">
                   <div className="c-tar px-5 py-4">
                     <div className="history-title">
                       <h3 className="rec-act">Withdraw</h3>
@@ -1212,69 +1252,129 @@ function DashboardFlex() {
                         Withdraw to your plans or source
                       </span>
                     </div>
-                    <div className="row">
+                    <div className="row mt-3">
                       <div className="col">
+                        <div className="with-amount text-center">
+                          You are about to withdraw <span className="fw-bold">₦20,000.00</span>
+                        </div>
                         <form className="mt-4" onSubmit={handleTransfer}>
                           <div className="mb-3">
-                            <label className="form-label label-target">
+                            <label className="form-label">
                               Choose withdrawal
                             </label>
                             <select className="form-select p-select tar-select">
                               <option value={source} selected>
                                 {source}
                               </option>
-                              {/* <option value="2">Dilla</option>
-                              <option value="3">SAN</option> */}
+                              
                             </select>
                           </div>
                           <div className="mb-3">
-                            <label className="form-label label-target">
-                              {user?.securityQusetion?.question}
-                            </label>
-                            <input
-                              type="text"
-                              className="form-control target-form tar-form"
-                              id=""
-                              placeholder="Enter Answer"
-                              required
-                              onChange={(e) => setAnswer(e.target.value)}
-                            />
-                          </div>
-                          <div className="mb-3">
-                            <label className="form-label label-target">
+                            <label className="form-label">
                               Pin
                             </label>
                             <input
                               type="password"
-                              className="form-control target-form tar-form"
+                              className="form-control"
                               id=""
                               placeholder="Enter Pin"
                               required
                               onChange={(e) => setPin(e.target.value)}
                             />
                           </div>
-                          {loading ? (
-                            <div>
-                              <button
-                                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
-                                style={{ width: "100%" }}
-                                type="button"
-                              >
-                                Sending
-                              </button>
-                            </div>
-                          ) : (
-                            <div>
-                              <button
-                                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
-                                style={{ width: "100%" }}
-                                type="submit"
-                              >
-                                Withdraw
-                              </button>
-                            </div>
-                          )}
+                          
                         </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="modal-footer px-5">
+                {loading ? (
+                  <div>
+                    <button
+                      className="btn btn-outline-primary px-5 py-3 w-100 ardilla-btn fs-6 mt-2 me-3"
+                      type="button"
+                    >
+                      Sending
+                    </button>
+                  </div>
+                ) : (
+                  <div>
+                    <button
+                      className="btn btn-outline-primary px-5 py-3 w-100 ardilla-btn fs-6 mt-2 me-3"
+                      type="submit"
+                    >
+                      Withdraw
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      {/* Modal for interest */}
+       <div
+        className="modal flex-modal fade"
+        id="interest"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog right-dialog">
+          <div className="modal-content right-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body flex-modal-body">
+              <div className="container initiate-modal">
+                <div className="c-tar px-5 py-4">
+                  <div className="history-title">
+                    <h3 className="rec-act">Interest Breakdown</h3>
+                    <span className="sub-head">
+                      You have recived NGN 2,000 interest on your DIB savings for march 2023. Interest is given at %5 per annum. And interest are calculated daily as shown below
+                    </span>
+                  </div>
+                  <div className="with-amount mt-4">
+                    <div className="row">
+                      <div className="col-md-6">
+                        <p>Total Interest</p>
+                        <h6>₦2,000.00 </h6>
+                      </div>
+                      <div className="col-md-6 text-center mt-2">
+                        <button type="button" class="btn btn-light">Claim reward</button>
+                        <h1 className="mt-1">Claim after 30 days <span style={{color: "#34D399"}}>(5days left)</span></h1>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row mt-5">
+                    <div className="col">
+                      <div className="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">DATE</th>
+                              <th scope="col" className="text-center">SAVINGS</th>
+                              <th scope="col" className="right-t">EARNING</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="left-t">01-02-2023</td>
+                              <td className="text-center">₦60,000.00 </td>
+                              <td className="right-t">₦0.04 </td>
+                            </tr>
+                           
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   </div>

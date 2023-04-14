@@ -852,3 +852,43 @@ h3.topuptarget {
   border: 1px solid #fff;
   padding: 40px;
 }
+
+.no-b .form-control {
+  border: 0!important;
+}
+
+.with-amount {
+  padding: 19px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 12px;
+  border: 1px solid #fff;
+  background: radial-gradient(107.17% 107.17% at 0% 0%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.with-amount p {
+  color: #fff;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.with-amount h6 {
+  color: #fff;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 700;
+}
+
+.with-amount h1 {
+  color: #fff;
+  font-size: 9px;
+  line-height: 14px;
+  font-weight: 400;
+}
+
+.with-amount .btn {
+  color: #3D0072;
+  font-size: 15px;
+}
