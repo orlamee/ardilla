@@ -1216,7 +1216,7 @@ function DashboardFlex() {
                   data-bs-target="#withdrawal-2"
                   type="button"
                   to="#"
-                  className="btn btn-outline-primary px-5 py-3 w-100 ardilla-btn fs-6 mt-2 me-3"
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 w-100"
                 >
                   Continue
                 </Link>
@@ -1293,7 +1293,7 @@ function DashboardFlex() {
                 {loading ? (
                   <div>
                     <button
-                      className="btn btn-outline-primary px-5 py-3 w-100 ardilla-btn fs-6 mt-2 me-3"
+                      className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 w-100"
                       type="button"
                     >
                       Sending
@@ -1302,7 +1302,7 @@ function DashboardFlex() {
                 ) : (
                   <div>
                     <button
-                      className="btn btn-outline-primary px-5 py-3 w-100 ardilla-btn fs-6 mt-2 me-3"
+                      className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 w-100"
                       type="submit"
                     >
                       Withdraw
@@ -1317,7 +1317,7 @@ function DashboardFlex() {
 
 
       {/* Modal for interest */}
-       <div
+      <div
         className="modal flex-modal fade"
         id="interest"
         tabIndex="-1"
@@ -1350,7 +1350,7 @@ function DashboardFlex() {
                         <h6>₦2,000.00 </h6>
                       </div>
                       <div className="col-md-6 text-center mt-2">
-                        <button type="button" class="btn btn-light">Claim reward</button>
+                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#reward">Claim reward</button>
                         <h1 className="mt-1">Claim after 30 days <span style={{color: "#34D399"}}>(5days left)</span></h1>
                       </div>
                     </div>
@@ -1403,6 +1403,37 @@ function DashboardFlex() {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal for reward */}
+      <div
+        className="modal flex-modal fade"
+        id="reward"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog right-dialog">
+          <div className="modal-content right-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body flex-modal-body">
+              <div className="container initiate-modal">
+                <div className="c-tar px-5 py-4">
+                  
+                  
+                
                 </div>
               </div>
             </div>
