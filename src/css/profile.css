@@ -817,3 +817,38 @@ h3.topuptarget {
 .right-content .table {
   border-color: #ffffff78;
 }
+
+.c-tar .form-select{
+  background: transparent;
+  border: 1px solid #D4A8FB;
+  padding: 16px;
+  color: #fff;
+  background-image: url("../img/dropdown.svg");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 29px;
+  cursor: pointer;
+}
+
+.c-tar .form-control{
+  background: transparent;
+  border: 1px solid #D4A8FB;
+  padding: 16px;
+  color: #fff;
+}
+
+.c-tar .form-label {
+  color: #fff;
+}
+
+.c-tar .form-control::placeholder {
+  color: #D4A8FB;
+  font-weight: 400;
+}
+
+.c-tar .form-select option{
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 40px;
+}

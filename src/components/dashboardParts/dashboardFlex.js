@@ -896,7 +896,7 @@ function DashboardFlex() {
 
         {/* Modal for Recent Activities */}
         <div
-          className="modal flex-modal fade"
+          className="modal flex-modal slide"
           id="recentactivities"
           tabIndex="-1"
           aria-labelledby="exampleModalLabel"
@@ -1044,19 +1044,8 @@ function DashboardFlex() {
                   aria-label="Close"
                 ></button>
               </div>
-              <div className="row px-5">
-                <div className="col">
-                  <Link
-                    data-bs-toggle="modal"
-                    data-bs-target="#review-dib"
-                    type="button"
-                  >
-                    <i className="bi bi-chevron-left"></i> Back
-                  </Link>
-                </div>
-              </div>
               <div className="modal-body flex-modal-body">
-                <div className="container initiate-modal px-4 py-2">
+                <div className="container initiate-modal">
                   <div className="c-tar px-5 py-4">
                     <div className="history-title">
                       <h3 className="rec-act">Settings</h3>
@@ -1068,14 +1057,12 @@ function DashboardFlex() {
                       <div className="col">
                         <form className="mt-4" onSubmit={handleSetting}>
                           <div className="mb-3">
-                            <label className="form-label label-target">
+                            <label className="form-label">
                               Edit primary source
                             </label>
                             <select
-                              className="form-select p-select tar-select"
-                              onChange={(e) => setSource(e.target.value)}
+                              className="form-select"
                             >
-                              <option selected>Edit primary source</option>
                               <option value="dilla">Dilla</option>
                               <option value="SAN">SAN</option>
                             </select>
@@ -1083,37 +1070,27 @@ function DashboardFlex() {
                           <div className="mb-3">
                             <input
                               type="password"
-                              className="form-control target-form tar-form"
+                              className="form-control"
                               id=""
                               placeholder="Enter Password"
-                              required
-                              value={password}
-                              onChange={(e) => setPassword(e.target.value)}
                             />
-                          </div>
-                          <div>
-                            {loading ? (
-                              <button
-                                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
-                                style={{ width: "100%" }}
-                              >
-                                Loading
-                              </button>
-                            ) : (
-                              <button
-                                className="btn btn-outline-primary px-5 py-3 ardilla-btn fs-6 mt-2 me-3"
-                                style={{ width: "100%" }}
-                                type="submit"
-                              >
-                                Submit
-                              </button>
-                            )}
                           </div>
                         </form>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div className="modal-footer px-5">
+                <Link
+                  data-bs-toggle="modal"
+                  data-bs-target="#settings"
+                  type="button"
+                  to="#"
+                  className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 w-100"
+                >
+                  Submit
+                </Link>
               </div>
             </div>
           </div>
