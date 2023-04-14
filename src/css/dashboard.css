@@ -2615,12 +2615,20 @@ input[type=number] {
   border-radius: 30px;
 }
 
+.automatic .nav-link {
+  color: #3D0072;
+  font-size: 11px;
+  font-weight: 600;
+}
+
 .nots-menu .nav-tabs .nav-link.active,
 .automatic .nav-tabs .nav-link.active {
   color: #fff;
   background-color: #8807f7;
   border-radius: 30px;
   padding: 10px;
+  font-size: 11px;
+  font-weight: 600;
 }
 .nots-menu .nav-tabs .nav-link,
 .automatic .nav-tabs .nav-link {
@@ -2645,6 +2653,8 @@ input[type=number] {
   border-radius: 30px;
   padding: 10px;
   color: #8807f7;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .nots-menu .nav-tabs .nav-link:focus,

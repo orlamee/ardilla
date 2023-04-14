@@ -830,12 +830,12 @@ function DashboardFlex() {
                     </div>
                   </div>
                   <div className="row my-5 justify-content-center automatic">
-                    <div className="col text-center">
+                    <div className="col-md-4 text-center">
                       <h5 className="text-white">Automation</h5>
                       <Tabs
                         defaultActiveKey="profile"
                         id="uncontrolled-tab-example"
-                        className="my-3 togss w-25"
+                        className="my-3 togss"
                         justify
                         
                       >
