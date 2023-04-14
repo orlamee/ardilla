@@ -10,6 +10,8 @@ import Tabs from 'react-bootstrap/Tabs';
 import transfer from "../../img/dashboard/received-icon.svg";
 import missed from "../../img/declined.svg";
 import green from "../../img/greencheck.svg";
+import editdib from "../../img/editdib.svg";
+import steptwo from "../../img/howmuch.svg";
 import axios from "axios";
 import { usePaystackPayment } from "react-paystack";
 import { calender } from "../../utils/data";
@@ -798,6 +800,7 @@ function DashboardFlex() {
                       <h3 className="text-white mb-2">Review DIB plan</h3>
                       <Link
                         className="btn btn-outline-primary px-3 py-1 edit-btn me-3"
+                        data-bs-toggle="modal" data-bs-target="#review"
                       >
                         <i className="bi bi-pencil me-2"></i>Edit Plan
                       </Link>
@@ -1341,7 +1344,7 @@ function DashboardFlex() {
                   <div className="history-title">
                     <h3 className="rec-act">Interest Breakdown</h3>
                     <span className="sub-head">
-                      You have recived NGN 2,000 interest on your DIB savings for march 2023. Interest is given at %5 per annum. And interest are calculated daily as shown below
+                      You have received NGN 2,000 interest on your DIB savings for march 2023. Interest is given at %5 per annum. And interest are calculated daily as shown below
                     </span>
                   </div>
                   <div className="with-amount mt-4">
@@ -1434,15 +1437,130 @@ function DashboardFlex() {
               ></button>
             </div>
             <div className="modal-body flex-modal-body">
-              <div className="container initiate-modal">
-                <div className="c-tar px-5 py-4">
+              <div className="container">
+                <div className="px-5" style={{paddingTop: "200px"}}>
                   <div className="row">
                     <div className="col text-center">
-                      <img src={green} alt="" className="img-fluid" />
+                      <img src={green} alt="" className="img-fluid mb-3" />
+                      <h2 className="rec-act">Interest Claimed Successfully</h2>
+                      <p className="sub-head mt-2">Hurray! you have successfully claimed your interest of ₦2,000.00</p>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal for Review */}
+      <div
+        className="modal flex-modal fade"
+        id="review"
+        tabIndex="-1"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog right-dialog">
+          <div className="modal-content right-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body flex-modal-body">
+              <div className="container">
+                <div className="edit-d px-5 py-4">
+                  <div className="row">
+                    <div className="col text-center">
+                      <h2 className="rec-act mb-5">Edit DIB plan</h2>
+                      <img src={editdib} alt="" className="img-fluid mb-3" />
+                      <h3 className="my-3">How much do you <span className="text-white">earn</span><br/>monthly?</h3>
+                      <p style={{color: "#D4A8FB"}}>What is your monthly income?</p>
+                    </div>
+                  </div>
+                  <div className="row mt-3 justify-content-center add-amount">
+                    <div className="col text-center">
+                      <form>
+                        <div class="mb-3 no-b">
+                          <label for="exampleInputEmail1" class="form-label text-white">Input Amount</label>
+                          <CurrencyInput
+                            prefix="₦"
+                            id="input-example"
+                            name="input-name"
+                            defaultValue={1000}
+                            className="form-control"
+                            decimalsLimit={2}
+                            onValueChange={(value, name) => console.log(value, name)}
+                          />
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="modal-footer px-5">
+              <Link
+                data-bs-toggle="modal"
+                data-bs-target="#howmuch"
+                type="button"
+                to="#"
+                className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 w-100"
+              >
+                Continue
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal for How Much  */}
+      <div
+        className="modal flex-modal fade"
+        id="howmuch"
+        tabIndex="-1"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog right-dialog">
+          <div className="modal-content right-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body flex-modal-body">
+              <div className="container">
+                <div className="edit-d px-5 py-4">
+                  <div className="row">
+                    <div className="col text-center">
+                      <h2 className="rec-act mb-5">Edit DIB plan</h2>
+                      <img src={steptwo} alt="" className="img-fluid mb-3" />
+                      <h3 className="my-3">How much do you <span className="text-white">spend</span><br/>monthly?</h3>
+                      <p style={{color: "#D4A8FB"}}>What is your monthly expenditure</p>
+                    </div>
+                  </div>
+                  <div className="row mt-3 justify-content-center add-amount">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="modal-footer px-5">
+              <Link
+                data-bs-toggle="modal"
+                data-bs-target="#"
+                type="button"
+                to="#"
+                className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 w-100"
+              >
+                Continue
+              </Link>
             </div>
           </div>
         </div>
