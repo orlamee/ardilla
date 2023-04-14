@@ -261,7 +261,7 @@ function SavingsBody() {
                 </span>
                 <Icon icon="pajamas:eye" className="float-end" style={{color: "#3D007280"}} />
               </div>
-              <div className="d-flex flex-row mt-3">
+              {/* <div className="d-flex flex-row mt-3">
                 <label className="switch">
                   <input type="checkbox" placeholder="USD" />
                   <span className="slider round"></span>
@@ -272,7 +272,7 @@ function SavingsBody() {
                 >
                   ₦740 /$1
                 </span>
-              </div>
+              </div> */}
             </div>
             <div className="mt-4 saving-learn">
               <Link>

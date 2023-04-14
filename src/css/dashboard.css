@@ -1759,7 +1759,7 @@ button.owl-prev, .owl-carousel button.owl-dot {
 .right-dialog {
   position: fixed;
   margin: auto;
-  width: 500px;
+  min-width: 570px;
   height: 100%;
   right: 0px;
   /* top: 50px; */
@@ -2615,26 +2615,31 @@ input[type=number] {
   border-radius: 30px;
 }
 
-.nots-menu .nav-tabs .nav-link.active {
+.nots-menu .nav-tabs .nav-link.active,
+.automatic .nav-tabs .nav-link.active {
   color: #fff;
   background-color: #8807f7;
   border-radius: 30px;
   padding: 10px;
 }
-.nots-menu .nav-tabs .nav-link{
+.nots-menu .nav-tabs .nav-link,
+.automatic .nav-tabs .nav-link {
   border-radius: 30px;
   padding: 10px;
 }
 
-.nots-menu .nav-tabs .nav-link {
+.nots-menu .nav-tabs .nav-link,
+.automatic .nav-tabs .nav-link {
   margin-bottom: 0;
 }
 
-.nots-menu li.nav-item {
+.nots-menu li.nav-item,
+.automatic li.nav-item {
   padding-left: 0px;
 }
 
-.nots-menu .nav-tabs .nav-link:hover {
+.nots-menu .nav-tabs .nav-link:hover,
+.automatic .nav-tabs .nav-link:hover{
   border-color: #fff;
   background-color: #fff;
   border-radius: 30px;
@@ -2642,7 +2647,8 @@ input[type=number] {
   color: #8807f7;
 }
 
-.nots-menu .nav-tabs .nav-link:focus {
+.nots-menu .nav-tabs .nav-link:focus,
+.automatic .nav-tabs .nav-link:focus {
   border-radius: 30px;
   padding: 10px;
 }
@@ -2694,4 +2700,8 @@ input[type=number] {
   font-size: 17px;
   font-weight: 500;
   line-height: 20px;
+}
+
+.right-dialog .btn-close {
+  background-image: url('../img/maki_cross.svg');
 }

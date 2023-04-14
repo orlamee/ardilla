@@ -5,7 +5,8 @@ import withdraw from "../../img/dashboard/w-icon.svg";
 import lieu from "../../img/dashboard/lieu.svg";
 import colo from "../../img/dashboard/col.svg";
 import visacard from "../../img/dashboard/visacard.svg";
-import dib from "../../img/dashboard/slid.svg";
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 import transfer from "../../img/dashboard/received-icon.svg";
 import axios from "axios";
 import { usePaystackPayment } from "react-paystack";
@@ -828,13 +829,22 @@ function DashboardFlex() {
                       </div>
                     </div>
                   </div>
-                  <div className="row my-5 justify-content-center">
-                    <div className="col-md-5 text-center">
+                  <div className="row my-5 justify-content-center automatic">
+                    <div className="col text-center">
                       <h5 className="text-white">Automation</h5>
-                      <label className="switch mt-2">
-                        <input type="checkbox" placeholder="USD" />
-                        <span className="slider round"></span>
-                      </label>
+                      <Tabs
+                        defaultActiveKey="profile"
+                        id="uncontrolled-tab-example"
+                        className="my-3 togss w-25"
+                        justify
+                        
+                      >
+                        <Tab eventKey="home" title="ON" >
+                          
+                        </Tab>
+                        <Tab eventKey="profile" title="OFF">
+                        </Tab>
+                      </Tabs>
                     </div>
                   </div>
                   <div className="row next-saving my-3">
@@ -845,7 +855,7 @@ function DashboardFlex() {
                       </h6>
                     </div>
                     <div className="col-md-6 mt-3">
-                      <div className="d-flex flex-row">
+                      <div className="d-flex flex-row justify-content-end">
                         <h6 className="text-white mt-1">₦50,000.00</h6>
                         <img
                           src={visacard}

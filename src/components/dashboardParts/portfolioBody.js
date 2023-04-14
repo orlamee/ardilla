@@ -221,7 +221,7 @@ function PortfolioBody() {
                 <i className="bi bi-eye-fill float-end text-white"></i>
               </div>
               <div className="mt-4 p-2">
-                <div className="d-flex flex-row">
+                {/* <div className="d-flex flex-row">
                   <label className="switch">
                     <input type="checkbox" placeholder="USD" />
                     <span className="slider round"></span>
@@ -229,12 +229,11 @@ function PortfolioBody() {
                   <span className="text-white ms-2 mt-2 dollar-rate">
                     ₦740 /$1
                   </span>
-                </div>
+                </div> */}
 
                 <Link
                   className="float-end btn btn-outline-primary px-4 py-2 ardilla-btn-inverted fs-6"
                   to=""
-                  style={{ marginTop: "-37px" }}
                 >
                   Add Money
                 </Link>
