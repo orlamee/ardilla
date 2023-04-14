@@ -468,21 +468,21 @@ function DashboardFlex() {
               </div>
             </div>
             <div className="row mt-5">
-              <Link
-                data-bs-toggle="modal"
-                data-bs-target="#review-dib"
-                type="button"
-                to="#"
+              <div
                 className="current-flex px-5 py-5"
               >
                 <div>
                   <h2 className="">Your Current DIB Plan</h2>
-                  <p
+                  <Link
+                    to="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#review-dib"
+                    type="button"
                     className="float-end review-dib"
                     style={{ marginTop: "-30px" }}
                   >
                     Review DIB <i className="bi bi-chevron-right"></i>
-                  </p>
+                  </Link>
                 </div>
                 <div className="row inner-current mt-5">
                   <div className="col-md-6">
@@ -540,7 +540,7 @@ function DashboardFlex() {
                   </div>
                 </div>
                 <ProgressBar now={60} label="60%" />
-              </Link>
+              </div>
             </div>
             <div className="row mt-3">
               <div className="col-md-5 p-0">
