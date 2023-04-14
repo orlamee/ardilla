@@ -677,14 +677,14 @@ h3.topuptarget {
 .rec-act {
   font-size: 18px!important;
   font-weight: 700!important;
-  color: #3C0071!important;
-  line-height: 20px!important;
+  color: #fff!important;
+  line-height: 22px!important;
 }
 
 .sub-head {
   font-size: 12px!important;
   font-weight: 500!important;
-  color: #9CA3AF!important;
+  color: #fff!important;
   line-height: 13px!important;
 }
 
@@ -782,6 +782,16 @@ h3.topuptarget {
   line-height: 17px;
 }
 
+.edit-btn:hover{
+  background-color: #fff;
+  border-color: #fff;
+  border-radius: 60px;
+  color: #000!important;
+  font-size: 11px!important;
+  font-weight: 500;
+  line-height: 17px;
+}
+
 .review-dib-plan h3 {
   font-size: 24px;
   line-height: 29px;
@@ -799,7 +809,9 @@ h3.topuptarget {
 }
 
 .right-content .table>:not(caption)>*>* {
-  padding: 1.2rem 0rem;
+  padding: 1.5rem 0rem;
+  color: #fff;
+  font-weight: 300;
 }
 
 .right-content .table {

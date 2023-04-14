@@ -2646,7 +2646,14 @@ input[type=number] {
   padding-left: 0px;
 }
 
-.nots-menu .nav-tabs .nav-link:hover,
+.nots-menu .nav-tabs .nav-link:hover{
+  border-color: #fff;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 10px;
+  color: #8807f7;
+}
+
 .automatic .nav-tabs .nav-link:hover{
   border-color: #fff;
   background-color: #fff;
@@ -2656,6 +2663,7 @@ input[type=number] {
   font-size: 11px;
   font-weight: 600;
 }
+
 
 .nots-menu .nav-tabs .nav-link:focus,
 .automatic .nav-tabs .nav-link:focus {

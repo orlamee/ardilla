@@ -8,6 +8,7 @@ import visacard from "../../img/dashboard/visacard.svg";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import transfer from "../../img/dashboard/received-icon.svg";
+import missed from "../../img/declined.svg";
 import axios from "axios";
 import { usePaystackPayment } from "react-paystack";
 import { calender } from "../../utils/data";
@@ -787,7 +788,7 @@ function DashboardFlex() {
                 <div className="container initiate-modal px-5">
                   <div className="row">
                     <div className="col text-center review-dib-plan">
-                      <h3 className="text-white">Review DIB plan</h3>
+                      <h3 className="text-white mb-2">Review DIB plan</h3>
                       <Link
                         className="btn btn-outline-primary px-3 py-1 edit-btn me-3"
                       >
@@ -911,19 +912,8 @@ function DashboardFlex() {
                   aria-label="Close"
                 ></button>
               </div>
-              <div className="row px-5">
-                <div className="col">
-                  <Link
-                    data-bs-toggle="modal"
-                    data-bs-target="#targetplan"
-                    type="button"
-                  >
-                    <i className="bi bi-chevron-left"></i> Back
-                  </Link>
-                </div>
-              </div>
               <div className="modal-body flex-modal-body">
-                <div className="container initiate-modal px-4 py-2">
+                <div className="container initiate-modal">
                   <div className="c-tar px-5 py-4">
                     <div className="history-title">
                       <h3 className="rec-act">Recent Activities</h3>
@@ -931,120 +921,104 @@ function DashboardFlex() {
                         Most recent activities for this savings
                       </span>
                     </div>
-                    {/* <div className="switches-container deposit-container mt-3">
-                      <input type="radio" id="switchMonthly" name="switchPlan" value="Monthly" checked="checked" />
-                      <input type="radio" id="switchYearly" name="switchPlan" value="Yearly" />
-                      <label htmlFor="switchMonthly">Transactions</label>
-                      <label htmlFor="switchYearly">Missed deposits</label>
-                      <div className="switch-wrapper">
-                        <div className="switchies">
-                          <div>Transactions</div>
-                          <div>Missed deposits</div>
-                        </div>
-                      </div>
-                    </div> */}
-                    <div className="row mt-5">
-                      <div className="col-md-4">
-                        <h5>Description </h5>
-                      </div>
-                      <div className="col-md-3">
-                        <h5>Date</h5>
-                      </div>
-                      <div className="col-md-3">
-                        <h5>Amount</h5>
-                      </div>
-                      <div className="col-md-2">
-                        <h5>Reason</h5>
-                      </div>
-                    </div>
-                    {/* <div className="row mt-2 border-bottom py-3">
-                      <div className="col-md-4">
-                        <div className="d-flex flex-row">
-                          <img
-                            src={withdraw}
-                            alt=""
-                            className="img-fluid me-3"
-                          />
-                          <h6>Top Up</h6>
-                        </div>
-                      </div>
-                      <div className="col-md-3">
-                        <h6>30 Days</h6>
-                      </div>
-                      <div className="col-md-3">
-                        <h6>₦4,000.00 </h6>
-                      </div>
-                      <div className="col-md-2">
-                        <h6> </h6>
-                      </div>
-                    </div>
-                    <div className="row justify-content-center mt-2 py-3">
-                      <div className="col-md-4">
-                        <div className="d-flex flex-row">
-                          <img
-                            src={withdraw}
-                            alt=""
-                            className="img-fluid me-3"
-                          />
-                          <h6>Travel</h6>
-                        </div>
-                      </div>
-                      <div className="col-md-3">
-                        <h6>4hrs</h6>
-                      </div>
-                      <div className="col-md-3">
-                        <h6>400.00 </h6>
-                      </div>
-                      <div className="col-md-2">
-                        <h6>Emergency</h6>
-                      </div>
-                    </div> */}
-                    {flexHistory?.map((data) => {
-                      return (
-                        // <div>
-                        <div className="row mt-2 border-bottom py-3">
-                          <div className="col-md-4">
-                            <div className="d-flex flex-row">
-                              {/* <img
-                                src={withdraw}
-                                alt=""
-                                className="img-fluid me-3"
-                              /> */}
-
-                              {data.transactionType === "Top Up" ? (
-                                <img
-                                  src={transfer}
-                                  alt=""
-                                  className="img-fluid me-3"
-                                />
-                              ) : (
-                                <img
-                                  src={withdraw}
-                                  alt=""
-                                  className="img-fluid me-3"
-                                />
-                              )}
-                              {/* <h6>Transportation</h6> */}
-                              <h6>{data.transactionType}</h6>
+                    <div className="row automatic">
+                      <div className="col">
+                        <Tabs
+                          defaultActiveKey="transactions"
+                          className="my-3 togss"
+                          justify
+                          style={{width: "230px"}}
+                        >
+                          <Tab eventKey="transactions" title="Transactions" >
+                            <div className="row mt-5">
+                              <div className="col">
+                                <div className="table-responsive">
+                                  <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col" className="right-t">Amount</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td className=""><img src={transfer} alt="" className="img-fluid" width="19px" /></td>
+                                        <td className="left-t">Top Up</td>
+                                        <td className="">1 hr ago</td>
+                                        <td className="right-t">₦250.00 </td>
+                                      </tr>
+                                      <tr>
+                                        <td className=""><img src={transfer} alt="" className="img-fluid" width="19px" /></td>
+                                        <td className="left-t">Top Up</td>
+                                        <td className="">1 hr ago</td>
+                                        <td className="right-t">₦250.00 </td>
+                                      </tr>
+                                      <tr>
+                                        <td className=""><img src={transfer} alt="" className="img-fluid" width="19px" /></td>
+                                        <td className="left-t">Top Up</td>
+                                        <td className="">1 hr ago</td>
+                                        <td className="right-t">₦250.00 </td>
+                                      </tr>
+                                      <tr>
+                                        <td className=""><img src={transfer} alt="" className="img-fluid" width="19px" /></td>
+                                        <td className="left-t">Top Up</td>
+                                        <td className="">1 hr ago</td>
+                                        <td className="right-t">₦250.00 </td>
+                                      </tr>
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                          <div className="col-md-3">
-                            <h6>{data.transactionDate}</h6>
-                          </div>
-                          <div className="col-md-3">
-                            <h6>
-                              ₦{" "}
-                              {Intl.NumberFormat("en-US").format(
-                                data.transactionAmount
-                              )}{" "}
-                            </h6>
-                          </div>
-                          <div className="col-md-2">
-                            <h6> </h6>
-                          </div>
-                        </div>
-                      );
-                    })}
+                          </Tab>
+                          <Tab eventKey="missed-depo" title="Missed deposits">
+                            <div className="row mt-5">
+                              <div className="col">
+                                <div className="table-responsive">
+                                  <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col" className="right-t">Amount</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td className=""><img src={missed} alt="" className="img-fluid" width="19px" /></td>
+                                        <td className="left-t">Top Up</td>
+                                        <td className="">1 hr ago</td>
+                                        <td className="right-t">₦250.00 </td>
+                                      </tr>
+                                      <tr>
+                                        <td className=""><img src={missed} alt="" className="img-fluid" width="19px" /></td>
+                                        <td className="left-t">Top Up</td>
+                                        <td className="">1 hr ago</td>
+                                        <td className="right-t">₦250.00 </td>
+                                      </tr>
+                                      <tr>
+                                        <td className=""><img src={missed} alt="" className="img-fluid" width="19px" /></td>
+                                        <td className="left-t">Top Up</td>
+                                        <td className="">1 hr ago</td>
+                                        <td className="right-t">₦250.00 </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </Tab>
+                        </Tabs>
+                      </div>
+                    </div>
+                   
+                    
+                    
+                    
                   </div>
                 </div>
               </div>
