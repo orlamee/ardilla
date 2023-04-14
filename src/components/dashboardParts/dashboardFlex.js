@@ -1370,7 +1370,32 @@ function DashboardFlex() {
                             <tr>
                               <td className="left-t">01-02-2023</td>
                               <td className="text-center">₦60,000.00 </td>
-                              <td className="right-t">₦0.04 </td>
+                              <td className="text-end" style={{color: "#34D399"}}> ₦0.04 </td>
+                            </tr>
+                            <tr>
+                              <td className="left-t">01-02-2023</td>
+                              <td className="text-center">₦60,000.00 </td>
+                              <td className="text-end" style={{color: "#34D399"}}> ₦0.04 </td>
+                            </tr>
+                            <tr>
+                              <td className="left-t">01-02-2023</td>
+                              <td className="text-center">₦60,000.00 </td>
+                              <td className="text-end" style={{color: "#34D399"}}> ₦0.04 </td>
+                            </tr>
+                            <tr>
+                              <td className="left-t">01-02-2023</td>
+                              <td className="text-center">₦60,000.00 </td>
+                              <td className="text-end" style={{color: "#34D399"}}> ₦0.04 </td>
+                            </tr>
+                            <tr>
+                              <td className="left-t">01-02-2023</td>
+                              <td className="text-center">₦60,000.00 </td>
+                              <td className="text-end" style={{color: "#34D399"}}> ₦0.04 </td>
+                            </tr>
+                            <tr>
+                              <td className="left-t">01-02-2023</td>
+                              <td className="text-center">₦60,000.00 </td>
+                              <td className="text-end" style={{color: "#34D399"}}> ₦0.04 </td>
                             </tr>
                            
                           </tbody>
