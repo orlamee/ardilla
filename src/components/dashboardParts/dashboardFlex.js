@@ -9,6 +9,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import transfer from "../../img/dashboard/received-icon.svg";
 import missed from "../../img/declined.svg";
+import green from "../../img/greencheck.svg";
 import axios from "axios";
 import { usePaystackPayment } from "react-paystack";
 import { calender } from "../../utils/data";
@@ -1345,7 +1346,7 @@ function DashboardFlex() {
                   </div>
                   <div className="with-amount mt-4">
                     <div className="row">
-                      <div className="col-md-6">
+                      <div className="col-md-6 mt-2">
                         <p>Total Interest</p>
                         <h6>₦2,000.00 </h6>
                       </div>
@@ -1355,8 +1356,12 @@ function DashboardFlex() {
                       </div>
                     </div>
                   </div>
+                  <div className="mt-5" style={{marginLeft: "-60px", marginRight: "-60px"}}>
+                    <hr/>
+                  </div>
                   <div className="row mt-5">
                     <div className="col">
+                      <span className="text-white">Break Down</span>
                       <div className="table-responsive">
                         <table class="table">
                           <thead>
@@ -1431,9 +1436,11 @@ function DashboardFlex() {
             <div className="modal-body flex-modal-body">
               <div className="container initiate-modal">
                 <div className="c-tar px-5 py-4">
-                  
-                  
-                
+                  <div className="row">
+                    <div className="col text-center">
+                      <img src={green} alt="" className="img-fluid" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

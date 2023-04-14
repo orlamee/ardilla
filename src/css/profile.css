@@ -675,17 +675,17 @@ h3.topuptarget {
 }
 
 .rec-act {
-  font-size: 18px!important;
+  font-size: 24px!important;
   font-weight: 700!important;
   color: #fff!important;
-  line-height: 22px!important;
+  line-height: 24px!important;
 }
 
 .sub-head {
-  font-size: 12px!important;
+  font-size: 15px!important;
   font-weight: 500!important;
   color: #fff!important;
-  line-height: 13px!important;
+  line-height: 15px!important;
 }
 
 .label-target {
@@ -839,6 +839,7 @@ h3.topuptarget {
 
 .c-tar .form-label {
   color: #fff;
+  font-size: 14px;
 }
 
 .c-tar .form-control::placeholder {
@@ -858,7 +859,7 @@ h3.topuptarget {
 }
 
 .with-amount {
-  padding: 19px;
+  padding: 17px 40px;
   border-radius: 10px;
   color: #fff;
   font-size: 12px;
@@ -890,5 +891,9 @@ h3.topuptarget {
 
 .with-amount .btn {
   color: #3D0072;
-  font-size: 15px;
+  font-size: 12px;
+}
+
+.c-tar hr {
+  color: #D9D9D9;
 }
