@@ -2656,12 +2656,12 @@ h5 a {
 
 
 .traction {
-  padding: 100px 0px 100px 0px;
-  /* background-image: url('../img/traction.svg');
+  padding: 150px 0px 400px 0px;
+  background-image: url('../img/traction.svg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; */
-  background-color: #1B0132;
+  background-size: cover;
+  margin-bottom: -231px;
 }
 
 .traction-cards {
