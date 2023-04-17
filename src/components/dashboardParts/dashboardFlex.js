@@ -12,6 +12,7 @@ import missed from "../../img/declined.svg";
 import green from "../../img/greencheck.svg";
 import editdib from "../../img/editdib.svg";
 import steptwo from "../../img/howmuch.svg";
+import stepthree from "../../img/recommended.svg";
 import axios from "axios";
 import { usePaystackPayment } from "react-paystack";
 import { calender } from "../../utils/data";
@@ -1545,8 +1546,12 @@ function DashboardFlex() {
                       <p style={{color: "#D4A8FB"}}>What is your monthly expenditure</p>
                     </div>
                   </div>
-                  <div className="row mt-3 justify-content-center add-amount">
-                    
+                  <div className="d-flex flex-row mt-5 justify-content-center">
+                    <button className="btn btn-outline-primary px-5 py-3 amount-btn">{"<"} 80k </button>
+                    <button className="btn btn-outline-primary px-5 py-3 amount-btn ms-3">80k - 120k </button>
+                  </div>
+                  <div className="d-flex flex-row mt-3 justify-content-center">
+                    <button className="btn btn-outline-primary px-5 py-3 amount-btn">120k - 160k </button>
                   </div>
                 </div>
               </div>
@@ -1554,13 +1559,110 @@ function DashboardFlex() {
             <div className="modal-footer px-5">
               <Link
                 data-bs-toggle="modal"
-                data-bs-target="#"
+                data-bs-target="#recommended"
                 type="button"
                 to="#"
                 className="btn btn-outline-primary px-5 py-3 ardilla-btn outline-btn fs-6 w-100"
               >
                 Continue
               </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal for Recommended Plan  */}
+      <div
+        className="modal flex-modal fade"
+        id="recommended"
+        tabIndex="-1"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog right-dialog">
+          <div className="modal-content right-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body flex-modal-body">
+              <div className="container">
+                <div className="edit-d px-5 py-4">
+                  <div className="row">
+                    <div className="col text-center">
+                      <h2 className="rec-act mb-5">Edit DIB plan</h2>
+                      <img src={stepthree} alt="" className="img-fluid mb-3" />
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-3 justify-content-center">
+                  <div className="col-md-9">
+                    <div className="bg-white card-plan">
+                      <p>Based on your earnings and spending your are recommended to  save this amount</p>
+                      <h4>₦40,00.00</h4>
+                      <button className="btn btn-outline-primary px-3 py-2 mt-5 ardilla-btn float-end" data-bs-toggle="modal"
+                      data-bs-target="#updateddib" style={{fontSize: "10px"}}>Use recommended plan</button>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-3 justify-content-center">
+                  <div className="col-md-9">
+                    <div className="card-plan-inverse">
+                      <p>Based on your earnings and spending your are recommended to  save this amount</p>
+                      <div class="mb-3">
+                        <CurrencyInput
+                          prefix="₦"
+                          id="input-example"
+                          name="input-name"
+                          defaultValue={1000}
+                          className="form-control"
+                          decimalsLimit={2}
+                          onValueChange={(value, name) => console.log(value, name)}
+                        />
+                      </div>
+                      <button className="btn btn-outline-primary px-3 py-2 mt-5 ardilla-btn float-end" data-bs-toggle="modal"
+                      data-bs-target="#updateddib" style={{fontSize: "10px"}}>Update DIB</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="modal flex-modal fade"
+        id="updateddib"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog right-dialog">
+          <div className="modal-content right-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body flex-modal-body">
+              <div className="container">
+                <div className="px-5" style={{paddingTop: "200px"}}>
+                  <div className="row">
+                    <div className="col text-center">
+                      <img src={green} alt="" className="img-fluid mb-3" />
+                      <h2 className="rec-act">DIB Updated Successfully</h2>
+                      <p className="sub-head mt-2">Hurray! your DIB plan has been updated successfully</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
