@@ -15,7 +15,7 @@ function Testimonial() {
           <div className="col-md-4 mb-3">
             <div className="traction-cards">
               <p>Investment in <span className="hgl">2022</span></p>
-              <h3>₦ 100 M</h3>
+              <h3>₦ <span className="invest-counter"></span> M</h3>
             </div>
           </div>
           <div className="col-md-4 mb-3">
@@ -27,7 +27,7 @@ function Testimonial() {
           <div className="col-md-4 mb-3">
             <div className="traction-cards paidback">
               <p>Investment <span className="hgl" style={{background: "#9F9704"}}>paid back</span></p>
-              <h3>₦ 100 M</h3>
+              <h3>₦ <span className="paid-counter"></span> M</h3>
             </div>
           </div>
         </div>
