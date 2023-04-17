@@ -22,7 +22,14 @@ import CurrencyInput from 'react-currency-input-field';
 
 
 
+
 function DashboardFlex() {
+  const [active, setActive] = useState("");
+ 
+  const handleClick = (event) => {
+    setActive(event.target.id);
+    
+  }
   const [flexAcct, setFlexAcct] = useState();
   const [amount, setAmount] = useState(100);
   const [msg, setMsg] = useState("");
@@ -1547,11 +1554,17 @@ function DashboardFlex() {
                     </div>
                   </div>
                   <div className="d-flex flex-row mt-5 justify-content-center">
-                    <button className="btn btn-outline-primary px-5 py-3 amount-btn">{"<"} 80k </button>
-                    <button className="btn btn-outline-primary px-5 py-3 amount-btn ms-3">80k - 120k </button>
+                    <button  key={1} className={active === "1" ? "amount-btn" : undefined}
+                    id={"1"}
+                    onClick={handleClick}>{"<"} 80k </button>
+                    <button  key={2} className={active === "2" ? "amount-btn" : undefined}
+                    id={"2"}
+                    onClick={handleClick}>80k - 120k </button>
                   </div>
                   <div className="d-flex flex-row mt-3 justify-content-center">
-                    <button className="btn btn-outline-primary px-5 py-3 amount-btn">120k - 160k </button>
+                    <button  key={3} className={active === "3" ? "amount-btn" : undefined}
+                    id={"3"}
+                    onClick={handleClick}>120k - 160k </button>
                   </div>
                 </div>
               </div>
