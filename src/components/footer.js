@@ -8,7 +8,7 @@ import linkedin from "../img/linkedin.svg";
 
 function Footer() {
   return(
-    <section className="">
+    <section className="" style={{background: "#1B0132"}}>
       <div className="container mb-5">
         <div className="row justify-content-center">
           <div className="col-md-10">

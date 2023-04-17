@@ -1199,7 +1199,7 @@ function Sidebar() {
                 <div className="row">
                   <div className="col">
                     <div className="row t-card p-3 logo-modal">
-                      <div className="col-md-6">
+                      <div className="col-md-6 p-0">
                         <img
                           src={paywithcard}
                           alt=""
@@ -1383,7 +1383,7 @@ function Sidebar() {
                       </div>
                       <div className="col-md-6 text-end mt-2">
                         <h4>
-                         Available Balance: <span className="text-white">₦ 0</span>
+                         Balance: <span className="text-white fs-6">₦ 0</span>
                         </h4>
                       </div>
                     </div>
@@ -1393,7 +1393,7 @@ function Sidebar() {
                   <div className="col-md-7 text-center">
                     <form>
                       <div class="mb-3">
-                        <label for="exampleInputEmail1" className="form-label">Amount to pay</label>
+                        <label for="exampleInputEmail1" className="form-label text-white">Amount to pay</label>
                         <h4 className="text-white fw-bold">₦30,250.00</h4>
                       </div>
                     </form>
@@ -1402,7 +1402,7 @@ function Sidebar() {
                 <hr/>
                 <div className="row mt-4 justify-content-center">
                   <div className="col text-center">
-                    <label className="form-label">Dial this code to complete the transaction</label>
+                    <label className="form-label text-white">Dial this code to complete the transaction</label>
                     <h4 className="text-white fw-bold">*949*2004434887*30250#</h4>
                   </div>
                 </div>

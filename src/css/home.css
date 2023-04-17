@@ -2652,3 +2652,70 @@ h5 a {
   font-weight: 500;
   line-height: 18px;
 }
+
+
+
+.traction {
+  padding: 100px 0px 100px 0px;
+  /* background-image: url('../img/traction.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-color: #1B0132;
+}
+
+.traction-cards {
+  padding: 250px 40px 200px 40px;
+  background-image: url('../img/100m.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 70px 70px 0px 70px;
+}
+
+.risky {
+  background-image: url('../img/risk.svg')!important;
+  border-radius: 70px 70px 70px 0px;
+}
+
+.paidback {
+  background-image: url('../img/paid.svg')!important;
+  border-radius: 70px 70px 70px 0px;
+}
+
+.traction h2 {
+  color: #FFFFFF;
+  font-size: 80px;
+  font-weight: 800;
+  line-height: 100px;
+  font-family: "Ubuntu-Bold";
+}
+
+.traction h6 {
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.traction-cards p {
+  color: #2A332C;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.traction-cards h3 {
+  color: #2A332C;
+  font-size: 80px;
+  font-weight: 800;
+  line-height: 100px;
+  font-family: "Ubuntu-Bold";
+}
+
+.hgl {
+  background: #33593D;
+  padding: 3px 11px;
+  color: #fff;
+  border-radius: 2px;
+}

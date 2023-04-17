@@ -1,20 +1,34 @@
 import React from "react";
-import testimonies from "../../img/testimonies.svg";
 
 
 function Testimonial() {
   return (
-    <section className="testimonies bg-white">
+    <section className="traction">
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-md-6 mb-3 text-end mb-3">
-            <img src={testimonies} alt="" className="img-fluid" />
+          <div className="col-md-8 text-center">
+            <h2>Traction</h2>
+            <h6>Our products and investments grossed 1.1 billion in 2022</h6>
           </div>
-          <div className="col-md-5 right-contact">
-            <h3>5 Million + customers</h3>
-            <p>Join millions of Ardilla users building wealth everyday</p>
-            <h3 className="top-products">24/7 Customer support</h3>
-            <p>Our customer support team is always available for your requests and complaints. You can contact us through the app, sliding into social media DM's, sending an email to support@ardilla.africa.</p>
+        </div>
+        <div className="row top-products">
+          <div className="col-md-4 mb-3">
+            <div className="traction-cards">
+              <p>Investment in <span className="hgl">2022</span></p>
+              <h3>₦ 100 M</h3>
+            </div>
+          </div>
+          <div className="col-md-4 mb-3">
+            <div className="traction-cards risky">
+              <p>Risk <span className="hgl" style={{background: "#35298A"}}>Management</span></p>
+              <h3>0% Risk</h3>
+            </div>
+          </div>
+          <div className="col-md-4 mb-3">
+            <div className="traction-cards paidback">
+              <p>Investment <span className="hgl" style={{background: "#9F9704"}}>paid back</span></p>
+              <h3>₦ 100 M</h3>
+            </div>
           </div>
         </div>
       </div>
