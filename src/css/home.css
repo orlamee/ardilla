@@ -2720,7 +2720,7 @@ h5 a {
   border-radius: 2px;
 }
 
-.invest-counter::after {
+/* .invest-counter::after {
   content: counter(count);
   animation: counter 1s linear infinite alternate;
   counter-reset: count 0;
@@ -2802,4 +2802,4 @@ h5 a {
   100% {
     counter-increment: count 250;
   }
-}
+} */
