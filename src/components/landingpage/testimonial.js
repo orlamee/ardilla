@@ -27,7 +27,7 @@ function Testimonial() {
           <div className="col-md-4 mb-3">
             <div className="traction-cards paidback">
               <p>Investment <span className="hgl" style={{background: "#9F9704"}}>paid back</span></p>
-              <h3>₦ <CountUp end={250} delay={0} duration="3" reset  /> M</h3>
+              <h3>₦ <CountUp end={250} delay={3} duration={20}  /> M</h3>
             </div>
           </div>
         </div>
